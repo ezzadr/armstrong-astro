@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow Decap CMS Admin Dashboard from Search Engine Indexing
+Disallow: /admin/
+
+Sitemap: https://armstronglocksmithinc.com/sitemap-index.xml
