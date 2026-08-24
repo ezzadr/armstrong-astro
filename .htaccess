@@ -19,6 +19,12 @@ DirectoryIndex index.html index.php
   RewriteCond %{HTTP_HOST} ^www\.armstronglocksmithinc\.com [NC]
   RewriteRule ^(.*)$ https://armstronglocksmithinc.com/$1 [L,R=301]
 
+  # Sitemap Rewrites & Aliases for Search Console
+  RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
+  RewriteRule ^sitemap_index\.xml$ /sitemap-index.xml [L,R=301]
+  RewriteRule ^page-sitemap\.xml$ /sitemap-0.xml [L,R=301]
+  RewriteRule ^post-sitemap\.xml$ /sitemap-0.xml [L,R=301]
+
   # Clean URLs (serve directory index.html)
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_FILENAME}/index.html -f
