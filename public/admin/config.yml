@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description (Meta SEO)", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Author", name: "author", widget: "string", default: "Rahim Ezzadpanah" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Category", name: "category", widget: "select", options: ["Car Keys", "European Keys", "Residential", "Commercial", "Locksmith Tips"] }
+      - { label: "Body Content", name: "body", widget: "markdown" }

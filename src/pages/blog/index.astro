@@ -1,0 +1,204 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return dateB - dateA;
+});
+
+// Map authentic thumbnail images for each blog article
+const blogImages: Record<string, string> = {
+  "audi-key-replacement-near-donelson-hermitage-nashville-airport": "/images/rahim-made-audi-keys-in-nashville-1.png",
+  "car-key-fob-stops-working-cold-weather-nashville": "/images/toyota-key-replacement-1536x2048.webp",
+  "home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents": "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
+  "how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn": "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg",
+  "real-locksmith-vs-dispatch-center-nashville": "/shop.jpeg",
+  "reasons-need-locksmith-nashville": "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg"
+};
+
+const featuredPost = sortedPosts[0];
+const remainingPosts = sortedPosts.slice(1);
+---
+
+<Layout 
+  title="Locksmith Blog & Security Guides | Armstrong Locksmith Nashville" 
+  description="Expert automotive key programming, residential lock rekeying, and security guides from Armstrong Locksmith in Nashville, TN." 
+  canonical="/blog/"
+>
+  <!-- Hero Section -->
+  <header class="bg-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+    <div class="max-w-7xl mx-auto text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit mb-3">
+        <span>Master Locksmith Knowledge Hub &bull; TN Lic #406</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
+        Locksmith Insights & <br />
+        <span class="text-amber-400">Security Guides</span>
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl mt-3 font-normal leading-relaxed">
+        Real-world case studies, smart key programming breakdowns, and practical security advice from lead master locksmith Rahim Ezzadpanah.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col gap-14">
+
+      <!-- FEATURED POST SPOTLIGHT -->
+      {featuredPost && (
+        <section class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden hover:border-amber-500 transition duration-300 group">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+            
+            <!-- Featured Image -->
+            <div class="lg:col-span-6 h-64 sm:h-80 lg:h-full relative overflow-hidden bg-slate-900">
+              <img 
+                src={blogImages[featuredPost.id] || "/shop.jpeg"} 
+                alt={featuredPost.data.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-extrabold uppercase tracking-wider shadow">
+                ⭐ Featured Guide
+              </span>
+            </div>
+
+            <!-- Featured Details -->
+            <div class="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-between gap-6">
+              <div>
+                <div class="flex items-center gap-3 text-xs font-bold text-amber-600 uppercase tracking-wider mb-3">
+                  <span>{featuredPost.data.category || "Automotive"}</span>
+                  <span>&bull;</span>
+                  <span class="text-slate-400">{featuredPost.data.pubDate || "2026"}</span>
+                  <span>&bull;</span>
+                  <span class="text-slate-400">4 min read</span>
+                </div>
+
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif text-[#0f274a] leading-tight mb-4 group-hover:text-amber-600 transition">
+                  <a href={`/blog/${featuredPost.id}/`}>
+                    {featuredPost.data.title}
+                  </a>
+                </h2>
+
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed line-clamp-3">
+                  {featuredPost.data.description}
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between pt-6 border-t border-slate-100">
+                <div class="flex items-center gap-3">
+                  <img 
+                    src="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg" 
+                    alt="Rahim Ezzadpanah" 
+                    class="w-10 h-10 rounded-full object-cover border border-slate-200"
+                  />
+                  <div>
+                    <strong class="block text-xs font-bold text-slate-800">{featuredPost.data.author || "Rahim Ezzadpanah"}</strong>
+                    <span class="text-[11px] text-slate-500">Master Locksmith</span>
+                  </div>
+                </div>
+
+                <a 
+                  href={`/blog/${featuredPost.id}/`} 
+                  class="px-5 py-2.5 rounded-xl bg-[#0f274a] text-white hover:bg-amber-500 hover:text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow"
+                >
+                  <span>Read Guide</span>
+                  <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      )}
+
+      <!-- ALL ARTICLES GRID -->
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-8">
+          <h2 class="text-xl sm:text-2xl font-bold text-[#0f274a] font-serif">
+            All Articles & Technical Guides
+          </h2>
+          <span class="text-xs font-bold text-slate-500">{sortedPosts.length} Articles</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {remainingPosts.map((post) => (
+            <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:border-amber-500 hover:shadow-md transition flex flex-col justify-between group">
+              
+              <div>
+                <!-- Card Image -->
+                <div class="h-48 overflow-hidden relative bg-slate-100">
+                  <img 
+                    src={blogImages[post.id] || "/shop.jpeg"} 
+                    alt={post.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                    loading="lazy"
+                  />
+                  <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded bg-slate-900/80 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
+                    {post.data.category || "Car Keys"}
+                  </span>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6">
+                  <div class="flex items-center gap-2 text-[11px] text-slate-400 font-medium mb-2">
+                    <span>By {post.data.author || "Rahim"}</span>
+                    <span>&bull;</span>
+                    <span>{post.data.pubDate || "2026"}</span>
+                  </div>
+
+                  <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-3 leading-snug group-hover:text-amber-600 transition">
+                    <a href={`/blog/${post.id}/`}>
+                      {post.data.title}
+                    </a>
+                  </h3>
+
+                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card Footer -->
+              <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
+                <span class="text-slate-400">3 min read</span>
+                <a href={`/blog/${post.id}/`} class="text-[#0f274a] group-hover:text-amber-600 inline-flex items-center gap-1">
+                  <span>Read Article</span>
+                  <span>&rarr;</span>
+                </a>
+              </div>
+
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- BOTTOM AUTHOR & SHOP TRUST BANNER -->
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <img 
+            src="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg" 
+            alt="Rahim Ezzadpanah" 
+            class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-500 shadow flex-shrink-0"
+          />
+          <div>
+            <h3 class="text-base font-bold text-[#0f274a] font-serif">Have a Specific Key or Lock Question?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">Rahim and our licensed technicians provide straightforward technical advice and upfront quotes.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 flex-shrink-0 w-full md:w-auto">
+          <a href="tel:6156258000" class="w-full md:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm text-center shadow">
+            Call (615) 625-8000
+          </a>
+          <a href="/contact-armstrong-locksmith/" class="w-full md:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm text-center shadow">
+            Visit Storefront
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Locksmith Service Areas Nashville TN | Armstrong Locksmith";
+const seoDescription = "Fast 15–25 min mobile locksmith dispatch across Greater Nashville, Davidson & Williamson County. Car keys, lockouts & rekeys. Call (615) 625-8000.";
+
+const areas = [
+  { name: "Downtown & Metro Nashville", zip: "37201, 37203, 37219", desc: "Fast roadside car unlock, storefront hardware & residential services." },
+  { name: "South Nashville & Thompson Ln", zip: "37211", desc: "Our physical shop headquarters at 208 Thompson Lane for immediate walk-ins." },
+  { name: "Brentwood", zip: "37027", desc: "Luxury European vehicle key replacement & residential rekeying for homeowners." },
+  { name: "Franklin & Cool Springs", zip: "37064, 37067", desc: "Commercial door access control, master key systems & emergency lockouts." },
+  { name: "Donelson & BNA Airport", zip: "37214", desc: "Rapid 15-minute dispatch for airport travelers with lost keys or vehicle lockouts." },
+  { name: "Antioch", zip: "37013", desc: "Affordable mobile car key cutting, transponder programming & deadbolt changes." },
+  { name: "Green Hills & Belle Meade", zip: "37215, 37205", desc: "High-security lock installation, European smart keys (BMW, Mercedes, Audi)." },
+  { name: "Hermitage & Mt. Juliet", zip: "37076, 37122", desc: "Full mobile locksmith coverage for residential and automotive key services." },
+  { name: "Nolensville & Berry Hill", zip: "37135, 37204", desc: "Fast lock rekeying for new construction and established residential communities." }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/service-areas/">
+  
+  <header class="bg-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+    <div class="max-w-7xl mx-auto text-left">
+      <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-2">Coverage Map</span>
+      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight">
+        Locksmith Service Areas in Nashville
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-2 font-light">
+        Our mobile vans provide fast 15–25 minute response times across Davidson County, Williamson County, and the greater Nashville metro area.
+      </p>
+    </div>
+  </header>
+
+  <!-- Service Areas Grid -->
+  <section class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {areas.map((area) => (
+          <div class="card-clean rounded-2xl p-7 flex flex-col justify-between bg-white">
+            <div>
+              <span class="text-xs font-bold text-amber-600 uppercase tracking-wider block mb-1">Coverage Area</span>
+              <h2 class="text-xl font-bold text-[#0f274a] font-serif mb-2">{area.name}</h2>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                {area.desc}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span>ZIP: {area.zip}</span>
+              <span class="text-emerald-700 font-bold">15-25m ETA</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

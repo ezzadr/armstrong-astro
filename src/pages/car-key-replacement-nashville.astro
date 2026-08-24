@@ -1,0 +1,297 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Car Key Replacement Nashville TN | Fast Mobile & Shop Service";
+const seoDescription = "Lost your car keys or need a spare? Same-day mobile & shop car key cutting & programming in Nashville for all makes & models. TN Lic #406. (615) 625-8000.";
+
+const carKeySchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://armstronglocksmithinc.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Car Key Replacement",
+        "item": "https://armstronglocksmithinc.com/car-key-replacement-nashville/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Key Cutting & Programming Nashville",
+    "serviceType": "Automotive Locksmith",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+16156258000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage"],
+    "description": "On-site laser key cutting, transponder chip programming, smart proximity key fobs, and all-keys-lost origination."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you make a car key with no original?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If every key is lost, we can originate a new one from the vehicle's locks and immobilizer module. It takes slightly longer than a spare, so let us know when you book."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most spare keys are done in 20 to 45 minutes once we are with the car. All-keys-lost jobs and specialized European models can take 45 to 90 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to tow my car?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Our mobile vans are fully equipped workshops that come directly to your driveway, workplace, or roadside in Nashville."
+        }
+      }
+    ]
+  }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/car-key-replacement-nashville/" schema={carKeySchema}>
+  
+  <!-- Header Banner -->
+  <header class="bg-[#0f274a] text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <div class="lg:col-span-7 flex flex-col gap-4 text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit">
+          <span>TN Lic #406 &bull; 20+ Years Local Experience</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight leading-tight">
+          Car Key Replacement in Nashville, TN
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
+          Fast, Affordable & Professional Mobile Service. Lost your car keys or need a spare key made? We come to you or you can visit our shop at 208 Thompson Ln.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+          <a href="tel:6156258000" class="px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base flex items-center justify-center gap-2 shadow-lg transition">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+          <a href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base flex items-center justify-center shadow-md transition">
+            <span>Book Online</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Requirement Card -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xl border border-slate-200 text-slate-900">
+          <h2 class="text-xl font-bold text-[#0f274a] font-serif pb-3 border-b border-slate-100">
+            What We Need To Make Your Key
+          </h2>
+          <ul class="flex flex-col gap-2.5 my-4 text-xs sm:text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Vehicle Year, Make & Model:</strong> (e.g. 2021 Toyota Camry or BMW X5)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>17-Digit VIN:</strong> Found on dashboard lower corner or door jamb.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Proof of Ownership:</strong> Registration, title, or insurance card + ID.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Your Current Location:</strong> If you need mobile roadside service.</span>
+            </li>
+          </ul>
+          <div class="pt-3 border-t border-slate-100 text-xs text-slate-500 font-medium">
+            💡 <em>Note: If you have lost all keys, we decode the lock and cut a new key from scratch.</em>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Real Photo Strip -->
+  <section class="py-8 bg-slate-100 px-4 sm:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+        <img src="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg" alt="In-Shop Laser Key Cutting Machines" class="w-full h-40 object-cover" />
+        <div class="p-2 text-center text-xs font-bold text-[#0f274a]">In-Shop Computerized Key Cutters</div>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+        <img src="/images/toyota-key-replacement-1536x2048.webp" alt="Toyota Key Replacement on Site" class="w-full h-40 object-cover" />
+        <div class="p-2 text-center text-xs font-bold text-[#0f274a]">On-Site Smart Key Programming</div>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+        <img src="/images/BMW-car-key-nashville.png" alt="BMW Comfort Access Key" class="w-full h-40 object-cover" />
+        <div class="p-2 text-center text-xs font-bold text-[#0f274a]">European Push-to-Start Smart Keys</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Original WordPress Long-Form Content -->
+  <section class="py-16 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto flex flex-col gap-10 text-slate-800 leading-relaxed text-sm sm:text-base">
+      
+      <!-- Section 1 -->
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
+          What Car Key Replacement Really Involves
+        </h2>
+        <p class="mb-3">
+          Replacing a modern car key is not the same as cutting a spare at a hardware store. Almost every vehicle built in the last 20 years pairs a cut blade with a transponder chip or a proximity fob that has to be programmed to your car’s immobilizer before the engine will start.
+        </p>
+        <p class="mb-3">
+          At our Thompson Ln shop, we handle both halves of that job in-house: we cut the blade to your lock using precision computer-controlled laser cutters, then program the chip through the OBD port or, when a vehicle needs it, by reading the immobilizer data directly.
+        </p>
+        <p>
+          If you have lost every key and there is no working original, we can still generate a new key from the vehicle itself. That <strong>all-keys-lost</strong> situation takes longer and costs more than adding a spare, so it helps to tell us which situation you are in when you call.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
+          Keys and Fobs We Replace
+        </h2>
+        <p class="mb-4">
+          We cut and program keys for almost every make on the road, whether it is domestic, Asian, or European. The common types we handle include:
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
+          <li class="p-3 bg-white rounded-xl border border-slate-200">
+            <strong class="text-[#0f274a] block font-bold">Transponder Keys:</strong> The chipped metal keys used on most cars from the late 1990s onward.
+          </li>
+          <li class="p-3 bg-white rounded-xl border border-slate-200">
+            <strong class="text-[#0f274a] block font-bold">Remote Head Keys:</strong> A cut key with lock and unlock buttons built directly into the key head.
+          </li>
+          <li class="p-3 bg-white rounded-xl border border-slate-200">
+            <strong class="text-[#0f274a] block font-bold">Smart Keys & Proximity Fobs:</strong> Push-to-start systems where the fob stays in your pocket.
+          </li>
+          <li class="p-3 bg-white rounded-xl border border-slate-200">
+            <strong class="text-[#0f274a] block font-bold">Flip & Switchblade Keys:</strong> Common on Volkswagen, Audi, Kia, and many European models.
+          </li>
+          <li class="p-3 bg-white rounded-xl border border-slate-200 sm:col-span-2">
+            <strong class="text-[#0f274a] block font-bold">High-Security Laser Cut Keys:</strong> The thicker internal track sidewinder blades used on newer vehicles.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
+          What a Replacement Key Costs
+        </h2>
+        <p class="mb-3">
+          Price depends on your vehicle. A basic transponder key for an older sedan is one of the most affordable jobs we do, while a proximity fob for a late-model luxury vehicle costs more because the fob itself is expensive and the programming is more involved.
+        </p>
+        <p class="mb-3">
+          The biggest single factor is whether you still have a working key: adding a duplicate spare is quicker and cheaper than an all-keys-lost job where we originate a key from scratch.
+        </p>
+        <p>
+          In almost every case we come in well under what a dealership charges, and we do not require you to tow your car to do it. You can see typical ranges on our <a href="/locksmith-pricing-nashville/" class="text-amber-600 font-bold underline">Nashville locksmith pricing page</a>, or call for a firm quote on your exact year, make, and model.
+        </p>
+      </div>
+
+      <!-- Section 4 -->
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
+          Mobile Service or Our Shop, Your Choice
+        </h2>
+        <p class="mb-3">
+          We are one of the few Nashville locksmiths with a real storefront, at 208 Thompson Ln. You can drive in, or we can come to you at home, at work, or wherever your car is stranded across Davidson and Williamson counties.
+        </p>
+        <p>
+          Mobile service is ideal for a lockout or an all-keys-lost job where the car cannot be moved, while bringing the car to the shop is often the fastest route for a straightforward spare. Either way, you are working with the same licensed master technicians and the same high-end equipment.
+        </p>
+      </div>
+
+      <!-- Section 5: Why Nashville Drivers Call Armstrong First -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-amber-50/60 border border-amber-200">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-3">
+          Why Nashville Drivers Call Armstrong First
+        </h2>
+        <p class="mb-3">
+          Armstrong Locksmith has been cutting and programming car keys in Nashville for 20 years. We are a licensed Tennessee locksmith, license number 406, run by owner Rahim with technicians Kawa and Sako. When you call our number, you reach our shop directly—not a national call center that farms the job out to whoever is nearest.
+        </p>
+        <p>
+          That difference matters, because dispatch centers are the main source of the price gouging and no-show complaints you read about online. We will always be straight with you about the rare cases we cannot solve same-day, usually a handful of brand-new models where the dealer still controls the encryption data.
+        </p>
+      </div>
+
+      <!-- Section 6: Car Key Replacement FAQ -->
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-6">
+          Car Key Replacement FAQ
+        </h2>
+        
+        <div class="flex flex-col gap-4">
+          <div class="card-clean rounded-xl p-5">
+            <h3 class="font-bold text-[#0f274a] text-base mb-1">Can you make a car key with no original?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">
+              Yes. If every key is lost, we can originate a new one from the vehicle's locks and immobilizer module. It takes slightly longer than a spare, so let us know when you book.
+            </p>
+          </div>
+
+          <div class="card-clean rounded-xl p-5">
+            <h3 class="font-bold text-[#0f274a] text-base mb-1">How long does it take?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">
+              Most spare keys are done in 20 to 45 minutes once we are with the car. All-keys-lost jobs and specialized European models can take 45 to 90 minutes.
+            </p>
+          </div>
+
+          <div class="card-clean rounded-xl p-5">
+            <h3 class="font-bold text-[#0f274a] text-base mb-1">Do I need to tow my car?</h3>
+            <p class="text-xs sm:text-sm text-slate-600">
+              No. Our mobile vans are fully equipped workshops that come directly to your driveway, workplace, or roadside in Nashville.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final Call CTA Banner -->
+  <section class="bg-[#0f274a] text-white py-14 px-4 sm:px-6 text-center">
+    <div class="max-w-3xl mx-auto flex flex-col items-center gap-4">
+      <h2 class="text-2xl sm:text-4xl font-bold font-serif text-white">Need a Replacement Key in Nashville?</h2>
+      <p class="text-slate-200 text-sm sm:text-base">Speak directly with our shop, get a firm quote, and have a mobile technician dispatched in minutes.</p>
+      <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+        <a href="tel:6156258000" class="px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base shadow">
+          Call (615) 625-8000
+        </a>
+        <a href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base shadow">
+          Book Online
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

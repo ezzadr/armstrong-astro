@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "About Armstrong Locksmith Nashville | Meet Owner Rahim Ezzadpanah";
+const seoDescription = "Learn about Rahim Ezzadpanah and Armstrong Locksmith. 20+ years of security experience, physical storefront on Thompson Ln, TN Lic #406. Call (615) 625-8000.";
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/about-us/">
+  
+  <header class="bg-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+    <div class="max-w-7xl mx-auto text-left">
+      <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-2">Our Story</span>
+      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight">
+        Meet Rahim & The Armstrong Locksmith Family
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-2 font-light">
+        A real, local Nashville locksmith with over two decades of craftsmanship, dedicated to transparent pricing and dependable security.
+      </p>
+    </div>
+  </header>
+
+  <!-- Founder Story Section -->
+  <section class="py-16 sm:py-24 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Photo -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-xl">
+          <img 
+            src="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg" 
+            alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville"
+            class="w-full h-auto object-cover"
+          />
+          <div class="p-4 bg-slate-50 border-t border-slate-200 text-center">
+            <h3 class="text-base font-bold text-[#0f274a] font-serif">Rahim Ezzadpanah</h3>
+            <span class="text-xs text-slate-500 font-medium">Founder & Master Locksmith</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+          <img 
+            src="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg" 
+            alt="Key Cutting Equipment Inside Armstrong Locksmith Shop"
+            class="w-full h-44 object-cover"
+          />
+          <div class="p-2.5 bg-slate-50 text-[11px] font-bold text-slate-700 text-center border-t border-slate-200">
+            Our Machine Workshop at 208 Thompson Ln
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio Story -->
+      <div class="lg:col-span-7 flex flex-col gap-5 text-slate-800 leading-relaxed text-sm sm:text-base">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif">
+          Founded in Nashville in 2015 on Principles of Honesty & Craftsmanship
+        </h2>
+
+        <p>
+          With over 20 years of hands-on experience in the locksmith industry, I founded Armstrong Locksmith in 2015 to give Nashville a reliable, honest security partner. After years of working for another local company, I realized that our community needed a real physical storefront they could visit on Thompson Lane—not an anonymous dispatch center.
+        </p>
+
+        <p>
+          While our dedicated technicians handle all commercial door hardware and residential lockouts, my personal specialty is <strong>high-end automotive security</strong>. We are fully equipped to cut and program keys for all domestic, foreign, and luxury European vehicles (including BMW, Audi, Mercedes, and Land Rover) right at our 208 Thompson Lane shop or via our mobile dispatch units.
+        </p>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-center">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="text-2xl font-bold text-[#0f274a] block font-serif">20+</span>
+            <span class="text-xs text-slate-500">Years Experience</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="text-2xl font-bold text-amber-600 block font-serif">#406</span>
+            <span class="text-xs text-slate-500">TN State Lic</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="text-2xl font-bold text-[#0f274a] block font-serif">2015</span>
+            <span class="text-xs text-slate-500">Store Established</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</Layout>

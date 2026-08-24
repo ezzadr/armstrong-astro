@@ -1,0 +1,173 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const { title, description, canonical, schema } = Astro.props;
+const siteUrl = "https://armstronglocksmithinc.com";
+const fullCanonical = canonical ? new URL(canonical, siteUrl).toString() : siteUrl;
+
+// Base LocalBusiness & Locksmith JSON-LD Schema
+const baseBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "Locksmith",
+  "@id": "https://armstronglocksmithinc.com/#locksmith",
+  "name": "Armstrong Locksmith Inc",
+  "legalName": "Armstrong Locksmith Inc",
+  "image": [
+    "https://armstronglocksmithinc.com/shop.jpeg",
+    "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
+    "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg"
+  ],
+  "url": "https://armstronglocksmithinc.com/",
+  "telephone": "+1-615-625-8000",
+  "email": "armstronglocksmithinc@gmail.com",
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "208 Thompson Ln",
+    "addressLocality": "Nashville",
+    "addressRegion": "TN",
+    "postalCode": "37211",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 36.1118,
+    "longitude": -86.7378
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "23:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "10:00",
+      "closes": "16:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "120",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Nashville" },
+    { "@type": "City", "name": "Brentwood" },
+    { "@type": "City", "name": "Franklin" },
+    { "@type": "City", "name": "Antioch" },
+    { "@type": "City", "name": "Donelson" },
+    { "@type": "City", "name": "Hermitage" },
+    { "@type": "City", "name": "Belle Meade" },
+    { "@type": "City", "name": "Green Hills" },
+    { "@type": "City", "name": "Nolensville" },
+    { "@type": "City", "name": "Berry Hill" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Locksmith Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "European Car Key Replacement",
+          "description": "Dealer-level key cutting and programming for BMW, Mercedes, Audi, Land Rover & Bentley."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Automotive Key Fob Replacement",
+          "description": "Smart proximity push-to-start fobs, laser key cutting, and transponder programming."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Residential Lock Rekeying",
+          "description": "Changing internal tumbler pins for Schlage, Kwikset, Yale, and Baldwin deadbolts."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Storefront Hardware",
+          "description": "Adams Rite mortise cylinders, panic crash exit bars, and master key systems."
+        }
+      }
+    ]
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#f8fafc] text-slate-900 overflow-x-hidden">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <link rel="icon" type="image/png" href="/cropped-favicon-32x32.png" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={fullCanonical} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={fullCanonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://armstronglocksmithinc.com/shop.jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Base Locksmith LocalBusiness Structured Data Schema -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(baseBusinessSchema)} />
+
+  <!-- Page-Specific Additional Schema (Services, FAQs, Breadcrumbs, Articles) -->
+  {schema && (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  )}
+</head>
+<body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-900 overflow-x-hidden w-full max-w-full">
+  <Header />
+  
+  <main class="flex-grow w-full max-w-full pb-20 md:pb-0">
+    <slot />
+  </main>
+
+  <Footer />
+  <MobileCallBar />
+</body>
+</html>
