@@ -37,26 +37,42 @@ if (empty($name) || empty($phone)) {
     exit();
 }
 
-// 2. Secure Local Lead Backup
+// 2. Generate Lead Ticket & Store
+$leadId = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
 $leadRecord = [
-    'time'    => date('Y-m-d H:i:s'),
-    'name'    => $name,
-    'phone'   => $phone,
-    'service' => $service,
-    'details' => $details,
-    'email'   => $email,
-    'notes'   => $notes,
-    'ip'      => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
+    'id'         => $leadId,
+    'time'       => date('Y-m-d H:i:s'),
+    'name'       => $name,
+    'phone'      => $phone,
+    'service'    => $service,
+    'details'    => $details,
+    'email'      => $email,
+    'notes'      => $notes,
+    'claimed_by' => null,
+    'claimed_at' => null,
+    'ip'         => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
 ];
-@file_put_contents(__DIR__ . '/.leads_backup.log', json_encode($leadRecord) . "\n", FILE_APPEND | LOCK_EX);
+
+// Append to store
+$leadsFile = __DIR__ . '/.leads_store.json';
+$leads = file_exists($leadsFile) ? json_decode(file_get_contents($leadsFile), true) : [];
+if (!is_array($leads)) { $leads = []; }
+$leads[] = $leadRecord;
+@file_put_contents($leadsFile, json_encode($leads, JSON_PRETTY_PRINT), LOCK_EX);
 
 // 3. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
 $authToken  = '659fb2febe1f3ab60703a1f74439843a';
 $twilioFrom = '+16293389619';
-$toPhone    = '+16156258000';
 
-// Format SMS Alert Message
+// Team Destination Phones
+$dispatchPhones = [
+    '+16156258000'
+];
+
+// Format SMS Alert Message with 1-Click Claim Link
+$claimUrl = "https://armstronglocksmithinc.com/claim.php?id=" . $leadId;
+
 $messageBody = "🚨 NEW LOCKSMITH LEAD!\n"
              . "👤 Name: " . $name . "\n"
              . "📞 Phone: " . $phone . "\n"
@@ -66,10 +82,8 @@ $messageBody = "🚨 NEW LOCKSMITH LEAD!\n"
 if (!empty($notes)) {
     $messageBody .= "📝 Notes: " . $notes . "\n";
 }
-if (!empty($email) && $email !== 'Not provided') {
-    $messageBody .= "✉️ Email: " . $email . "\n";
-}
-$messageBody .= "⚡ Call customer back immediately!";
+
+$messageBody .= "⚡ CLAIM JOB: " . $claimUrl;
 
 // 3. Send SMS via Twilio REST API
 $url = "https://api.twilio.com/2010-04-01/Accounts/" . $accountSid . "/Messages.json";
