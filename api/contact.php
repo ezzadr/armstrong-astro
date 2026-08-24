@@ -52,7 +52,7 @@ $leadRecord = [
 
 // 3. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
-$authToken  = '795ea3068ae5a0193043254012d1c7b4';
+$authToken  = '659fb2febe1f3ab60703a1f74439843a';
 $twilioFrom = '+16293389619';
 $toPhone    = '+16156258000';
 
