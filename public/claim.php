@@ -48,7 +48,9 @@ if ($lead) {
         
         // Technicians list
         $techPhones = [
-            '+16156258000'
+            '+16156258000', // Rahim
+            '+16299991050', // KB
+            '+16155688000'  // Sako
         ];
 
         $broadcastMsg = "📢 LEAD CLAIMED!\n"
@@ -182,27 +184,27 @@ if ($lead) {
             value="Rahim" 
             class="w-full py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm uppercase tracking-wider flex items-center justify-between shadow transition active:scale-95 cursor-pointer"
           >
-            <span>👨‍🔧 Rahim (Owner)</span>
+            <span>👨‍🔧 Rahim</span>
             <span>Claim Job &rarr;</span>
           </button>
 
           <button 
             type="submit" 
             name="tech_name" 
-            value="Technician 1" 
+            value="KB" 
             class="w-full py-3.5 px-4 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-black text-sm uppercase tracking-wider flex items-center justify-between shadow transition active:scale-95 cursor-pointer"
           >
-            <span>🚐 Technician 1</span>
+            <span>🚐 KB</span>
             <span>Claim Job &rarr;</span>
           </button>
 
           <button 
             type="submit" 
             name="tech_name" 
-            value="Technician 2" 
+            value="Sako" 
             class="w-full py-3.5 px-4 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-black text-sm uppercase tracking-wider flex items-center justify-between shadow transition active:scale-95 cursor-pointer"
           >
-            <span>🚐 Technician 2</span>
+            <span>🚐 Sako</span>
             <span>Claim Job &rarr;</span>
           </button>
         </form>

@@ -65,9 +65,11 @@ $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
 $authToken  = '659fb2febe1f3ab60703a1f74439843a';
 $twilioFrom = '+16293389619';
 
-// Team Destination Phones
+// Team Destination Phones (Rahim, KB, Sako)
 $dispatchPhones = [
-    '+16156258000'
+    '+16156258000', // Rahim / Main Shop
+    '+16299991050', // KB
+    '+16155688000'  // Sako
 ];
 
 // Format SMS Alert Message with 1-Click Claim Link
