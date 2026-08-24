@@ -37,7 +37,20 @@ if (empty($name) || empty($phone)) {
     exit();
 }
 
-// 2. Twilio Active Configuration
+// 2. Secure Local Lead Backup
+$leadRecord = [
+    'time'    => date('Y-m-d H:i:s'),
+    'name'    => $name,
+    'phone'   => $phone,
+    'service' => $service,
+    'details' => $details,
+    'email'   => $email,
+    'notes'   => $notes,
+    'ip'      => $_SERVER['REMOTE_ADDR'] ?? 'unknown'
+];
+@file_put_contents(__DIR__ . '/.leads_backup.log', json_encode($leadRecord) . "\n", FILE_APPEND | LOCK_EX);
+
+// 3. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
 $authToken  = '795ea3068ae5a0193043254012d1c7b4';
 $twilioFrom = '+16293389619';

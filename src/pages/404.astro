@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Page Not Found (404) | Armstrong Locksmith Nashville";
+const seoDescription = "The page you are looking for might have been moved or updated. Call Armstrong Locksmith at (615) 625-8000 for fast mobile service across Nashville.";
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/404">
+  <div class="py-16 sm:py-24 px-4 sm:px-8 bg-slate-50 min-h-[70vh] flex items-center justify-center">
+    <div class="max-w-2xl mx-auto text-center bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl">
+      
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-amber-100 text-amber-800 text-3xl font-black font-serif mb-6 shadow-inner">
+        404
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#0f274a] font-serif mb-3 tracking-tight">
+        Page Moved Or Not Found
+      </h1>
+
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-md mx-auto">
+        We recently upgraded our website for maximum speed. The page you are looking for may have been moved or updated.
+      </p>
+
+      <!-- Emergency Help CTA Banner -->
+      <div class="p-6 rounded-2xl bg-[#0f274a] text-white mb-8 text-left sm:text-center border-t-4 border-amber-500 shadow-md">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-1">Need Immediate Locksmith Service?</span>
+        <h2 class="text-xl sm:text-2xl font-bold font-serif mb-3">15–25 Min Mobile Dispatch in Nashville</h2>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a 
+            href="tel:6156258000" 
+            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition"
+          >
+            <span>📞 Call (615) 625-8000</span>
+          </a>
+          <a 
+            href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition"
+          >
+            <span>Book Online</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Grid -->
+      <div class="text-left border-t border-slate-100 pt-6">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center">Popular Locksmith Services</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-bold">
+          <a href="/car-key-replacement-nashville/" class="p-3 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-900 border border-slate-200 transition flex items-center gap-2">
+            <span>🔑</span> <span>Car Key Replacement Hub</span>
+          </a>
+          <a href="/european-car-key-specialist/" class="p-3 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-900 border border-slate-200 transition flex items-center gap-2">
+            <span>🏎️</span> <span>European Key Specialist</span>
+          </a>
+          <a href="/residential-locksmith-nashville/" class="p-3 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-900 border border-slate-200 transition flex items-center gap-2">
+            <span>🏡</span> <span>Residential Rekeying</span>
+          </a>
+          <a href="/commercial-locksmith/" class="p-3 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-900 border border-slate-200 transition flex items-center gap-2">
+            <span>🏢</span> <span>Commercial Storefront Doors</span>
+          </a>
+          <a href="/locksmith-pricing-nashville/" class="p-3 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-900 border border-slate-200 transition flex items-center gap-2">
+            <span>💵</span> <span>2026 Upfront Price Guide</span>
+          </a>
+          <a href="/blog/" class="p-3 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-900 border border-slate-200 transition flex items-center gap-2">
+            <span>📰</span> <span>Locksmith Blog & Case Studies</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <a href="/" class="text-xs font-bold text-slate-500 hover:text-slate-800 underline">
+          &larr; Return to Homepage
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
