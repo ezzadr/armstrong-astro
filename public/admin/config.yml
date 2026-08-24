@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ezzadr/armstrong-astro
   branch: main
 
 local_backend: true
