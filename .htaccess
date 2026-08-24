@@ -3,8 +3,9 @@
 # Designed for Cloudways Nginx/Apache Hybrid Stack with Varnish
 # ==============================================================================
 
-# 1. Directory Index Priority
+# 1. Directory Index & Error Handling
 DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
 
 # 2. Rewrite Engine Configuration
 <IfModule mod_rewrite.c>
