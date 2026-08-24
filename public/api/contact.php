@@ -38,10 +38,10 @@ if (empty($name) || empty($phone)) {
 }
 
 // 2. Twilio Active Configuration
-$accountSid = getenv('TWILIO_ACCOUNT_SID') ?: 'AC1c283a892ca8f15081d8b000a2a5d5b2';
-$authToken  = getenv('TWILIO_AUTH_TOKEN') ?: '795ea3068ae5a0193043254012d1c7b4';
-$twilioFrom = getenv('TWILIO_FROM_NUMBER') ?: '+16293389619';
-$toPhone    = getenv('NOTIFICATION_PHONE') ?: '+16156258000';
+$accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
+$authToken  = '795ea3068ae5a0193043254012d1c7b4';
+$twilioFrom = '+16293389619';
+$toPhone    = '+16156258000';
 
 // Format SMS Alert Message
 $messageBody = "🚨 NEW LOCKSMITH LEAD!\n"
@@ -59,20 +59,22 @@ if (!empty($email) && $email !== 'Not provided') {
 $messageBody .= "⚡ Call customer back immediately!";
 
 // 3. Send SMS via Twilio REST API
-$url = "https://api.twilio.com/2010-04-01/Accounts/$accountSid/Messages.json";
+$url = "https://api.twilio.com/2010-04-01/Accounts/" . $accountSid . "/Messages.json";
 
-$postData = http_build_query([
+$postFields = [
     'From' => $twilioFrom,
     'To'   => $toPhone,
     'Body' => $messageBody
-]);
+];
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postFields));
+curl_setopt($ch, CURLOPT_USERPWD, $accountSid . ":" . $authToken);
+curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_USERPWD, "$accountSid:$authToken");
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
 $response = curl_exec($ch);
