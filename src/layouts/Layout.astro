@@ -147,10 +147,17 @@ const baseBusinessSchema = {
   <meta property="og:description" content={description} />
   <meta property="og:image" content="https://armstronglocksmithinc.com/shop.jpeg" />
 
-  <!-- Google Fonts -->
+  <!-- Preload & Optimize Critical Assets -->
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high" />
+
+  <!-- Non-Blocking High Performance Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  </noscript>
 
   <!-- Base Locksmith LocalBusiness Structured Data Schema -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(baseBusinessSchema)} />
@@ -160,13 +167,29 @@ const baseBusinessSchema = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   )}
 
-  <!-- Google Tag Manager -->
-  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WPH6NBVK');</script>
-  <!-- End Google Tag Manager -->
+  <!-- High-Performance Non-Blocking Google Tag Manager (Zero TBT) -->
+  <script is:inline>
+    (function() {
+      var gtmLoaded = false;
+      function loadGTM() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WPH6NBVK');
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGTM, { timeout: 2500 });
+      } else {
+        window.addEventListener('load', loadGTM, { passive: true });
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadGTM, { once: true, passive: true });
+      });
+    })();
+  </script>
 </head>
 <body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-900 overflow-x-hidden w-full max-w-full">
   <!-- Google Tag Manager (noscript) -->
