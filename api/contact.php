@@ -85,42 +85,52 @@ if (!empty($notes)) {
 
 $messageBody .= "⚡ CLAIM JOB: " . $claimUrl;
 
-// 3. Send SMS via Twilio REST API
+// 3. Send SMS Broadcast to All Team Dispatch Phones
 $url = "https://api.twilio.com/2010-04-01/Accounts/" . $accountSid . "/Messages.json";
+$sentSids = [];
+$lastError = null;
 
-$postFields = [
-    'From' => $twilioFrom,
-    'To'   => $toPhone,
-    'Body' => $messageBody
-];
+foreach ($dispatchPhones as $toPhone) {
+    $postFields = [
+        'From' => $twilioFrom,
+        'To'   => $toPhone,
+        'Body' => $messageBody
+    ];
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postFields));
-curl_setopt($ch, CURLOPT_USERPWD, $accountSid . ":" . $authToken);
-curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postFields));
+    curl_setopt($ch, CURLOPT_USERPWD, $accountSid . ":" . $authToken);
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curlError = curl_error($ch);
-curl_close($ch);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 
-$responseData = json_decode($response, true);
+    $responseData = json_decode($response, true);
+    if ($httpCode >= 200 && $httpCode < 300) {
+        $sentSids[] = $responseData['sid'] ?? 'sent';
+    } else {
+        $lastError = $responseData['message'] ?? ('Twilio error ' . $httpCode);
+    }
+}
 
-if ($httpCode >= 200 && $httpCode < 300) {
+if (!empty($sentSids)) {
     echo json_encode([
-        'success' => true,
-        'message' => 'Quote request received and SMS alert sent successfully!',
-        'sid'     => $responseData['sid'] ?? null
+        'success'   => true,
+        'message'   => 'Quote request received and SMS alert dispatched to team!',
+        'lead_id'   => $leadId,
+        'claim_url' => $claimUrl,
+        'sids'      => $sentSids
     ]);
 } else {
     echo json_encode([
         'success' => false,
-        'error'   => $responseData['message'] ?? 'Twilio API returned code ' . $httpCode,
-        'code'    => $responseData['code'] ?? $httpCode
+        'error'   => $lastError ?? 'Failed to dispatch SMS',
+        'code'    => 500
     ]);
 }
