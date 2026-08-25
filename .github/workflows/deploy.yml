@@ -36,15 +36,15 @@ jobs:
             echo "=== RESTORING ARMSTRONG AI CALL DISPATCH IN jqkvdrpcfz ==="
             cd /home/master/applications/jqkvdrpcfz/public_html
             if [ -f .env ]; then
-              cp .env /home/master/applications/jqkvdrpcfz/.env.backup
+              cp .env /tmp/jqkvdrpcfz_env_backup
             fi
             
             git remote set-url origin git@github.com-dispatch:ezzadr/armstrong-ai-call-dispatch.git 2>/dev/null || git remote add origin git@github.com-dispatch:ezzadr/armstrong-ai-call-dispatch.git
             git fetch origin main
             git reset --hard origin/main
             
-            if [ -f /home/master/applications/jqkvdrpcfz/.env.backup ]; then
-              cp /home/master/applications/jqkvdrpcfz/.env.backup .env
+            if [ -f /tmp/jqkvdrpcfz_env_backup ]; then
+              cp /tmp/jqkvdrpcfz_env_backup .env
             fi
 
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true
@@ -61,15 +61,15 @@ jobs:
             echo "=== RESTORING ARMSTRONG PORTAL IN hrfzwcjvqh ==="
             cd /home/master/applications/hrfzwcjvqh/public_html
             if [ -f .env ]; then
-              cp .env /home/master/applications/hrfzwcjvqh/.env.backup
+              cp .env /tmp/hrfzwcjvqh_env_backup
             fi
             
             git remote set-url origin git@github.com-portal:ezzadr/armstrong-portal.git 2>/dev/null || git remote add origin git@github.com-portal:ezzadr/armstrong-portal.git
             git fetch origin main
             git reset --hard origin/main
             
-            if [ -f /home/master/applications/hrfzwcjvqh/.env.backup ]; then
-              cp /home/master/applications/hrfzwcjvqh/.env.backup .env
+            if [ -f /tmp/hrfzwcjvqh_env_backup ]; then
+              cp /tmp/hrfzwcjvqh_env_backup .env
             fi
 
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true
