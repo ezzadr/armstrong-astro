@@ -134,57 +134,6 @@
 
   </div>
 
-  <!-- Dynamic Smart After-Hours Alert Banner (Premium Amber & High-Contrast) -->
-  <div 
-    id="arm-after-hours-banner" 
-    class="hidden bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 border-b-2 border-amber-600/60 px-4 py-3 sm:py-3.5 shadow-lg transition-all duration-300 relative z-40"
-  >
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4">
-      
-      <!-- Message info -->
-      <div class="flex items-start sm:items-center gap-3">
-        <div class="flex-shrink-0 mt-0.5 sm:mt-0">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950 text-amber-300 font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            STORE CLOSED
-          </span>
-        </div>
-        <p class="text-xs sm:text-sm font-semibold text-slate-950 leading-snug">
-          You can still submit a quick quote request online. We'll contact you promptly after reopening <strong id="arm-reopen-time" class="font-black underline decoration-slate-950/40">Monday at 8:00 AM</strong>.
-        </p>
-      </div>
-
-      <!-- Action Buttons & Dismiss -->
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <a 
-          href="#quote-form-section" 
-          class="flex-1 md:flex-initial px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-black text-xs uppercase tracking-wider text-center shadow-md hover:shadow-lg transition active:scale-95 whitespace-nowrap"
-        >
-          Send a Request &rarr;
-        </a>
-
-        <button 
-          id="arm-view-hours-btn"
-          type="button"
-          class="flex-1 md:flex-initial px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs uppercase tracking-wider text-center border border-amber-600/30 shadow-sm transition active:scale-95 whitespace-nowrap cursor-pointer flex items-center justify-center gap-1.5"
-        >
-          <svg class="w-3.5 h-3.5 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <span>View Hours</span>
-        </button>
-
-        <button 
-          id="arm-close-banner-btn" 
-          type="button" 
-          class="w-8 h-8 rounded-full bg-black/10 hover:bg-black/20 text-slate-950 flex items-center justify-center text-base font-black transition active:scale-95 cursor-pointer shrink-0 ml-1"
-          aria-label="Dismiss notice"
-        >
-          &times;
-        </button>
-      </div>
-
-    </div>
-  </div>
-
   <!-- Interactive Operating Hours Modal -->
   <div 
     id="arm-hours-modal" 
@@ -380,74 +329,8 @@
         }
       }
 
-      // Smart After Hours Banner Detection
-      function checkAfterHours() {
-        const banner = document.getElementById('arm-after-hours-banner');
-        const reopenEl = document.getElementById('arm-reopen-time');
-        const closeBtn = document.getElementById('arm-close-banner-btn');
-        if (!banner) return;
-
-        if (sessionStorage.getItem('arm_banner_dismissed') === 'true') {
-          return;
-        }
-
-        const { day, hour, minute } = getNashvilleTime();
-        const cur = hour * 60 + minute;
-        const wOpen = 8 * 60, wClose = 23 * 60 + 30; // Mon-Fri: 8:00 AM - 11:30 PM
-        const sOpen = 10 * 60, sClose = 16 * 60;      // Sat: 10:00 AM - 4:00 PM
-
-        let isOpen = false;
-        let reopenText = "Monday at 8:00 AM";
-
-        if (day >= 1 && day <= 4) { // Mon-Thu
-          if (cur >= wOpen && cur <= wClose) {
-            isOpen = true;
-          } else if (cur < wOpen) {
-            reopenText = "today at 8:00 AM";
-          } else {
-            reopenText = "tomorrow at 8:00 AM";
-          }
-        } else if (day === 5) { // Friday
-          if (cur >= wOpen && cur <= wClose) {
-            isOpen = true;
-          } else if (cur < wOpen) {
-            reopenText = "today at 8:00 AM";
-          } else {
-            reopenText = "Saturday at 10:00 AM";
-          }
-        } else if (day === 6) { // Saturday
-          if (cur >= sOpen && cur <= sClose) {
-            isOpen = true;
-          } else if (cur < sOpen) {
-            reopenText = "today at 10:00 AM";
-          } else {
-            reopenText = "Monday at 8:00 AM (Mobile on-call Sunday)";
-          }
-        } else if (day === 0) { // Sunday
-          isOpen = true; // Sunday on-call
-        }
-
-        if (!isOpen) {
-          if (reopenEl) reopenEl.textContent = reopenText;
-          banner.classList.remove('hidden');
-        } else {
-          banner.classList.add('hidden');
-        }
-
-        if (closeBtn) {
-          closeBtn.onclick = function() {
-            banner.classList.add('hidden');
-            sessionStorage.setItem('arm_banner_dismissed', 'true');
-          };
-        }
-      }
-
-      checkAfterHours();
       updateStatus();
-      setInterval(() => {
-        updateStatus();
-        checkAfterHours();
-      }, 60000);
+      setInterval(updateStatus, 60000);
 
       // Mobile Menu Drawer Toggle
       function setupMenu() {
