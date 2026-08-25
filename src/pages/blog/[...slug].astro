@@ -128,10 +128,11 @@ const blogSchema = [
         <img 
           src="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg" 
           alt="Rahim Ezzadpanah" 
-          class="w-12 h-12 rounded-full object-cover border-2 border-amber-500 shadow"
+          class="w-12 h-12 rounded-full object-cover object-top border-2 border-amber-500 shadow"
         />
         <div class="text-left">
           <div class="flex items-center gap-1.5 text-sm font-bold text-white">
+            <span class="text-amber-300 font-medium text-xs">Written by</span>
             <span>{post.data.author || "Rahim Ezzadpanah"}</span>
             <span class="text-emerald-400 text-xs" title="Verified Master Locksmith">✓</span>
           </div>
@@ -338,21 +339,25 @@ const blogSchema = [
         </style>
 
         <!-- Author Signature Card -->
-        <div class="mt-12 p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center gap-5">
+        <div class="mt-12 p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center sm:items-start gap-5">
           <img 
             src="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg" 
-            alt="Rahim Ezzadpanah" 
-            class="w-20 h-20 rounded-2xl object-cover border-2 border-amber-500 shadow flex-shrink-0"
+            alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville" 
+            class="w-24 h-24 rounded-2xl object-cover object-top border-2 border-amber-500 shadow-md flex-shrink-0"
           />
-          <div class="text-left">
-            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-1">About Rahim Ezzadpanah</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-2">
-              Rahim is the founder and master technician at Armstrong Locksmith with over 20 years of hands-on experience in European automotive transponder systems, commercial hardware, and residential deadbolt engineering.
+          <div class="text-left flex-grow">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-0.5">Written by</span>
+            <h3 class="text-xl font-bold text-[#0f274a] font-serif mb-1.5 flex items-center gap-2">
+              <span>Rahim Ezzadpanah</span>
+              <span class="text-xs font-sans font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">Verified Master Locksmith</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Rahim is the founder and lead automotive security specialist at Armstrong Locksmith with over 20 years of hands-on experience in European immobilizer programming, commercial door hardware, and residential rekeying.
             </p>
-            <div class="flex items-center gap-3 text-xs font-bold text-amber-700">
-              <span>📜 TN License #406</span>
+            <div class="flex items-center gap-3 text-xs font-bold text-slate-700">
+              <span class="text-amber-700 font-extrabold">📜 TN State Lic #406</span>
               <span>&bull;</span>
-              <span>📍 Storefront: 208 Thompson Ln</span>
+              <span>📍 Nashville Storefront: 208 Thompson Ln</span>
             </div>
           </div>
         </div>
