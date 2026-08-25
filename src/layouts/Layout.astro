@@ -9,9 +9,10 @@ export interface Props {
   description: string;
   canonical?: string;
   schema?: Record<string, any> | Array<Record<string, any>>;
+  noindex?: boolean;
 }
 
-const { title, description, canonical, schema } = Astro.props;
+const { title, description, canonical, schema, noindex = false } = Astro.props;
 const siteUrl = "https://armstronglocksmithinc.com";
 const fullCanonical = canonical ? new URL(canonical, siteUrl).toString() : siteUrl;
 
@@ -133,6 +134,11 @@ const baseBusinessSchema = {
   <meta name="title" content={title} />
   <meta name="description" content={description} />
   <link rel="canonical" href={fullCanonical} />
+  {noindex ? (
+    <meta name="robots" content="noindex, nofollow" />
+  ) : (
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  )}
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
