@@ -1,5 +1,5 @@
 ---
-title: "Why Car Key Fobs Stop Working in Cold Weather | Nashville, TN"
+title: "Why Car Key Fobs Stop Working in Cold Weather | Nashville TN"
 description: "Learn why car key fob batteries drain in freezing Nashville weather, how to bypass the immobilizer, and when to get a replacement key programmed."
 pubDate: "2026-01-15"
 author: "Rahim Ezzadpanah"

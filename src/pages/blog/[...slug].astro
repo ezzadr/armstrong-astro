@@ -86,10 +86,13 @@ const blogSchema = [
     }
   }
 ];
+const computedTitle = post.data.title.length > 45 
+  ? post.data.title 
+  : `${post.data.title} | Armstrong Locksmith`;
 ---
 
 <Layout 
-  title={`${post.data.title} | Armstrong Locksmith`} 
+  title={computedTitle} 
   description={post.data.description} 
   canonical={`/blog/${post.id}/`}
   schema={blogSchema}

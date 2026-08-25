@@ -1,11 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const seoTitle = "Car Key Replacement Nashville TN | Fast Mobile Locksmith";
-const seoDescription = "Lost your car key or need a spare? Same-day mobile car key replacement and laser key cutting across Greater Nashville. Storefront at 208 Thompson Ln. Call (615) 625-8000.";
+const seoTitle = "Car Key Replacement Nashville TN | Armstrong Locksmith";
+const serviceSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Car Key Replacement",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
+    "description": "Mobile and storefront automotive key cutting, proximity fob programming, and laser key origination in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you make a replacement car key without the original?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Our technicians decode your vehicle door lock cylinder on-site, cut a fresh key blade with CNC laser machines, and program the transponder chip or smart fob directly to your car."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can you make a replacement key in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our mobile locksmith vans arrive in 15-25 minutes across Greater Nashville and complete key cutting and programming in 20-35 minutes."
+        }
+      }
+    ]
+  }
+];
+
+const seoDescription = "Fast on-site car key cutting, transponder & smart key fob programming in Nashville. Mobile dispatch & 208 Thompson Ln shop. Call (615) 625-8000.";
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/car-key-replacement-nashville/">
+<Layout title={seoTitle} description={seoDescription} canonical="/car-key-replacement-nashville/" schema={serviceSchema}>
   
   <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto text-left">
