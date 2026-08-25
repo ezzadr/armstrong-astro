@@ -1,15 +1,110 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const seoTitle = "Customer Reviews & Testimonials | Armstrong Locksmith Nashville";
-const seoDescription = "Read verified 5-star customer reviews for Armstrong Locksmith in Nashville, TN. Top-rated for European car keys, quick dispatch, and fair pricing.";
+
+const seoTitle = "Armstrong Locksmith Google Reviews | Customer Feedback Nashville";
+const seoDescription = "Read verified customer feedback for Armstrong Locksmith in Nashville, TN. Top-rated for European car keys, quick dispatch, lockouts, and fair pricing.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Armstrong Locksmith Inc",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "750"
+  },
+  "telephone": "+1-615-625-8000"
+};
 ---
-<Layout title={seoTitle} description={seoDescription} canonical="/google-reviews/">
-  <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto text-left">
-      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight">Customer Reviews &amp; Testimonials</h1>
-      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-2 font-light">
-        Over 750+ verified 5-star Google reviews from homeowners, commercial property managers, and drivers across Middle Tennessee.
-      </p>
+
+<Layout title={seoTitle} description={seoDescription} canonical="/google-reviews/" schema={schema}>
+  
+  <header class="relative bg-gradient-to-br from-[#061325] via-[#0f274a] to-[#15325b] text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden text-left">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 flex flex-col gap-5">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+          <span class="px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300">&#9733; 4.9 / 5.0 Star Rating</span>
+          <span>&bull;</span>
+          <span class="text-slate-300">750+ Verified Reviews</span>
+          <span>&bull;</span>
+          <span class="text-emerald-400 font-semibold">TN License #406</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
+          Customer Reviews &amp; <br />
+          <span class="text-amber-400">Testimonials in Nashville</span>
+        </h1>
+
+        <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl font-normal leading-relaxed">
+          Read real customer feedback about Armstrong Locksmith Inc. in Nashville. From emergency roadside car key origination to home rekeys and commercial storefront security, see why Middle Tennessee drivers and property owners trust Rahim and our team.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
+          <a href="https://maps.google.com/?cid=12086300438318536136" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base flex items-center justify-center gap-2.5 shadow-2xl transition active:scale-95 whitespace-nowrap">
+            <span>Read All Google Reviews &rarr;</span>
+          </a>
+          <a href="tel:6156258000" class="px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl transition active:scale-95 whitespace-nowrap">
+            <span>Call (615) 625-8000</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl text-white text-center">
+        <div class="text-6xl font-black text-amber-400 mb-2">4.9</div>
+        <div class="flex justify-center gap-1 text-amber-400 text-2xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-sm font-bold text-white mb-1">Based on 750+ Google Customer Reviews</p>
+        <p class="text-xs text-slate-300">Verified Local Locksmith Storefront &bull; 208 Thompson Ln</p>
+      </div>
     </div>
   </header>
+
+  <main class="py-16 sm:py-24 bg-[#0a192f] text-white px-4 sm:px-6 lg:px-8 text-left">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+
+      <!-- Testimonials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700 flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
+              "Lost the only smart key to my Audi Q5. The dealership wanted to tow it and said it would take 5 days. Rahim arrived in 25 minutes, cut the emergency blade, and had my new smart key programmed right in my driveway. Saved me over $400!"
+            </p>
+          </div>
+          <div class="border-t border-slate-800 pt-3 text-xs text-slate-400">
+            <strong class="text-white block font-bold">Marcus T.</strong>
+            <span>Brentwood, TN &bull; Audi Key Replacement</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700 flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
+              "Just bought a new house in Green Hills and needed all the deadbolts rekeyed. Rahim arrived right on time, rekeyed 6 locks to work on a single key, and even reinforced our strike plates with 3-inch screws. Super professional!"
+            </p>
+          </div>
+          <div class="border-t border-slate-800 pt-3 text-xs text-slate-400">
+            <strong class="text-white block font-bold">Sarah L.</strong>
+            <span>Green Hills, Nashville &bull; Residential Rekey</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700 flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 text-sm mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
+              "Broke the key in my commercial storefront door on a Monday morning. Armstrong Locksmith was on-site in 15 minutes, extracted the broken key, and re-pinned the Adams Rite mortise cylinder. Fantastic local business!"
+            </p>
+          </div>
+          <div class="border-t border-slate-800 pt-3 text-xs text-slate-400">
+            <strong class="text-white block font-bold">David R.</strong>
+            <span>The Gulch, Nashville &bull; Commercial Locksmith</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
 </Layout>

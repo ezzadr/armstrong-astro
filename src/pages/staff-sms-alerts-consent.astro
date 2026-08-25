@@ -1,12 +1,89 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const seoTitle = "Staff SMS Alerts & Consent Policy | Armstrong Locksmith";
-const seoDescription = "Staff notification and dispatch messaging consent terms for Armstrong Locksmith field technicians.";
+
+const seoTitle = "Staff SMS Alerts Consent | Armstrong Locksmith Inc";
+const seoDescription = "Armstrong Locksmith Inc staff SMS alert consent, opt-in, message frequency, STOP and HELP instructions, and mobile data privacy terms.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Staff SMS Alerts Consent",
+  "provider": { "@type": "Locksmith", "name": "Armstrong Locksmith Inc", "telephone": "+1-615-625-8000" }
+};
 ---
-<Layout title={seoTitle} description={seoDescription} canonical="/staff-sms-alerts-consent/">
-  <header class="bg-[#0f274a] text-white py-14 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
-    <div class="max-w-7xl mx-auto text-left">
-      <h1 class="text-2xl sm:text-4xl font-black font-serif text-white tracking-tight">Staff SMS Alerts Consent Policy</h1>
+
+<Layout title={seoTitle} description={seoDescription} canonical="/staff-sms-alerts-consent/" schema={schema}>
+  
+  <header class="relative bg-gradient-to-br from-[#061325] via-[#0f274a] to-[#15325b] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden text-left">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight leading-tight">
+        Staff SMS Alerts Consent
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base mt-3 font-normal leading-relaxed">
+        Consent and enrollment information for internal website-form dispatch notifications sent to authorized Armstrong Locksmith staff members.
+      </p>
     </div>
   </header>
+
+  <main class="py-14 sm:py-20 bg-[#0a192f] text-white px-4 sm:px-6 lg:px-8 text-left">
+    <div class="max-w-4xl mx-auto space-y-12 text-slate-300 text-sm sm:text-base leading-relaxed">
+
+      <!-- Section 1: Purpose -->
+      <section class="bg-[#10233d] rounded-2xl p-8 border border-slate-700/80">
+        <h2 class="text-xl sm:text-2xl font-bold font-serif text-white mb-4 border-l-4 border-amber-500 pl-3">
+          1. Purpose of SMS Alerts
+        </h2>
+        <p>
+          Armstrong Locksmith Inc uses SMS only to send internal operational dispatch alerts to authorized staff members when a customer submits a service request through our website. These alerts enable our technicians to respond promptly to customer-requested emergency automotive, residential, and commercial locksmith services. They are strictly internal dispatch notifications and are not marketing, advertising, or promotional messages.
+        </p>
+      </section>
+
+      <!-- Section 2: Enrollment -->
+      <section class="bg-[#10233d] rounded-2xl p-8 border border-slate-700/80">
+        <h2 class="text-xl sm:text-2xl font-bold font-serif text-white mb-4 border-l-4 border-amber-500 pl-3">
+          2. Who May Enroll &amp; Consent Terms
+        </h2>
+        <p class="mb-4">
+          Enrollment is limited exclusively to authorized Armstrong Locksmith employees and field technicians. Before receiving alerts, staff members provide express written or digital consent to receive operational dispatch notifications on their designated mobile device.
+        </p>
+        <p>
+          Consent is not a condition of purchasing any product or service. Staff members may opt in by sending <strong>START</strong> from their registered phone number to Armstrong Locksmith's verified notification system.
+        </p>
+      </section>
+
+      <!-- Section 3: Message Terms -->
+      <section class="bg-[#10233d] rounded-2xl p-8 border border-slate-700/80">
+        <h2 class="text-xl sm:text-2xl font-bold font-serif text-white mb-4 border-l-4 border-amber-500 pl-3">
+          3. Message Frequency &amp; Commands
+        </h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-200">
+          <li><strong>Content:</strong> Messages contain customer lead and service-request details (job type, location, vehicle model).</li>
+          <li><strong>Frequency:</strong> Message frequency varies dynamically based on customer website inquiries.</li>
+          <li><strong>Rates:</strong> Standard message and data rates may apply depending on your mobile carrier.</li>
+          <li><strong>Opt-Out:</strong> Reply <code class="text-amber-400 bg-slate-900 px-2 py-0.5 rounded font-mono">STOP</code> at any time to unsubscribe from SMS notifications.</li>
+          <li><strong>Help:</strong> Reply <code class="text-amber-400 bg-slate-900 px-2 py-0.5 rounded font-mono">HELP</code> or call <a href="tel:6156258000" class="text-amber-400 underline font-bold">(615) 625-8000</a> for technical assistance.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Privacy -->
+      <section class="bg-[#10233d] rounded-2xl p-8 border border-slate-700/80">
+        <h2 class="text-xl sm:text-2xl font-bold font-serif text-white mb-4 border-l-4 border-amber-500 pl-3">
+          4. Privacy &amp; Data Protection
+        </h2>
+        <p class="mb-4">
+          Mobile phone numbers, opt-in records, and SMS consent information will never be sold, rented, leased, or shared with third parties, data brokers, or affiliates for marketing or promotional purposes.
+        </p>
+        <p>
+          Information is shared only with verified telecommunications service providers (such as Twilio and carrier aggregators) as strictly necessary to deliver operational dispatch alerts or as required by law. For full details, review our <a href="/privacy-policy/" class="text-amber-400 underline font-bold">Privacy Policy</a> and <a href="/terms-and-conditions/" class="text-amber-400 underline font-bold">Terms &amp; Conditions</a>.
+        </p>
+      </section>
+
+      <!-- Section 5: Contact -->
+      <section class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 text-xs sm:text-sm">
+        <h3 class="font-bold text-white mb-2">Armstrong Locksmith Inc.</h3>
+        <p>208 Thompson Ln, Nashville, TN 37211 &bull; Phone: (615) 625-8000 &bull; TN Locksmith License #406</p>
+      </section>
+
+    </div>
+  </main>
 </Layout>

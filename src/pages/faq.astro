@@ -1,15 +1,125 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const seoTitle = "Frequently Asked Questions | Armstrong Locksmith Nashville";
-const seoDescription = "Answers to common questions about car key replacement, dealership savings, emergency lockouts, and residential rekeying in Nashville, TN.";
+
+const seoTitle = "Locksmith FAQ Nashville | Car Keys, Lockouts & Pricing Answered";
+const seoDescription = "Answers to common Nashville locksmith questions: car key replacement, lockouts, rekeys, pricing, and response times. Armstrong Locksmith, (615) 625-8000.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you replace a car key if I lost all my keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If you have lost all working keys, we decode your vehicle's lock cylinder directly on-site with precision Lishi tools, cut a new blade, and program the transponder chip or proximity fob directly into your vehicle's ECU immobilizer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Armstrong Locksmith different from the dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dealerships typically require you to tow your car to their service lane and wait 3 to 7 business days for keys to be ordered and programmed. Armstrong Locksmith comes directly to your location with a mobile workstation, completes the job in 20-30 minutes on-site, and saves you 30-50% compared to dealer prices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have a physical locksmith shop in Nashville?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We are located at 208 Thompson Ln, Nashville, TN 37211. You can visit our walk-in shop for key duplication, fob programming, and lock rekeying during storefront hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between rekeying and replacing locks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rekeying changes only the internal pins inside your existing lock cylinder so old keys stop working, allowing you to keep your existing deadbolt and handle hardware at a fraction of the cost ($20/cylinder in shop)."
+      }
+    }
+  ]
+};
 ---
-<Layout title={seoTitle} description={seoDescription} canonical="/faq/">
-  <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto text-left">
-      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight">Frequently Asked Questions</h1>
-      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-2 font-light">
-        Clear, straightforward answers about automotive key programming, response times, and locksmith licensing in Tennessee.
+
+<Layout title={seoTitle} description={seoDescription} canonical="/faq/" schema={schema}>
+  
+  <header class="relative bg-gradient-to-br from-[#061325] via-[#0f274a] to-[#15325b] text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden text-left">
+    <div class="max-w-7xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
+        <span>Nashville Locksmith FAQ &bull; TN Lic #406</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
+        Frequently Asked Questions <br />
+        <span class="text-amber-400">About Nashville Locksmith Services</span>
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl mt-4 font-normal leading-relaxed">
+        Straightforward, transparent answers from our master locksmith team regarding automotive key programming, mobile response times, storefront walk-ins, and pricing.
       </p>
     </div>
   </header>
+
+  <main class="py-16 sm:py-24 bg-[#0a192f] text-white px-4 sm:px-6 lg:px-8 text-left">
+    <div class="max-w-4xl mx-auto space-y-6">
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
+        <h2 class="text-lg sm:text-xl font-bold font-serif text-amber-400 mb-3">
+          Can you make a replacement car key if I lost all my keys?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Yes! In an "all-keys-lost" scenario, you do not need to tow your car to the dealer. Our mobile locksmith van comes directly to your location in Nashville or Middle Tennessee. We decode your door lock cylinder using precision Lishi tools, cut factory-spec laser key blades, and program the transponder chip or smart fob directly into your vehicle's immobilizer ECU on-site.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
+        <h2 class="text-lg sm:text-xl font-bold font-serif text-amber-400 mb-3">
+          How much money do I save compared to the car dealership?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Most customers save between 30% and 50% compared to dealership quotes. Furthermore, you eliminate the $150+ towing fee and the typical 3-to-7 day dealership delay because we complete the job on-site in about 20 to 30 minutes.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
+        <h2 class="text-lg sm:text-xl font-bold font-serif text-amber-400 mb-3">
+          Do you have a real physical shop I can visit?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Yes! We are not an out-of-state call center or a trunk-only operation. We own and operate a physical storefront at <strong>208 Thompson Ln, Nashville, TN 37211</strong>. You are welcome to walk in for key duplication, spare fob programming, and lock rekeying during our storefront hours (Mon–Fri 8AM–6PM, Sat 10AM–4PM).
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
+        <h2 class="text-lg sm:text-xl font-bold font-serif text-amber-400 mb-3">
+          What is the difference between rekeying and replacing locks?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Rekeying changes only the internal tumbler pins inside your existing lock cylinder so old keys no longer work. Replacing involves removing and buying entirely new deadbolts and handle sets. Rekeying is 90% of the time the smarter, faster, and much cheaper choice ($20/cylinder in shop).
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
+        <h2 class="text-lg sm:text-xl font-bold font-serif text-amber-400 mb-3">
+          How fast can a locksmith arrive for emergency lockouts?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Our typical mobile response time is <strong>15 to 25 minutes</strong> across Nashville, Brentwood, Franklin, Antioch, Green Hills, East Nashville, and Donelson.
+        </p>
+      </div>
+
+      <!-- FAQ CTA -->
+      <div class="p-8 rounded-3xl bg-gradient-to-br from-[#0f274a] via-[#16335c] to-[#0f274a] text-white border-t-4 border-amber-500 flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
+        <div>
+          <h3 class="text-xl font-bold font-serif text-white mb-1">Have a Question Not Listed Here?</h3>
+          <p class="text-xs text-slate-300">Call Rahim and the Armstrong Locksmith team directly for an honest upfront quote.</p>
+        </div>
+        <a href="tel:6156258000" class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm text-center shadow-lg transition active:scale-95 whitespace-nowrap">
+          Call (615) 625-8000
+        </a>
+      </div>
+
+    </div>
+  </main>
 </Layout>

@@ -1,15 +1,110 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const seoTitle = "Accepted Payment Methods | Armstrong Locksmith Nashville";
-const seoDescription = "Armstrong Locksmith accepts all major credit cards, debit cards, Apple Pay, cash, and corporate invoicing for commercial accounts in Nashville.";
+
+const seoTitle = "Payment Methods | Armstrong Locksmith Nashville | Local & Safe";
+const seoDescription = "See accepted payment options at Armstrong Locksmith. We accept Cash, Cards, Zelle, Venmo & Apple Pay. Verified local shop at 208 Thompson Ln. Call us now.";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Payment Methods Accepted at Armstrong Locksmith",
+  "provider": { "@type": "Locksmith", "name": "Armstrong Locksmith Inc", "telephone": "+1-615-625-8000" }
+};
 ---
-<Layout title={seoTitle} description={seoDescription} canonical="/payment-methods/">
-  <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto text-left">
-      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight">Accepted Payment Methods</h1>
-      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-2 font-light">
-        Convenient, secure payment options for all automotive, residential, and commercial locksmith services.
+
+<Layout title={seoTitle} description={seoDescription} canonical="/payment-methods/" schema={schema}>
+  
+  <header class="relative bg-gradient-to-br from-[#061325] via-[#0f274a] to-[#15325b] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden text-left">
+    <div class="max-w-7xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
+        <span>Verified Local Shop &bull; TN Lic #406</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight leading-tight">
+        Payment Methods Accepted <br /><span class="text-amber-400">at Armstrong Locksmith</span>
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-4 font-normal leading-relaxed">
+        Pay easily at our Nashville shop or after a mobile locksmith service. We accept credit cards, contactless payments, cash, and verified mobile payment options for automotive, residential, commercial, and emergency locksmith work.
       </p>
     </div>
   </header>
+
+  <main class="py-14 sm:py-20 bg-[#0a192f] text-white px-4 sm:px-6 lg:px-8 text-left">
+    <div class="max-w-7xl mx-auto flex flex-col gap-16">
+
+      <!-- Payment Methods Grid -->
+      <section class="flex flex-col gap-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">Simple, Secure Options</span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-serif text-white">Accepted Payment Methods</h2>
+          <p class="text-slate-300 text-sm mt-1">Choose the payment method that works best for you:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700/80">
+            <h3 class="text-lg font-bold text-amber-400 mb-2">Credit &amp; Debit Cards</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Visa, MasterCard, American Express, and Discover accepted in-person at our shop and in all mobile dispatch vans.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700/80">
+            <h3 class="text-lg font-bold text-amber-400 mb-2">Apple Pay &amp; Google Pay</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Tap to pay with your compatible iPhone, Apple Watch, or Android device using NFC contactless readers.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700/80">
+            <h3 class="text-lg font-bold text-amber-400 mb-2">Cash</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Exact cash payments are accepted directly by your technician after service is completed and the total is confirmed.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700/80">
+            <h3 class="text-lg font-bold text-amber-400 mb-2">Zelle</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Direct bank-to-bank transfer. Our technician will confirm the official Armstrong Locksmith business account on-site.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700/80">
+            <h3 class="text-lg font-bold text-amber-400 mb-2">Venmo &amp; Cash App</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Official verified company QR code provided directly by your technician at the time of checkout.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#10233d] border border-slate-700/80">
+            <h3 class="text-lg font-bold text-amber-400 mb-2">Commercial Invoicing</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Net-30 billing and email invoicing available for approved commercial property management and corporate fleet accounts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Safety Notice -->
+      <section class="bg-amber-500/10 border-2 border-amber-500/40 rounded-3xl p-8 sm:p-10 text-white">
+        <h2 class="text-xl sm:text-2xl font-bold font-serif text-amber-300 mb-3">🛡️ Payment Safety &amp; Anti-Scam Notice</h2>
+        <p class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-4">
+          <strong>We never request gift card payments.</strong> Armstrong Locksmith Inc. never accepts payment via retail gift cards. If anyone posing as a locksmith asks you for gift cards, it is a scam.
+        </p>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          For all digital mobile transfers (Zelle, Cash App, Venmo), our technician will provide and confirm the official business name <strong>Armstrong Locksmith Inc.</strong> at your vehicle or door before you send payment. Digital invoices and itemized receipts are immediately sent via SMS or email.
+        </p>
+      </section>
+
+      <!-- How Payment Works -->
+      <section class="bg-[#10233d] rounded-3xl p-8 sm:p-12 border border-slate-700/80">
+        <h2 class="text-2xl sm:text-3xl font-bold font-serif text-white mb-6">How Payment Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <span class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center mb-3">1</span>
+            <h3 class="text-base font-bold text-white mb-2">Service Completed</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Your locksmith completes the key cutting, programming, or rekeying, and tests full functionality before billing.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <span class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center mb-3">2</span>
+            <h3 class="text-base font-bold text-white mb-2">Choose Payment</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Pay via card, tap to pay, cash, Zelle, or mobile wallet with our secure mobile POS terminal.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+            <span class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center mb-3">3</span>
+            <h3 class="text-base font-bold text-white mb-2">Receive Receipt</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">An itemized receipt or warranty invoice is immediately texted and emailed to you for your records.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
 </Layout>
