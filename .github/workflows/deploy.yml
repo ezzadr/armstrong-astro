@@ -33,5 +33,8 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== TESTING GITHUB SSH FROM CLOUDWAYS ==="
-            ssh -o StrictHostKeyChecking=no -T git@github.com || true
+            echo "=== TESTING ACCESS TO ARMSTRONG-PORTAL ==="
+            git ls-remote git@github.com:ezzadr/armstrong-portal.git || true
+
+            echo "=== TESTING ACCESS TO ARMSTRONG-AI-CALL-DISPATCH ==="
+            git ls-remote git@github.com:ezzadr/armstrong-ai-call-dispatch.git || true
