@@ -30,7 +30,7 @@ Call Armstrong Locksmith • 208 Thompson Ln
 ---
 
 ## 1. The Real Problem: “Voltage Sag” vs. a Truly Dead Battery
-When Nashville dips into the 20s, we see a big spike in calls. Last winter (one of those icy mornings), we had three customers back-to-back who all said the same thing: **“My fob just died overnight.”** Two of them were fixed in minutes with a warm-up + battery swap. The fobs weren’t “broken.” The batteries were just at the edge. 
+When Nashville dips into the 20s, we see a big spike in calls. Last winter (one of those icy mornings), we had three customers back-to-back who all said the same thing: **“My fob just died overnight.”** Two of them were fixed promptly with a warm-up + battery swap. The fobs weren’t “broken.” The batteries were just at the edge. 
 
 Here’s what’s usually happening:
 - A fresh coin battery often reads around **3.0V**. 
