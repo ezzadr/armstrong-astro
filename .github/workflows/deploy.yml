@@ -16,15 +16,25 @@ jobs:
         with:
           host: ${{ secrets.CLOUDWAYS_HOST }}
           username: ${{ secrets.CLOUDWAYS_USER }}
+          password: ${{ secrets.CLOUDWAYS_PASSWORD }}
           key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
           port: 22
           script: |
-            if [ -d "public_html" ]; then
-              cd public_html
+            TARGET_DIR=""
+            if [ -d "/home/master/applications/btfdkcdpdw/public_html" ]; then
+              TARGET_DIR="/home/master/applications/btfdkcdpdw/public_html"
+            elif [ -d "$HOME/applications/btfdkcdpdw/public_html" ]; then
+              TARGET_DIR="$HOME/applications/btfdkcdpdw/public_html"
+            elif [ -d "public_html" ]; then
+              TARGET_DIR="$(pwd)/public_html"
             elif [ -d "$HOME/public_html" ]; then
-              cd "$HOME/public_html"
+              TARGET_DIR="$HOME/public_html"
+            else
+              TARGET_DIR=$(find /home/master/applications -name "public_html" 2>/dev/null | head -n 1)
             fi
-            echo "Deploying in directory: $(pwd)"
+
+            echo "=== TARGET DEPLOYMENT DIRECTORY: $TARGET_DIR ==="
+            cd "$TARGET_DIR"
             git fetch origin main
             git reset --hard origin/main
-            echo "Deployment completed successfully at $(date)!"
+            echo "=== DEPLOYMENT SUCCESSFUL AT $(date) ==="
