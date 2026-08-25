@@ -1,41 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TextPhotoCTA from '../components/TextPhotoCTA.astro';
+import RecentWorkGallery from '../components/RecentWorkGallery.astro';
 
 const seoTitle = "Nashville Locksmith — Car Keys, Rekeys & Lockouts | Armstrong";
 const seoDescription = "Owner-led Nashville locksmith with a real storefront on Thompson Ln. Car keys, rekeys, lockouts & commercial service. Certified & Insured. Call (615) 625-8000.";
-
-// Recent Work Examples from the Live Shop
-const recentJobs = [
-  {
-    title: "Maserati key, cut & programmed",
-    desc: "Matched a high-security luxury transponder to factory spec, on-site in Nashville.",
-    image: "/images/Maserati-key-cut-and-programmed--scaled.jpg",
-    link: "/european-car-key-specialist/",
-    category: "European Luxury"
-  },
-  {
-    title: "Audi Q5 flip key replacement",
-    desc: "Rahim adapted a replacement key with vehicle-specific BCM2 programming tools at the shop.",
-    image: "/images/rahim-made-audi-keys-in-nashville-1.png",
-    link: "/audi-car-keys/",
-    category: "Audi Specialist"
-  },
-  {
-    title: "Residential cylinder rekey",
-    desc: "Technician Kawa re-pinned a full set of deadbolts so previous keys no longer turn.",
-    image: "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
-    link: "/residential-locksmith-nashville/",
-    category: "Residential Security"
-  },
-  {
-    title: "Commercial storefront mortise rekey",
-    desc: "Re-keyed the heavy-duty Adams Rite mortise cylinders on a commercial glass entry door.",
-    image: "/images/before-keypad-installation-on-commercial-door.jpg",
-    link: "/commercial-locksmith/",
-    category: "Commercial Doors"
-  }
-];
 
 // Initial Verified Reviews (Instant SSR load with live client sync)
 const initialReviews = [
@@ -329,67 +298,7 @@ const homepageSchema = [
   </section>
 
   <!-- ==================== RECENT WORK SECTION (LIVE WORK SAMPLES) ==================== -->
-  <section class="py-16 sm:py-20 bg-white px-4 sm:px-8 border-b border-slate-200" id="recent-work">
-    <div class="max-w-7xl mx-auto">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Verified Proof</span>
-          <h2 class="text-2xl sm:text-4xl font-bold text-[#0f274a] font-serif tracking-tight mt-1">
-            Recent Locksmith Jobs Near Nashville
-          </h2>
-          <p class="text-slate-600 text-sm mt-1">
-            A few real examples from our team. Specific work beats generic claims.
-          </p>
-        </div>
-        <a href="/about-us/" class="text-xs sm:text-sm font-bold text-[#0f274a] hover:text-amber-600 underline">
-          Meet Our Technicians &rarr;
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {recentJobs.map((job) => (
-          <article class="card-clean rounded-2xl overflow-hidden flex flex-col justify-between bg-white border border-slate-200 shadow-sm hover:border-amber-500 transition group">
-            <div>
-              <div class="overflow-hidden h-48 bg-slate-100 relative">
-                <img 
-                  src={job.image} 
-                  alt={job.title} 
-                  class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-                  loading="lazy"
-                  decoding="async"
-                  width="400"
-                  height="192"
-                />
-                <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded bg-slate-900/80 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
-                  {job.category}
-                </span>
-              </div>
-
-              <div class="p-5">
-                <h3 class="font-bold text-[#0f274a] text-base font-serif mb-2 leading-snug">
-                  <a href={job.link} class="hover:text-amber-600 transition">
-                    {job.title}
-                  </a>
-                </h3>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                  {job.desc}
-                </p>
-              </div>
-            </div>
-
-            <div class="p-5 pt-0">
-              <a href={job.link} class="text-xs font-bold text-amber-700 hover:text-amber-800 inline-flex items-center gap-1">
-                <span>View Service Details</span>
-                <span>&rarr;</span>
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-
-    </div>
-  </section>
+  <RecentWorkGallery />
 
   <!-- ==================== CORE SERVICES ==================== -->
   <section class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-8 border-b border-slate-200">
