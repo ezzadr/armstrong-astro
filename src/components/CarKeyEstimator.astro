@@ -261,7 +261,18 @@ const yearRanges = [
 
       if (techDesc) {
         if (isEuro) {
-          techDesc.textContent = `Dealer-level CAS3/CAS4/FEM/BDC/BCM2 diagnostic programming & computerized high-security laser cutting for ${make}.`;
+          const m = make.toLowerCase();
+          if (m === 'bmw' || m === 'mini') {
+            techDesc.textContent = `Dealer-level CAS3/CAS4/FEM/BDC diagnostic programming & high-security laser cutting for ${make}.`;
+          } else if (m === 'mercedes-benz') {
+            techDesc.textContent = `Specialized EIS / EZS & FBS3 / FBS4 infrared smart key programming and laser cutting for ${make}.`;
+          } else if (m === 'audi' || m === 'volkswagen' || m === 'porsche' || m === 'bentley') {
+            techDesc.textContent = `VAG dealer-level MQB, BCM2, and KESSY component security programming for ${make}.`;
+          } else if (m === 'jaguar' || m === 'land rover') {
+            techDesc.textContent = `Specialized KVM (Keyless Vehicle Module) & RFA module programming with emergency laser blade cutting for ${make}.`;
+          } else {
+            techDesc.textContent = `Dealer-level European diagnostic programming & computerized high-security laser cutting for ${make}.`;
+          }
         } else if (isAsian) {
           techDesc.textContent = `High-security proximity smart key programming, 8A/4D/46/47/4A transponders, & computerized factory laser cutting for ${make}.`;
         } else {
