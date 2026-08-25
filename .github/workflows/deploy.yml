@@ -33,11 +33,28 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== CHECKING SSH KEYS ON SERVER ==="
-            ls -la ~/.ssh/ || true
-            for key in ~/.ssh/id_*; do
-              if [[ "$key" == *.pub ]]; then
-                echo "Public key $key:"
-                cat "$key"
-              fi
-            done
+            echo "=== GENERATING DISPATCH SSH KEY ON SERVER ==="
+            if [ ! -f ~/.ssh/id_dispatch ]; then
+              ssh-keygen -t ed25519 -C "cloudways-dispatch-deploy" -f ~/.ssh/id_dispatch -N ""
+            fi
+            echo "DISPATCH_PUBLIC_KEY:"
+            cat ~/.ssh/id_dispatch.pub
+
+            echo "=== CONFIGURING SSH CONFIG FOR DISPATCH ==="
+            cat << 'EOF' > ~/.ssh/config
+Host github.com-portal
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+Host github.com-dispatch
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_dispatch
+
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+EOF
+            chmod 600 ~/.ssh/config
