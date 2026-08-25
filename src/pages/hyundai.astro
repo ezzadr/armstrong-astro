@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoTitle = "Hyundai Key Replacement Nashville TN | Armstrong Locksmith";
+const seoDescription = "Fast Hyundai car key cutting, proximity smart fob programming & all-keys-lost mobile service in Nashville. Storefront at 208 Thompson Ln. Call (615) 625-8000.";
+
+const hyundaiSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Hyundai Key Replacement Nashville",
+  "provider": {
+    "@type": "Locksmith",
+    "name": "Armstrong Locksmith Inc",
+    "telephone": "+1-615-625-8000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": "Nashville, TN",
+  "description": "Dealership-grade Hyundai key replacement, smart proximity fob programming, and transponder cutting on-site across Nashville."
+};
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/hyundai/" schema={hyundaiSchema}>
+  
+  <!-- Hero Section -->
+  <header class="bg-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
+    <div class="max-w-7xl mx-auto text-left">
+      <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-2">Automotive Locksmith &bull; TN Lic #406</span>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
+        Hyundai Key Replacement <br />
+        <span class="text-amber-400">in Nashville, TN</span>
+      </h1>
+      <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl mt-3 font-normal leading-relaxed">
+        Elantra, Sonata, Tucson, Santa Fe, Palisade, Kona, and all Hyundai models. Smart proximity push-to-start fobs, flip keys, and transponder programming on-site.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-6">
+        <a 
+          href="tel:6156258000" 
+          class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base flex items-center justify-center gap-2 shadow-lg transition active:scale-95"
+        >
+          <svg class="w-5 h-5 text-white animate-bounce" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+          <span>Call (615) 625-8000</span>
+        </a>
+
+        <a 
+          href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="px-7 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition active:scale-95"
+        >
+          <span>Book Online</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Cards -->
+  <section class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-amber-500 transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl mb-4">🔑</div>
+          <h2 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Smart Push-to-Start Fobs</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            OEM-quality proximity keyless entry fobs programmed directly through OBD2 on-site without dealership delays.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-amber-500 transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl mb-4">✂️</div>
+          <h2 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Laser Key Blade Cutting</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            High-precision computer CNC laser cutting for Hyundai high-security sidewinder and turn-key blades.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:border-amber-500 transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl mb-4">⚡</div>
+          <h2 class="text-lg font-bold text-[#0f274a] font-serif mb-2">All Keys Lost Recovery</h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Lost your only key? We generate new programmed keys from scratch in our mobile vans—no towing required.
+          </p>
+        </div>
+      </div>
+
+      <!-- Storefront & Mobile Banner -->
+      <div class="bg-[#0f274a] text-white rounded-3xl p-8 sm:p-12 shadow-xl border-t-4 border-amber-500 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="text-left max-w-2xl">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-amber-400 bg-amber-400/20 px-3 py-1 rounded-full">
+            📍 Storefront & Mobile Service
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-bold font-serif text-white mt-3 mb-2">
+            Visit Our Shop or We Come to You
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Save mobile service fees by dropping into our physical shop at <strong>208 Thompson Ln, Nashville</strong>, or call for fast 15–25 minute mobile dispatch to your driveway.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 w-full lg:w-auto flex-shrink-0">
+          <a href="tel:6156258000" class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm text-center shadow-lg transition active:scale-95 whitespace-nowrap">
+            📞 Call (615) 625-8000
+          </a>
+          <a href="/contact-armstrong-locksmith/" class="px-6 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs text-center shadow transition active:scale-95 whitespace-nowrap">
+            Shop Directions
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
