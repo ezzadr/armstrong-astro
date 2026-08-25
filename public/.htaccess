@@ -105,7 +105,7 @@ ErrorDocument 404 /404.html
 
   # Zero Stale Cache for HTML & PHP (Instant updates on Cloudflare & Browsers)
   <FilesMatch "\.(html|htm|php)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0, private"
     Header set Pragma "no-cache"
     Header set Expires "0"
   </FilesMatch>
