@@ -114,7 +114,7 @@ const homepageSchema = [
           <!-- Primary Call Button -->
           <a 
             href="tel:6156258000" 
-            class="px-8 py-4 rounded-lg bg-[#f59e0b] hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600"
+            class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600"
             aria-label="Call Armstrong Locksmith at (615) 625-8000"
           >
             <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
@@ -124,7 +124,7 @@ const homepageSchema = [
           <!-- Secondary Text Photo Button -->
           <a 
             href="sms:6156258000" 
-            class="px-8 py-4 rounded-lg bg-[#07152b]/90 hover:bg-[#0f274a] text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-2 border-2 border-slate-500 hover:border-slate-300 shadow-xl transition active:scale-95"
+            class="px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-900 text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-700 hover:border-slate-500 shadow-xl transition active:scale-95"
             aria-label="Text Armstrong Locksmith a photo at (615) 625-8000"
           >
             <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,76 +135,72 @@ const homepageSchema = [
           </a>
         </div>
 
-        <!-- Streamlined Non-Busy Trust Credibility Bar -->
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2.5 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
+        <!-- Streamlined Trust Bar -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
           <div class="inline-flex items-center gap-2">
-            <span class="text-amber-400 font-bold tracking-tighter text-sm">★★★★★</span>
+            <span class="text-amber-400 font-bold text-sm">★★★★★</span>
             <span><strong class="text-white font-bold">4.9/5 Rating</strong> (750+ Reviews)</span>
           </div>
-          <span class="hidden sm:inline text-slate-600 font-bold">&bull;</span>
+          <span class="hidden sm:inline text-slate-600">&bull;</span>
           <div class="inline-flex items-center gap-1.5">
-            <span class="text-amber-400 font-bold">🛡️</span>
-            <span><strong class="text-white font-bold">Certified & Insured</strong></span>
+            <span class="text-amber-400">🛡️</span>
+            <span><strong class="text-white font-bold">TN License #406</strong></span>
           </div>
-          <span class="hidden sm:inline text-slate-600 font-bold">&bull;</span>
+          <span class="hidden sm:inline text-slate-600">&bull;</span>
           <div class="inline-flex items-center gap-1.5">
-            <span class="text-amber-400 font-bold">📍</span>
+            <span class="text-amber-400">📍</span>
             <span><strong class="text-white font-bold">Storefront:</strong> 208 Thompson Ln</span>
-          </div>
-          <span class="hidden lg:inline text-slate-600 font-bold">&bull;</span>
-          <div class="inline-flex items-center gap-1.5">
-            <span class="text-amber-400 font-bold">🔑</span>
-            <span>Auto &bull; Residential &bull; Commercial</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Right Column: Hero Contact / Instant Quote Form Card -->
+      <!-- Right Column: Clean Industrial Form Card -->
       <div class="lg:col-span-5" id="quote-form-section">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-amber-400/90 ring-4 ring-amber-400/20 text-slate-900 relative overflow-hidden">
-          <!-- Top Accent Banner -->
-          <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500"></div>
-
-          <div class="pb-3 mb-4 border-b border-slate-100">
-            <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
-              Get a Quote
-            </h2>
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl text-slate-900 relative overflow-hidden border-t-4 border-amber-500">
+          <div class="pb-3 mb-4 border-b border-slate-100 flex items-center justify-between">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-black text-[#0f274a] uppercase tracking-tight">
+                Instant Price Quote
+              </h2>
+              <p class="text-xs text-slate-500 font-medium">Direct dispatch to on-duty locksmith</p>
+            </div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-900 uppercase tracking-wider">Fast Response</span>
           </div>
 
-          <form id="hero-quote-form" class="flex flex-col gap-3.5 text-left">
+          <form id="hero-quote-form" class="flex flex-col gap-3 text-left">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label for="quote-name" class="block text-xs font-bold text-slate-800 mb-1">Your Full Name *</label>
+                <label for="quote-name" class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
                 <input 
                   type="text" 
                   id="quote-name" 
                   name="name" 
                   required 
                   placeholder="e.g. John Smith" 
-                  class="w-full px-3.5 py-3 text-sm rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-200/50 outline-none text-slate-900 transition-all font-medium"
+                  class="w-full px-3.5 py-2.5 text-sm rounded-lg bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
                 />
               </div>
               <div>
-                <label for="quote-phone" class="block text-xs font-bold text-slate-800 mb-1">Phone Number *</label>
+                <label for="quote-phone" class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
                 <input 
                   type="tel" 
                   id="quote-phone" 
                   name="phone" 
                   required 
                   placeholder="(615) 000-0000" 
-                  class="w-full px-3.5 py-3 text-sm rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-200/50 outline-none text-slate-900 transition-all font-medium"
+                  class="w-full px-3.5 py-2.5 text-sm rounded-lg bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
                 />
               </div>
             </div>
 
             <div>
-              <label for="quote-service" class="block text-xs font-bold text-slate-800 mb-1">Service Needed *</label>
+              <label for="quote-service" class="block text-xs font-bold text-slate-700 mb-1">Service Needed *</label>
               <select 
                 id="quote-service" 
                 name="service" 
                 required 
-                class="w-full px-3.5 py-3 text-sm rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-200/50 outline-none text-slate-900 transition-all font-medium"
+                class="w-full px-3.5 py-2.5 text-sm rounded-lg bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
               >
                 <option value="">Select a service...</option>
                 <option value="Car Key Replacement">🔑 Car Key Replacement (All Makes)</option>
@@ -218,13 +214,13 @@ const homepageSchema = [
             </div>
 
             <div>
-              <label for="quote-details" class="block text-xs font-bold text-slate-800 mb-1">Vehicle Make / Model or Details</label>
+              <label for="quote-details" class="block text-xs font-bold text-slate-700 mb-1">Vehicle Make / Model or Lock Type</label>
               <input 
                 type="text" 
                 id="quote-details" 
                 name="details" 
-                placeholder="e.g. 2021 BMW X5, locked out, or 3 deadbolts" 
-                class="w-full px-3.5 py-3 text-sm rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-200/50 outline-none text-slate-900 transition-all font-medium"
+                placeholder="e.g. 2021 BMW X5 or 3 deadbolts" 
+                class="w-full px-3.5 py-2.5 text-sm rounded-lg bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
               />
             </div>
 
@@ -234,10 +230,10 @@ const homepageSchema = [
                 id="toggle-optional-fields" 
                 class="text-xs font-bold text-amber-700 hover:text-amber-900 underline flex items-center gap-1 cursor-pointer py-1"
               >
-                <span>+ Add email or extra details (optional)</span>
+                <span>+ Add email or notes (optional)</span>
               </button>
               
-              <div id="optional-fields-container" class="hidden flex-col gap-2.5 mt-2 pt-2 border-t border-slate-100">
+              <div id="optional-fields-container" class="hidden flex-col gap-2 mt-2 pt-2 border-t border-slate-100">
                 <div>
                   <label for="quote-email" class="block text-xs font-medium text-slate-600 mb-0.5">Email Address</label>
                   <input 
@@ -245,17 +241,17 @@ const homepageSchema = [
                     id="quote-email" 
                     name="email" 
                     placeholder="john@example.com" 
-                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900"
+                    class="w-full px-3 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900"
                   />
                 </div>
                 <div>
-                  <label for="quote-notes" class="block text-xs font-medium text-slate-600 mb-0.5">Special Instructions / Message</label>
+                  <label for="quote-notes" class="block text-xs font-medium text-slate-600 mb-0.5">Message / Details</label>
                   <textarea 
                     id="quote-notes" 
                     name="notes" 
                     rows="2" 
                     placeholder="Describe your situation..." 
-                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900"
+                    class="w-full px-3 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900"
                   ></textarea>
                 </div>
               </div>
@@ -264,13 +260,13 @@ const homepageSchema = [
             <button 
               type="submit" 
               id="quote-submit-btn"
-              class="w-full mt-1 py-4 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
+              class="w-full mt-2 py-3.5 px-6 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg transition active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600"
             >
-              <span>Get My Free Quote Now &rarr;</span>
+              <span>Get My Upfront Quote &rarr;</span>
             </button>
             <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1">
               <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              <span>Sent directly to on-duty technician via SMS &bull; Certified & Insured</span>
+              <span>Dispatched directly via SMS to on-duty technician</span>
             </div>
           </form>
 
@@ -282,7 +278,7 @@ const homepageSchema = [
             </p>
             <div class="mt-4 pt-3 border-t border-emerald-200">
               <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow hover:bg-emerald-700 transition">
-                <span>Need immediate emergency help? Call (615) 625-8000 &rarr;</span>
+                <span>Need immediate help? Call (615) 625-8000 &rarr;</span>
               </a>
             </div>
           </div>
@@ -292,237 +288,210 @@ const homepageSchema = [
     </div>
   </section>
 
-  <!-- ==================== OVERLAPPING FEATURE BOXES (CARSERVICE THEME STYLE) ==================== -->
-  <section class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 mb-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-      
-      <!-- Feature 1 -->
-      <a href="/european-car-key-specialist/" class="group bg-[#0f274a] text-white p-6 rounded-2xl shadow-2xl border-t-4 border-amber-500 hover:bg-[#16335c] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition-transform">
-            🏎️
+  <!-- ==================== SLEEK AUTOMOTIVE HIGHLIGHT STRIP ==================== -->
+  <section class="bg-[#0f274a] text-white border-b-2 border-amber-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+        
+        <!-- Strip 1 -->
+        <a href="/european-car-key-specialist/" class="p-6 sm:py-8 group hover:bg-[#16335c] transition flex items-start gap-4">
+          <span class="text-3xl text-amber-400 shrink-0 group-hover:scale-110 transition-transform">🏎️</span>
+          <div>
+            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">Dealer Alternative</span>
+            <h3 class="text-base font-black text-white uppercase tracking-tight mt-0.5">European Specialist</h3>
+            <p class="text-xs text-slate-300 mt-1 font-medium leading-normal">BMW, Mercedes, Audi & Range Rover keys made on-site.</p>
           </div>
-          <span class="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 block mb-1">Dealer Alternative</span>
-          <h3 class="text-lg font-black text-white font-serif mb-2 leading-tight">European Specialists</h3>
-          <p class="text-xs text-slate-300 leading-relaxed font-medium">
-            BMW (CAS/FEM), Mercedes (FBS3/4), Audi (BCM2), & Land Rover (KVM) keys programmed same day.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-amber-400 group-hover:text-white transition">
-          <span>Explore European &rarr;</span>
-        </div>
-      </a>
+        </a>
 
-      <!-- Feature 2 -->
-      <a href="/car-key-replacement-nashville/" class="group bg-white text-slate-900 p-6 rounded-2xl shadow-xl border-t-4 border-[#0f274a] hover:border-amber-500 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between border-x border-b border-slate-200">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-slate-100 text-[#0f274a] flex items-center justify-center font-black text-xl mb-4 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
-            🔑
+        <!-- Strip 2 -->
+        <a href="/car-key-replacement-nashville/" class="p-6 sm:py-8 group hover:bg-[#16335c] transition flex items-start gap-4">
+          <span class="text-3xl text-amber-400 shrink-0 group-hover:scale-110 transition-transform">🔑</span>
+          <div>
+            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">All Makes & Models</span>
+            <h3 class="text-base font-black text-white uppercase tracking-tight mt-0.5">Car Key Origination</h3>
+            <p class="text-xs text-slate-300 mt-1 font-medium leading-normal">Lost all keys? Precision CNC laser cutting on-site.</p>
           </div>
-          <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 block mb-1">Mobile & In-Shop</span>
-          <h3 class="text-lg font-black text-[#0f274a] font-serif mb-2 leading-tight">All-Keys-Lost Service</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Lost your only key? We laser-cut precision factory blades and program smart fobs on-site.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0f274a] group-hover:text-amber-600 transition">
-          <span>Car Key Pricing &rarr;</span>
-        </div>
-      </a>
+        </a>
 
-      <!-- Feature 3 -->
-      <a href="/nashville-locksmith-storefront/" class="group bg-white text-slate-900 p-6 rounded-2xl shadow-xl border-t-4 border-[#0f274a] hover:border-amber-500 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between border-x border-b border-slate-200">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-slate-100 text-[#0f274a] flex items-center justify-center font-black text-xl mb-4 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
-            🏬
+        <!-- Strip 3 -->
+        <a href="/nashville-locksmith-storefront/" class="p-6 sm:py-8 group hover:bg-[#16335c] transition flex items-start gap-4">
+          <span class="text-3xl text-amber-400 shrink-0 group-hover:scale-110 transition-transform">🏬</span>
+          <div>
+            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">Nashville Storefront</span>
+            <h3 class="text-base font-black text-white uppercase tracking-tight mt-0.5">208 Thompson Lane</h3>
+            <p class="text-xs text-slate-300 mt-1 font-medium leading-normal">Walk-ins welcome for quick copies, fobs & deadbolts.</p>
           </div>
-          <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 block mb-1">Walk-Ins Welcome</span>
-          <h3 class="text-lg font-black text-[#0f274a] font-serif mb-2 leading-tight">208 Thompson Lane</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Real storefront location in Nashville. Drop in for quick key duplicates, fob batteries, and lock rekeys.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0f274a] group-hover:text-amber-600 transition">
-          <span>Visit Our Shop &rarr;</span>
-        </div>
-      </a>
+        </a>
 
-      <!-- Feature 4 -->
-      <a href="/emergency-car-lockout/" class="group bg-white text-slate-900 p-6 rounded-2xl shadow-xl border-t-4 border-[#0f274a] hover:border-amber-500 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between border-x border-b border-slate-200">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-slate-100 text-[#0f274a] flex items-center justify-center font-black text-xl mb-4 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
-            🚨
+        <!-- Strip 4 -->
+        <a href="/emergency-car-lockout/" class="p-6 sm:py-8 group hover:bg-[#16335c] transition flex items-start gap-4">
+          <span class="text-3xl text-amber-400 shrink-0 group-hover:scale-110 transition-transform">🚨</span>
+          <div>
+            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">Rapid Response</span>
+            <h3 class="text-base font-black text-white uppercase tracking-tight mt-0.5">Emergency Lockouts</h3>
+            <p class="text-xs text-slate-300 mt-1 font-medium leading-normal">Damage-free air-wedge vehicle & home door unlocking.</p>
           </div>
-          <span class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600 font-bold block mb-1">Prompt Mobile Dispatch</span>
-          <h3 class="text-lg font-black text-[#0f274a] font-serif mb-2 leading-tight">Emergency Unlock</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Locked keys in the trunk or car? Fast dispatch across Nashville with 100% damage-free air wedges.
-          </p>
-        </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0f274a] group-hover:text-amber-600 transition">
-          <span>Emergency Help &rarr;</span>
-        </div>
-      </a>
+        </a>
 
+      </div>
     </div>
   </section>
 
   <!-- ==================== INSTANT ESTIMATOR SMS CTA ==================== -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-8 mb-8">
+  <section class="max-w-7xl mx-auto px-4 sm:px-8 py-8">
     <TextPhotoCTA />
   </section>
 
   <!-- ==================== RECENT WORK SECTION (LIVE WORK SAMPLES) ==================== -->
   <RecentWorkGallery />
 
-  <!-- ==================== CORE SERVICES (AUTO WORKSHOP THEME STYLE) ==================== -->
-  <section class="py-16 sm:py-24 bg-slate-100 px-4 sm:px-8 border-b border-slate-200">
+  <!-- ==================== CORE SERVICES SECTION (CLEAN INDUSTRIAL AUTOMOTIVE STYLE) ==================== -->
+  <section class="py-20 bg-slate-50 px-4 sm:px-8 border-b border-slate-200">
     <div class="max-w-7xl mx-auto">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider mb-3 border border-amber-200">
-            <span>⚙️</span>
-            <span>Master Automotive & Security Services</span>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-8 h-1 bg-amber-500 inline-block"></span>
+            <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Our Professional Capabilities</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f274a] font-serif tracking-tight mt-1">
-            Our Core Locksmith Services
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f274a] uppercase tracking-tight font-sans">
+            Nashville Locksmith Services
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl font-medium">
-            Full-service automotive, commercial, and residential locksmithing backed by over 20 years of hands-on experience and TN State License #406.
+            Over 20 years of experience with dealer-level key programming, residential lock hardware, and commercial access security.
           </p>
         </div>
-        <a href="/locksmith-pricing-nashville/" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm font-black text-[#0f274a] hover:border-amber-500 shadow-sm transition shrink-0">
+
+        <a href="/locksmith-pricing-nashville/" class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-[#0f274a] hover:text-amber-600 uppercase tracking-wider underline">
           <span>View 2026 Upfront Pricing Guide</span>
           <span>&rarr;</span>
         </a>
       </div>
 
-      <!-- Services Grid with Automotive Workshop Theme Styling -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Services Grid: Clean Flat Industrial Cards with Fine Borders -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Card 1: European -->
-        <div class="bg-white rounded-3xl p-8 flex flex-col justify-between border-2 border-amber-400 shadow-xl relative overflow-hidden group hover:border-[#0f274a] transition-all duration-300">
-          <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-bl-xl">
-            Specialty
-          </div>
+        <!-- Service 1: European -->
+        <a href="/european-car-key-specialist/" class="group bg-white p-7 rounded-xl border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-[#0f274a] group-hover:text-amber-400 transition-all duration-300">
-              🏎️
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl text-amber-500">🏎️</span>
+              <span class="text-xs font-black px-2.5 py-1 rounded bg-amber-100 text-amber-950 uppercase tracking-wider">From $180</span>
             </div>
-            <h3 class="text-2xl font-black text-[#0f274a] font-serif mb-3">European Car Key Specialist</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Dealer-level key cutting and programming for <a href="/bmw/" class="underline font-bold text-slate-900 hover:text-amber-600">BMW</a>, <a href="/mercedes-benz/" class="underline font-bold text-slate-900 hover:text-amber-600">Mercedes-Benz</a>, <a href="/audi-car-keys/" class="underline font-bold text-slate-900 hover:text-amber-600">Audi</a>, <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="underline font-bold text-slate-900 hover:text-amber-600">Land Rover</a>, and <a href="/bentley-key-replacement/" class="underline font-bold text-slate-900 hover:text-amber-600">Bentley</a>. Done same-day on-site.
+            <h3 class="text-xl font-black text-[#0f274a] uppercase tracking-tight group-hover:text-amber-600 transition mb-2">
+              European Car Key Specialist
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              BMW (CAS/FEM/BDC), Mercedes (FBS3/4), Audi (BCM2), Land Rover (KVM), and Porsche key cutting & programming without dealer delays.
             </p>
           </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-extrabold text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">From $180</span>
-            <a href="/european-car-key-specialist/" class="inline-flex items-center gap-1.5 font-black text-xs uppercase tracking-wider text-amber-600 hover:text-amber-700">
-              <span>Service Details</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-[#0f274a] group-hover:text-amber-600 transition">
+            <span class="uppercase tracking-wider">Service Details</span>
+            <span>&rarr;</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 2: Car Keys & Fobs -->
-        <div class="bg-white rounded-3xl p-8 flex flex-col justify-between border border-slate-200 shadow-md relative overflow-hidden group hover:border-amber-500 hover:shadow-xl transition-all duration-300">
+        <!-- Service 2: Car Keys & Fobs -->
+        <a href="/car-key-replacement-nashville/" class="group bg-white p-7 rounded-xl border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-200 text-[#0f274a] flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300">
-              🔑
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl text-amber-500">🔑</span>
+              <span class="text-xs font-black px-2.5 py-1 rounded bg-slate-100 text-slate-900 uppercase tracking-wider">From $120</span>
             </div>
-            <h3 class="text-2xl font-black text-[#0f274a] font-serif mb-3">Car Key Replacement & Fobs</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Lost all car keys? We generate new push-to-start smart proximity keys, laser-cut high-security blades, and remotes for <a href="/toyota-car-key-replacement/" class="underline font-bold text-slate-900 hover:text-amber-600">Toyota</a>, <a href="/honda-car-keys/" class="underline font-bold text-slate-900 hover:text-amber-600">Honda</a>, <a href="/kia-car-key-replacement/" class="underline font-bold text-slate-900 hover:text-amber-600">Kia</a>, Ford, and Chevy.
+            <h3 class="text-xl font-black text-[#0f274a] uppercase tracking-tight group-hover:text-amber-600 transition mb-2">
+              Car Key Replacement & Fobs
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Push-to-start smart keys, proximity fobs, and transponder blades cut and synced on-site for Toyota, Honda, Ford, Chevy, Kia & all makes.
             </p>
           </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-extrabold text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">From $120</span>
-            <a href="/car-key-replacement-nashville/" class="inline-flex items-center gap-1.5 font-black text-xs uppercase tracking-wider text-[#0f274a] hover:text-amber-600">
-              <span>Service Details</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-[#0f274a] group-hover:text-amber-600 transition">
+            <span class="uppercase tracking-wider">Service Details</span>
+            <span>&rarr;</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 3: Lockouts -->
-        <div class="bg-white rounded-3xl p-8 flex flex-col justify-between border border-slate-200 shadow-md relative overflow-hidden group hover:border-amber-500 hover:shadow-xl transition-all duration-300">
+        <!-- Service 3: Lockouts -->
+        <a href="/emergency-car-lockout/" class="group bg-white p-7 rounded-xl border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-200 text-red-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
-              🚨
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl text-red-500">🚨</span>
+              <span class="text-xs font-black px-2.5 py-1 rounded bg-slate-100 text-slate-900 uppercase tracking-wider">From $65</span>
             </div>
-            <h3 class="text-2xl font-black text-[#0f274a] font-serif mb-3">Car & Home Lockouts</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Immediate mobile dispatch across Nashville with specialized, non-destructive tools for damage-free vehicle and residential door unlocking.
+            <h3 class="text-xl font-black text-[#0f274a] uppercase tracking-tight group-hover:text-amber-600 transition mb-2">
+              Vehicle & Home Lockouts
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Fast mobile dispatch across Nashville. 100% damage-free door opening with specialized air wedges and professional bypass tools.
             </p>
           </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-extrabold text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">From $65</span>
-            <a href="/emergency-car-lockout/" class="inline-flex items-center gap-1.5 font-black text-xs uppercase tracking-wider text-[#0f274a] hover:text-amber-600">
-              <span>Service Details</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-[#0f274a] group-hover:text-amber-600 transition">
+            <span class="uppercase tracking-wider">Service Details</span>
+            <span>&rarr;</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 4: Residential Rekey -->
-        <div class="bg-white rounded-3xl p-8 flex flex-col justify-between border border-slate-200 shadow-md relative overflow-hidden group hover:border-amber-500 hover:shadow-xl transition-all duration-300">
+        <!-- Service 4: Residential Rekey -->
+        <a href="/residential-locksmith-nashville/" class="group bg-white p-7 rounded-xl border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-200 text-emerald-700 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
-              🏡
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl text-emerald-600">🏡</span>
+              <span class="text-xs font-black px-2.5 py-1 rounded bg-slate-100 text-slate-900 uppercase tracking-wider">$20–$45 / cyl</span>
             </div>
-            <h3 class="text-2xl font-black text-[#0f274a] font-serif mb-3">Lock Rekeying & Deadbolts</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Repin existing deadbolts and smart locks on your new home so old keys no longer work, saving you substantial money over full hardware replacement.
+            <h3 class="text-xl font-black text-[#0f274a] uppercase tracking-tight group-hover:text-amber-600 transition mb-2">
+              Residential Rekeying & Deadbolts
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Repin existing cylinders for Schlage, Kwikset, Yale, and Baldwin locks so old keys no longer work, saving money on full replacement.
             </p>
           </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-extrabold text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">$20–$45 / cyl</span>
-            <a href="/residential-locksmith-nashville/" class="inline-flex items-center gap-1.5 font-black text-xs uppercase tracking-wider text-[#0f274a] hover:text-amber-600">
-              <span>Service Details</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-[#0f274a] group-hover:text-amber-600 transition">
+            <span class="uppercase tracking-wider">Service Details</span>
+            <span>&rarr;</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 5: Commercial Doors -->
-        <div class="bg-white rounded-3xl p-8 flex flex-col justify-between border border-slate-200 shadow-md relative overflow-hidden group hover:border-amber-500 hover:shadow-xl transition-all duration-300">
+        <!-- Service 5: Commercial Storefronts -->
+        <a href="/commercial-locksmith/" class="group bg-white p-7 rounded-xl border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-200 text-indigo-700 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-[#0f274a] group-hover:text-white transition-all duration-300">
-              🏢
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl text-indigo-600">🏢</span>
+              <span class="text-xs font-black px-2.5 py-1 rounded bg-slate-100 text-slate-900 uppercase tracking-wider">Custom Quote</span>
             </div>
-            <h3 class="text-2xl font-black text-[#0f274a] font-serif mb-3">Storefront Doors & Hardware</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Adams Rite storefront locks, panic exit bars, master key systems, and Grade 1 commercial hardware installation for Middle TN businesses.
+            <h3 class="text-xl font-black text-[#0f274a] uppercase tracking-tight group-hover:text-amber-600 transition mb-2">
+              Commercial Doors & Hardware
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Adams Rite storefront mortise locks, panic exit crash bars, heavy-duty door closers, and master key systems for local businesses.
             </p>
           </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-extrabold text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">Upfront Quotes</span>
-            <a href="/commercial-locksmith/" class="inline-flex items-center gap-1.5 font-black text-xs uppercase tracking-wider text-[#0f274a] hover:text-amber-600">
-              <span>Service Details</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-[#0f274a] group-hover:text-amber-600 transition">
+            <span class="uppercase tracking-wider">Service Details</span>
+            <span>&rarr;</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Card 6: OEM Dealer Keys -->
-        <div class="bg-white rounded-3xl p-8 flex flex-col justify-between border border-slate-200 shadow-md relative overflow-hidden group hover:border-amber-500 hover:shadow-xl transition-all duration-300">
+        <!-- Service 6: OEM Dealer Alternative -->
+        <a href="/dealer-key/" class="group bg-white p-7 rounded-xl border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-200 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300">
-              ⚙️
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl text-amber-500">⚙️</span>
+              <span class="text-xs font-black px-2.5 py-1 rounded bg-slate-100 text-slate-900 uppercase tracking-wider">Save $100s</span>
             </div>
-            <h3 class="text-2xl font-black text-[#0f274a] font-serif mb-3">OEM Dealer Key Alternative</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Genuine factory keys without dealership prices or weeks of waiting. We stock OEM transponders and smart remotes programmed directly to your VIN.
+            <h3 class="text-xl font-black text-[#0f274a] uppercase tracking-tight group-hover:text-amber-600 transition mb-2">
+              OEM Dealer Key Alternative
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
+              Genuine factory keys without dealership markups or backorders. In-stock smart keys programmed to your VIN with zero towing needed.
             </p>
           </div>
-          <div class="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-extrabold text-sm text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">Save $100s</span>
-            <a href="/dealer-key/" class="inline-flex items-center gap-1.5 font-black text-xs uppercase tracking-wider text-[#0f274a] hover:text-amber-600">
-              <span>Service Details</span>
-              <span>&rarr;</span>
-            </a>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-[#0f274a] group-hover:text-amber-600 transition">
+            <span class="uppercase tracking-wider">Service Details</span>
+            <span>&rarr;</span>
           </div>
-        </div>
+        </a>
 
       </div>
 
