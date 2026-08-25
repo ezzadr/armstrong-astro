@@ -33,8 +33,11 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== TESTING ACCESS TO ARMSTRONG-PORTAL ==="
-            git ls-remote git@github.com:ezzadr/armstrong-portal.git || true
-
-            echo "=== TESTING ACCESS TO ARMSTRONG-AI-CALL-DISPATCH ==="
-            git ls-remote git@github.com:ezzadr/armstrong-ai-call-dispatch.git || true
+            echo "=== CHECKING SSH KEYS ON SERVER ==="
+            ls -la ~/.ssh/ || true
+            for key in ~/.ssh/id_*; do
+              if [[ "$key" == *.pub ]]; then
+                echo "Public key $key:"
+                cat "$key"
+              fi
+            done
