@@ -127,7 +127,7 @@ That may not matter equally to every customer, but it matters to a lot of people
    
 **The best choice is usually the most transparent one.** Not the loudest ad. Not the cheapest promise. The company that makes it easy to understand who they are and what kind of help they actually provide.
        
-## Final Thoughts
+## The Bottom Line for Nashville Drivers & Homeowners
  
 If you are searching for a locksmith in Nashville, do not judge the business only by how quickly someone answers the phone.
  
