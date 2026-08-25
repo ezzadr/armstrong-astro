@@ -21,28 +21,13 @@ jobs:
           port: 22
           script: |
             set -e
-            git config --global --add safe.directory "*"
+            echo "=== SEARCHING VHOSTS FOR DOMAIN ==="
+            grep -rn "armstronglocksmithinc.com" /home/master/applications/*/conf/ /etc/nginx/ /etc/apache2/ 2>/dev/null || true
             
-            echo "=== LISTING ALL APPLICATIONS ON SERVER ==="
-            ls -la /home/master/applications/
+            echo "=== LISTING ALL SITES IN /home/ ==="
+            find /home/ -maxdepth 3 -name "public_html" 2>/dev/null
             
-            # Find all public_html directories
-            for dir in /home/master/applications/*/public_html; do
-              echo "--- Syncing directory: $dir ---"
-              cd "$dir"
-              if [ ! -d ".git" ]; then
-                git init
-                git remote add origin https://github.com/ezzadr/armstrong-astro.git 2>/dev/null || git remote set-url origin https://github.com/ezzadr/armstrong-astro.git
-              else
-                git remote set-url origin https://github.com/ezzadr/armstrong-astro.git 2>/dev/null || true
-              fi
-              git fetch origin main
-              git reset --hard origin/main
-              echo "Synced $dir successfully!"
-            done
-
-            # Purge Varnish cache if available
-            echo "=== PURGING VARNISH CACHE ==="
-            varnishadm "ban req.url ~ .*" || true
-            
-            echo "=== FULL DEPLOYMENT COMPLETE ==="
+            echo "=== CHECKING VARNISH / NGINX CACHE ==="
+            # Restart or reload Nginx / Apache cache if permissions allow
+            killall -HUP nginx 2>/dev/null || true
+            killall -HUP apache2 2>/dev/null || true
