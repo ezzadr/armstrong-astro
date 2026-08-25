@@ -33,10 +33,12 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== CHECKING INDEX.HTML CONTENT ==="
-            grep -n "Get Your Free Upfront Estimate" index.html || echo "NOT FOUND IN INDEX.HTML"
-            grep -n "Instant Quote Request" index.html || echo "NOT FOUND IN INDEX.HTML"
-            grep -n "15–25 minutes" index.html || echo "15-25 minutes NOT PRESENT (CLEANED)"
-            
-            echo "=== CHECKING PERMISSIONS ==="
-            ls -la index.html
+            echo "=== CHECKING ALL APPLICATIONS ON SERVER ==="
+            ls -la /home/master/applications/ || true
+            for app in /home/master/applications/*; do
+              echo "--- App: $app ---"
+              ls -la "$app" 2>/dev/null || true
+            done
+
+            echo "=== CHECKING RUNNING ARTISAN / DAEMON PROCESSES ==="
+            ps aux | grep -E "artisan|php|supervisor|queue" | grep -v grep || echo "No background php/artisan processes"
