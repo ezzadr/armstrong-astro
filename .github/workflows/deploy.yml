@@ -33,12 +33,8 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== CHECKING ALL APPLICATIONS ON SERVER ==="
-            ls -la /home/master/applications/ || true
-            for app in /home/master/applications/*; do
-              echo "--- App: $app ---"
-              ls -la "$app" 2>/dev/null || true
-            done
+            echo "=== SEARCHING FOR LARAVEL / ARTISAN / DISPATCH APPS ==="
+            find /home/master/applications -name "artisan" -maxdepth 3 || true
 
-            echo "=== CHECKING RUNNING ARTISAN / DAEMON PROCESSES ==="
-            ps aux | grep -E "artisan|php|supervisor|queue" | grep -v grep || echo "No background php/artisan processes"
+            echo "=== CHECKING SUPERVISOR JOBS ==="
+            supervisorctl status || true
