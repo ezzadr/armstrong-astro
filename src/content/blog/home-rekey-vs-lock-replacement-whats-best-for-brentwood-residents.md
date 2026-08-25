@@ -68,4 +68,4 @@ Armstrong Locksmith carries factory pins for **Schlage, Kwikset, Baldwin, Yale, 
 
 * 📞 **Call Direct:** **(615) 625-8000**
 * 📍 **Storefront Location:** **208 Thompson Ln, Nashville, TN 37211**
-* 📜 **Licensed & Insured:** TN State License #406
+* 📜 **Licensed & Insured:** Certified & Insured

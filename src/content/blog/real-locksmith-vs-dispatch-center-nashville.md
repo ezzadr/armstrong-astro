@@ -157,4 +157,4 @@ Yes. Armstrong Locksmith Inc operates from a real Nashville shop at 208 Thompson
 - Local Nashville shop on Thompson Ln 
 - Family-owned locksmith company 
 - High-end automotive specialization 
-- TN License #406
+- Certified & Insured
