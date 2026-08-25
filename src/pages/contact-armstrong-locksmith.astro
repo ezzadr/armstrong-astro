@@ -215,12 +215,12 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
           }
 
           const formData = {
-            name: form.name.value,
-            phone: form.phone.value,
-            service: form.service.value,
-            details: form.details.value,
-            email: form.email.value,
-            notes: form.notes.value
+            name: form.name ? form.name.value : '',
+            phone: form.phone ? form.phone.value : '',
+            service: form.service ? form.service.value : '',
+            details: form.details ? form.details.value : '',
+            email: form.email ? form.email.value : '',
+            notes: form.message ? form.message.value : (form.notes ? form.notes.value : '')
           };
 
           try {

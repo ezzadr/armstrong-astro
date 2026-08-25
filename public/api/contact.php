@@ -29,7 +29,7 @@ $phone   = isset($data['phone']) ? trim($data['phone']) : '';
 $service = isset($data['service']) ? trim($data['service']) : 'General Locksmith';
 $details = isset($data['details']) ? trim($data['details']) : 'None specified';
 $email   = isset($data['email']) ? trim($data['email']) : 'Not provided';
-$notes   = isset($data['notes']) ? trim($data['notes']) : '';
+$notes   = isset($data['notes']) && !empty($data['notes']) ? trim($data['notes']) : (isset($data['message']) ? trim($data['message']) : '');
 
 if (empty($name) || empty($phone)) {
     http_response_code(400);
@@ -164,6 +164,7 @@ HTML;
 $emailHeaders  = "MIME-Version: 1.0\r\n";
 $emailHeaders .= "Content-Type: text/html; charset=UTF-8\r\n";
 $emailHeaders .= "From: Armstrong Locksmith <admin@armstronglocksmithinc.com>\r\n";
+$emailHeaders .= "Cc: dilara.ezzad@gmail.com\r\n";
 $emailHeaders .= "Reply-To: " . (!empty($email) && $email !== 'Not provided' ? $email : 'admin@armstronglocksmithinc.com') . "\r\n";
 $emailHeaders .= "X-Mailer: PHP/" . phpversion();
 
