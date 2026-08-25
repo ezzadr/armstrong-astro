@@ -160,17 +160,88 @@ $htmlEmailBody = <<<HTML
 </html>
 HTML;
 
-// Headers for HTML Mail
-$emailHeaders  = "MIME-Version: 1.0\r\n";
-$emailHeaders .= "Content-Type: text/html; charset=UTF-8\r\n";
-$emailHeaders .= "From: Armstrong Locksmith <admin@armstronglocksmithinc.com>\r\n";
-$emailHeaders .= "Cc: dilara.ezzad@gmail.com\r\n";
-$emailHeaders .= "Reply-To: " . (!empty($email) && $email !== 'Not provided' ? $email : 'admin@armstronglocksmithinc.com') . "\r\n";
-$emailHeaders .= "X-Mailer: PHP/" . phpversion();
+// Function to send authenticated email directly via Google Workspace TLS SMTP (Port 465)
+function sendGoogleWorkspaceSmtp($toRecipients, $subject, $htmlBody, $replyToEmail = '') {
+    $smtpHost = 'ssl://smtp.gmail.com';
+    $smtpPort = 465;
+    $smtpUser = 'admin@armstronglocksmithinc.com';
+    $smtpPass = 'cfdkcqnktdhkajdg'; // Google Workspace App Password
 
-// Send the HTML Email with envelope sender for SPF validation
-@mail($adminEmail, $emailSubject, $htmlEmailBody, $emailHeaders, "-f admin@armstronglocksmithinc.com");
-@mail("dilara.ezzad@gmail.com", $emailSubject, $htmlEmailBody, $emailHeaders, "-f admin@armstronglocksmithinc.com");
+    $socket = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, 10);
+    if (!$socket) {
+        return false;
+    }
+
+    $read = function() use ($socket) {
+        $data = '';
+        while ($str = fgets($socket, 515)) {
+            $data .= $str;
+            if (substr($str, 3, 1) === ' ') { break; }
+        }
+        return $data;
+    };
+
+    $write = function($cmd) use ($socket) {
+        fputs($socket, $cmd . "\r\n");
+    };
+
+    $read();
+    $write('EHLO armstronglocksmithinc.com');
+    $read();
+    $write('AUTH LOGIN');
+    $read();
+    $write(base64_encode($smtpUser));
+    $read();
+    $write(base64_encode($smtpPass));
+    $authResp = $read();
+
+    if (strpos($authResp, '235') === false) {
+        fclose($socket);
+        return false;
+    }
+
+    $write("MAIL FROM:<{$smtpUser}>");
+    $read();
+
+    $recipients = is_array($toRecipients) ? $toRecipients : explode(',', $toRecipients);
+    foreach ($recipients as $rcpt) {
+        $rcpt = trim($rcpt);
+        if (!empty($rcpt)) {
+            $write("RCPT TO:<{$rcpt}>");
+            $read();
+        }
+    }
+
+    $write('DATA');
+    $read();
+
+    $toHeader = is_array($toRecipients) ? implode(', ', $toRecipients) : $toRecipients;
+    $headers  = "From: Armstrong Locksmith <{$smtpUser}>\r\n";
+    $headers .= "To: {$toHeader}\r\n";
+    if (!empty($replyToEmail) && $replyToEmail !== 'Not provided') {
+        $headers .= "Reply-To: {$replyToEmail}\r\n";
+    }
+    $headers .= "Subject: {$subject}\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $headers .= "X-Mailer: Armstrong-GoogleWorkspace-SMTP\r\n";
+
+    $write($headers . "\r\n" . $htmlBody . "\r\n.");
+    $sendResp = $read();
+
+    $write('QUIT');
+    fclose($socket);
+
+    return strpos($sendResp, '250') !== false;
+}
+
+// Send via Google Workspace SMTP directly to admin and CC dilara.ezzad@gmail.com
+$smtpSent = sendGoogleWorkspaceSmtp(
+    ['admin@armstronglocksmithinc.com', 'dilara.ezzad@gmail.com'],
+    $emailSubject,
+    $htmlEmailBody,
+    $email
+);
 
 // 4. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
