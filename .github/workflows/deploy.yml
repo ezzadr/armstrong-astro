@@ -21,13 +21,18 @@ jobs:
           port: 22
           script: |
             set -e
-            echo "=== SEARCHING VHOSTS FOR DOMAIN ==="
-            grep -rn "armstronglocksmithinc.com" /home/master/applications/*/conf/ /etc/nginx/ /etc/apache2/ 2>/dev/null || true
+            git config --global --add safe.directory "*"
+            cd /home/master/applications/btfdkcdpdw/public_html
             
-            echo "=== LISTING ALL SITES IN /home/ ==="
-            find /home/ -maxdepth 3 -name "public_html" 2>/dev/null
+            echo "=== CURRENT GIT STATUS ==="
+            git fetch origin main
+            git reset --hard origin/main
+            git status
             
-            echo "=== CHECKING VARNISH / NGINX CACHE ==="
-            # Restart or reload Nginx / Apache cache if permissions allow
-            killall -HUP nginx 2>/dev/null || true
-            killall -HUP apache2 2>/dev/null || true
+            echo "=== CHECKING INDEX.HTML CONTENT ==="
+            grep -n "Get Your Free Upfront Estimate" index.html || echo "NOT FOUND IN INDEX.HTML"
+            grep -n "Instant Quote Request" index.html || echo "NOT FOUND IN INDEX.HTML"
+            grep -n "15–25 minutes" index.html || echo "15-25 minutes NOT PRESENT (CLEANED)"
+            
+            echo "=== CHECKING PERMISSIONS ==="
+            ls -la index.html
