@@ -20,6 +20,9 @@ ErrorDocument 404 /404.html
   RewriteCond %{HTTP_HOST} ^www\.armstronglocksmithinc\.com [NC]
   RewriteRule ^(.*)$ https://armstronglocksmithinc.com/$1 [L,R=301]
 
+  # Admin Content Studio Direct Entry
+  RewriteRule ^admin/?$ /admin/index.php [L,R=302]
+
   # Sitemap Rewrites & Aliases for Search Console
   RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
   RewriteRule ^sitemap_index\.xml$ /sitemap-index.xml [L,R=301]
