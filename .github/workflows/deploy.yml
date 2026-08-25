@@ -33,12 +33,5 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== CHECKING JQKVDRPCFZ DATABASE & FILES ==="
-            cd /home/master/applications/jqkvdrpcfz/public_html
-            cat .env 2>/dev/null | grep -E "DB_|OPENAI" || true
-            ls -la ../private_html 2>/dev/null || true
-            ls -la storage/ 2>/dev/null || true
-
-            echo "=== CHECKING HRFZWCVQH DATABASE & FILES ==="
-            cd /home/master/applications/hrfzwcjvqh/public_html
-            cat .env 2>/dev/null | grep -E "DB_|OPENAI" || true
+            echo "=== TESTING GITHUB SSH FROM CLOUDWAYS ==="
+            ssh -o StrictHostKeyChecking=no -T git@github.com || true
