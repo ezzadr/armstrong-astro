@@ -103,9 +103,11 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "max-age=31536000, public, immutable"
   </FilesMatch>
 
-  # 1-Hour Cache with revalidation for HTML
+  # Zero Stale Cache for HTML & PHP (Instant updates on Cloudflare & Browsers)
   <FilesMatch "\.(html|htm|php)$">
-    Header set Cache-Control "max-age=3600, public, must-revalidate"
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
   </FilesMatch>
 
   # Security Headers for Core Web Vitals Trust
