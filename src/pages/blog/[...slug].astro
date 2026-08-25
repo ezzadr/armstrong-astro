@@ -158,10 +158,126 @@ const blogSchema = [
           />
         </div>
 
-        <!-- Rendered Markdown Body -->
-        <article class="prose prose-slate prose-lg max-w-none text-slate-800 leading-relaxed">
+        <!-- Rendered Markdown Body with Rich Typography -->
+        <article class="article-content max-w-none text-slate-800 leading-relaxed font-sans">
           <Content />
         </article>
+
+        <style is:inline>
+          .article-content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #0f274a;
+            margin-top: 2.25rem;
+            margin-bottom: 0.85rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1f5f9;
+            line-height: 1.3;
+          }
+          .article-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-top: 1.75rem;
+            margin-bottom: 0.65rem;
+            line-height: 1.35;
+          }
+          .article-content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f274a;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+          }
+          .article-content p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #334155;
+            margin-bottom: 1.35rem;
+          }
+          .article-content strong {
+            color: #0f172a;
+            font-weight: 800;
+          }
+          .article-content a {
+            color: #d97706;
+            text-decoration: underline;
+            font-weight: 600;
+            text-underline-offset: 3px;
+            transition: color 0.15s ease;
+          }
+          .article-content a:hover {
+            color: #b45309;
+          }
+          .article-content ul {
+            list-style-type: disc;
+            padding-left: 1.75rem;
+            margin-bottom: 1.35rem;
+            color: #334155;
+          }
+          .article-content ol {
+            list-style-type: decimal;
+            padding-left: 1.75rem;
+            margin-bottom: 1.35rem;
+            color: #334155;
+          }
+          .article-content li {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 0.5rem;
+          }
+          .article-content blockquote {
+            border-left: 4px solid #f59e0b;
+            background: #fffbeb;
+            padding: 1.15rem 1.5rem;
+            border-radius: 0.75rem;
+            color: #92400e;
+            font-size: 1.05rem;
+            font-style: italic;
+            margin: 1.75rem 0;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
+          }
+          .article-content img {
+            border-radius: 1rem;
+            margin: 1.75rem 0;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+          .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.75rem 0;
+            font-size: 0.95rem;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+          }
+          .article-content th {
+            background: #0f274a;
+            color: #ffffff;
+            padding: 0.85rem 1rem;
+            text-align: left;
+            font-weight: 700;
+          }
+          .article-content td {
+            padding: 0.85rem 1rem;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+          }
+          .article-content tr:nth-child(even) {
+            background: #f8fafc;
+          }
+          @media (max-width: 640px) {
+            .article-content h2 { font-size: 1.5rem; }
+            .article-content h3 { font-size: 1.25rem; }
+            .article-content p, .article-content li { font-size: 0.98rem; }
+          }
+        </style>
 
         <!-- Author Signature Card -->
         <div class="mt-12 p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center gap-5">
