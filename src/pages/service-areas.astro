@@ -2,57 +2,553 @@
 import Layout from '../layouts/Layout.astro';
 
 const seoTitle = "Locksmith Service Areas Nashville TN | Armstrong Locksmith";
-const seoDescription = "Fast Prompt Mobile ETA mobile locksmith dispatch across Greater Nashville, Davidson & Williamson County. Car keys, lockouts & rekeys. Call (615) 625-8000.";
+const seoDescription = "Licensed mobile locksmith & storefront serving Nashville, Brentwood, Franklin, Antioch, Donelson & Middle TN. 208 Thompson Ln. Call (615) 625-8000.";
 
-const areas = [
-  { name: "Downtown & Metro Nashville", zip: "37201, 37203, 37219", desc: "Fast roadside car unlock, storefront hardware & residential services." },
-  { name: "South Nashville & Thompson Ln", zip: "37211", desc: "Our physical shop headquarters at 208 Thompson Lane for immediate walk-ins." },
-  { name: "Brentwood", zip: "37027", desc: "Luxury European vehicle key replacement & residential rekeying for homeowners." },
-  { name: "Franklin & Cool Springs", zip: "37064, 37067", desc: "Commercial door access control, master key systems & emergency lockouts." },
-  { name: "Donelson & BNA Airport", zip: "37214", desc: "Prompt same-day dispatch for airport travelers with lost keys or vehicle lockouts." },
-  { name: "Antioch", zip: "37013", desc: "Affordable mobile car key cutting, transponder programming & deadbolt changes." },
-  { name: "Green Hills & Belle Meade", zip: "37215, 37205", desc: "High-security lock installation, European smart keys (BMW, Mercedes, Audi)." },
-  { name: "Hermitage & Mt. Juliet", zip: "37076, 37122", desc: "Full mobile locksmith coverage for residential and automotive key services." },
-  { name: "Nolensville & Berry Hill", zip: "37135, 37204", desc: "Fast lock rekeying for new construction and established residential communities." }
+const serviceAreas = [
+  {
+    name: "Downtown & Metro Nashville",
+    zips: "37201, 37203, 37219",
+    tag: "High-Rise & Broadway",
+    desc: "Rapid vehicle unlocks, parking garage lockouts, high-rise condo deadbolt rekeys, and commercial panic hardware for Broadway venues & restaurants.",
+    features: ["Emergency Car Unlocking", "Condo & Apartment Rekeys", "Storefront Mortise Locks"],
+    accent: "border-blue-500/30 bg-gradient-to-b from-white to-blue-50/20"
+  },
+  {
+    name: "South Nashville & Thompson Ln",
+    zips: "37211, 37210",
+    tag: "Storefront Headquarters",
+    desc: "Our physical brick-and-mortar storefront located at 208 Thompson Lane. Walk in for instant key copying, shell repairs, ignition diagnostics, or mobile dispatch.",
+    features: ["Walk-In Key Copying", "European Transponder Cutting", "Ignition Cylinder Rebuilding"],
+    accent: "border-amber-500/50 bg-gradient-to-b from-white to-amber-50/30 ring-2 ring-amber-400/20",
+    isHQ: true
+  },
+  {
+    name: "Brentwood",
+    zips: "37027",
+    tag: "Luxury European Specialist",
+    desc: "Dealer-grade smart proximity key replacement for BMW, Mercedes, Audi, Porsche & Land Rover. Residential high-security deadbolt installation and full estate rekeying.",
+    features: ["BMW & Benz Push-To-Start", "Mul-T-Lock & Medeco Systems", "Zero-Tow Driveway Service"],
+    accent: "border-emerald-500/30 bg-gradient-to-b from-white to-emerald-50/20"
+  },
+  {
+    name: "Franklin & Cool Springs",
+    zips: "37064, 37067, 37069",
+    tag: "Corporate & Estates",
+    desc: "Commercial master key charting, electronic access keypads, office rekeying, and roadside automotive key origination for corporate campuses and historic homes.",
+    features: ["Master Key Charting", "Panic Bar & ADA Latches", "Smart Remote Programming"],
+    accent: "border-purple-500/30 bg-gradient-to-b from-white to-purple-50/20"
+  },
+  {
+    name: "Donelson & Nashville Airport (BNA)",
+    zips: "37214",
+    tag: "BNA Airport Priority",
+    desc: "Priority roadside response for airport parking lot travelers with lost fobs, broken keys, or trunk lockouts. On-site laser cutting and transponder generation.",
+    features: ["BNA Long-Term Parking Unlocks", "All Keys Lost Origination", "Same-Day Flight Save"],
+    accent: "border-sky-500/30 bg-gradient-to-b from-white to-sky-50/20"
+  },
+  {
+    name: "Green Hills & Belle Meade",
+    zips: "37215, 37205",
+    tag: "High-Security Security",
+    desc: "Premium residential locks, smart keypad installation, Baldwin and Emtek mortise repair, and encrypted luxury vehicle key programming on location.",
+    features: ["Baldwin Hardware Service", "Luxury SUV Smart Fobs", "Decorative Entryway Locks"],
+    accent: "border-indigo-500/30 bg-gradient-to-b from-white to-indigo-50/20"
+  },
+  {
+    name: "Antioch & Priest Lake",
+    zips: "37013, 37217",
+    tag: "Fast Domestic & Asian Keys",
+    desc: "Affordable Ford, Chevy, Dodge, Toyota, Honda, Hyundai and Kia smart key replacement. Fast house lockout rescue and affordable exterior deadbolt rekeying.",
+    features: ["Toyota & Honda Smart Keys", "24/7 Mobile Vehicle Lockouts", "Deadbolt Hardware Upgrades"],
+    accent: "border-rose-500/30 bg-gradient-to-b from-white to-rose-50/20"
+  },
+  {
+    name: "Hermitage & Mt. Juliet",
+    zips: "37076, 37122",
+    tag: "Residential & Retail",
+    desc: "Full mobile locksmith coverage for residential subdivisions, retail storefronts, flip key replacements, and mailbox lock replacements across Wilson County borders.",
+    features: ["Subdivision House Rekeys", "Commercial Storefront Glass", "Remote Head Key Cutting"],
+    accent: "border-cyan-500/30 bg-gradient-to-b from-white to-cyan-50/20"
+  },
+  {
+    name: "Nolensville & Berry Hill",
+    zips: "37135, 37204",
+    tag: "New Builds & Design Studios",
+    desc: "Prompt lock rekeying for newly purchased construction homes, studio locksets, keypad conversions, and duplicate key cutting directly on-site.",
+    features: ["New Construction Rekeys", "Electronic Keyless Locks", "Precision Laser Blade Copy"],
+    accent: "border-amber-500/30 bg-gradient-to-b from-white to-amber-50/20"
+  },
+  {
+    name: "East Nashville & Inglewood",
+    zips: "37206, 37216",
+    tag: "Historic & Vintage Locks",
+    desc: "Specialized restoration and modern cylinder retrofitting for historic Craftsman & Victorian entry doors, mortise locks, and fast roadside vehicle lockouts.",
+    features: ["Vintage Mortise Retrofitting", "Antique Lock Servicing", "Mobile Roadside Lockout"],
+    accent: "border-emerald-500/30 bg-gradient-to-b from-white to-emerald-50/20"
+  },
+  {
+    name: "Hendersonville & Madison",
+    zips: "37075, 37115",
+    tag: "North Metro & Lakes",
+    desc: "Complete mobile locksmith services for lakefront residential properties, marina vehicle lockouts, fleet commercial locks, and transponder chip generation.",
+    features: ["Lakefront Home Security", "Fleet Vehicle Rekeying", "Transponder Chip Syncing"],
+    accent: "border-blue-500/30 bg-gradient-to-b from-white to-blue-50/20"
+  },
+  {
+    name: "Murfreesboro & Smyrna",
+    zips: "37129, 37130, 37167",
+    tag: "Rutherford County Fleet",
+    desc: "Commercial access control, master keying for multi-unit buildings, automotive key replacement, and emergency lockout dispatch for South Metro communities.",
+    features: ["Multi-Unit Master Keys", "Commercial Exit Devices", "Heavy Duty Door Hardware"],
+    accent: "border-slate-500/30 bg-gradient-to-b from-white to-slate-50/20"
+  }
+];
+
+const serviceAreasSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/service-areas/#service",
+    "name": "Locksmith Service Areas Greater Nashville",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Nashville" },
+      { "@type": "City", "name": "Brentwood" },
+      { "@type": "City", "name": "Franklin" },
+      { "@type": "City", "name": "Antioch" },
+      { "@type": "City", "name": "Donelson" },
+      { "@type": "City", "name": "Hermitage" },
+      { "@type": "City", "name": "Belle Meade" },
+      { "@type": "City", "name": "Green Hills" },
+      { "@type": "City", "name": "Nolensville" },
+      { "@type": "City", "name": "Berry Hill" },
+      { "@type": "City", "name": "Hendersonville" },
+      { "@type": "City", "name": "Murfreesboro" },
+      { "@type": "City", "name": "Smyrna" }
+    ],
+    "description": "Licensed mobile locksmith and walk-in storefront providing car key replacement, residential rekeying, commercial door hardware, and emergency lockout services across Middle Tennessee."
+  }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/service-areas/">
+<Layout title={seoTitle} description={seoDescription} canonical="/service-areas/" schema={serviceAreasSchema}>
   
-  <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto text-left">
-      <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-2">Coverage Map</span>
-      <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight">
-        Locksmith Service Areas in Nashville
-      </h1>
-      <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-2 font-light">
-        Our mobile vans provide fast Prompt same-day response times across Davidson County, Williamson County, and the greater Nashville metro area.
-      </p>
+  <!-- ==================== LUXURY HERO HEADER ==================== -->
+  <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
+    <!-- Ambient Glow Lighting -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur text-xs font-bold text-amber-300 mb-4 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>TN State License #406 &bull; Storefront & Mobile Fleet Coverage</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
+            Locksmith Service Areas <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">Across Metro Nashville</span>
+          </h1>
+
+          <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-3xl mt-4 leading-relaxed font-normal">
+            Whether you need a spare car key cut at our <strong>physical Thompson Lane storefront</strong> or urgent mobile roadside dispatch to your driveway anywhere in Davidson, Williamson, or Rutherford County, Armstrong Locksmith delivers master craftsmanship with honest upfront pricing.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-6">
+            <a 
+              href="tel:6156258000" 
+              class="px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border border-emerald-400/40"
+            >
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+              <span>Call (615) 625-8000</span>
+            </a>
+
+            <a 
+              href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="px-7 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition active:scale-95 border border-amber-300"
+            >
+              <span>Book Service Online &rarr;</span>
+            </a>
+
+            <a 
+              href="#coverage-grid" 
+              class="px-5 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm flex items-center justify-center gap-2 border border-white/20 transition"
+            >
+              <span>Explore 12 Coverage Zones &darr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Summary Stats Card -->
+        <div class="lg:col-span-4 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 shadow-2xl text-left">
+          <h3 class="text-base font-bold text-white font-serif mb-4 flex items-center gap-2">
+            <span class="text-amber-400 text-lg">🛡️</span>
+            <span>Middle Tennessee Service Metrics</span>
+          </h3>
+
+          <div class="space-y-3.5 text-xs text-slate-200">
+            <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
+              <span class="text-slate-300">Physical Storefront</span>
+              <strong class="text-white font-bold">208 Thompson Ln, 37211</strong>
+            </div>
+            <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
+              <span class="text-slate-300">Counties Served</span>
+              <strong class="text-white font-bold">Davidson, Williamson, Rutherford</strong>
+            </div>
+            <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
+              <span class="text-slate-300">Mobile Fleet Dispatch</span>
+              <strong class="text-emerald-400 font-bold">Prompt Direct to Vehicle / Home</strong>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300">Verified Rating</span>
+              <strong class="text-amber-300 font-bold">⭐ 4.9 Stars (120+ Reviews)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </header>
 
-  <!-- Service Areas Grid -->
-  <section class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+  <!-- ==================== DUAL-SERVICE ADVANTAGE: STOREFRONT VS MOBILE ==================== -->
+  <section class="py-14 sm:py-16 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
     <div class="max-w-7xl mx-auto">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {areas.map((area) => (
-          <div class="card-clean rounded-2xl p-7 flex flex-col justify-between bg-white">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600">The Armstrong Difference</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight mt-1">
+          Two Ways To Get Locksmith Service in Nashville
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Unlike online dispatch centers that operate out of call centers, Armstrong Locksmith gives you two reliable options:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Option 1: Walk-In Storefront -->
+        <div class="bg-slate-50 rounded-3xl p-7 sm:p-9 border-2 border-slate-200 hover:border-amber-400 transition-all duration-300 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-black text-xs uppercase tracking-wider border border-amber-300">
+                Option 1: Walk-In Store
+              </span>
+              <span class="text-xs font-bold text-slate-500">Save On Service Call Fees</span>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-black text-[#0f274a] font-serif mb-3">
+              Visit Our Thompson Lane Shop
+            </h3>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Bring your vehicle or lock directly to our Nashville storefront. Rahim and our shop technicians will laser-cut spare keys, program smart proximity fobs, rebuild sticky ignitions, or rekey loose deadbolts while you wait inside our comfortable shop.
+            </p>
+
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span><strong>Address:</strong> 208 Thompson Ln, Nashville, TN 37211</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span><strong>Hours:</strong> Mon–Fri 8:00 AM – 11:30 PM &bull; Sat 10 AM – 4 PM</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Full inventory of OEM & aftermarket smart keys in stock</span>
+              </li>
+            </ul>
+          </div>
+
+          <a 
+            href="https://maps.google.com/?cid=10860533355523991515" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider text-center transition flex items-center justify-center gap-2"
+          >
+            <span>Get Directions to Shop &rarr;</span>
+          </a>
+        </div>
+
+        <!-- Option 2: Mobile Dispatch Fleet -->
+        <div class="bg-slate-50 rounded-3xl p-7 sm:p-9 border-2 border-slate-200 hover:border-emerald-500 transition-all duration-300 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-black text-xs uppercase tracking-wider border border-emerald-300">
+                Option 2: Mobile Vans to You
+              </span>
+              <span class="text-xs font-bold text-slate-500">Zero Towing Required</span>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-black text-[#0f274a] font-serif mb-3">
+              We Drive Directly To Your Location
+            </h3>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+              Stranded with lost car keys, locked out of your home, or need your business rekeyed after hours? Our fully equipped mobile locksmith vans arrive directly at your driveway, office parking lot, or roadside across Metro Nashville.
+            </p>
+
+            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span><strong>Coverage:</strong> Davidson, Williamson, Rutherford & Wilson County</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Vans equipped with CNC laser key cutters & OBD2 programmers</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Emergency vehicle unlocking with zero door or paint damage</span>
+              </li>
+            </ul>
+          </div>
+
+          <a 
+            href="tel:6156258000" 
+            class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider text-center transition flex items-center justify-center gap-2"
+          >
+            <span>Request Mobile Dispatch Now &rarr;</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 12 DETAILED SERVICE AREA CARDS ==================== -->
+  <section class="py-16 sm:py-24 bg-slate-100 px-4 sm:px-6 lg:px-8 border-b border-slate-200" id="coverage-grid">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 text-left">
+        <div>
+          <span class="text-xs font-black uppercase tracking-wider text-amber-600 block mb-1">Interactive Directory</span>
+          <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight">
+            Neighborhoods & Cities We Serve
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl">
+            Click to call or request immediate service across any of our primary service territories:
+          </p>
+        </div>
+
+        <a 
+          href="tel:6156258000" 
+          class="px-5 py-3 rounded-xl bg-[#0f274a] hover:bg-[#16335c] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 w-fit shrink-0 shadow transition"
+        >
+          <span>Need Service Outside These Zones? Call (615) 625-8000</span>
+        </a>
+      </div>
+
+      <!-- Grid of 12 Service Areas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        {serviceAreas.map((area) => (
+          <div class={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${area.accent}`}>
+            
             <div>
-              <span class="text-xs font-bold text-amber-600 uppercase tracking-wider block mb-1">Coverage Area</span>
-              <h2 class="text-xl font-bold text-[#0f274a] font-serif mb-2">{area.name}</h2>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-900 text-white">
+                  {area.tag}
+                </span>
+                {area.isHQ && (
+                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 animate-pulse">
+                    ★ Shop HQ
+                  </span>
+                )}
+              </div>
+
+              <h3 class="text-xl font-bold text-[#0f274a] font-serif mb-2">{area.name}</h3>
+              
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
                 {area.desc}
               </p>
+
+              <!-- Features Pill List -->
+              <div class="space-y-1.5 mb-5">
+                {area.features.map((feat) => (
+                  <div class="flex items-center gap-2 text-xs font-medium text-slate-700">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span>ZIP: {area.zip}</span>
-              <span class="text-emerald-700 font-bold">15-25m ETA</span>
+
+            <div class="pt-4 border-t border-slate-200/80 flex items-center justify-between">
+              <div class="text-[11px] text-slate-500 font-mono">
+                <strong>ZIP:</strong> {area.zips}
+              </div>
+
+              <a 
+                href="tel:6156258000" 
+                class="px-3.5 py-2 rounded-lg bg-[#0f274a] hover:bg-amber-500 hover:text-slate-950 text-white font-extrabold text-[11px] uppercase tracking-wider transition active:scale-95 flex items-center gap-1"
+                aria-label={`Call Locksmith for ${area.name}`}
+              >
+                <span>Dispatch</span>
+                <span>&rarr;</span>
+              </a>
             </div>
+
           </div>
         ))}
       </div>
 
     </div>
   </section>
+
+  <!-- ==================== LOCAL REVIEWS BY NEIGHBORHOOD ==================== -->
+  <section class="py-16 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600">Local Reputation</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight mt-1">
+          What Nashville Neighbors Say In Your Area
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Over 120+ verified five-star Google reviews from drivers and homeowners across Middle Tennessee:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1: Brentwood -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-amber-500 text-sm">★★★★★</span>
+              <span class="text-[11px] font-bold text-slate-500">Brentwood, TN</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-4">
+              “Saved me over $600 compared to the BMW dealership! Dealer wanted to tow my 5-Series and keep it for a week. Rahim drove out with his computer tools, cut the emergency blade, and synced the new smart fob right in my driveway.”
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+            <strong class="text-[#0f274a] font-bold">Marcus V.</strong>
+            <span class="text-emerald-700 font-semibold text-[11px]">✓ Verified Customer</span>
+          </div>
+        </div>
+
+        <!-- Review 2: Airport / Donelson -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-amber-500 text-sm">★★★★★</span>
+              <span class="text-[11px] font-bold text-slate-500">BNA Airport / Donelson</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-4">
+              “Lost my Audi Q5 key while parked in long-term parking at BNA. Called Armstrong from baggage claim. The technician met me at my vehicle, decoded the door lock, and had a working flip key programmed on-site so I could drive home safely.”
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+            <strong class="text-[#0f274a] font-bold">Sarah L.</strong>
+            <span class="text-emerald-700 font-semibold text-[11px]">✓ Verified Customer</span>
+          </div>
+        </div>
+
+        <!-- Review 3: South Nashville Storefront -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-amber-500 text-sm">★★★★★</span>
+              <span class="text-[11px] font-bold text-slate-500">Thompson Ln Storefront</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-4">
+              “Having an actual physical storefront made all the difference. I dropped in on my lunch break, Rahim cut and programmed an extra smart key for my Audi in under twenty minutes. Clean shop, honest pricing, and friendly master locksmith.”
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+            <strong class="text-[#0f274a] font-bold">Carlos M.</strong>
+            <span class="text-emerald-700 font-semibold text-[11px]">✓ Verified Customer</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MAP & STOREFRONT LOCATION ==================== -->
+  <section class="py-14 sm:py-16 bg-slate-900 text-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <div class="lg:col-span-6 text-left">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-1">Physical Location</span>
+        <h2 class="text-2xl sm:text-4xl font-black font-serif tracking-tight text-white mb-4">
+          Visit Our Central Nashville Shop
+        </h2>
+
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+          Centrally located on Thompson Lane with convenient customer parking. Walk in during business hours for key cutting, fob replacements, and lock rekeying, or call for immediate mobile van dispatch anywhere across Middle Tennessee.
+        </p>
+
+        <div class="space-y-3 text-xs sm:text-sm text-slate-200 mb-6">
+          <div class="flex items-center gap-3">
+            <span class="text-lg">📍</span>
+            <span><strong>208 Thompson Ln, Nashville, TN 37211</strong></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-lg">📞</span>
+            <a href="tel:6156258000" class="text-amber-400 font-bold hover:underline">(615) 625-8000</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-lg">🕒</span>
+            <span>Mon–Fri: 8:00 AM – 11:30 PM &bull; Sat: 10 AM – 4 PM &bull; Sun: Mobile Dispatch</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a 
+            href="tel:6156258000" 
+            class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition active:scale-95"
+          >
+            <span>Call (615) 625-8000</span>
+          </a>
+          <a 
+            href="https://maps.google.com/?cid=10860533355523991515" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 transition"
+          >
+            <span>Open in Google Maps &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map Embed Container -->
+      <div class="lg:col-span-6 rounded-3xl overflow-hidden shadow-2xl border-2 border-white/15 h-80 sm:h-96">
+        <iframe 
+          title="Armstrong Locksmith Storefront Location Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1f13.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886465a4c1b9aab9%3A0xaab9c1a4d806b904!2sArmstrong%20Locksmith%20Inc!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-full"
+        ></iframe>
+      </div>
+
+    </div>
+  </section>
+
 </Layout>
