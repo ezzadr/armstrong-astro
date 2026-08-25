@@ -168,8 +168,9 @@ $emailHeaders .= "Cc: dilara.ezzad@gmail.com\r\n";
 $emailHeaders .= "Reply-To: " . (!empty($email) && $email !== 'Not provided' ? $email : 'admin@armstronglocksmithinc.com') . "\r\n";
 $emailHeaders .= "X-Mailer: PHP/" . phpversion();
 
-// Send the HTML Email
-@mail($adminEmail, $emailSubject, $htmlEmailBody, $emailHeaders);
+// Send the HTML Email with envelope sender for SPF validation
+@mail($adminEmail, $emailSubject, $htmlEmailBody, $emailHeaders, "-f admin@armstronglocksmithinc.com");
+@mail("dilara.ezzad@gmail.com", $emailSubject, $htmlEmailBody, $emailHeaders, "-f admin@armstronglocksmithinc.com");
 
 // 4. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
