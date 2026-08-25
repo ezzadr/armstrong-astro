@@ -21,63 +21,13 @@ jobs:
           port: 22
           script: |
             set -e
-            git config --global --add safe.directory "*"
+            echo "=== AUTO DEPLOYING ARMSTRONG-ASTRO WEBSITE ==="
             cd /home/master/applications/btfdkcdpdw/public_html
-            
-            echo "=== CURRENT GIT STATUS ==="
             git fetch origin main
             git reset --hard origin/main
             git status
-            
+
             echo "=== PURGING LOCAL VARNISH CACHE ==="
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
-
-            echo "=== RESTORING ARMSTRONG AI CALL DISPATCH IN jqkvdrpcfz ==="
-            cd /home/master/applications/jqkvdrpcfz/public_html
-            if [ -f .env ]; then
-              cp .env /tmp/jqkvdrpcfz_env_backup
-            fi
-            
-            git remote set-url origin git@github.com-dispatch:ezzadr/armstrong-ai-call-dispatch.git 2>/dev/null || git remote add origin git@github.com-dispatch:ezzadr/armstrong-ai-call-dispatch.git
-            git fetch origin main
-            git reset --hard origin/main
-            
-            if [ -f /tmp/jqkvdrpcfz_env_backup ]; then
-              cp /tmp/jqkvdrpcfz_env_backup .env
-            fi
-
-            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true
-            php artisan optimize:clear || true
-            php artisan config:cache || true
-            php artisan route:cache || true
-            php artisan view:cache || true
-            php artisan migrate --force || true
-            
-            echo "=== DISPATCH APP RESTORE STATUS ==="
-            git log -n 1
-            php artisan --version || true
-
-            echo "=== RESTORING ARMSTRONG PORTAL IN hrfzwcjvqh ==="
-            cd /home/master/applications/hrfzwcjvqh/public_html
-            if [ -f .env ]; then
-              cp .env /tmp/hrfzwcjvqh_env_backup
-            fi
-            
-            git remote set-url origin git@github.com-portal:ezzadr/armstrong-portal.git 2>/dev/null || git remote add origin git@github.com-portal:ezzadr/armstrong-portal.git
-            git fetch origin main
-            git reset --hard origin/main
-            
-            if [ -f /tmp/hrfzwcjvqh_env_backup ]; then
-              cp /tmp/hrfzwcjvqh_env_backup .env
-            fi
-
-            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true
-            php artisan optimize:clear || true
-            php artisan config:cache || true
-            php artisan route:cache || true
-            php artisan view:cache || true
-            
-            echo "=== PORTAL APP RESTORE STATUS ==="
-            git log -n 1
-            php artisan --version || true
+            echo "Website deploy complete!"
