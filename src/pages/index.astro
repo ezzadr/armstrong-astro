@@ -227,72 +227,70 @@ const homepageLocalSchema = [
 
 <Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageLocalSchema}>
   
-  <!-- ==================== HERO SECTION WITH INSTANT QUOTE FORM (TWILIO SMS READY) ==================== -->
-  <section class="bg-[#0f274a] text-white py-10 sm:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+  <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
+  <section class="relative bg-[#07152b] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
+    <!-- Subtle Shop Background Layer -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style="background-image: url('/shop.jpeg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#07152b] via-[#07152b]/95 to-[#07152b]/80 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
       
       <!-- Left Hero Content -->
       <div class="lg:col-span-7 flex flex-col gap-4 sm:gap-5 text-left">
         
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 w-fit text-xs font-bold text-amber-300">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>TN Lic #406 &bull; Verified Local Storefront</span>
+        <!-- Gold Dash Eyebrow -->
+        <div class="flex items-center gap-2 text-xs sm:text-sm font-black tracking-widest text-[#f59e0b] uppercase font-sans">
+          <span class="w-6 h-1 bg-[#f59e0b] rounded-full inline-block"></span>
+          <span>FAMILY-OWNED &bull; 20 YEARS OF LOCKSMITH EXPERIENCE</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif tracking-tight leading-tight text-white">
-          Fast Mobile Locksmith & <br class="hidden sm:inline" />
-          <span class="text-amber-400">Nashville Storefront</span>
+        <!-- Massive Bold Storefront Headline -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-sans uppercase text-white tracking-tight leading-[1.08]">
+          NASHVILLE LOCKSMITH WITH A REAL STOREFRONT
         </h1>
 
-        <p class="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal">
-          Locked out or need a replacement key? Skip expensive dealership towing. We cut & program keys on-site, rekey homes, and secure storefronts across Metro Nashville in <strong>prompt same-day service</strong>.
+        <!-- Trust Grounded Sub-Copy -->
+        <p class="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
+          Armstrong Locksmith Inc is a family-owned shop at <strong>208 Thompson Ln</strong> in Nashville, TN. Visit us for car keys and key programming, or call for mobile help with lockouts, home rekeys, commercial locks, and door hardware during posted hours.
         </p>
 
         <!-- Direct Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <!-- Primary Call Button -->
           <a 
             href="tel:6156258000" 
-            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition active:scale-95"
+            class="px-8 py-4 rounded-lg bg-[#f59e0b] hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600"
             aria-label="Call Armstrong Locksmith at (615) 625-8000"
           >
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
-            <span>Call (615) 625-8000</span>
+            <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>CALL (615) 625-8000</span>
           </a>
 
-          <a 
-            href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition active:scale-95"
-          >
-            <span>Book Online</span>
-          </a>
-
+          <!-- Secondary Quote Button -->
           <a 
             href="#quote-form-section" 
-            class="lg:hidden px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-amber-300 font-bold text-xs flex items-center justify-center gap-1.5 border border-amber-400/40 transition active:scale-95"
+            class="px-8 py-4 rounded-lg bg-[#07152b]/90 hover:bg-[#0f274a] text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-2 border-2 border-slate-500 hover:border-slate-300 shadow-xl transition active:scale-95"
           >
-            <span>⚡ Request Quote Form Below</span>
-            <svg class="w-3.5 h-3.5 text-amber-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            <span>Get a Fast Quote</span>
           </a>
         </div>
 
         <!-- Highlights Row -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-xs text-slate-300">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-white/10 text-xs text-slate-300">
           <div class="flex items-center gap-2">
-            <span>⏱️</span>
-            <div><strong class="text-white block font-bold">Prompt Mobile ETA</strong> Fast Mobile ETA</div>
+            <span class="text-amber-400 font-bold text-base">📍</span>
+            <div><strong class="text-white block font-bold">208 Thompson Ln</strong> Walk-Ins Welcome</div>
           </div>
           <div class="flex items-center gap-2">
-            <span>📍</span>
-            <div><strong class="text-white block font-bold">Storefront</strong> Walk-Ins Welcome</div>
+            <span class="text-amber-400 font-bold text-base">🛡️</span>
+            <div><strong class="text-white block font-bold">TN Lic #406</strong> State Licensed</div>
           </div>
           <div class="flex items-center gap-2">
-            <span>🏎️</span>
+            <span class="text-amber-400 font-bold text-base">🏎️</span>
             <div><strong class="text-white block font-bold">European</strong> Key Specialist</div>
           </div>
           <div class="flex items-center gap-2">
-            <span>⭐</span>
+            <span class="text-amber-400 font-bold text-base">⭐</span>
             <div><strong class="text-white block font-bold">4.9 Stars</strong> 120+ Reviews</div>
           </div>
         </div>
