@@ -138,54 +138,67 @@
         </button>
       </div>
 
-      <!-- Modal Body -->
-      <div class="p-5 space-y-3.5">
+      <!-- Modal Body with 2-Tier Hours -->
+      <div class="p-5 space-y-4">
         
         <!-- Live Status Pill in Modal -->
-        <div id="arm-modal-status-box" class="p-3 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-between gap-2">
+        <div id="arm-modal-status-box" class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2">
           <div class="flex items-center gap-2">
-            <span id="arm-modal-dot" class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-            <strong id="arm-modal-status-text" class="text-xs font-black text-amber-950 uppercase tracking-wide">Status: Closed</strong>
+            <span id="arm-modal-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <strong id="arm-modal-status-text" class="text-xs font-black text-emerald-950 uppercase tracking-wide">Mobile Dispatch Open Until 11:30 PM</strong>
           </div>
-          <span id="arm-modal-reopen-pill" class="text-[10px] sm:text-[11px] font-bold text-amber-900 bg-amber-200/70 px-2 py-0.5 rounded-full">Reopening 8:00 AM</span>
+          <span id="arm-modal-reopen-pill" class="text-[10px] sm:text-[11px] font-bold text-emerald-900 bg-emerald-200/70 px-2 py-0.5 rounded-full">Available</span>
         </div>
 
-        <!-- Weekly Schedule Table -->
-        <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden divide-y divide-slate-200 text-xs">
+        <!-- 2-Tier Hours Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           
-          <div id="day-row-1" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Monday</span>
-            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
+          <!-- Walk-In Storefront Hours -->
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex items-center gap-1.5 font-bold text-[#0f274a] text-xs uppercase tracking-wider pb-1.5 border-b border-slate-200">
+              <span>🏪 Walk-In Storefront</span>
+            </div>
+            <div class="space-y-1 text-slate-700 text-[11px]">
+              <div class="flex justify-between">
+                <span>Mon–Fri:</span>
+                <strong class="text-slate-950">8:00 AM – 6:00 PM</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Saturday:</span>
+                <strong class="text-slate-950">10:00 AM – 4:00 PM</strong>
+              </div>
+              <div class="flex justify-between text-slate-500">
+                <span>Sunday:</span>
+                <span>Closed (Walk-in)</span>
+              </div>
+            </div>
+            <div class="text-[10px] text-slate-500 pt-1 border-t border-slate-100">
+              📍 208 Thompson Ln, Nashville
+            </div>
           </div>
 
-          <div id="day-row-2" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Tuesday</span>
-            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
-          </div>
-
-          <div id="day-row-3" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Wednesday</span>
-            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
-          </div>
-
-          <div id="day-row-4" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Thursday</span>
-            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
-          </div>
-
-          <div id="day-row-5" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Friday</span>
-            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
-          </div>
-
-          <div id="day-row-6" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Saturday</span>
-            <span class="font-bold text-slate-900">10:00 AM – 4:00 PM</span>
-          </div>
-
-          <div id="day-row-0" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
-            <span class="day-name">Sunday</span>
-            <span class="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md text-[11px]">Mobile On-Call Dispatch</span>
+          <!-- Mobile Dispatch Service Hours -->
+          <div class="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2">
+            <div class="flex items-center gap-1.5 font-bold text-amber-950 text-xs uppercase tracking-wider pb-1.5 border-b border-amber-200/70">
+              <span>🚐 Mobile Van Dispatch</span>
+            </div>
+            <div class="space-y-1 text-slate-700 text-[11px]">
+              <div class="flex justify-between">
+                <span>Mon–Fri:</span>
+                <strong class="text-emerald-800">8:00 AM – 11:30 PM</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Saturday:</span>
+                <strong class="text-emerald-800">10:00 AM – 11:30 PM</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Sunday:</span>
+                <strong class="text-emerald-800">On-Call Emergency</strong>
+              </div>
+            </div>
+            <div class="text-[10px] text-amber-800 font-medium pt-1 border-t border-amber-200/50">
+              ⚡ We come directly to your location
+            </div>
           </div>
 
         </div>

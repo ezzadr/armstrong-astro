@@ -86,7 +86,7 @@
       }
 
       if (isOpen) {
-        el.textContent = day === 0 ? "MOBILE ON-CALL" : "OPEN NOW";
+        el.textContent = (day === 0 || cur > 18 * 60) ? "MOBILE DISPATCH" : "OPEN NOW";
       } else {
         el.textContent = "CLOSED";
       }
