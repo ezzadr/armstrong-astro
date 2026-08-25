@@ -20,7 +20,7 @@ That does not always mean the technician will be bad. But it does mean the busin
 
 ### Mike Brooks
 Local Guide · 18 reviews · 3 photos ★★★★★ 9 months ago      
-“Awesome customer service! Rahim was responsive on the phone and put me at ease that he could make it happen when I gave him the make and model. He got me squared away with my new duplicate key fob, cut and programmed in less than 20 minutes from when I arrived at the shop. Highly recommend 🤝”
+“Awesome customer service! Rahim was responsive on the phone and put me at ease that he could make it happen when I gave him the make and model. He got me squared away with my new duplicate key fob, cut and programmed quickly right in front of me at the shop. Highly recommend 🤝”
          
 **The smart move:** before you book, verify who you are really calling. A few simple checks can save you a lot of frustration later.
        
