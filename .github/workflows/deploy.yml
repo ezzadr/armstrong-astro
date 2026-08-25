@@ -33,14 +33,12 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== INSPECTING LARAVEL APP 1: hrfzwcjvqh ==="
-            cd /home/master/applications/hrfzwcjvqh/public_html 2>/dev/null || cd /home/master/applications/hrfzwcjvqh
-            git remote -v || true
-            git log -n 1 || true
-            cat .env 2>/dev/null | grep -E "APP_NAME|APP_URL|TWILIO" || true
+            echo "=== CHECKING JQKVDRPCFZ DATABASE & FILES ==="
+            cd /home/master/applications/jqkvdrpcfz/public_html
+            cat .env 2>/dev/null | grep -E "DB_|OPENAI" || true
+            ls -la ../private_html 2>/dev/null || true
+            ls -la storage/ 2>/dev/null || true
 
-            echo "=== INSPECTING LARAVEL APP 2: jqkvdrpcfz ==="
-            cd /home/master/applications/jqkvdrpcfz/public_html 2>/dev/null || cd /home/master/applications/jqkvdrpcfz
-            git remote -v || true
-            git log -n 1 || true
-            cat .env 2>/dev/null | grep -E "APP_NAME|APP_URL|TWILIO" || true
+            echo "=== CHECKING HRFZWCVQH DATABASE & FILES ==="
+            cd /home/master/applications/hrfzwcjvqh/public_html
+            cat .env 2>/dev/null | grep -E "DB_|OPENAI" || true
