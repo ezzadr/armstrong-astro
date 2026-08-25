@@ -29,6 +29,10 @@ jobs:
             git reset --hard origin/main
             git status
             
+            echo "=== PURGING LOCAL VARNISH CACHE ==="
+            curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
+            curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
+
             echo "=== CHECKING INDEX.HTML CONTENT ==="
             grep -n "Get Your Free Upfront Estimate" index.html || echo "NOT FOUND IN INDEX.HTML"
             grep -n "Instant Quote Request" index.html || echo "NOT FOUND IN INDEX.HTML"
