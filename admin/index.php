@@ -3,22 +3,23 @@
 session_start();
 
 // 1. Master Authentication Password (Changeable anytime)
-$masterPassword = 'armstronglocksmith2026';
+$masterPassword = 'Sardasht1';
 
 // Handle Logout
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     $_SESSION['arm_auth'] = false;
     session_destroy();
-    header('Location: /admin/');
+    header('Location: /admin/index.php');
     exit();
 }
 
 // Handle Login
 $loginError = '';
 if (isset($_POST['admin_password'])) {
-    if ($_POST['admin_password'] === $masterPassword || $_POST['admin_password'] === 'armstrong406' || $_POST['admin_password'] === '8000') {
+    $input = trim($_POST['admin_password']);
+    if ($input === 'Sardasht1' || $input === 'sardasht1' || $input === 'armstrong406' || $input === '8000') {
         $_SESSION['arm_auth'] = true;
-        header('Location: /admin/');
+        header('Location: /admin/index.php');
         exit();
     } else {
         $loginError = 'Invalid password. Please try again.';
