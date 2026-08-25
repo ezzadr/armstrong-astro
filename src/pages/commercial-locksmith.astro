@@ -40,8 +40,8 @@ const commercialSchema = [
         "postalCode": "37211"
       }
     },
-    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Downtown Nashville"],
-    "description": "Storefront glass door repair, Adams Rite mortise cylinders, UL-listed panic crash bars, master key hierarchies, and access control for Nashville businesses."
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Downtown Nashville", "Donelson", "Murfreesboro"],
+    "description": "Storefront glass door repair, Adams Rite mortise cylinders, UL-listed panic crash bars, master key hierarchies, and digital access control for Nashville businesses."
   },
   {
     "@context": "https://schema.org",
@@ -49,18 +49,26 @@ const commercialSchema = [
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How fast can you respond to a business lockout?",
+        "name": "How fast can you respond to a commercial business lockout or emergency door repair?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our mobile technicians arrive promptly on-site across Nashville, Downtown, Franklin, and Antioch to get your staff inside without business interruption."
+          "text": "Our mobile technicians arrive promptly on-site across Greater Nashville, Downtown, Franklin, and Antioch to get your staff inside and secure your facility without business interruption."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you provide commercial invoice billing?",
+        "name": "Do you offer commercial billing and itemized corporate invoicing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we provide itemized receipts and accept corporate cards, digital invoicing, and Net-30 commercial terms for recurring property management accounts."
+          "text": "Yes, we provide itemized receipts, accept all major corporate credit cards, and offer flexible commercial billing terms for property managers, general contractors, and facility directors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you install fire-code compliant panic crash bars on our exit doors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we install and service UL-listed rim and vertical rod panic exit devices that meet all local Nashville life-safety codes, NFPA 101 standards, and ADA egress requirements."
         }
       }
     ]
@@ -70,155 +78,165 @@ const commercialSchema = [
 
 <Layout title={seoTitle} description={seoDescription} canonical="/commercial-locksmith/" schema={commercialSchema}>
   
+  <!-- ==================== LUXURY HERO SECTION ==================== -->
   <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
       
       <div class="lg:col-span-7 flex flex-col gap-4 text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit">
-          <span>Certified & Insured &bull; Real Nashville Commercial Shop</span>
+        <!-- Eyebrow Tag -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit border border-white/15 backdrop-blur">
+          <span>COMMERCIAL DOOR HARDWARE &bull; MASTER KEYS &bull; STOREFRONT ON THOMPSON LN</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight leading-tight">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
           Commercial Locksmith <br />
-          <span class="text-amber-400">in Nashville, TN</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">In Nashville, TN</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-          Businesses & Storefronts. Prompt Same-Day Mobile Service. Commercial glass doors, Adams Rite mortise cylinders, panic bars, and master key systems.
+        <p class="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed font-normal max-w-2xl">
+          Complete physical security for Nashville businesses. Aluminum storefront door repairs, Adams Rite mortise cylinders, ADA panic crash bars, master key systems, and electronic keypad locks.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-          <a href="tel:6156258000" class="px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base flex items-center justify-center gap-2 shadow-lg transition">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+        <!-- Direct Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <a 
+            href="tel:6156258000" 
+            class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600"
+          >
+            <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
             <span>Call (615) 625-8000</span>
           </a>
-          <a href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base flex items-center justify-center shadow-md transition">
-            <span>Book Online</span>
+
+          <a 
+            href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base uppercase tracking-wider flex items-center justify-center gap-2 border border-white/25 shadow-lg transition active:scale-95"
+          >
+            <span>Book Online &rarr;</span>
           </a>
+        </div>
+
+        <!-- Credibility Row -->
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400 font-bold">★★★★★</span>
+            <span><strong class="text-white">4.9/5 Rating</strong> (750+ Reviews)</span>
+          </div>
+          <span class="hidden sm:inline text-slate-500">&bull;</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400">🛡️</span>
+            <span><strong class="text-white">Certified &amp; Insured</strong></span>
+          </div>
+          <span class="hidden sm:inline text-slate-500">&bull;</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400">🏢</span>
+            <span><strong class="text-white">Commercial Invoicing</strong></span>
+          </div>
         </div>
       </div>
 
+      <!-- Right Column: Hero Visual Card -->
       <div class="lg:col-span-5">
-        <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xl border border-slate-200 text-slate-900">
-          <h2 class="text-xl font-bold text-[#0f274a] font-serif pb-3 border-b border-slate-100">
-            Commercial Hardware Specialists
-          </h2>
-          <ul class="flex flex-col gap-2.5 my-4 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-center gap-2">
-              <span class="text-emerald-600 font-bold">✓</span>
-              <span><strong>Storefront Glass Doors:</strong> Mortise deadlatches & hookbolts</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-emerald-600 font-bold">✓</span>
-              <span><strong>Panic Hardware:</strong> Life-safety exit bars & crash bars</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-emerald-600 font-bold">✓</span>
-              <span><strong>Master Key Hierarchies:</strong> Multi-tenant & office suites</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-emerald-600 font-bold">✓</span>
-              <span><strong>Electronic Access:</strong> Keypads, card readers & strikes</span>
-            </li>
-          </ul>
+        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 text-slate-900">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
+            <h2 class="text-lg font-bold text-[#0f274a] font-serif">Commercial Grade Hardware</h2>
+            <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-800">
+              ⚡ Rapid Van Dispatch
+            </span>
+          </div>
+
+          <div class="space-y-3.5 text-xs sm:text-sm">
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-amber-300 transition">
+              <span class="w-8 h-8 rounded-lg bg-[#0f274a] text-white flex items-center justify-center font-bold text-sm shrink-0">🚪</span>
+              <div>
+                <strong class="block text-slate-900 font-bold text-sm">Storefront Aluminum Doors</strong>
+                <span class="text-slate-600">Adams Rite mortise cylinders, pivoting latches &amp; heavy-duty strike plates.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-amber-300 transition">
+              <span class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-sm shrink-0">🚨</span>
+              <div>
+                <strong class="block text-slate-900 font-bold text-sm">Panic Exit &amp; Crash Bars</strong>
+                <span class="text-slate-600">UL-listed life-safety fire exit hardware meeting ADA and NFPA egress codes.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-amber-300 transition">
+              <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0">🔑</span>
+              <div>
+                <strong class="block text-slate-900 font-bold text-sm">Master Key Systems</strong>
+                <span class="text-slate-600">Custom tiered key hierarchies for office suites, managers, and tenant access.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+            <span>Commercial Accounts Available</span>
+            <strong class="text-emerald-700 font-bold">Itemized Receipts</strong>
+          </div>
         </div>
       </div>
 
     </div>
   </header>
 
-  <!-- Real Commercial Installation Photo Strip -->
-  <section class="py-10 bg-slate-50 px-4 sm:px-8 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-      <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-        <img 
-          src="/images/before-keypad-installation-on-commercial-door.jpg" 
-          alt="Commercial Electronic Keypad & Access Control Installation"
-          class="w-full h-64 object-cover"
-        />
-        <div class="p-3 bg-white text-xs font-bold text-[#0f274a] text-center border-t border-slate-100">
-          Commercial Keypad Installation on Heavy Aluminum Storefront Door
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-3">
-        <h3 class="text-xl font-bold text-[#0f274a] font-serif">Commercial Grade 1 Access & Life Safety</h3>
-        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          From retail glass storefronts on Broadway to industrial distribution centers in Antioch, we provide code-compliant panic exit bars, master key charts, and high-security mortise hardware.
-        </p>
-        <div class="p-3.5 bg-slate-100 border border-slate-200 rounded-xl text-xs text-slate-800 font-medium">
-          🏢 <strong>Business Accounts Available:</strong> Same-day emergency response with itemized commercial billing.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Complete Original WordPress Long-Form Content -->
-  <section class="py-16 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
-    <div class="max-w-4xl mx-auto flex flex-col gap-12 text-slate-800 leading-relaxed text-sm sm:text-base">
+  <!-- ==================== REAL COMMERCIAL FIELD WORK SHOWCASE ==================== -->
+  <section class="py-12 sm:py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
       
-      <!-- Section 1 -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
-          Beyond the "Trunk-Slammer": Expert Commercial Hardware
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 block mb-1">Commercial Installations</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight">
+          Real Commercial Projects &amp; Shop Facilities
         </h2>
-        <p class="mb-3">
-          Commercial door hardware is fundamentally different from residential locks. A failure in an aluminum storefront door, pivot hinge, or exit device can violate fire codes, trap occupants, or leave retail merchandise vulnerable.
-        </p>
-        <p>
-          Armstrong Locksmith maintains fully stocked commercial service vans with Adams Rite mortise cylinders, panic crash bars, Grade 1 cylindrical leversets, and door closers to complete commercial repairs on the first trip.
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          From retail storefronts on Broadway to distribution facilities across Davidson &amp; Williamson Counties:
         </p>
       </div>
 
-      <!-- Section 2: Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card-clean rounded-2xl p-6">
-          <h3 class="font-bold text-[#0f274a] text-lg mb-2">Aluminum Storefront Door Repairs</h3>
-          <p class="text-xs sm:text-sm text-slate-600">
-            We service narrow-stile aluminum doors, replace stripped mortise cylinders, fix misaligned strike plates, and install Adams Rite 4510/4900 deadlatches.
-          </p>
-        </div>
-
-        <div class="card-clean rounded-2xl p-6">
-          <h3 class="font-bold text-[#0f274a] text-lg mb-2">Panic Exit Device Installation</h3>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Ensure fire-safety compliance with UL-listed rim and vertical rod panic exit bars for commercial assembly spaces, restaurants, and retail spaces.
-          </p>
-        </div>
-
-        <div class="card-clean rounded-2xl p-6">
-          <h3 class="font-bold text-[#0f274a] text-lg mb-2">Master Key Systems</h3>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Custom engineered master key charts so property managers carry one master key for all offices while employees only open their specific suite.
-          </p>
-        </div>
-
-        <div class="card-clean rounded-2xl p-6">
-          <h3 class="font-bold text-[#0f274a] text-lg mb-2">Electronic Access & Keypads</h3>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Commercial standalone digital keypad leversets, electric strikes, and keyless access control systems for employee entrances.
-          </p>
-        </div>
-      </div>
-
-      <!-- Section 3: Commercial FAQ -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-6">
-          Commercial Locksmith FAQ for Nashville Businesses
-        </h2>
-
-        <div class="flex flex-col gap-4">
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">How fast can you respond to a business lockout?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Our mobile technicians arrive promptly on-site across Nashville, Downtown, Franklin, and Antioch to get your staff inside without business interruption.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Photo 1: Commercial Door Keypad -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+          <div class="overflow-hidden h-64 sm:h-72 bg-slate-100">
+            <img 
+              src="/images/before-keypad-installation-on-commercial-door.jpg" 
+              alt="Commercial Keypad Installation on Heavy Aluminum Storefront Door" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="350"
+            />
+          </div>
+          <div class="p-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block mb-1">Storefront Keyless Entry</span>
+            <h3 class="text-base font-bold text-[#0f274a] font-serif mb-1.5">Commercial Access Control on Aluminum Glass Door</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Precision installation of a standalone commercial digital keypad leverset on a heavy-duty aluminum storefront frame for a local Nashville business.
             </p>
           </div>
+        </div>
 
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">Do you provide commercial invoice billing?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Yes, we provide itemized receipts and accept corporate cards, digital invoicing, and Net-30 commercial terms for recurring property management accounts.
+        <!-- Photo 2: Shop Key Machines -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+          <div class="overflow-hidden h-64 sm:h-72 bg-slate-100">
+            <img 
+              src="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg" 
+              alt="Armstrong Locksmith High-Precision Key Cutting Machines Inside Shop" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="350"
+            />
+          </div>
+          <div class="p-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block mb-1">Dedicated Storefront Equipment</span>
+            <h3 class="text-base font-bold text-[#0f274a] font-serif mb-1.5">High-Precision Master Key Cutting &amp; Duplication</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Our central Thompson Lane shop is equipped with computerized key cutting and code-duplication machinery for high-volume commercial key sets.
             </p>
           </div>
         </div>
@@ -227,16 +245,270 @@ const commercialSchema = [
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="bg-[#0f274a] text-white py-14 px-4 sm:px-6 text-center">
+  <!-- ==================== CORE COMMERCIAL SERVICES GRID ==================== -->
+  <section class="py-14 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight">
+          Commercial Security &amp; Hardware Solutions
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          Engineered for retail, office buildings, healthcare facilities, warehouses, and property managers:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Service Card 1 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#0f274a] text-white flex items-center justify-center text-lg font-bold mb-4">🚪</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Storefront Glass Doors</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Repair and replace narrow-stile aluminum door hardware, Adams Rite 4510/4900 mortise deadlatches, pivoting hinges, and misaligned strikes.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Adams Rite Hardware</span>
+            <span class="text-[#0f274a] font-bold">Same-Day Service</span>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-lg font-bold mb-4">🚨</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Panic Exit &amp; Crash Bars</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Install and calibrate UL-listed fire exit hardware, rim exit devices, and vertical rod panic bars that guarantee full life-safety and building code compliance.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">ADA &amp; NFPA Compliant</span>
+            <span class="text-amber-700 font-bold">UL Listed</span>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold mb-4">🔑</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Master Key Hierarchies</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Custom charted key hierarchies so owners carry one master key for the entire building while individual staff only access designated offices.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Multi-Tenant Systems</span>
+            <span class="text-emerald-700 font-bold">Custom Charting</span>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center text-lg font-bold mb-4">📱</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Digital Access Control</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Commercial standalone electronic keypad leversets, electric strikes, key fob entry readers, and audit-trail door locks.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Keyless Business Entry</span>
+            <span class="text-purple-700 font-bold">Standalone / Electric</span>
+          </div>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center text-lg font-bold mb-4">🛡️</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Grade 1 Heavy Duty Levers</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              High-cycle commercial cylindrical leversets from Schlage, Yale, and Corbin Russwin built for tens of thousands of daily cycles.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">High-Traffic Durability</span>
+            <span class="text-sky-700 font-bold">ANSI Grade 1</span>
+          </div>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center text-lg font-bold mb-4">🚨</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Commercial Lockout Rescue</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Staff locked out of your office, store, or warehouse? Prompt mobile response to get your operations running with zero structural door damage.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Rapid Response</span>
+            <span class="text-rose-700 font-bold">Zero Downtime</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== COMMERCIAL COMPLIANCE & LIFE-SAFETY ==================== -->
+  <section class="py-14 sm:py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 block mb-1">Building &amp; Fire Codes</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
+          Commercial Code Compliance Standards
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          We ensure your commercial hardware adheres to strict safety, fire, and accessibility regulations:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <div class="text-amber-500 font-black text-lg mb-2">NFPA 101</div>
+          <h3 class="font-bold text-[#0f274a] text-sm mb-1.5">Life Safety Egress</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Guarantees immediate single-motion exit during fire emergencies without requiring keys or specialized knowledge.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <div class="text-blue-600 font-black text-lg mb-2">ADA Accessible</div>
+          <h3 class="font-bold text-[#0f274a] text-sm mb-1.5">Easy-Grasp Levers</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Replaces round commercial doorknobs with compliant lever handles operable with a single closed fist.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+          <div class="text-emerald-600 font-black text-lg mb-2">ANSI Grade 1</div>
+          <h3 class="font-bold text-[#0f274a] text-sm mb-1.5">Heavy Traffic Duty</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Rated for over 1,000,000 door cycles to withstand continuous commercial use in high-foot-traffic environments.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3-STEP COMMERCIAL PROCESS ==================== -->
+  <section class="py-14 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
+          How Our Commercial Service Works
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          Streamlined workflow designed for business owners, property managers, and facility supervisors:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-full bg-[#0f274a] text-white flex items-center justify-center font-bold text-sm mb-4">1</div>
+            <h3 class="font-bold text-[#0f274a] text-base mb-1.5">Site Evaluation &amp; Quote</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Describe your door hardware or schedule an on-site security assessment for a transparent commercial proposal.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-sm mb-4">2</div>
+            <h3 class="font-bold text-[#0f274a] text-base mb-1.5">Commercial Van On-Site</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Our mobile technicians arrive with heavy-duty Adams Rite locks, panic bars, cylinders, and mortise tools.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm mb-4">3</div>
+            <h3 class="font-bold text-[#0f274a] text-base mb-1.5">Testing &amp; Invoicing</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Complete hardware testing, key distribution, and prompt digital itemized invoicing for accounting records.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== COMMERCIAL FAQ ==================== -->
+  <section class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
+          Commercial Locksmith FAQ
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-left">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-[#0f274a] text-base mb-2">How fast can you respond to a commercial business lockout?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Our mobile technicians arrive promptly on-site across Greater Nashville, Downtown, Franklin, and Antioch to get your staff inside and secure your facility without business interruption.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-[#0f274a] text-base mb-2">Do you provide itemized commercial invoices and corporate terms?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Yes, we provide itemized receipts, accept all major corporate credit cards, and offer flexible commercial billing terms for property managers, general contractors, and facility directors.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-[#0f274a] text-base mb-2">Can you install fire-code compliant panic crash bars on our exit doors?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Yes, we install and service UL-listed rim and vertical rod panic exit devices that meet all local Nashville life-safety codes, NFPA 101 standards, and ADA egress requirements.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA BANNER ==================== -->
+  <section class="bg-gradient-to-r from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 px-4 sm:px-6 text-center border-t-4 border-amber-500">
     <div class="max-w-3xl mx-auto flex flex-col items-center gap-4">
-      <h2 class="text-2xl sm:text-4xl font-bold font-serif text-white">Need Commercial Hardware in Nashville?</h2>
-      <p class="text-slate-200 text-sm sm:text-base">Speak directly with our team for honest pricing and rapid commercial dispatch.</p>
+      <h2 class="text-2xl sm:text-4xl font-black font-serif text-white">Need Commercial Hardware in Nashville?</h2>
+      <p class="text-slate-200 text-sm sm:text-base max-w-xl">
+        Speak directly with our team for honest pricing and rapid commercial dispatch across Middle Tennessee.
+      </p>
       <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
-        <a href="tel:6156258000" class="px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base shadow">
+        <a 
+          href="tel:6156258000" 
+          class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider shadow-lg transition active:scale-95"
+        >
           Call (615) 625-8000
+        </a>
+        <a 
+          href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 transition"
+        >
+          Book Commercial Service &rarr;
         </a>
       </div>
     </div>
   </section>
+
 </Layout>
+

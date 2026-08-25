@@ -40,8 +40,8 @@ const residentialSchema = [
         "postalCode": "37211"
       }
     },
-    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson"],
-    "description": "Comprehensive residential security: deadbolt rekeying, high-security lock installation, smart keypad locks, and emergency home lockout assistance."
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Green Hills", "Belle Meade"],
+    "description": "Comprehensive residential home security: deadbolt rekeying, high-security lock installation, smart keypad locks, and emergency home lockout assistance."
   },
   {
     "@context": "https://schema.org",
@@ -49,18 +49,26 @@ const residentialSchema = [
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Should I rekey or replace my locks?",
+        "name": "Should I rekey or replace my locks when moving into a new home?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "If your current hardware is in good physical shape, rekeying is much more affordable than replacing. We simply change the internal pins so old keys no longer work."
+          "text": "If your existing locks are in good working condition, rekeying is far more cost-effective than replacing. We simply change the internal pins so all previous keys stop working, saving you up to 70% in hardware costs."
         }
       },
       {
         "@type": "Question",
-        "name": "Can you make all my home locks work with one key?",
+        "name": "Can you make all my house doors open with one single key?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, as long as the locks share the same keyway brand (e.g. all Kwikset or all Schlage). We can repin front, back, and garage entry doors to a single master key."
+          "text": "Yes! As long as the lock cylinders share the same brand keyway (e.g. all Schlage or all Kwikset), we can repin your front door, back door, garage entry, and patio deadbolts to work seamlessly with one master key."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can a locksmith arrive for an emergency house lockout?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our mobile service vans provide prompt same-day dispatch across Greater Nashville, arriving with non-destructive picking tools to unlock your home safely with zero damage to your door or trim."
         }
       }
     ]
@@ -70,177 +78,165 @@ const residentialSchema = [
 
 <Layout title={seoTitle} description={seoDescription} canonical="/residential-locksmith-nashville/" schema={residentialSchema}>
   
-  <!-- Hero Section -->
+  <!-- ==================== LUXURY HERO SECTION ==================== -->
   <header class="relative bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
       
       <div class="lg:col-span-7 flex flex-col gap-4 text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit">
-          <span>Certified & Insured &bull; Storefront at 208 Thompson Ln</span>
+        <!-- Eyebrow Tag -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit border border-white/15 backdrop-blur">
+          <span>HOME SECURITY &bull; REKEYING &bull; STOREFRONT ON THOMPSON LN</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl font-black font-serif text-white tracking-tight leading-tight">
-          Residential Locksmith <br />
-          <span class="text-amber-400">Services in Nashville</span>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-serif text-white tracking-tight leading-tight">
+          Nashville Residential <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">Locksmith &amp; Rekeying</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
-          Rekeying, lock changes, high-security deadbolt installations, and emergency house lockout assistance across Nashville, Brentwood, and Franklin.
+        <p class="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed font-normal max-w-2xl">
+          Family-owned and owner-led. We secure Nashville homes with professional deadbolt rekeying, high-security cylinder replacements, smart keypads, and damage-free lockout rescue.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-          <a href="tel:6156258000" class="px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base flex items-center justify-center gap-2 shadow-lg transition">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+        <!-- Direct Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <a 
+            href="tel:6156258000" 
+            class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600"
+          >
+            <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
             <span>Call (615) 625-8000</span>
           </a>
-          <a href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base flex items-center justify-center shadow-md transition">
-            <span>Book Online</span>
+
+          <a 
+            href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base uppercase tracking-wider flex items-center justify-center gap-2 border border-white/25 shadow-lg transition active:scale-95"
+          >
+            <span>Book Online &rarr;</span>
           </a>
+        </div>
+
+        <!-- Credibility Row -->
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400 font-bold">★★★★★</span>
+            <span><strong class="text-white">4.9/5 Rating</strong> (750+ Reviews)</span>
+          </div>
+          <span class="hidden sm:inline text-slate-500">&bull;</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400">🛡️</span>
+            <span><strong class="text-white">Certified &amp; Fully Insured</strong></span>
+          </div>
+          <span class="hidden sm:inline text-slate-500">&bull;</span>
+          <div class="flex items-center gap-1.5">
+            <span class="text-amber-400">📍</span>
+            <span><strong class="text-white">Storefront:</strong> 208 Thompson Ln</span>
+          </div>
         </div>
       </div>
 
-      <!-- Quick Action Cards -->
-      <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="bg-white rounded-2xl p-5 shadow-xl border border-slate-200 text-slate-900">
-          <div class="text-2xl mb-1">🚨</div>
-          <h3 class="font-bold text-[#0f274a] text-base font-serif mb-1">Locked Out?</h3>
-          <p class="text-xs text-slate-600 mb-3">Fast Prompt same-day mobile dispatch. Damage-free picking and bypass.</p>
-          <span class="text-xs font-bold text-emerald-700">From $85</span>
-        </div>
-        <div class="bg-white rounded-2xl p-5 shadow-xl border border-slate-200 text-slate-900">
-          <div class="text-2xl mb-1">🔑</div>
-          <h3 class="font-bold text-[#0f274a] font-serif text-base mb-1">Rekey & Upgrades</h3>
-          <p class="text-xs text-slate-600 mb-3">Keep existing hardware, change internal pins so old keys don't work.</p>
-          <span class="text-xs font-bold text-amber-700">$20–$45 / cylinder</span>
+      <!-- Right Column: Hero Visual Card -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-200 text-slate-900">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
+            <h2 class="text-lg font-bold text-[#0f274a] font-serif">Home Locksmith Services</h2>
+            <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+              ⚡ Same-Day Mobile Dispatch
+            </span>
+          </div>
+
+          <div class="space-y-3.5 text-xs sm:text-sm">
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-amber-300 transition">
+              <span class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-sm shrink-0">🔑</span>
+              <div>
+                <strong class="block text-slate-900 font-bold text-sm">Full House Rekeying</strong>
+                <span class="text-slate-600">Repin all exterior deadbolts so previous owners, tenants, or contractors lose access.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-amber-300 transition">
+              <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shrink-0">🛡️</span>
+              <div>
+                <strong class="block text-slate-900 font-bold text-sm">Deadbolt Upgrades &amp; Repairs</strong>
+                <span class="text-slate-600">Install Grade 1/2 pick-resistant deadbolts (Schlage, Kwikset, Baldwin, Medeco).</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 hover:border-amber-300 transition">
+              <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0">📱</span>
+              <div>
+                <strong class="block text-slate-900 font-bold text-sm">Smart Keypad Deadbolts</strong>
+                <span class="text-slate-600">Expert installation &amp; calibration for keyless electronic deadbolts &amp; smart locks.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+            <span>Upfront Phone Pricing</span>
+            <strong class="text-emerald-700 font-bold">Zero Hidden Surcharges</strong>
+          </div>
         </div>
       </div>
 
     </div>
   </header>
 
-  <!-- Real Residential Photos -->
-  <section class="py-8 bg-slate-100 px-4 sm:px-8 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-        <img src="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg" alt="Deadbolt Rekeyed by Armstrong Locksmith" class="w-full h-52 object-cover" />
-        <div class="p-3 text-center text-xs font-bold text-[#0f274a]">Deadbolt Cylinder Rekeying On-Site</div>
-      </div>
-      <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-        <img src="/images/Rekey-lock-vs-lock-replacement.jpg" alt="Rekey vs Lock Replacement Hardware" class="w-full h-52 object-cover" />
-        <div class="p-3 text-center text-xs font-bold text-[#0f274a]">Hardware Repinning & Key Matching</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Complete Original WordPress Long-Form Content -->
-  <section class="py-16 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
-    <div class="max-w-4xl mx-auto flex flex-col gap-12 text-slate-800 leading-relaxed text-sm sm:text-base">
+  <!-- ==================== REAL TECHNICIAN JOB SHOWCASE ==================== -->
+  <section class="py-12 sm:py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
       
-      <!-- Section 1 -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
-          Rekeying, Lock Changes & Installations
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 block mb-1">Authentic Craftsmanship</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight">
+          Real Residential Work In Nashville
         </h2>
-        <p class="mb-3">
-          Whether you just closed on a new home in Nashville, had a tenant move out of a rental property, or are locked out on your porch, Armstrong Locksmith provides comprehensive residential security services.
-        </p>
-        <p>
-          We don't just swap locks blindly. We inspect door frames, strike plates, and deadbolt alignments to ensure your home is physically fortified against forced entry.
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          Photos of real lock rekeying and hardware service completed by our mobile technicians across Middle Tennessee:
         </p>
       </div>
 
-      <!-- Section 2: What service do you need? -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-6">
-          What Service Do You Need?
-        </h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-lg mb-2">Home Lock Rekeying</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              We alter the internal tumbler pins inside your existing Schlage, Kwikset, Yale, or Baldwin deadbolts so all previous keys stop working, matching all doors to one convenient master key.
-            </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Photo 1 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+          <div class="overflow-hidden h-64 sm:h-72 bg-slate-100">
+            <img 
+              src="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg" 
+              alt="Residential Deadbolt Rekeyed by Armstrong Locksmith Technician" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="350"
+            />
           </div>
-
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-lg mb-2">Deadbolt & Knob Replacement</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Replace tarnished, broken, or low-security locks with Grade 1 or Grade 2 commercial-duty residential deadbolts resistant to bumping, drilling, and picking.
-            </p>
-          </div>
-
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-lg mb-2">Keyless Smart Lock Installation</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Professional keypad and smart lock installation (Schlage Encode, August, Yale, Eufy). We mortise and adjust the door latch properly so motor drives don't bind.
-            </p>
-          </div>
-
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-lg mb-2">Broken Key Extraction & Repairs</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Key snapped inside the cylinder? We extract broken fragments without damaging the lock mechanism and cut you a brand new replacement key on the spot.
+          <div class="p-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block mb-1">On-Site Rekeying</span>
+            <h3 class="text-base font-bold text-[#0f274a] font-serif mb-1.5">Deadbolt Cylinder Repinning &amp; Master Keying</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Our technician re-pinned this residential deadbolt so all previous tenant keys stopped working, while syncing front and back doors to a single master key.
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Section 3: Want a stronger door without a full hardware swap? -->
-      <div class="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200">
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-3">
-          Want a Stronger Door Without a Full Hardware Swap?
-        </h2>
-        <p class="mb-3 text-slate-700">
-          Most residential kick-ins fail not at the lock itself, but at the wooden door jamb. Standard builders use 3/4-inch screws that barely catch the decorative trim.
-        </p>
-        <p class="text-slate-700">
-          We install heavy-duty reinforced steel strike plates anchored with 3-inch hardened steel screws directly into the wall studs, dramatically increasing resistance to kick-in attacks.
-        </p>
-      </div>
-
-      <!-- Section 4: What affects cost (and how we quote) -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-4">
-          What Affects Cost (And How We Quote)
-        </h2>
-        <p class="mb-3">
-          Pricing for residential locksmith work depends on the number of lock cylinders, whether doors require fresh hole drilling or standard replacement, and hardware grades.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-          <div class="p-4 bg-white rounded-xl border border-slate-200">
-            <strong class="text-[#0f274a] block font-bold mb-1">1. Tell Us The Job</strong>
-            <span class="text-slate-600">Number of locks to rekey, hardware type, or lockout emergency.</span>
+        <!-- Photo 2 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
+          <div class="overflow-hidden h-64 sm:h-72 bg-slate-100">
+            <img 
+              src="/images/Rekey-lock-vs-lock-replacement.jpg" 
+              alt="Rekeying vs Lock Replacement Hardware Comparison" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="350"
+            />
           </div>
-          <div class="p-4 bg-white rounded-xl border border-slate-200">
-            <strong class="text-[#0f274a] block font-bold mb-1">2. Get Firm Quote</strong>
-            <span class="text-slate-600">We give you an upfront total before dispatching our technician.</span>
-          </div>
-          <div class="p-4 bg-white rounded-xl border border-slate-200">
-            <strong class="text-[#0f274a] block font-bold mb-1">3. Fast Mobile Arrival</strong>
-            <span class="text-slate-600">Prompt same-day response time with fully stocked locksmith vans.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section 5: Residential FAQ -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-serif mb-6">
-          Residential Locksmith FAQ
-        </h2>
-
-        <div class="flex flex-col gap-4">
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">Should I rekey or replace my locks?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              If your current hardware is in good physical shape, rekeying is much more affordable than replacing. We simply change the internal pins so old keys no longer work.
-            </p>
-          </div>
-
-          <div class="card-clean rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">Can you make all my home locks work with one key?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Yes, as long as the locks share the same keyway brand (e.g. all Kwikset or all Schlage). We can repin front, back, and garage entry doors to a single master key.
+          <div class="p-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block mb-1">Cost-Saving Solution</span>
+            <h3 class="text-base font-bold text-[#0f274a] font-serif mb-1.5">Rekeying Existing Hardware vs Full Replacement</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              We inspect the internal tumblers to determine if your existing hardware can be preserved and re-pinned, saving you substantial hardware replacement costs.
             </p>
           </div>
         </div>
@@ -249,16 +245,284 @@ const residentialSchema = [
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="bg-[#0f274a] text-white py-14 px-4 sm:px-6 text-center">
+  <!-- ==================== CORE RESIDENTIAL SERVICES GRID ==================== -->
+  <section class="py-14 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-serif tracking-tight">
+          Complete Home Lock &amp; Security Services
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          From historic bungalows in East Nashville to modern luxury estates in Brentwood, we service every type of home locking hardware:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Service Card 1 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-lg font-bold mb-4">🔑</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Whole-Home Rekeying</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Alter internal tumbler pins so old keys no longer operate the locks. Ideal for new homeowners, landlords, or after changing housekeepers.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">All Doors 1 Key</span>
+            <span class="text-amber-600 font-bold">From $20 / cylinder</span>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#0f274a] text-white flex items-center justify-center text-lg font-bold mb-4">🛡️</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Deadbolt Replacement</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Upgrade worn, sticky, or builders-grade locks with ANSI Grade 1 &amp; Grade 2 pick-resistant, drill-resistant deadbolts from Schlage, Yale &amp; Kwikset.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Heavy Duty Steel</span>
+            <span class="text-emerald-700 font-bold">Grade 1 &amp; 2 Rated</span>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold mb-4">📱</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Smart Lock Installation</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Professional keypad and smart lock installation (Schlage Encode, Yale Assure, August, Eufy). We align the door latch so motorized bolts don't jam.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Keyless Entry</span>
+            <span class="text-slate-900 font-bold">Precision Fit</span>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center text-lg font-bold mb-4">🚨</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Emergency House Lockouts</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Locked out of your house or condo? Our mobile technicians arrive promptly to pick the cylinder cleanly with zero damage to your door or paint.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Fast Mobile Arrival</span>
+            <span class="text-rose-700 font-bold">Damage-Free Entry</span>
+          </div>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center text-lg font-bold mb-4">🔩</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Door Jamb Reinforcement</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Most kick-ins break the wooden door jamb, not the lock. We install heavy-duty reinforced strike plates with 3-inch screws anchored directly into wall studs.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">Anti-Kick Defense</span>
+            <span class="text-purple-700 font-bold">3-Inch Anchors</span>
+          </div>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center text-lg font-bold mb-4">✂️</div>
+            <h3 class="text-lg font-bold text-[#0f274a] font-serif mb-2">Broken Key Extraction</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Key snapped in the deadbolt or handle? We extract broken fragments cleanly and cut you a brand new, factory-accurate replacement key on the spot.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium">On-Site Key Cutting</span>
+            <span class="text-sky-700 font-bold">Clean Extraction</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== REKEY VS REPLACE COMPARISON GUIDE ==================== -->
+  <section class="py-14 sm:py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-600 block mb-1">Helpful Homeowner Guide</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
+          Should You Rekey or Replace Your Locks?
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          Compare the two options below to see which is right for your home and budget:
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+          
+          <!-- Option A: Rekeying -->
+          <div class="p-6 sm:p-8">
+            <div class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-3">
+              Best Value: Rekeying
+            </div>
+            <h3 class="text-xl font-bold text-[#0f274a] font-serif mb-2">Keep Existing Hardware</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              We change only the internal tumbler pins inside your existing locks so previous keys no longer work.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Saves 60%–70% compared to new locks</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Matches all doors to one single key</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Ideal for new homes, moving &amp; tenants</li>
+            </ul>
+            <span class="block text-xs font-bold text-slate-500">Average cost: <strong>$20–$45 per lock cylinder</strong></span>
+          </div>
+
+          <!-- Option B: Replacement -->
+          <div class="p-6 sm:p-8 bg-slate-50/60">
+            <div class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-bold text-xs uppercase tracking-wider mb-3">
+              Full Hardware Upgrade
+            </div>
+            <h3 class="text-xl font-bold text-[#0f274a] font-serif mb-2">Install Brand-New Locks</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              We remove the old hardware entirely and install brand-new ANSI Grade 1 deadbolts or digital smart locks.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-700 mb-6 font-medium">
+              <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Upgrade security rating &amp; finishes</li>
+              <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Switch to keyless electronic entry</li>
+              <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Replaces broken or corroded hardware</li>
+            </ul>
+            <span class="block text-xs font-bold text-slate-500">Includes new hardware, heavy strike plates &amp; warranty</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3-STEP PROCESS ==================== -->
+  <section class="py-14 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
+          How Our Residential Service Works
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2">
+          Simple, transparent, and hassle-free from start to finish:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-full bg-[#0f274a] text-white flex items-center justify-center font-bold text-sm mb-4">1</div>
+            <h3 class="font-bold text-[#0f274a] text-base mb-1.5">Upfront Estimate</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Call us or submit an online request. Tell us how many locks you have, and we'll give you a clear, fixed quote over the phone.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-sm mb-4">2</div>
+            <h3 class="font-bold text-[#0f274a] text-base mb-1.5">Prompt Mobile Arrival</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Our technician arrives in a fully equipped locksmith van carrying all keyways, pins, cylinders, and smart keypad hardware.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm mb-4">3</div>
+            <h3 class="font-bold text-[#0f274a] text-base mb-1.5">Completed On-Site</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Locks are repinned, precision-cut duplicate keys are provided, door alignment is verified, and work is 100% guaranteed.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== RESIDENTIAL FAQ ==================== -->
+  <section class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-serif tracking-tight">
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <div class="space-y-4 text-left">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-[#0f274a] text-base mb-2">Should I rekey or replace my locks when moving into a new home?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            If your current hardware is in good physical shape, rekeying is much more affordable than replacing. We simply change the internal pins so old keys no longer work, saving you up to 70% in hardware costs.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-[#0f274a] text-base mb-2">Can you make all my house doors work with one key?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Yes! As long as the locks share the same keyway brand (e.g. all Kwikset or all Schlage), we can repin front, back, side, and garage entry deadbolts to a single convenient key.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-bold text-[#0f274a] text-base mb-2">Can you install smart keypad deadbolts that I bought myself?</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Absolutely. We regularly install customer-purchased electronic locks from Schlage, Yale, August, and Eufy, ensuring the door latch is properly aligned so the motorized bolt extends smoothly without draining batteries.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA BANNER ==================== -->
+  <section class="bg-gradient-to-r from-[#07152b] via-[#0f274a] to-[#16335c] text-white py-14 px-4 sm:px-6 text-center border-t-4 border-amber-500">
     <div class="max-w-3xl mx-auto flex flex-col items-center gap-4">
-      <h2 class="text-2xl sm:text-4xl font-bold font-serif text-white">Call (615) 625-8000 or Visit Thompson Ln</h2>
-      <p class="text-slate-200 text-sm sm:text-base">Speak directly with our team for honest pricing and fast mobile response.</p>
+      <h2 class="text-2xl sm:text-4xl font-black font-serif text-white">Need Your Home Locks Rekeyed or Repaired?</h2>
+      <p class="text-slate-200 text-sm sm:text-base max-w-xl">
+        Speak directly with our team for honest pricing and rapid mobile service across Middle Tennessee.
+      </p>
       <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
-        <a href="tel:6156258000" class="px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base shadow">
+        <a 
+          href="tel:6156258000" 
+          class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider shadow-lg transition active:scale-95"
+        >
           Call (615) 625-8000
+        </a>
+        <a 
+          href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 transition"
+        >
+          Book Service Online &rarr;
         </a>
       </div>
     </div>
   </section>
+
 </Layout>
+
