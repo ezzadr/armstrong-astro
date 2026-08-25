@@ -163,12 +163,14 @@
           Send a Request &rarr;
         </a>
 
-        <a 
-          href="/#storefront-hours" 
-          class="flex-1 md:flex-initial px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs uppercase tracking-wider text-center border border-amber-600/30 shadow-sm transition active:scale-95 whitespace-nowrap"
+        <button 
+          id="arm-view-hours-btn"
+          type="button"
+          class="flex-1 md:flex-initial px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs uppercase tracking-wider text-center border border-amber-600/30 shadow-sm transition active:scale-95 whitespace-nowrap cursor-pointer flex items-center justify-center gap-1.5"
         >
-          View Hours
-        </a>
+          <svg class="w-3.5 h-3.5 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>View Hours</span>
+        </button>
 
         <button 
           id="arm-close-banner-btn" 
@@ -178,6 +180,115 @@
         >
           &times;
         </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Operating Hours Modal -->
+  <div 
+    id="arm-hours-modal" 
+    class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-[110] hidden opacity-0 transition-opacity duration-200 flex items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="arm-hours-modal-title"
+  >
+    <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transform scale-95 transition-transform duration-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-[#07152b] to-[#0f274a] px-5 py-4 text-white flex items-center justify-between border-b-2 border-amber-500">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-lg font-bold">
+            🕒
+          </div>
+          <div>
+            <h2 id="arm-hours-modal-title" class="text-sm sm:text-base font-black tracking-wide uppercase font-sans text-white">Store & Service Hours</h2>
+            <p class="text-[11px] text-slate-300 font-medium">Armstrong Locksmith Inc &bull; Nashville, TN</p>
+          </div>
+        </div>
+        <button 
+          id="arm-hours-modal-close" 
+          type="button" 
+          class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg font-bold transition active:scale-95 cursor-pointer"
+          aria-label="Close hours modal"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 space-y-3.5">
+        
+        <!-- Live Status Pill in Modal -->
+        <div id="arm-modal-status-box" class="p-3 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span id="arm-modal-dot" class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <strong id="arm-modal-status-text" class="text-xs font-black text-amber-950 uppercase tracking-wide">Status: Closed</strong>
+          </div>
+          <span id="arm-modal-reopen-pill" class="text-[10px] sm:text-[11px] font-bold text-amber-900 bg-amber-200/70 px-2 py-0.5 rounded-full">Reopening 8:00 AM</span>
+        </div>
+
+        <!-- Weekly Schedule Table -->
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden divide-y divide-slate-200 text-xs">
+          
+          <div id="day-row-1" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Monday</span>
+            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
+          </div>
+
+          <div id="day-row-2" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Tuesday</span>
+            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
+          </div>
+
+          <div id="day-row-3" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Wednesday</span>
+            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
+          </div>
+
+          <div id="day-row-4" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Thursday</span>
+            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
+          </div>
+
+          <div id="day-row-5" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Friday</span>
+            <span class="font-bold text-slate-900">8:00 AM – 11:30 PM</span>
+          </div>
+
+          <div id="day-row-6" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Saturday</span>
+            <span class="font-bold text-slate-900">10:00 AM – 4:00 PM</span>
+          </div>
+
+          <div id="day-row-0" class="flex items-center justify-between px-3.5 py-2 font-medium text-slate-700">
+            <span class="day-name">Sunday</span>
+            <span class="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md text-[11px]">Mobile On-Call Dispatch</span>
+          </div>
+
+        </div>
+
+        <!-- Location & Direct Actions -->
+        <div class="pt-1 grid grid-cols-2 gap-2">
+          <a 
+            href="tel:6156258000" 
+            class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs uppercase tracking-wider text-center shadow flex items-center justify-center gap-1.5 active:scale-95 transition"
+          >
+            <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+
+          <a 
+            href="https://www.google.com/maps/dir/?api=1&destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider text-center shadow flex items-center justify-center gap-1.5 active:scale-95 transition"
+          >
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"></path></svg>
+            <span>Get Directions</span>
+          </a>
+        </div>
+
       </div>
 
     </div>
@@ -381,10 +492,135 @@
         };
       }
 
+      // Operating Hours Modal Logic
+      function setupHoursModal() {
+        const modal = document.getElementById('arm-hours-modal');
+        const openBtn = document.getElementById('arm-view-hours-btn');
+        const closeBtn = document.getElementById('arm-hours-modal-close');
+        const statusBox = document.getElementById('arm-modal-status-box');
+        const statusText = document.getElementById('arm-modal-status-text');
+        const reopenPill = document.getElementById('arm-modal-reopen-pill');
+        const dot = document.getElementById('arm-modal-dot');
+
+        if (!modal) return;
+
+        function openModal() {
+          const { day, hour, minute } = getNashvilleTime();
+          const cur = hour * 60 + minute;
+          const wOpen = 8 * 60, wClose = 23 * 60 + 30;
+          const sOpen = 10 * 60, sClose = 16 * 60;
+
+          // Highlight today's row
+          for (let i = 0; i <= 6; i++) {
+            const row = document.getElementById('day-row-' + i);
+            if (row) {
+              row.classList.remove('bg-amber-100', 'text-amber-950', 'font-black', 'border-l-4', 'border-amber-500', 'pl-3');
+              const badge = row.querySelector('.today-badge');
+              if (badge) badge.remove();
+            }
+          }
+
+          const todayRow = document.getElementById('day-row-' + day);
+          if (todayRow) {
+            todayRow.classList.add('bg-amber-100', 'text-amber-950', 'font-black', 'border-l-4', 'border-amber-500', 'pl-3');
+            const dayName = todayRow.querySelector('.day-name');
+            if (dayName && !todayRow.querySelector('.today-badge')) {
+              const badge = document.createElement('span');
+              badge.className = 'today-badge ml-2 text-[10px] uppercase tracking-wider bg-amber-500 text-slate-950 px-1.5 py-0.5 rounded font-black';
+              badge.textContent = 'TODAY';
+              dayName.appendChild(badge);
+            }
+          }
+
+          // Check current open/closed
+          let isOpen = false;
+          let reopenStr = "Reopening Mon 8:00 AM";
+
+          if (day >= 1 && day <= 5) {
+            if (cur >= wOpen && cur <= wClose) isOpen = true;
+            else if (cur < wOpen) reopenStr = "Reopening Today 8:00 AM";
+            else reopenStr = day === 5 ? "Reopening Sat 10:00 AM" : "Reopening Tomorrow 8:00 AM";
+          } else if (day === 6) {
+            if (cur >= sOpen && cur <= sClose) isOpen = true;
+            else if (cur < sOpen) reopenStr = "Reopening Today 10:00 AM";
+            else reopenStr = "Mobile Dispatch On-Call Sunday";
+          } else {
+            isOpen = true; // Sunday on-call
+          }
+
+          if (isOpen) {
+            if (statusBox) statusBox.className = 'p-3 rounded-2xl bg-emerald-50 border border-emerald-300 flex items-center justify-between gap-2';
+            if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse';
+            if (statusText) {
+              statusText.textContent = 'Status: Open Now';
+              statusText.className = 'text-xs font-black text-emerald-950 uppercase tracking-wide';
+            }
+            if (reopenPill) {
+              reopenPill.textContent = 'Available Now';
+              reopenPill.className = 'text-[10px] sm:text-[11px] font-bold text-emerald-900 bg-emerald-200/70 px-2 py-0.5 rounded-full';
+            }
+          } else {
+            if (statusBox) statusBox.className = 'p-3 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-between gap-2';
+            if (dot) dot.className = 'w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse';
+            if (statusText) {
+              statusText.textContent = 'Status: Currently Closed';
+              statusText.className = 'text-xs font-black text-amber-950 uppercase tracking-wide';
+            }
+            if (reopenPill) {
+              reopenPill.textContent = reopenStr;
+              reopenPill.className = 'text-[10px] sm:text-[11px] font-bold text-amber-900 bg-amber-200/70 px-2 py-0.5 rounded-full';
+            }
+          }
+
+          modal.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            modal.classList.remove('opacity-0');
+            const card = modal.querySelector('div');
+            if (card) card.classList.remove('scale-95');
+          });
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          modal.classList.add('opacity-0');
+          const card = modal.querySelector('div');
+          if (card) card.classList.add('scale-95');
+          setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+          }, 200);
+        }
+
+        if (openBtn) openBtn.onclick = openModal;
+        if (closeBtn) closeBtn.onclick = closeModal;
+
+        // Catch any link with href="#storefront-hours" or [data-open-hours]
+        document.querySelectorAll('a[href="#storefront-hours"], a[href="/#storefront-hours"], [data-open-hours]').forEach(el => {
+          el.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+          });
+        });
+
+        modal.onclick = (e) => {
+          if (e.target === modal) closeModal();
+        };
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+          }
+        });
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupMenu);
+        document.addEventListener('DOMContentLoaded', () => {
+          setupMenu();
+          setupHoursModal();
+        });
       } else {
         setupMenu();
+        setupHoursModal();
       }
     })();
   </script>
