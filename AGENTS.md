@@ -27,6 +27,8 @@ Consult these guides before working on related tasks:
 - **NEVER Interfere with Other GitHub Projects or Apps:** Strictly NEVER modify, deploy to, reset, or run commands that touch any other GitHub repositories, codebases, or server application directories outside this specific website workspace (`armstrong-astro` / `btfdkcdpdw`).
 - **No Wildcard Operations:** Never run wildcard operations (`*` or loops across `/home/master/applications/`). All deployment actions, scripts, and server commands must explicitly and exclusively target `/home/master/applications/btfdkcdpdw/public_html`.
 - **Mandatory Prior Notification & Approval:** If any change, command, script, DNS adjustment, or server action has even the slightest chance of affecting another application, database, or project, you MUST STOP, clearly explain the situation to the user, and obtain explicit confirmation before taking any action.
+- **Proactive Quality & Performance Advisory:** If any request or idea could degrade mobile speed, Core Web Vitals (LCP, TBT, CLS), SEO rankings, conversion rates, or user trust, you MUST immediately speak up, explain the potential downsides, and provide the best high-performance alternative before proceeding.
+
 
 
 
