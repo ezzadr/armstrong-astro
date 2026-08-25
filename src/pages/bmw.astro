@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "BMW Key Replacement Nashville TN | Armstrong Locksmith";
 const seoDescription = "Affordable BMW car key cutting, transponder & smart proximity fob programming in Nashville. Mobile on-site service & shop at 208 Thompson Ln. (615) 625-8000.";
@@ -272,6 +273,13 @@ const bmwModels = [
           ></iframe>
         </div>
       </section>
+
+      <!-- Interactive BMW Key Estimator -->
+      <CarKeyEstimator 
+        defaultMake="BMW" 
+        title="BMW Key Replacement & Fitment Guide" 
+        subtitle="Select your BMW series year range and situation to check instant CAS/FEM/BDC key compatibility, dealer savings, and response times in Nashville." 
+      />
 
       <!-- 3 Core Service Cards with Depth & Hover Elevation -->
       <section class="grid grid-cols-1 md:grid-cols-3 gap-6">

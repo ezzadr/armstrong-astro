@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "European Car Key Specialist Nashville | BMW, Audi, Mercedes";
 const seoDescription = "Dealer-level key cutting & programming for BMW, Mercedes, Audi, Land Rover & Bentley in Nashville, TN. Same-day service. (615) 625-8000.";
@@ -105,6 +106,12 @@ const seoDescription = "Dealer-level key cutting & programming for BMW, Mercedes
         </div>
       </section>
       
+      <!-- Interactive European Car Key Estimator -->
+      <CarKeyEstimator 
+        defaultMake="BMW" 
+        title="Luxury European Key Estimator & Fitment Guide" 
+        subtitle="Select your European vehicle make, year range, and situation to check instant key programming compatibility and dealership savings in Nashville." 
+      />
 
       <!-- Services Grid -->
       <section class="grid grid-cols-1 md:grid-cols-3 gap-6">

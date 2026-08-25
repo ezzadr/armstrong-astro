@@ -1,0 +1,301 @@
+---
+// CarKeyEstimator.astro - Interactive Vehicle Key Fitment & Estimator Tool
+export interface Props {
+  defaultMake?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  defaultMake = "", 
+  title = "Instant Vehicle Key Estimator & Fitment Guide",
+  subtitle = "Select your vehicle make, year range, and situation to check instant key availability, dealer cost savings, and on-site service options in Nashville."
+} = Astro.props;
+
+const makes = [
+  "Acura", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet", 
+  "Chrysler", "Dodge", "Ford", "GMC", "Honda", "Hummer", "Hyundai", 
+  "Infiniti", "Jaguar", "Jeep", "Kia", "Land Rover", "Lexus", "Lincoln", 
+  "Mazda", "Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", 
+  "RAM", "Subaru", "Toyota", "Volkswagen", "Volvo", "Other Make"
+];
+
+const yearRanges = [
+  { label: "2021 – 2026 (Latest Push-to-Start Smart Keys)", value: "2021-2026" },
+  { label: "2016 – 2020 (Modern Proximity & Flip Keys)", value: "2016-2020" },
+  { label: "2010 – 2015 (Transponder Chips & Remote Fobs)", value: "2010-2015" },
+  { label: "2000 – 2009 (Standard Transponder / Laser Cut)", value: "2000-2009" },
+  { label: "Pre-2000 (Mechanical & Early Transponder)", value: "pre-2000" }
+];
+---
+
+<div class="estimator-widget-card bg-white rounded-3xl p-6 sm:p-10 border-2 border-slate-200 shadow-xl relative overflow-hidden my-10 font-sans text-left">
+  
+  <!-- Subtle Header Accents -->
+  <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-200">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-950 text-xs font-black uppercase tracking-wider mb-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Interactive Estimator</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0f274a] font-serif tracking-tight">
+        {title}
+      </h2>
+      <p class="text-slate-600 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+        {subtitle}
+      </p>
+    </div>
+    
+    <div class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 px-3.5 py-2 rounded-xl border border-slate-200">
+      <span class="text-base">🏪</span>
+      <span>Stocked at 208 Thompson Ln & Mobile Vans</span>
+    </div>
+  </div>
+
+  <!-- Interactive Form Step Controls -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6">
+    
+    <!-- Step 1: Vehicle Make -->
+    <div class="space-y-1.5">
+      <label for="est-make-select" class="block text-xs font-black uppercase tracking-wider text-slate-800">
+        Step 1: Vehicle Make
+      </label>
+      <div class="relative">
+        <select 
+          id="est-make-select" 
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
+        >
+          <option value="">-- Choose Make --</option>
+          {makes.map(m => (
+            <option value={m} selected={defaultMake.toLowerCase() === m.toLowerCase()}>{m}</option>
+          ))}
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-600 font-bold">
+          ▼
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Year Range -->
+    <div class="space-y-1.5">
+      <label for="est-year-select" class="block text-xs font-black uppercase tracking-wider text-slate-800">
+        Step 2: Model Year Range
+      </label>
+      <div class="relative">
+        <select 
+          id="est-year-select" 
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
+        >
+          <option value="">-- Choose Year Range --</option>
+          {yearRanges.map(yr => (
+            <option value={yr.value}>{yr.label}</option>
+          ))}
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-600 font-bold">
+          ▼
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Situation / Need -->
+    <div class="space-y-1.5">
+      <label for="est-situation-select" class="block text-xs font-black uppercase tracking-wider text-slate-800">
+        Step 3: What Happened?
+      </label>
+      <div class="relative">
+        <select 
+          id="est-situation-select" 
+          class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
+        >
+          <option value="all_lost">🔑 Lost ALL Keys (Car won't start)</option>
+          <option value="spare">🗝️ Have 1 Key (Need duplicate spare)</option>
+          <option value="broken">🛠️ Broken Key / Cracked Fob Shell</option>
+          <option value="lockout">🚨 Emergency Lockout (Keys Inside)</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-600 font-bold">
+          ▼
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dynamic Live Estimation Result Panel -->
+  <div id="estimator-result-panel" class="mt-8 pt-6 border-t-2 border-slate-100 hidden transition-all duration-300">
+    <div class="bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] rounded-2xl p-6 sm:p-8 text-white shadow-2xl border-t-4 border-amber-500">
+      
+      <!-- Result Top Badge & Title -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/70 px-3 py-1 rounded-full border border-emerald-500/30">
+            Hardware & Key Blank In-Stock
+          </span>
+        </div>
+        <div class="text-xs text-amber-300 font-bold">
+          TN License #406 &bull; Verified Master Locksmith
+        </div>
+      </div>
+
+      <h3 id="est-result-title" class="text-xl sm:text-2xl font-black font-serif text-white mb-3">
+        Replacement Key Fitment for Your Vehicle
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        
+        <!-- Pillar 1: Service Capability -->
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-1">
+          <div class="text-[11px] font-black uppercase tracking-wider text-amber-400">Technology & Equipment</div>
+          <p id="est-tech-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+            Laser cutting & factory OBD2 transponder programming on-site.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Dealer Comparison -->
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-1">
+          <div class="text-[11px] font-black uppercase tracking-wider text-emerald-400">Dealer Comparison</div>
+          <p id="est-savings-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+            Save $150 – $500 vs. Dealership pricing with zero towing needed.
+          </p>
+        </div>
+
+        <!-- Pillar 3: ETA & Service Method -->
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-1">
+          <div class="text-[11px] font-black uppercase tracking-wider text-amber-400">Response & Location</div>
+          <p id="est-dispatch-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+            Same-day mobile van to your driveway or walk in at 208 Thompson Ln.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Action CTAs -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
+        <div class="text-xs text-slate-300 font-medium max-w-md">
+          Ready for upfront pricing? Call Rahim or text a photo of your VIN/key for a quote in minutes.
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <a 
+            id="est-call-btn" 
+            href="tel:6156258000" 
+            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+          >
+            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+
+          <a 
+            href="sms:6156258000" 
+            class="px-5 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+          >
+            <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Text Photo</span>
+          </a>
+
+          <a 
+            href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center transition"
+          >
+            Book Online
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Initial Callout Before Selection -->
+  <div id="estimator-prompt-placeholder" class="mt-6 p-6 rounded-2xl bg-amber-50/70 border border-amber-200 text-center text-slate-700 text-xs sm:text-sm font-medium">
+    👉 Select your <strong>Make</strong> and <strong>Model Year</strong> above to view instant key compatibility and pricing savings.
+  </div>
+
+</div>
+
+<script>
+  (function initCarKeyEstimator() {
+    const makeSelect = document.getElementById('est-make-select') as HTMLSelectElement | null;
+    const yearSelect = document.getElementById('est-year-select') as HTMLSelectElement | null;
+    const sitSelect = document.getElementById('est-situation-select') as HTMLSelectElement | null;
+    const resultPanel = document.getElementById('estimator-result-panel');
+    const placeholder = document.getElementById('estimator-prompt-placeholder');
+    
+    const resultTitle = document.getElementById('est-result-title');
+    const techDesc = document.getElementById('est-tech-desc');
+    const savingsDesc = document.getElementById('est-savings-desc');
+    const dispatchDesc = document.getElementById('est-dispatch-desc');
+
+    if (!makeSelect || !yearSelect || !sitSelect || !resultPanel || !placeholder) return;
+
+    const euroMakes = ["BMW", "Audi", "Mercedes-Benz", "Land Rover", "Jaguar", "Porsche", "Bentley", "Volvo", "MINI", "Volkswagen"];
+    const asianMakes = ["Toyota", "Lexus", "Honda", "Acura", "Hyundai", "Kia", "Nissan", "Infiniti", "Subaru", "Mazda", "Mitsubishi"];
+    const domesticMakes = ["Ford", "Lincoln", "Chevrolet", "GMC", "Buick", "Cadillac", "Dodge", "Jeep", "RAM", "Chrysler", "Hummer"];
+
+    function updateEstimator() {
+      const make = makeSelect?.value || "";
+      const year = yearSelect?.value || "";
+      const situation = sitSelect?.value || "all_lost";
+
+      if (!make || !year) {
+        resultPanel?.classList.add('hidden');
+        placeholder?.classList.remove('hidden');
+        return;
+      }
+
+      placeholder?.classList.add('hidden');
+      resultPanel?.classList.remove('hidden');
+
+      const isEuro = euroMakes.some(m => m.toLowerCase() === make.toLowerCase());
+      const isAsian = asianMakes.some(m => m.toLowerCase() === make.toLowerCase());
+      
+      let sitLabel = "All Keys Lost Replacement";
+      if (situation === "spare") sitLabel = "Duplicate Spare Key & Fob";
+      if (situation === "broken") sitLabel = "Key Shell & Immobilizer Repair";
+      if (situation === "lockout") sitLabel = "Emergency Vehicle Door Unlock";
+
+      if (resultTitle) {
+        resultTitle.textContent = `${make} (${year}) — ${sitLabel}`;
+      }
+
+      if (techDesc) {
+        if (isEuro) {
+          techDesc.textContent = `Dealer-level CAS3/CAS4/FEM/BDC/BCM2 diagnostic programming & computerized high-security laser cutting for ${make}.`;
+        } else if (isAsian) {
+          techDesc.textContent = `High-security proximity smart key programming, 8A/4D/46/47/4A transponders, & computerized factory laser cutting for ${make}.`;
+        } else {
+          techDesc.textContent = `Factory OEM key fob & PEPS proximity programming with computerized CNC laser blade origination for ${make}.`;
+        }
+      }
+
+      if (savingsDesc) {
+        if (isEuro) {
+          savingsDesc.textContent = `Typically saves $250 – $650 vs. ${make} dealership tow fees & 2-week backorders. Ready same day.`;
+        } else {
+          savingsDesc.textContent = `Typically saves $150 – $400 vs dealership prices with no towing needed. Cut & programmed on-site.`;
+        }
+      }
+
+      if (dispatchDesc) {
+        if (situation === "lockout") {
+          dispatchDesc.textContent = `Urgent mobile dispatch with non-destructive air wedges. At your vehicle in prompt same-day service.`;
+        } else if (situation === "spare") {
+          dispatchDesc.textContent = `Drop by our 208 Thompson Ln storefront for a quick 15-min copy, or request our mobile van to your home.`;
+        } else {
+          dispatchDesc.textContent = `Mobile van dispatched directly to your vehicle anywhere in Nashville & Middle TN with keys cut on-site.`;
+        }
+      }
+    }
+
+    makeSelect.addEventListener('change', updateEstimator);
+    yearSelect.addEventListener('change', updateEstimator);
+    sitSelect.addEventListener('change', updateEstimator);
+
+    // If initial make is selected via prop, pre-select default year to show instant preview
+    if (makeSelect.value && !yearSelect.value) {
+      yearSelect.value = "2016-2020";
+      updateEstimator();
+    }
+  })();
+</script>

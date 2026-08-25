@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "OEM Dealer Key Alternative Nashville | Armstrong Locksmith";
 const seoDescription = "Avoid dealership backorders and towing fees. OEM-grade car key cutting and immobilizer programming on-site in Nashville. (615) 625-8000.";
@@ -51,6 +52,14 @@ const seoDescription = "Avoid dealership backorders and towing fees. OEM-grade c
 
     </div>
   </header>
+
+  <!-- Interactive OEM Key Estimator -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <CarKeyEstimator 
+      title="OEM Key vs Dealership Estimator" 
+      subtitle="Select your vehicle make, year range, and situation to check instant key availability, dealer savings, and programming turnaround times." 
+    />
+  </section>
 
   <!-- Complete Original WordPress Long-Form Content -->
   <section class="py-16 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">

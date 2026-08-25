@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "Toyota Key Replacement Nashville TN | Armstrong Locksmith";
 const seoDescription = "Fast on-site Toyota car key cutting, transponder & smart proximity fob programming in Nashville. Mobile dispatch & shop at 208 Thompson Ln. (615) 625-8000.";
@@ -222,6 +223,13 @@ const toyotaModels = [
   <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
       
+      <!-- Interactive Toyota Key Estimator -->
+      <CarKeyEstimator 
+        defaultMake="Toyota" 
+        title="Toyota Key Replacement & Fitment Guide" 
+        subtitle="Select your Toyota model year range and situation to check instant key compatibility, dealer savings, and response times in Nashville." 
+      />
+
       <!-- 3 Core Services with Elevation & Depth -->
       <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
         

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "Key Fob Replacement Nashville TN | Armstrong Locksmith";
 const seoDescription = "Same-day key fob cutting & programming in Nashville, TN. Push-to-start remotes & flip keys for all makes. Mobile van & shop. (615) 625-8000.";
@@ -76,6 +77,14 @@ const seoDescription = "Same-day key fob cutting & programming in Nashville, TN.
         <div class="p-2.5 text-center text-xs font-bold text-[#0f274a]">Fob Shell Replacement & Worn Button Rebuilds</div>
       </div>
     </div>
+  </section>
+
+  <!-- Interactive Car Key & Fob Estimator -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <CarKeyEstimator 
+      title="Key Fob & Remote Estimator" 
+      subtitle="Select your vehicle make, year range, and situation to check instant key fob availability, pricing savings, and programming options." 
+    />
   </section>
 
   <!-- Complete Original WordPress Long-Form Content -->
