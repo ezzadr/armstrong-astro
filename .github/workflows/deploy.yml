@@ -41,20 +41,5 @@ jobs:
             cat ~/.ssh/id_dispatch.pub
 
             echo "=== CONFIGURING SSH CONFIG FOR DISPATCH ==="
-            cat << 'EOF' > ~/.ssh/config
-Host github.com-portal
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_ed25519
-
-Host github.com-dispatch
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_dispatch
-
-Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/id_ed25519
-EOF
+            printf "Host github.com-portal\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/id_ed25519\n\nHost github.com-dispatch\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/id_dispatch\n\nHost github.com\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/id_ed25519\n" > ~/.ssh/config
             chmod 600 ~/.ssh/config
