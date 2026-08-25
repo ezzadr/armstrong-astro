@@ -1,123 +1,123 @@
 ---
-// RecentWorkGallery.astro - Sharp Industrial Masonry Gallery
+// RecentWorkGallery.astro - Masonry-style gallery of real jobs
 ---
 
-<section class="py-20 bg-slate-50 border-y border-slate-200 overflow-hidden font-sans">
+<section class="py-20 bg-slate-50 border-y border-slate-200 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-left max-w-3xl mb-12">
-      <div class="flex items-center gap-2 mb-2">
-        <span class="w-8 h-1 bg-amber-500 inline-block"></span>
-        <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Authentic Job Proof</span>
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider mb-4 border border-amber-200">
+        <span>📸</span>
+        <span>Real Jobs &bull; Real Expertise</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0f274a] uppercase tracking-tight">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-serif text-[#0f274a] tracking-tight leading-tight">
         Don't Trust Stock Photos. <br />
-        <span class="text-amber-600">See Our Real Work in Nashville.</span>
+        <span class="text-amber-500">See Our Real Work.</span>
       </h2>
-      <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed font-medium">
-        Many online "locksmiths" are out-of-state dispatch centers using generic stock photos. We are real master locksmiths working out of 208 Thompson Ln and our mobile service vans.
+      <p class="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed font-medium">
+        Many "locksmiths" online are out-of-state dispatch centers using fake stock images. We are a real, local Nashville team. Browse our recent high-end automotive, commercial, and residential jobs.
       </p>
     </div>
 
-    <!-- Masonry Grid Layout (Sharp, industrial, high-precision) -->
+    <!-- Masonry Grid Layout -->
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
       
       <!-- Item 1: Maserati -->
-      <a href="/european-car-key-specialist/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-amber-500">
+      <a href="/european-car-key-specialist/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/Maserati-key-cut-and-programmed--scaled.jpg" alt="Maserati Smart Key Programming" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-amber-400 uppercase tracking-widest block mb-1">Automotive</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Maserati Proximity Smart Key</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Automotive</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Maserati Proximity Smart Key</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 2: Commercial Keypad -->
-      <a href="/commercial-locksmith/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-[#0f274a]">
+      <a href="/commercial-locksmith/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/before-keypad-installation-on-commercial-door.jpg" alt="Commercial Door Keypad Installation" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-emerald-400 uppercase tracking-widest block mb-1">Commercial</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Access Control Keypad Install</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Commercial</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Commercial Access Control Keypad</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 3: Mercedes -->
-      <a href="/mercedes-benz/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-amber-500">
+      <a href="/mercedes-benz/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg" alt="Mercedes-Benz Key Fitment" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-amber-400 uppercase tracking-widest block mb-1">European</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Mercedes EIS Key Programming</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">European</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Mercedes-Benz EIS Programming</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 4: Toyota Lishi -->
-      <a href="/toyota-car-key-replacement/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-[#0f274a]">
+      <a href="/toyota-car-key-replacement/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/TOYOTA-LISHI-TOOL.jpg" alt="Lishi Tool Lock Decoding" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-amber-400 uppercase tracking-widest block mb-1">Origination</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Lishi Lock Decoding On-Site</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Origination</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Lishi Decoding a Toyota Door Lock</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 5: Audi -->
-      <a href="/audi-car-keys/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-amber-500">
+      <a href="/audi-car-keys/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/rahim-made-audi-keys-in-nashville-1.png" alt="Rahim Programming Audi Keys" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-emerald-400 uppercase tracking-widest block mb-1">Master Locksmith</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Audi BCM2 Key Generation</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Expertise</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Rahim Originating Audi Smart Keys</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 6: BMW -->
-      <a href="/bmw/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-[#0f274a]">
+      <a href="/bmw/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg" alt="BMW Key Replacement Brentwood" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-amber-400 uppercase tracking-widest block mb-1">European</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">BMW CAS/FEM Smart Key Sync</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">European</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">BMW CAS/FEM Key Programmed</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 7: Sako Unlock -->
-      <a href="/emergency-car-lockout/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-red-600">
+      <a href="/emergency-car-lockout/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg" alt="Sako Unlocking a Car" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-red-400 uppercase tracking-widest block mb-1">Emergency Dispatch</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Damage-Free Vehicle Unlock</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Emergency</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Sako Performing a Non-Destructive Unlock</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 8: Broken Chevy -->
-      <a href="/key-fob-replacement-nashville/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-amber-500">
+      <a href="/key-fob-replacement-nashville/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/chevy-remote-buttons-gone-1.jpg" alt="Broken Chevy Remote" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-amber-400 uppercase tracking-widest block mb-1">Hardware Rebuild</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">Worn Key Fob Case Repair</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Repairs</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Worn Fob Shells & Button Repairs</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
       <!-- Item 9: Storefront Machines -->
-      <a href="/nashville-locksmith-storefront/" class="block break-inside-avoid shadow-md border border-slate-200 bg-white group relative cursor-pointer overflow-hidden border-t-4 border-emerald-600">
+      <a href="/nashville-locksmith-storefront/" class="block break-inside-avoid rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
         <img src="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg" alt="Key Machines in Shop" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-black text-emerald-400 uppercase tracking-widest block mb-1">Storefront Shop</span>
-          <h3 class="text-white font-black text-sm sm:text-base uppercase tracking-tight">208 Thompson Ln Key Machines</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 uppercase tracking-wider">View Service &rarr;</span>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">208 Thompson Ln</span>
+          <h3 class="text-white font-bold text-sm sm:text-base">Our In-Shop CNC & Laser Cutters</h3>
+          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
         </div>
       </a>
 
     </div>
 
-    <!-- Final Sharp CTA -->
+    <!-- Final CTA -->
     <div class="mt-12 text-center">
-      <a href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-[#0f274a] hover:bg-[#16335c] text-white font-black text-xs uppercase tracking-widest shadow-xl border-b-2 border-amber-500 transition-all">
-        Book a Local Master Locksmith &rarr;
+      <a href="https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0f274a] hover:bg-[#16335c] text-white font-extrabold text-sm shadow-xl hover:-translate-y-1 transition-all">
+        Book a Local Expert Online Now &rarr;
       </a>
     </div>
 

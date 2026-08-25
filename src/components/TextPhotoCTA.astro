@@ -1,36 +1,41 @@
 ---
-// TextPhotoCTA.astro - Sharp Industrial SMS Photo Quote Banner
+// TextPhotoCTA.astro - High-converting SMS photo quote banner
 ---
 
-<div class="bg-[#0f274a] p-6 sm:p-10 shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-800 text-white flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden my-10 font-sans">
+<div class="bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 rounded-3xl p-6 sm:p-10 shadow-xl border border-blue-500/30 text-white flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden my-12">
   
-  <div class="flex-1 relative z-10 text-left">
-    <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider mb-3">
-      <span class="w-2 h-2 rounded-full bg-slate-950 animate-pulse"></span>
-      <span>Instant Key ID by Photo</span>
+  <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+    <svg class="w-64 h-64 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+    </svg>
+  </div>
+
+  <div class="flex-1 relative z-10 text-center md:text-left">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/60 border border-blue-400/40 text-blue-100 text-[11px] font-bold tracking-wider uppercase mb-3 shadow-inner">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Get an Instant Quote
     </div>
-    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white mb-2">
-      Not Sure Which Key or Fob You Have?
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-sans tracking-tight mb-3">
+      Not sure which key you have?
     </h2>
-    <p class="text-slate-200 text-sm sm:text-base max-w-xl leading-relaxed font-medium">
-      Laser cut? Smart proximity fob? Transponder? Don't guess. <strong class="text-amber-400">Text a photo</strong> of your key, lock, or door directly to our technicians for an exact price and prompt ETA.
+    <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
+      Transponder? Proximity Smart Fob? Don't guess. <strong class="text-white">Text a photo</strong> of your current key or lock directly to our shop phone, and we'll reply with an exact price and ETA in minutes.
     </p>
   </div>
 
   <div class="relative z-10 shrink-0 w-full md:w-auto flex flex-col items-center">
     <a 
       href="sms:6156258000" 
-      class="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm sm:text-base uppercase tracking-wider shadow-xl active:scale-95 transition-all border-b-2 border-amber-600"
+      class="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white hover:bg-amber-50 text-blue-800 font-black text-base sm:text-lg uppercase tracking-wider rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] active:scale-95 transition-all border-b-4 border-slate-200 hover:border-amber-200"
     >
-      <svg class="w-5 h-5 text-slate-950 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
-      <span>Text Us A Photo Now</span>
+      <span>Text Us A Photo</span>
     </a>
-    <div class="text-center mt-3 text-xs font-bold text-slate-300 flex items-center justify-center gap-1.5">
-      <span class="text-emerald-400 font-bold">&#10003;</span>
-      <span>Direct to On-Duty Master Locksmith &bull; (615) 625-8000</span>
+    <div class="text-center mt-3 text-xs font-bold text-blue-200 flex items-center justify-center gap-1.5 opacity-90">
+      <svg class="w-3.5 h-3.5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Direct to local technician
     </div>
   </div>
 
