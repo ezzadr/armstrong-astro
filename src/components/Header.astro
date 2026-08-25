@@ -213,37 +213,47 @@
         <nav class="flex flex-col gap-1 py-3 text-xs sm:text-sm font-bold text-slate-800">
           <a href="/" class="p-2 hover:bg-slate-100 flex items-center gap-2 border-b border-slate-100">🏠 Home</a>
           
-          <!-- Car Keys Section in Mobile -->
-          <div class="p-2 border-b border-slate-100">
-            <div class="text-[11px] font-black uppercase text-amber-600 tracking-wider mb-1">🔑 Car Keys &amp; Makes</div>
-            <div class="grid grid-cols-2 gap-1 text-[11px] pl-1">
-              <a href="/bmw/" class="py-1 hover:text-amber-600">&bull; BMW Keys</a>
-              <a href="/mercedes-benz/" class="py-1 hover:text-amber-600">&bull; Mercedes-Benz</a>
-              <a href="/audi-car-keys/" class="py-1 hover:text-amber-600">&bull; Audi Keys</a>
-              <a href="/audi-q3-key-replacement/" class="py-1 hover:text-amber-600">&bull; Audi Q3 Keys</a>
-              <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="py-1 hover:text-amber-600">&bull; Land Rover / Range</a>
-              <a href="/bentley-key-replacement/" class="py-1 hover:text-amber-600">&bull; Bentley Keys</a>
-              <a href="/toyota-car-key-replacement/" class="py-1 hover:text-amber-600">&bull; Toyota Keys</a>
-              <a href="/honda-car-keys/" class="py-1 hover:text-amber-600">&bull; Honda Keys</a>
-              <a href="/kia-car-key-replacement/" class="py-1 hover:text-amber-600">&bull; Kia Keys</a>
-              <a href="/hyundai/" class="py-1 hover:text-amber-600">&bull; Hyundai Keys</a>
-              <a href="/acura-car-key-replacement/" class="py-1 hover:text-amber-600">&bull; Acura Keys</a>
-              <a href="/hummer-key-replacement-nashville/" class="py-1 hover:text-amber-600">&bull; Hummer Keys</a>
-              <a href="/key-fob-replacement-nashville/" class="py-1 hover:text-amber-600">&bull; Key Fobs</a>
-              <a href="/dealer-key/" class="py-1 hover:text-amber-600">&bull; Dealer Keys</a>
-              <a href="/emergency-car-lockout/" class="py-1 text-red-600">&bull; Car Lockouts</a>
-              <a href="/car-key-replacement-nashville/" class="py-1 font-black text-amber-900 col-span-2">&rarr; All Vehicle Keys Hub</a>
+          <!-- Car Keys Section Accordion -->
+          <div class="border-b border-slate-100">
+            <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-2 hover:bg-slate-50 transition" aria-expanded="false">
+              <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">🔑 Car Keys &amp; Makes</span>
+              <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="arm-accordion-content hidden px-2 pb-3">
+              <div class="grid grid-cols-2 gap-x-1 gap-y-2 text-[11px] pl-1 pt-2 border-t border-slate-50">
+                <a href="/bmw/" class="hover:text-amber-600">&bull; BMW Keys</a>
+                <a href="/mercedes-benz/" class="hover:text-amber-600">&bull; Mercedes-Benz</a>
+                <a href="/audi-car-keys/" class="hover:text-amber-600">&bull; Audi Keys</a>
+                <a href="/audi-q3-key-replacement/" class="hover:text-amber-600">&bull; Audi Q3 Keys</a>
+                <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="hover:text-amber-600">&bull; Land Rover / Range</a>
+                <a href="/bentley-key-replacement/" class="hover:text-amber-600">&bull; Bentley Keys</a>
+                <a href="/toyota-car-key-replacement/" class="hover:text-amber-600">&bull; Toyota Keys</a>
+                <a href="/honda-car-keys/" class="hover:text-amber-600">&bull; Honda Keys</a>
+                <a href="/kia-car-key-replacement/" class="hover:text-amber-600">&bull; Kia Keys</a>
+                <a href="/hyundai/" class="hover:text-amber-600">&bull; Hyundai Keys</a>
+                <a href="/acura-car-key-replacement/" class="hover:text-amber-600">&bull; Acura Keys</a>
+                <a href="/hummer-key-replacement-nashville/" class="hover:text-amber-600">&bull; Hummer Keys</a>
+                <a href="/key-fob-replacement-nashville/" class="hover:text-amber-600">&bull; Key Fobs</a>
+                <a href="/dealer-key/" class="hover:text-amber-600">&bull; Dealer Keys</a>
+                <a href="/emergency-car-lockout/" class="text-red-600">&bull; Car Lockouts</a>
+                <a href="/car-key-replacement-nashville/" class="font-black text-amber-900 col-span-2 pt-1 mt-1 border-t border-amber-100">&rarr; All Vehicle Keys Hub</a>
+              </div>
             </div>
           </div>
 
-          <!-- Locks & Hardware -->
-          <div class="p-2 border-b border-slate-100">
-            <div class="text-[11px] font-black uppercase text-amber-600 tracking-wider mb-1">🏡 Locks &amp; Commercial</div>
-            <div class="flex flex-col gap-1 text-[11px] pl-1">
-              <a href="/residential-locksmith-nashville/" class="py-1 hover:text-amber-600">&bull; Residential Rekey &amp; Deadbolts</a>
-              <a href="/nashville-rekey-service/" class="py-1 hover:text-amber-600">&bull; Nashville Rekey Service</a>
-              <a href="/commercial-locksmith/" class="py-1 hover:text-amber-600">&bull; Commercial Doors &amp; Panic Bars</a>
-              <a href="/nashville-locksmith-storefront/" class="py-1 font-bold text-emerald-800">&bull; 208 Thompson Ln Storefront Shop</a>
+          <!-- Locks & Hardware Accordion -->
+          <div class="border-b border-slate-100">
+            <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-2 hover:bg-slate-50 transition" aria-expanded="false">
+              <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">🏡 Locks &amp; Commercial</span>
+              <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="arm-accordion-content hidden px-2 pb-3">
+              <div class="flex flex-col gap-2 text-[11px] pl-1 pt-2 border-t border-slate-50">
+                <a href="/residential-locksmith-nashville/" class="hover:text-amber-600">&bull; Residential Rekey &amp; Deadbolts</a>
+                <a href="/nashville-rekey-service/" class="hover:text-amber-600">&bull; Nashville Rekey Service</a>
+                <a href="/commercial-locksmith/" class="hover:text-amber-600">&bull; Commercial Doors &amp; Panic Bars</a>
+                <a href="/nashville-locksmith-storefront/" class="font-bold text-emerald-800">&bull; 208 Thompson Ln Storefront Shop</a>
+              </div>
             </div>
           </div>
 
@@ -320,10 +330,37 @@
         };
       }
 
+      // Accordion Logic for Mobile Menu
+      function setupAccordions() {
+        const btns = document.querySelectorAll('.arm-accordion-btn');
+        btns.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const content = this.nextElementSibling;
+            const chevron = this.querySelector('.arm-chevron');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+              content.classList.add('hidden');
+              chevron.classList.remove('rotate-180');
+              this.setAttribute('aria-expanded', 'false');
+            } else {
+              content.classList.remove('hidden');
+              chevron.classList.add('rotate-180');
+              this.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupMenu);
+        document.addEventListener('DOMContentLoaded', () => {
+          setupMenu();
+          setupAccordions();
+        });
       } else {
         setupMenu();
+        setupAccordions();
       }
     })();
   </script>
