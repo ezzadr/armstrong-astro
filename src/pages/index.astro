@@ -470,6 +470,9 @@ const homepageLocalSchema = [
                   alt={job.title} 
                   class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                   loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="192"
                 />
                 <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded bg-slate-900/80 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
                   {job.category}
@@ -755,6 +758,9 @@ const homepageLocalSchema = [
             alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville"
             class="w-full h-auto object-cover"
             loading="lazy"
+            decoding="async"
+            width="480"
+            height="480"
           />
           <div class="p-4 bg-slate-50 border-t border-slate-200 text-center">
             <h3 class="text-base font-bold text-[#0f274a] font-serif">Rahim Ezzadpanah</h3>
@@ -946,11 +952,11 @@ const homepageLocalSchema = [
         }
       }
 
-      // Sync live reviews on load
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', syncLiveGoogleReviews);
+      // Sync live reviews non-blockingly during idle time
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(syncLiveGoogleReviews, { timeout: 3000 });
       } else {
-        syncLiveGoogleReviews();
+        setTimeout(syncLiveGoogleReviews, 1500);
       }
     })();
   </script>
