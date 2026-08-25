@@ -95,137 +95,22 @@ const initialReviews = [
 ];
 
 // Advanced Local Ranking Authority Schema for Homepage
-const homepageLocalSchema = [
+const homepageSchema = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": "https://armstronglocksmithinc.com/#website",
     "url": "https://armstronglocksmithinc.com/",
     "name": "Armstrong Locksmith Nashville",
-    "description": "Licensed local locksmith and storefront at 208 Thompson Ln, Nashville TN.",
+    "description": "Certified local locksmith with physical storefront at 208 Thompson Ln, Nashville TN.",
     "publisher": {
       "@id": "https://armstronglocksmithinc.com/#locksmith"
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": ["Locksmith", "LocalBusiness", "AutomotiveBusiness"],
-    "@id": "https://armstronglocksmithinc.com/#locksmith",
-    "name": "Armstrong Locksmith Inc",
-    "legalName": "Armstrong Locksmith Inc",
-    "alternateName": ["Armstrong Locksmith", "Armstrong Locksmith Nashville"],
-    "image": [
-      "https://armstronglocksmithinc.com/shop.jpeg",
-      "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
-      "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg"
-    ],
-    "url": "https://armstronglocksmithinc.com/",
-    "telephone": "+1-615-625-8000",
-    "email": "armstronglocksmithinc@gmail.com",
-    "priceRange": "$$",
-    "currenciesAccepted": "USD",
-    "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "208 Thompson Ln",
-      "addressLocality": "Nashville",
-      "addressRegion": "TN",
-      "postalCode": "37211",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 36.1118,
-      "longitude": -86.7378
-    },
-    "hasMap": "https://maps.google.com/?cid=10860533355523991515",
-    "sameAs": [
-      "https://maps.google.com/?cid=10860533355523991515",
-      "https://www.google.com/maps/place/Armstrong+Locksmith+Inc/@36.111087,-86.7411,14z/data=!4m6!3m5!1s0x886465a4c1b9aab9:0xaab9c1a4d806b904!8m2!3d36.111087!4d-86.7411!16s%2Fg%2F11b6d19t50",
-      "https://www.facebook.com/armstronglocksmithinc",
-      "https://www.instagram.com/armstronglocksmithinc",
-      "https://www.yelp.com/biz/armstrong-locksmith-nashville"
-    ],
-    "founder": {
-      "@type": "Person",
-      "name": "Rahim Ezzadpanah",
-      "jobTitle": "Owner & Master Locksmith",
-      "knowsAbout": [
-        "Automotive Key Cutting",
-        "European Immobilizer Programming",
-        "BMW FEM BDC Security",
-        "Mercedes FBS3 FBS4 Keys",
-        "Audi BCM2 Keys",
-        "Commercial Storefront Hardware",
-        "Residential Deadbolt Rekeying"
-      ]
-    },
-    "foundingDate": "2015",
-    "award": "Certified & Fully Insured Master Locksmith",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "23:30"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday"],
-        "opens": "10:00",
-        "closes": "16:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "750",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Marcus Vance" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-        "reviewBody": "Saved me over $600 compared to the BMW dealership! Rahim came out with dealer-level equipment, cut the emergency physical blade, and programmed the smart key fob the same day right on-site."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Jessica Holloway" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-        "reviewBody": "We just bought our home and needed all exterior deadbolts rekeyed immediately. Upfront quote with zero hidden fees, arrived on time and repinned all locks to one master key."
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Carlos Mendez" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-        "reviewBody": "Having an actual physical storefront made all the difference. I walked in during my lunch break, Rahim cut and programmed a second smart key for my Audi A6 in less than 20 minutes."
-      }
-    ],
-    "areaServed": [
-      { "@type": "City", "name": "Nashville" },
-      { "@type": "City", "name": "Brentwood" },
-      { "@type": "City", "name": "Franklin" },
-      { "@type": "City", "name": "Antioch" },
-      { "@type": "City", "name": "Donelson" },
-      { "@type": "City", "name": "Hermitage" },
-      { "@type": "City", "name": "Belle Meade" },
-      { "@type": "City", "name": "Green Hills" },
-      { "@type": "City", "name": "Nolensville" },
-      { "@type": "City", "name": "Berry Hill" }
-    ]
   }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageLocalSchema}>
+<Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageSchema}>
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
   <section class="relative bg-[#07152b] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
@@ -657,11 +542,12 @@ const homepageLocalSchema = [
     </div>
   </section>
 
-  <!-- ==================== REAL GOOGLE REVIEWS SHOWCASE WITH LIVE AUTO-SYNC ==================== -->
-  <section class="py-16 sm:py-24 bg-slate-50 px-4 sm:px-8 border-b border-slate-200" id="google-reviews-section">
+  <!-- ==================== REAL GOOGLE REVIEWS SHOWCASE WITH LIVE AUTO-SYNC SLIDER ==================== -->
+  <section class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-8 border-b border-slate-200" id="google-reviews-section">
     <div class="max-w-7xl mx-auto">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-800 mb-3 shadow-sm">
             <svg class="w-4 h-4 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
@@ -682,13 +568,31 @@ const homepageLocalSchema = [
         </div>
 
         <div class="flex items-center gap-3">
+          <!-- Slider Navigation Arrows -->
+          <div class="hidden sm:flex items-center gap-2 mr-2">
+            <button 
+              id="reviews-prev-btn" 
+              aria-label="Previous Reviews" 
+              class="w-10 h-10 rounded-full bg-white hover:bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-700 shadow-sm transition active:scale-95"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button 
+              id="reviews-next-btn" 
+              aria-label="Next Reviews" 
+              class="w-10 h-10 rounded-full bg-white hover:bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-700 shadow-sm transition active:scale-95"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
           <a 
             href="https://search.google.com/local/writereview?placeid=ChIJe9o216RkZIgRI4y2kZ2XnZY" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-extrabold shadow-sm transition"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-extrabold shadow-sm transition"
           >
-            <span>✍️ Write a Google Review</span>
+            <span>✍️ Write Review</span>
           </a>
           <a 
             href="https://maps.google.com/?cid=10860533355523991515" 
@@ -696,15 +600,19 @@ const homepageLocalSchema = [
             rel="noopener noreferrer" 
             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs sm:text-sm font-bold border border-slate-300 shadow-sm transition"
           >
-            <span>⭐ View on Google Maps</span>
+            <span>⭐ View All (750+)</span>
           </a>
         </div>
       </div>
 
-      <!-- Live Reviews Grid Container -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="reviews-grid-container">
+      <!-- Single-Row Scroll-Snap Slider Container -->
+      <div 
+        class="flex gap-5 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth" 
+        id="reviews-grid-container"
+        style="scrollbar-width: none; -ms-overflow-style: none;"
+      >
         {initialReviews.map((rev) => (
-          <div class="card-clean rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative bg-white">
+          <div class="min-w-[85%] sm:min-w-[320px] lg:min-w-[350px] max-w-[380px] snap-start shrink-0 card-clean rounded-2xl p-6 flex flex-col justify-between relative bg-white border border-slate-200 shadow-sm hover:shadow-md transition">
             <div>
               <div class="flex items-start justify-between gap-2 mb-3">
                 <div>
@@ -725,7 +633,7 @@ const homepageLocalSchema = [
               </p>
             </div>
 
-            <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+            <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
               <span class="inline-flex items-center gap-1 text-emerald-700 font-semibold">
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Verified Google Review
               </span>
@@ -890,7 +798,20 @@ const homepageLocalSchema = [
         });
       }
 
-      // 2. Automatic Live Google Reviews Sync
+      // 2. Reviews Slider Controls & Live Auto-Sync
+      const prevBtn = document.getElementById('reviews-prev-btn');
+      const nextBtn = document.getElementById('reviews-next-btn');
+      const slider = document.getElementById('reviews-grid-container');
+
+      if (prevBtn && nextBtn && slider) {
+        prevBtn.addEventListener('click', () => {
+          slider.scrollBy({ left: -360, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+          slider.scrollBy({ left: 360, behavior: 'smooth' });
+        });
+      }
+
       async function syncLiveGoogleReviews() {
         try {
           const res = await fetch('/api/reviews.php');
@@ -906,8 +827,8 @@ const homepageLocalSchema = [
             }
 
             if (container && data.reviews.length >= 3) {
-              container.innerHTML = data.reviews.slice(0, 6).map(rev => `
-                <div class="card-clean rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative bg-white">
+              container.innerHTML = data.reviews.map(rev => `
+                <div class="min-w-[85%] sm:min-w-[320px] lg:min-w-[350px] max-w-[380px] snap-start shrink-0 card-clean rounded-2xl p-6 flex flex-col justify-between relative bg-white border border-slate-200 shadow-sm hover:shadow-md transition">
                   <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
                       <div>
@@ -923,12 +844,12 @@ const homepageLocalSchema = [
                       ${rev.service || 'Verified Customer'}
                     </div>
 
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal line-clamp-4">
                       "${rev.text}"
                     </p>
                   </div>
 
-                  <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                  <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                     <span class="inline-flex items-center gap-1 text-emerald-700 font-semibold">
                       <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Verified Google Review
                     </span>

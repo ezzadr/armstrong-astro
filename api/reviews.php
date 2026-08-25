@@ -23,7 +23,7 @@ if (empty($apiKey)) {
     // If no API key is provided yet, serve fallback curated verified reviews
     $fallback = [
         'rating' => 4.9,
-        'user_ratings_total' => 120,
+        'user_ratings_total' => 750,
         'reviews' => [
             [
                 'author_name' => 'Marcus Vance',
