@@ -33,13 +33,51 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== GENERATING DISPATCH SSH KEY ON SERVER ==="
-            if [ ! -f ~/.ssh/id_dispatch ]; then
-              ssh-keygen -t ed25519 -C "cloudways-dispatch-deploy" -f ~/.ssh/id_dispatch -N ""
+            echo "=== RESTORING ARMSTRONG AI CALL DISPATCH IN jqkvdrpcfz ==="
+            cd /home/master/applications/jqkvdrpcfz/public_html
+            if [ -f .env ]; then
+              cp .env /home/master/applications/jqkvdrpcfz/.env.backup
             fi
-            echo "DISPATCH_PUBLIC_KEY:"
-            cat ~/.ssh/id_dispatch.pub
+            
+            git remote set-url origin git@github.com-dispatch:ezzadr/armstrong-ai-call-dispatch.git 2>/dev/null || git remote add origin git@github.com-dispatch:ezzadr/armstrong-ai-call-dispatch.git
+            git fetch origin main
+            git reset --hard origin/main
+            
+            if [ -f /home/master/applications/jqkvdrpcfz/.env.backup ]; then
+              cp /home/master/applications/jqkvdrpcfz/.env.backup .env
+            fi
 
-            echo "=== CONFIGURING SSH CONFIG FOR DISPATCH ==="
-            printf "Host github.com-portal\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/id_ed25519\n\nHost github.com-dispatch\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/id_dispatch\n\nHost github.com\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/id_ed25519\n" > ~/.ssh/config
-            chmod 600 ~/.ssh/config
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true
+            php artisan optimize:clear || true
+            php artisan config:cache || true
+            php artisan route:cache || true
+            php artisan view:cache || true
+            php artisan migrate --force || true
+            
+            echo "=== DISPATCH APP RESTORE STATUS ==="
+            git log -n 1
+            php artisan --version || true
+
+            echo "=== RESTORING ARMSTRONG PORTAL IN hrfzwcjvqh ==="
+            cd /home/master/applications/hrfzwcjvqh/public_html
+            if [ -f .env ]; then
+              cp .env /home/master/applications/hrfzwcjvqh/.env.backup
+            fi
+            
+            git remote set-url origin git@github.com-portal:ezzadr/armstrong-portal.git 2>/dev/null || git remote add origin git@github.com-portal:ezzadr/armstrong-portal.git
+            git fetch origin main
+            git reset --hard origin/main
+            
+            if [ -f /home/master/applications/hrfzwcjvqh/.env.backup ]; then
+              cp /home/master/applications/hrfzwcjvqh/.env.backup .env
+            fi
+
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader || true
+            php artisan optimize:clear || true
+            php artisan config:cache || true
+            php artisan route:cache || true
+            php artisan view:cache || true
+            
+            echo "=== PORTAL APP RESTORE STATUS ==="
+            git log -n 1
+            php artisan --version || true
