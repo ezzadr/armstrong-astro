@@ -16,7 +16,7 @@ jobs:
         with:
           host: ${{ secrets.CLOUDWAYS_HOST }}
           username: ${{ secrets.CLOUDWAYS_USER }}
-          password: ${{ secrets.CLOUDWAYS_PASSWORD }}
+          key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
           port: 22
           script: |
             if [ -d "public_html" ]; then
