@@ -4,33 +4,6 @@
 
 <header id="arm-site-header" class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm font-sans">
   
-  <!-- Top Micro Utility Bar -->
-  <div class="bg-[#0f274a] text-white text-[10px] sm:text-xs py-1.5 px-4 sm:px-8 lg:px-10 border-t-2 border-amber-500">
-    <div class="max-w-[92rem] mx-auto flex items-center justify-between gap-2">
-      
-      <!-- Storefront Link -->
-      <a 
-        href="https://www.google.com/maps/dir/?api=1&destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="inline-flex items-center gap-1 text-slate-200 hover:text-amber-400 font-medium transition truncate"
-      >
-        <svg class="w-3 h-3 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
-        <span class="truncate">208 Thompson Ln, Nashville, TN</span>
-      </a>
-
-      <!-- Status & License -->
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <span class="hidden sm:inline text-amber-300 font-semibold">Certified & Insured</span>
-        <div id="arm-status-badge" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold uppercase tracking-wider text-[9px] sm:text-[10px]">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="status-text">Open</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <!-- Main Navigation Row -->
   <div class="max-w-[92rem] mx-auto px-4 sm:px-8 lg:px-10 py-2.5 sm:py-3.5 flex items-center justify-between gap-4">
     
@@ -301,36 +274,6 @@
         parts.forEach(p => { if (p.type !== 'literal') m[p.type] = p.value; });
         return { day: dayMap[m.weekday], hour: parseInt(m.hour, 10), minute: parseInt(m.minute, 10) };
       }
-
-      function updateStatus() {
-        const badge = document.getElementById('arm-status-badge');
-        if (!badge) return;
-
-        const { day, hour, minute } = getNashvilleTime();
-        const cur = hour * 60 + minute;
-        const wOpen = 8 * 60, wClose = 23 * 60 + 30;
-        const sOpen = 10 * 60, sClose = 16 * 60;
-
-        let isOpen = false;
-        if (day >= 1 && day <= 5) {
-          isOpen = cur >= wOpen && cur <= wClose;
-        } else if (day === 6) {
-          isOpen = cur >= sOpen && cur <= sClose;
-        }
-
-        const text = badge.querySelector('.status-text');
-
-        if (isOpen) {
-          badge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold uppercase tracking-wider text-[9px] sm:text-[10px]';
-          if (text) text.textContent = 'Open';
-        } else {
-          badge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold uppercase tracking-wider text-[9px] sm:text-[10px]';
-          if (text) text.textContent = 'On-Call';
-        }
-      }
-
-      updateStatus();
-      setInterval(updateStatus, 60000);
 
       // Mobile Menu Drawer Toggle
       function setupMenu() {
