@@ -33,12 +33,8 @@ jobs:
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
 
-            echo "=== CHECKING DOMAINS OF ALL APPS ==="
+            echo "=== CHECKING NGINX SERVER_NAME IN ALL APPS ==="
             for app in /home/master/applications/*; do
-              appname=$(basename "$app")
-              echo ">>> Application: $appname <<<"
-              if [ -f "$app/conf/server.nginx" ]; then
-                grep -i "server_name" "$app/conf/server.nginx" || true
-              fi
-              ls -la "$app/public_html" | head -n 10 || true
+              echo ">>> App: $(basename "$app") <<<"
+              cat "$app/conf/server.nginx" 2>/dev/null | grep -E "server_name|root" || true
             done
