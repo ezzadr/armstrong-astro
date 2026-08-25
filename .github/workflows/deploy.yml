@@ -21,25 +21,10 @@ jobs:
           port: 22
           script: |
             set -e
-            echo "=== SEARCHING FOR APPLICATION ROOT ==="
-            APP_PATH="/home/master/applications/btfdkcdpdw/public_html"
-            
-            if [ ! -d "$APP_PATH" ]; then
-              APP_PATH=$(find /home/master/applications -maxdepth 2 -name "public_html" 2>/dev/null | head -n 1)
-            fi
-            
-            echo "Target Directory: $APP_PATH"
-            cd "$APP_PATH"
-            
-            if [ ! -d ".git" ]; then
-              echo "Initializing Git repository in $APP_PATH..."
-              git init
-              git config --global --add safe.directory "$APP_PATH" || true
-              git remote add origin https://github.com/ezzadr/armstrong-astro.git 2>/dev/null || git remote set-url origin https://github.com/ezzadr/armstrong-astro.git
-            fi
-            
-            echo "Fetching latest main branch from GitHub..."
+            git config --global --add safe.directory "*"
+            cd /home/1506337.cloudwaysapps.com/btfdkcdpdw/public_html || cd /home/master/applications/btfdkcdpdw/public_html
+            echo "Current Directory: $(pwd)"
+            git remote set-url origin https://github.com/ezzadr/armstrong-astro.git 2>/dev/null || git remote add origin https://github.com/ezzadr/armstrong-astro.git
             git fetch origin main
             git reset --hard origin/main
-            
-            echo "=== AUTO DEPLOYMENT LIVE & SYNCED SUCCESSFULLY AT $(date) ==="
+            echo "=== AUTO DEPLOYMENT SUCCESSFUL AT $(date) ==="
