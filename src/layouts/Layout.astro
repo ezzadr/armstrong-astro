@@ -168,7 +168,6 @@ const baseBusinessSchema = {
   <!-- Non-Blocking High Performance Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
@@ -182,7 +181,7 @@ const baseBusinessSchema = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   )}
 
-  <!-- High-Performance Non-Blocking Google Tag Manager (Zero TBT) -->
+  <!-- High-Performance Non-Blocking Google Tag Manager (Zero TBT on Mobile) -->
   <script is:inline>
     (function() {
       var gtmLoaded = false;
@@ -195,14 +194,11 @@ const baseBusinessSchema = {
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WPH6NBVK');
       }
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGTM, { timeout: 2500 });
-      } else {
-        window.addEventListener('load', loadGTM, { passive: true });
-      }
-      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+      var events = ['touchstart', 'scroll', 'mousemove', 'click', 'keydown'];
+      events.forEach(function(e) {
         window.addEventListener(e, loadGTM, { once: true, passive: true });
       });
+      setTimeout(loadGTM, 6000);
     })();
   </script>
 </head>
