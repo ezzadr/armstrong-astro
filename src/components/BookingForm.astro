@@ -1,21 +1,21 @@
 ---
-// BookingForm.astro - Workiz Online Booking System with Visual Steps Header (Start -> Schedule -> Book)
+// BookingForm.astro - Clean Workiz Booking Flow with Stepper (No Subheadings, Clean High-End Typography)
 ---
 
-<div class="w-full max-w-3xl mx-auto bg-white rounded-xl border border-slate-200 shadow-md font-sans text-left overflow-hidden transition-all">
+<div class="w-full max-w-2xl mx-auto bg-white rounded-xl border border-slate-200/90 shadow-lg font-sans text-left overflow-hidden transition-all">
   
   <!-- ==================== TOP STEP HEADER (START -> SCHEDULE -> BOOK) ==================== -->
-  <div class="bg-slate-50 border-b border-slate-200 px-6 sm:px-10 py-5">
+  <div class="bg-slate-50/90 border-b border-slate-200 px-6 sm:px-10 py-5">
     
     <!-- Brand Line -->
     <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/80">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block ring-4 ring-emerald-100"></span>
-        <span class="text-xs font-bold tracking-wider text-slate-800 uppercase">Armstrong Locksmith Inc.</span>
+        <span class="text-xs font-black tracking-wider text-slate-800 uppercase">Armstrong Locksmith Inc.</span>
       </div>
       <a 
         href="tel:6156258000" 
-        class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300 shadow-sm transition"
+        class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-700 hover:text-blue-600 hover:border-blue-300 shadow-sm transition"
       >
         <span>📞</span>
         <span>(615) 625-8000</span>
@@ -36,7 +36,6 @@
         </div>
         <div class="text-center">
           <span id="label-1" class="block text-xs font-bold text-slate-900 tracking-tight">Start</span>
-          <span class="block text-[10px] text-slate-400 font-medium">Select Service</span>
         </div>
       </div>
 
@@ -47,7 +46,6 @@
         </div>
         <div class="text-center">
           <span id="label-2" class="block text-xs font-medium text-slate-400 tracking-tight">Schedule</span>
-          <span class="block text-[10px] text-slate-400 font-medium">Date &amp; Time</span>
         </div>
       </div>
 
@@ -58,7 +56,6 @@
         </div>
         <div class="text-center">
           <span id="label-3" class="block text-xs font-medium text-slate-400 tracking-tight">Book</span>
-          <span class="block text-[10px] text-slate-400 font-medium">Your Details</span>
         </div>
       </div>
     </div>
@@ -68,7 +65,7 @@
   <!-- ==================== FORM BODY ==================== -->
   <form id="booking-form" class="p-6 sm:p-8 bg-white" novalidate>
     <!-- Hidden Form Fields & Honeypot -->
-    <input type="hidden" id="field-service" name="service" value="Car Key Replacement" />
+    <input type="hidden" id="field-service" name="service" value="Car key replacement" />
     <input type="hidden" id="field-date" name="booking_date" value="Today" />
     <input type="hidden" id="field-time" name="booking_time" value="ASAP" />
     
@@ -77,136 +74,130 @@
       <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
     </div>
 
-    <!-- ==================== STEP 1: SERVICE LIST ==================== -->
-    <div id="step-1" class="step-pane space-y-2.5">
-      <div class="text-xs font-medium text-slate-500 mb-2">Please choose the service you need:</div>
+    <!-- ==================== STEP 1: CLEAN SERVICE LIST (NO SUBHEADINGS) ==================== -->
+    <div id="step-1" class="step-pane space-y-3">
+      <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Select a Service:</div>
 
-      <!-- Service 1 -->
+      <!-- 1. Car key replacement -->
       <button 
         type="button" 
-        class="service-item w-full p-4 border border-slate-200 rounded-lg hover:border-blue-600 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left group" 
-        data-service="Car Key Replacement"
+        class="service-item w-full py-4.5 px-5 sm:px-6 border border-slate-200 rounded-xl hover:border-blue-600 hover:bg-slate-50/80 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-sm hover:shadow hover:translate-x-0.5" 
+        data-service="Car key replacement"
       >
-        <div>
-          <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Car Key Replacement</div>
-          <div class="text-xs text-slate-500 mt-0.5">Key cutting, key fob programming, smart keys &amp; transponders</div>
-        </div>
-        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-0.5 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          Car key replacement
+        </span>
+        <span class="text-slate-300 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
+          ›
+        </span>
       </button>
 
-      <!-- Service 2 -->
+      <!-- 2. European cars -->
       <button 
         type="button" 
-        class="service-item w-full p-4 border border-slate-200 rounded-lg hover:border-blue-600 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left group" 
-        data-service="European Car Key Specialist"
+        class="service-item w-full py-4.5 px-5 sm:px-6 border border-slate-200 rounded-xl hover:border-blue-600 hover:bg-slate-50/80 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-sm hover:shadow hover:translate-x-0.5" 
+        data-service="European cars"
       >
-        <div>
-          <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">European Car Key Specialist</div>
-          <div class="text-xs text-slate-500 mt-0.5">BMW, Mercedes-Benz, Audi, Land Rover &amp; Porsche key programming</div>
-        </div>
-        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-0.5 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          European cars
+        </span>
+        <span class="text-slate-300 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
+          ›
+        </span>
       </button>
 
-      <!-- Service 3 -->
+      <!-- 3. Emergency lockout -->
       <button 
         type="button" 
-        class="service-item w-full p-4 border border-slate-200 rounded-lg hover:border-blue-600 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left group" 
-        data-service="Emergency Lockout"
+        class="service-item w-full py-4.5 px-5 sm:px-6 border border-slate-200 rounded-xl hover:border-blue-600 hover:bg-slate-50/80 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-sm hover:shadow hover:translate-x-0.5" 
+        data-service="Emergency lockout"
       >
-        <div>
-          <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Emergency Lockout (Car / House / Business)</div>
-          <div class="text-xs text-slate-500 mt-0.5">Locked keys inside vehicle, home, apartment, or commercial building</div>
-        </div>
-        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-0.5 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          Emergency lockout
+        </span>
+        <span class="text-slate-300 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
+          ›
+        </span>
       </button>
 
-      <!-- Service 4 -->
+      <!-- 4. Residential lock -->
       <button 
         type="button" 
-        class="service-item w-full p-4 border border-slate-200 rounded-lg hover:border-blue-600 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left group" 
-        data-service="Residential House Rekey & Locks"
+        class="service-item w-full py-4.5 px-5 sm:px-6 border border-slate-200 rounded-xl hover:border-blue-600 hover:bg-slate-50/80 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-sm hover:shadow hover:translate-x-0.5" 
+        data-service="Residential lock"
       >
-        <div>
-          <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Residential Rekey &amp; Locks</div>
-          <div class="text-xs text-slate-500 mt-0.5">Change locks, rekey existing deadbolts, install smart keypads</div>
-        </div>
-        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-0.5 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          Residential lock
+        </span>
+        <span class="text-slate-300 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
+          ›
+        </span>
       </button>
 
-      <!-- Service 5 -->
+      <!-- 5. Rekeyed commercial storefront -->
       <button 
         type="button" 
-        class="service-item w-full p-4 border border-slate-200 rounded-lg hover:border-blue-600 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left group" 
-        data-service="Commercial Storefront & Door Hardware"
+        class="service-item w-full py-4.5 px-5 sm:px-6 border border-slate-200 rounded-xl hover:border-blue-600 hover:bg-slate-50/80 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-sm hover:shadow hover:translate-x-0.5" 
+        data-service="Rekeyed commercial storefront"
       >
-        <div>
-          <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Commercial &amp; Storefront Locks</div>
-          <div class="text-xs text-slate-500 mt-0.5">Commercial door hardware, panic exit bars, master key systems, Adams Rite</div>
-        </div>
-        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-0.5 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          Rekeyed commercial storefront
+        </span>
+        <span class="text-slate-300 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
+          ›
+        </span>
       </button>
 
-      <!-- Service 6 -->
+      <!-- 6. Other locksmith services -->
       <button 
         type="button" 
-        class="service-item w-full p-4 border border-slate-200 rounded-lg hover:border-blue-600 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left group" 
-        data-service="Other Locksmith Service"
+        class="service-item w-full py-4.5 px-5 sm:px-6 border border-slate-200 rounded-xl hover:border-blue-600 hover:bg-slate-50/80 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-sm hover:shadow hover:translate-x-0.5" 
+        data-service="Other locksmith services"
       >
-        <div>
-          <div class="text-sm font-semibold text-slate-900 group-hover:text-blue-600">Other Locksmith Service</div>
-          <div class="text-xs text-slate-500 mt-0.5">Broken key extraction, mailbox locks, safe opening &amp; consultations</div>
-        </div>
-        <svg class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:translate-x-0.5 shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
+        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          Other locksmith services
+        </span>
+        <span class="text-slate-300 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
+          ›
+        </span>
       </button>
     </div>
 
     <!-- ==================== STEP 2: SCHEDULE (DATE & TIME) ==================== -->
     <div id="step-2" class="step-pane hidden space-y-6">
       
-      <!-- Selected Service Info -->
-      <div class="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200 rounded-lg">
+      <!-- Selected Service Bar -->
+      <div class="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
         <div class="text-xs">
           <span class="text-slate-500">Service:</span>
-          <strong id="wkz-selected-service" class="text-slate-900 ml-1 font-semibold">Car Key Replacement</strong>
+          <strong id="wkz-selected-service" class="text-slate-900 ml-1 font-bold">Car key replacement</strong>
         </div>
-        <button type="button" class="btn-back text-xs font-semibold text-blue-600 hover:underline cursor-pointer">
+        <button type="button" class="btn-back text-xs font-bold text-blue-600 hover:underline cursor-pointer">
           Change
         </button>
       </div>
 
       <!-- Date Options -->
       <div class="space-y-2">
-        <label class="block text-xs font-semibold text-slate-700">When do you need service?</label>
+        <label class="block text-xs font-bold text-slate-700">When do you need us?</label>
         <div class="grid grid-cols-3 gap-2.5">
           <button 
             type="button" 
-            class="date-chip p-3 border-2 border-blue-600 bg-blue-50 text-blue-900 rounded-lg text-xs font-semibold text-center transition cursor-pointer" 
+            class="date-chip p-3 border-2 border-blue-600 bg-blue-50 text-blue-900 rounded-xl text-xs font-bold text-center transition cursor-pointer" 
             data-date="Today"
           >
             Today
           </button>
           <button 
             type="button" 
-            class="date-chip p-3 border border-slate-200 bg-white text-slate-700 rounded-lg text-xs font-medium text-center hover:bg-slate-50 transition cursor-pointer" 
+            class="date-chip p-3 border border-slate-200 bg-white text-slate-700 rounded-xl text-xs font-medium text-center hover:bg-slate-50 transition cursor-pointer" 
             data-date="Tomorrow"
           >
             Tomorrow
           </button>
           <button 
             type="button" 
-            class="date-chip p-3 border border-slate-200 bg-white text-slate-700 rounded-lg text-xs font-medium text-center hover:bg-slate-50 transition cursor-pointer" 
+            class="date-chip p-3 border border-slate-200 bg-white text-slate-700 rounded-xl text-xs font-medium text-center hover:bg-slate-50 transition cursor-pointer" 
             data-date="Custom Date"
           >
             Custom Date
@@ -216,24 +207,24 @@
 
       <!-- Time Window Options -->
       <div class="space-y-2">
-        <label class="block text-xs font-semibold text-slate-700">Select an arrival window:</label>
+        <label class="block text-xs font-bold text-slate-700">Select arrival window:</label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           
           <button 
             type="button" 
-            class="time-chip p-3.5 border-2 border-blue-600 bg-blue-50 text-blue-900 rounded-lg text-xs font-semibold text-left transition cursor-pointer flex items-center justify-between" 
+            class="time-chip p-3.5 border-2 border-blue-600 bg-blue-50 text-blue-900 rounded-xl text-xs font-bold text-left transition cursor-pointer flex items-center justify-between" 
             data-time="ASAP Immediate Dispatch"
           >
             <div>
-              <div class="font-semibold">ASAP Dispatch</div>
-              <div class="text-[11px] text-blue-700 font-normal">Nearest mobile technician</div>
+              <div class="font-bold">⚡ ASAP Dispatch</div>
+              <div class="text-[11px] text-blue-700 font-normal">Nearest mobile unit</div>
             </div>
             <span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px]">✓</span>
           </button>
 
           <button 
             type="button" 
-            class="time-chip p-3.5 border border-slate-200 bg-white text-slate-700 rounded-lg text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer flex items-center justify-between" 
+            class="time-chip p-3.5 border border-slate-200 bg-white text-slate-700 rounded-xl text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer flex items-center justify-between" 
             data-time="Morning (8:00 AM – 12:00 PM)"
           >
             <div>
@@ -245,7 +236,7 @@
 
           <button 
             type="button" 
-            class="time-chip p-3.5 border border-slate-200 bg-white text-slate-700 rounded-lg text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer flex items-center justify-between" 
+            class="time-chip p-3.5 border border-slate-200 bg-white text-slate-700 rounded-xl text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer flex items-center justify-between" 
             data-time="Afternoon (12:00 PM – 4:00 PM)"
           >
             <div>
@@ -257,7 +248,7 @@
 
           <button 
             type="button" 
-            class="time-chip p-3.5 border border-slate-200 bg-white text-slate-700 rounded-lg text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer flex items-center justify-between" 
+            class="time-chip p-3.5 border border-slate-200 bg-white text-slate-700 rounded-xl text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer flex items-center justify-between" 
             data-time="Evening (4:00 PM – 8:00 PM)"
           >
             <div>
@@ -272,13 +263,13 @@
 
       <!-- Navigation Buttons -->
       <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-        <button type="button" class="btn-back px-4 py-2 text-xs font-medium text-slate-500 hover:text-slate-900 cursor-pointer">
+        <button type="button" class="btn-back px-4 py-2 text-xs font-semibold text-slate-500 hover:text-slate-900 cursor-pointer">
           &larr; Back
         </button>
         <button 
           type="button" 
           id="btn-to-3" 
-          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-sm transition cursor-pointer"
+          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-sm transition cursor-pointer"
         >
           Continue to Details &rarr;
         </button>
@@ -290,12 +281,12 @@
     <div id="step-3" class="step-pane hidden space-y-4">
       
       <!-- Summary Line -->
-      <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs flex items-center justify-between">
+      <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs flex items-center justify-between">
         <div>
           <span class="text-slate-500">Selected:</span>
-          <strong id="wkz-summary" class="text-slate-900 ml-1 font-semibold">Car Key Replacement &bull; Today (ASAP)</strong>
+          <strong id="wkz-summary" class="text-slate-900 ml-1 font-bold">Car key replacement &bull; Today (ASAP)</strong>
         </div>
-        <button type="button" class="btn-back text-xs font-semibold text-blue-600 hover:underline cursor-pointer">
+        <button type="button" class="btn-back text-xs font-bold text-blue-600 hover:underline cursor-pointer">
           Edit
         </button>
       </div>
@@ -303,68 +294,68 @@
       <!-- Inputs -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
         <div>
-          <label for="cust_name" class="block text-xs font-medium text-slate-700 mb-1">Full Name *</label>
+          <label for="cust_name" class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
           <input 
             type="text" 
             id="cust_name" 
             name="customer_name" 
             required 
             placeholder="John Smith" 
-            class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition" 
+            class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-xl focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition font-medium" 
           />
-          <span id="err-name" class="hidden text-[11px] text-red-600 font-medium mt-1 block">Please enter your name.</span>
+          <span id="err-name" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
         </div>
 
         <div>
-          <label for="cust_phone" class="block text-xs font-medium text-slate-700 mb-1">Phone Number *</label>
+          <label for="cust_phone" class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
           <input 
             type="tel" 
             id="cust_phone" 
             name="phone" 
             required 
             placeholder="(615) 000-0000" 
-            class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition" 
+            class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-xl focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition font-medium" 
           />
-          <span id="err-phone" class="hidden text-[11px] text-red-600 font-medium mt-1 block">Please enter your phone number.</span>
+          <span id="err-phone" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your phone number.</span>
         </div>
       </div>
 
       <div>
-        <label for="cust_address" class="block text-xs font-medium text-slate-700 mb-1">Service Address / Location</label>
+        <label for="cust_address" class="block text-xs font-bold text-slate-700 mb-1">Service Address / Location</label>
         <input 
           type="text" 
           id="cust_address" 
           name="address" 
           placeholder="e.g. 123 Main St, Nashville, TN (or 'Storefront Walk-In')" 
-          class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition" 
+          class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-xl focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition font-medium" 
         />
       </div>
 
       <div>
-        <label for="cust_notes" class="block text-xs font-medium text-slate-700 mb-1">Vehicle Year/Make/Model or Job Details (Optional)</label>
+        <label for="cust_notes" class="block text-xs font-bold text-slate-700 mb-1">Vehicle Year/Make/Model or Job Details (Optional)</label>
         <input 
           type="text" 
           id="cust_notes" 
           name="details" 
           placeholder="e.g. 2021 BMW X5 all keys lost, or 3 house locks" 
-          class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-lg focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition" 
+          class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded-xl focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none transition font-medium" 
         />
       </div>
 
       <!-- Server Error Alert -->
-      <div id="api-error" class="hidden p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg text-center font-medium">
-        We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-bold">615-625-8000</a>.
+      <div id="api-error" class="hidden p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl text-center font-bold">
+        We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black">615-625-8000</a>.
       </div>
 
       <!-- Submit Button -->
       <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-        <button type="button" class="btn-back px-4 py-2 text-xs font-medium text-slate-500 hover:text-slate-900 cursor-pointer">
+        <button type="button" class="btn-back px-4 py-2 text-xs font-bold text-slate-500 hover:text-slate-900 cursor-pointer">
           &larr; Back
         </button>
         <button 
           type="submit" 
           id="btn-submit" 
-          class="px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-sm transition cursor-pointer disabled:opacity-50"
+          class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-sm transition cursor-pointer disabled:opacity-50"
         >
           Book Appointment
         </button>
@@ -393,7 +384,7 @@
   </div>
 
   <!-- Trust Footer -->
-  <div class="px-6 py-3 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-500">
+  <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-200 text-center text-xs text-slate-500">
     Armstrong Locksmith Inc. &bull; Licensed, Bonded &amp; Insured TN #406 &bull; (615) 625-8000
   </div>
 
@@ -518,11 +509,11 @@
     dateChips.forEach(chip => {
       chip.addEventListener('click', function () {
         dateChips.forEach(c => {
-          c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
+          c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-bold');
           c.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
         });
         this.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
-        this.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
+        this.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-bold');
         if (dateInput) dateInput.value = this.getAttribute('data-date');
       });
     });
@@ -531,7 +522,7 @@
     timeChips.forEach(chip => {
       chip.addEventListener('click', function () {
         timeChips.forEach(c => {
-          c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
+          c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-bold');
           c.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
           const check = c.querySelector('span:last-child');
           if (check) {
@@ -540,7 +531,7 @@
           }
         });
         this.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
-        this.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
+        this.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-bold');
         const check = this.querySelector('span:last-child');
         if (check) {
           check.classList.remove('border', 'border-slate-300', 'text-transparent');
