@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Audi Key Replacement Near Donelson & Hermitage Nashville"
 description: "Expert Audi key replacement and smart fob programming near Donelson, Hermitage, and Nashville Airport (BNA). Fast mobile dispatch. Call (615) 625-8000."
 pubDate: "2026-01-15"
@@ -7,7 +7,7 @@ category: "Car Keys"
 ---
 
 Whether you’re in **Donelson**, **Hermitage**, near **Nashville International Airport (BNA)**, or Downtown, **Armstrong Locksmith Inc.** is your trusted Audi key expert — delivering **fast, on-site service** anywhere in the Nashville area. 
-   [📞 Call Now: (615) 625-8000](tel:6156258000) [💬 Request a Quote Online](https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648)       
+   [📞 Call Now: (615) 625-8000](tel:6156258000) [💬 Request a Quote Online](/book-online/)       
 - ✅ Available **during business hours** – We come to your location 
 - 💡 Most keys cut & programmed in under an hour         
 ## 🚫 Skip the Dealership Headache
@@ -33,5 +33,5 @@ Why wait and overpay for your Audi key replacement when there’s a faster, more
 ## 📞 Need an Audi Key Replacement Now?
  
 Don’t waste time and money — call your local Nashville locksmith for fast, friendly, and affordable Audi key service.
-   [📞 (615) 625-8000 – Fast • Friendly • Local](tel:6156258000) [💬 Request a Quote Online](https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648)
+   [📞 (615) 625-8000 – Fast • Friendly • Local](tel:6156258000) [💬 Request a Quote Online](/book-online/)
 
