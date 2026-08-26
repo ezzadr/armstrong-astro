@@ -84,8 +84,8 @@ const homepageSchema = [
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
   <section class="relative bg-[#07152b] bg-navy-grid text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden font-sans">
-    <!-- Subtle Shop Background Layer -->
-    <div class="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style="background-image: url('/shop.jpeg');"></div>
+    <!-- Subtle Shop Background Layer (Desktop only to guarantee 100/100 Mobile Speed) -->
+    <div class="hidden sm:block absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style="background-image: url('/shop.jpeg');"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#07152b] via-[#07152b]/95 to-[#07152b]/80 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
