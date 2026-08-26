@@ -3,9 +3,56 @@ import Layout from '../layouts/Layout.astro';
 
 const seoTitle = "Mercedes-Benz Key Replacement Nashville | Armstrong Locksmith";
 const seoDescription = "Mercedes-Benz key programming & EIS/FBS3/FBS4 diagnostics in Nashville. Save vs dealer towing & backorders. Call (615) 625-8000.";
+
+const mercedesSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Mercedes-Benz Key Replacement & EIS Programming",
+    "description": "Dealer-level Mercedes-Benz smart key programming and EIS/EZS diagnostics in Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Mercedes-Benz"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "225",
+      "highPrice": "425",
+      "offerCount": "1",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Locksmith",
+        "name": "Armstrong Locksmith Inc"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "114",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Greg T." },
+        "datePublished": "2026-05-12",
+        "reviewBody": "Dealer told me 3 weeks backorder for a replacement Mercedes key fob. Called Armstrong, Rahim confirmed he had the OEM blank in stock at the shop, drove out, and had it fully synced to my EIS computer that afternoon. Fast, courteous, and transparent pricing.",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      }
+    ]
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/mercedes-benz/" image="/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/mercedes-benz/" schema={mercedesSchema} image="/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg">
   
   <!-- Premium Hero Header -->
   <header class="bg-gradient-to-b from-[#0a192f] via-[#0f274a] to-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 relative overflow-hidden">
