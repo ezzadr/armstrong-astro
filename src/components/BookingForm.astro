@@ -1,593 +1,389 @@
 ---
-// BookingForm.astro - Clean, Spacious, Workiz-Style Online Booking Engine
+// BookingForm.astro - Identical Workiz-Style Pure Minimalist Booking Flow
 ---
 
-<div class="w-full max-w-xl mx-auto bg-white border border-slate-200 shadow-xl overflow-hidden font-sans text-left">
+<div class="w-full max-w-lg mx-auto bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden font-sans text-left">
   
-  <!-- ==================== CLEAN MINIMALIST HEADER ==================== -->
-  <div class="p-6 sm:p-8 border-b border-slate-100 flex items-center justify-between bg-white">
+  <!-- Header -->
+  <div class="px-6 pt-6 pb-4 border-b border-slate-100 flex items-center justify-between">
     <div>
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-        <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Armstrong Locksmith</span>
-      </div>
-      <h1 id="wk-step-title" class="text-xl sm:text-2xl font-black font-heading text-slate-900 uppercase tracking-tight mt-1">
-        Choose a Service
-      </h1>
-      <p id="wk-step-subtitle" class="text-xs text-slate-500 mt-0.5">
-        Step 1 of 3 &bull; Select the service you need
-      </p>
+      <h1 class="text-base font-bold text-slate-900">Armstrong Locksmith</h1>
+      <p id="step-caption" class="text-xs text-slate-500 mt-0.5">Step 1 of 3: Choose a service</p>
     </div>
-    
-    <a 
-      href="tel:6156258000" 
-      class="text-right hidden sm:block hover:opacity-80 transition"
-      title="Call Armstrong Locksmith"
-    >
-      <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Emergency?</span>
-      <span class="block text-xs font-black text-[#0f274a]">(615) 625-8000</span>
+    <a href="tel:6156258000" class="text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+      (615) 625-8000
     </a>
   </div>
 
-  <!-- Subtle Step Progress Line -->
+  <!-- Progress Bar -->
   <div class="w-full bg-slate-100 h-1">
-    <div id="wk-progress" class="bg-amber-500 h-1 w-1/3 transition-all duration-300"></div>
+    <div id="step-bar" class="bg-blue-600 h-1 w-1/3 transition-all duration-300"></div>
   </div>
 
-  <!-- ==================== MAIN FORM ==================== -->
-  <form id="wk-booking-form" class="p-6 sm:p-8 bg-white" novalidate>
-    <!-- Hidden Form State & Anti-Spam Honeypot -->
-    <input type="hidden" id="wk-service-input" name="service" value="Car Key Replacement" />
-    <input type="hidden" id="wk-date-input" name="booking_date" value="Today (Same-Day)" />
-    <input type="hidden" id="wk-time-input" name="booking_time" value="ASAP Immediate Dispatch" />
+  <!-- Form -->
+  <form id="booking-form" class="p-6" novalidate>
+    <!-- Hidden fields & honeypot -->
+    <input type="hidden" id="field-service" name="service" value="Car Key Replacement" />
+    <input type="hidden" id="field-date" name="booking_date" value="Today" />
+    <input type="hidden" id="field-time" name="booking_time" value="ASAP" />
     
     <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
-      <label for="wk_company_website">Company Website</label>
-      <input type="text" id="wk_company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
+      <label for="company_website">Company Website</label>
+      <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
     </div>
 
-    <!-- ==================== STEP 1: CLEAN SERVICE LIST ==================== -->
-    <div id="wk-step-1" class="wk-step-view space-y-3">
-      
-      <!-- Option 1 -->
-      <button 
-        type="button"
-        class="wk-service-row w-full p-4 border border-slate-200 hover:border-amber-500 hover:bg-amber-50/30 flex items-center justify-between text-left transition cursor-pointer group"
-        data-service="Car Key Replacement"
-      >
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-amber-100 text-slate-800 group-hover:text-amber-900 flex items-center justify-center text-xl shrink-0 transition">
-            🔑
-          </div>
+    <!-- ==================== STEP 1: SERVICE LIST ==================== -->
+    <div id="step-1" class="step-pane space-y-2">
+      <div class="text-xs font-medium text-slate-500 mb-3">Select a service to get started:</div>
+
+      <button type="button" class="service-item w-full p-3.5 border border-slate-200 rounded-md hover:border-blue-500 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left" data-service="Car Key Replacement">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🔑</span>
           <div>
-            <h2 class="text-sm font-bold text-slate-900">Car Key Replacement</h2>
-            <p class="text-xs text-slate-500">Standard keys, key fobs &amp; push-to-start smart remotes</p>
+            <div class="text-sm font-semibold text-slate-900">Car Key Replacement</div>
+            <div class="text-xs text-slate-500">Key cutting, fob replacement &amp; smart keys</div>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:text-amber-600 font-bold text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span class="text-slate-400 text-sm font-bold">›</span>
       </button>
 
-      <!-- Option 2 -->
-      <button 
-        type="button"
-        class="wk-service-row w-full p-4 border border-slate-200 hover:border-amber-500 hover:bg-amber-50/30 flex items-center justify-between text-left transition cursor-pointer group"
-        data-service="European Car Key Specialist"
-      >
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-amber-100 text-slate-800 group-hover:text-amber-900 flex items-center justify-center text-xl shrink-0 transition">
-            🏎️
-          </div>
+      <button type="button" class="service-item w-full p-3.5 border border-slate-200 rounded-md hover:border-blue-500 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left" data-service="European Car Key Specialist">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🏎️</span>
           <div>
-            <h2 class="text-sm font-bold text-slate-900">European Key Specialist</h2>
-            <p class="text-xs text-slate-500">BMW, Mercedes-Benz, Audi, Land Rover &amp; Porsche</p>
+            <div class="text-sm font-semibold text-slate-900">European Key Specialist</div>
+            <div class="text-xs text-slate-500">BMW, Mercedes, Audi, Land Rover &amp; Porsche</div>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:text-amber-600 font-bold text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span class="text-slate-400 text-sm font-bold">›</span>
       </button>
 
-      <!-- Option 3 -->
-      <button 
-        type="button"
-        class="wk-service-row w-full p-4 border border-slate-200 hover:border-red-500 hover:bg-red-50/30 flex items-center justify-between text-left transition cursor-pointer group"
-        data-service="Emergency Vehicle or Home Lockout"
-      >
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 bg-red-50 group-hover:bg-red-100 text-red-700 flex items-center justify-center text-xl shrink-0 transition">
-            🚨
-          </div>
+      <button type="button" class="service-item w-full p-3.5 border border-slate-200 rounded-md hover:border-red-500 hover:bg-red-50/20 flex items-center justify-between transition cursor-pointer text-left" data-service="Emergency Lockout">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🚨</span>
           <div>
-            <h2 class="text-sm font-bold text-slate-900">Emergency Lockout</h2>
-            <p class="text-xs text-slate-500">Locked keys in car, trunk, house, or commercial building</p>
+            <div class="text-sm font-semibold text-slate-900">Emergency Lockout</div>
+            <div class="text-xs text-slate-500">Locked keys in car, house, or business</div>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:text-red-600 font-bold text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span class="text-slate-400 text-sm font-bold">›</span>
       </button>
 
-      <!-- Option 4 -->
-      <button 
-        type="button"
-        class="wk-service-row w-full p-4 border border-slate-200 hover:border-amber-500 hover:bg-amber-50/30 flex items-center justify-between text-left transition cursor-pointer group"
-        data-service="Residential House Rekey & Deadbolts"
-      >
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-amber-100 text-slate-800 group-hover:text-amber-900 flex items-center justify-center text-xl shrink-0 transition">
-            🏡
-          </div>
+      <button type="button" class="service-item w-full p-3.5 border border-slate-200 rounded-md hover:border-blue-500 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left" data-service="Residential House Rekey & Deadbolts">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🏡</span>
           <div>
-            <h2 class="text-sm font-bold text-slate-900">Residential Rekey &amp; Locks</h2>
-            <p class="text-xs text-slate-500">Rekey existing locks, install deadbolts &amp; smart keypads</p>
+            <div class="text-sm font-semibold text-slate-900">Residential Rekey &amp; Locks</div>
+            <div class="text-xs text-slate-500">Change locks, deadbolts &amp; smart keypads</div>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:text-amber-600 font-bold text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span class="text-slate-400 text-sm font-bold">›</span>
       </button>
 
-      <!-- Option 5 -->
-      <button 
-        type="button"
-        class="wk-service-row w-full p-4 border border-slate-200 hover:border-amber-500 hover:bg-amber-50/30 flex items-center justify-between text-left transition cursor-pointer group"
-        data-service="Commercial Door Hardware & Storefront"
-      >
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-amber-100 text-slate-800 group-hover:text-amber-900 flex items-center justify-center text-xl shrink-0 transition">
-            🏢
-          </div>
+      <button type="button" class="service-item w-full p-3.5 border border-slate-200 rounded-md hover:border-blue-500 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left" data-service="Commercial Storefront & Door Hardware">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🏢</span>
           <div>
-            <h2 class="text-sm font-bold text-slate-900">Commercial &amp; Business Locks</h2>
-            <p class="text-xs text-slate-500">Storefront locks, panic exit bars, master keys &amp; mortise locks</p>
+            <div class="text-sm font-semibold text-slate-900">Commercial &amp; Business Locks</div>
+            <div class="text-xs text-slate-500">Storefront locks, panic exit bars &amp; master keys</div>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:text-amber-600 font-bold text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span class="text-slate-400 text-sm font-bold">›</span>
       </button>
 
-      <!-- Option 6 -->
-      <button 
-        type="button"
-        class="wk-service-row w-full p-4 border border-slate-200 hover:border-amber-500 hover:bg-amber-50/30 flex items-center justify-between text-left transition cursor-pointer group"
-        data-service="Other Locksmith Service"
-      >
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 bg-slate-100 group-hover:bg-amber-100 text-slate-800 group-hover:text-amber-900 flex items-center justify-center text-xl shrink-0 transition">
-            🛠️
-          </div>
+      <button type="button" class="service-item w-full p-3.5 border border-slate-200 rounded-md hover:border-blue-500 hover:bg-blue-50/20 flex items-center justify-between transition cursor-pointer text-left" data-service="Other Locksmith Service">
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🛠️</span>
           <div>
-            <h2 class="text-sm font-bold text-slate-900">Other Locksmith Service</h2>
-            <p class="text-xs text-slate-500">Key extraction, mailbox locks, safe opening &amp; consultations</p>
+            <div class="text-sm font-semibold text-slate-900">Other Locksmith Service</div>
+            <div class="text-xs text-slate-500">Key extraction, mailbox, safe opening</div>
           </div>
         </div>
-        <span class="text-slate-400 group-hover:text-amber-600 font-bold text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+        <span class="text-slate-400 text-sm font-bold">›</span>
       </button>
-
     </div>
 
-    <!-- ==================== STEP 2: WHEN DO YOU NEED US? ==================== -->
-    <div id="wk-step-2" class="wk-step-view hidden space-y-6">
-      
-      <!-- Selected Service Pill Tag -->
-      <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-200">
-        <div class="flex items-center gap-2">
-          <span class="text-xs text-slate-500 font-medium">Selected:</span>
-          <strong id="wk-active-service-tag" class="text-xs font-bold text-slate-900">Car Key Replacement</strong>
-        </div>
-        <button type="button" class="wk-btn-prev text-xs font-bold text-amber-700 hover:underline cursor-pointer">
-          Change
-        </button>
+    <!-- ==================== STEP 2: DATE & TIME ==================== -->
+    <div id="step-2" class="step-pane hidden space-y-5">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-semibold text-slate-600">When do you need us?</span>
+        <button type="button" class="btn-back text-xs text-blue-600 hover:underline cursor-pointer">Change service</button>
       </div>
 
-      <!-- Date Selection -->
-      <div class="space-y-2">
-        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Select Day</label>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="wk-date-grid">
-          
-          <button 
-            type="button" 
-            class="wk-date-pill p-3 border-2 border-amber-500 bg-amber-50/60 text-slate-900 font-bold text-left transition cursor-pointer"
-            data-date="Today (Immediate / Same-Day)"
-          >
-            <span class="block text-[10px] text-amber-700 uppercase font-black">Fastest</span>
-            <span class="block text-sm font-bold mt-0.5">Today</span>
+      <!-- Date Pills -->
+      <div class="space-y-1.5">
+        <label class="block text-xs font-medium text-slate-600">Select Day</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" class="date-chip p-2.5 border-2 border-blue-600 bg-blue-50 text-blue-900 rounded text-xs font-semibold text-center transition cursor-pointer" data-date="Today">
+            Today
           </button>
-
-          <button 
-            type="button" 
-            class="wk-date-pill p-3 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-left transition cursor-pointer"
-            data-date="Tomorrow"
-          >
-            <span class="block text-[10px] text-slate-400 uppercase font-medium">Next Day</span>
-            <span class="block text-sm font-bold mt-0.5">Tomorrow</span>
+          <button type="button" class="date-chip p-2.5 border border-slate-200 bg-white text-slate-700 rounded text-xs font-medium text-center hover:bg-slate-50 transition cursor-pointer" data-date="Tomorrow">
+            Tomorrow
           </button>
-
-          <button 
-            type="button" 
-            class="wk-date-pill p-3 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-left transition cursor-pointer col-span-2 sm:col-span-1"
-            data-date="Pick Date Later"
-          >
-            <span class="block text-[10px] text-slate-400 uppercase font-medium">Flexible</span>
-            <span class="block text-sm font-bold mt-0.5">Custom Date</span>
+          <button type="button" class="date-chip p-2.5 border border-slate-200 bg-white text-slate-700 rounded text-xs font-medium text-center hover:bg-slate-50 transition cursor-pointer" data-date="Later this week">
+            Custom Date
           </button>
-
         </div>
       </div>
 
-      <!-- Time Window Selection -->
-      <div class="space-y-2">
-        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Select Arrival Window</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="wk-time-grid">
-          
-          <button 
-            type="button" 
-            class="wk-time-pill p-3.5 border-2 border-amber-500 bg-amber-50/60 text-slate-900 font-bold text-left flex items-center justify-between transition cursor-pointer"
-            data-time="⚡ ASAP (Immediate Dispatch)"
-          >
-            <div>
-              <span class="block text-xs font-black text-slate-900">⚡ ASAP Dispatch</span>
-              <span class="text-[11px] text-amber-800 font-normal">Nearest mobile van</span>
-            </div>
-            <span class="w-4 h-4 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-[10px] font-black">✓</span>
+      <!-- Time Pills -->
+      <div class="space-y-1.5">
+        <label class="block text-xs font-medium text-slate-600">Select Time Window</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" class="time-chip p-2.5 border-2 border-blue-600 bg-blue-50 text-blue-900 rounded text-xs font-semibold text-left transition cursor-pointer" data-time="ASAP Immediate Dispatch">
+            ⚡ ASAP Dispatch
           </button>
-
-          <button 
-            type="button" 
-            class="wk-time-pill p-3.5 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-left flex items-center justify-between transition cursor-pointer"
-            data-time="Morning Window (8 AM – 12 PM)"
-          >
-            <div>
-              <span class="block text-xs font-bold text-slate-900">Morning Window</span>
-              <span class="text-[11px] text-slate-500 font-normal">8:00 AM – 12:00 PM</span>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
+          <button type="button" class="time-chip p-2.5 border border-slate-200 bg-white text-slate-700 rounded text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer" data-time="Morning (8 AM – 12 PM)">
+            Morning (8 AM – 12 PM)
           </button>
-
-          <button 
-            type="button" 
-            class="wk-time-pill p-3.5 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-left flex items-center justify-between transition cursor-pointer"
-            data-time="Afternoon Window (12 PM – 4 PM)"
-          >
-            <div>
-              <span class="block text-xs font-bold text-slate-900">Afternoon Window</span>
-              <span class="text-[11px] text-slate-500 font-normal">12:00 PM – 4:00 PM</span>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
+          <button type="button" class="time-chip p-2.5 border border-slate-200 bg-white text-slate-700 rounded text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer" data-time="Afternoon (12 PM – 4 PM)">
+            Afternoon (12 PM – 4 PM)
           </button>
-
-          <button 
-            type="button" 
-            class="wk-time-pill p-3.5 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-left flex items-center justify-between transition cursor-pointer"
-            data-time="Evening Window (4 PM – 8 PM)"
-          >
-            <div>
-              <span class="block text-xs font-bold text-slate-900">Evening Window</span>
-              <span class="text-[11px] text-slate-500 font-normal">4:00 PM – 8:00 PM</span>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
+          <button type="button" class="time-chip p-2.5 border border-slate-200 bg-white text-slate-700 rounded text-xs font-medium text-left hover:bg-slate-50 transition cursor-pointer" data-time="Evening (4 PM – 8 PM)">
+            Evening (4 PM – 8 PM)
           </button>
-
         </div>
       </div>
 
-      <!-- Actions -->
-      <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-        <button type="button" class="wk-btn-prev px-4 py-3 text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+      <!-- Button -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+        <button type="button" class="btn-back text-xs text-slate-500 hover:text-slate-900 cursor-pointer">
           &larr; Back
         </button>
-        <button 
-          type="button" 
-          id="wk-btn-to-step-3"
-          class="px-6 py-3.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition cursor-pointer"
-        >
-          <span>Continue to Your Details &rarr;</span>
+        <button type="button" id="btn-to-3" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-semibold shadow-sm transition cursor-pointer">
+          Continue &rarr;
         </button>
       </div>
-
     </div>
 
-    <!-- ==================== STEP 3: WHERE & WHO ==================== -->
-    <div id="wk-step-3" class="wk-step-view hidden space-y-4">
-      
-      <!-- Mini Summary Bar -->
-      <div class="p-3.5 bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center justify-between">
-        <div>
-          <span class="text-slate-400 block text-[10px] uppercase">Service &amp; Time</span>
-          <span id="wk-summary-tag" class="font-bold text-slate-900">Car Key Replacement • Today (ASAP)</span>
-        </div>
-        <button type="button" class="wk-btn-prev text-[11px] font-bold text-amber-700 hover:underline cursor-pointer">
-          Edit
-        </button>
-      </div>
-
-      <!-- Contact Fields -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-        <div>
-          <label for="wk_name" class="block text-xs font-bold text-slate-800 mb-1">Your Full Name *</label>
-          <input 
-            type="text" 
-            id="wk_name" 
-            name="customer_name" 
-            required 
-            placeholder="John Smith" 
-            class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
-          />
-          <span id="wk-name-err" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
-        </div>
-
-        <div>
-          <label for="wk_phone" class="block text-xs font-bold text-slate-800 mb-1">Phone Number *</label>
-          <input 
-            type="tel" 
-            id="wk_phone" 
-            name="phone" 
-            required 
-            placeholder="(615) 000-0000" 
-            class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
-          />
-          <span id="wk-phone-err" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
-        </div>
+    <!-- ==================== STEP 3: CONTACT INFO ==================== -->
+    <div id="step-3" class="step-pane hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-semibold text-slate-600">Your details</span>
+        <button type="button" class="btn-back text-xs text-blue-600 hover:underline cursor-pointer">Change time</button>
       </div>
 
       <div>
-        <label for="wk_address" class="block text-xs font-bold text-slate-800 mb-1">Service Address / Location</label>
-        <input 
-          type="text" 
-          id="wk_address" 
-          name="address" 
-          placeholder="e.g. 123 Main St, Nashville (or 'Shop Walk-In')" 
-          class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
-        />
+        <label for="cust_name" class="block text-xs font-medium text-slate-700 mb-1">Full Name *</label>
+        <input type="text" id="cust_name" name="customer_name" required placeholder="John Smith" class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-blue-500 focus:outline-none" />
+        <span id="err-name" class="hidden text-[11px] text-red-600 mt-1 block">Please enter your name.</span>
       </div>
 
       <div>
-        <label for="wk_details" class="block text-xs font-bold text-slate-800 mb-1">Vehicle Make / Model or Key / Lock Notes <span class="text-slate-400 font-normal">(optional)</span></label>
-        <input 
-          type="text" 
-          id="wk_details" 
-          name="details" 
-          placeholder="e.g. 2021 BMW X5, 3 deadbolts, or locked out" 
-          class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition font-medium"
-        />
+        <label for="cust_phone" class="block text-xs font-medium text-slate-700 mb-1">Phone Number *</label>
+        <input type="tel" id="cust_phone" name="phone" required placeholder="(615) 000-0000" class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-blue-500 focus:outline-none" />
+        <span id="err-phone" class="hidden text-[11px] text-red-600 mt-1 block">Please enter your phone number.</span>
       </div>
 
-      <!-- Network / Server Error Alert -->
-      <div id="wk-error-alert" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center">
-        We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
+      <div>
+        <label for="cust_address" class="block text-xs font-medium text-slate-700 mb-1">Service Address / City</label>
+        <input type="text" id="cust_address" name="address" placeholder="123 Main St, Nashville" class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-blue-500 focus:outline-none" />
       </div>
 
-      <!-- Submit Actions -->
-      <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-        <button type="button" class="wk-btn-prev px-4 py-3 text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+      <div>
+        <label for="cust_notes" class="block text-xs font-medium text-slate-700 mb-1">Vehicle Make/Model or Lock Details (Optional)</label>
+        <input type="text" id="cust_notes" name="details" placeholder="e.g. 2021 BMW X5, locked out, or 3 locks" class="w-full px-3 py-2 text-sm border border-slate-300 rounded focus:border-blue-500 focus:outline-none" />
+      </div>
+
+      <div id="api-error" class="hidden p-2.5 bg-red-50 border border-red-200 text-red-700 text-xs rounded text-center font-medium">
+        We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-bold">615-625-8000</a>.
+      </div>
+
+      <!-- Submit -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+        <button type="button" class="btn-back text-xs text-slate-500 hover:text-slate-900 cursor-pointer">
           &larr; Back
         </button>
-        <button 
-          type="submit" 
-          id="wk-submit-btn"
-          class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg transition active:scale-95 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
-        >
-          <span>Book Appointment &rarr;</span>
+        <button type="submit" id="btn-submit" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-semibold shadow-sm transition cursor-pointer disabled:opacity-50">
+          Book Appointment
         </button>
       </div>
-
     </div>
 
   </form>
 
-  <!-- ==================== STEP 4: SUCCESS CONFIRMATION ==================== -->
-  <div id="wk-step-4" class="hidden p-8 sm:p-12 bg-white text-center space-y-3">
-    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 text-3xl font-bold flex items-center justify-center rounded-full mx-auto mb-2">
+  <!-- ==================== SUCCESS ==================== -->
+  <div id="step-success" class="hidden p-8 text-center space-y-3">
+    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto">
       ✓
     </div>
-    
-    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 uppercase tracking-tight">
+    <h2 class="text-base font-bold text-slate-900">
       Thank you! Your request was sent to Armstrong Locksmith.
     </h2>
-    
-    <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-      Our dispatch team in Nashville has received your request and will call or text you shortly to confirm your appointment.
+    <p class="text-xs text-slate-500 max-w-sm mx-auto">
+      Our dispatch team will review your details and call or text you shortly to confirm your appointment.
     </p>
-
-    <div class="pt-4 flex flex-wrap justify-center gap-3">
-      <a href="tel:6156258000" class="px-6 py-3 bg-[#0f274a] text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition">
-        📞 Call Us: (615) 625-8000
-      </a>
-      <a href="/" class="px-6 py-3 bg-slate-100 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-200 transition">
-        Back to Home
+    <div class="pt-2">
+      <a href="tel:6156258000" class="text-xs font-semibold text-blue-600 hover:underline">
+        Need immediate help? Call (615) 625-8000
       </a>
     </div>
-  </div>
-
-  <!-- Trust Footer Strip -->
-  <div class="bg-slate-50 border-t border-slate-100 px-6 py-3 text-center text-xs text-slate-500">
-    🔒 Certified, Licensed &amp; Insured &bull; TN Lic #406 &bull; Upfront Pricing
   </div>
 
 </div>
 
-<!-- ==================== SCRIPT ==================== -->
+<!-- Script -->
 <script is:inline>
   (function () {
     const formStartedAt = Math.floor(Date.now() / 1000);
-    let currentStep = 1;
+    let step = 1;
 
-    const step1 = document.getElementById('wk-step-1');
-    const step2 = document.getElementById('wk-step-2');
-    const step3 = document.getElementById('wk-step-3');
-    const step4 = document.getElementById('wk-step-4');
+    const s1 = document.getElementById('step-1');
+    const s2 = document.getElementById('step-2');
+    const s3 = document.getElementById('step-3');
+    const success = document.getElementById('step-success');
+    const form = document.getElementById('booking-form');
 
-    const form = document.getElementById('wk-booking-form');
-    const title = document.getElementById('wk-step-title');
-    const subtitle = document.getElementById('wk-step-subtitle');
-    const progressBar = document.getElementById('wk-progress');
+    const caption = document.getElementById('step-caption');
+    const bar = document.getElementById('step-bar');
 
-    const serviceInput = document.getElementById('wk-service-input');
-    const dateInput = document.getElementById('wk-date-input');
-    const timeInput = document.getElementById('wk-time-input');
+    const serviceInput = document.getElementById('field-service');
+    const dateInput = document.getElementById('field-date');
+    const timeInput = document.getElementById('field-time');
 
-    const activeServiceTag = document.getElementById('wk-active-service-tag');
-    const summaryTag = document.getElementById('wk-summary-tag');
+    const serviceItems = document.querySelectorAll('.service-item');
+    const dateChips = document.querySelectorAll('.date-chip');
+    const timeChips = document.querySelectorAll('.time-chip');
 
-    const serviceRows = document.querySelectorAll('.wk-service-row');
-    const datePills = document.querySelectorAll('.wk-date-pill');
-    const timePills = document.querySelectorAll('.wk-time-pill');
+    const btnTo3 = document.getElementById('btn-to-3');
+    const backBtns = document.querySelectorAll('.btn-back');
+    const submitBtn = document.getElementById('btn-submit');
+    const apiError = document.getElementById('api-error');
 
-    const btnToStep3 = document.getElementById('wk-btn-to-step-3');
-    const prevBtns = document.querySelectorAll('.wk-btn-prev');
-    const submitBtn = document.getElementById('wk-submit-btn');
-    const errorAlert = document.getElementById('wk-error-alert');
+    const nameIn = document.getElementById('cust_name');
+    const phoneIn = document.getElementById('cust_phone');
+    const errName = document.getElementById('err-name');
+    const errPhone = document.getElementById('err-phone');
+    const honeypot = document.getElementById('company_website');
 
-    const nameInput = document.getElementById('wk_name');
-    const phoneInput = document.getElementById('wk_phone');
-    const nameErr = document.getElementById('wk-name-err');
-    const phoneErr = document.getElementById('wk-phone-err');
-    const honeypot = document.getElementById('wk_company_website');
+    function goTo(n) {
+      step = n;
+      s1.classList.add('hidden');
+      s2.classList.add('hidden');
+      s3.classList.add('hidden');
+      if (success) success.classList.add('hidden');
 
-    function showStep(step) {
-      currentStep = step;
-
-      step1.classList.add('hidden');
-      step2.classList.add('hidden');
-      step3.classList.add('hidden');
-      if (step4) step4.classList.add('hidden');
-
-      if (step === 1) {
-        step1.classList.remove('hidden');
-        if (title) title.textContent = "Choose a Service";
-        if (subtitle) subtitle.textContent = "Step 1 of 3 • Select the service you need";
-        if (progressBar) progressBar.style.width = "33%";
-      } else if (step === 2) {
-        step2.classList.remove('hidden');
-        if (title) title.textContent = "Select Date & Time";
-        if (subtitle) subtitle.textContent = "Step 2 of 3 • Pick your arrival window";
-        if (progressBar) progressBar.style.width = "66%";
-        if (activeServiceTag) activeServiceTag.textContent = serviceInput.value;
-      } else if (step === 3) {
-        step3.classList.remove('hidden');
-        if (title) title.textContent = "Your Information";
-        if (subtitle) subtitle.textContent = "Step 3 of 3 • Where should we dispatch the technician?";
-        if (progressBar) progressBar.style.width = "100%";
-        if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${dateInput.value} (${timeInput.value})`;
-      } else if (step === 4) {
+      if (n === 1) {
+        s1.classList.remove('hidden');
+        if (caption) caption.textContent = "Step 1 of 3: Choose a service";
+        if (bar) bar.style.width = "33%";
+      } else if (n === 2) {
+        s2.classList.remove('hidden');
+        if (caption) caption.textContent = `Step 2 of 3: ${serviceInput.value}`;
+        if (bar) bar.style.width = "66%";
+      } else if (n === 3) {
+        s3.classList.remove('hidden');
+        if (caption) caption.textContent = "Step 3 of 3: Your information";
+        if (bar) bar.style.width = "100%";
+      } else if (n === 4) {
         form.classList.add('hidden');
-        if (step4) step4.classList.remove('hidden');
-        if (title) title.textContent = "Request Sent!";
-        if (subtitle) subtitle.textContent = "We will confirm with you shortly";
-        if (progressBar) progressBar.style.width = "100%";
+        if (success) success.classList.remove('hidden');
+        if (caption) caption.textContent = "Appointment requested";
+        if (bar) bar.style.width = "100%";
       }
-
-      window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
-    // 1. Service Row Click -> Select and immediately advance to Step 2
-    serviceRows.forEach(row => {
-      row.addEventListener('click', function () {
+    // Step 1 Click
+    serviceItems.forEach(item => {
+      item.addEventListener('click', function () {
         const val = this.getAttribute('data-service');
         if (serviceInput) serviceInput.value = val;
-        showStep(2);
+        goTo(2);
       });
     });
 
-    // 2. Date Selection
-    datePills.forEach(pill => {
-      pill.addEventListener('click', function () {
-        datePills.forEach(p => {
-          p.classList.remove('border-2', 'border-amber-500', 'bg-amber-50/60');
-          p.classList.add('border', 'border-slate-200', 'bg-white');
+    // Step 2 Date
+    dateChips.forEach(chip => {
+      chip.addEventListener('click', function () {
+        dateChips.forEach(c => {
+          c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
+          c.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-700');
         });
-        this.classList.remove('border', 'border-slate-200', 'bg-white');
-        this.classList.add('border-2', 'border-amber-500', 'bg-amber-50/60');
+        this.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-700');
+        this.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
         if (dateInput) dateInput.value = this.getAttribute('data-date');
       });
     });
 
-    // 3. Time Selection
-    timePills.forEach(pill => {
-      pill.addEventListener('click', function () {
-        timePills.forEach(p => {
-          p.classList.remove('border-2', 'border-amber-500', 'bg-amber-50/60');
-          p.classList.add('border', 'border-slate-200', 'bg-white');
-          const dot = p.querySelector('span:last-child');
-          if (dot) {
-            dot.classList.remove('bg-amber-500', 'text-slate-950');
-            dot.classList.add('border', 'border-slate-300', 'text-transparent');
-          }
+    // Step 2 Time
+    timeChips.forEach(chip => {
+      chip.addEventListener('click', function () {
+        timeChips.forEach(c => {
+          c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
+          c.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-700');
         });
-        this.classList.remove('border', 'border-slate-200', 'bg-white');
-        this.classList.add('border-2', 'border-amber-500', 'bg-amber-50/60');
-        const dot = this.querySelector('span:last-child');
-        if (dot) {
-          dot.classList.remove('border', 'border-slate-300', 'text-transparent');
-          dot.classList.add('bg-amber-500', 'text-slate-950');
-        }
+        this.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-700');
+        this.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-semibold');
         if (timeInput) timeInput.value = this.getAttribute('data-time');
       });
     });
 
-    // Navigation
-    if (btnToStep3) btnToStep3.addEventListener('click', () => showStep(3));
-    prevBtns.forEach(b => b.addEventListener('click', () => {
-      if (currentStep > 1) showStep(currentStep - 1);
+    if (btnTo3) btnTo3.addEventListener('click', () => goTo(3));
+    backBtns.forEach(b => b.addEventListener('click', () => {
+      if (step > 1) goTo(step - 1);
     }));
 
-    // Clear validation error
-    if (nameInput && nameErr) {
-      nameInput.addEventListener('input', () => {
-        nameErr.classList.add('hidden');
-        nameInput.classList.remove('border-red-500');
+    if (nameIn && errName) {
+      nameIn.addEventListener('input', () => {
+        errName.classList.add('hidden');
+        nameIn.classList.remove('border-red-500');
       });
     }
-    if (phoneInput && phoneErr) {
-      phoneInput.addEventListener('input', () => {
-        phoneErr.classList.add('hidden');
-        phoneInput.classList.remove('border-red-500');
+    if (phoneIn && errPhone) {
+      phoneIn.addEventListener('input', () => {
+        errPhone.classList.add('hidden');
+        phoneIn.classList.remove('border-red-500');
       });
     }
 
-    // 4. Form Submit
+    // Submit
     if (form) {
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
+        if (apiError) apiError.classList.add('hidden');
 
-        if (errorAlert) errorAlert.classList.add('hidden');
         let hasError = false;
+        const name = nameIn ? nameIn.value.trim() : '';
+        const phone = phoneIn ? phoneIn.value.trim() : '';
+        const bot = honeypot ? honeypot.value.trim() : '';
 
-        const customerName = nameInput ? nameInput.value.trim() : '';
-        const phone = phoneInput ? phoneInput.value.trim() : '';
-        const botValue = honeypot ? honeypot.value.trim() : '';
-
-        if (!customerName) {
-          if (nameErr) nameErr.classList.remove('hidden');
-          if (nameInput) nameInput.classList.add('border-red-500');
+        if (!name) {
+          if (errName) errName.classList.remove('hidden');
+          if (nameIn) nameIn.classList.add('border-red-500');
           hasError = true;
         }
         if (!phone || phone.length < 7) {
-          if (phoneErr) phoneErr.classList.remove('hidden');
-          if (phoneInput) phoneInput.classList.add('border-red-500');
+          if (errPhone) errPhone.classList.remove('hidden');
+          if (phoneIn) phoneIn.classList.add('border-red-500');
           hasError = true;
         }
 
         if (hasError) return;
-
-        if (botValue !== '') {
-          showStep(4);
+        if (bot !== '') {
+          goTo(4);
           return;
         }
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span>Sending Request...</span>';
+          submitBtn.textContent = 'Sending...';
         }
 
-        const serviceVal = serviceInput ? serviceInput.value : 'Locksmith';
-        const dateVal = dateInput ? dateInput.value : 'Today';
-        const timeVal = timeInput ? timeInput.value : 'ASAP';
-        const address = document.getElementById('wk_address')?.value || '';
-        const details = document.getElementById('wk_details')?.value || '';
+        const s = serviceInput ? serviceInput.value : 'Locksmith';
+        const d = dateInput ? dateInput.value : 'Today';
+        const t = timeInput ? timeInput.value : 'ASAP';
+        const addr = document.getElementById('cust_address')?.value || '';
+        const notes = document.getElementById('cust_notes')?.value || '';
 
-        const fullService = `${serviceVal} [${dateVal} • ${timeVal}]`;
-        const extraInfo = [address ? `Address: ${address}` : '', details ? `Notes: ${details}` : ''].filter(Boolean).join(' | ');
+        const fullService = `${s} [${d} - ${t}]`;
+        const detailsStr = [addr ? `Address: ${addr}` : '', notes ? `Notes: ${notes}` : ''].filter(Boolean).join(' | ');
 
         const payload = {
-          customer_name: customerName,
+          customer_name: name,
           phone: phone,
           service: fullService,
-          service_type: serviceVal,
-          vehicle: extraInfo || 'Website Booking',
+          service_type: s,
+          vehicle: detailsStr || 'Website Booking',
           form_started_at: formStartedAt,
           company_website: ''
         };
@@ -603,31 +399,31 @@
           });
 
           if (res.ok) {
-            showStep(4);
+            goTo(4);
           } else {
             const data = await res.json().catch(() => ({}));
             if (res.status === 422 && data.errors) {
-              if (data.errors.customer_name && nameErr) {
-                nameErr.textContent = data.errors.customer_name[0];
-                nameErr.classList.remove('hidden');
+              if (data.errors.customer_name && errName) {
+                errName.textContent = data.errors.customer_name[0];
+                errName.classList.remove('hidden');
               }
-              if (data.errors.phone && phoneErr) {
-                phoneErr.textContent = data.errors.phone[0];
-                phoneErr.classList.remove('hidden');
+              if (data.errors.phone && errPhone) {
+                errPhone.textContent = data.errors.phone[0];
+                errPhone.classList.remove('hidden');
               }
             }
-            if (errorAlert) errorAlert.classList.remove('hidden');
+            if (apiError) apiError.classList.remove('hidden');
             if (submitBtn) {
               submitBtn.disabled = false;
-              submitBtn.innerHTML = '<span>Book Appointment &rarr;</span>';
+              submitBtn.textContent = 'Book Appointment';
             }
           }
         } catch (err) {
-          console.error('Submission error:', err);
-          if (errorAlert) errorAlert.classList.remove('hidden');
+          console.error(err);
+          if (apiError) apiError.classList.remove('hidden');
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<span>Book Appointment &rarr;</span>';
+            submitBtn.textContent = 'Book Appointment';
           }
         }
       });
