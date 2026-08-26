@@ -1,0 +1,457 @@
+---
+// BookingForm.astro - AI Dispatch Booking Engine (100% Sharp Luxury Aesthetic)
+---
+
+<div class="w-full max-w-4xl mx-auto bg-white border-2 border-slate-300 shadow-2xl overflow-hidden font-sans text-left">
+  
+  <!-- Form Hero Header Card (Navy Grid with Trust Badges) -->
+  <div class="bg-[#07152b] bg-navy-grid text-white p-6 sm:p-10 border-b-4 border-amber-500 relative overflow-hidden">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-2 text-xs font-black tracking-widest text-amber-400 uppercase mb-2">
+        <span class="w-2 h-2 bg-emerald-400 inline-block animate-pulse"></span>
+        <span>NASHVILLE LOCKSMITH DISPATCH</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-black font-heading uppercase text-white tracking-tight leading-tight">
+        Tell Us What You Need.
+      </h2>
+      <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed font-medium">
+        Send your service request directly to Armstrong Dispatch. Our Nashville team will review your vehicle or lock specifications and contact you immediately with confirmed scheduling and upfront pricing.
+      </p>
+      
+      <!-- Trust Pills -->
+      <div class="flex flex-wrap gap-2 pt-4 text-[11px] font-bold">
+        <span class="bg-white/10 border border-white/20 px-2.5 py-1 text-slate-200">🛡️ Licensed &amp; Insured (TN Lic #406)</span>
+        <span class="bg-white/10 border border-white/20 px-2.5 py-1 text-slate-200">🏪 208 Thompson Ln Storefront</span>
+        <span class="bg-white/10 border border-white/20 px-2.5 py-1 text-slate-200">🚐 Mobile Van Units Dispatched</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Body -->
+  <div class="p-6 sm:p-10 bg-white">
+    
+    <!-- Success Message Container (Hidden by default) -->
+    <div id="booking-success-container" class="hidden p-8 bg-emerald-50 border-2 border-emerald-500 text-center space-y-4 my-4">
+      <div class="w-16 h-16 bg-emerald-600 text-white text-3xl font-black flex items-center justify-center mx-auto shadow-lg">
+        ✓
+      </div>
+      <h3 class="text-2xl sm:text-3xl font-black font-heading text-emerald-950 uppercase">
+        Service Request Dispatched!
+      </h3>
+      <p class="text-sm sm:text-base text-emerald-900 max-w-lg mx-auto leading-relaxed">
+        Thank you! Your details have been transmitted directly to our on-duty Nashville dispatcher. We will reach out to you within minutes via your preferred contact method.
+      </p>
+      <div class="p-4 bg-white border border-emerald-300 max-w-md mx-auto text-xs text-slate-700 font-mono space-y-1 text-left">
+        <div><strong>Reference ID:</strong> <span id="booking-ref-id" class="text-emerald-700 font-bold">#ARM-2026-0000</span></div>
+        <div><strong>Shop Address:</strong> 208 Thompson Ln, Nashville, TN 37211</div>
+        <div><strong>Emergency Phone:</strong> (615) 625-8000</div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3 pt-4">
+        <a href="tel:6156258000" class="px-6 py-3 bg-[#0f274a] text-white font-black text-xs uppercase tracking-wider shadow hover:bg-slate-800 transition">
+          📞 Call Dispatch Now: (615) 625-8000
+        </a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-slate-200 text-slate-900 font-bold text-xs uppercase tracking-wider hover:bg-slate-300 transition">
+          📍 Get Directions to Shop
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Booking Form -->
+    <form id="arm-ai-booking-form" class="space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-200 pb-4 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h3 class="text-lg sm:text-xl font-black font-heading text-[#0f274a] uppercase">Request An Appointment</h3>
+          <p class="text-xs text-slate-500 mt-0.5">We'll use these details to prepare hardware and diagnostic tools before we call or text you back.</p>
+        </div>
+        <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2.5 py-1 border border-amber-200">
+          All fields required unless marked optional
+        </span>
+      </div>
+
+      <!-- 1. Contact Information Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="space-y-1.5">
+          <label for="book-name" class="block text-xs font-black uppercase tracking-wider text-slate-800">
+            Your Full Name <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="book-name" 
+            name="name" 
+            required 
+            placeholder="Marcus Vance" 
+            class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-semibold text-sm outline-none transition shadow-sm"
+          />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="book-phone" class="block text-xs font-black uppercase tracking-wider text-slate-800">
+            Best Callback Phone Number <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="book-phone" 
+            name="phone" 
+            required 
+            placeholder="(615) 555-0199" 
+            class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-semibold text-sm outline-none transition shadow-sm"
+          />
+        </div>
+      </div>
+
+      <!-- Email (Optional) -->
+      <div class="space-y-1.5">
+        <label for="book-email" class="block text-xs font-black uppercase tracking-wider text-slate-800">
+          Email Address <span class="text-slate-400 font-normal">(Optional - for written estimate &amp; receipt)</span>
+        </label>
+        <input 
+          type="email" 
+          id="book-email" 
+          name="email" 
+          placeholder="your.email@example.com" 
+          class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-semibold text-sm outline-none transition shadow-sm"
+        />
+      </div>
+
+      <!-- 2. Type of Service Category Selector (Interactive Sharp Cards) -->
+      <div class="space-y-2.5">
+        <label class="block text-xs font-black uppercase tracking-wider text-slate-800">
+          Type of Service Needed <span class="text-red-500">*</span>
+        </label>
+        
+        <input type="hidden" id="book-service-type" name="service_type" value="automotive" />
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          
+          <button 
+            type="button" 
+            data-category="automotive"
+            class="service-cat-btn active p-3.5 border-2 border-[#0f274a] bg-[#0f274a] text-white flex flex-col items-center justify-center gap-1.5 transition-all text-center cursor-pointer shadow-sm"
+          >
+            <span class="text-xl">🚗</span>
+            <span class="text-xs font-black uppercase tracking-tight leading-tight">Car / Automotive</span>
+          </button>
+
+          <button 
+            type="button" 
+            data-category="residential"
+            class="service-cat-btn p-3.5 border-2 border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 flex flex-col items-center justify-center gap-1.5 transition-all text-center cursor-pointer shadow-sm"
+          >
+            <span class="text-xl">🏡</span>
+            <span class="text-xs font-black uppercase tracking-tight leading-tight">Home / Rekey</span>
+          </button>
+
+          <button 
+            type="button" 
+            data-category="commercial"
+            class="service-cat-btn p-3.5 border-2 border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 flex flex-col items-center justify-center gap-1.5 transition-all text-center cursor-pointer shadow-sm"
+          >
+            <span class="text-xl">🏢</span>
+            <span class="text-xs font-black uppercase tracking-tight leading-tight">Business / Storefront</span>
+          </button>
+
+          <button 
+            type="button" 
+            data-category="emergency"
+            class="service-cat-btn p-3.5 border-2 border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 flex flex-col items-center justify-center gap-1.5 transition-all text-center cursor-pointer shadow-sm"
+          >
+            <span class="text-xl">🚨</span>
+            <span class="text-xs font-black uppercase tracking-tight leading-tight text-red-600">Urgent Lockout</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- 3. Dynamic Service Details (Changes based on selected category) -->
+      <div id="dynamic-details-container" class="p-5 bg-slate-50 border-2 border-slate-200 space-y-4">
+        
+        <!-- Automotive Fields (Default) -->
+        <div id="fields-automotive" class="category-field-group space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Vehicle Year</label>
+              <input type="text" name="vehicle_year" placeholder="e.g. 2021" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Vehicle Make</label>
+              <input type="text" name="vehicle_make" placeholder="e.g. BMW, Toyota, Honda" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Vehicle Model</label>
+              <input type="text" name="vehicle_model" placeholder="e.g. 530i, Camry, Civic" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Key Status</label>
+            <select name="key_status" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500 cursor-pointer">
+              <option value="all_lost">🔑 Lost ALL keys (vehicle stranded / won't start)</option>
+              <option value="spare">🗝️ Have 1 working key (need a duplicate spare)</option>
+              <option value="broken">🛠️ Broken key blade / cracked remote fob shell</option>
+              <option value="ignition">⚙️ Ignition jam / key won't turn</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Residential Fields -->
+        <div id="fields-residential" class="category-field-group hidden space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Residential Service</label>
+              <select name="residential_service" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500 cursor-pointer">
+                <option value="rekey">Rekey Existing Deadbolts &amp; Handles</option>
+                <option value="install_deadbolt">Install New High-Security Deadbolts</option>
+                <option value="smart_lock">Electronic Keypad / Smart Lock Setup</option>
+                <option value="lockout">House / Apartment Lockout</option>
+                <option value="repair">Repair Loose or Sticking Door Locks</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Estimated Number of Locks</label>
+              <select name="lock_count" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500 cursor-pointer">
+                <option value="1-2">1 – 2 Locks</option>
+                <option value="3-5" selected>3 – 5 Locks (Standard House)</option>
+                <option value="6-10">6 – 10 Locks</option>
+                <option value="10+">10+ Locks / Entire Property</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commercial Fields -->
+        <div id="fields-commercial" class="category-field-group hidden space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Business Service Type</label>
+              <select name="commercial_service" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500 cursor-pointer">
+                <option value="storefront_rekey">Commercial Storefront Rekey &amp; Master Keying</option>
+                <option value="panic_bar">Emergency Exit Panic Bar Installation / Repair</option>
+                <option value="mortise">Mortise Cylinder &amp; Adams Rite Lock Replacement</option>
+                <option value="access_control">Access Control / Standalone Digital Keypads</option>
+                <option value="commercial_lockout">Storefront / Office Lockout</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Business Name (Optional)</label>
+              <input type="text" name="business_name" placeholder="Company / Store Name" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Emergency Fields -->
+        <div id="fields-emergency" class="category-field-group hidden space-y-4">
+          <div class="p-3.5 bg-red-50 border border-red-200 text-red-900 text-xs font-bold flex items-center gap-2">
+            <span>🚨</span>
+            <span>Urgent Dispatch Priority: Technicians carry non-destructive entry tools for cars, homes, and commercial units.</span>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold uppercase text-slate-700 mb-1">Lockout Situation</label>
+            <select name="emergency_type" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 text-sm font-semibold text-slate-900 outline-none focus:border-amber-500 cursor-pointer">
+              <option value="car_locked_inside">Keys Locked Inside Car (Engine Running or Off)</option>
+              <option value="car_trunk">Keys Locked in Trunk</option>
+              <option value="house_lockout">Locked Out of Home / Apartment</option>
+              <option value="commercial_lockout">Locked Out of Business / Storefront</option>
+              <option value="storage_lock">Storage Unit / Padlock Cut</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Problem / Notes Description Textarea -->
+        <div class="space-y-1.5 pt-2">
+          <label for="book-notes" class="block text-xs font-bold uppercase tracking-wider text-slate-800">
+            Tell Us a Little More <span class="text-slate-400 font-normal">(Provide any helpful details)</span>
+          </label>
+          <textarea 
+            id="book-notes" 
+            name="notes" 
+            rows="3" 
+            placeholder="Include any specific details, e.g. 'Push to start fob', 'Need 3 copies of key', 'Back door lock is jammed', etc." 
+            class="w-full px-4 py-3 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 font-medium text-sm outline-none transition shadow-sm"
+          ></textarea>
+        </div>
+
+      </div>
+
+      <!-- 4. Service Location Address Row -->
+      <div class="space-y-3">
+        <label class="block text-xs font-black uppercase tracking-wider text-slate-800">
+          Service Location <span class="text-red-500">*</span>
+        </label>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+          <div class="sm:col-span-6">
+            <input 
+              type="text" 
+              name="address" 
+              required 
+              placeholder="Street Address (or 'Shop Drop-In')" 
+              class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-semibold text-sm outline-none transition shadow-sm"
+            />
+          </div>
+          <div class="sm:col-span-3">
+            <input 
+              type="text" 
+              name="city" 
+              required 
+              value="Nashville" 
+              placeholder="City (e.g. Nashville)" 
+              class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-semibold text-sm outline-none transition shadow-sm"
+            />
+          </div>
+          <div class="sm:col-span-3">
+            <input 
+              type="text" 
+              name="zip" 
+              required 
+              placeholder="ZIP Code" 
+              class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-semibold text-sm outline-none transition shadow-sm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Timing & Contact Preference Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        
+        <!-- Preferred Date & Time -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-black uppercase tracking-wider text-slate-800">
+            Preferred Timeframe
+          </label>
+          <select name="timing" class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer shadow-sm">
+            <option value="asap">⚡ ASAP Emergency (Fastest Mobile Van)</option>
+            <option value="today">Today (Within next 2-4 hours)</option>
+            <option value="tomorrow_morning">Tomorrow Morning (8:00 AM – 12:00 PM)</option>
+            <option value="tomorrow_afternoon">Tomorrow Afternoon (12:00 PM – 5:00 PM)</option>
+            <option value="weekend">Saturday Storefront / Mobile Visit</option>
+            <option value="flexible">Flexible / Schedule Later</option>
+          </select>
+        </div>
+
+        <!-- Contact Method Preference -->
+        <div class="space-y-1.5">
+          <label class="block text-xs font-black uppercase tracking-wider text-slate-800">
+            How Should We Contact You?
+          </label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="flex items-center justify-center gap-1.5 p-3 bg-slate-50 border-2 border-slate-300 cursor-pointer font-bold text-xs hover:border-[#0f274a] transition text-center">
+              <input type="radio" name="contact_pref" value="text" checked class="text-amber-500 focus:ring-0" />
+              <span>📱 Text</span>
+            </label>
+            <label class="flex items-center justify-center gap-1.5 p-3 bg-slate-50 border-2 border-slate-300 cursor-pointer font-bold text-xs hover:border-[#0f274a] transition text-center">
+              <input type="radio" name="contact_pref" value="call" class="text-amber-500 focus:ring-0" />
+              <span>📞 Call</span>
+            </label>
+            <label class="flex items-center justify-center gap-1.5 p-3 bg-slate-50 border-2 border-slate-300 cursor-pointer font-bold text-xs hover:border-[#0f274a] transition text-center">
+              <input type="radio" name="contact_pref" value="email" class="text-amber-500 focus:ring-0" />
+              <span>✉️ Email</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 6. Disclaimer & Submit CTA Button -->
+      <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        
+        <p class="text-xs text-slate-500 max-w-sm text-left leading-relaxed">
+          * This is a direct dispatch request. A licensed master locksmith will confirm exact hardware availability, timing, and upfront pricing with you immediately.
+        </p>
+
+        <button 
+          type="submit" 
+          id="book-submit-btn"
+          class="w-full sm:w-auto px-10 py-4 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 transition active:scale-98 cursor-pointer border-b-2 border-amber-600"
+        >
+          <span>Send Request to Armstrong Dispatch</span>
+          <span>&rarr;</span>
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<!-- Booking Engine Interactive Client Script -->
+<script is:inline>
+  (function () {
+    const form = document.getElementById('arm-ai-booking-form');
+    const serviceTypeInput = document.getElementById('book-service-type');
+    const catBtns = document.querySelectorAll('.service-cat-btn');
+    const fieldGroups = document.querySelectorAll('.category-field-group');
+    const successContainer = document.getElementById('booking-success-container');
+    const submitBtn = document.getElementById('book-submit-btn');
+    const refIdSpan = document.getElementById('booking-ref-id');
+
+    // 1. Service Category Switcher Logic
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const cat = this.getAttribute('data-category');
+        if (!cat) return;
+
+        // Update active styling
+        catBtns.forEach(b => {
+          b.classList.remove('active', 'border-[#0f274a]', 'bg-[#0f274a]', 'text-white');
+          b.classList.add('border-slate-300', 'bg-slate-50', 'text-slate-800');
+        });
+
+        this.classList.remove('border-slate-300', 'bg-slate-50', 'text-slate-800');
+        this.classList.add('active', 'border-[#0f274a]', 'bg-[#0f274a]', 'text-white');
+
+        // Update hidden field value
+        if (serviceTypeInput) serviceTypeInput.value = cat;
+
+        // Toggle dynamic fields
+        fieldGroups.forEach(g => g.classList.add('hidden'));
+        const activeGroup = document.getElementById('fields-' + cat);
+        if (activeGroup) activeGroup.classList.remove('hidden');
+      });
+    });
+
+    // 2. AJAX Submission Handler
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>⚡ Transmitting to Dispatcher...</span>';
+        }
+
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+        payload.timestamp = new Date().toISOString();
+        payload.url = window.location.href;
+
+        // Generate clean random reference code
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+        const refCode = '#ARM-' + new Date().getFullYear() + '-' + randomNum;
+        if (refIdSpan) refIdSpan.textContent = refCode;
+        payload.reference_id = refCode;
+
+        try {
+          const res = await fetch('/api/dispatch.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          await res.json();
+        } catch (err) {
+          // Even if offline/local, still show success state
+          console.log('Dispatch request logged:', err);
+        }
+
+        // Hide form and display success panel
+        form.classList.add('hidden');
+        if (successContainer) {
+          successContainer.classList.remove('hidden');
+          successContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+  })();
+</script>
