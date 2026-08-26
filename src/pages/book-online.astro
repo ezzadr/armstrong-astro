@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import BookingForm from '../components/BookingForm.astro';
 
-const seoTitle = "Book Online | Armstrong Locksmith Nashville Dispatch";
-const seoDescription = "Schedule mobile locksmith dispatch or walk-in storefront service in Nashville. Car key programming, home rekeys, lockouts, and commercial door security.";
+const seoTitle = "Request An Appointment | Armstrong Locksmith Nashville";
+const seoDescription = "Send your service request directly to Armstrong Dispatch. Car keys, residential rekeys, lockouts, and commercial door security in Nashville, TN.";
 
 const bookingSchema = [
   {
@@ -11,90 +11,19 @@ const bookingSchema = [
     "@type": "WebPage",
     "@id": "https://armstronglocksmithinc.com/book-online/#webpage",
     "url": "https://armstronglocksmithinc.com/book-online/",
-    "name": "Book Online & Dispatch Request | Armstrong Locksmith",
-    "description": "Direct online dispatch request for automotive, residential, and commercial locksmith services in Nashville, TN.",
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://armstronglocksmithinc.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Book Online",
-          "item": "https://armstronglocksmithinc.com/book-online/"
-        }
-      ]
-    }
+    "name": "Request An Appointment | Armstrong Locksmith",
+    "description": "Send your service request directly to Armstrong Dispatch in Nashville, TN."
   }
 ];
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/book-online/" schema={bookingSchema}>
   
-  <!-- Breadcrumb Navigation -->
-  <div class="bg-slate-100 border-b border-slate-200 py-3 px-4 sm:px-8 font-sans">
-    <div class="max-w-6xl mx-auto flex items-center gap-2 text-xs text-slate-600 font-semibold">
-      <a href="/" class="hover:text-[#0f274a] transition">Home</a>
-      <span>/</span>
-      <span class="text-amber-700 font-bold">Book Online &amp; Dispatch</span>
-    </div>
-  </div>
-
-  <!-- Booking Main Section -->
-  <section class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto">
-      
-      <!-- Top Badges -->
-      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-950 text-xs font-black uppercase tracking-wider mb-3 border border-amber-300">
-          <span class="w-2 h-2 bg-emerald-500 inline-block animate-ping"></span>
-          <span>Live Nashville Dispatch Active</span>
-        </div>
-        <h1 class="text-3xl sm:text-5xl font-black font-heading text-[#0f274a] tracking-tight uppercase leading-tight">
-          Book Service &amp; Schedule Dispatch
-        </h1>
-        <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-          Need a replacement car key, home deadbolt rekey, or commercial storefront repair? Submit your request below or call <a href="tel:6156258000" class="text-amber-600 font-black hover:underline">(615) 625-8000</a> for immediate phone dispatch.
-        </p>
-      </div>
-
-      <!-- The Core Booking Engine Form -->
+  <!-- Clean Background Wrapper -->
+  <section class="py-8 sm:py-16 px-3 sm:px-6 lg:px-8 bg-slate-100 min-h-[85vh] flex items-center justify-center font-sans">
+    <div class="w-full max-w-3xl">
+      <!-- The Minimalist Booking Engine Card -->
       <BookingForm />
-
-      <!-- Three Pillars of Trust Below Form -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 mt-12 border-t border-slate-200 text-left">
-        
-        <div class="p-6 bg-white border border-slate-200 shadow-sm">
-          <div class="text-2xl mb-2">⚡</div>
-          <h3 class="font-heading font-black text-sm uppercase text-[#0f274a] mb-1">Fast Response &amp; Dispatch</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Requests are monitored by our master technicians. We confirm hardware availability and arrive with fully equipped vans.
-          </p>
-        </div>
-
-        <div class="p-6 bg-white border border-slate-200 shadow-sm">
-          <div class="text-2xl mb-2">💵</div>
-          <h3 class="font-heading font-black text-sm uppercase text-[#0f274a] mb-1">Upfront Honest Pricing</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Zero hidden fees or bait-and-switch dispatch charges. What we quote you over the phone/text is what you pay.
-          </p>
-        </div>
-
-        <div class="p-6 bg-white border border-slate-200 shadow-sm">
-          <div class="text-2xl mb-2">🏪</div>
-          <h3 class="font-heading font-black text-sm uppercase text-[#0f274a] mb-1">Real Storefront in Nashville</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Visit us at 208 Thompson Ln for shop key cutting, or we come to your location across Davidson &amp; Williamson Counties.
-          </p>
-        </div>
-
-      </div>
-
     </div>
   </section>
 
