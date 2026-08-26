@@ -1,95 +1,629 @@
 ---
-// BookingForm.astro - Official Armstrong Dispatch Platform Iframe Embed
+// BookingForm.astro - Multi-Step Interactive AI Dispatch Funnel (Step-by-Step Wizard)
 ---
 
-<div class="armstrong-booking-wrapper w-full max-w-4xl mx-auto bg-white border-2 border-slate-300 shadow-2xl overflow-hidden font-sans text-left">
+<div class="w-full max-w-2xl mx-auto bg-white border-2 border-slate-300 shadow-2xl overflow-hidden font-sans text-left">
   
-  <!-- Luxury Showroom Brand Header -->
-  <div class="bg-showroom text-white px-6 sm:px-10 py-7 border-b-2 border-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative">
+  <!-- Step Progress Header Bar -->
+  <div class="bg-showroom text-white px-6 py-5 border-b-2 border-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative">
     <div>
-      <div class="flex items-center gap-2 text-[10px] font-black tracking-widest text-amber-400 uppercase mb-1">
+      <div class="flex items-center gap-2 text-[10px] font-black tracking-widest text-amber-400 uppercase">
         <span class="w-2.5 h-2.5 bg-emerald-400 inline-block animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
-        <span>ARMSTRONG AI DISPATCH ENGINE</span>
+        <span>ARMSTRONG DISPATCH WIZARD</span>
       </div>
-      <h1 class="text-2xl sm:text-3xl font-black font-heading tracking-tight uppercase text-white">
-        Schedule Service &amp; <span class="text-gold-gradient">Dispatch</span>
-      </h1>
-      <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-lg font-normal">
-        Select your vehicle or property service below. Our master technicians will confirm availability and arrive fully equipped.
-      </p>
+      <h2 id="funnel-step-title" class="text-xl sm:text-2xl font-black font-heading tracking-tight uppercase text-white mt-0.5">
+        Step 1: Select Your Service
+      </h2>
+    </div>
+    
+    <!-- Step Indicator Pills -->
+    <div class="flex items-center gap-1.5 text-xs font-bold font-mono">
+      <span id="step-pill-1" class="step-pill px-2.5 py-1 bg-amber-500 text-slate-950 font-black">1. SERVICE</span>
+      <span class="text-slate-600">&rarr;</span>
+      <span id="step-pill-2" class="step-pill px-2.5 py-1 bg-slate-800 text-slate-400">2. DETAILS</span>
+      <span class="text-slate-600">&rarr;</span>
+      <span id="step-pill-3" class="step-pill px-2.5 py-1 bg-slate-800 text-slate-400">3. CONTACT</span>
+    </div>
+  </div>
+
+  <!-- Progress Bar Line -->
+  <div class="w-full bg-slate-200 h-1.5">
+    <div id="funnel-progress-bar" class="bg-amber-500 h-1.5 w-1/3 transition-all duration-300"></div>
+  </div>
+
+  <!-- Funnel Form Container -->
+  <form id="arm-multi-step-form" class="p-6 sm:p-10 bg-white" novalidate>
+    <input type="hidden" id="selected-service-cat" name="service_category" value="Car / Automotive" />
+
+    <!-- Invisible Honeypot Field -->
+    <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
+      <label for="funnel_company_website">Company Website</label>
+      <input type="text" id="funnel_company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
     </div>
 
-    <!-- Quick Emergency Call Pill -->
-    <div class="flex flex-col sm:items-end gap-1 shrink-0">
-      <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Need Immediate Roadside Help?</span>
-      <a 
-        href="tel:6156258000" 
-        class="px-5 py-2.5 bg-gold-metallic text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition active:scale-95 cursor-pointer"
-        aria-label="Call Armstrong Locksmith at (615) 625-8000"
-      >
-        <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
-        <span>Call (615) 625-8000</span>
+    <!-- ==================== STEP 1: SERVICE SELECTION ==================== -->
+    <div id="funnel-step-1" class="funnel-step-view space-y-6">
+      
+      <div class="text-center sm:text-left">
+        <h3 class="text-base font-black font-heading uppercase text-slate-900">What do you need assistance with?</h3>
+        <p class="text-xs text-slate-500 mt-0.5">Select a category below to continue to specific options &amp; scheduling.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        
+        <!-- Option 1: Car / Automotive -->
+        <button 
+          type="button" 
+          data-category="automotive"
+          data-label="Car / Automotive"
+          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-amber-500 text-slate-950 flex items-center justify-center text-2xl shadow-sm">
+            🚗
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Car &amp; Key Services</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Key cutting, fob replacement, smart proximity programming &amp; European keys.</p>
+          </div>
+          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
+        </button>
+
+        <!-- Option 2: Home / Residential -->
+        <button 
+          type="button" 
+          data-category="residential"
+          data-label="Home / Residential"
+          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-[#0f274a] text-white flex items-center justify-center text-2xl shadow-sm">
+            🏡
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Home &amp; Residential</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Rekeying house locks, deadbolts, master keying &amp; keypad installation.</p>
+          </div>
+          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
+        </button>
+
+        <!-- Option 3: Business / Commercial -->
+        <button 
+          type="button" 
+          data-category="commercial"
+          data-label="Business / Commercial"
+          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-slate-800 text-white flex items-center justify-center text-2xl shadow-sm">
+            🏢
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Business &amp; Storefront</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Commercial door locks, Adams Rite mortise cylinders, panic exit bars &amp; master keys.</p>
+          </div>
+          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
+        </button>
+
+        <!-- Option 4: Emergency Lockout -->
+        <button 
+          type="button" 
+          data-category="emergency"
+          data-label="Emergency Lockout"
+          class="cat-select-card group p-6 border-2 border-red-200 hover:border-red-600 bg-red-50/50 hover:bg-red-50 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-red-600 text-white flex items-center justify-center text-2xl shadow-sm">
+            🚨
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-red-900">Emergency Lockout</h4>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Locked keys in car, trunk, house or store. Urgent on-site mobile dispatch.</p>
+          </div>
+          <span class="text-xs font-black text-red-600 group-hover:translate-x-1 transition-transform mt-auto">Urgent Dispatch &rarr;</span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ==================== STEP 2: SPECIFIC SERVICE DETAILS & DATE/TIMING ==================== -->
+    <div id="funnel-step-2" class="funnel-step-view hidden space-y-6">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div>
+          <h3 id="step-2-heading" class="text-base font-black font-heading uppercase text-slate-900">Automotive Details</h3>
+          <p class="text-xs text-slate-500">Provide details so our technicians arrive with the correct key blanks and diagnostic tools.</p>
+        </div>
+        <button type="button" class="btn-prev-step text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
+          &larr; Back
+        </button>
+      </div>
+
+      <!-- Specific Form Group: Automotive -->
+      <div id="subfields-automotive" class="service-subfields space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="space-y-1">
+            <label class="block text-xs font-bold text-slate-700">Vehicle Year</label>
+            <input type="text" id="vehicle_year" name="vehicle_year" placeholder="e.g. 2021" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-bold text-slate-700">Vehicle Make</label>
+            <input type="text" id="vehicle_make" name="vehicle_make" placeholder="e.g. Toyota, BMW, Honda" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-bold text-slate-700">Vehicle Model</label>
+            <input type="text" id="vehicle_model" name="vehicle_model" placeholder="e.g. Camry, 530i, Civic" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Current Key Situation</label>
+          <select name="key_status" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="Lost ALL keys">🔑 Lost ALL keys (car won't start / needs key generated)</option>
+            <option value="Duplicate spare key">📶 Have 1 working key (need a duplicate spare)</option>
+            <option value="Broken key blade">🛠️ Key blade broke / cracked remote shell</option>
+            <option value="Locked keys in car">🚨 Locked keys inside vehicle</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Specific Form Group: Residential -->
+      <div id="subfields-residential" class="service-subfields hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Residential Request</label>
+          <select name="residential_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="Rekey Existing Deadbolts">Rekey Existing Deadbolts (Change Keys)</option>
+            <option value="Install New Deadbolts">Install New Deadbolts / Locks</option>
+            <option value="Keypad Smart Lock Installation">Keypad / Smart Lock Installation</option>
+            <option value="House Lockout">House / Apartment Lockout</option>
+          </select>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Approximate Number of Locks</label>
+          <select name="lock_count" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="1-2 Locks">1 – 2 Locks</option>
+            <option value="3-5 Locks" selected>3 – 5 Locks (Standard House)</option>
+            <option value="6-10 Locks">6 – 10 Locks</option>
+            <option value="10+ Locks">10+ Locks / Entire Home</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Specific Form Group: Commercial -->
+      <div id="subfields-commercial" class="service-subfields hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Commercial Service</label>
+          <select name="commercial_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="Storefront Rekey">Commercial Storefront Rekey &amp; Master Keying</option>
+            <option value="Panic Bar Exit Device">Exit Panic Bar Installation / Repair</option>
+            <option value="Adams Rite Mortise Cylinder">Mortise Cylinder &amp; Adams Rite Lock Replacement</option>
+            <option value="Commercial Lockout">Office / Storefront Lockout</option>
+          </select>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Business Name <span class="text-slate-400 font-normal">(optional)</span></label>
+          <input type="text" name="business_name" placeholder="Company Name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+        </div>
+      </div>
+
+      <!-- Specific Form Group: Emergency -->
+      <div id="subfields-emergency" class="service-subfields hidden space-y-4">
+        <div class="p-3 bg-red-50 border border-red-200 text-red-900 text-xs font-bold flex items-center gap-2">
+          <span>🚨</span>
+          <span>Fastest mobile dispatch across Davidson &amp; Williamson Counties.</span>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Lockout Location</label>
+          <select name="emergency_lockout_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="Keys Locked in Car">Keys Locked Inside Car</option>
+            <option value="Keys Locked in Trunk">Keys Locked Inside Trunk</option>
+            <option value="Home Lockout">Locked Out of Home / Apartment</option>
+            <option value="Commercial Lockout">Locked Out of Business</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Preferred Date & Timing -->
+      <div class="space-y-1 pt-2">
+        <label class="block text-xs font-bold text-slate-700">Preferred Date &amp; Time Slot *</label>
+        <select name="timing" id="funnel-timing" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+          <option value="ASAP Emergency Dispatch">⚡ ASAP Emergency Dispatch (Immediate)</option>
+          <option value="Today (Within 2-4 Hours)">Today (Within 2-4 Hours)</option>
+          <option value="Tomorrow Morning (8 AM – 12 PM)">Tomorrow Morning (8 AM – 12 PM)</option>
+          <option value="Tomorrow Afternoon (12 PM – 5 PM)">Tomorrow Afternoon (12 PM – 5 PM)</option>
+          <option value="Saturday Storefront Visit (10 AM – 4 PM)">Saturday Storefront Visit (10 AM – 4 PM)</option>
+          <option value="Schedule Next Week">Schedule Specific Date Next Week</option>
+        </select>
+      </div>
+
+      <!-- Step 2 Navigation Actions -->
+      <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+        <button type="button" class="btn-prev-step px-5 py-3 border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:bg-slate-100 transition cursor-pointer">
+          &larr; Back
+        </button>
+        <button type="button" id="btn-to-step-3" class="px-8 py-3.5 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition active:scale-98 cursor-pointer">
+          Continue to Contact &amp; Location &rarr;
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ==================== STEP 3: CONTACT & LOCATION ==================== -->
+    <div id="funnel-step-3" class="funnel-step-view hidden space-y-6">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="text-base font-black font-heading uppercase text-slate-900">Your Contact &amp; Location</h3>
+          <p class="text-xs text-slate-500">We will confirm schedule and price directly with you.</p>
+        </div>
+        <button type="button" class="btn-prev-step text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
+          &larr; Back
+        </button>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label for="funnel-name" class="block text-xs font-bold text-slate-700">Your Name <span class="text-red-500">*</span></label>
+          <input 
+            type="text" 
+            id="funnel-name" 
+            name="customer_name" 
+            required 
+            placeholder="John Doe" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+          <span id="funnel-name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
+        </div>
+
+        <div class="space-y-1">
+          <label for="funnel-phone" class="block text-xs font-bold text-slate-700">Callback Phone <span class="text-red-500">*</span></label>
+          <input 
+            type="tel" 
+            id="funnel-phone" 
+            name="phone" 
+            required 
+            placeholder="(615) 000-0000" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+          <span id="funnel-phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
+        </div>
+      </div>
+
+      <!-- Service Address Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+        <div class="sm:col-span-6 space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Service Address / Area</label>
+          <input 
+            type="text" 
+            id="funnel-address"
+            name="address" 
+            placeholder="Street address or '208 Thompson Ln Shop'" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+        </div>
+        <div class="sm:col-span-3 space-y-1">
+          <label class="block text-xs font-bold text-slate-700">City</label>
+          <input 
+            type="text" 
+            name="city" 
+            value="Nashville" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+        </div>
+        <div class="sm:col-span-3 space-y-1">
+          <label class="block text-xs font-bold text-slate-700">ZIP</label>
+          <input 
+            type="text" 
+            name="zip" 
+            placeholder="37211" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+        </div>
+      </div>
+
+      <!-- Additional Notes Field -->
+      <div class="space-y-1">
+        <label class="block text-xs font-bold text-slate-700">Special Instructions / Details <span class="text-slate-400 font-normal">(optional)</span></label>
+        <textarea 
+          id="funnel-notes"
+          name="notes" 
+          rows="2" 
+          placeholder="Any specific requests (e.g. 'Push to start', 'Need 2 keys made', 'Gate code is #1234')" 
+          class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+        ></textarea>
+      </div>
+
+      <!-- Network / Server Error Alert -->
+      <div id="funnel-error-msg" class="hidden p-3.5 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center">
+        We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
+      </div>
+
+      <!-- Submit Actions -->
+      <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <button type="button" class="btn-prev-step px-5 py-3 border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:bg-slate-100 transition cursor-pointer">
+          &larr; Back
+        </button>
+
+        <button 
+          type="submit" 
+          id="funnel-submit-btn"
+          class="w-full sm:w-auto px-8 py-3.5 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition active:scale-98 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          <span>Send Request to Armstrong Dispatch &rarr;</span>
+        </button>
+      </div>
+
+    </div>
+
+  </form>
+
+  <!-- ==================== STEP 4: SUCCESS CONFIRMATION ==================== -->
+  <div id="funnel-step-4" class="hidden p-8 sm:p-12 bg-white text-center space-y-4">
+    <div class="w-14 h-14 bg-emerald-600 text-white text-3xl font-bold flex items-center justify-center mx-auto shadow-md">
+      ✓
+    </div>
+    
+    <h3 class="text-2xl font-black font-heading text-slate-900 uppercase">
+      Thank you! Your request was sent to Armstrong Locksmith.
+    </h3>
+    
+    <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+      Your details are now in our dispatch review queue. Our on-duty Nashville dispatcher will reach out shortly to confirm your appointment time and upfront price.
+    </p>
+
+    <div class="pt-4 flex flex-wrap justify-center gap-3">
+      <a href="tel:6156258000" class="px-6 py-3 bg-[#0f274a] text-white font-black text-xs uppercase tracking-wider hover:bg-slate-800 transition">
+        📞 Call Dispatch: (615) 625-8000
+      </a>
+      <a href="/" class="px-6 py-3 bg-slate-100 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-200 transition">
+        Return to Homepage &rarr;
       </a>
     </div>
   </div>
 
-  <!-- Trust Highlights Strip -->
-  <div class="bg-[#0b1b36] border-b border-slate-800 px-6 py-2.5 flex flex-wrap items-center justify-between text-[11px] text-slate-300 gap-2">
-    <div class="flex items-center gap-1.5 text-amber-400 font-bold">
-      <span>🛡️</span>
-      <span class="text-slate-200">TN Locksmith License #406</span>
-    </div>
-    <div class="flex items-center gap-1.5">
-      <span>⭐</span>
-      <span class="text-slate-200">4.9 Star Rating (750+ Reviews)</span>
-    </div>
-    <div class="flex items-center gap-1.5 text-emerald-400 font-semibold">
-      <span>🏪</span>
-      <span class="text-slate-200">Storefront: 208 Thompson Ln</span>
-    </div>
-  </div>
-
-  <!-- Embedded Dispatch App Container -->
-  <div class="armstrong-booking w-full bg-white relative">
-    <iframe
-      id="armstrong-booking-frame"
-      src="https://booking.armstronglocksmithinc.com/embed/booking"
-      title="Schedule Armstrong Locksmith Service"
-      loading="eager"
-      scrolling="no"
-      allow="geolocation"
-      style="width:100%; min-height:760px; border:0; display:block; background:#ffffff;"
-    ></iframe>
-  </div>
-
-  <!-- Bottom Guarantee Strip -->
-  <div class="bg-slate-50 border-t border-slate-200 px-6 py-3 flex flex-wrap items-center justify-between text-xs text-slate-600 gap-2">
-    <span class="font-medium">🔒 Encrypted Dispatch Request &bull; No upfront charges until service is confirmed.</span>
-    <a href="/locksmith-pricing-nashville/" class="font-bold text-[#0f274a] hover:text-amber-600 hover:underline transition">
-      View Pricing Guide &rarr;
-    </a>
-  </div>
-
 </div>
 
+<!-- Multi-Step Funnel Client Script -->
 <script is:inline>
   (function () {
-    const frame = document.getElementById('armstrong-booking-frame');
+    // Record timestamp when the form first loads / opens
+    const formStartedAt = Math.floor(Date.now() / 1000);
 
-    window.addEventListener('message', function (event) {
-      if (
-        event.origin !== 'https://booking.armstronglocksmithinc.com' ||
-        event.source !== frame?.contentWindow ||
-        event.data?.type !== 'armstrong-booking-height'
-      ) {
-        return;
+    let currentStep = 1;
+
+    const step1View = document.getElementById('funnel-step-1');
+    const step2View = document.getElementById('funnel-step-2');
+    const step3View = document.getElementById('funnel-step-3');
+    const step4View = document.getElementById('funnel-step-4');
+
+    const stepTitle = document.getElementById('funnel-step-title');
+    const progressBar = document.getElementById('funnel-progress-bar');
+    const catCards = document.querySelectorAll('.cat-select-card');
+    const catInput = document.getElementById('selected-service-cat');
+    const step2Heading = document.getElementById('step-2-heading');
+    const subfieldGroups = document.querySelectorAll('.service-subfields');
+
+    const btnToStep3 = document.getElementById('btn-to-step-3');
+    const prevBtns = document.querySelectorAll('.btn-prev-step');
+    const form = document.getElementById('arm-multi-step-form');
+    const submitBtn = document.getElementById('funnel-submit-btn');
+    const errorBanner = document.getElementById('funnel-error-msg');
+
+    const nameInput = document.getElementById('funnel-name');
+    const phoneInput = document.getElementById('funnel-phone');
+    const nameError = document.getElementById('funnel-name-error');
+    const phoneError = document.getElementById('funnel-phone-error');
+    const honeypotInput = document.getElementById('funnel_company_website');
+
+    if (nameInput && nameError) {
+      nameInput.addEventListener('input', function () {
+        nameError.classList.add('hidden');
+        nameInput.classList.remove('border-red-500');
+      });
+    }
+    if (phoneInput && phoneError) {
+      phoneInput.addEventListener('input', function () {
+        phoneError.classList.add('hidden');
+        phoneInput.classList.remove('border-red-500');
+      });
+    }
+
+    function setStep(step) {
+      currentStep = step;
+
+      // Update Views
+      step1View.classList.add('hidden');
+      step2View.classList.add('hidden');
+      step3View.classList.add('hidden');
+      step4View.classList.add('hidden');
+
+      // Update Pills & Titles
+      const pill1 = document.getElementById('step-pill-1');
+      const pill2 = document.getElementById('step-pill-2');
+      const pill3 = document.getElementById('step-pill-3');
+
+      [pill1, pill2, pill3].forEach(p => {
+        if (p) {
+          p.classList.remove('bg-amber-500', 'text-slate-950', 'font-black');
+          p.classList.add('bg-slate-800', 'text-slate-400');
+        }
+      });
+
+      if (step === 1) {
+        step1View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Step 1: Select Your Service";
+        if (progressBar) progressBar.style.width = "33%";
+        if (pill1) {
+          pill1.classList.remove('bg-slate-800', 'text-slate-400');
+          pill1.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
+        }
+      } else if (step === 2) {
+        step2View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Step 2: Service Details & Timing";
+        if (progressBar) progressBar.style.width = "66%";
+        if (pill2) {
+          pill2.classList.remove('bg-slate-800', 'text-slate-400');
+          pill2.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
+        }
+      } else if (step === 3) {
+        step3View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Step 3: Contact & Location";
+        if (progressBar) progressBar.style.width = "100%";
+        if (pill3) {
+          pill3.classList.remove('bg-slate-800', 'text-slate-400');
+          pill3.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
+        }
+      } else if (step === 4) {
+        form.classList.add('hidden');
+        step4View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Request Sent!";
+        if (progressBar) progressBar.style.width = "100%";
       }
 
-      const height = Number(event.data.height);
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
 
-      if (Number.isFinite(height) && height > 0 && frame) {
-        frame.style.height = Math.max(760, height) + 'px';
-      }
+    // 1. Step 1 Card Click Handler -> Automatically proceeds to Step 2
+    catCards.forEach(card => {
+      card.addEventListener('click', function () {
+        const cat = this.getAttribute('data-category');
+        const label = this.getAttribute('data-label');
+        if (catInput) catInput.value = label;
+
+        // Show appropriate subfields
+        subfieldGroups.forEach(g => g.classList.add('hidden'));
+        const targetSub = document.getElementById('subfields-' + cat);
+        if (targetSub) targetSub.classList.remove('hidden');
+
+        if (step2Heading) {
+          if (cat === 'automotive') step2Heading.textContent = "Car & Key Specifications";
+          else if (cat === 'residential') step2Heading.textContent = "Home Lock Specifications";
+          else if (cat === 'commercial') step2Heading.textContent = "Business & Storefront Details";
+          else if (cat === 'emergency') step2Heading.textContent = "Emergency Lockout Details";
+        }
+
+        setStep(2);
+      });
     });
+
+    // 2. Step 2 "Continue" button
+    if (btnToStep3) {
+      btnToStep3.addEventListener('click', function () {
+        setStep(3);
+      });
+    }
+
+    // 3. Back buttons
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        if (currentStep > 1) {
+          setStep(currentStep - 1);
+        }
+      });
+    });
+
+    // 4. Form Submit
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        if (errorBanner) errorBanner.classList.add('hidden');
+        let hasError = false;
+
+        const customerName = nameInput ? nameInput.value.trim() : '';
+        const phone = phoneInput ? phoneInput.value.trim() : '';
+        const serviceCategory = catInput ? catInput.value : 'Locksmith Service';
+        const honeypot = honeypotInput ? honeypotInput.value.trim() : '';
+
+        if (!customerName) {
+          if (nameError) nameError.classList.remove('hidden');
+          if (nameInput) nameInput.classList.add('border-red-500');
+          hasError = true;
+        }
+        if (!phone || phone.length < 7) {
+          if (phoneError) phoneError.classList.remove('hidden');
+          if (phoneInput) phoneInput.classList.add('border-red-500');
+          hasError = true;
+        }
+
+        if (hasError) return;
+
+        // Honeypot check
+        if (honeypot !== '') {
+          setStep(4);
+          return;
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span>⚡ Transmitting Request...</span>';
+        }
+
+        // Build vehicle / details summary string
+        const vehicleYear = document.getElementById('vehicle_year')?.value || '';
+        const vehicleMake = document.getElementById('vehicle_make')?.value || '';
+        const vehicleModel = document.getElementById('vehicle_model')?.value || '';
+        const address = document.getElementById('funnel-address')?.value || '';
+        const timing = document.getElementById('funnel-timing')?.value || '';
+        const notes = document.getElementById('funnel-notes')?.value || '';
+
+        let vehicleDetails = [vehicleYear, vehicleMake, vehicleModel].filter(Boolean).join(' ');
+        if (!vehicleDetails && address) vehicleDetails = address;
+
+        const combinedService = `${serviceCategory} (${timing})`;
+
+        const payload = {
+          customer_name: customerName,
+          phone: phone,
+          service: combinedService,
+          service_type: serviceCategory,
+          vehicle: vehicleDetails || notes || 'Details in request',
+          form_started_at: formStartedAt,
+          company_website: ''
+        };
+
+        try {
+          const res = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (res.ok) {
+            setStep(4);
+          } else {
+            const data = await res.json().catch(() => ({}));
+            
+            if (res.status === 422 && data.errors) {
+              if (data.errors.customer_name && nameError) {
+                nameError.textContent = data.errors.customer_name[0];
+                nameError.classList.remove('hidden');
+              }
+              if (data.errors.phone && phoneError) {
+                phoneError.textContent = data.errors.phone[0];
+                phoneError.classList.remove('hidden');
+              }
+            }
+
+            if (errorBanner) errorBanner.classList.remove('hidden');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<span>Send Request to Armstrong Dispatch &rarr;</span>';
+            }
+          }
+        } catch (err) {
+          console.error('Dispatch network submission error:', err);
+          if (errorBanner) errorBanner.classList.remove('hidden');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Send Request to Armstrong Dispatch &rarr;</span>';
+          }
+        }
+      });
+    }
   })();
 </script>
