@@ -214,11 +214,11 @@ const yearRanges = [
 
 </div>
 
-<script>
+<script is:inline>
   (function initCarKeyEstimator() {
-    const makeSelect = document.getElementById('est-make-select') as HTMLSelectElement | null;
-    const yearSelect = document.getElementById('est-year-select') as HTMLSelectElement | null;
-    const sitSelect = document.getElementById('est-situation-select') as HTMLSelectElement | null;
+    const makeSelect = document.getElementById('est-make-select');
+    const yearSelect = document.getElementById('est-year-select');
+    const sitSelect = document.getElementById('est-situation-select');
     const resultPanel = document.getElementById('estimator-result-panel');
     const placeholder = document.getElementById('estimator-prompt-placeholder');
     

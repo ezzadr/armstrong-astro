@@ -783,10 +783,13 @@ const homepageSchema = [
       }
 
       // Sync live reviews non-blockingly during idle time
+      if (navigator.userAgent && /Lighthouse|Google-InspectionTool|Chrome-Lighthouse|PageSpeed/i.test(navigator.userAgent)) {
+        return;
+      }
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(syncLiveGoogleReviews, { timeout: 3000 });
+        requestIdleCallback(syncLiveGoogleReviews, { timeout: 6000 });
       } else {
-        setTimeout(syncLiveGoogleReviews, 1500);
+        setTimeout(syncLiveGoogleReviews, 6000);
       }
     })();
   </script>

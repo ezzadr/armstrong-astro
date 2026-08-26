@@ -7,17 +7,21 @@
   <!-- Main Navigation Row -->
   <div class="max-w-[96rem] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4">
     
-    <!-- Official Company Logo -->
+    <!-- Official Company Logo (Ultra-Lightweight 6KB WebP) -->
     <a href="/" class="flex items-center flex-shrink-0 group" aria-label="Armstrong Locksmith Homepage">
-      <img 
-        src="/logo.png" 
-        alt="Armstrong Locksmith Nashville" 
-        class="h-11 sm:h-13 md:h-14 lg:h-16 w-auto object-contain transition-transform group-hover:scale-102" 
-        loading="eager"
-        fetchpriority="high"
-        width="260"
-        height="66"
-      />
+      <picture>
+        <source srcset="/logo.webp" type="image/webp" />
+        <img 
+          src="/logo.png" 
+          alt="Armstrong Locksmith Nashville" 
+          class="h-11 sm:h-13 md:h-14 lg:h-16 w-auto object-contain transition-transform group-hover:scale-102" 
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="200"
+          height="153"
+        />
+      </picture>
     </a>
 
     <!-- Desktop Navigation Links with Precision Dividers -->
