@@ -49,15 +49,24 @@
     </div>
   </div>
 
-  <!-- Embedded Dispatch App Container -->
-  <div class="armstrong-booking w-full bg-white relative min-h-[760px]">
-    
-    <!-- Smooth Loading Spinner -->
-    <div id="booking-spinner" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-50 text-slate-500 gap-3 z-10">
-      <div class="w-9 h-9 border-3 border-slate-300 border-t-amber-500 animate-spin"></div>
-      <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Loading Dispatch Schedule...</span>
+  <!-- Localhost Security CSP Notice (Only displays if on localhost) -->
+  <div id="localhost-csp-notice" class="hidden p-4 bg-amber-50 border-b border-amber-200 text-amber-900 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+    <div>
+      <strong class="font-bold">🔒 Note for Local Development:</strong>
+      <span> Your dispatch server's security policy restricts iframe embedding exclusively to <code>https://armstronglocksmithinc.com</code>. On live production it loads directly!</span>
     </div>
+    <a 
+      href="https://booking.armstronglocksmithinc.com/embed/booking" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs uppercase tracking-wider shrink-0 transition"
+    >
+      Open Form In New Tab &rarr;
+    </a>
+  </div>
 
+  <!-- Embedded Dispatch App Container -->
+  <div class="armstrong-booking w-full bg-white relative">
     <iframe
       id="armstrong-booking-frame"
       src="https://booking.armstronglocksmithinc.com/embed/booking"
@@ -65,8 +74,7 @@
       loading="eager"
       scrolling="no"
       allow="geolocation"
-      class="w-full block bg-white"
-      onload="document.getElementById('booking-spinner')?.classList.add('hidden');"
+      style="width:100%; min-height:760px; border:0; display:block; background:#ffffff;"
     ></iframe>
   </div>
 
@@ -80,25 +88,14 @@
 
 </div>
 
-<style>
-  .armstrong-booking {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  #armstrong-booking-frame {
-    display: block;
-    width: 100%;
-    min-height: 760px;
-    border: 0;
-    border-radius: 0px !important;
-    background: #ffffff;
-    transition: height 0.25s ease;
-  }
-</style>
-
 <script is:inline>
   (function () {
+    // Show dev banner if running on localhost
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      const notice = document.getElementById('localhost-csp-notice');
+      if (notice) notice.classList.remove('hidden');
+    }
+
     const frame = document.getElementById('armstrong-booking-frame');
 
     window.addEventListener('message', function (event) {
