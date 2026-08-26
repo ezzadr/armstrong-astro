@@ -26,7 +26,7 @@
     box-shadow: 6px 6px 0px 0px rgba(15, 39, 74, 1);
   }
   .shadow-sharp-gold {
-    box-shadow: 6px 6px 0px 0px rgba(245, 158, 11, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
   .shadow-sharp-light {
     box-shadow: 6px 6px 0px 0px rgba(226, 232, 240, 1);
@@ -41,8 +41,8 @@
     box-shadow: 10px 10px 0px 0px rgba(15, 39, 74, 1);
   }
   .hover-lift-gold:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0px 0px rgba(245, 158, 11, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
 
   /* Metallic Gold Premium Gradient */
