@@ -167,14 +167,9 @@ const baseBusinessSchema = {
   <!-- Preload & Optimize Critical Assets (Zero LCP Delay) -->
   <link rel="preload" as="image" href="/logo.webp" type="image/webp" fetchpriority="high" />
 
-  <!-- Ultra High-Performance Non-Blocking Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800;900&display=swap">
-  </noscript>
+  <!-- Preload Critical Self-Hosted Fonts for 0ms FCP & 0ms LCP -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-3.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-0.woff2" crossorigin />
 
   <!-- Base Locksmith LocalBusiness Structured Data Schema -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(baseBusinessSchema)} />
