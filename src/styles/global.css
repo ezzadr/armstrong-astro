@@ -54,10 +54,12 @@
     color: #0f172a;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
   }
   
   h1, h2, h3, h4, h5, h6, .font-heading {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.02em;
   }
 
   /* Universal Strict Zero-Curve Rule: Every element on every page has 100% sharp edges */
@@ -69,55 +71,77 @@
 }
 
 @layer utilities {
-  /* Architectural Shadows */
+  /* ==================== LUXURY FINESSE UTILITIES ==================== */
+  
+  /* 1. Showroom Cinematic Lighting (Deep Navy with Ambient Top Spotlight) */
+  .bg-showroom {
+    background-color: #061224;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 70%),
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+  }
+
+  /* 2. Brushed Metallic Gold Gradient (Buttons & Foil Badges) */
+  .bg-gold-metallic {
+    background: linear-gradient(135deg, #fef08a 0%, #f59e0b 45%, #d97706 100%);
+    color: #091528;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+  }
+  .bg-gold-metallic:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f59e0b 100%);
+    filter: brightness(1.05);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* 3. Gold Gradient Text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* 4. Luxury Hairline Glass & Dividers */
+  .border-hairline {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .border-hairline-slate {
+    border: 1px solid #e2e8f0;
+  }
+
+  /* 5. Precision Architectural Shadows */
   .shadow-sharp {
     box-shadow: 6px 6px 0px 0px rgba(15, 39, 74, 1);
   }
   .shadow-sharp-gold {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
-  .shadow-sharp-light {
-    box-shadow: 6px 6px 0px 0px rgba(226, 232, 240, 1);
+  .shadow-luxury-card {
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.8);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
-  /* Hover Lifts */
-  .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s;
-  }
-  .hover-lift:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0px 0px rgba(15, 39, 74, 1);
-  }
-  .hover-lift-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  .shadow-luxury-card:hover {
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px #cbd5e1;
+    transform: translateY(-3px);
   }
 
-  /* Metallic Gold Premium Gradient */
-  .bg-gold-metallic {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-    color: #0f172a;
-    transition: all 0.3s ease;
-  }
-  .bg-gold-metallic:hover {
-    background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #f59e0b 100%);
-    filter: brightness(1.05);
-  }
-
-  /* Deep Navy Automotive Grid Texture */
+  /* 6. Deep Navy Automotive Grid Texture */
   .bg-navy-grid {
     background-color: #07152b;
     background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 30px 30px;
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
-  /* Reveal Animations */
+  /* 7. Reveal-Up Observer Animations */
   .reveal-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(24px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal-up.is-visible {
     opacity: 1;
