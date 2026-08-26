@@ -60,7 +60,8 @@ git push origin main
 
 | Component / Feature | Active Live Link / Path | Note |
 | :--- | :--- | :--- |
-| **Live Booking Page** | `/book-online/` (`src/pages/book-online.astro`) | Active on all "Book Online" CTAs sitewide (hosts `booking.armstronglocksmithinc.com/embed/booking`) |
+| **Website Bookings API** | `POST https://booking.armstronglocksmithinc.com/api/website-bookings` | Direct native form endpoint with honeypot & unix timestamp validation |
+| **Live Booking Page** | `/book-online/` (`src/pages/book-online.astro`) | Native luxury 4-field dispatch form |
 | **Workiz Backup URL** | `https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648` | Standalone backup booking link |
 | **Verified Google Review Modal** | `https://g.page/r/CQS5BtikwbmqEBM/review` | Universal direct Google review creation link |
 | **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 750+ reviews |
@@ -69,5 +70,6 @@ git push origin main
 
 ## 5. Current Task State & Next Steps
 * Entire 44-page site is updated with the luxury showroom aesthetic, self-hosted fonts, and zero-curve styling.
-* All "Book Online" CTAs sitewide link to `/book-online/`.
+* Both the Hero Quote Form and `/book-online/` are connected natively to `https://booking.armstronglocksmithinc.com/api/website-bookings`.
+* Submissions appear in the Armstrong Dispatch Website Bookings section for staff review.
 * When continuing work from home: run `git pull`, run `npm run dev` to preview at `http://localhost:4321`, make edits, build, sync to root, and push!
