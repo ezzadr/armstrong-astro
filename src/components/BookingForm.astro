@@ -1,176 +1,307 @@
 ---
-// BookingForm.astro - Ultra-Clean, Minimalist AI Dispatch Booking Interface
+// BookingForm.astro - Multi-Step Interactive AI Dispatch Funnel (Step-by-Step Wizard)
 ---
 
-<div class="w-full max-w-3xl mx-auto bg-white border border-slate-200 shadow-xl overflow-hidden font-sans text-left">
+<div class="w-full max-w-2xl mx-auto bg-white border-2 border-slate-300 shadow-2xl overflow-hidden font-sans text-left">
   
-  <!-- Clean Brand Header Banner (Navy with Minimalist Typography) -->
-  <div class="bg-[#07152b] text-white px-6 sm:px-10 py-8 sm:py-10 border-b-2 border-amber-500 relative">
-    <div class="flex items-center gap-2 text-[11px] font-bold tracking-widest text-amber-400 uppercase mb-2">
-      <span class="w-2 h-2 bg-emerald-400 inline-block"></span>
-      <span>NASHVILLE LOCKSMITH SERVICE</span>
+  <!-- Step Progress Header Bar -->
+  <div class="bg-[#07152b] text-white px-6 py-5 border-b-2 border-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div>
+      <div class="flex items-center gap-2 text-[10px] font-black tracking-widest text-amber-400 uppercase">
+        <span class="w-2 h-2 bg-emerald-400 inline-block animate-pulse"></span>
+        <span>ARMSTRONG DISPATCH WIZARD</span>
+      </div>
+      <h2 id="funnel-step-title" class="text-xl sm:text-2xl font-black font-heading tracking-tight uppercase text-white mt-0.5">
+        Step 1: Select Your Service
+      </h2>
     </div>
     
-    <h2 class="text-2xl sm:text-3xl font-black font-heading tracking-tight uppercase text-white">
-      Tell us what you need.
-    </h2>
-    
-    <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed max-w-xl font-normal">
-      Send your service request directly to Armstrong Dispatch. A team member will review the details and contact you to confirm availability and pricing.
-    </p>
-
-    <!-- Minimalist Badges -->
-    <div class="flex flex-wrap gap-2 pt-4 text-[11px] text-slate-300">
-      <span class="px-2.5 py-0.5 border border-slate-700 bg-slate-900/60">Licensed &amp; Local</span>
-      <span class="px-2.5 py-0.5 border border-slate-700 bg-slate-900/60">Residential</span>
-      <span class="px-2.5 py-0.5 border border-slate-700 bg-slate-900/60">Automotive</span>
-      <span class="px-2.5 py-0.5 border border-slate-700 bg-slate-900/60">Commercial</span>
+    <!-- Step Indicator Pills -->
+    <div class="flex items-center gap-1.5 text-xs font-bold font-mono">
+      <span id="step-pill-1" class="step-pill px-2.5 py-1 bg-amber-500 text-slate-950 font-black">1. SERVICE</span>
+      <span class="text-slate-600">&rarr;</span>
+      <span id="step-pill-2" class="step-pill px-2.5 py-1 bg-slate-800 text-slate-400">2. DETAILS</span>
+      <span class="text-slate-600">&rarr;</span>
+      <span id="step-pill-3" class="step-pill px-2.5 py-1 bg-slate-800 text-slate-400">3. CONTACT</span>
     </div>
   </div>
 
-  <!-- Form Body -->
-  <div class="p-6 sm:p-10 bg-white">
-    
-    <!-- Success Message Container -->
-    <div id="booking-success-container" class="hidden p-8 bg-slate-50 border border-emerald-500 text-center space-y-4 my-2">
-      <div class="w-12 h-12 bg-emerald-600 text-white text-2xl font-bold flex items-center justify-center mx-auto">
-        ✓
+  <!-- Progress Bar Line -->
+  <div class="w-full bg-slate-200 h-1.5">
+    <div id="funnel-progress-bar" class="bg-amber-500 h-1.5 w-1/3 transition-all duration-300"></div>
+  </div>
+
+  <!-- Funnel Form Container -->
+  <form id="arm-multi-step-form" class="p-6 sm:p-10 bg-white">
+    <input type="hidden" id="selected-service-cat" name="service_category" value="Car / Automotive" />
+
+    <!-- ==================== STEP 1: SERVICE SELECTION ==================== -->
+    <div id="funnel-step-1" class="funnel-step-view space-y-6">
+      
+      <div class="text-center sm:text-left">
+        <h3 class="text-base font-black font-heading uppercase text-slate-900">What do you need assistance with?</h3>
+        <p class="text-xs text-slate-500 mt-0.5">Select a category below to continue to specific options.</p>
       </div>
-      <h3 class="text-xl sm:text-2xl font-black font-heading text-slate-900 uppercase">
-        Request Sent to Dispatch
-      </h3>
-      <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-        Thank you! A dispatcher is reviewing your request now and will reach out shortly to confirm your quote and time window.
-      </p>
-      <div class="pt-2">
-        <a href="tel:6156258000" class="inline-flex items-center gap-1.5 px-6 py-2.5 bg-[#0f274a] text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition">
-          <span>📞 Call Dispatch: (615) 625-8000</span>
-        </a>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        
+        <!-- Option 1: Car / Automotive -->
+        <button 
+          type="button" 
+          data-category="automotive"
+          data-label="Car / Automotive"
+          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-amber-500 text-slate-950 flex items-center justify-center text-2xl shadow-sm">
+            🚗
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Car &amp; Key Services</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Key cutting, fob replacement, smart proximity programming &amp; dealer keys.</p>
+          </div>
+          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
+        </button>
+
+        <!-- Option 2: Home / Residential -->
+        <button 
+          type="button" 
+          data-category="residential"
+          data-label="Home / Residential"
+          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-[#0f274a] text-white flex items-center justify-center text-2xl shadow-sm">
+            🏡
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Home &amp; Residential</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Rekeying house locks, deadbolts, master keying &amp; keypad installation.</p>
+          </div>
+          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
+        </button>
+
+        <!-- Option 3: Business / Commercial -->
+        <button 
+          type="button" 
+          data-category="commercial"
+          data-label="Business / Commercial"
+          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-slate-800 text-white flex items-center justify-center text-2xl shadow-sm">
+            🏢
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Business &amp; Storefront</h4>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Commercial door locks, Adams Rite mortise cylinders, panic exit bars &amp; master keys.</p>
+          </div>
+          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
+        </button>
+
+        <!-- Option 4: Emergency Lockout -->
+        <button 
+          type="button" 
+          data-category="emergency"
+          data-label="Emergency Lockout"
+          class="cat-select-card group p-6 border-2 border-red-200 hover:border-red-600 bg-red-50/50 hover:bg-red-50 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
+        >
+          <div class="w-12 h-12 bg-red-600 text-white flex items-center justify-center text-2xl shadow-sm">
+            🚨
+          </div>
+          <div>
+            <h4 class="text-sm font-black font-heading uppercase text-red-900">Emergency Lockout</h4>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Locked keys in car, trunk, house or store. Urgent on-site dispatch.</p>
+          </div>
+          <span class="text-xs font-black text-red-600 group-hover:translate-x-1 transition-transform mt-auto">Urgent Dispatch &rarr;</span>
+        </button>
+
       </div>
+
     </div>
 
-    <!-- Clean Main Form -->
-    <form id="arm-ai-booking-form" class="space-y-6">
+    <!-- ==================== STEP 2: SPECIFIC SERVICE DETAILS ==================== -->
+    <div id="funnel-step-2" class="funnel-step-view hidden space-y-6">
       
-      <!-- Sub-header -->
-      <div class="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-100 pb-3">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
         <div>
-          <h3 class="text-base sm:text-lg font-black font-heading text-slate-900 uppercase">Request an appointment</h3>
-          <p class="text-xs text-slate-500">We'll use these details to prepare before we call or text you back.</p>
+          <h3 id="step-2-heading" class="text-base font-black font-heading uppercase text-slate-900">Automotive Details</h3>
+          <p class="text-xs text-slate-500">Provide details so our technicians arrive with the correct key blanks and diagnostic tools.</p>
         </div>
-        <span class="text-[10px] text-slate-400">All fields required unless marked optional</span>
+        <button type="button" class="btn-prev-step text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
+          &larr; Back
+        </button>
       </div>
 
-      <!-- 1. Name & Callback Phone -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Specific Form Group: Automotive -->
+      <div id="subfields-automotive" class="service-subfields space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="space-y-1">
+            <label class="block text-xs font-bold text-slate-700">Vehicle Year</label>
+            <input type="text" name="vehicle_year" placeholder="e.g. 2021" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-bold text-slate-700">Vehicle Make</label>
+            <input type="text" name="vehicle_make" placeholder="e.g. Toyota, BMW, Honda" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+          </div>
+          <div class="space-y-1">
+            <label class="block text-xs font-bold text-slate-700">Vehicle Model</label>
+            <input type="text" name="vehicle_model" placeholder="e.g. Camry, 530i, Civic" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
+          </div>
+        </div>
+
         <div class="space-y-1">
-          <label for="book-name" class="block text-xs font-bold text-slate-700">Your name</label>
-          <input 
-            type="text" 
-            id="book-name" 
-            name="name" 
-            required 
-            placeholder="John Doe" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
-          />
+          <label class="block text-xs font-bold text-slate-700">Current Key Situation</label>
+          <select name="key_status" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="all_lost">🔑 Lost ALL keys (car won't start / needs key generated)</option>
+            <option value="spare">🗝️ Have 1 working key (need a duplicate spare)</option>
+            <option value="broken_fob">🛠️ Key blade broke / cracked remote shell</option>
+            <option value="lockout">🚨 Locked keys inside vehicle</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Specific Form Group: Residential -->
+      <div id="subfields-residential" class="service-subfields hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Residential Request</label>
+          <select name="residential_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="rekey">Rekey Existing Deadbolts (Change Keys)</option>
+            <option value="install_deadbolts">Install New Deadbolts / Locks</option>
+            <option value="smart_lock">Keypad / Smart Lock Installation</option>
+            <option value="lockout">House / Apartment Lockout</option>
+          </select>
         </div>
 
         <div class="space-y-1">
-          <label for="book-phone" class="block text-xs font-bold text-slate-700">Best callback number</label>
-          <input 
-            type="tel" 
-            id="book-phone" 
-            name="phone" 
-            required 
-            placeholder="(615) 000-0000" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
-          />
+          <label class="block text-xs font-bold text-slate-700">Approximate Number of Locks</label>
+          <select name="lock_count" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="1-2">1 – 2 Locks</option>
+            <option value="3-5" selected>3 – 5 Locks (Standard House)</option>
+            <option value="6-10">6 – 10 Locks</option>
+            <option value="10+">10+ Locks / Entire Home</option>
+          </select>
         </div>
       </div>
 
-      <!-- 2. Email (Optional) -->
-      <div class="space-y-1">
-        <label for="book-email" class="block text-xs font-bold text-slate-700">Email <span class="text-slate-400 font-normal">(optional)</span></label>
-        <input 
-          type="email" 
-          id="book-email" 
-          name="email" 
-          placeholder="name@example.com" 
-          class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
-        />
-      </div>
+      <!-- Specific Form Group: Commercial -->
+      <div id="subfields-commercial" class="service-subfields hidden space-y-4">
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Commercial Service</label>
+          <select name="commercial_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="storefront_rekey">Commercial Storefront Rekey &amp; Master Keying</option>
+            <option value="panic_bar">Exit Panic Bar Installation / Repair</option>
+            <option value="mortise">Mortise Cylinder &amp; Adams Rite Lock Replacement</option>
+            <option value="lockout">Office / Storefront Lockout</option>
+          </select>
+        </div>
 
-      <!-- 3. Type of Service (Clean Pills) -->
-      <div class="space-y-2">
-        <label class="block text-xs font-bold text-slate-700">Type of service</label>
-        <input type="hidden" id="book-service-type" name="service_type" value="Car / Automotive" />
-        
-        <div class="flex flex-wrap gap-2">
-          <button 
-            type="button" 
-            data-value="Car / Automotive"
-            class="svc-pill active px-4 py-2 border border-[#0f274a] bg-[#0f274a] text-white text-xs font-bold transition cursor-pointer"
-          >
-            Car / Automotive
-          </button>
-          <button 
-            type="button" 
-            data-value="Home / Residential"
-            class="svc-pill px-4 py-2 border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-slate-400 transition cursor-pointer"
-          >
-            Home / Residential
-          </button>
-          <button 
-            type="button" 
-            data-value="Business / Commercial"
-            class="svc-pill px-4 py-2 border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-slate-400 transition cursor-pointer"
-          >
-            Business / Commercial
-          </button>
-          <button 
-            type="button" 
-            data-value="Emergency Lockout"
-            class="svc-pill px-4 py-2 border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-slate-400 transition cursor-pointer"
-          >
-            Emergency Lockout
-          </button>
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Business Name <span class="text-slate-400 font-normal">(optional)</span></label>
+          <input type="text" name="business_name" placeholder="Company Name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
         </div>
       </div>
 
-      <!-- 4. What service do you need? -->
-      <div class="space-y-1">
-        <label for="book-service-detail" class="block text-xs font-bold text-slate-700">What service do you need?</label>
-        <input 
-          type="text" 
-          id="book-service-detail" 
-          name="service_needed" 
-          placeholder="Example: car key replacement, rekey, lock repair" 
-          class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
-        />
+      <!-- Specific Form Group: Emergency -->
+      <div id="subfields-emergency" class="service-subfields hidden space-y-4">
+        <div class="p-3 bg-red-50 border border-red-200 text-red-900 text-xs font-bold flex items-center gap-2">
+          <span>🚨</span>
+          <span>Fastest mobile dispatch across Davidson &amp; Williamson Counties.</span>
+        </div>
+
+        <div class="space-y-1">
+          <label class="block text-xs font-bold text-slate-700">Lockout Location</label>
+          <select name="emergency_lockout_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="car_keys_inside">Keys Locked Inside Car</option>
+            <option value="car_trunk">Keys Locked Inside Trunk</option>
+            <option value="house_locked_out">Locked Out of Home / Apartment</option>
+            <option value="storefront_locked_out">Locked Out of Business</option>
+          </select>
+        </div>
       </div>
 
-      <!-- 5. Tell us a little more (Textarea) -->
-      <div class="space-y-1">
-        <label for="book-notes" class="block text-xs font-bold text-slate-700">Tell us a little more</label>
+      <!-- Common Notes Field -->
+      <div class="space-y-1 pt-2">
+        <label class="block text-xs font-bold text-slate-700">Additional Notes <span class="text-slate-400 font-normal">(optional)</span></label>
         <textarea 
-          id="book-notes" 
           name="notes" 
           rows="3" 
-          placeholder="Include the vehicle year/make/model, lock problem, number of doors, or anything else that will help us prepare." 
-          class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
+          placeholder="Any specific requests (e.g. 'Push to start', 'Need 2 keys made', 'Gate code is #1234')" 
+          class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
         ></textarea>
       </div>
 
-      <!-- 6. Service Address Row (Address, City, ZIP) -->
+      <!-- Step 2 Navigation Actions -->
+      <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+        <button type="button" class="btn-prev-step px-5 py-3 border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:bg-slate-100 transition cursor-pointer">
+          &larr; Back
+        </button>
+        <button type="button" id="btn-to-step-3" class="px-8 py-3.5 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition active:scale-98 cursor-pointer">
+          Continue to Contact &amp; Location &rarr;
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ==================== STEP 3: CONTACT & LOCATION ==================== -->
+    <div id="funnel-step-3" class="funnel-step-view hidden space-y-6">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div>
+          <h3 class="text-base font-black font-heading uppercase text-slate-900">Your Contact &amp; Location</h3>
+          <p class="text-xs text-slate-500">We will confirm schedule and price directly with you.</p>
+        </div>
+        <button type="button" class="btn-prev-step text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
+          &larr; Back
+        </button>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label for="funnel-name" class="block text-xs font-bold text-slate-700">Your Name <span class="text-red-500">*</span></label>
+          <input 
+            type="text" 
+            id="funnel-name" 
+            name="name" 
+            required 
+            placeholder="John Doe" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+        </div>
+
+        <div class="space-y-1">
+          <label for="funnel-phone" class="block text-xs font-bold text-slate-700">Callback Phone <span class="text-red-500">*</span></label>
+          <input 
+            type="tel" 
+            id="funnel-phone" 
+            name="phone" 
+            required 
+            placeholder="(615) 000-0000" 
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+          />
+        </div>
+      </div>
+
+      <!-- Email (Optional) -->
+      <div class="space-y-1">
+        <label for="funnel-email" class="block text-xs font-bold text-slate-700">Email Address <span class="text-slate-400 font-normal">(optional)</span></label>
+        <input 
+          type="email" 
+          id="funnel-email" 
+          name="email" 
+          placeholder="name@example.com" 
+          class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
+        />
+      </div>
+
+      <!-- Service Address Row -->
       <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
         <div class="sm:col-span-6 space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Service address</label>
+          <label class="block text-xs font-bold text-slate-700">Service Address <span class="text-red-500">*</span></label>
           <input 
             type="text" 
             name="address" 
             required 
             placeholder="Street address (or 'Shop Drop-In')" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
           />
         </div>
         <div class="sm:col-span-3 space-y-1">
@@ -180,7 +311,7 @@
             name="city" 
             required 
             value="Nashville" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
           />
         </div>
         <div class="sm:col-span-3 space-y-1">
@@ -190,133 +321,202 @@
             name="zip" 
             required 
             placeholder="37211" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition"
+            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
           />
         </div>
       </div>
 
-      <!-- 7. Preferred Date & Preferred Time -->
+      <!-- Timing & Contact Preference -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Preferred date <span class="text-slate-400 font-normal">(optional)</span></label>
-          <input 
-            type="date" 
-            name="preferred_date" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition cursor-pointer"
-          />
+          <label class="block text-xs font-bold text-slate-700">Preferred Timing</label>
+          <select name="timing" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="asap">⚡ ASAP Emergency Dispatch</option>
+            <option value="today">Today (Within 2-4 Hours)</option>
+            <option value="tomorrow_morning">Tomorrow Morning (8 AM – 12 PM)</option>
+            <option value="tomorrow_afternoon">Tomorrow Afternoon (12 PM – 5 PM)</option>
+            <option value="weekend">Saturday Storefront / Mobile Visit</option>
+          </select>
         </div>
+
         <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Preferred time <span class="text-slate-400 font-normal">(optional)</span></label>
-          <select 
-            name="preferred_time" 
-            class="w-full px-3.5 py-2.5 bg-white border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none transition cursor-pointer"
-          >
-            <option value="asap">ASAP Emergency Dispatch</option>
-            <option value="morning">Morning (8:00 AM – 12:00 PM)</option>
-            <option value="afternoon">Afternoon (12:00 PM – 5:00 PM)</option>
-            <option value="evening">Evening (5:00 PM – 9:00 PM)</option>
-            <option value="anytime" selected>Flexible / Anytime</option>
+          <label class="block text-xs font-bold text-slate-700">How Should We Contact You?</label>
+          <select name="contact_pref" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
+            <option value="phone" selected>📞 Phone Call</option>
+            <option value="text">📱 Text Message (SMS)</option>
+            <option value="email">✉️ Email</option>
           </select>
         </div>
       </div>
 
-      <!-- 8. How should we contact you? -->
-      <div class="space-y-2">
-        <label class="block text-xs font-bold text-slate-700">How should we contact you?</label>
-        <input type="hidden" id="book-contact-pref" name="contact_pref" value="Phone call" />
-        
-        <div class="flex flex-wrap gap-2">
-          <button 
-            type="button" 
-            data-pref="Phone call"
-            class="pref-pill active px-4 py-2 border border-[#0f274a] bg-[#0f274a] text-white text-xs font-bold transition cursor-pointer"
-          >
-            Phone call
-          </button>
-          <button 
-            type="button" 
-            data-pref="Text message"
-            class="pref-pill px-4 py-2 border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-slate-400 transition cursor-pointer"
-          >
-            Text message
-          </button>
-          <button 
-            type="button" 
-            data-pref="Email"
-            class="pref-pill px-4 py-2 border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:border-slate-400 transition cursor-pointer"
-          >
-            Email
-          </button>
-        </div>
-      </div>
-
-      <!-- 9. Disclaimer & Submit Button Row -->
+      <!-- Submit Actions -->
       <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-[11px] text-slate-500 max-w-sm text-left leading-relaxed">
-          * This is a service request, not a confirmed appointment. Armstrong will confirm the schedule and price with you.
-        </p>
+        <button type="button" class="btn-prev-step px-5 py-3 border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:bg-slate-100 transition cursor-pointer">
+          &larr; Back
+        </button>
 
         <button 
           type="submit" 
-          id="book-submit-btn"
+          id="funnel-submit-btn"
           class="w-full sm:w-auto px-8 py-3.5 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition active:scale-98 cursor-pointer"
         >
-          <span>Send request to Armstrong</span>
-          <span>&rarr;</span>
+          <span>Send Request to Armstrong Dispatch &rarr;</span>
         </button>
       </div>
 
-    </form>
+    </div>
 
+  </form>
+
+  <!-- ==================== STEP 4: SUCCESS CONFIRMATION ==================== -->
+  <div id="funnel-step-4" class="hidden p-8 sm:p-12 bg-white text-center space-y-4">
+    <div class="w-14 h-14 bg-emerald-600 text-white text-3xl font-bold flex items-center justify-center mx-auto shadow-md">
+      ✓
+    </div>
+    
+    <h3 class="text-2xl font-black font-heading text-slate-900 uppercase">
+      Request Dispatched!
+    </h3>
+    
+    <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+      Thank you! Your details are now with our on-duty Nashville dispatcher. We will reach out shortly to confirm your schedule and price.
+    </p>
+
+    <div class="pt-3 flex flex-wrap justify-center gap-3">
+      <a href="tel:6156258000" class="px-6 py-3 bg-[#0f274a] text-white font-black text-xs uppercase tracking-wider hover:bg-slate-800 transition">
+        📞 Call Dispatch: (615) 625-8000
+      </a>
+      <a href="/" class="px-6 py-3 bg-slate-100 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-200 transition">
+        Return to Homepage &rarr;
+      </a>
+    </div>
   </div>
 
 </div>
 
-<!-- Ultra-Light Client Interactivity -->
+<!-- Multi-Step Funnel Client Script -->
 <script is:inline>
   (function () {
-    const form = document.getElementById('arm-ai-booking-form');
-    const serviceTypeInput = document.getElementById('book-service-type');
-    const contactPrefInput = document.getElementById('book-contact-pref');
-    const svcPills = document.querySelectorAll('.svc-pill');
-    const prefPills = document.querySelectorAll('.pref-pill');
-    const successContainer = document.getElementById('booking-success-container');
-    const submitBtn = document.getElementById('book-submit-btn');
+    let currentStep = 1;
+    const totalSteps = 3;
 
-    // Service Pills toggle
-    svcPills.forEach(pill => {
-      pill.addEventListener('click', function () {
-        svcPills.forEach(p => {
-          p.classList.remove('active', 'border-[#0f274a]', 'bg-[#0f274a]', 'text-white');
-          p.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
-        });
-        this.classList.remove('border-slate-300', 'bg-white', 'text-slate-700');
-        this.classList.add('active', 'border-[#0f274a]', 'bg-[#0f274a]', 'text-white');
-        if (serviceTypeInput) serviceTypeInput.value = this.getAttribute('data-value') || '';
+    const step1View = document.getElementById('funnel-step-1');
+    const step2View = document.getElementById('funnel-step-2');
+    const step3View = document.getElementById('funnel-step-3');
+    const step4View = document.getElementById('funnel-step-4');
+
+    const stepTitle = document.getElementById('funnel-step-title');
+    const progressBar = document.getElementById('funnel-progress-bar');
+    const catCards = document.querySelectorAll('.cat-select-card');
+    const catInput = document.getElementById('selected-service-cat');
+    const step2Heading = document.getElementById('step-2-heading');
+    const subfieldGroups = document.querySelectorAll('.service-subfields');
+
+    const btnToStep3 = document.getElementById('btn-to-step-3');
+    const prevBtns = document.querySelectorAll('.btn-prev-step');
+    const form = document.getElementById('arm-multi-step-form');
+    const submitBtn = document.getElementById('funnel-submit-btn');
+
+    function setStep(step) {
+      currentStep = step;
+
+      // Update Views
+      step1View.classList.add('hidden');
+      step2View.classList.add('hidden');
+      step3View.classList.add('hidden');
+      step4View.classList.add('hidden');
+
+      // Update Pills & Titles
+      const pill1 = document.getElementById('step-pill-1');
+      const pill2 = document.getElementById('step-pill-2');
+      const pill3 = document.getElementById('step-pill-3');
+
+      [pill1, pill2, pill3].forEach(p => {
+        p.classList.remove('bg-amber-500', 'text-slate-950', 'font-black');
+        p.classList.add('bg-slate-800', 'text-slate-400');
+      });
+
+      if (step === 1) {
+        step1View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Step 1: Select Your Service";
+        if (progressBar) progressBar.style.width = "33%";
+        if (pill1) {
+          pill1.classList.remove('bg-slate-800', 'text-slate-400');
+          pill1.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
+        }
+      } else if (step === 2) {
+        step2View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Step 2: Service Details";
+        if (progressBar) progressBar.style.width = "66%";
+        if (pill2) {
+          pill2.classList.remove('bg-slate-800', 'text-slate-400');
+          pill2.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
+        }
+      } else if (step === 3) {
+        step3View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Step 3: Contact & Location";
+        if (progressBar) progressBar.style.width = "100%";
+        if (pill3) {
+          pill3.classList.remove('bg-slate-800', 'text-slate-400');
+          pill3.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
+        }
+      } else if (step === 4) {
+        form.classList.add('hidden');
+        step4View.classList.remove('hidden');
+        if (stepTitle) stepTitle.textContent = "Request Sent!";
+        if (progressBar) progressBar.style.width = "100%";
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 1. Step 1 Card Click Handler -> Automatically proceeds to Step 2
+    catCards.forEach(card => {
+      card.addEventListener('click', function () {
+        const cat = this.getAttribute('data-category');
+        const label = this.getAttribute('data-label');
+        if (catInput) catInput.value = label;
+
+        // Show appropriate subfields
+        subfieldGroups.forEach(g => g.classList.add('hidden'));
+        const targetSub = document.getElementById('subfields-' + cat);
+        if (targetSub) targetSub.classList.remove('hidden');
+
+        if (step2Heading) {
+          if (cat === 'automotive') step2Heading.textContent = "Car & Key Specifications";
+          else if (cat === 'residential') step2Heading.textContent = "Home Lock Specifications";
+          else if (cat === 'commercial') step2Heading.textContent = "Business & Storefront Details";
+          else if (cat === 'emergency') step2Heading.textContent = "Emergency Lockout Details";
+        }
+
+        setStep(2);
       });
     });
 
-    // Contact Preference Pills toggle
-    prefPills.forEach(pill => {
-      pill.addEventListener('click', function () {
-        prefPills.forEach(p => {
-          p.classList.remove('active', 'border-[#0f274a]', 'bg-[#0f274a]', 'text-white');
-          p.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
-        });
-        this.classList.remove('border-slate-300', 'bg-white', 'text-slate-700');
-        this.classList.add('active', 'border-[#0f274a]', 'bg-[#0f274a]', 'text-white');
-        if (contactPrefInput) contactPrefInput.value = this.getAttribute('data-pref') || '';
+    // 2. Step 2 "Continue" button
+    if (btnToStep3) {
+      btnToStep3.addEventListener('click', function () {
+        setStep(3);
+      });
+    }
+
+    // 3. Back buttons
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        if (currentStep > 1) {
+          setStep(currentStep - 1);
+        }
       });
     });
 
-    // Submit handler
+    // 4. Form Submit
     if (form) {
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span>Sending...</span>';
+          submitBtn.innerHTML = '<span>Transmitting...</span>';
         }
 
         const formData = new FormData(form);
@@ -333,11 +533,7 @@
           console.log('Logged:', err);
         }
 
-        form.classList.add('hidden');
-        if (successContainer) {
-          successContainer.classList.remove('hidden');
-          successContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+        setStep(4);
       });
     }
   })();
