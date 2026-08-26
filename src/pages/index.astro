@@ -174,7 +174,13 @@ const homepageSchema = [
             <span class="text-2xl">🛡️</span>
           </div>
 
-          <form id="hero-quote-form" class="flex flex-col gap-3.5 text-left">
+          <form id="hero-quote-form" class="flex flex-col gap-3.5 text-left" novalidate>
+            <!-- Invisible Honeypot Field (Anti-bot) -->
+            <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
+              <label for="company_website">Company Website</label>
+              <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
+            </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label for="quote-name" class="block text-xs font-bold text-slate-800 mb-1">Your Full Name *</label>
@@ -186,6 +192,7 @@ const homepageSchema = [
                   placeholder="e.g. John Smith" 
                   class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
                 />
+                <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your full name.</span>
               </div>
               <div>
                 <label for="quote-phone" class="block text-xs font-bold text-slate-800 mb-1">Phone Number *</label>
@@ -197,6 +204,7 @@ const homepageSchema = [
                   placeholder="(615) 000-0000" 
                   class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
                 />
+                <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
               </div>
             </div>
 
@@ -217,10 +225,11 @@ const homepageSchema = [
                 <option value="Commercial Locksmith">🏢 Commercial Door Hardware & Storefront</option>
                 <option value="Other">🛠️ Other Locksmith Service</option>
               </select>
+              <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please select a service.</span>
             </div>
 
             <div>
-              <label for="quote-details" class="block text-xs font-bold text-slate-800 mb-1">Vehicle Make / Model or Details</label>
+              <label for="quote-details" class="block text-xs font-bold text-slate-800 mb-1">Vehicle Make / Model or Details (Optional)</label>
               <input 
                 type="text" 
                 id="quote-details" 
@@ -230,59 +239,38 @@ const homepageSchema = [
               />
             </div>
 
-            <div>
-              <button 
-                type="button" 
-                id="toggle-optional-fields" 
-                class="text-xs font-bold text-amber-700 hover:text-amber-900 underline flex items-center gap-1 cursor-pointer py-1"
-              >
-                <span>+ Add email or extra details (optional)</span>
-              </button>
-              
-              <div id="optional-fields-container" class="hidden flex-col gap-2.5 mt-2 pt-2 border-t border-slate-100">
-                <div>
-                  <label for="quote-email" class="block text-xs font-medium text-slate-600 mb-0.5">Email Address</label>
-                  <input 
-                    type="email" 
-                    id="quote-email" 
-                    name="email" 
-                    placeholder="john@example.com" 
-                    class="w-full px-3.5 py-2.5 text-xs bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900"
-                  />
-                </div>
-                <div>
-                  <label for="quote-notes" class="block text-xs font-medium text-slate-600 mb-0.5">Special Instructions / Message</label>
-                  <textarea 
-                    id="quote-notes" 
-                    name="notes" 
-                    rows="2" 
-                    placeholder="Describe your situation..." 
-                    class="w-full px-3.5 py-2.5 text-xs bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900"
-                  ></textarea>
-                </div>
-              </div>
+            <!-- Server / Network Error Alert -->
+            <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center">
+              We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
             </div>
 
             <button 
               type="submit" 
               id="quote-submit-btn"
-              class="w-full mt-1 py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
+              class="w-full mt-1 py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <span>Get My Free Quote Now &rarr;</span>
             </button>
             <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1">
               <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              <span>Sent directly to on-duty technician via SMS &bull; Certified & Insured</span>
+              <span>Sent directly to Armstrong Dispatch &bull; Certified & Insured</span>
             </div>
           </form>
 
-          <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-400 text-emerald-900 text-center">
-            <div class="text-4xl mb-2">📱</div>
-            <strong class="block text-base font-black text-emerald-950">Quote Dispatched to On-Duty Locksmith!</strong>
-            <p class="text-xs text-emerald-800 mt-1.5 leading-relaxed font-medium">
-              A text notification was sent to our mobile team. We will call or text you promptly with upfront pricing.
+          <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 text-center">
+            <div class="text-4xl mb-2">✅</div>
+            <strong class="block text-lg font-black text-emerald-950">Thank you! Your request was sent to Armstrong Locksmith.</strong>
+            <p class="text-xs text-emerald-800 mt-2 leading-relaxed font-medium">
+              Our dispatch team has received your submission and will review your request shortly.
             </p>
             <div class="mt-4 pt-3 border-t border-emerald-200">
+              <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider shadow transition">
+                <span>Need immediate emergency help? Call (615) 625-8000 &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
               <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 text-white font-bold text-xs shadow hover:bg-emerald-700 transition">
                 <span>Need immediate emergency help? Call (615) 625-8000 &rarr;</span>
               </a>
@@ -656,64 +644,157 @@ const homepageSchema = [
     </div>
   </section>
 
-  <!-- ==================== CLIENT SCRIPTS (TWILIO SMS & LIVE REVIEWS SYNC) ==================== -->
+  <!-- ==================== CLIENT SCRIPTS (WEBSITE-BOOKINGS API & LIVE REVIEWS SYNC) ==================== -->
   <script is:inline>
     (function () {
-      // 1. Form Interaction & Twilio SMS Dispatch
-      const toggleBtn = document.getElementById('toggle-optional-fields');
-      const optionalFields = document.getElementById('optional-fields-container');
+      // Record timestamp when the form first loads / opens
+      const formStartedAt = Math.floor(Date.now() / 1000);
+
       const form = document.getElementById('hero-quote-form');
       const successMsg = document.getElementById('quote-success-msg');
+      const errorBanner = document.getElementById('quote-error-msg');
       const submitBtn = document.getElementById('quote-submit-btn');
 
-      if (toggleBtn && optionalFields) {
-        toggleBtn.addEventListener('click', function () {
-          const isHidden = optionalFields.classList.contains('hidden');
-          if (isHidden) {
-            optionalFields.classList.remove('hidden');
-            optionalFields.classList.add('flex');
-            toggleBtn.textContent = '- Hide extra details';
-          } else {
-            optionalFields.classList.add('hidden');
-            optionalFields.classList.remove('flex');
-            toggleBtn.textContent = '+ Add email or extra details';
-          }
+      const nameInput = document.getElementById('quote-name');
+      const phoneInput = document.getElementById('quote-phone');
+      const serviceSelect = document.getElementById('quote-service');
+      const detailsInput = document.getElementById('quote-details');
+      const honeypotInput = document.getElementById('company_website');
+
+      const nameError = document.getElementById('name-error');
+      const phoneError = document.getElementById('phone-error');
+      const serviceError = document.getElementById('service-error');
+
+      // Clear inline errors on user input
+      if (nameInput && nameError) {
+        nameInput.addEventListener('input', function () {
+          nameError.classList.add('hidden');
+          nameInput.classList.remove('border-red-500');
+        });
+      }
+      if (phoneInput && phoneError) {
+        phoneInput.addEventListener('input', function () {
+          phoneError.classList.add('hidden');
+          phoneInput.classList.remove('border-red-500');
+        });
+      }
+      if (serviceSelect && serviceError) {
+        serviceSelect.addEventListener('change', function () {
+          serviceError.classList.add('hidden');
+          serviceSelect.classList.remove('border-red-500');
         });
       }
 
       if (form) {
         form.addEventListener('submit', async function (e) {
           e.preventDefault();
-          
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>⚡ Dispatching SMS Alert...</span>';
+
+          // Reset errors
+          if (errorBanner) errorBanner.classList.add('hidden');
+          let hasError = false;
+
+          const customerName = nameInput ? nameInput.value.trim() : '';
+          const phone = phoneInput ? phoneInput.value.trim() : '';
+          const service = serviceSelect ? serviceSelect.value : '';
+          const vehicle = detailsInput ? detailsInput.value.trim() : '';
+          const honeypot = honeypotInput ? honeypotInput.value.trim() : '';
+
+          // Client-Side Validation
+          if (!customerName) {
+            if (nameError) nameError.classList.remove('hidden');
+            if (nameInput) nameInput.classList.add('border-red-500');
+            hasError = true;
+          }
+          if (!phone || phone.length < 7) {
+            if (phoneError) phoneError.classList.remove('hidden');
+            if (phoneInput) phoneInput.classList.add('border-red-500');
+            hasError = true;
+          }
+          if (!service) {
+            if (serviceError) serviceError.classList.remove('hidden');
+            if (serviceSelect) serviceSelect.classList.add('border-red-500');
+            hasError = true;
           }
 
-          const formData = {
-            name: form.name.value,
-            phone: form.phone.value,
-            service: form.service.value,
-            details: form.details.value,
-            email: form.email ? form.email.value : '',
-            notes: form.notes ? form.notes.value : ''
+          if (hasError) return;
+
+          // Honeypot check: If filled, fake success for spam bots
+          if (honeypot !== '') {
+            form.classList.add('hidden');
+            if (successMsg) successMsg.classList.remove('hidden');
+            return;
+          }
+
+          // Disable button while submitting to prevent double-clicks
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>⚡ Sending Request...</span>';
+          }
+
+          const payload = {
+            customer_name: customerName,
+            phone: phone,
+            service: service,
+            service_type: service,
+            vehicle: vehicle,
+            form_started_at: formStartedAt,
+            company_website: ''
           };
 
           try {
-            // POST to Twilio SMS Handler endpoint
-            const res = await fetch('/api/contact.php', {
+            const res = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(formData)
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(payload)
             });
-            await res.json();
-          } catch (err) {
-            console.log('Form submitted:', err);
-          }
 
-          form.classList.add('hidden');
-          if (successMsg) {
-            successMsg.classList.remove('hidden');
+            if (res.ok) {
+              // Success: Show confirmation message
+              form.classList.add('hidden');
+              if (successMsg) {
+                successMsg.classList.remove('hidden');
+              }
+            } else {
+              const data = await res.json().catch(() => ({}));
+              
+              // Handle server-side validation error
+              if (res.status === 422 && data.errors) {
+                if (data.errors.customer_name && nameError) {
+                  nameError.textContent = data.errors.customer_name[0];
+                  nameError.classList.remove('hidden');
+                }
+                if (data.errors.phone && phoneError) {
+                  phoneError.textContent = data.errors.phone[0];
+                  phoneError.classList.remove('hidden');
+                }
+                if ((data.errors.service || data.errors.service_type) && serviceError) {
+                  serviceError.textContent = (data.errors.service || data.errors.service_type)[0];
+                  serviceError.classList.remove('hidden');
+                }
+              }
+
+              // Show fallback error banner while preserving user entries
+              if (errorBanner) {
+                errorBanner.classList.remove('hidden');
+              }
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Get My Free Quote Now &rarr;</span>';
+              }
+            }
+          } catch (err) {
+            console.error('Submission network error:', err);
+            // Network/Server Failure: Preserve entries & show call banner
+            if (errorBanner) {
+              errorBanner.classList.remove('hidden');
+            }
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<span>Get My Free Quote Now &rarr;</span>';
+            }
           }
         });
       }
