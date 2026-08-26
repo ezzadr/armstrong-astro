@@ -1,540 +1,69 @@
 ---
-// BookingForm.astro - Multi-Step Interactive AI Dispatch Funnel (Step-by-Step Wizard)
+// BookingForm.astro - Official Armstrong AI Dispatch Platform Embed
 ---
 
-<div class="w-full max-w-2xl mx-auto bg-white border-2 border-slate-300 shadow-2xl overflow-hidden font-sans text-left">
+<div class="w-full max-w-4xl mx-auto bg-white border-2 border-slate-300 shadow-2xl overflow-hidden font-sans text-left">
   
-  <!-- Step Progress Header Bar -->
-  <div class="bg-[#07152b] text-white px-6 py-5 border-b-2 border-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+  <!-- Brand Header Strip -->
+  <div class="bg-[#07152b] text-white px-6 sm:px-10 py-6 border-b-2 border-amber-500 flex flex-wrap items-center justify-between gap-4">
     <div>
       <div class="flex items-center gap-2 text-[10px] font-black tracking-widest text-amber-400 uppercase">
         <span class="w-2 h-2 bg-emerald-400 inline-block animate-pulse"></span>
-        <span>ARMSTRONG DISPATCH WIZARD</span>
+        <span>ARMSTRONG AI DISPATCH SYSTEM</span>
       </div>
-      <h2 id="funnel-step-title" class="text-xl sm:text-2xl font-black font-heading tracking-tight uppercase text-white mt-0.5">
-        Step 1: Select Your Service
+      <h2 class="text-xl sm:text-2xl font-black font-heading tracking-tight uppercase text-white mt-0.5">
+        Live Service Booking &amp; Dispatch
       </h2>
     </div>
-    
-    <!-- Step Indicator Pills -->
-    <div class="flex items-center gap-1.5 text-xs font-bold font-mono">
-      <span id="step-pill-1" class="step-pill px-2.5 py-1 bg-amber-500 text-slate-950 font-black">1. SERVICE</span>
-      <span class="text-slate-600">&rarr;</span>
-      <span id="step-pill-2" class="step-pill px-2.5 py-1 bg-slate-800 text-slate-400">2. DETAILS</span>
-      <span class="text-slate-600">&rarr;</span>
-      <span id="step-pill-3" class="step-pill px-2.5 py-1 bg-slate-800 text-slate-400">3. CONTACT</span>
-    </div>
+
+    <!-- Quick Direct Phone -->
+    <a 
+      href="tel:6156258000" 
+      class="inline-flex items-center gap-2 px-4 py-2 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition active:scale-98 shadow-sm"
+    >
+      <span>📞 (615) 625-8000</span>
+    </a>
   </div>
 
-  <!-- Progress Bar Line -->
-  <div class="w-full bg-slate-200 h-1.5">
-    <div id="funnel-progress-bar" class="bg-amber-500 h-1.5 w-1/3 transition-all duration-300"></div>
+  <!-- Dispatch Platform Iframe Container -->
+  <div class="w-full bg-white relative min-h-[700px] sm:min-h-[850px]">
+    
+    <!-- Loading Spinner (Auto-hides once iframe loads) -->
+    <div id="frame-loading-indicator" class="absolute inset-0 flex flex-col items-center justify-center bg-slate-50 text-slate-600 gap-3 z-10">
+      <div class="w-8 h-8 border-3 border-slate-300 border-t-amber-500 animate-spin"></div>
+      <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Connecting to Armstrong Dispatch...</span>
+    </div>
+
+    <iframe
+      id="armstrong-booking-frame"
+      src="https://booking.armstronglocksmithinc.com/embed/booking"
+      title="Book Armstrong Locksmith Service"
+      loading="eager"
+      class="w-full transition-all duration-300 block"
+      style="width: 100%; min-height: 800px; border: 0; border-radius: 0px !important; display: block;"
+      onload="document.getElementById('frame-loading-indicator')?.classList.add('hidden');"
+    >
+    </iframe>
+
   </div>
 
-  <!-- Funnel Form Container -->
-  <form id="arm-multi-step-form" class="p-6 sm:p-10 bg-white">
-    <input type="hidden" id="selected-service-cat" name="service_category" value="Car / Automotive" />
-
-    <!-- ==================== STEP 1: SERVICE SELECTION ==================== -->
-    <div id="funnel-step-1" class="funnel-step-view space-y-6">
-      
-      <div class="text-center sm:text-left">
-        <h3 class="text-base font-black font-heading uppercase text-slate-900">What do you need assistance with?</h3>
-        <p class="text-xs text-slate-500 mt-0.5">Select a category below to continue to specific options.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-        
-        <!-- Option 1: Car / Automotive -->
-        <button 
-          type="button" 
-          data-category="automotive"
-          data-label="Car / Automotive"
-          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
-        >
-          <div class="w-12 h-12 bg-amber-500 text-slate-950 flex items-center justify-center text-2xl shadow-sm">
-            🚗
-          </div>
-          <div>
-            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Car &amp; Key Services</h4>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Key cutting, fob replacement, smart proximity programming &amp; dealer keys.</p>
-          </div>
-          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
-        </button>
-
-        <!-- Option 2: Home / Residential -->
-        <button 
-          type="button" 
-          data-category="residential"
-          data-label="Home / Residential"
-          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
-        >
-          <div class="w-12 h-12 bg-[#0f274a] text-white flex items-center justify-center text-2xl shadow-sm">
-            🏡
-          </div>
-          <div>
-            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Home &amp; Residential</h4>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Rekeying house locks, deadbolts, master keying &amp; keypad installation.</p>
-          </div>
-          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
-        </button>
-
-        <!-- Option 3: Business / Commercial -->
-        <button 
-          type="button" 
-          data-category="commercial"
-          data-label="Business / Commercial"
-          class="cat-select-card group p-6 border-2 border-slate-200 hover:border-[#0f274a] bg-slate-50 hover:bg-slate-100 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
-        >
-          <div class="w-12 h-12 bg-slate-800 text-white flex items-center justify-center text-2xl shadow-sm">
-            🏢
-          </div>
-          <div>
-            <h4 class="text-sm font-black font-heading uppercase text-slate-900 group-hover:text-[#0f274a]">Business &amp; Storefront</h4>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Commercial door locks, Adams Rite mortise cylinders, panic exit bars &amp; master keys.</p>
-          </div>
-          <span class="text-xs font-black text-amber-600 group-hover:translate-x-1 transition-transform mt-auto">Select &amp; Continue &rarr;</span>
-        </button>
-
-        <!-- Option 4: Emergency Lockout -->
-        <button 
-          type="button" 
-          data-category="emergency"
-          data-label="Emergency Lockout"
-          class="cat-select-card group p-6 border-2 border-red-200 hover:border-red-600 bg-red-50/50 hover:bg-red-50 flex flex-col items-start gap-3 transition-all text-left cursor-pointer shadow-sm"
-        >
-          <div class="w-12 h-12 bg-red-600 text-white flex items-center justify-center text-2xl shadow-sm">
-            🚨
-          </div>
-          <div>
-            <h4 class="text-sm font-black font-heading uppercase text-red-900">Emergency Lockout</h4>
-            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Locked keys in car, trunk, house or store. Urgent on-site dispatch.</p>
-          </div>
-          <span class="text-xs font-black text-red-600 group-hover:translate-x-1 transition-transform mt-auto">Urgent Dispatch &rarr;</span>
-        </button>
-
-      </div>
-
-    </div>
-
-    <!-- ==================== STEP 2: SPECIFIC SERVICE DETAILS ==================== -->
-    <div id="funnel-step-2" class="funnel-step-view hidden space-y-6">
-      
-      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-        <div>
-          <h3 id="step-2-heading" class="text-base font-black font-heading uppercase text-slate-900">Automotive Details</h3>
-          <p class="text-xs text-slate-500">Provide details so our technicians arrive with the correct key blanks and diagnostic tools.</p>
-        </div>
-        <button type="button" class="btn-prev-step text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
-          &larr; Back
-        </button>
-      </div>
-
-      <!-- Specific Form Group: Automotive -->
-      <div id="subfields-automotive" class="service-subfields space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="space-y-1">
-            <label class="block text-xs font-bold text-slate-700">Vehicle Year</label>
-            <input type="text" name="vehicle_year" placeholder="e.g. 2021" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
-          </div>
-          <div class="space-y-1">
-            <label class="block text-xs font-bold text-slate-700">Vehicle Make</label>
-            <input type="text" name="vehicle_make" placeholder="e.g. Toyota, BMW, Honda" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
-          </div>
-          <div class="space-y-1">
-            <label class="block text-xs font-bold text-slate-700">Vehicle Model</label>
-            <input type="text" name="vehicle_model" placeholder="e.g. Camry, 530i, Civic" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
-          </div>
-        </div>
-
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Current Key Situation</label>
-          <select name="key_status" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="all_lost">🔑 Lost ALL keys (car won't start / needs key generated)</option>
-            <option value="spare">🗝️ Have 1 working key (need a duplicate spare)</option>
-            <option value="broken_fob">🛠️ Key blade broke / cracked remote shell</option>
-            <option value="lockout">🚨 Locked keys inside vehicle</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Specific Form Group: Residential -->
-      <div id="subfields-residential" class="service-subfields hidden space-y-4">
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Residential Request</label>
-          <select name="residential_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="rekey">Rekey Existing Deadbolts (Change Keys)</option>
-            <option value="install_deadbolts">Install New Deadbolts / Locks</option>
-            <option value="smart_lock">Keypad / Smart Lock Installation</option>
-            <option value="lockout">House / Apartment Lockout</option>
-          </select>
-        </div>
-
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Approximate Number of Locks</label>
-          <select name="lock_count" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="1-2">1 – 2 Locks</option>
-            <option value="3-5" selected>3 – 5 Locks (Standard House)</option>
-            <option value="6-10">6 – 10 Locks</option>
-            <option value="10+">10+ Locks / Entire Home</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Specific Form Group: Commercial -->
-      <div id="subfields-commercial" class="service-subfields hidden space-y-4">
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Commercial Service</label>
-          <select name="commercial_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="storefront_rekey">Commercial Storefront Rekey &amp; Master Keying</option>
-            <option value="panic_bar">Exit Panic Bar Installation / Repair</option>
-            <option value="mortise">Mortise Cylinder &amp; Adams Rite Lock Replacement</option>
-            <option value="lockout">Office / Storefront Lockout</option>
-          </select>
-        </div>
-
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Business Name <span class="text-slate-400 font-normal">(optional)</span></label>
-          <input type="text" name="business_name" placeholder="Company Name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none" />
-        </div>
-      </div>
-
-      <!-- Specific Form Group: Emergency -->
-      <div id="subfields-emergency" class="service-subfields hidden space-y-4">
-        <div class="p-3 bg-red-50 border border-red-200 text-red-900 text-xs font-bold flex items-center gap-2">
-          <span>🚨</span>
-          <span>Fastest mobile dispatch across Davidson &amp; Williamson Counties.</span>
-        </div>
-
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Lockout Location</label>
-          <select name="emergency_lockout_type" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="car_keys_inside">Keys Locked Inside Car</option>
-            <option value="car_trunk">Keys Locked Inside Trunk</option>
-            <option value="house_locked_out">Locked Out of Home / Apartment</option>
-            <option value="storefront_locked_out">Locked Out of Business</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Common Notes Field -->
-      <div class="space-y-1 pt-2">
-        <label class="block text-xs font-bold text-slate-700">Additional Notes <span class="text-slate-400 font-normal">(optional)</span></label>
-        <textarea 
-          name="notes" 
-          rows="3" 
-          placeholder="Any specific requests (e.g. 'Push to start', 'Need 2 keys made', 'Gate code is #1234')" 
-          class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-        ></textarea>
-      </div>
-
-      <!-- Step 2 Navigation Actions -->
-      <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-        <button type="button" class="btn-prev-step px-5 py-3 border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:bg-slate-100 transition cursor-pointer">
-          &larr; Back
-        </button>
-        <button type="button" id="btn-to-step-3" class="px-8 py-3.5 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition active:scale-98 cursor-pointer">
-          Continue to Contact &amp; Location &rarr;
-        </button>
-      </div>
-
-    </div>
-
-    <!-- ==================== STEP 3: CONTACT & LOCATION ==================== -->
-    <div id="funnel-step-3" class="funnel-step-view hidden space-y-6">
-      
-      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-        <div>
-          <h3 class="text-base font-black font-heading uppercase text-slate-900">Your Contact &amp; Location</h3>
-          <p class="text-xs text-slate-500">We will confirm schedule and price directly with you.</p>
-        </div>
-        <button type="button" class="btn-prev-step text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer">
-          &larr; Back
-        </button>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="space-y-1">
-          <label for="funnel-name" class="block text-xs font-bold text-slate-700">Your Name <span class="text-red-500">*</span></label>
-          <input 
-            type="text" 
-            id="funnel-name" 
-            name="name" 
-            required 
-            placeholder="John Doe" 
-            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-          />
-        </div>
-
-        <div class="space-y-1">
-          <label for="funnel-phone" class="block text-xs font-bold text-slate-700">Callback Phone <span class="text-red-500">*</span></label>
-          <input 
-            type="tel" 
-            id="funnel-phone" 
-            name="phone" 
-            required 
-            placeholder="(615) 000-0000" 
-            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-          />
-        </div>
-      </div>
-
-      <!-- Email (Optional) -->
-      <div class="space-y-1">
-        <label for="funnel-email" class="block text-xs font-bold text-slate-700">Email Address <span class="text-slate-400 font-normal">(optional)</span></label>
-        <input 
-          type="email" 
-          id="funnel-email" 
-          name="email" 
-          placeholder="name@example.com" 
-          class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-        />
-      </div>
-
-      <!-- Service Address Row -->
-      <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
-        <div class="sm:col-span-6 space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Service Address <span class="text-red-500">*</span></label>
-          <input 
-            type="text" 
-            name="address" 
-            required 
-            placeholder="Street address (or 'Shop Drop-In')" 
-            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-          />
-        </div>
-        <div class="sm:col-span-3 space-y-1">
-          <label class="block text-xs font-bold text-slate-700">City</label>
-          <input 
-            type="text" 
-            name="city" 
-            required 
-            value="Nashville" 
-            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-          />
-        </div>
-        <div class="sm:col-span-3 space-y-1">
-          <label class="block text-xs font-bold text-slate-700">ZIP</label>
-          <input 
-            type="text" 
-            name="zip" 
-            required 
-            placeholder="37211" 
-            class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none"
-          />
-        </div>
-      </div>
-
-      <!-- Timing & Contact Preference -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">Preferred Timing</label>
-          <select name="timing" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="asap">⚡ ASAP Emergency Dispatch</option>
-            <option value="today">Today (Within 2-4 Hours)</option>
-            <option value="tomorrow_morning">Tomorrow Morning (8 AM – 12 PM)</option>
-            <option value="tomorrow_afternoon">Tomorrow Afternoon (12 PM – 5 PM)</option>
-            <option value="weekend">Saturday Storefront / Mobile Visit</option>
-          </select>
-        </div>
-
-        <div class="space-y-1">
-          <label class="block text-xs font-bold text-slate-700">How Should We Contact You?</label>
-          <select name="contact_pref" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 focus:border-[#0f274a] text-slate-900 text-sm outline-none cursor-pointer">
-            <option value="phone" selected>📞 Phone Call</option>
-            <option value="text">📱 Text Message (SMS)</option>
-            <option value="email">✉️ Email</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Submit Actions -->
-      <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <button type="button" class="btn-prev-step px-5 py-3 border border-slate-300 text-slate-700 font-bold text-xs uppercase hover:bg-slate-100 transition cursor-pointer">
-          &larr; Back
-        </button>
-
-        <button 
-          type="submit" 
-          id="funnel-submit-btn"
-          class="w-full sm:w-auto px-8 py-3.5 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow transition active:scale-98 cursor-pointer"
-        >
-          <span>Send Request to Armstrong Dispatch &rarr;</span>
-        </button>
-      </div>
-
-    </div>
-
-  </form>
-
-  <!-- ==================== STEP 4: SUCCESS CONFIRMATION ==================== -->
-  <div id="funnel-step-4" class="hidden p-8 sm:p-12 bg-white text-center space-y-4">
-    <div class="w-14 h-14 bg-emerald-600 text-white text-3xl font-bold flex items-center justify-center mx-auto shadow-md">
-      ✓
-    </div>
-    
-    <h3 class="text-2xl font-black font-heading text-slate-900 uppercase">
-      Request Dispatched!
-    </h3>
-    
-    <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-      Thank you! Your details are now with our on-duty Nashville dispatcher. We will reach out shortly to confirm your schedule and price.
-    </p>
-
-    <div class="pt-3 flex flex-wrap justify-center gap-3">
-      <a href="tel:6156258000" class="px-6 py-3 bg-[#0f274a] text-white font-black text-xs uppercase tracking-wider hover:bg-slate-800 transition">
-        📞 Call Dispatch: (615) 625-8000
-      </a>
-      <a href="/" class="px-6 py-3 bg-slate-100 text-slate-800 font-bold text-xs uppercase tracking-wider hover:bg-slate-200 transition">
-        Return to Homepage &rarr;
-      </a>
-    </div>
+  <!-- Trust Footer Strip -->
+  <div class="bg-slate-50 px-6 py-3 border-t border-slate-200 flex flex-wrap items-center justify-between text-[11px] text-slate-600 gap-2">
+    <span>🛡️ TN State License #406 &bull; Verified Master Locksmith</span>
+    <span>🏪 Storefront: 208 Thompson Ln, Nashville TN 37211</span>
   </div>
 
 </div>
 
-<!-- Multi-Step Funnel Client Script -->
+<!-- Auto-Resize Listener for Seamless Height -->
 <script is:inline>
-  (function () {
-    let currentStep = 1;
-    const totalSteps = 3;
+  window.addEventListener('message', function (event) {
+    if (event.origin !== 'https://booking.armstronglocksmithinc.com') return;
+    if (event.data?.type !== 'armstrong-booking-height') return;
 
-    const step1View = document.getElementById('funnel-step-1');
-    const step2View = document.getElementById('funnel-step-2');
-    const step3View = document.getElementById('funnel-step-3');
-    const step4View = document.getElementById('funnel-step-4');
-
-    const stepTitle = document.getElementById('funnel-step-title');
-    const progressBar = document.getElementById('funnel-progress-bar');
-    const catCards = document.querySelectorAll('.cat-select-card');
-    const catInput = document.getElementById('selected-service-cat');
-    const step2Heading = document.getElementById('step-2-heading');
-    const subfieldGroups = document.querySelectorAll('.service-subfields');
-
-    const btnToStep3 = document.getElementById('btn-to-step-3');
-    const prevBtns = document.querySelectorAll('.btn-prev-step');
-    const form = document.getElementById('arm-multi-step-form');
-    const submitBtn = document.getElementById('funnel-submit-btn');
-
-    function setStep(step) {
-      currentStep = step;
-
-      // Update Views
-      step1View.classList.add('hidden');
-      step2View.classList.add('hidden');
-      step3View.classList.add('hidden');
-      step4View.classList.add('hidden');
-
-      // Update Pills & Titles
-      const pill1 = document.getElementById('step-pill-1');
-      const pill2 = document.getElementById('step-pill-2');
-      const pill3 = document.getElementById('step-pill-3');
-
-      [pill1, pill2, pill3].forEach(p => {
-        p.classList.remove('bg-amber-500', 'text-slate-950', 'font-black');
-        p.classList.add('bg-slate-800', 'text-slate-400');
-      });
-
-      if (step === 1) {
-        step1View.classList.remove('hidden');
-        if (stepTitle) stepTitle.textContent = "Step 1: Select Your Service";
-        if (progressBar) progressBar.style.width = "33%";
-        if (pill1) {
-          pill1.classList.remove('bg-slate-800', 'text-slate-400');
-          pill1.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
-        }
-      } else if (step === 2) {
-        step2View.classList.remove('hidden');
-        if (stepTitle) stepTitle.textContent = "Step 2: Service Details";
-        if (progressBar) progressBar.style.width = "66%";
-        if (pill2) {
-          pill2.classList.remove('bg-slate-800', 'text-slate-400');
-          pill2.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
-        }
-      } else if (step === 3) {
-        step3View.classList.remove('hidden');
-        if (stepTitle) stepTitle.textContent = "Step 3: Contact & Location";
-        if (progressBar) progressBar.style.width = "100%";
-        if (pill3) {
-          pill3.classList.remove('bg-slate-800', 'text-slate-400');
-          pill3.classList.add('bg-amber-500', 'text-slate-950', 'font-black');
-        }
-      } else if (step === 4) {
-        form.classList.add('hidden');
-        step4View.classList.remove('hidden');
-        if (stepTitle) stepTitle.textContent = "Request Sent!";
-        if (progressBar) progressBar.style.width = "100%";
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const frame = document.getElementById('armstrong-booking-frame');
+    if (frame) {
+      frame.style.height = Math.max(650, Math.min(2400, Number(event.data.height) || 1100)) + 'px';
     }
-
-    // 1. Step 1 Card Click Handler -> Automatically proceeds to Step 2
-    catCards.forEach(card => {
-      card.addEventListener('click', function () {
-        const cat = this.getAttribute('data-category');
-        const label = this.getAttribute('data-label');
-        if (catInput) catInput.value = label;
-
-        // Show appropriate subfields
-        subfieldGroups.forEach(g => g.classList.add('hidden'));
-        const targetSub = document.getElementById('subfields-' + cat);
-        if (targetSub) targetSub.classList.remove('hidden');
-
-        if (step2Heading) {
-          if (cat === 'automotive') step2Heading.textContent = "Car & Key Specifications";
-          else if (cat === 'residential') step2Heading.textContent = "Home Lock Specifications";
-          else if (cat === 'commercial') step2Heading.textContent = "Business & Storefront Details";
-          else if (cat === 'emergency') step2Heading.textContent = "Emergency Lockout Details";
-        }
-
-        setStep(2);
-      });
-    });
-
-    // 2. Step 2 "Continue" button
-    if (btnToStep3) {
-      btnToStep3.addEventListener('click', function () {
-        setStep(3);
-      });
-    }
-
-    // 3. Back buttons
-    prevBtns.forEach(btn => {
-      btn.addEventListener('click', function () {
-        if (currentStep > 1) {
-          setStep(currentStep - 1);
-        }
-      });
-    });
-
-    // 4. Form Submit
-    if (form) {
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span>Transmitting...</span>';
-        }
-
-        const formData = new FormData(form);
-        const payload = Object.fromEntries(formData.entries());
-        payload.timestamp = new Date().toISOString();
-
-        try {
-          await fetch('/api/dispatch.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        } catch (err) {
-          console.log('Logged:', err);
-        }
-
-        setStep(4);
-      });
-    }
-  })();
+  });
 </script>
