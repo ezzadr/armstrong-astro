@@ -21,11 +21,13 @@
 * **Fonts:** Self-Hosted WOFF2 in `/fonts/` (`Montserrat` for headings, `Inter` for body) with zero external DNS latency.
 * **Core Web Vitals:** Strict 100/100 compliance (0ms TBT, 0.000 CLS, <1.0s FCP/LCP, async image decoding).
 
-### ⚠️ Strict Design System Constraints:
-1. **Zero-Curve Rule:** Every element site-wide MUST have `border-radius: 0px !important;` (Crisp rectangular industrial styling).
-2. **Brand Color Palette:**
-   * Primary Dark: Deep Navy `#07152b` with subtle automotive grid `.bg-navy-grid`
-   * Accent Gold: Metallic Amber/Gold `#f59e0b` / `.bg-gold-metallic`
+### ⚠️ Strict Design & Content Constraints:
+1. **Language Rule:** All user-facing website text, headings, meta tags, and code comments MUST remain **100% in English**.
+2. **Zero-Curve Rule:** Every element site-wide MUST have `border-radius: 0px !important;` (Crisp rectangular industrial styling).
+3. **Luxury Showroom Aesthetics:**
+   * Cinematic Showroom Background: `.bg-showroom` (Deep Navy with ambient top spotlight)
+   * Brushed Gold Foil: `.bg-gold-metallic` & `.text-gold-gradient`
+   * Luxury Shadow Cards: `.shadow-luxury-card` with `.hover-lift`
    * Surface: Clean Crisp White `#ffffff` and Light Slate `#f8fafc` / `#f1f5f9`
    * Borders: Solid Hairline Slate `#e2e8f0` / `#cbd5e1`
 
@@ -60,12 +62,13 @@ git push origin main
 | :--- | :--- | :--- |
 | **Workiz Online Booking** | `https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648` | Active on all CTA buttons site-wide |
 | **Custom AI Dispatch Page** | `/book-online/` (`src/pages/book-online.astro`) | Hosts `booking.armstronglocksmithinc.com/embed/booking` |
-| **Verified Google Review Modal** | `https://g.page/r/CQS5BtikwbmqEBM/review` | Universal 100% working review link |
-| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile |
+| **Verified Google Review Modal** | `https://g.page/r/CQS5BtikwbmqEBM/review` | Universal direct Google review creation link |
+| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 750+ reviews |
 
 ---
 
 ## 5. Current Task State & Next Steps
-* The site is 100% responsive, optimized for 95–100 PageSpeed on mobile and desktop, and has 44 static SEO-optimized landing pages.
-* User may request additional styling polishes, feature updates, or dispatch platform integrations.
-* Always inspect `src/pages/` and `src/components/` before modifying code.
+* Entire 44-page site is updated with the luxury showroom aesthetic, self-hosted fonts, and zero-curve styling.
+* Workiz links are live on all primary booking buttons.
+* The custom dispatch platform is safely embedded at `/book-online/`.
+* When continuing work from home: run `git pull`, run `npm run dev` to preview at `http://localhost:4321`, make edits, build, sync to root, and push!
