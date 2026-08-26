@@ -23,7 +23,7 @@ const fullImageUrl = image
   ? (image.startsWith('http') ? image : new URL(image, siteUrl).toString())
   : defaultImage;
 
-// WebPage Schema with primaryImageOfPage for Google Rich Snippets
+// WebPage Schema with primaryImageOfPage and Speakable for Google Rich & Voice Snippets
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -36,10 +36,36 @@ const webPageSchema = {
     "@id": `${fullCanonical}#primaryimage`,
     "url": fullImageUrl,
     "caption": title
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "header p"]
   }
 };
 
-// Base LocalBusiness & Locksmith JSON-LD Schema
+// Automatic Universal BreadcrumbList Schema for Google Search Hierarchy
+const pageShortTitle = title.split('|')[0].split('—')[0].trim();
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${fullCanonical}#breadcrumb`,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://armstronglocksmithinc.com/"
+    },
+    ...(canonical && canonical !== "/" ? [{
+      "@type": "ListItem",
+      "position": 2,
+      "name": pageShortTitle,
+      "item": fullCanonical
+    }] : [])
+  ]
+};
+
+// Base LocalBusiness & Locksmith JSON-LD Schema with Entity Linking & TN License
 const baseBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "Locksmith",
@@ -57,6 +83,32 @@ const baseBusinessSchema = {
   "priceRange": "$$",
   "currenciesAccepted": "USD",
   "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay",
+  "sameAs": [
+    "https://g.page/r/CQS5BtikwbmqEBM",
+    "https://www.google.com/maps?cid=12282298980838186756",
+    "https://www.facebook.com/Armstronglocksmithinc",
+    "https://www.yelp.com/biz/armstrong-locksmith-nashville",
+    "https://www.bbb.org/us/tn/nashville/profile/locksmith/armstrong-locksmith-inc-0573-37265814"
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "State License",
+    "name": "Tennessee Locksmith License #406",
+    "recognizedBy": {
+      "@type": "GovernmentOrganization",
+      "name": "Tennessee Department of Commerce and Insurance"
+    }
+  },
+  "knowsAbout": [
+    "European Car Key Replacement",
+    "BMW Smart Key Programming",
+    "Mercedes-Benz EIS & Keyless Go",
+    "Audi BCM2 Key Cutting",
+    "Automotive Transponder Diagnostics",
+    "Residential Deadbolt Rekeying",
+    "Commercial Master Key Systems",
+    "Emergency Lockout Assistance"
+  ],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "208 Thompson Ln",
@@ -197,10 +249,13 @@ const baseBusinessSchema = {
   <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-3.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-0.woff2" crossorigin />
 
-  <!-- WebPage Schema with Primary Image for Google Rich Snippets -->
+  <!-- WebPage Schema with Primary Image & Speakable for Google Rich Snippets -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
 
-  <!-- Base Locksmith LocalBusiness Structured Data Schema -->
+  <!-- Universal BreadcrumbList Schema for Google Search Snippet Hierarchy -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Base Locksmith LocalBusiness Structured Data Schema with Entity Linking -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(baseBusinessSchema)} />
 
   <!-- Page-Specific Additional Schema (Services, FAQs, Breadcrumbs, Articles) -->
