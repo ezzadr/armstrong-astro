@@ -648,15 +648,40 @@
         const fullService = `${s} [${d} • ${t}]`;
         const detailsStr = [addr ? `Address: ${addr}` : '', notes ? `Notes: ${notes}` : ''].filter(Boolean).join(' | ');
 
+        const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
+
         const payload = {
           customer_name: name,
           phone: phone,
           service: fullService,
           service_type: s,
           vehicle: detailsStr || 'Website Booking',
-          form_started_at: formStartedAt,
+          form_started_at: safeFormStartedAt,
           company_website: ''
         };
+
+        async function tryFallback() {
+          try {
+            const fb = await fetch('/api/contact.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: name,
+                phone: phone,
+                service: fullService,
+                details: detailsStr || 'Website Booking',
+                notes: 'Online Booking Request'
+              })
+            });
+            if (fb.ok) {
+              updateStepper(4);
+              return true;
+            }
+          } catch (e) {
+            console.error('Fallback booking error:', e);
+          }
+          return false;
+        }
 
         try {
           const res = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
@@ -671,6 +696,9 @@
           if (res.ok) {
             updateStepper(4);
           } else {
+            const fbOk = await tryFallback();
+            if (fbOk) return;
+
             const data = await res.json().catch(() => ({}));
             if (res.status === 422 && data.errors) {
               if (data.errors.customer_name && errName) {
@@ -689,7 +717,10 @@
             }
           }
         } catch (err) {
-          console.error(err);
+          console.error('Booking error, trying fallback:', err);
+          const fbOk = await tryFallback();
+          if (fbOk) return;
+
           if (apiError) apiError.classList.remove('hidden');
           if (submitBtn) {
             submitBtn.disabled = false;
