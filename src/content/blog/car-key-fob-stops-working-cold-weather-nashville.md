@@ -8,12 +8,12 @@ category: "Car Keys"
 
 By Rahim Ezzadpanah | Owner, Armstrong Locksmith
 
-### Key Takeaways
+## Key Takeaways
 - **Who:** Drivers using proximity smart keys or standard remote fobs.
 - **What happens:** Cold increases coin-battery resistance, so the fob can’t deliver strong power under load.
 - **Why it matters:** A $5–$15 battery can save you from a $200+ fob repair or replacement.
 
-### The Direct Answer
+## The Direct Answer
 If your key fob acts dead during a Nashville freeze, don’t panic. In cold weather, a CR2032 (and similar coin batteries) can still show voltage, but it cannot deliver enough power when the fob transmits. That momentary **voltage sag** can make the fob’s signal weak or inconsistent. 
 
 **Quick Fix:** Warm the fob in your hands or pocket for **3–5 minutes**, then try again. 
@@ -23,7 +23,7 @@ If your key fob acts dead during a Nashville freeze, don’t panic. In cold weat
 
 ---
 
-### Need a Key Fast? We’re Mobile in Nashville
+## Need a Key Fast? We’re Mobile in Nashville
 Call Armstrong Locksmith • 208 Thompson Ln  
 [📞 Call Now](tel:6156258000) • [📍 Directions](/contact-armstrong-locksmith/)
 

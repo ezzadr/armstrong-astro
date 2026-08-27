@@ -7,7 +7,7 @@ category: "Residential"
 image: "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg"
 ---
 
-### 🏠 Rekeying vs. Replacing: What’s the Real Difference?
+## 🏠 Rekeying vs. Replacing: What’s the Real Difference?
 
 * **Rekeying:** We remove the lock cylinder, dump out the existing bottom and top brass pins, and insert new precision pins that match a completely new key cut. By rekeying, we change the shear line logic so the old key will no longer turn the plug. Your door handles and deadbolts stay exactly where they are.
 * **Replacing:** We completely unscrew the chassis and strike plates to install brand-new hardware. This resets the mechanical integrity of the lock but costs substantially more due to the price of materials.
