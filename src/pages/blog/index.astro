@@ -59,6 +59,8 @@ const remainingPosts = sortedPosts.slice(1);
                 src={blogImages[featuredPost.id] || "/shop.jpeg"} 
                 alt={featuredPost.data.title}
                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                width="800"
+                height="400"
               />
               <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-metallic text-slate-950 text-xs font-extrabold uppercase tracking-wider shadow">
                 ⭐ Featured Guide
@@ -93,6 +95,9 @@ const remainingPosts = sortedPosts.slice(1);
                     src="/images/rahim-face.jpg" 
                     alt="Rahim Ezzadpanah" 
                     class="w-10 h-10 rounded-full object-cover border border-slate-200"
+                    width="40"
+                    height="40"
+                    loading="lazy"
                   />
                   <div>
                     <strong class="block text-xs font-bold text-slate-800">{featuredPost.data.author || "Rahim Ezzadpanah"}</strong>
@@ -135,6 +140,8 @@ const remainingPosts = sortedPosts.slice(1);
                     alt={post.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                     loading="lazy"
+                    width="600"
+                    height="350"
                   />
                   <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded bg-slate-900/80 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
                     {post.data.category || "Car Keys"}
@@ -182,6 +189,9 @@ const remainingPosts = sortedPosts.slice(1);
             src="/images/rahim-face.jpg" 
             alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville" 
             class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-500 shadow flex-shrink-0"
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <div>
             <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase">Have a Specific Key or Lock Question?</h3>
