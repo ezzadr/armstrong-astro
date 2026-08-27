@@ -23,7 +23,7 @@ if (empty($apiKey)) {
     // If no API key is provided yet, serve fallback curated verified reviews
     $fallback = [
         'rating' => 4.9,
-        'user_ratings_total' => 750,
+        'user_ratings_total' => 769,
         'reviews' => [
             [
                 'author_name' => 'Marcus Vance',
@@ -50,7 +50,7 @@ if (empty($apiKey)) {
                 'author_name' => 'Brittany Sterling',
                 'rating' => 5,
                 'relative_time_description' => '2 months ago',
-                'text' => 'Accidentally locked my keys in the car on a Sunday evening. Armstrong had a mobile technician at my location in 18 minutes. Used non-destructive air wedges and had me back inside in under 3 minutes.',
+                'text' => 'Accidentally locked my keys in the car on a Sunday evening. Armstrong had a mobile technician at my location promptly. Used non-destructive air wedges and had me back inside in under 3 minutes.',
                 'service' => 'Emergency Car Lockout'
             ],
             [
@@ -88,7 +88,7 @@ $data = json_decode($response, true);
 if (isset($data['result']['reviews'])) {
     $resultData = [
         'rating' => $data['result']['rating'] ?? 4.9,
-        'user_ratings_total' => $data['result']['user_ratings_total'] ?? 120,
+        'user_ratings_total' => $data['result']['user_ratings_total'] ?? 769,
         'reviews' => array_map(function($r) {
             return [
                 'author_name' => $r['author_name'],

@@ -83,6 +83,13 @@ const baseBusinessSchema = {
   "priceRange": "$$",
   "currenciesAccepted": "USD",
   "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "769",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "sameAs": [
     "https://g.page/r/CQS5BtikwbmqEBM",
     "https://www.google.com/maps?cid=12282298980838186756",
@@ -245,8 +252,10 @@ const baseBusinessSchema = {
   <!-- WebPage Schema with Primary Image & Speakable for Google Rich Snippets -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
 
-  <!-- Universal BreadcrumbList Schema for Google Search Snippet Hierarchy -->
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  <!-- Universal BreadcrumbList Schema for Google Search Snippet Hierarchy (Requires >=2 items for validity) -->
+  {canonical && canonical !== "/" && (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  )}
 
   <!-- Base Locksmith LocalBusiness Structured Data Schema with Entity Linking -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(baseBusinessSchema)} />

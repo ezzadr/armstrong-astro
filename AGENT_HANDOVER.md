@@ -10,7 +10,7 @@
 * **Storefront Location:** 208 Thompson Ln, Nashville, TN 37211
 * **Owner & Master Tech:** Rahim Ezzadpanah (20+ years automotive & security experience)
 * **Phone:** (615) 625-8000
-* **Credentials:** TN Locksmith License #406 &bull; Certified & Insured &bull; 4.9 Stars (750+ Google Reviews)
+* **Credentials:** TN Locksmith License #406 &bull; Certified & Insured &bull; 4.9 Stars (769+ Google Reviews)
 * **Live Domain:** `https://armstronglocksmithinc.com/`
 
 ---
@@ -64,7 +64,7 @@ git push origin main
 | **Live Booking Page** | `/book-online/` (`src/pages/book-online.astro`) | Native luxury 4-field dispatch form |
 | **Workiz Backup URL** | `https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648` | Standalone backup booking link |
 | **Verified Google Review Modal** | `https://g.page/r/CQS5BtikwbmqEBM/review` | Universal direct Google review creation link |
-| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 750+ reviews |
+| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 769+ reviews |
 
 ---
 

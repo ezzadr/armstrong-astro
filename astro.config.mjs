@@ -11,7 +11,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/staff-sms-alerts-consent') && !page.includes('/404')
+      filter: (page) => !page.includes('/staff-sms-alerts-consent') && !page.includes('/404') && !page.includes('/review')
     })
   ]
 });
