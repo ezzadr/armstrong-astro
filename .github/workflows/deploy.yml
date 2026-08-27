@@ -49,6 +49,35 @@ jobs:
               echo "404 handling relies on .htaccess ErrorDocument fallback"
             fi
 
+            echo "=== CONFIGURING TTL FOR CRAWLER-FACING TEXT ASSETS ==="
+            # robots.txt, the sitemaps and llms.txt inherit the Cloudways Nginx
+            # "expires 1y" rule for static extensions. That let Cloudflare pin a stale
+            # robots.txt at the edge for a year after it was updated. Exact-match
+            # locations outrank regex locations in Nginx, so these take priority.
+            if [ -d "$NGINX_CUSTOM_DIR" ]; then
+              cat > "$NGINX_CUSTOM_DIR/custom_cache_rules.conf" << 'NGINX_EOF'
+            # Armstrong Locksmith - short TTL for crawler-facing text assets.
+            # These change on deploy and must not sit in an edge cache for a year.
+            location = /robots.txt {
+              expires off;
+              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
+            }
+            location = /llms.txt {
+              expires off;
+              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
+            }
+            location = /sitemap-index.xml {
+              expires off;
+              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
+            }
+            location = /sitemap-0.xml {
+              expires off;
+              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
+            }
+            NGINX_EOF
+              echo "Nginx text-asset cache TTL config written successfully"
+            fi
+
             echo "=== PURGING LOCAL VARNISH CACHE ==="
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true

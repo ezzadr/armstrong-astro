@@ -102,6 +102,12 @@ ErrorDocument 404 /404-handler.php
     Header set Cache-Control "max-age=31536000, public, immutable"
   </FilesMatch>
 
+  # Short TTL for crawler-facing text assets (robots.txt, sitemaps, llms.txt).
+  # These change on deploy; a long TTL lets CDNs pin a stale copy for a year.
+  <FilesMatch "^(robots\.txt|llms\.txt|sitemap[^/]*\.xml)$">
+    Header set Cache-Control "public, max-age=300, s-maxage=300"
+  </FilesMatch>
+
   # Zero Stale Cache for HTML & PHP (Instant updates on Cloudflare & Browsers)
   <FilesMatch "\.(html|htm|php)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0, private"
