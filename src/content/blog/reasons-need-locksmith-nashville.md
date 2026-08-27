@@ -76,6 +76,6 @@ Drilling is a last resort. We pick or bypass 95% of locks. We only drill if the 
 This is often due to a worn key blade or worn wafers inside the ignition cylinder. We can cut a fresh key by code (restoring the original sharp factory cuts) which often solves the issue.            
 
 **About Rahim Ezzadpanah**  
-Owner of Armstrong Locksmith Inc. Specializing in high-security automotive keys and residential safety in Nashville, TN.
+Owner of Armstrong Locksmith Inc Specializing in high-security automotive keys and residential safety in Nashville, TN.
      
 Need help now? See our full [Nashville locksmith services](/) overview, or call [(615) 625-8000](tel:6156258000).
