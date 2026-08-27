@@ -43,12 +43,13 @@ ErrorDocument 404 /404-handler.php
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
 
-  # === TRUE 404 CATCH-ALL ===
-  # If the request doesn't match any real file, directory, or .html variant,
-  # return 404 status with our custom error page (not a 200 homepage fallback)
+  # === SMART 404 CATCH-ALL ===
+  # Route unmatched URLs through index.php which returns proper HTTP 404.
+  # This works on Cloudways because Nginx proxies PHP requests to Apache/PHP-FPM,
+  # while static 404s via .htaccess alone get intercepted by Nginx's try_files fallback.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule .* - [R=404,L]
+  RewriteRule .* /index.php [L]
 </IfModule>
 
 # 3. Gzip & Deflate Compression
