@@ -11,44 +11,68 @@ Disallow: /api/
 # 1. OpenAI / ChatGPT Search & Browsing Bots
 User-agent: GPTBot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # 2. Anthropic / Claude AI Crawlers
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # 3. Perplexity AI Engine
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # 4. Google & Gemini AI Overviews
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # 5. Apple Intelligence
 User-agent: Applebot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # 6. Microsoft Bing & Copilot
 User-agent: Bingbot
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # Sitemaps & Structured Data for AI & Search Indexing
 Sitemap: https://armstronglocksmithinc.com/sitemap-index.xml
