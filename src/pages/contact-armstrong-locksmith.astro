@@ -30,9 +30,12 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
             src="/shop.jpeg" 
             alt="Armstrong Locksmith Storefront 208 Thompson Lane Nashville" 
             class="w-full h-56 object-cover"
+            width="400"
+            height="250"
+            loading="lazy"
           />
           <div class="p-4 bg-slate-50 border-t border-slate-200 text-center">
-            <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase">Storefront at 208 Thompson Ln</h3>
+            <p class="text-base font-bold text-[#0f274a] font-heading font-black uppercase">Storefront at 208 Thompson Ln</p>
             <span class="text-xs text-slate-500">Drop in during business hours for fast key copies</span>
           </div>
         </div>
@@ -237,7 +240,7 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
             });
             await res.json();
           } catch (err) {
-            console.log('Contact form error:', err);
+            // Error handled silently in production
           }
 
           form.classList.add('hidden');

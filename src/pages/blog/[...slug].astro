@@ -132,6 +132,8 @@ const computedTitle = post.data.title.length > 45
           src="/images/rahim-face.jpg" 
           alt="Rahim Ezzadpanah" 
           class="w-12 h-12 rounded-full object-cover border-2 border-amber-500 shadow"
+          width="48"
+          height="48"
         />
         <div class="text-left">
           <div class="flex items-center gap-1.5 text-sm font-bold text-white">
@@ -159,6 +161,8 @@ const computedTitle = post.data.title.length > 45
             src={postImage} 
             alt={post.data.title} 
             class="w-full h-auto object-cover"
+            width="800"
+            height="400"
           />
         </div>
 
@@ -342,6 +346,9 @@ const computedTitle = post.data.title.length > 45
             src="/images/rahim-face.jpg" 
             alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville" 
             class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500 shadow-md flex-shrink-0"
+            width="96"
+            height="96"
+            loading="lazy"
           />
           <div class="text-left flex-grow">
             <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-0.5">Written by</span>
@@ -397,7 +404,7 @@ const computedTitle = post.data.title.length > 45
         <!-- Storefront Drop-In Card -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm text-left">
           <div class="rounded-xl overflow-hidden mb-3">
-            <img src="/shop.jpeg" alt="Armstrong Locksmith Storefront" class="w-full h-32 object-cover" />
+            <img src="/shop.jpeg" alt="Armstrong Locksmith Storefront" class="w-full h-32 object-cover" width="400" height="200" loading="lazy" />
           </div>
           <h4 class="text-sm font-bold text-[#0f274a] font-heading font-black uppercase mb-1">Visit Our Nashville Shop</h4>
           <p class="text-xs text-slate-600 mb-3">Save mobile dispatch fees by visiting our physical store on Thompson Lane.</p>

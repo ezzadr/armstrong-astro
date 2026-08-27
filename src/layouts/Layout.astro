@@ -15,7 +15,7 @@ export interface Props {
 
 const { title, description, canonical, schema, noindex = false, image } = Astro.props;
 const siteUrl = "https://armstronglocksmithinc.com";
-const fullCanonical = canonical ? new URL(canonical, siteUrl).toString() : siteUrl;
+const fullCanonical = canonical ? new URL(canonical, siteUrl).toString() : new URL(Astro.url.pathname, siteUrl).toString();
 
 // Compute Full Image URL for Google Rich Snippets & Social Graph
 const defaultImage = "https://armstronglocksmithinc.com/shop.jpeg";
@@ -208,6 +208,7 @@ const baseBusinessSchema = {
   <!-- Favicon / App Icons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="270x270" href="/images/cropped-cropped-cropped-favicon-270x270.webp" />
   <meta name="theme-color" content="#07152b" />
 
   <!-- Robots Directive -->
@@ -248,6 +249,10 @@ const baseBusinessSchema = {
   <!-- Preload Critical Self-Hosted Fonts for 0ms FCP & 0ms LCP -->
   <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-3.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-0.woff2" crossorigin />
+
+  <!-- Preconnect to Booking API for 0ms DNS/TLS on Form Submissions -->
+  <link rel="preconnect" href="https://booking.armstronglocksmithinc.com" crossorigin />
+  <link rel="dns-prefetch" href="https://booking.armstronglocksmithinc.com" />
 
   <!-- WebPage Schema with Primary Image & Speakable for Google Rich Snippets -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
@@ -294,26 +299,7 @@ const baseBusinessSchema = {
     })();
   </script>
 
-  <!-- Universal Sharp Edge / No Curve Rule for Entire Website -->
-  <style is:global>
-    *, *::before, *::after,
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center, dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend, table, caption,
-    tbody, tfoot, thead, tr, th, td, article, aside,
-    canvas, details, embed, figure, figcaption, footer,
-    header, hgroup, menu, nav, output, ruby, section,
-    summary, time, mark, audio, video, button, input,
-    select, textarea {
-      border-radius: 0px !important;
-      -webkit-border-radius: 0px !important;
-      -moz-border-radius: 0px !important;
-    }
-  </style>
+
 </head>
 <body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-900 overflow-x-hidden w-full max-w-full">
   <!-- Google Tag Manager (noscript) -->
