@@ -26,7 +26,7 @@ Why wait and overpay for your Audi key replacement when there’s a faster, more
 - **Serving All of Nashville** — Donelson, Hermitage, Brentwood, Belle Meade, Green Hills, Franklin & more       
 ## 🔑 Real Nashville Story
  
- A traveler lost their Audi Q5 key while parked at Nashville International Airport. Instead of waiting days and paying $950 at the dealership, Armstrong Locksmith arrived in **25 minutes**, cut & programmed a new key on-site, and saved the customer hundreds — plus avoided a stressful delay. 
+ A traveler lost their Audi Q5 key while parked at Nashville International Airport. Instead of waiting days and paying $950 at the dealership, Armstrong Locksmith arrived promptly, cut &amp; programmed a new key on-site, and saved the customer hundreds — plus avoided a stressful delay. 
      
 ## 📍 Areas We Serve
     **Donelson**Opry Mills, Music Valley   **Hermitage**Old Hickory Lake, Long Hunter State Park   **Airport Area**Berry Field, airport hotels, parking garages   **Brentwood**Cool Springs, local businesses   **Belle Meade**Residential and gated communities   **Green Hills**Shopping & business districts   **Franklin**Historic downtown, local neighborhoods        

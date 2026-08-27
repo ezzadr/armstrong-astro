@@ -24,7 +24,7 @@ Here is how the costs broke down on this exact job based on the dealer's quote v
 | **New OEM-Grade Smart Key** | $575.00 | **$260.00** |
 | **Key Programming & Sync** | $350.00 | **Included in Price** |
 | **Flatbed Towing to Dealer** | $175.00 – $250.00 | **$0 (We Came to Their Driveway)** |
-| **Wait Time** | 3 – 5 Business Days | **Same-Day (Finished in 45 Min)** |
+| **Wait Time** | 3 – 5 Business Days | **Prompt Same-Day On-Site** |
 | **Total Estimated Cost** | **$1,100 – $1,200+** | **$450 Total** |
 | **Customer Savings** | *$0* | **💰 Over $650 Saved!** |
 
@@ -36,7 +36,7 @@ The 2018 BMW X5 uses a sophisticated **FEM/BDC (Front Electronic Module / Body D
 
 Here is our step-by-step on-site process:
 
-1. **⚡ Fast Mobile Arrival:** We arrived at the customer's home in Brentwood within **45 minutes**. No tow truck needed.
+1. **⚡ Fast Mobile Arrival:** We arrived at the customer's home in Brentwood promptly with our mobile workstation. No tow truck needed.
 2. **🆔 Security Verification:** We verified the owner's ID and vehicle registration to match the VIN number before starting.
 3. **✂️ CNC Laser Cutting:** We decoded the door lock tumblers and laser-cut the emergency metal mechanical key blade insert right inside our mobile van.
 4. **💻 FEM / BDC Key Programming:** Using our specialized BMW programmer, we pulled the ISN (security code) and registered the new key to the vehicle's electronic immobilizer.
