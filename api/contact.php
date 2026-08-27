@@ -24,6 +24,14 @@ if (!$data) {
     $data = $_POST;
 }
 
+// Honeypot bot trap
+$honeypot = isset($data['company_website']) ? trim($data['company_website']) : (isset($data['website']) ? trim($data['website']) : '');
+if (!empty($honeypot)) {
+    // Fake success to bots so they stop probing
+    echo json_encode(['success' => true, 'message' => 'Dispatched']);
+    exit();
+}
+
 $name    = isset($data['name']) ? trim($data['name']) : '';
 $phone   = isset($data['phone']) ? trim($data['phone']) : '';
 $service = isset($data['service']) ? trim($data['service']) : 'General Locksmith';
@@ -34,6 +42,31 @@ $notes   = isset($data['notes']) && !empty($data['notes']) ? trim($data['notes']
 if (empty($name) || empty($phone)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Name and Phone are required.']);
+    exit();
+}
+
+// Basic phone number validation (must have between 7 and 15 digits)
+$digits = preg_replace('/[^\d]/', '', $phone);
+if (strlen($digits) < 7 || strlen($digits) > 15) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Valid phone number required.']);
+    exit();
+}
+
+// IP Rate Limiting (Max 10 requests per 10 minutes per IP)
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateFile = sys_get_temp_dir() . '/armstrong_contact_rate_' . md5($ip) . '.json';
+$rateData = file_exists($rateFile) ? json_decode(@file_get_contents($rateFile), true) : ['count' => 0, 'first_seen' => time()];
+if (!is_array($rateData) || (time() - ($rateData['first_seen'] ?? 0) > 600)) {
+    $rateData = ['count' => 1, 'first_seen' => time()];
+} else {
+    $rateData['count']++;
+}
+@file_put_contents($rateFile, json_encode($rateData));
+
+if ($rateData['count'] > 10) {
+    http_response_code(429);
+    echo json_encode(['success' => false, 'error' => 'Too many requests. Please call (615) 625-8000.']);
     exit();
 }
 
