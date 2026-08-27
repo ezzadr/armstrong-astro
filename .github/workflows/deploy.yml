@@ -27,7 +27,33 @@ jobs:
             git reset --hard origin/main
             git status
 
+            echo "=== CONFIGURING NGINX 404 HANDLING ==="
+            # Write custom Nginx error page directive for this application only
+            NGINX_CUSTOM_DIR="/home/master/applications/btfdkcdpdw/conf/nginx"
+            if [ -d "$NGINX_CUSTOM_DIR" ]; then
+              cat > "$NGINX_CUSTOM_DIR/custom_error_pages.conf" << 'NGINX_EOF'
+            # Armstrong Locksmith — Custom 404 Error Page Handling
+            # Serves /404-handler.php (which returns HTTP 404 + custom 404.html content)
+            # instead of falling back to /index.html with HTTP 200
+            error_page 404 /404-handler.php;
+            location = /404-handler.php {
+              internal;
+              fastcgi_pass unix:/run/php/php-fpm.sock;
+              fastcgi_param SCRIPT_FILENAME $document_root/404-handler.php;
+              include fastcgi_params;
+            }
+            NGINX_EOF
+              echo "Nginx custom 404 config written successfully"
+            else
+              echo "WARNING: Nginx custom config dir not found at $NGINX_CUSTOM_DIR"
+              echo "404 handling relies on .htaccess ErrorDocument fallback"
+            fi
+
             echo "=== PURGING LOCAL VARNISH CACHE ==="
             curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
             curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
+
+            # Attempt Nginx reload if available (Cloudways may require this)
+            sudo nginx -t 2>/dev/null && sudo systemctl reload nginx 2>/dev/null && echo "Nginx reloaded" || echo "Nginx reload skipped (may need Cloudways panel)"
+
             echo "Website deploy complete!"
