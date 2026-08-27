@@ -177,6 +177,19 @@
         </button>
       </div>
 
+      <!-- Dynamic Sunday Notice -->
+      <div id="booking-sunday-notice" class="hidden p-3.5 bg-amber-50 border border-amber-300 rounded-xl text-left">
+        <div class="flex items-start gap-2.5">
+          <span class="text-amber-600 text-base">📅</span>
+          <div>
+            <span class="text-xs font-bold text-amber-900 block">Sunday Notice: Storefront opens Monday at 8:00 AM</span>
+            <p class="text-[11px] text-amber-800 mt-0.5 leading-relaxed">
+              Mobile units are on-call today for urgent lockouts. For planned service, choose <strong>Tomorrow (Monday)</strong> to get guaranteed #1 priority arrival at 8:00 AM.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <!-- Date Options -->
       <div class="space-y-2">
         <label class="block text-xs font-bold text-slate-700">When do you need us?</label>
@@ -540,6 +553,40 @@
         if (timeInput) timeInput.value = this.getAttribute('data-time');
       });
     });
+
+    // Dynamic Sunday Detection for Priority Monday Dispatch
+    try {
+      const now = new Date();
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Chicago',
+        weekday: 'short'
+      }).formatToParts(now);
+      const weekday = parts.find(p => p.type === 'weekday')?.value;
+      if (weekday === 'Sun') {
+        const sundayNotice = document.getElementById('booking-sunday-notice');
+        if (sundayNotice) sundayNotice.classList.remove('hidden');
+
+        // Dynamically customize Tomorrow chip to Monday Priority
+        const tomorrowChip = document.querySelector('.date-chip[data-date="Tomorrow"]');
+        if (tomorrowChip) {
+          tomorrowChip.innerHTML = '<span>Tomorrow (Monday) ⭐</span>';
+          dateChips.forEach(c => {
+            c.classList.remove('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-bold');
+            c.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
+          });
+          tomorrowChip.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-700', 'font-medium');
+          tomorrowChip.classList.add('border-2', 'border-blue-600', 'bg-blue-50', 'text-blue-900', 'font-bold');
+          if (dateInput) dateInput.value = 'Tomorrow (Monday 8AM Priority)';
+        }
+
+        // Recommend Morning Window
+        const morningChip = document.querySelector('.time-chip[data-time="Morning (8:00 AM – 12:00 PM)"]');
+        if (morningChip) {
+          const subtext = morningChip.querySelector('div div:last-child');
+          if (subtext) subtext.textContent = '8:00 AM – 12:00 PM (Monday Priority)';
+        }
+      }
+    } catch (e) {}
 
     if (btnTo3) btnTo3.addEventListener('click', () => updateStepper(3));
     backBtns.forEach(b => b.addEventListener('click', () => {

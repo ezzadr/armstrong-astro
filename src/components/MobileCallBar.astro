@@ -23,6 +23,7 @@
 
   <!-- 2. Text / SMS Button -->
   <a 
+    id="arm-callbar-sms"
     href="sms:6156258000" 
     class="flex-1 bg-[#07152b] bg-navy-grid hover:bg-[#0f274a] bg-navy-grid text-white flex flex-col items-center justify-center gap-0.5 px-2 py-1 border-r border-slate-800 active:scale-98 transition"
     aria-label="Send SMS text to Armstrong Locksmith"
@@ -92,7 +93,11 @@
           statusText = "OPENS MON 8AM";
         }
       } else if (day === 0) {
-        statusText = "OPENS MON 8AM";
+        statusText = "ON-CALL / MON 8AM";
+        const smsBtn = document.getElementById('arm-callbar-sms');
+        if (smsBtn) {
+          smsBtn.setAttribute('href', 'sms:6156258000?&body=Hi%20Armstrong%20Locksmith%2C%20I%20would%20like%20to%20request%20service%20for%20Monday%20at%208%3A00%20AM.');
+        }
       }
 
       el.textContent = statusText;
