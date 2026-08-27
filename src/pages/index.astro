@@ -109,19 +109,6 @@ const homepageSchema = [
           Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. Visit our walk-in storefront for fast key cutting and programming, or call for prompt mobile dispatch for car lockouts, home rekeys, and commercial security.
         </p>
 
-        <!-- Dynamic Sunday Reassurance / Priority Monday Booking Callout -->
-        <div id="arm-sunday-callout" class="hidden p-4 bg-amber-500/15 border border-amber-400/30 text-left text-xs sm:text-sm text-slate-200">
-          <div class="flex items-start gap-3">
-            <span class="text-amber-400 text-lg">📅</span>
-            <div>
-              <div class="font-bold text-amber-300 text-sm">Sunday Hours Notice: Storefront Opens Monday at 8:00 AM</div>
-              <p class="text-slate-300 text-xs mt-1 leading-relaxed">
-                Our walk-in shop reopens Monday morning. For emergency vehicle &amp; house lockouts, our <strong>on-call mobile dispatch is active</strong> at <a href="tel:6156258000" class="text-white font-bold underline hover:text-amber-300">(615) 625-8000</a>. Need key cutting, lock replacement, or routine service? Lock in your <strong>Priority Monday 8:00 AM dispatch slot</strong> below.
-              </p>
-            </div>
-          </div>
-        </div>
-
         <!-- Direct Action Buttons (Sharp Luxury) -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
           <!-- Primary Call Button -->
@@ -250,19 +237,6 @@ const homepageSchema = [
                 placeholder="e.g. 2021 BMW X5, locked out, or 3 deadbolts" 
                 class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
               />
-            </div>
-
-            <!-- Dynamic Sunday Priority Monday Morning Option -->
-            <div id="sunday-priority-checkbox-wrap" class="hidden p-3 bg-amber-50 border border-amber-300 text-left">
-              <label class="flex items-start gap-2.5 font-bold cursor-pointer text-xs text-amber-950">
-                <input type="checkbox" id="sunday-priority-check" name="sunday_priority" checked class="w-4 h-4 text-amber-600 rounded mt-0.5" />
-                <span>
-                  <strong class="text-amber-900 block font-black">⭐ First-Priority Monday 8:00 AM Call-Back</strong>
-                  <span class="text-[11px] text-slate-600 font-normal block mt-0.5">
-                    Storefront opens Monday at 8:00 AM. Check this to lock in the #1 arrival slot before general dispatch routes open.
-                  </span>
-                </span>
-              </label>
             </div>
 
             <!-- Server / Network Error Alert -->
@@ -465,88 +439,6 @@ const homepageSchema = [
             <li><a href="/emergency-car-lockout/" class="hover:text-amber-600 font-semibold underline">Prompt Mobile ETA Emergency Car Lockouts</a></li>
             <li><a href="/service-areas/" class="hover:text-amber-600 font-semibold underline">Service Areas in Davidson & Williamson County</a></li>
           </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SUNDAY DISPATCH & PRIORITY MONDAY BOOKING ==================== -->
-  <section class="py-14 sm:py-18 bg-[#07152b] bg-navy-grid text-white px-4 sm:px-8 border-b-2 border-amber-500 font-sans" id="sunday-dispatch-info">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
-        <div class="lg:col-span-7 flex flex-col gap-4 text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider w-fit">
-            <span>📅</span>
-            <span>Transparent Hours &bull; Real Nashville Shop</span>
-          </div>
-
-          <h2 class="text-2xl sm:text-4xl font-black font-heading uppercase text-white tracking-tight leading-tight">
-            Sunday Service &amp; <span class="text-amber-400">Priority Monday Scheduling</span>
-          </h2>
-
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Unlike deceptive dispatch brokers claiming 24/7 coverage with fake addresses, Armstrong Locksmith operates with total honesty and genuine Tennessee licensing (TN Lic #406). Here is how our Sunday coverage works:
-          </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="p-4 bg-white/5 border border-white/10 text-left">
-              <div class="flex items-center gap-2 text-amber-400 font-bold text-sm mb-1">
-                <span>🏪</span>
-                <span>Walk-In Storefront</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>Closed on Sundays.</strong> Reopens promptly <strong>Monday at 8:00 AM</strong> at 208 Thompson Ln for walk-in key cutting, fob programming, and cylinder rekeying.
-              </p>
-            </div>
-
-            <div class="p-4 bg-white/5 border border-white/10 text-left">
-              <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-1">
-                <span>🚐</span>
-                <span>Mobile Van Dispatch</span>
-              </div>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                <strong>On-Call Emergency Dispatch.</strong> Urgent roadside vehicle lockouts and house lockouts are handled on-call across Metro Nashville. Call <a href="tel:6156258000" class="text-white font-bold underline hover:text-amber-300">(615) 625-8000</a>.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-4 bg-amber-500/10 border-l-4 border-amber-400 text-xs text-slate-200 mt-1">
-            <strong class="text-amber-300 block mb-1">Booking for the week ahead?</strong>
-            Submit an online request on Sunday to lock in <strong>First-Priority Monday 8:00 AM Service</strong>. When our technicians roll out Monday morning, Sunday requests are dispatched before any new calls.
-          </div>
-        </div>
-
-        <div class="lg:col-span-5 bg-white p-6 sm:p-8 border-t-4 border-amber-500 shadow-2xl text-slate-900 text-left flex flex-col gap-4">
-          <span class="text-xs font-black text-amber-600 uppercase tracking-widest">Reserve In Advance</span>
-          <h3 class="text-xl sm:text-2xl font-black text-[#0f274a] uppercase tracking-tight">
-            Lock In Monday 8:00 AM Dispatch
-          </h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Need home deadbolts rekeyed, an extra car key programmed, or commercial exit door hardware serviced Monday morning? Guarantee your first-in-line spot:
-          </p>
-
-          <div class="flex flex-col gap-3 pt-2">
-            <a 
-              href="/book-online/" 
-              class="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-center text-sm uppercase tracking-wider shadow-lg transition active:scale-95 border border-amber-300"
-            >
-              Book Monday 8:00 AM Online &rarr;
-            </a>
-
-            <a 
-              href="tel:6156258000" 
-              class="w-full py-3 px-6 bg-[#0f274a] hover:bg-[#16335c] text-white font-bold text-center text-xs uppercase tracking-wider shadow transition active:scale-95 flex items-center justify-center gap-2 border border-slate-700"
-            >
-              <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
-              <span>Urgent Emergency Lockout: (615) 625-8000</span>
-            </a>
-          </div>
-
-          <div class="text-[11px] text-slate-500 text-center font-medium pt-1 border-t border-slate-100">
-            Storefront: 208 Thompson Ln, Nashville &bull; Mon–Fri 8AM–6PM, Sat 10AM–4PM
-          </div>
         </div>
 
       </div>
@@ -786,26 +678,6 @@ const homepageSchema = [
         });
       }
 
-      // Check if current Nashville time is Sunday to show dynamic callout & priority Monday option
-      let isSunday = false;
-      try {
-        const now = new Date();
-        const parts = new Intl.DateTimeFormat('en-US', {
-          timeZone: 'America/Chicago',
-          weekday: 'short'
-        }).formatToParts(now);
-        const weekday = parts.find(p => p.type === 'weekday')?.value;
-        isSunday = (weekday === 'Sun');
-
-        if (isSunday) {
-          const heroCallout = document.getElementById('arm-sunday-callout');
-          if (heroCallout) heroCallout.classList.remove('hidden');
-
-          const sundayWrap = document.getElementById('sunday-priority-checkbox-wrap');
-          if (sundayWrap) sundayWrap.classList.remove('hidden');
-        }
-      } catch (e) {}
-
       if (form) {
         form.addEventListener('submit', async function (e) {
           e.preventDefault();
@@ -852,10 +724,6 @@ const homepageSchema = [
             submitBtn.innerHTML = '<span>⚡ Sending Request...</span>';
           }
 
-          const sundayCheck = document.getElementById('sunday-priority-check');
-          const isSundayPriority = isSunday && sundayCheck && sundayCheck.checked;
-          const finalVehicle = isSundayPriority ? `[PRIORITY MONDAY 8AM DISPATCH] ${vehicle}`.trim() : vehicle;
-
           // Ensure form_started_at is at least 8s in past so browser autofill never trips bot speed check
           const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
 
@@ -864,7 +732,7 @@ const homepageSchema = [
             phone: phone,
             service: service,
             service_type: service,
-            vehicle: finalVehicle,
+            vehicle: vehicle,
             form_started_at: safeFormStartedAt,
             company_website: ''
           };
@@ -872,12 +740,6 @@ const homepageSchema = [
           function showSuccessState() {
             form.classList.add('hidden');
             if (successMsg) {
-              if (isSundayPriority) {
-                const titleEl = document.getElementById('quote-success-title');
-                const descEl = document.getElementById('quote-success-desc');
-                if (titleEl) titleEl.textContent = 'Priority Monday 8:00 AM Dispatch Confirmed!';
-                if (descEl) descEl.textContent = 'Your request has been queued at the top of our Monday 8:00 AM dispatch route. Our technician will contact you promptly at 8:00 AM. Need immediate emergency lockout help right now? Call our on-call tech directly at (615) 625-8000.';
-              }
               successMsg.classList.remove('hidden');
             }
           }
@@ -891,8 +753,8 @@ const homepageSchema = [
                   name: customerName,
                   phone: phone,
                   service: service,
-                  details: finalVehicle,
-                  notes: isSundayPriority ? '[PRIORITY MONDAY 8AM DISPATCH]' : 'Website Quote Request'
+                  details: vehicle,
+                  notes: 'Website Quote Request'
                 })
               });
               if (fbRes.ok) {

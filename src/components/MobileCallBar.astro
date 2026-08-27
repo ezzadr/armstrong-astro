@@ -93,11 +93,7 @@
           statusText = "OPENS MON 8AM";
         }
       } else if (day === 0) {
-        statusText = "ON-CALL / MON 8AM";
-        const smsBtn = document.getElementById('arm-callbar-sms');
-        if (smsBtn) {
-          smsBtn.setAttribute('href', 'sms:6156258000?&body=Hi%20Armstrong%20Locksmith%2C%20I%20would%20like%20to%20request%20service%20for%20Monday%20at%208%3A00%20AM.');
-        }
+        statusText = "ON-CALL";
       }
 
       el.textContent = statusText;
