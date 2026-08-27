@@ -5,7 +5,7 @@
 
 # 1. Directory Index & Error Handling
 DirectoryIndex index.html index.php
-ErrorDocument 404 /404.html
+ErrorDocument 404 /404-handler.php
 
 # 2. Rewrite Engine Configuration
 <IfModule mod_rewrite.c>
@@ -23,17 +23,8 @@ ErrorDocument 404 /404.html
   # Admin Content Studio Direct Entry
   RewriteRule ^admin/?$ /admin/index.php [L,R=302]
 
-  # Legacy WordPress 301 Redirects
-  RewriteRule ^acura-car-key-replacement/?$ /car-key-replacement-nashville/ [L,R=301]
-  RewriteRule ^audi-q3-key-replacement/?$ /audi-car-keys/ [L,R=301]
-  RewriteRule ^hummer-key-replacement-nashville/?$ /car-key-replacement-nashville/ [L,R=301]
-  RewriteRule ^automotive-locksmith-in-nashville-tn/?$ /car-key-replacement-nashville/ [L,R=301]
-  RewriteRule ^nashville-car-unlock-service/?$ /emergency-car-lockout/ [L,R=301]
-  RewriteRule ^nashville-rekey-service/?$ /residential-locksmith-nashville/ [L,R=301]
-  RewriteRule ^nashville-locksmith-storefront/?$ /contact-armstrong-locksmith/ [L,R=301]
-  RewriteRule ^google-reviews/?$ /about-us/ [L,R=301]
-  RewriteRule ^payment-methods/?$ /locksmith-pricing-nashville/ [L,R=301]
-  RewriteRule ^faq/?$ /contact-armstrong-locksmith/ [L,R=301]
+  # Legacy WordPress 301 Redirects — REMOVED 2026-08-27
+  # All slugs below now have dedicated standalone .astro pages & are in sitemap-0.xml.
 
   # Sitemap Rewrites & Aliases for Search Console
   RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
@@ -51,6 +42,13 @@ ErrorDocument 404 /404.html
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
+
+  # === TRUE 404 CATCH-ALL ===
+  # If the request doesn't match any real file, directory, or .html variant,
+  # return 404 status with our custom error page (not a 200 homepage fallback)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule .* - [R=404,L]
 </IfModule>
 
 # 3. Gzip & Deflate Compression
