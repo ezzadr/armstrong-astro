@@ -129,12 +129,15 @@ const baseBusinessSchema = {
     "latitude": 36.1118,
     "longitude": -86.7378
   },
+  // Service availability, not storefront hours. Mobile dispatch runs until 23:30
+  // Mon-Fri, so this is when a customer can actually be served - and it is what
+  // Google reads for the "Open now" label. Walk-in hours are on the department below.
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "08:00",
-      "closes": "18:00"
+      "closes": "23:30"
     },
     {
       "@type": "OpeningHoursSpecification",
@@ -143,7 +146,38 @@ const baseBusinessSchema = {
       "closes": "16:00"
     }
   ],
+  // Walk-in counter at 208 Thompson Ln closes earlier than mobile dispatch.
+  "department": {
+    "@type": "Locksmith",
+    "@id": "https://armstronglocksmithinc.com/#storefront",
+    "name": "Armstrong Locksmith Inc - Walk-In Storefront",
+    "telephone": "+1-615-625-8000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ]
+  },
   "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Davidson County, Tennessee" },
+    { "@type": "AdministrativeArea", "name": "Williamson County, Tennessee" },
     { "@type": "City", "name": "Nashville" },
     { "@type": "City", "name": "Brentwood" },
     { "@type": "City", "name": "Franklin" },
@@ -161,34 +195,62 @@ const baseBusinessSchema = {
     "itemListElement": [
       {
         "@type": "Offer",
+        "url": "https://armstronglocksmithinc.com/european-car-key-specialist/",
         "itemOffered": {
           "@type": "Service",
           "name": "European Car Key Replacement",
-          "description": "Dealer-level key cutting and programming for BMW, Mercedes, Audi, Land Rover & Bentley."
+          "description": "Dealer-level key cutting and programming for BMW, Mercedes, Audi, Land Rover & Bentley.",
+          "url": "https://armstronglocksmithinc.com/european-car-key-specialist/",
+          "serviceType": "Automotive Locksmith",
+          "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
         }
       },
       {
         "@type": "Offer",
+        "url": "https://armstronglocksmithinc.com/key-fob-replacement-nashville/",
         "itemOffered": {
           "@type": "Service",
-          "name": "Automotive Key Fob Replacement",
-          "description": "Smart proximity push-to-start fobs, laser key cutting, and transponder programming."
+          "name": "Car Key & Fob Replacement",
+          "description": "Smart proximity push-to-start fobs, laser key cutting, and transponder programming.",
+          "url": "https://armstronglocksmithinc.com/key-fob-replacement-nashville/",
+          "serviceType": "Automotive Locksmith",
+          "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
         }
       },
       {
         "@type": "Offer",
+        "url": "https://armstronglocksmithinc.com/emergency-car-lockout/",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Emergency Car Lockout Service",
+          "description": "Prompt mobile dispatch for car lockouts across Nashville and Middle Tennessee.",
+          "url": "https://armstronglocksmithinc.com/emergency-car-lockout/",
+          "serviceType": "Emergency Locksmith",
+          "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+        }
+      },
+      {
+        "@type": "Offer",
+        "url": "https://armstronglocksmithinc.com/residential-locksmith-nashville/",
         "itemOffered": {
           "@type": "Service",
           "name": "Residential Lock Rekeying & Deadbolts",
-          "description": "Upfront priced house lock rekeying, high-security deadbolt installation, and emergency lockouts."
+          "description": "Upfront priced house lock rekeying, high-security deadbolt installation, and emergency lockouts.",
+          "url": "https://armstronglocksmithinc.com/residential-locksmith-nashville/",
+          "serviceType": "Residential Locksmith",
+          "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
         }
       },
       {
         "@type": "Offer",
+        "url": "https://armstronglocksmithinc.com/commercial-locksmith/",
         "itemOffered": {
           "@type": "Service",
           "name": "Commercial Door Security & Hardware",
-          "description": "Storefront door mortise cylinders, panic exit bars, master key systems, and access control."
+          "description": "Storefront door mortise cylinders, panic exit bars, master key systems, and access control.",
+          "url": "https://armstronglocksmithinc.com/commercial-locksmith/",
+          "serviceType": "Commercial Locksmith",
+          "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
         }
       }
     ]
