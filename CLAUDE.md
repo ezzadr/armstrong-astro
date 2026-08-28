@@ -22,6 +22,12 @@ The five that bite hardest:
 `.htaccess` is inert for static files here — Nginx serves them directly. Cache
 and security headers live in Cloudflare, documented in `AGENT_HANDOVER.md` §7.
 
+**Tailwind arbitrary breakpoint variants (`min-[360px]:`, `[@media(...)]:`) are
+silently dropped in this setup** — the class stays in the HTML but no rule is
+generated, so `hidden min-[360px]:inline` hides the element at every width. Use
+plain CSS in `src/styles/global.css` for custom breakpoints, and check the built
+bundle (`grep <class> _astro/*.css`) rather than trusting the dev server.
+
 ## Development
 
 When starting the dev server, use background mode:

@@ -114,6 +114,23 @@ behaviour Google treats as cloaking. Both gates were removed. Deferring work
 (`node scripts/gen-webp.mjs --widths=600,1200 images/foo.jpg`). Aspect ratio is
 preserved and `object-cover` does the framing. Originals stay as `<img>` fallbacks.
 
+**Tailwind arbitrary *breakpoint variants* do not compile here.** Arbitrary
+*values* are fine (`text-[11px]`, `w-[860px]`, `max-w-[calc(100vw-2rem)]` all
+work), but `min-[360px]:inline` and `[@media(min-width:360px)]:inline` are
+silently dropped — no error, no rule in the bundle. The class stays in the HTML
+and simply does nothing, so a pattern like `hidden min-[360px]:inline` leaves
+only `hidden` applying at every width and the element disappears everywhere.
+For a custom breakpoint, write plain CSS in `src/styles/global.css` against a
+normal class name (see `.arm-menu-label`).
+
+Two habits that follow from this:
+* **Verify against the built bundle, not the dev server.** Dev generates classes
+  on demand and can show a rule that never reaches production.
+  `grep <class> _astro/*.css` after `npm run build`.
+* **Lightning CSS rewrites media queries to range syntax.** `@media (max-width:
+  359px)` is minified to `@media (width<=359px)`, so grepping the bundle for
+  `max-width` finds nothing and looks like a compile failure when it is not.
+
 ## 7. Cloudflare configuration (not in this repo)
 Zone `armstronglocksmithinc.com`, free plan. Three rules exist and are load-bearing:
 * **Cache Rule "Short TTL for robots.txt"** — matches `/robots.txt`, `/llms.txt`,
