@@ -1,158 +1,445 @@
 ---
-// RecentWorkGallery.astro - Masonry-style gallery of real jobs with explicit dimensions
+// RecentWorkGallery.astro - Curated, high-conversion proof of work gallery
+const projects = [
+  {
+    id: "detex-lock",
+    category: "commercial",
+    categoryLabel: "Commercial Security",
+    title: "Detex Commercial Exit Control Alarm Lock",
+    subtitle: "Heavy-duty battery-alarmed emergency exit panic hardware installed for Nashville facility.",
+    badge: "Field Verified",
+    location: "Nashville, TN",
+    href: "/commercial-locksmith/",
+    imageSrc: "/images/detex-commercial-lock-installation-nashville.jpg",
+    webpSrc600: "/images/detex-commercial-lock-installation-nashville-600.webp",
+    webpSrc1200: "/images/detex-commercial-lock-installation-nashville-1200.webp",
+    alt: "Armstrong Locksmith installing Detex commercial emergency exit alarm lock in Nashville TN",
+    featured: true,
+    tagColor: "emerald"
+  },
+  {
+    id: "maserati-smartkey",
+    category: "automotive",
+    categoryLabel: "European Auto",
+    title: "Maserati Proximity Smart Key",
+    subtitle: "High-security laser cut & OEM transponder dealer-level programming.",
+    badge: "Dealer Alternative",
+    location: "Franklin / Nashville",
+    href: "/european-car-key-specialist/",
+    imageSrc: "/images/Maserati-key-cut-and-programmed--scaled.jpg",
+    webpSrc600: "/images/Maserati-key-cut-and-programmed--scaled-600.webp",
+    webpSrc1200: "/images/Maserati-key-cut-and-programmed--scaled-1200.webp",
+    alt: "Maserati Smart Key Programming in Nashville",
+    tagColor: "amber"
+  },
+  {
+    id: "audi-smartkey",
+    category: "automotive",
+    categoryLabel: "European Specialist",
+    title: "Audi Smart Key Origination by Rahim",
+    subtitle: "All-keys-lost recovery on modern Audi BCM2 immobilizer system.",
+    badge: "Master Locksmith",
+    location: "Nashville, TN",
+    href: "/audi-car-keys/",
+    imageSrc: "/images/rahim-made-audi-keys-in-nashville-1.png",
+    webpSrc600: "/images/rahim-made-audi-keys-in-nashville-1-600.webp",
+    webpSrc1200: "/images/rahim-made-audi-keys-in-nashville-1-1200.webp",
+    alt: "Rahim Programming Audi Keys in Nashville",
+    tagColor: "amber"
+  },
+  {
+    id: "commercial-keypad",
+    category: "commercial",
+    categoryLabel: "Commercial Access",
+    title: "Commercial Glass Door Keypad Access",
+    subtitle: "Standalone digital access control leverset on storefront aluminum frame.",
+    badge: "Commercial Entry",
+    location: "Nashville Business",
+    href: "/commercial-locksmith/",
+    imageSrc: "/images/before-keypad-installation-on-commercial-door.jpg",
+    webpSrc600: "/images/before-keypad-installation-on-commercial-door-600.webp",
+    webpSrc1200: "/images/before-keypad-installation-on-commercial-door-1200.webp",
+    alt: "Commercial Keypad Installation on Heavy Aluminum Storefront Door",
+    tagColor: "emerald"
+  },
+  {
+    id: "mercedes-eis",
+    category: "automotive",
+    categoryLabel: "Mercedes-Benz",
+    title: "Mercedes-Benz EIS & Keyless Go",
+    subtitle: "Direct electronic ignition switch key programming without towing.",
+    badge: "Save $300+ vs Dealer",
+    location: "Nashville Metro",
+    href: "/mercedes-benz/",
+    imageSrc: "/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg",
+    webpSrc600: "/images/mercedes-Benz_20250627_002342_0000-1-scaled-600.webp",
+    webpSrc1200: "/images/mercedes-Benz_20250627_002342_0000-1-scaled-1200.webp",
+    alt: "Mercedes-Benz Key Fitment in Nashville",
+    tagColor: "amber"
+  },
+  {
+    id: "bmw-key",
+    category: "automotive",
+    categoryLabel: "BMW Specialist",
+    title: "BMW CAS/FEM Key Replacement",
+    subtitle: "Precision key generation saving customer over $600 vs dealership.",
+    badge: "Brentwood Job",
+    location: "Brentwood, TN",
+    href: "/bmw/",
+    imageSrc: "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg",
+    webpSrc600: "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000-600.webp",
+    webpSrc1200: "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000-1200.webp",
+    alt: "BMW Key Replacement Brentwood TN",
+    tagColor: "amber"
+  },
+  {
+    id: "sako-unlock",
+    category: "emergency",
+    categoryLabel: "Emergency Dispatch",
+    title: "Non-Destructive Car Unlock by Sako",
+    subtitle: "Rapid response auto entry with zero scratch or weatherseal damage.",
+    badge: "15-Min Arrival",
+    location: "Nashville, TN",
+    href: "/emergency-car-lockout/",
+    imageSrc: "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg",
+    webpSrc600: "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled-600.webp",
+    webpSrc1200: "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled-1200.webp",
+    alt: "Sako Unlocking a Car in Nashville",
+    tagColor: "red"
+  },
+  {
+    id: "toyota-lishi",
+    category: "automotive",
+    categoryLabel: "Key Origination",
+    title: "Toyota Door Lock Lishi Decoding",
+    subtitle: "Direct lock wafer reading to cut exact factory-spec mechanical key.",
+    badge: "Zero Damage",
+    location: "Nashville, TN",
+    href: "/toyota-car-key-replacement/",
+    imageSrc: "/images/TOYOTA-LISHI-TOOL.jpg",
+    webpSrc600: "/images/TOYOTA-LISHI-TOOL-600.webp",
+    webpSrc1200: "/images/TOYOTA-LISHI-TOOL-1200.webp",
+    alt: "Lishi Tool Lock Decoding in Nashville",
+    tagColor: "amber"
+  },
+  {
+    id: "rekey-cylinder",
+    category: "emergency",
+    categoryLabel: "Lock Rekeying",
+    title: "Commercial Deadbolt Cylinder Rekey",
+    subtitle: "New key pin configuration ensuring old master keys no longer operate.",
+    badge: "Security Upgrade",
+    location: "Nashville Shop",
+    href: "/nashville-rekey-service/",
+    imageSrc: "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
+    webpSrc600: "/images/lock-rekeyed-by-armstrong-locksmith-technician-600.webp",
+    webpSrc1200: "/images/lock-rekeyed-by-armstrong-locksmith-technician-1200.webp",
+    alt: "Lock Rekeyed by Armstrong Locksmith Technician",
+    tagColor: "emerald"
+  },
+  {
+    id: "chevy-repair",
+    category: "automotive",
+    categoryLabel: "Fob Repairs",
+    title: "Worn Fob Refurbishing & Shell Swap",
+    subtitle: "Internal electronics transferred into brand new durable OEM shell.",
+    badge: "Walk-In Service",
+    location: "208 Thompson Ln",
+    href: "/key-fob-replacement-nashville/",
+    imageSrc: "/images/chevy-remote-buttons-gone-1.jpg",
+    webpSrc600: "/images/chevy-remote-buttons-gone-1-600.webp",
+    webpSrc1200: "/images/chevy-remote-buttons-gone-1-1200.webp",
+    alt: "Broken Chevy Remote Repair in Nashville",
+    tagColor: "amber"
+  }
+];
+
+const featuredProject = projects.find(p => p.featured) || projects[0];
+const gridProjects = projects.filter(p => p.id !== featuredProject.id);
 ---
 
-<section class="py-16 sm:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden font-sans">
+<section class="py-14 sm:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden font-sans" id="recent-work-gallery">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider mb-4 border border-amber-200">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider mb-3 border border-amber-200">
         <span>📸</span>
-        <span>Real Jobs &bull; Real Expertise</span>
+        <span>Real Jobs &bull; Real Nashville Proof</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-[#0f274a] tracking-tight leading-tight uppercase">
+      <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-[#0f274a] tracking-tight leading-tight uppercase">
         Don't Trust Stock Photos. <br />
         <span class="text-amber-500">See Our Real Work.</span>
       </h2>
-      <p class="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed font-medium">
-        Many "locksmiths" online are out-of-state dispatch centers using fake stock images. We are a real, local Nashville team. Browse our recent high-end automotive, commercial, and residential jobs.
+      <p class="text-slate-600 mt-3 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
+        Many online listings are out-of-state call centers using generic stock photos. We are real master technicians in Nashville. Browse our recent automotive, commercial, and residential projects.
       </p>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-6" id="gallery-filter-tabs">
+        <button 
+          type="button" 
+          data-filter="all" 
+          class="gallery-filter-btn active px-4 py-2 text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500/80 shadow-md transition-all cursor-pointer"
+        >
+          All Projects (10)
+        </button>
+        <button 
+          type="button" 
+          data-filter="automotive" 
+          class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer"
+        >
+          🚗 Automotive &amp; European (5)
+        </button>
+        <button 
+          type="button" 
+          data-filter="commercial" 
+          class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer"
+        >
+          🏢 Commercial Security (2)
+        </button>
+        <button 
+          type="button" 
+          data-filter="emergency" 
+          class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer"
+        >
+          🚨 Emergency &amp; Rekey (3)
+        </button>
+      </div>
     </div>
 
-    <!-- Masonry Grid Layout -->
-    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-      
-      <!-- Item 1: Detex Commercial Exit Control Lock (New Authentic Job) -->
-      <a href="/commercial-locksmith/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/detex-commercial-lock-installation-nashville-600.webp 600w, /images/detex-commercial-lock-installation-nashville-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/detex-commercial-lock-installation-nashville.jpg" alt="Armstrong Locksmith installing Detex commercial emergency exit alarm lock in Nashville TN" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="800" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Commercial Security</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Detex Commercial Emergency Exit Alarm Lock</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Commercial Locksmith &rarr;</span>
+    <!-- ==================== FEATURED SPOTLIGHT CASE STUDY ==================== -->
+    <div class="gallery-item-card mb-8 sm:mb-10 bg-white border-2 border-amber-500/60 shadow-xl overflow-hidden group" data-category={featuredProject.category}>
+      <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+        
+        <!-- Left: Verified Photo -->
+        <div class="lg:col-span-6 relative overflow-hidden bg-slate-900 min-h-[260px] sm:min-h-[340px]">
+          <picture>
+            <source type="image/webp" srcset={`${featuredProject.webpSrc600} 600w, ${featuredProject.webpSrc1200} 1200w`} sizes="(max-width: 1023px) 100vw, 50vw" />
+            <img 
+              src={featuredProject.imageSrc} 
+              alt={featuredProject.alt} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy" 
+              decoding="async" 
+              width="600" 
+              height="800" 
+            />
+          </picture>
+          <div class="absolute top-3 left-3 bg-[#07152b]/95 text-amber-400 border border-amber-400/50 px-3 py-1 text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>{featuredProject.badge}</span>
+          </div>
         </div>
-      </a>
 
-      <!-- Item 2: Maserati -->
-      <a href="/european-car-key-specialist/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/Maserati-key-cut-and-programmed--scaled-600.webp 600w, /images/Maserati-key-cut-and-programmed--scaled-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/Maserati-key-cut-and-programmed--scaled.jpg" alt="Maserati Smart Key Programming" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Automotive</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Maserati Proximity Smart Key</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
+        <!-- Right: Case Study Context -->
+        <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between bg-[#07152b] text-white">
+          <div>
+            <div class="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-widest mb-2">
+              <span>{featuredProject.categoryLabel}</span>
+              <span>&bull;</span>
+              <span class="text-slate-300">{featuredProject.location}</span>
+            </div>
+            
+            <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading uppercase text-white tracking-tight leading-snug mb-3">
+              {featuredProject.title}
+            </h3>
+
+            <p class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+              {featuredProject.subtitle}
+            </p>
+
+            <!-- Specs Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 pt-4 border-t border-white/10 text-xs">
+              <div class="p-3 bg-white/5 border border-white/10">
+                <strong class="block text-amber-400 font-bold uppercase tracking-wider text-[10px]">Challenge</strong>
+                <span class="text-slate-300 text-xs">Life-safety code egress with unauthorized exit alarm deterrent.</span>
+              </div>
+              <div class="p-3 bg-white/5 border border-white/10">
+                <strong class="block text-emerald-400 font-bold uppercase tracking-wider text-[10px]">Solution</strong>
+                <span class="text-slate-300 text-xs">Installed UL-listed Detex ECL-230D panic hardware on-site.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
+            <span class="text-xs text-slate-300 font-medium">Installed by Armstrong Master Locksmiths</span>
+            <a 
+              href={featuredProject.href} 
+              class="px-5 py-2.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:brightness-110 text-slate-950 font-black text-xs uppercase tracking-wider shadow flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer"
+            >
+              <span>Explore Commercial Services &rarr;</span>
+            </a>
+          </div>
         </div>
-      </a>
 
-      <!-- Item 2: Commercial Keypad -->
-      <a href="/commercial-locksmith/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/before-keypad-installation-on-commercial-door-600.webp 600w, /images/before-keypad-installation-on-commercial-door-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/before-keypad-installation-on-commercial-door.jpg" alt="Commercial Door Keypad Installation" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Commercial</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Commercial Access Control Keypad</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
+      </div>
+    </div>
 
-      <!-- Item 3: Mercedes -->
-      <a href="/mercedes-benz/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/mercedes-Benz_20250627_002342_0000-1-scaled-600.webp 600w, /images/mercedes-Benz_20250627_002342_0000-1-scaled-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg" alt="Mercedes-Benz Key Fitment" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">European</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Mercedes-Benz EIS Programming</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
+    <!-- ==================== CURATED UNIFORM GRID ==================== -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" id="gallery-cards-grid">
+      {gridProjects.map((project, idx) => (
+        <a 
+          href={project.href} 
+          class={`gallery-item-card block overflow-hidden bg-white border border-slate-200 hover:border-amber-500 shadow-md hover:shadow-xl group transition-all duration-300 flex flex-col justify-between cursor-pointer ${idx >= 5 ? 'gallery-extra-item hidden' : ''}`}
+          data-category={project.category}
+        >
+          <div>
+            <!-- Fixed Aspect Ratio Image Viewport -->
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
+              <picture>
+                <source type="image/webp" srcset={`${project.webpSrc600} 600w, ${project.webpSrc1200} 1200w`} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
+                <img 
+                  src={project.imageSrc} 
+                  alt={project.alt} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  loading="lazy" 
+                  decoding="async" 
+                  width="600" 
+                  height="450" 
+                />
+              </picture>
+              
+              <!-- Badge Overlay -->
+              <div class="absolute top-2.5 left-2.5 bg-[#07152b]/90 text-white border border-white/20 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider shadow">
+                {project.badge}
+              </div>
 
-      <!-- Item 4: Toyota Lishi -->
-      <a href="/toyota-car-key-replacement/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/TOYOTA-LISHI-TOOL-600.webp 600w, /images/TOYOTA-LISHI-TOOL-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/TOYOTA-LISHI-TOOL.jpg" alt="Lishi Tool Lock Decoding" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Origination</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Lishi Decoding a Toyota Door Lock</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
+              <!-- Location Tag -->
+              <div class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-sm text-slate-200 px-2 py-0.5 text-[10px] font-bold">
+                📍 {project.location}
+              </div>
+            </div>
 
-      <!-- Item 5: Audi -->
-      <a href="/audi-car-keys/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/rahim-made-audi-keys-in-nashville-1-600.webp 600w, /images/rahim-made-audi-keys-in-nashville-1-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/rahim-made-audi-keys-in-nashville-1.png" alt="Rahim Programming Audi Keys" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Expertise</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Rahim Originating Audi Smart Keys</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
+            <!-- Card Body Content -->
+            <div class="p-4 sm:p-5 text-left">
+              <span class={`text-[10px] font-black uppercase tracking-widest block mb-1 ${project.tagColor === 'emerald' ? 'text-emerald-700' : project.tagColor === 'red' ? 'text-red-700' : 'text-amber-700'}`}>
+                {project.categoryLabel}
+              </span>
+              <h3 class="text-base sm:text-lg font-bold text-[#0f274a] font-heading uppercase tracking-tight leading-tight mb-2 group-hover:text-amber-600 transition">
+                {project.title}
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                {project.subtitle}
+              </p>
+            </div>
+          </div>
 
-      <!-- Item 6: BMW -->
-      <a href="/bmw/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000-600.webp 600w, /images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg" alt="BMW Key Replacement Brentwood" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">European</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">BMW CAS/FEM Key Programmed</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
+          <!-- Card Footer Action -->
+          <div class="px-4 sm:px-5 py-2.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700 group-hover:bg-amber-50/50 transition">
+            <span class="text-[11px] text-slate-500">Verified Job</span>
+            <span class="text-amber-600 font-extrabold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              View Service &rarr;
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
 
-      <!-- Item 7: Sako Unlock -->
-      <a href="/emergency-car-lockout/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled-600.webp 600w, /images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg" alt="Sako Unlocking a Car" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-red-400 uppercase tracking-widest block mb-1">Emergency</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Sako Performing a Non-Destructive Unlock</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Item 8: Broken Chevy -->
-      <a href="/key-fob-replacement-nashville/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/chevy-remote-buttons-gone-1-600.webp 600w, /images/chevy-remote-buttons-gone-1-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/chevy-remote-buttons-gone-1.jpg" alt="Broken Chevy Remote" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Repairs</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Worn Fob Shells & Button Repairs</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
-
-      <!-- Item 9: Rekey Cylinder -->
-      <a href="/nashville-rekey-service/" class="block break-inside-avoid overflow-hidden shadow-md border border-slate-200 bg-white group relative cursor-pointer">
-        <picture>
-          <source type="image/webp" srcset="/images/lock-rekeyed-by-armstrong-locksmith-technician-600.webp 600w, /images/lock-rekeyed-by-armstrong-locksmith-technician-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
-          <img src="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg" alt="Lock Rekeyed by Technician" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="600" height="450" />
-        </picture>
-        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f274a] via-[#0f274a]/90 to-transparent p-5 pt-16">
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Security</span>
-          <h3 class="text-white font-bold text-sm sm:text-base">Commercial Deadbolt Rekeying</h3>
-          <span class="text-xs text-slate-300 font-bold mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">View Service &rarr;</span>
-        </div>
-      </a>
-
+    <!-- ==================== EXPAND / SHOW ALL TOGGLE BUTTON ==================== -->
+    <div class="mt-8 sm:mt-10 text-center" id="gallery-expand-wrapper">
+      <button 
+        type="button" 
+        id="gallery-toggle-btn"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-[#07152b] hover:bg-[#0f274a] text-white border border-amber-500/60 hover:border-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
+      >
+        <span id="gallery-btn-text">Explore All 10 Field Projects</span>
+        <svg id="gallery-btn-icon" class="w-4 h-4 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
     </div>
 
   </div>
 </section>
+
+<!-- Lightweight Filter & Expand Script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const cards = document.querySelectorAll('.gallery-item-card');
+    const extraCards = document.querySelectorAll('.gallery-extra-item');
+    const toggleBtn = document.getElementById('gallery-toggle-btn');
+    const toggleText = document.getElementById('gallery-btn-text');
+    const toggleIcon = document.getElementById('gallery-btn-icon');
+    const expandWrapper = document.getElementById('gallery-expand-wrapper');
+
+    let isExpanded = false;
+    let activeFilter = 'all';
+
+    // 1. Filter Buttons Handler
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        activeFilter = filter;
+
+        // Active tab styling
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-[#07152b]', 'text-amber-400', 'border-amber-500/80', 'shadow-md');
+          b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+        });
+        btn.classList.add('active', 'bg-[#07152b]', 'text-amber-400', 'border-amber-500/80', 'shadow-md');
+        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
+
+        // Filter cards
+        cards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            // If specific filter selected, show all matching cards
+            if (filter !== 'all') {
+              card.classList.remove('hidden');
+            } else {
+              // 'all' filter obeys expansion state
+              if (card.classList.contains('gallery-extra-item') && !isExpanded) {
+                card.classList.add('hidden');
+              } else {
+                card.classList.remove('hidden');
+              }
+            }
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Hide expand button when filtering by specific category
+        if (expandWrapper) {
+          if (filter !== 'all') {
+            expandWrapper.classList.add('hidden');
+          } else {
+            expandWrapper.classList.remove('hidden');
+          }
+        }
+      });
+    });
+
+    // 2. Expand Toggle Handler
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+
+        extraCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (activeFilter === 'all' || category === activeFilter) {
+            if (isExpanded) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+
+        if (isExpanded) {
+          toggleText.textContent = 'Show Fewer Projects';
+          toggleIcon.classList.add('rotate-180');
+        } else {
+          toggleText.textContent = 'Explore All 10 Field Projects';
+          toggleIcon.classList.remove('rotate-180');
+          const gallerySec = document.getElementById('recent-work-gallery');
+          if (gallerySec) {
+            gallerySec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    }
+  });
+</script>
