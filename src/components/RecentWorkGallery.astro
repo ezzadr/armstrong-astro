@@ -158,12 +158,22 @@ const featuredProject = projects.find(p => p.featured) || projects[0];
 const gridProjects = projects.filter(p => p.id !== featuredProject.id);
 ---
 
-<section class="py-14 sm:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden font-sans" id="recent-work-gallery">
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<section class="py-12 sm:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden font-sans" id="recent-work-gallery">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider mb-3 border border-amber-200">
+    <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider mb-2.5 border border-amber-200">
         <span>📸</span>
         <span>Real Jobs &bull; Real Nashville Proof</span>
       </div>
@@ -171,40 +181,45 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
         Don't Trust Stock Photos. <br />
         <span class="text-amber-500">See Our Real Work.</span>
       </h2>
-      <p class="text-slate-600 mt-3 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
+      <p class="text-slate-600 mt-2.5 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
         Many online listings are out-of-state call centers using generic stock photos. We are real master technicians in Nashville. Browse our recent automotive, commercial, and residential projects.
       </p>
 
-      <!-- Category Filter Pills -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-6" id="gallery-filter-tabs">
-        <button 
-          type="button" 
-          data-filter="all" 
-          class="gallery-filter-btn active px-4 py-2 text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500/80 shadow-md transition-all cursor-pointer"
+      <!-- Category Filter Swipe Bar (Single Row Scrollable on Mobile, Centered Inline Strip on Desktop) -->
+      <div class="pt-5 pb-1 max-w-full overflow-hidden">
+        <div 
+          class="flex items-center gap-2 overflow-x-auto py-1 px-4 sm:px-0 no-scrollbar sm:flex-wrap sm:justify-center -mx-4 sm:mx-0 scroll-smooth touch-pan-x"
+          id="gallery-filter-tabs"
         >
-          All Projects (10)
-        </button>
-        <button 
-          type="button" 
-          data-filter="automotive" 
-          class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer"
-        >
-          🚗 Automotive &amp; European (5)
-        </button>
-        <button 
-          type="button" 
-          data-filter="commercial" 
-          class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer"
-        >
-          🏢 Commercial Security (2)
-        </button>
-        <button 
-          type="button" 
-          data-filter="emergency" 
-          class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer"
-        >
-          🚨 Emergency &amp; Rekey (3)
-        </button>
+          <button 
+            type="button" 
+            data-filter="all" 
+            class="gallery-filter-btn active shrink-0 px-4 py-2 text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+          >
+            All (10)
+          </button>
+          <button 
+            type="button" 
+            data-filter="automotive" 
+            class="gallery-filter-btn shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+          >
+            🚗 Automotive (5)
+          </button>
+          <button 
+            type="button" 
+            data-filter="commercial" 
+            class="gallery-filter-btn shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+          >
+            🏢 Commercial (2)
+          </button>
+          <button 
+            type="button" 
+            data-filter="emergency" 
+            class="gallery-filter-btn shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+          >
+            🚨 Emergency (3)
+          </button>
+        </div>
       </div>
     </div>
 
@@ -375,10 +390,10 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
 
         // Active tab styling
         filterButtons.forEach(b => {
-          b.classList.remove('active', 'bg-[#07152b]', 'text-amber-400', 'border-amber-500/80', 'shadow-md');
+          b.classList.remove('active', 'bg-[#07152b]', 'text-amber-400', 'border-amber-500', 'shadow-sm');
           b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
         });
-        btn.classList.add('active', 'bg-[#07152b]', 'text-amber-400', 'border-amber-500/80', 'shadow-md');
+        btn.classList.add('active', 'bg-[#07152b]', 'text-amber-400', 'border-amber-500', 'shadow-sm');
         btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
 
         // Filter cards
