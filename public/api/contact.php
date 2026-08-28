@@ -299,9 +299,18 @@ curl_setopt($chAi, CURLOPT_HTTPHEADER, [
     'X-Forwarded-For: ' . ($ip ?? '')
 ]);
 curl_setopt($chAi, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chAi, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($chAi, CURLOPT_USERAGENT, 'ArmstrongWebsiteProxy/1.0');
 curl_setopt($chAi, CURLOPT_TIMEOUT, 3);
+
 $aiResponse = curl_exec($chAi);
+$aiHttpCode = curl_getinfo($chAi, CURLINFO_HTTP_CODE);
+$aiError = curl_error($chAi);
 curl_close($chAi);
+
+@file_put_contents(__DIR__ . '/ai_dispatch_log.txt', date('Y-m-d H:i:s') . " | HTTP: $aiHttpCode | Err: $aiError | Resp: $aiResponse
+", FILE_APPEND);
+
 
 // 4. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
