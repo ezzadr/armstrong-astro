@@ -309,65 +309,42 @@
             }
           }
 
-          async function tryFallbackDispatch() {
-            try {
-              const fbRes = await fetch('/api/contact.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  name: customerName,
-                  phone: phone,
-                  service: service,
-                  details: vehicle,
-                  notes: 'Website Quote Request'
-                })
-              });
-              if (fbRes.ok) {
-                showSuccessState();
-                return true;
-              }
-            } catch (fbErr) {
-              console.error('Fallback dispatch error:', fbErr);
-            }
-            return false;
-          }
+          // Dual-Dispatch: Send concurrently to both AI App & Email/SMS
+          const aiPromise = fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          }).catch(err => {
+            console.warn('AI Dispatch notification notice:', err);
+            return { ok: false, status: 0 };
+          });
+
+          const emailPromise = fetch('/api/contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: customerName,
+              phone: phone,
+              service: service,
+              details: vehicle || 'Standard Vehicle / Request',
+              notes: 'Website Hero Quote Request',
+              company_website: honeypot
+            })
+          }).catch(err => {
+            console.warn('Email notification notice:', err);
+            return { ok: false, status: 0 };
+          });
 
           try {
-            const res = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify(payload)
-            });
+            const [aiResult, emailResult] = await Promise.all([aiPromise, emailPromise]);
 
-            if (res.ok) {
+            if (aiResult.ok || emailResult.ok) {
               showSuccessState();
             } else {
-              // Try fallback before showing error
-              const fallbackSuccess = await tryFallbackDispatch();
-              if (fallbackSuccess) return;
-
-              const data = await res.json().catch(() => ({}));
-              
-              // Handle server-side validation error
-              if (res.status === 422 && data.errors) {
-                if (data.errors.customer_name && nameError) {
-                  nameError.textContent = data.errors.customer_name[0];
-                  nameError.classList.remove('hidden');
-                }
-                if (data.errors.phone && phoneError) {
-                  phoneError.textContent = data.errors.phone[0];
-                  phoneError.classList.remove('hidden');
-                }
-                if ((data.errors.service || data.errors.service_type) && serviceError) {
-                  serviceError.textContent = (data.errors.service || data.errors.service_type)[0];
-                  serviceError.classList.remove('hidden');
-                }
-              }
-
-              // Show fallback error banner while preserving user entries
+              // Both failed (network offline / server issue)
               if (errorBanner) {
                 errorBanner.classList.remove('hidden');
               }
@@ -377,10 +354,7 @@
               }
             }
           } catch (err) {
-            console.error('Primary booking error, trying fallback dispatch:', err);
-            const fallbackSuccess = await tryFallbackDispatch();
-            if (fallbackSuccess) return;
-
+            console.error('Submission error:', err);
             if (errorBanner) {
               errorBanner.classList.remove('hidden');
             }

@@ -37,7 +37,7 @@
 Cloudways serves static files directly from the git root directory. Therefore, **every build must sync `dist/` to the root** before committing:
 
 **`npm run build` already syncs `dist/` to the root.** Do NOT copy it by hand.
-The build runs `scripts/sync-to-root.cjs`, which wipes `_astro/` before copying.
+The build runs `scripts/sync-to-root.mjs`, which wipes `_astro/` before copying.
 That pruning matters: every build emits new content-hashed bundle names, and the
 old plain-copy approach only ever added files — 82 files (6.1 MB) had piled up in
 `_astro/` of which exactly one was referenced. A manual `Copy-Item`/`cp` step

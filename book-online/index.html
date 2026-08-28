@@ -425,56 +425,42 @@
           company_website: ''
         };
 
-        async function tryFallback() {
-          try {
-            const fb = await fetch('/api/contact.php', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                name: name,
-                phone: phone,
-                service: fullService,
-                details: detailsStr || 'Website Booking',
-                notes: 'Online Booking Request'
-              })
-            });
-            if (fb.ok) {
-              updateStepper(4);
-              return true;
-            }
-          } catch (e) {
-            console.error('Fallback booking error:', e);
-          }
-          return false;
-        }
+        // Dual-Dispatch: Send concurrently to both AI App & Email/SMS
+        const aiPromise = fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).catch(err => {
+          console.warn('AI Dispatch booking notification notice:', err);
+          return { ok: false, status: 0 };
+        });
+
+        const emailPromise = fetch('/api/contact.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            service: fullService,
+            details: detailsStr || 'Website Booking',
+            notes: 'Online Booking Request',
+            company_website: ''
+          })
+        }).catch(err => {
+          console.warn('Email booking notification notice:', err);
+          return { ok: false, status: 0 };
+        });
 
         try {
-          const res = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
-          });
+          const [aiResult, emailResult] = await Promise.all([aiPromise, emailPromise]);
 
-          if (res.ok) {
+          if (aiResult.ok || emailResult.ok) {
             updateStepper(4);
           } else {
-            const fbOk = await tryFallback();
-            if (fbOk) return;
-
-            const data = await res.json().catch(() => ({}));
-            if (res.status === 422 && data.errors) {
-              if (data.errors.customer_name && errName) {
-                errName.textContent = data.errors.customer_name[0];
-                errName.classList.remove('hidden');
-              }
-              if (data.errors.phone && errPhone) {
-                errPhone.textContent = data.errors.phone[0];
-                errPhone.classList.remove('hidden');
-              }
-            }
+            // Both failed (network offline / server issue)
             if (apiError) apiError.classList.remove('hidden');
             if (submitBtn) {
               submitBtn.disabled = false;
@@ -482,10 +468,7 @@
             }
           }
         } catch (err) {
-          console.error('Booking error, trying fallback:', err);
-          const fbOk = await tryFallback();
-          if (fbOk) return;
-
+          console.error('Booking submission error:', err);
           if (apiError) apiError.classList.remove('hidden');
           if (submitBtn) {
             submitBtn.disabled = false;

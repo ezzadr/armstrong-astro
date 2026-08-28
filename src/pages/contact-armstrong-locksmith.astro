@@ -179,23 +179,26 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
               ></textarea>
             </div>
 
+            <!-- Honeypot Bot Trap -->
+            <input type="text" name="company_website" id="contact-company-website" class="hidden" tabindex="-1" autocomplete="off" />
+
             <button 
               type="submit" 
               id="contact-submit-btn"
-              class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
+              class="w-full py-4 px-6 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
             >
               <span>Send Message to On-Duty Locksmith &rarr;</span>
             </button>
             <div class="text-xs text-slate-500 text-center font-medium">
-              🔒 Form transmits directly to our mobile team dispatch phone via Twilio.
+              🔒 Direct secure dispatch to on-duty technicians & admin desk.
             </div>
           </form>
 
-          <div id="contact-success-msg" class="hidden p-6 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-center">
+          <div id="contact-success-msg" class="hidden p-6 bg-emerald-50 border border-emerald-300 text-emerald-900 text-center">
             <div class="text-3xl mb-1">📱</div>
             <strong class="block text-base font-bold">Message Dispatched!</strong>
             <p class="text-xs text-emerald-800 mt-1">
-              Your inquiry has been sent via SMS directly to our mobile team. We will call or text you back <strong>promptly</strong>.
+              Your inquiry has been sent directly to our mobile team and dispatch desk. We will call or text you back <strong>promptly</strong>.
             </p>
             <div class="mt-3 pt-3 border-t border-emerald-200">
               <a href="tel:6156258000" class="text-xs font-bold text-emerald-900 underline">
@@ -210,45 +213,102 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
     </div>
   </section>
 
-  <!-- Twilio Submission Script -->
+  <!-- Dual-Dispatch Submission Script -->
   <script is:inline>
     (function () {
       const form = document.getElementById('contact-page-form');
       const successMsg = document.getElementById('contact-success-msg');
       const submitBtn = document.getElementById('contact-submit-btn');
+      const formStartedAt = Math.floor(Date.now() / 1000);
 
       if (form) {
         form.addEventListener('submit', async function (e) {
           e.preventDefault();
 
+          const honeypot = form.company_website ? form.company_website.value.trim() : '';
+          if (honeypot !== '') {
+            // Fake success for spam bots
+            form.classList.add('hidden');
+            if (successMsg) successMsg.classList.remove('hidden');
+            return;
+          }
+
           if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>⚡ Dispatching SMS...</span>';
+            submitBtn.innerHTML = '<span>⚡ Dispatching Request...</span>';
           }
 
-          const formData = {
-            name: form.name ? form.name.value : '',
-            phone: form.phone ? form.phone.value : '',
-            service: form.service ? form.service.value : '',
-            details: form.details ? form.details.value : '',
-            email: form.email ? form.email.value : '',
-            notes: form.message ? form.message.value : (form.notes ? form.notes.value : '')
+          const customerName = form.name ? form.name.value.trim() : '';
+          const phone = form.phone ? form.phone.value.trim() : '';
+          const service = form.service ? form.service.value : 'General Locksmith';
+          const email = form.email ? form.email.value.trim() : '';
+          const message = form.message ? form.message.value.trim() : '';
+
+          const detailsStr = [email ? `Email: ${email}` : '', message ? `Message: ${message}` : ''].filter(Boolean).join(' | ');
+          const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
+
+          // 1. Dispatch AI App Payload
+          const aiPayload = {
+            customer_name: customerName,
+            phone: phone,
+            service: service,
+            service_type: service,
+            vehicle: detailsStr || 'Contact Page Request',
+            form_started_at: safeFormStartedAt,
+            company_website: ''
           };
 
-          try {
-            const res = await fetch('/api/contact.php', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(formData)
-            });
-            await res.json();
-          } catch (err) {
-            // Error handled silently in production
-          }
+          // 2. Email & SMS Payload
+          const emailPayload = {
+            name: customerName,
+            phone: phone,
+            service: service,
+            details: detailsStr || 'Contact Page Request',
+            email: email,
+            notes: message,
+            company_website: honeypot
+          };
 
-          form.classList.add('hidden');
-          if (successMsg) {
-            successMsg.classList.remove('hidden');
+          // Dual-Dispatch: Trigger both in parallel
+          const aiPromise = fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(aiPayload)
+          }).catch(err => {
+            console.warn('AI Dispatch contact notice:', err);
+            return { ok: false, status: 0 };
+          });
+
+          const emailPromise = fetch('/api/contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(emailPayload)
+          }).catch(err => {
+            console.warn('Email contact notice:', err);
+            return { ok: false, status: 0 };
+          });
+
+          try {
+            const [aiResult, emailResult] = await Promise.all([aiPromise, emailPromise]);
+
+            if (aiResult.ok || emailResult.ok) {
+              form.classList.add('hidden');
+              if (successMsg) successMsg.classList.remove('hidden');
+            } else {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Send Message to On-Duty Locksmith &rarr;</span>';
+              }
+            }
+          } catch (err) {
+            console.error('Contact submission error:', err);
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<span>Send Message to On-Duty Locksmith &rarr;</span>';
+            }
           }
         });
       }
