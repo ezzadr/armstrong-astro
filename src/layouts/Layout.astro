@@ -305,16 +305,26 @@ const baseBusinessSchema = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   )}
 
-  <!-- Zero-TBT Intelligent Google Tag Manager -->
+  <!--
+    Deferred Google Tag Manager.
+
+    GTM loads on the first real interaction (click / touch / keydown) or once the
+    browser goes idle, whichever comes first. That keeps it off the critical path
+    without hiding it from anyone: every visitor gets the same page, and so does
+    every measurement tool.
+
+    This deliberately does NOT skip GTM for Lighthouse / PageSpeed user agents.
+    Serving a lighter page to Google's inspection tools inflates the lab score
+    while real users still pay the cost, so the number stops describing anything.
+    Field data (CrUX) always measured the real page regardless, and that is what
+    Search Console reports and what ranking uses.
+  -->
+  <!-- Zero-TBT Deferred Google Tag Manager -->
   <script is:inline>
     (function() {
       var gtmLoaded = false;
       function loadGTM() {
         if (gtmLoaded) return;
-        // Avoid executing GTM on automated Lighthouse / PageSpeed tests to keep 100/100 score
-        if (navigator.userAgent && /Lighthouse|Google-InspectionTool|Chrome-Lighthouse|PageSpeed/i.test(navigator.userAgent)) {
-          return;
-        }
         gtmLoaded = true;
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

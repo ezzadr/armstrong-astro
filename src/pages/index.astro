@@ -893,10 +893,9 @@ const homepageSchema = [
         }
       }
 
-      // Sync live reviews non-blockingly during idle time
-      if (navigator.userAgent && /Lighthouse|Google-InspectionTool|Chrome-Lighthouse|PageSpeed/i.test(navigator.userAgent)) {
-        return;
-      }
+      // Sync live reviews non-blockingly during idle time.
+      // No user-agent gate here: measurement tools get the same page as visitors,
+      // so the lab score keeps describing what people actually load.
       if ('requestIdleCallback' in window) {
         requestIdleCallback(syncLiveGoogleReviews, { timeout: 6000 });
       } else {
