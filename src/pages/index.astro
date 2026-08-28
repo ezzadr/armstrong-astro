@@ -818,18 +818,6 @@ const homepageSchema = [
           }
 
           // Dual-Dispatch: Send concurrently to both AI App & Email/SMS
-          const aiPromise = fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
-          }).catch(err => {
-            console.warn('AI Dispatch notification notice:', err);
-            return { ok: false, status: 0 };
-          });
-
           const emailPromise = fetch('/api/contact.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -847,9 +835,9 @@ const homepageSchema = [
           });
 
           try {
-            const [aiResult, emailResult] = await Promise.all([aiPromise, emailPromise]);
+            const emailResult = await emailPromise;
 
-            if (aiResult.ok || emailResult.ok) {
+            if (emailResult.ok) {
               showSuccessState();
             } else {
               // Both failed (network offline / server issue)

@@ -276,6 +276,33 @@ $smtpSent = sendGoogleWorkspaceSmtp(
     $email
 );
 
+
+// 3.5 Proxy Lead to AI Dispatch App
+$aiPayload = json_encode([
+    'customer_name' => $name,
+    'phone'         => $phone,
+    'service'       => $service,
+    'service_type'  => $service,
+    'vehicle'       => $details,
+    'form_started_at' => time() - 10,
+    'company_website' => ''
+]);
+
+$chAi = curl_init('https://booking.armstronglocksmithinc.com/api/website-bookings');
+curl_setopt($chAi, CURLOPT_POST, true);
+curl_setopt($chAi, CURLOPT_POSTFIELDS, $aiPayload);
+curl_setopt($chAi, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Accept: application/json',
+    'Origin: https://armstronglocksmithinc.com',
+    'Referer: https://armstronglocksmithinc.com/',
+    'X-Forwarded-For: ' . ($ip ?? '')
+]);
+curl_setopt($chAi, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($chAi, CURLOPT_TIMEOUT, 3);
+$aiResponse = curl_exec($chAi);
+curl_close($chAi);
+
 // 4. Twilio Active Configuration
 $accountSid = 'AC1c283a892ca8f15081d8b000a2a5d5b2';
 $authToken  = '659fb2febe1f3ab60703a1f74439843a';

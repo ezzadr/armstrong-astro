@@ -270,18 +270,6 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
           };
 
           // Dual-Dispatch: Trigger both in parallel
-          const aiPromise = fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(aiPayload)
-          }).catch(err => {
-            console.warn('AI Dispatch contact notice:', err);
-            return { ok: false, status: 0 };
-          });
-
           const emailPromise = fetch('/api/contact.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -292,9 +280,9 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
           });
 
           try {
-            const [aiResult, emailResult] = await Promise.all([aiPromise, emailPromise]);
+            const emailResult = await emailPromise;
 
-            if (aiResult.ok || emailResult.ok) {
+            if (emailResult.ok) {
               form.classList.add('hidden');
               if (successMsg) successMsg.classList.remove('hidden');
             } else {
