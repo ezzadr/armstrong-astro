@@ -185,37 +185,37 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
         Many online listings are out-of-state call centers using generic stock photos. We are real master technicians in Nashville. Browse our recent automotive, commercial, and residential projects.
       </p>
 
-      <!-- Category Filter Swipe Bar (Single Row Scrollable on Mobile, Centered Inline Strip on Desktop) -->
-      <div class="pt-5 pb-1 max-w-full overflow-hidden">
+      <!-- Category Filter Tabs (2-Column Balanced Grid on Mobile, Centered Inline Strip on Desktop) -->
+      <div class="pt-4 pb-1 max-w-xl mx-auto">
         <div 
-          class="flex items-center gap-2 overflow-x-auto py-1 px-4 sm:px-0 no-scrollbar sm:flex-wrap sm:justify-center -mx-4 sm:mx-0 scroll-smooth touch-pan-x"
+          class="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-2"
           id="gallery-filter-tabs"
         >
           <button 
             type="button" 
             data-filter="all" 
-            class="gallery-filter-btn active shrink-0 px-4 py-2 text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            class="gallery-filter-btn active w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer text-center"
           >
-            All (10)
+            All Work (10)
           </button>
           <button 
             type="button" 
             data-filter="automotive" 
-            class="gallery-filter-btn shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
             🚗 Automotive (5)
           </button>
           <button 
             type="button" 
             data-filter="commercial" 
-            class="gallery-filter-btn shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
             🏢 Commercial (2)
           </button>
           <button 
             type="button" 
             data-filter="emergency" 
-            class="gallery-filter-btn shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
             🚨 Emergency (3)
           </button>
