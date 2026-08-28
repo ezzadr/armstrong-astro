@@ -176,7 +176,9 @@ const homepageSchema = [
             </div>
           </div>
 
-          <form id="hero-quote-form" class="flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
+          <!-- `arm-fields-3d` adds the raised/recessed field styling.
+               Delete just that one class to revert the fields to flat. -->
+          <form id="hero-quote-form" class="arm-fields-3d flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
             <!-- Invisible Honeypot Field (Anti-bot) -->
             <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
               <label for="company_website">Company Website</label>
