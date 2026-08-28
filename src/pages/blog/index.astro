@@ -92,7 +92,9 @@ const remainingPosts = sortedPosts.slice(1);
 
               <div class="flex items-center justify-between pt-6 border-t border-slate-100">
                 <div class="flex items-center gap-3">
-                  <img 
+                  <picture>
+                    <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="(max-width: 640px) 100vw, 40px" />
+                    <img 
                     src="/images/rahim-face.jpg" 
                     alt="Rahim Ezzadpanah" 
                     class="w-10 h-10 rounded-full object-cover border border-slate-200"
@@ -100,6 +102,7 @@ const remainingPosts = sortedPosts.slice(1);
                     height="40"
                     loading="lazy"
                   />
+                  </picture>
                   <div>
                     <strong class="block text-xs font-bold text-slate-800">{featuredPost.data.author || "Rahim Ezzadpanah"}</strong>
                     <span class="text-[11px] text-slate-500">Master Locksmith</span>
@@ -186,7 +189,9 @@ const remainingPosts = sortedPosts.slice(1);
       <!-- BOTTOM AUTHOR & SHOP TRUST BANNER -->
       <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-4">
-          <img 
+          <picture>
+            <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="(max-width: 640px) 100vw, 64px" />
+            <img 
             src="/images/rahim-face.jpg" 
             alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville" 
             class="w-16 h-16 rounded-2xl object-cover border-2 border-amber-500 shadow flex-shrink-0"
@@ -194,6 +199,7 @@ const remainingPosts = sortedPosts.slice(1);
             height="64"
             loading="lazy"
           />
+          </picture>
           <div>
             <h2 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase">Have a Specific Key or Lock Question?</h2>
             <p class="text-xs sm:text-sm text-slate-600">Rahim and our licensed technicians provide straightforward technical advice and upfront quotes.</p>

@@ -54,7 +54,10 @@ const schema = {
       </div>
 
       <div class="lg:col-span-5 rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-900">
-        <img src="/shop.jpeg" alt="Armstrong Locksmith Storefront 208 Thompson Ln Nashville" class="w-full h-80 object-cover" width="600" height="400" loading="lazy" />
+        <picture>
+          <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 600px" />
+          <img src="/shop.jpeg" alt="Armstrong Locksmith Storefront 208 Thompson Ln Nashville" class="w-full h-80 object-cover" width="600" height="400" loading="lazy" />
+        </picture>
         <div class="p-6 bg-slate-950 text-white text-xs space-y-2 border-t border-slate-800">
           <div class="flex justify-between">
             <span class="text-slate-400">Address:</span>

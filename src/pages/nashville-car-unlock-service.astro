@@ -146,7 +146,9 @@ const serviceSchema = {
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
       <div class="lg:col-span-5 rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl">
-        <img 
+        <picture>
+          <source type="image/webp" srcset="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled-600.webp 600w, /images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 600px" />
+          <img 
           src="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg" 
           alt="Armstrong Locksmith Technician Sako Unlocking Vehicle Safely on Location in Nashville"
           class="w-full h-80 object-cover"
@@ -154,6 +156,7 @@ const serviceSchema = {
           height="400"
           loading="lazy"
         />
+        </picture>
         <div class="p-3.5 bg-white text-xs font-bold text-[#0f274a] text-center border-t border-slate-200">
           Technician Sako decoding an automotive door lock on-site in Nashville
         </div>

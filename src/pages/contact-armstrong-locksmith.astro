@@ -26,7 +26,9 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
       <div class="lg:col-span-5 flex flex-col gap-6">
         
         <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-          <img 
+          <picture>
+            <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 400px" />
+            <img 
             src="/shop.jpeg" 
             alt="Armstrong Locksmith Storefront 208 Thompson Lane Nashville" 
             class="w-full h-56 object-cover"
@@ -34,6 +36,7 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
             height="250"
             loading="lazy"
           />
+          </picture>
           <div class="p-4 bg-slate-50 border-t border-slate-200 text-center">
             <p class="text-base font-bold text-[#0f274a] font-heading font-black uppercase">Storefront at 208 Thompson Ln</p>
             <span class="text-xs text-slate-500">Drop in during business hours for fast key copies</span>

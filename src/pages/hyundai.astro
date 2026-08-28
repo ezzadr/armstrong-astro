@@ -183,7 +183,9 @@ const hyundaiModels = [
 
           <!-- Featured Real Hyundai Key Photo -->
           <div class="relative rounded-xl overflow-hidden bg-slate-900/60 border border-white/10 flex items-center justify-center p-4">
-            <img 
+            <picture>
+              <source type="image/webp" srcset="/images/Hyundai-car-key-300.webp 300w, /images/Hyundai-car-key-600.webp 600w" sizes="(max-width: 640px) 100vw, 300px" />
+              <img 
               src="/images/Hyundai-car-key.png" 
               alt="Hyundai Car Key Replacement Nashville" 
               class="h-36 sm:h-44 w-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
@@ -191,6 +193,7 @@ const hyundaiModels = [
               height="176"
               loading="eager"
             />
+            </picture>
             <div class="absolute bottom-2 left-2 bg-[#07152b] bg-navy-grid/90 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md border border-amber-400/30 backdrop-blur-sm">
               Smart Proximity Fobs in Stock
             </div>

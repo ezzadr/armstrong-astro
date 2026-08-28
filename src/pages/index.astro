@@ -555,7 +555,9 @@ const homepageSchema = [
       
       <div class="lg:col-span-5">
         <div class="overflow-hidden border border-slate-200 shadow-md">
-          <img 
+          <picture>
+            <source type="image/webp" srcset="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith-600.webp 600w, /images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 480px" />
+            <img 
             src="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg" 
             alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville"
             class="w-full h-auto object-cover"
@@ -564,6 +566,7 @@ const homepageSchema = [
             width="480"
             height="480"
           />
+          </picture>
           <div class="p-4 bg-slate-50 border-t border-slate-200 text-center">
             <p class="text-base font-bold text-[#0f274a]">Rahim Ezzadpanah</p>
             <span class="text-xs text-slate-500 font-medium">Owner & Master Locksmith</span>

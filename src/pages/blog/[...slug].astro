@@ -128,7 +128,9 @@ const computedTitle = post.data.title.length > 45
 
       <!-- Author Card Header -->
       <div class="flex items-center gap-3.5 pt-4 border-t border-white/10 w-fit">
-        <img 
+        <picture>
+          <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="(max-width: 640px) 100vw, 48px" />
+          <img 
           src="/images/rahim-face.jpg" 
           alt="Rahim Ezzadpanah" 
           class="w-12 h-12 rounded-full object-cover border-2 border-amber-500 shadow"
@@ -136,6 +138,7 @@ const computedTitle = post.data.title.length > 45
           height="48"
           loading="eager"
         />
+        </picture>
         <div class="text-left">
           <div class="flex items-center gap-1.5 text-sm font-bold text-white">
             <span class="text-amber-300 font-medium text-xs">Written by</span>
@@ -344,7 +347,9 @@ const computedTitle = post.data.title.length > 45
 
         <!-- Author Signature Card -->
         <div class="mt-12 p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center sm:items-start gap-5">
-          <img 
+          <picture>
+            <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="(max-width: 640px) 100vw, 96px" />
+            <img 
             src="/images/rahim-face.jpg" 
             alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville" 
             class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500 shadow-md flex-shrink-0"
@@ -352,6 +357,7 @@ const computedTitle = post.data.title.length > 45
             height="96"
             loading="lazy"
           />
+          </picture>
           <div class="text-left flex-grow">
             <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-0.5">Written by</span>
             <h3 class="text-xl font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5 flex items-center gap-2">
@@ -406,7 +412,10 @@ const computedTitle = post.data.title.length > 45
         <!-- Storefront Drop-In Card -->
         <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm text-left">
           <div class="rounded-xl overflow-hidden mb-3">
-            <img src="/shop.jpeg" alt="Armstrong Locksmith Storefront" class="w-full h-32 object-cover" width="400" height="200" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 400px" />
+              <img src="/shop.jpeg" alt="Armstrong Locksmith Storefront" class="w-full h-32 object-cover" width="400" height="200" loading="lazy" />
+            </picture>
           </div>
           <h3 class="text-sm font-bold text-[#0f274a] font-heading font-black uppercase mb-1">Visit Our Nashville Shop</h3>
           <p class="text-xs text-slate-600 mb-3">Save mobile dispatch fees by visiting our physical store on Thompson Lane.</p>
