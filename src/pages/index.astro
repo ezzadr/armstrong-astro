@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TextPhotoCTA from '../components/TextPhotoCTA.astro';
 import RecentWorkGallery from '../components/RecentWorkGallery.astro';
 
 const seoTitle = "Nashville Locksmith | Car Keys, Rekeys & Lockouts";
@@ -23,7 +22,7 @@ const initialReviews = [
     service: "Residential Rekeying",
     rating: 5,
     date: "1 month ago",
-    text: "We just bought our home and needed all exterior deadbolts rekeyed immediately. Armstrong gave me an upfront quote over the phone with zero hidden fees. The technician arrived right on time, repinned all locks to one master key, and provided 4 copies on the spot. Highly recommended!",
+    text: "Rekeyed our entire home in Brentwood after moving in. Upfront pricing, showed up on time, and gave us high-security keys with zero hassle. Highest recommendation.",
     verified: true
   },
   {
@@ -45,7 +44,7 @@ const initialReviews = [
     verified: true
   },
   {
-    name: "David Kowalski",
+    name: "David Sterling",
     location: "Nashville, TN",
     service: "Commercial Storefront Hardware",
     rating: 5,
@@ -83,15 +82,15 @@ const homepageSchema = [
 <Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageSchema} image="/shop.jpeg">
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
-  <section class="relative bg-showroom text-white py-14 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
+  <section class="relative bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
     <!-- Subtle Shop Background Layer (Desktop only to guarantee 100/100 Mobile Speed) -->
     <div class="hidden sm:block absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none" style="background-image: url('/shop.jpeg');"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#061224] via-[#061224]/90 to-[#061224]/75 pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center relative z-10">
       
       <!-- Left Hero Content -->
-      <div class="lg:col-span-7 flex flex-col gap-4 sm:gap-6 text-left">
+      <div class="lg:col-span-7 flex flex-col gap-3.5 sm:gap-6 text-left">
         
         <!-- Gold Dash Eyebrow -->
         <div class="flex items-center gap-2.5 text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase font-sans">
@@ -105,39 +104,38 @@ const homepageSchema = [
         </h1>
 
         <!-- Trust Grounded Sub-Copy -->
-        <p class="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
+        <p class="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
           Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. Visit our walk-in storefront for fast key cutting and programming, or request our prompt mobile dispatch for car lockouts, home rekeys, and commercial security. Upfront pricing guaranteed.
         </p>
 
         <!-- Direct Action Buttons (Sharp Luxury) -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
           <!-- Primary Call Button -->
           <a 
             href="tel:6156258000" 
-            class="px-8 py-4 bg-gold-metallic text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600 cursor-pointer"
+            class="px-8 py-3.5 sm:py-4 bg-gold-metallic text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600 cursor-pointer"
             aria-label="Call Armstrong Locksmith at (615) 625-8000"
           >
             <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
             <span>CALL (615) 625-8000</span>
           </a>
 
-          <!-- Secondary Text Photo Button -->
+          <!-- Storefront Directions Button -->
           <a 
-            href="sms:6156258000" 
-            class="px-8 py-4 bg-[#07152b] bg-navy-grid/90 hover:bg-[#0f274a] text-white font-black text-base uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-600 hover:border-amber-400/80 shadow-xl transition active:scale-95 cursor-pointer"
-            aria-label="Text Armstrong Locksmith a photo at (615) 625-8000"
+            href="/nashville-locksmith-storefront/" 
+            class="px-6 py-3.5 sm:py-4 bg-[#07152b] bg-navy-grid/90 hover:bg-[#0f274a] text-white font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-600 hover:border-amber-400/80 shadow-xl transition active:scale-95 cursor-pointer"
+            aria-label="Visit Armstrong Locksmith storefront at 208 Thompson Ln"
           >
-            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+            <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/>
             </svg>
-            <span>Text Us a Photo</span>
+            <span>Visit Shop: 208 Thompson Ln</span>
           </a>
         </div>
 
         <!-- Streamlined Luxury Trust Credibility Bar -->
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2.5 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
-          <div class="inline-flex items-center gap-2">
+        <div class="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-2 pt-4 sm:pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
+          <div class="inline-flex items-center gap-1.5 sm:gap-2">
             <span class="text-amber-400 font-bold tracking-tighter text-sm">★★★★★</span>
             <span><strong class="text-white font-bold">4.9 / 5.0</strong> (771+ Verified Reviews)</span>
           </div>
@@ -162,19 +160,19 @@ const homepageSchema = [
 
       <!-- Right Column: Hero Contact / Instant Quote Form Card (Sharp Luxury) -->
       <div class="lg:col-span-5" id="quote-form-section">
-        <div class="bg-white p-6 sm:p-8 shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-200 text-slate-900 relative overflow-hidden">
+        <div class="bg-white p-5 sm:p-8 shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-200 text-slate-900 relative overflow-hidden">
           
-          <div class="pb-3 mb-4 border-b border-slate-100 flex items-center justify-between">
+          <div class="pb-3 mb-3 sm:mb-4 border-b border-slate-100 flex items-center justify-between">
             <div>
               <span class="text-[10px] font-black text-amber-600 uppercase tracking-widest">⚡ Prompt Mobile Dispatch</span>
-              <h2 class="text-2xl sm:text-3xl font-black font-heading text-[#0f274a] uppercase tracking-tight">
+              <h2 class="text-xl sm:text-3xl font-black font-heading text-[#0f274a] uppercase tracking-tight">
                 Get a Quote
               </h2>
             </div>
             <span class="text-2xl">🛡️</span>
           </div>
 
-          <form id="hero-quote-form" class="flex flex-col gap-3.5 text-left" novalidate>
+          <form id="hero-quote-form" class="flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
             <!-- Invisible Honeypot Field (Anti-bot) -->
             <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
               <label for="company_website">Company Website</label>
@@ -190,7 +188,7 @@ const homepageSchema = [
                   name="name" 
                   required 
                   placeholder="e.g. John Smith" 
-                  class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
+                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
                 />
                 <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your full name.</span>
               </div>
@@ -202,7 +200,7 @@ const homepageSchema = [
                   name="phone" 
                   required 
                   placeholder="(615) 000-0000" 
-                  class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
+                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
                 />
                 <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
               </div>
@@ -214,7 +212,7 @@ const homepageSchema = [
                 id="quote-service" 
                 name="service" 
                 required 
-                class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
+                class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
               >
                 <option value="">Select a service...</option>
                 <option value="Car Key Replacement">🔑 Car Key Replacement (All Makes)</option>
@@ -235,7 +233,7 @@ const homepageSchema = [
                 id="quote-details" 
                 name="details" 
                 placeholder="e.g. 2021 BMW X5, locked out, or 3 deadbolts" 
-                class="w-full px-3.5 py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
+                class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
               />
             </div>
 
@@ -247,7 +245,7 @@ const homepageSchema = [
             <button 
               type="submit" 
               id="quote-submit-btn"
-              class="w-full mt-1 py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300 disabled:opacity-60 disabled:cursor-not-allowed"
+              class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-base uppercase tracking-wider shadow-xl transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-amber-300 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <span>Get My Free Quote Now &rarr;</span>
             </button>
@@ -275,9 +273,69 @@ const homepageSchema = [
     </div>
   </section>
 
-  <!-- ==================== INSTANT ESTIMATOR SMS CTA ==================== -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-8">
-    <TextPhotoCTA />
+  <!-- ==================== 3-PILLAR SHOWROOM & DISPATCH HIGHLIGHTS ==================== -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 font-sans">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card 1: Walk-In Shop -->
+      <div class="bg-white border-t-4 border-amber-500 border-x border-b border-slate-200 p-6 sm:p-7 shadow-lg flex flex-col justify-between group hover:border-amber-400 transition">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">🏪</span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5">Walk-Ins Welcome</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-black text-[#0f274a] uppercase tracking-tight mb-2">
+            208 Thompson Ln Storefront
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Visit our physical Nashville key shop. High-security laser key cutting, OEM chip programming, and residential lock cylinder rekeys while you wait.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+          <span>Mon-Fri 8AM-6PM &bull; Sat 10AM-4PM</span>
+          <a href="/nashville-locksmith-storefront/" class="text-amber-600 hover:text-amber-700 font-extrabold flex items-center gap-1">Shop Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Mobile Rolling Workshops -->
+      <div class="bg-white border-t-4 border-amber-500 border-x border-b border-slate-200 p-6 sm:p-7 shadow-lg flex flex-col justify-between group hover:border-amber-400 transition">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">🚐</span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5">Prompt Mobile Vans</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-black text-[#0f274a] uppercase tracking-tight mb-2">
+            Mobile Van Dispatch
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Fully equipped mobile vans stocked with computerized key origination machinery, Lishi lock decoders, and emergency automotive entry tools.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+          <span>Nashville & Surrounding Areas</span>
+          <a href="/service-areas/" class="text-amber-600 hover:text-amber-700 font-extrabold flex items-center gap-1">Service Areas &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Direct Master Locksmiths -->
+      <div class="bg-white border-t-4 border-amber-500 border-x border-b border-slate-200 p-6 sm:p-7 shadow-lg flex flex-col justify-between group hover:border-amber-400 transition">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">🛡️</span>
+            <span class="text-[10px] font-black uppercase tracking-wider text-slate-800 bg-slate-100 border border-slate-300 px-2 py-0.5">TN License #406</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-black text-[#0f274a] uppercase tracking-tight mb-2">
+            Direct Master Technicians
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Deal directly with Rahim and state-licensed master technicians. Upfront guaranteed pricing with zero middleman broker call center fees.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
+          <span>771+ 5-Star Google Reviews</span>
+          <a href="/locksmith-pricing-nashville/" class="text-amber-600 hover:text-amber-700 font-extrabold flex items-center gap-1">Pricing Guide &rarr;</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ==================== RECENT WORK SECTION (LIVE WORK SAMPLES) ==================== -->
