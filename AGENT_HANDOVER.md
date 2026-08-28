@@ -10,7 +10,7 @@
 * **Storefront Location:** 208 Thompson Ln, Nashville, TN 37211
 * **Owner & Master Tech:** Rahim Ezzadpanah (20+ years automotive & security experience)
 * **Phone:** (615) 625-8000
-* **Credentials:** TN Locksmith License #406 &bull; Certified & Insured &bull; 4.9 Stars (769+ Google Reviews)
+* **Credentials:** TN Locksmith License #406 &bull; Certified & Insured &bull; 4.9 Stars (771+ Google Reviews)
 * **Live Domain:** `https://armstronglocksmithinc.com/`
 
 ---
@@ -36,23 +36,26 @@
 ## 3. Deployment & Git Workflow (CRITICAL)
 Cloudways serves static files directly from the git root directory. Therefore, **every build must sync `dist/` to the root** before committing:
 
-### Windows PowerShell Build Command:
-```powershell
-npm run build
-Copy-Item "dist\*" "." -Recurse -Force
+**`npm run build` already syncs `dist/` to the root.** Do NOT copy it by hand.
+The build runs `scripts/sync-to-root.cjs`, which wipes `_astro/` before copying.
+That pruning matters: every build emits new content-hashed bundle names, and the
+old plain-copy approach only ever added files — 82 files (6.1 MB) had piled up in
+`_astro/` of which exactly one was referenced. A manual `Copy-Item`/`cp` step
+bypasses nothing and re-teaches the wrong model, so it was removed.
+
+```bash
+npm run build          # builds AND syncs to root, pruning stale _astro
 git add -A
 git commit -m "<descriptive message>"
-git push origin main
+git push origin main   # push to main is the deploy
 ```
 
-### Mac / Linux Terminal Build Command:
-```bash
-npm run build
-cp -r dist/* .
-git add -A
-git commit -m "<descriptive message>"
-git push origin main
-```
+### How deployment actually works
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which SSHes to
+Cloudways and runs `git reset --hard origin/main`. **The action does not build.**
+Whatever HTML is committed at the repo root is what goes live — so a commit that
+touches only `src/` will never reach production. This has bitten the project
+before: four commits sat unbuilt and the live site served stale HTML for days.
 
 ---
 
@@ -69,7 +72,56 @@ git push origin main
 ---
 
 ## 5. Current Task State & Next Steps
-* Entire 44-page site is updated with the luxury showroom aesthetic, self-hosted fonts, and zero-curve styling.
-* Both the Hero Quote Form and `/book-online/` are connected natively to `https://booking.armstronglocksmithinc.com/api/website-bookings`.
-* Submissions appear in the Armstrong Dispatch Website Bookings section for staff review.
-* When continuing work from home: run `git pull`, run `npm run dev` to preview at `http://localhost:4321`, make edits, build, sync to root, and push!
+* Entire 44-page site uses the luxury showroom aesthetic, self-hosted fonts, and zero-curve styling.
+* Both the Hero Quote Form and `/book-online/` post natively to `https://booking.armstronglocksmithinc.com/api/website-bookings`.
+* When continuing work: `git pull`, `npm run dev` (preview at `http://localhost:4321`), edit, `npm run build`, commit, push.
+
+---
+
+## 6. Hard-Won Constraints — read before changing these
+
+**Do NOT create per-city landing pages.** The site previously had pages for every
+surrounding city (Brentwood, Franklin, Antioch, …) and was penalised in a Google
+update. They were deliberately deleted. Local relevance is earned instead through
+real job write-ups in `src/content/blog/` — a genuine job, in a named place, with
+specifics only this business can supply. That pattern survives updates; templated
+city pages did not.
+
+**Business hours are deliberately narrower than service hours.** Storefront is
+Mon–Fri 08:00–18:00, Sat 10:00–16:00. Mobile dispatch runs until 23:30 Mon–Fri.
+Google Business Profile main hours are set to the *storefront* window on purpose —
+Google itself set them, and a walk-in arriving at 21:00 to a dark shop produces
+one-star reviews that cost more than evening "Open" visibility is worth. The
+JSON-LD `openingHoursSpecification` mirrors GBP exactly; do not "fix" it to 23:30.
+Note: GBP's "Online service hours" field already holds 08:00–23:30 but does NOT
+drive the Open/Closed label — only main hours do.
+
+**`.htaccess` is inert for static files on this stack.** Nginx serves them
+directly and never consults it. The security headers and cache rules defined
+there never reach visitors. Anything of that kind must be done in Cloudflare.
+The app's Nginx conf dir (`/home/master/applications/btfdkcdpdw/conf/nginx`)
+does not exist, so the workflow's Nginx blocks have never applied either.
+
+**Never gate behaviour on the Lighthouse/PageSpeed user agent.** Two scripts used
+to skip work when they detected Google's inspection tools, to hold a 100/100
+score. That made the lab number describe a page nobody loads, and is the
+behaviour Google treats as cloaking. Both gates were removed. Deferring work
+(idle callbacks, load-on-interaction) is fine — hiding it from one audience is not.
+
+**Images in `public/` get no build-time processing.** `<Image />` from
+`astro:assets` only transforms images imported from `src/`. The site instead uses
+`<picture>` with WebP `<source>` variants generated by `scripts/gen-webp.mjs`
+(`node scripts/gen-webp.mjs --widths=600,1200 images/foo.jpg`). Aspect ratio is
+preserved and `object-cover` does the framing. Originals stay as `<img>` fallbacks.
+
+## 7. Cloudflare configuration (not in this repo)
+Zone `armstronglocksmithinc.com`, free plan. Three rules exist and are load-bearing:
+* **Cache Rule "Short TTL for robots.txt"** — matches `/robots.txt`, `/llms.txt`,
+  `/sitemap-index.xml`, `/sitemap-0.xml`; Edge TTL *ignores* the origin
+  cache-control and uses 5 min. Required because the origin sends
+  `max-age=31536000` on `.txt`, which once pinned a stale robots.txt at the edge.
+* **Response Header Transform "Security headers"** — sets `X-Content-Type-Options`,
+  `X-Frame-Options`, `Referrer-Policy` on all requests.
+* **Redirect Rule "Trailing slash canonical"** — 301s extension-less, slash-less
+  paths to `https://…{path}/` in one hop. Without it the origin emitted an
+  HTTPS→HTTP→HTTPS three-hop chain. HSTS is intentionally NOT set yet.
