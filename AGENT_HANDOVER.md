@@ -19,7 +19,7 @@
 * **Framework:** [Astro](https://astro.build/) (Static Site Generation / SSG — 44 pages)
 * **Styling:** Tailwind CSS v4 (`src/styles/global.css`)
 * **Fonts:** Self-Hosted WOFF2 in `/fonts/` (`Montserrat` for headings, `Inter` for body) with zero external DNS latency.
-* **Core Web Vitals:** Strict 100/100 compliance (0ms TBT, 0.000 CLS, <1.0s FCP/LCP, async image decoding).
+* **Core Web Vitals:** Optimised, not gamed. Deferred GTM, self-hosted preloaded fonts, explicit image dimensions (0 CLS), responsive WebP via <picture>. The old "100/100" depended on hiding GTM from Lighthouse; that gate was removed, so the reported lab score is now lower and honest. Field data (CrUX) is the number that matters.
 
 ### ⚠️ Strict Design & Content Constraints:
 1. **Language Rule:** All user-facing website text, headings, meta tags, and code comments MUST remain **100% in English**.
@@ -67,7 +67,7 @@ before: four commits sat unbuilt and the live site served stale HTML for days.
 | **Live Booking Page** | `/book-online/` (`src/pages/book-online.astro`) | Native luxury 4-field dispatch form |
 | **Workiz Backup URL** | `https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648` | Standalone backup booking link |
 | **Verified Google Review Modal** | `https://g.page/r/CQS5BtikwbmqEBM/review` | Universal direct Google review creation link |
-| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 769+ reviews |
+| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 771+ reviews |
 
 ---
 
