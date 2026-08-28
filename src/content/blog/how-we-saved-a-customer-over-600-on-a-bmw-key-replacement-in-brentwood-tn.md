@@ -58,5 +58,5 @@ We cut and program keys for all European luxury makes:
 
 Don't pay dealership prices or wait days for a tow truck. Call Armstrong Locksmith for honest, upfront quotes and same-day mobile dispatch.
 
-* 📞 **Call Direct:** **(615) 625-8000**
+* 📞 **Call Direct:** [**(615) 625-8000**](tel:6156258000)
 * 📍 **Nashville Storefront:** **208 Thompson Ln, Nashville, TN 37211**

@@ -66,6 +66,6 @@ While store-bought rekey kits exist, they lack the 0.003-inch precision of profe
 
 Armstrong Locksmith carries factory pins for **Schlage, Kwikset, Baldwin, Yale, Weiser, Defiant, and Medeco**.
 
-* 📞 **Call Direct:** **(615) 625-8000**
+* 📞 **Call Direct:** [**(615) 625-8000**](tel:6156258000)
 * 📍 **Storefront Location:** **208 Thompson Ln, Nashville, TN 37211**
 * 📜 **Licensed & Insured:** Certified & Insured
