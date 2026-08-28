@@ -322,15 +322,22 @@
         <span>Book Online</span>
       </a>
 
-      <!-- Mobile Menu Toggle Button -->
+      <!-- Mobile Menu Toggle Button (Luxury Showroom Styling) -->
       <button 
         id="arm-mobile-menu-btn" 
         type="button" 
-        class="xl:hidden w-10 h-10 bg-white border border-slate-300 hover:bg-slate-50 text-slate-900 focus:outline-none transition flex items-center justify-center flex-shrink-0 cursor-pointer shadow-sm"
+        class="xl:hidden flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-[#07152b] border border-amber-500/60 hover:border-amber-400 text-amber-400 hover:text-white shadow-md active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
         aria-label="Open mobile navigation menu"
         aria-expanded="false"
       >
-        <svg class="w-5 h-5 pointer-events-none text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <div class="flex flex-col gap-1 w-4 shrink-0 pointer-events-none">
+          <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
+          <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
+          <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
+        </div>
+        <span class="text-[11px] font-black uppercase tracking-widest text-amber-400 group-hover:text-white transition-colors select-none pointer-events-none">
+          MENU
+        </span>
       </button>
 
     </div>
@@ -356,7 +363,7 @@
           <button 
             id="arm-drawer-close" 
             type="button" 
-            class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center text-xl font-bold cursor-pointer transition"
+            class="w-9 h-9 bg-[#07152b] border border-amber-500/50 hover:border-amber-400 text-amber-400 hover:text-white flex items-center justify-center text-xl font-bold cursor-pointer transition shadow-md active:scale-95"
             aria-label="Close menu"
           >
             &times;
