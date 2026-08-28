@@ -307,10 +307,17 @@
     <!-- Header Action CTAs -->
     <div class="flex items-center gap-2.5 flex-shrink-0">
       
-      <!-- Prominent Call Button (Navy & High Contrast) -->
-      <a 
-        href="tel:6156258000" 
-        class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap border border-slate-700"
+      <!-- Prominent Call Button (Navy & High Contrast)
+           Hidden below md because MobileCallBar (md:hidden) already pins a
+           call button to the bottom of the screen there - thumb-reachable and
+           always visible. Showing both put the same phone number on screen
+           three times at once (header, hero, bottom bar) and was what pushed
+           the header past the viewport on narrow phones. The breakpoints are
+           deliberately complementary: below md the bottom bar covers it, from
+           md up this button does. There is no width with neither. -->
+      <a
+        href="tel:6156258000"
+        class="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap border border-slate-700"
         aria-label="Call Armstrong Locksmith at (615) 625-8000"
       >
         <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
