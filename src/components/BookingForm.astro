@@ -677,17 +677,4 @@
   }
 </style>
 
-<!-- Google Maps Places Autocomplete -->
-<script is:inline src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKTzEPAlpmycxALJIkP6OijUKD-ClLON8&libraries=places&callback=initPlaces" async defer></script>
-<script is:inline>
-  function initPlaces() {
-    const addressInput = document.getElementById('cust_address');
-    if (addressInput && window.google) {
-      const autocomplete = new google.maps.places.Autocomplete(addressInput, {
-        componentRestrictions: { country: 'us' },
-        fields: ['formatted_address', 'name'],
-      });
-      
-    }
-  }
-</script>
+
