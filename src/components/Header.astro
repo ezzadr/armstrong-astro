@@ -40,7 +40,7 @@
         </a>
         
         <!-- 3-Column Luxury Mega Dropdown Panel -->
-        <div class="absolute top-full left-1/2 -translate-x-[42%] hidden group-hover:block group-focus-within:block w-[860px] bg-white shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-300 z-50 mt-0 text-xs">
+        <div class="absolute top-full left-1/2 -translate-x-[42%] hidden group-hover:block group-focus-within:block w-[860px] max-w-[calc(100vw-2rem)] bg-white shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-300 z-50 mt-0 text-xs">
           
           <div class="grid grid-cols-3 divide-x divide-slate-200 p-6 gap-6">
             
@@ -196,7 +196,7 @@
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         
-        <div class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[540px] bg-white shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-300 z-50 mt-0 text-xs">
+        <div class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[540px] max-w-[calc(100vw-2rem)] bg-white shadow-2xl border-t-4 border-amber-500 border-x border-b border-slate-300 z-50 mt-0 text-xs">
           
           <div class="grid grid-cols-2 divide-x divide-slate-200 p-5 gap-5">
             
@@ -477,11 +477,29 @@
           }, 300);
         }
 
-        menuBtn.onclick = openDrawer;
-        if (closeBtn) closeBtn.onclick = closeDrawer;
-        drawer.onclick = function(e) {
-          if (e.target === drawer) closeDrawer();
+        // Keep the trigger's aria-expanded honest - it ships as "false" in the
+        // markup and previously never changed, so assistive tech was told the
+        // drawer was closed the whole time it was open.
+        menuBtn.onclick = function() {
+          openDrawer();
+          menuBtn.setAttribute('aria-expanded', 'true');
         };
+        if (closeBtn) closeBtn.onclick = function() {
+          closeDrawer();
+          menuBtn.setAttribute('aria-expanded', 'false');
+        };
+        drawer.onclick = function(e) {
+          if (e.target === drawer) {
+            closeDrawer();
+            menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        };
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && !drawer.classList.contains('hidden')) {
+            closeDrawer();
+            menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
 
       // Accordion Logic for Mobile Menu
@@ -507,14 +525,88 @@
         });
       }
 
+      // Desktop mega-dropdowns.
+      //
+      // The panels open purely through Tailwind's group-hover / group-focus-within,
+      // which works for mouse and keyboard. Two problems came out of that:
+      //   1. The <button> triggers were inert - clicking them did nothing at all.
+      //   2. Their aria-expanded shipped as "false" and nothing ever updated it,
+      //      so a screen reader was told the menu was collapsed while it was
+      //      visibly open. A wrong state is worse than no state.
+      //
+      // Triggers that are <a> (Car Keys, About Us) are deliberately left alone:
+      // clicking them navigates to the hub page, which is the correct behaviour.
+      // Only the <button> triggers, which had no click behaviour to break, are wired up.
+      function setupDesktopDropdowns() {
+        const triggers = document.querySelectorAll('nav button[aria-haspopup="true"]');
+
+        triggers.forEach(btn => {
+          const group = btn.closest('.group');
+          if (!group) return;
+          const panel = group.querySelector(':scope > div.absolute');
+          if (!panel) return;
+
+          const isOpen = () => panel.style.display === 'block';
+          const open = () => {
+            // inline display beats the utility classes; removing it hands control back
+            panel.style.display = 'block';
+            btn.setAttribute('aria-expanded', 'true');
+          };
+          const close = () => {
+            panel.style.removeProperty('display');
+            btn.setAttribute('aria-expanded', 'false');
+          };
+
+          btn.addEventListener('click', e => {
+            e.preventDefault();
+            const wasOpen = isOpen();
+            // only one open at a time
+            triggers.forEach(other => {
+              const g = other.closest('.group');
+              const p = g && g.querySelector(':scope > div.absolute');
+              if (p) p.style.removeProperty('display');
+              other.setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) open();
+          });
+
+          // keep the attribute truthful when the panel is opened by hover or focus
+          group.addEventListener('mouseenter', () => btn.setAttribute('aria-expanded', 'true'));
+          group.addEventListener('mouseleave', () => {
+            if (!isOpen()) btn.setAttribute('aria-expanded', 'false');
+          });
+          group.addEventListener('focusin', () => btn.setAttribute('aria-expanded', 'true'));
+          group.addEventListener('focusout', () => {
+            if (!group.contains(document.activeElement) && !isOpen()) close();
+          });
+
+          document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && isOpen()) { close(); btn.focus(); }
+          });
+        });
+
+        document.addEventListener('click', e => {
+          triggers.forEach(btn => {
+            const group = btn.closest('.group');
+            if (group && !group.contains(e.target)) {
+              const panel = group.querySelector(':scope > div.absolute');
+              if (panel) panel.style.removeProperty('display');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      }
+
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
           setupMenu();
           setupAccordions();
+          setupDesktopDropdowns();
         });
       } else {
         setupMenu();
         setupAccordions();
+        setupDesktopDropdowns();
       }
     })();
   </script>
