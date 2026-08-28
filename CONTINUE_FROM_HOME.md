@@ -38,24 +38,12 @@ npm run dev
 
 Whenever you make changes and want them deployed to Cloudways:
 
-### On Windows (PowerShell):
-```powershell
-# 1. Build the Astro static pages
-npm run build
+Same on every platform. **`npm run build` already syncs the built files to the
+repo root** — do not copy `dist/` by hand. The build runs
+`scripts/sync-to-root.cjs`, which also prunes stale `_astro/` bundles.
 
-# 2. Sync compiled files to the root directory for Cloudways
-Copy-Item "dist\*" "." -Recurse -Force
-
-# 3. Commit and push to GitHub
-git add -A
-git commit -m "Updates from home"
-git push origin main
-```
-
-### On Mac / Linux Terminal:
 ```bash
 npm run build
-cp -r dist/* .
 git add -A
 git commit -m "Updates from home"
 git push origin main
@@ -63,11 +51,24 @@ git push origin main
 
 ---
 
-## 4️⃣ Make It Live on Cloudways
-1. Log into your **[Cloudways Dashboard](https://platform.cloudways.com/)**.
-2. Navigate to: **Applications** &rarr; **Armstrong Locksmith** &rarr; **Deployment via Git**.
-3. Click the orange **"Pull"** button.
-4. *(Optional)* If you use Cloudflare, log into Cloudflare and click **Purge Everything** under **Caching** to see the changes immediately.
+## 4️⃣ Making It Live — nothing to click
+
+Pushing to `main` is the deploy. A GitHub Action (`.github/workflows/deploy.yml`)
+SSHes into Cloudways and runs `git reset --hard origin/main` automatically.
+
+* You do **not** need to press "Pull" in the Cloudways dashboard any more.
+* The Action does **not** run a build. Whatever is committed at the repo root is
+  what goes live — so always `npm run build` before committing, or a change to
+  `src/` will never reach the site.
+* Watch a deploy with `gh run watch`, or in the repo's Actions tab on GitHub.
+
+### ⚠️ Two things that catch people out
+1. **Node 22.12 or newer is required** (see `engines` in `package.json`).
+2. **`.env` is gitignored and will NOT come with a fresh clone.** That is fine for
+   the website — nothing in `src/` reads environment variables, so `npm run dev`
+   and `npm run build` work without it. You only need to recreate `.env` (copy
+   `.env.example`) if you intend to run the standalone `*.cjs` automation scripts
+   that talk to Twilio or the Google Places API.
 
 ---
 
