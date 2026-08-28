@@ -103,9 +103,12 @@ const homepageSchema = [
           NASHVILLE LOCKSMITH WITH A <span class="text-gold-gradient">REAL STOREFRONT</span>
         </h1>
 
-        <!-- Trust Grounded Sub-Copy -->
+        <!-- Trust Grounded Sub-Copy
+             The middle clause is condensed on phones so the headline and the
+             call button sit closer together; the full wording returns at sm.
+             Both variants keep every service term, and both stay in the DOM. -->
         <p class="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
-          Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. Visit our walk-in storefront for fast key cutting and programming, or request our prompt mobile dispatch for car lockouts, home rekeys, and commercial security. Upfront pricing guaranteed.
+          Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. <span class="hidden sm:inline">Visit our walk-in storefront for fast key cutting and programming, or request our prompt mobile dispatch for car lockouts, home rekeys, and commercial security.</span><span class="sm:hidden">Walk-in storefront and prompt mobile dispatch for car lockouts, home rekeys, and commercial security.</span> Upfront pricing guaranteed.
         </p>
 
         <!-- Direct Action Buttons (Sharp Luxury) -->
@@ -238,7 +241,7 @@ const homepageSchema = [
             <button 
               type="submit" 
               id="quote-submit-btn"
-              class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:brightness-110 text-slate-950 font-black text-base uppercase tracking-wider shadow-[0_6px_20px_rgba(245,158,11,0.35)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600 disabled:opacity-60 disabled:cursor-not-allowed"
+              class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-base uppercase tracking-wider shadow-[0_6px_20px_rgba(15,39,74,0.35)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-500 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <span>Text Me a Quote &rarr;</span>
             </button>
