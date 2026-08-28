@@ -18,6 +18,21 @@ const projects = [
     tagColor: "emerald"
   },
   {
+    id: "yale-smartlock",
+    category: "residential",
+    categoryLabel: "Residential Security",
+    title: "Yale Keypad Touchscreen Deadbolt",
+    subtitle: "Keyless entry touchscreen deadbolt installed on residential front door in Belle Meade.",
+    badge: "Belle Meade 37205",
+    location: "Belle Meade, TN",
+    href: "/residential-locksmith-nashville/",
+    imageSrc: "/images/yale-keypad-lock-installation-belle-meade-nashville.jpg",
+    webpSrc600: "/images/yale-keypad-lock-installation-belle-meade-nashville-600.webp",
+    webpSrc1200: "/images/yale-keypad-lock-installation-belle-meade-nashville-1200.webp",
+    alt: "Armstrong Locksmith installing Yale smart keypad touchscreen deadbolt in Belle Meade Nashville TN 37205",
+    tagColor: "emerald"
+  },
+  {
     id: "maserati-smartkey",
     category: "automotive",
     categoryLabel: "European Auto",
@@ -94,7 +109,7 @@ const projects = [
   },
   {
     id: "sako-unlock",
-    category: "emergency",
+    category: "residential",
     categoryLabel: "Emergency Dispatch",
     title: "Non-Destructive Car Unlock by Sako",
     subtitle: "Rapid response auto entry with zero scratch or weatherseal damage.",
@@ -124,10 +139,10 @@ const projects = [
   },
   {
     id: "rekey-cylinder",
-    category: "emergency",
+    category: "residential",
     categoryLabel: "Lock Rekeying",
-    title: "Commercial Deadbolt Cylinder Rekey",
-    subtitle: "New key pin configuration ensuring old master keys no longer operate.",
+    title: "Deadbolt Cylinder Repinning",
+    subtitle: "Internal tumbler pins configured so previous master keys no longer operate.",
     badge: "Security Upgrade",
     location: "Nashville Shop",
     href: "/nashville-rekey-service/",
@@ -139,7 +154,7 @@ const projects = [
   },
   {
     id: "chevy-repair",
-    category: "automotive",
+    category: "residential",
     categoryLabel: "Fob Repairs",
     title: "Worn Fob Refurbishing & Shell Swap",
     subtitle: "Internal electronics transferred into brand new durable OEM shell.",
@@ -196,7 +211,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
             data-filter="all" 
             class="gallery-filter-btn active w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer text-center"
           >
-            All Work (10)
+            All Work (11)
           </button>
           <button 
             type="button" 
@@ -214,10 +229,10 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
           </button>
           <button 
             type="button" 
-            data-filter="emergency" 
+            data-filter="residential" 
             class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
-            🚨 Emergency (3)
+            🏡 Residential (4)
           </button>
         </div>
       </div>
@@ -358,7 +373,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
         id="gallery-toggle-btn"
         class="inline-flex items-center gap-2 px-6 py-3 bg-[#07152b] hover:bg-[#0f274a] text-white border border-amber-500/60 hover:border-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
       >
-        <span id="gallery-btn-text">Explore All 10 Field Projects</span>
+        <span id="gallery-btn-text">Explore All 11 Field Projects</span>
         <svg id="gallery-btn-icon" class="w-4 h-4 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -447,7 +462,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
           toggleText.textContent = 'Show Fewer Projects';
           toggleIcon.classList.add('rotate-180');
         } else {
-          toggleText.textContent = 'Explore All 10 Field Projects';
+          toggleText.textContent = 'Explore All 11 Field Projects';
           toggleIcon.classList.remove('rotate-180');
           const gallerySec = document.getElementById('recent-work-gallery');
           if (gallerySec) {

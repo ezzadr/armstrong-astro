@@ -235,54 +235,106 @@ const residentialSchema = [
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <!-- Photo 1 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
-          <div class="overflow-hidden h-64 sm:h-72 bg-slate-100">
-            <picture>
-              <source type="image/webp" srcset="/images/lock-rekeyed-by-armstrong-locksmith-technician-600.webp 600w, /images/lock-rekeyed-by-armstrong-locksmith-technician-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 600px" />
-              <img 
-              src="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg" 
-              alt="Residential Deadbolt Rekeyed by Armstrong Locksmith Technician" 
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-              loading="lazy"
-              decoding="async"
-              width="600"
-              height="350"
-            />
-            </picture>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <!-- Photo 1: Yale Keypad Lock (Belle Meade) -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group flex flex-col justify-between">
+          <div>
+            <div class="overflow-hidden h-60 bg-slate-900">
+              <picture>
+                <source type="image/webp" srcset="/images/yale-keypad-lock-installation-belle-meade-nashville-600.webp 600w, /images/yale-keypad-lock-installation-belle-meade-nashville-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <img 
+                  src="/images/yale-keypad-lock-installation-belle-meade-nashville.jpg" 
+                  alt="Armstrong Locksmith installing Yale keypad smart lock in Belle Meade Nashville TN 37205" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="450"
+                />
+              </picture>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Smart Lock Install</span>
+                <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">📍 Belle Meade 37205</span>
+              </div>
+              <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5">Yale Keypad Touchscreen Deadbolt</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Installed high-security keyless touchscreen smart deadbolt on a residential front door in Belle Meade, providing PIN-code access and automated locking.
+              </p>
+            </div>
           </div>
-          <div class="p-5">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block mb-1">On-Site Rekeying</span>
-            <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5">Deadbolt Cylinder Repinning &amp; Master Keying</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Our technician re-pinned this residential deadbolt so all previous tenant keys stopped working, while syncing front and back doors to a single master key.
-            </p>
+          <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-700">
+            <span class="text-[11px] text-slate-500 font-medium">Verified Job</span>
+            <span class="text-amber-600 font-bold">Keyless Entry &rarr;</span>
           </div>
         </div>
 
-        <!-- Photo 2 -->
-        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group">
-          <div class="overflow-hidden h-64 sm:h-72 bg-slate-100">
-            <picture>
-              <source type="image/webp" srcset="/images/Rekey-lock-vs-lock-replacement-600.webp 600w, /images/Rekey-lock-vs-lock-replacement-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 600px" />
-              <img 
-              src="/images/Rekey-lock-vs-lock-replacement.jpg" 
-              alt="Rekeying vs Lock Replacement Hardware Comparison" 
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-              loading="lazy"
-              decoding="async"
-              width="600"
-              height="350"
-            />
-            </picture>
+        <!-- Photo 2: Deadbolt Rekeying -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group flex flex-col justify-between">
+          <div>
+            <div class="overflow-hidden h-60 bg-slate-100">
+              <picture>
+                <source type="image/webp" srcset="/images/lock-rekeyed-by-armstrong-locksmith-technician-600.webp 600w, /images/lock-rekeyed-by-armstrong-locksmith-technician-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <img 
+                  src="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg" 
+                  alt="Residential Deadbolt Rekeyed by Armstrong Locksmith Technician" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="450"
+                />
+              </picture>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">On-Site Rekeying</span>
+                <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">📍 Nashville, TN</span>
+              </div>
+              <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5">Deadbolt Cylinder Repinning</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Our technician re-pinned this residential deadbolt so all previous tenant keys stopped working, while syncing front and back doors to a single master key.
+              </p>
+            </div>
           </div>
-          <div class="p-5">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 block mb-1">Cost-Saving Solution</span>
-            <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5">Rekeying Existing Hardware vs Full Replacement</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              We inspect the internal tumblers to determine if your existing hardware can be preserved and re-pinned, saving you substantial hardware replacement costs.
-            </p>
+          <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-700">
+            <span class="text-[11px] text-slate-500 font-medium">Verified Job</span>
+            <span class="text-amber-600 font-bold">1 Key All Doors &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Photo 3: Hardware Comparison -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-md group flex flex-col justify-between">
+          <div>
+            <div class="overflow-hidden h-60 bg-slate-100">
+              <picture>
+                <source type="image/webp" srcset="/images/Rekey-lock-vs-lock-replacement-600.webp 600w, /images/Rekey-lock-vs-lock-replacement-1200.webp 1200w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <img 
+                  src="/images/Rekey-lock-vs-lock-replacement.jpg" 
+                  alt="Rekeying vs Lock Replacement Hardware Comparison" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="450"
+                />
+              </picture>
+            </div>
+            <div class="p-5">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600">Cost-Saving Solution</span>
+                <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">📍 Middle TN</span>
+              </div>
+              <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5">Rekeying vs Full Lock Replacement</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                We inspect the internal tumblers to determine if your existing hardware can be preserved and re-pinned, saving you substantial hardware replacement costs.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-700">
+            <span class="text-[11px] text-slate-500 font-medium">Verified Job</span>
+            <span class="text-amber-600 font-bold">Save 70% vs Replace &rarr;</span>
           </div>
         </div>
       </div>
