@@ -335,7 +335,11 @@
           <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
           <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
         </div>
-        <span class="text-[11px] font-black uppercase tracking-widest text-amber-400 group-hover:text-white transition-colors select-none pointer-events-none">
+        <!-- Hidden on the narrowest phones: the logo + full phone number + this
+             word overflowed the viewport by ~31px at 320px wide. The hamburger
+             icon carries the meaning on its own, and the phone number is the one
+             thing that must never shrink on a locksmith site. -->
+        <span class="arm-menu-label text-[11px] font-black uppercase tracking-widest text-amber-400 group-hover:text-white transition-colors select-none pointer-events-none">
           MENU
         </span>
       </button>

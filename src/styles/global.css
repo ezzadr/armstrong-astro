@@ -204,3 +204,15 @@
       0 0 0 3px rgba(245, 158, 11, 0.28),
       0 8px 18px rgba(15, 39, 74, 0.20);
   }
+
+  /* ------------------------------------------------------------------
+     Mobile header: hide the word MENU on the narrowest phones.
+     At ~320px the logo + full phone number + this label overflowed the
+     viewport by ~31px. The hamburger icon carries the meaning on its own,
+     and the phone number is the one element that must never shrink here.
+     Written as plain CSS because Tailwind arbitrary breakpoint variants
+     (min-[360px]: / [@media...]) were not being generated in this setup.
+     ------------------------------------------------------------------ */
+  @media (max-width: 359px) {
+    .arm-menu-label { display: none; }
+  }

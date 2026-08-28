@@ -220,12 +220,12 @@ const homepageSchema = [
             </div>
 
             <div>
-              <label for="quote-details" class="block text-xs font-bold text-slate-800 mb-1">Vehicle Make / Model or Details (Optional)</label>
+              <label for="quote-details" class="block text-xs font-bold text-slate-800 mb-1">Vehicle, Home or Business Details (Optional)</label>
               <input 
                 type="text" 
                 id="quote-details" 
                 name="details" 
-                placeholder="e.g. 2021 BMW X5, locked out, or 3 deadbolts" 
+                placeholder="e.g. 3 deadbolts rekeyed, storefront door, or 2021 BMW X5" 
                 class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 outline-none text-slate-900 transition-all font-medium"
               />
             </div>
@@ -240,7 +240,7 @@ const homepageSchema = [
               id="quote-submit-btn"
               class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:brightness-110 text-slate-950 font-black text-base uppercase tracking-wider shadow-[0_6px_20px_rgba(245,158,11,0.35)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              <span>Get My Free Quote Now &rarr;</span>
+              <span>Text Me a Quote &rarr;</span>
             </button>
             <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1">
               <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
@@ -850,7 +850,7 @@ const homepageSchema = [
               }
               if (submitBtn) {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Get My Free Quote Now &rarr;</span>';
+                submitBtn.innerHTML = '<span>Text Me a Quote &rarr;</span>';
               }
             }
           } catch (err) {
@@ -860,7 +860,7 @@ const homepageSchema = [
             }
             if (submitBtn) {
               submitBtn.disabled = false;
-              submitBtn.innerHTML = '<span>Get My Free Quote Now &rarr;</span>';
+              submitBtn.innerHTML = '<span>Text Me a Quote &rarr;</span>';
             }
           }
         });
