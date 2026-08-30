@@ -16,14 +16,22 @@ if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $cacheDuration)
 }
 
 // Google Places API Details
+// Key sources, in order: server env var, then an untracked api/key.php that
+// simply returns the key string (<?php return 'AIza...'; ). key.php is
+// gitignored so deploys never overwrite it and the key never enters the repo;
+// requesting it over HTTP executes it and outputs nothing.
 $apiKey = getenv('GOOGLE_PLACES_API_KEY') ?: '';
+if (empty($apiKey) && file_exists(__DIR__ . '/key.php')) {
+    $included = include __DIR__ . '/key.php';
+    if (is_string($included)) { $apiKey = trim($included); }
+}
 $placeId = getenv('GOOGLE_PLACE_ID') ?: 'ChIJe9o216RkZIgRI4y2kZ2XnZY'; // Default Armstrong Locksmith Place ID
 
 if (empty($apiKey)) {
     // If no API key is provided yet, serve fallback curated verified reviews
     $fallback = [
         'rating' => 4.9,
-        'user_ratings_total' => 769,
+        'user_ratings_total' => 772,
         'reviews' => [
             [
                 'author_name' => 'Marcus Vance',
@@ -74,7 +82,7 @@ if (empty($apiKey)) {
 }
 
 // Fetch live from Google Places API
-$url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&fields=name,rating,user_ratings_total,reviews&key=$apiKey";
+$url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&fields=name,rating,user_ratings_total,reviews&reviews_sort=newest&key=$apiKey";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -86,9 +94,15 @@ curl_close($ch);
 $data = json_decode($response, true);
 
 if (isset($data['result']['reviews'])) {
+    // Testimonial section shows 4-star-plus only (the card UI renders five
+    // stars); the full unfiltered list is one click away on Google itself.
+    // Also require some text - star-only reviews make an empty-looking card.
+    $displayable = array_values(array_filter($data['result']['reviews'], function($r) {
+        return ($r['rating'] ?? 0) >= 4 && trim($r['text'] ?? '') !== '';
+    }));
     $resultData = [
         'rating' => $data['result']['rating'] ?? 4.9,
-        'user_ratings_total' => $data['result']['user_ratings_total'] ?? 769,
+        'user_ratings_total' => $data['result']['user_ratings_total'] ?? 772,
         'reviews' => array_map(function($r) {
             return [
                 'author_name' => $r['author_name'],
@@ -97,7 +111,7 @@ if (isset($data['result']['reviews'])) {
                 'text' => $r['text'],
                 'service' => 'Verified Customer'
             ];
-        }, $data['result']['reviews'])
+        }, $displayable)
     ];
     
     file_put_contents($cacheFile, json_encode($resultData));

@@ -30,3 +30,7 @@ pnpm-debug.log*
 
 # local docs (not for deployment)
 Armstrong-Locksmith-Claude-Guide.pdf
+
+# Server-side Google Places API key (lives only on the server)
+public/api/key.php
+api/key.php
