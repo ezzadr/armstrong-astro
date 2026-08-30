@@ -4,58 +4,56 @@
 
 <div class="w-full max-w-2xl mx-auto bg-white rounded-2xl border border-slate-300 shadow-[0_25px_60px_-10px_rgba(15,23,42,0.18)] font-sans text-left overflow-hidden transition-all">
   
-  <!-- ==================== TOP STEP HEADER (START -> SCHEDULE -> BOOK) ==================== -->
-  <div class="bg-slate-50/90 border-b border-slate-200 px-6 sm:px-10 py-5">
+  <!-- ==================== MODERN SEGMENTED 3-STEP HEADER ==================== -->
+  <div class="bg-gradient-to-r from-slate-950 via-[#0a1c38] to-slate-950 text-white px-4 sm:px-8 py-4.5 sm:py-5 border-b border-slate-800">
     
-    <!-- Brand Line -->
-    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/80">
+    <!-- Top Live Dispatch Bar -->
+    <div class="flex items-center justify-between pb-3 mb-3.5 border-b border-white/10">
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block ring-4 ring-emerald-100"></span>
-        <span class="text-xs font-black tracking-wider text-slate-800 uppercase">Armstrong Locksmith Inc</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block ring-4 ring-emerald-400/20 animate-pulse"></span>
+        <span class="text-xs font-black tracking-wider text-slate-200 uppercase">Live Mobile Dispatch &bull; Nashville, TN</span>
       </div>
       <a 
         href="tel:6156258000" 
-        class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-bold text-slate-700 hover:text-blue-600 hover:border-blue-300 shadow-sm transition"
+        class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 rounded-full text-xs font-black text-amber-400 hover:text-amber-300 transition shadow-sm"
       >
         <span>📞</span>
         <span>(615) 625-8000</span>
       </a>
     </div>
 
-    <!-- Visual 3-Step Stepper (Start -> Schedule -> Book) -->
-    <div class="relative flex items-center justify-between max-w-md mx-auto px-4">
-      <!-- Connecting Progress Track -->
-      <div class="absolute top-1/2 left-8 right-8 -translate-y-1/2 h-[2px] bg-slate-200 -z-0">
-        <div id="step-track" class="h-full bg-blue-600 w-0 transition-all duration-300"></div>
-      </div>
-
-      <!-- Step 1: Start -->
-      <div class="relative z-10 flex flex-col items-center gap-1.5">
-        <div id="node-1" class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all">
-          1
+    <!-- Modern 3 Segmented Pill Stepper -->
+    <div class="grid grid-cols-3 gap-2 sm:gap-3">
+      <!-- Step 1: Service -->
+      <div id="step-pill-1" class="flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300">
+        <div class="flex items-center justify-between text-[10px] sm:text-xs font-black tracking-wider uppercase">
+          <span id="pill-label-1" class="text-white">01. Service</span>
+          <span id="pill-badge-1" class="w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black">1</span>
         </div>
-        <div class="text-center">
-          <span id="label-1" class="block text-xs font-bold text-slate-900 tracking-tight">Start</span>
+        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div id="pill-bar-1" class="h-full bg-blue-500 w-full transition-all duration-300"></div>
         </div>
       </div>
 
       <!-- Step 2: Schedule -->
-      <div class="relative z-10 flex flex-col items-center gap-1.5">
-        <div id="node-2" class="w-8 h-8 rounded-full bg-white border-2 border-slate-300 text-slate-400 font-bold text-xs flex items-center justify-center transition-all">
-          2
+      <div id="step-pill-2" class="flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300">
+        <div class="flex items-center justify-between text-[10px] sm:text-xs font-bold tracking-wider uppercase">
+          <span id="pill-label-2" class="text-slate-400">02. Schedule</span>
+          <span id="pill-badge-2" class="w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold">2</span>
         </div>
-        <div class="text-center">
-          <span id="label-2" class="block text-xs font-medium text-slate-400 tracking-tight">Schedule</span>
+        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div id="pill-bar-2" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
         </div>
       </div>
 
       <!-- Step 3: Book -->
-      <div class="relative z-10 flex flex-col items-center gap-1.5">
-        <div id="node-3" class="w-8 h-8 rounded-full bg-white border-2 border-slate-300 text-slate-400 font-bold text-xs flex items-center justify-center transition-all">
-          3
+      <div id="step-pill-3" class="flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300">
+        <div class="flex items-center justify-between text-[10px] sm:text-xs font-bold tracking-wider uppercase">
+          <span id="pill-label-3" class="text-slate-400">03. Book</span>
+          <span id="pill-badge-3" class="w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold">3</span>
         </div>
-        <div class="text-center">
-          <span id="label-3" class="block text-xs font-medium text-slate-400 tracking-tight">Book</span>
+        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div id="pill-bar-3" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
         </div>
       </div>
     </div>
@@ -402,15 +400,21 @@
     const success = document.getElementById('step-success');
     const form = document.getElementById('booking-form');
 
-    const node1 = document.getElementById('node-1');
-    const node2 = document.getElementById('node-2');
-    const node3 = document.getElementById('node-3');
+    const pill1 = document.getElementById('step-pill-1');
+    const pill2 = document.getElementById('step-pill-2');
+    const pill3 = document.getElementById('step-pill-3');
 
-    const label1 = document.getElementById('label-1');
-    const label2 = document.getElementById('label-2');
-    const label3 = document.getElementById('label-3');
+    const pillLabel1 = document.getElementById('pill-label-1');
+    const pillLabel2 = document.getElementById('pill-label-2');
+    const pillLabel3 = document.getElementById('pill-label-3');
 
-    const track = document.getElementById('step-track');
+    const pillBadge1 = document.getElementById('pill-badge-1');
+    const pillBadge2 = document.getElementById('pill-badge-2');
+    const pillBadge3 = document.getElementById('pill-badge-3');
+
+    const pillBar1 = document.getElementById('pill-bar-1');
+    const pillBar2 = document.getElementById('pill-bar-2');
+    const pillBar3 = document.getElementById('pill-bar-3');
 
     const serviceInput = document.getElementById('field-service');
     const dateInput = document.getElementById('field-date');
@@ -441,55 +445,91 @@
       s3.classList.add('hidden');
       if (success) success.classList.add('hidden');
 
-      // Reset node styles
-      [node1, node2, node3].forEach((node, idx) => {
-        node.className = "w-8 h-8 rounded-full border-2 border-slate-300 bg-white text-slate-400 font-bold text-xs flex items-center justify-center transition-all";
-        node.textContent = idx + 1;
-      });
-      [label1, label2, label3].forEach(lbl => {
-        lbl.className = "block text-xs font-medium text-slate-400 tracking-tight";
-      });
-
       if (n === 1) {
         s1.classList.remove('hidden');
-        if (track) track.style.width = "0%";
-        node1.className = "w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all";
-        label1.className = "block text-xs font-bold text-slate-900 tracking-tight";
+
+        // Pill 1: Active
+        if (pill1) pill1.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300";
+        if (pillLabel1) { pillLabel1.className = "text-white font-black"; }
+        if (pillBadge1) { pillBadge1.className = "w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge1.textContent = "1"; }
+        if (pillBar1) { pillBar1.className = "h-full bg-blue-500 w-full transition-all duration-300"; }
+
+        // Pill 2: Inactive
+        if (pill2) pill2.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300";
+        if (pillLabel2) { pillLabel2.className = "text-slate-400 font-bold"; }
+        if (pillBadge2) { pillBadge2.className = "w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold"; pillBadge2.textContent = "2"; }
+        if (pillBar2) { pillBar2.className = "h-full bg-blue-500 w-0 transition-all duration-300"; }
+
+        // Pill 3: Inactive
+        if (pill3) pill3.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300";
+        if (pillLabel3) { pillLabel3.className = "text-slate-400 font-bold"; }
+        if (pillBadge3) { pillBadge3.className = "w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold"; pillBadge3.textContent = "3"; }
+        if (pillBar3) { pillBar3.className = "h-full bg-blue-500 w-0 transition-all duration-300"; }
+
       } else if (n === 2) {
         s2.classList.remove('hidden');
-        if (track) track.style.width = "50%";
-        
-        node1.className = "w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all";
-        node1.textContent = "✓";
-        label1.className = "block text-xs font-medium text-slate-600 tracking-tight";
 
-        node2.className = "w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all";
-        label2.className = "block text-xs font-bold text-slate-900 tracking-tight";
+        // Pill 1: Done
+        if (pill1) pill1.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
+        if (pillLabel1) { pillLabel1.className = "text-emerald-300 font-bold"; }
+        if (pillBadge1) { pillBadge1.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge1.textContent = "✓"; }
+        if (pillBar1) { pillBar1.className = "h-full bg-emerald-500 w-full transition-all duration-300"; }
+
+        // Pill 2: Active
+        if (pill2) pill2.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300";
+        if (pillLabel2) { pillLabel2.className = "text-white font-black"; }
+        if (pillBadge2) { pillBadge2.className = "w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge2.textContent = "2"; }
+        if (pillBar2) { pillBar2.className = "h-full bg-blue-500 w-full transition-all duration-300"; }
+
+        // Pill 3: Inactive
+        if (pill3) pill3.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300";
+        if (pillLabel3) { pillLabel3.className = "text-slate-400 font-bold"; }
+        if (pillBadge3) { pillBadge3.className = "w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold"; pillBadge3.textContent = "3"; }
+        if (pillBar3) { pillBar3.className = "h-full bg-blue-500 w-0 transition-all duration-300"; }
 
         if (selectedServiceTag) selectedServiceTag.textContent = serviceInput.value;
+
       } else if (n === 3) {
         s3.classList.remove('hidden');
-        if (track) track.style.width = "100%";
 
-        node1.className = "w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all";
-        node1.textContent = "✓";
-        label1.className = "block text-xs font-medium text-slate-600 tracking-tight";
+        // Pill 1: Done
+        if (pill1) pill1.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
+        if (pillLabel1) { pillLabel1.className = "text-emerald-300 font-bold"; }
+        if (pillBadge1) { pillBadge1.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge1.textContent = "✓"; }
+        if (pillBar1) { pillBar1.className = "h-full bg-emerald-500 w-full transition-all duration-300"; }
 
-        node2.className = "w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all";
-        node2.textContent = "✓";
-        label2.className = "block text-xs font-medium text-slate-600 tracking-tight";
+        // Pill 2: Done
+        if (pill2) pill2.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
+        if (pillLabel2) { pillLabel2.className = "text-emerald-300 font-bold"; }
+        if (pillBadge2) { pillBadge2.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge2.textContent = "✓"; }
+        if (pillBar2) { pillBar2.className = "h-full bg-emerald-500 w-full transition-all duration-300"; }
 
-        node3.className = "w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shadow-sm transition-all";
-        label3.className = "block text-xs font-bold text-slate-900 tracking-tight";
+        // Pill 3: Active
+        if (pill3) pill3.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300";
+        if (pillLabel3) { pillLabel3.className = "text-white font-black"; }
+        if (pillBadge3) { pillBadge3.className = "w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge3.textContent = "3"; }
+        if (pillBar3) { pillBar3.className = "h-full bg-blue-500 w-full transition-all duration-300"; }
 
         if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${dateInput.value} (${timeInput.value})`;
+
       } else if (n === 4) {
         form.classList.add('hidden');
         if (success) success.classList.remove('hidden');
-        if (track) track.style.width = "100%";
-        [node1, node2, node3].forEach(node => {
-          node.className = "w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-sm";
-          node.textContent = "✓";
+
+        [pill1, pill2, pill3].forEach(p => {
+          if (p) p.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
+        });
+        [pillLabel1, pillLabel2, pillLabel3].forEach(l => {
+          if (l) l.className = "text-emerald-300 font-bold";
+        });
+        [pillBadge1, pillBadge2, pillBadge3].forEach(b => {
+          if (b) {
+            b.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black";
+            b.textContent = "✓";
+          }
+        });
+        [pillBar1, pillBar2, pillBar3].forEach(bar => {
+          if (bar) bar.className = "h-full bg-emerald-500 w-full transition-all duration-300";
         });
       }
 
