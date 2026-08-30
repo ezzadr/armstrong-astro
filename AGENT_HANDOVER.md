@@ -10,7 +10,7 @@
 * **Storefront Location:** 208 Thompson Ln, Nashville, TN 37211
 * **Owner & Master Tech:** Rahim Ezzadpanah (20+ years automotive & security experience)
 * **Phone:** (615) 625-8000
-* **Credentials:** TN Locksmith License #406 &bull; Certified & Insured &bull; 4.9 Stars (771+ Google Reviews)
+* **Credentials:** Certified & Insured &bull; 4.9 Stars (772+ Google Reviews — count auto-syncs on-site, see §8). Tennessee has **no state locksmith license** — never add a license number anywhere.
 * **Live Domain:** `https://armstronglocksmithinc.com/`
 
 ---
@@ -30,6 +30,7 @@
    * Luxury Shadow Cards: `.shadow-luxury-card` with `.hover-lift`
    * Surface: Clean Crisp White `#ffffff` and Light Slate `#f8fafc` / `#f1f5f9`
    * Borders: Solid Hairline Slate `#e2e8f0` / `#cbd5e1`
+4. **Bold, not minimal:** The owner explicitly rejected a minimalist nav redesign ("it was looking much better before"). Keep the emoji/badge-rich, colorful style — polish it, never simplify it away — and show a screenshot/preview of visual changes before deploying.
 
 ---
 
@@ -67,13 +68,16 @@ before: four commits sat unbuilt and the live site served stale HTML for days.
 | **Live Booking Page** | `/book-online/` (`src/pages/book-online.astro`) | Native luxury 4-field dispatch form |
 | **Workiz Backup URL** | `https://online-booking.workiz.com/?ac=ff72b9e4da07483dc3ea20c43712756d0e1998076465f7ea6768e02921635648` | Standalone backup booking link |
 | **Verified Google Review Modal** | `https://g.page/r/CQS5BtikwbmqEBM/review` | Universal direct Google review creation link |
-| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all 771+ reviews |
+| **Verified Google Maps Page** | `https://g.page/r/CQS5BtikwbmqEBM` | Live GBP profile with all reviews (Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao`) |
+| **Live Reviews API** | `/api/reviews.php` (`public/api/reviews.php`) | Google Places details, 1-hour file cache; `?service=<key>` returns keyword-matched reviews from the growing `api/google_reviews_archive.json` |
 
 ---
 
-## 5. Current Task State & Next Steps
+## 5. Current Task State & Next Steps (updated 2026-08-30)
 * Entire 44-page site uses the luxury showroom aesthetic, self-hosted fonts, and zero-curve styling.
 * Both the Hero Quote Form and `/book-online/` post natively to `https://booking.armstronglocksmithinc.com/api/website-bookings`.
+* **Deployed & verified live (Aug 30, 2026):** redesigned desktop dropdowns + mobile drawer nav (`src/components/Header.astro`); live Google reviews on the landing page; sitewide auto-synced review counts (§8); keyword-matched reviews on 19 service pages (`src/components/ServiceReviews.astro`); service→blog `RelatedPost` cards on 6 pages; blog author photo fix (`<picture>` wrappers sized in `src/pages/blog/[...slug].astro`); redesigned recent-work gallery featuring the Maserati job (`src/components/RecentWorkGallery.astro`).
+* **Monthly maintenance:** sync the static `reviewCount` in `src/layouts/Layout.astro` schema and any hard-coded "77X+" fallback text to the live Google count (live JS overwrites visible counts, but the schema and no-JS fallbacks are static).
 * When continuing work: `git pull`, `npm run dev` (preview at `http://localhost:4321`), edit, `npm run build`, commit, push.
 
 ---
@@ -142,3 +146,17 @@ Zone `armstronglocksmithinc.com`, free plan. Three rules exist and are load-bear
 * **Redirect Rule "Trailing slash canonical"** — 301s extension-less, slash-less
   paths to `https://…{path}/` in one hop. Without it the origin emitted an
   HTTPS→HTTP→HTTPS three-hop chain. HSTS is intentionally NOT set yet.
+* **WAF Custom Rule "Block internal repo files"** — 403s `*.md`, `*.mjs`,
+  `package.json`, `package-lock.json`, `tsconfig.json`, and other repo-internal
+  files. This is the ONLY effective block for these (the `.htaccess` deny rules
+  are inert on this stack, kept as defense-in-depth). If a new sensitive file
+  type lands in the repo root, extend this WAF rule, not `.htaccess`.
+
+---
+
+## 8. Live Google Reviews Pipeline (server-side)
+* `public/api/reviews.php` calls Google Places Details (`reviews_sort=newest`, Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao`), filters to 4★+ with text, and caches 1 hour in `api/google_reviews_cache.json`.
+* **The API key is NOT in the repo.** It lives only in `/home/master/applications/btfdkcdpdw/public_html/api/key.php` (gitignored, `<?php return "AIza...";`). Deploys (`git reset --hard`) never touch it because it is untracked. Never commit a key; the key is restricted to the Places API only.
+* Each fresh Google fetch appends unseen reviews to `api/google_reviews_archive.json` (deduped by time+author). This growing archive powers `?service=<key>` keyword matching (regex map inside reviews.php) used by `ServiceReviews.astro` on 19 vehicle/service pages. Google only ever returns the 5 newest reviews, so the archive compounds over time — **do not delete it on the server**.
+* Visible review counts sitewide carry class `.arm-review-count` and are overwritten by `syncReviewCounts()` in `Header.astro` from the live `user_ratings_total`. Fallback/no-JS text stays at the last manually synced number.
+* If the API ever fails, the endpoint serves the last cache, then a curated fallback (fingerprint author "Marcus Vance" in the payload = fallback is being served).
