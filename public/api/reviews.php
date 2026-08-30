@@ -25,7 +25,7 @@ if (empty($apiKey) && file_exists(__DIR__ . '/key.php')) {
     $included = include __DIR__ . '/key.php';
     if (is_string($included)) { $apiKey = trim($included); }
 }
-$placeId = getenv('GOOGLE_PLACE_ID') ?: 'ChIJe9o216RkZIgRI4y2kZ2XnZY'; // Default Armstrong Locksmith Place ID
+$placeId = getenv('GOOGLE_PLACE_ID') ?: 'ChIJ17Fz8F9vZIgRBLkG2KTBuao'; // Default Armstrong Locksmith Place ID
 
 if (empty($apiKey)) {
     // If no API key is provided yet, serve fallback curated verified reviews
