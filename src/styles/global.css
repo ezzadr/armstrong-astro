@@ -181,28 +181,33 @@
      ------------------------------------------------------------------ */
   .arm-fields-3d input:not([type="hidden"]):not([tabindex="-1"]),
   .arm-fields-3d select {
+    background-color: #ffffff;
+    border: 1.5px solid #cbd5e1;
     box-shadow:
-      inset 0 2px 4px rgba(15, 39, 74, 0.10),
-      0 1px 0 rgba(255, 255, 255, 0.95),
-      0 4px 10px rgba(15, 39, 74, 0.13);
-    transition: box-shadow 0.18s ease, background-color 0.18s ease;
+      0 4px 10px -1px rgba(15, 39, 74, 0.16),
+      0 2px 4px -1px rgba(15, 39, 74, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
   }
 
   .arm-fields-3d input:not([type="hidden"]):not([tabindex="-1"]):hover,
   .arm-fields-3d select:hover {
+    border-color: #f59e0b;
     box-shadow:
-      inset 0 2px 4px rgba(15, 39, 74, 0.10),
-      0 1px 0 rgba(255, 255, 255, 0.95),
-      0 6px 14px rgba(15, 39, 74, 0.19);
+      0 8px 18px -2px rgba(15, 39, 74, 0.22),
+      0 3px 8px -2px rgba(15, 39, 74, 0.12);
+    transform: translateY(-1px);
   }
 
-  /* Focus keeps the amber border from the utility classes and adds a halo. */
+  /* Focus keeps the amber border and adds a high-visibility luxury glow halo. */
   .arm-fields-3d input:not([type="hidden"]):not([tabindex="-1"]):focus,
   .arm-fields-3d select:focus {
+    border-color: #f59e0b;
+    background-color: #ffffff;
     box-shadow:
-      inset 0 1px 2px rgba(15, 39, 74, 0.06),
-      0 0 0 3px rgba(245, 158, 11, 0.28),
-      0 8px 18px rgba(15, 39, 74, 0.20);
+      0 0 0 3.5px rgba(245, 158, 11, 0.32),
+      0 10px 24px -4px rgba(15, 39, 74, 0.26);
+    transform: translateY(-1.5px);
   }
 
   /* ------------------------------------------------------------------
