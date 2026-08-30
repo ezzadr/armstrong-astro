@@ -1,52 +1,30 @@
-## Read first
+# CLAUDE.md — Armstrong Locksmith Project Guidelines
 
-**`AGENT_HANDOVER.md` is the source of truth for this project.** Read it before
-proposing changes — especially section 6 (Hard-Won Constraints) and section 7
-(Cloudflare configuration). It records decisions that are expensive to
-rediscover and easy to undo by accident.
+## Strict Project & GitHub Isolation Rules (ABSOLUTE PRIORITY)
 
-The five that bite hardest:
+- **ARMSTRONG AI DISPATCH (`armstrong-ai-call-dispatch` / `jqkvdrpcfz`):** This is the user's most critical project. Under NO circumstances should any operation, automated task, cleanup script, or server manipulation touch or risk its stability, webhooks, or database.
+- **NEVER Interfere with Other GitHub Projects or Apps:** Strictly NEVER modify, deploy to, reset, or run commands that touch any other GitHub repositories or server application directories outside this specific website workspace (`armstrong-astro` / `btfdkcdpdw`).
+- **Target Directory:** All deployment actions and server commands must explicitly and exclusively target `/home/master/applications/btfdkcdpdw/public_html`.
 
-1. **`npm run build` already syncs `dist/` to the repo root** and prunes stale
-   `_astro/` bundles. Never copy `dist/` by hand.
-2. **Pushing to `main` deploys.** The GitHub Action runs `git reset --hard
-   origin/main` on Cloudways and does **not** build — so a commit touching only
-   `src/` will never reach production. Always build before committing.
-3. **Do not create per-city landing pages.** They existed, were penalised in a
-   Google update, and were deliberately deleted.
-4. **Do not "correct" the schema hours to 23:30.** They intentionally mirror the
-   Google Business Profile storefront hours (Mon–Fri 08:00–18:00, Sat 10:00–16:00).
-5. **Never gate behaviour on the Lighthouse/PageSpeed user agent.** Two such
-   gates were removed as cloaking. Deferring work is fine; hiding it is not.
+## Core Build & Deployment Rules
 
-`.htaccess` is inert for static files here — Nginx serves them directly. Cache
-and security headers live in Cloudflare, documented in `AGENT_HANDOVER.md` §7.
+1. **`npm run build` is MANDATORY before committing:**
+   - Runs `astro build && node scripts/sync-to-root.mjs`.
+   - Automatically syncs `dist/` to the repo root and cleans stale `_astro/` files.
+   - Pushing to `origin/main` triggers automated Cloudways deployment via git. If you only edit `src/` without running `npm run build`, production will NOT be updated.
+2. **Do NOT create separate per-city doorway pages:**
+   - All regional coverage is consolidated on `/service-areas/` in compliance with Google Search Essentials.
+   - Legacy city URLs are 301 permanently redirected to `/service-areas/` in `public/.htaccess` and `public/index.php`.
+3. **Canonical Business Data:**
+   - **Name:** Armstrong Locksmith Inc
+   - **Phone:** (615) 625-8000
+   - **Storefront:** 208 Thompson Ln, Nashville, TN 37211
+   - **Reviews Metric:** 769+ Google Reviews (4.9 Stars)
+   - **Tennessee Licensing:** TN has no state locksmith license; never add license numbers.
+   - **Operating Hours:** Storefront: Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM. Mobile dispatch: Mon–Fri 8:00 AM – 11:30 PM, Weekends On-Call.
 
-**Tailwind arbitrary breakpoint variants (`min-[360px]:`, `[@media(...)]:`) are
-silently dropped in this setup** — the class stays in the HTML but no rule is
-generated, so `hidden min-[360px]:inline` hides the element at every width. Use
-plain CSS in `src/styles/global.css` for custom breakpoints, and check the built
-bundle (`grep <class> _astro/*.css`) rather than trusting the dev server.
+## Development Commands
 
-## Development
-
-When starting the dev server, use background mode:
-
-```
-astro dev --background
-```
-
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
-
-## Documentation
-
-Full documentation: https://docs.astro.build
-
-Consult these guides before working on related tasks:
-
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+- Start dev server: `npm run dev`
+- Build & sync: `npm run build`
+- Deploy: `git add -A && git commit -m "..." && git push origin main`
