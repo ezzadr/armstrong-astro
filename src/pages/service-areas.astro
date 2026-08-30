@@ -85,22 +85,6 @@ const serviceAreas = [
     tag: "Historic & Modern Homes",
     desc: "East Nashville and Inglewood homes often have vintage mortise locks and unique entry hardware. We repair and rekey antique locks without damaging your doors, and assist with vehicle lockouts.",
     features: ["Vintage Mortise Lock Repair", "Residential Rekeying", "Vehicle Lockout Assistance"]
-  },
-  {
-    name: "Hendersonville & Madison",
-    county: "sumner",
-    zips: "37075, 37115",
-    tag: "Lakeside & North Metro",
-    desc: "Mobile locksmith coverage across Hendersonville, Old Hickory Lake, and Madison. We cut replacement car keys, rekey residential properties, and service commercial building locks.",
-    features: ["Home Lock Rekeying", "Car & Truck Keys Replaced", "Commercial Building Security"]
-  },
-  {
-    name: "Murfreesboro & Smyrna",
-    county: "rutherford",
-    zips: "37129, 37130, 37167",
-    tag: "Rutherford County",
-    desc: "Reliable mobile locksmith services for Murfreesboro and Smyrna residents and business owners. We handle emergency lockouts, master key systems for multi-unit buildings, and car key replacements.",
-    features: ["Master Key Systems", "Emergency Lockout Help", "Automotive Key Programming"]
   }
 ];
 
@@ -133,12 +117,9 @@ const serviceAreasSchema = [
       { "@type": "City", "name": "Belle Meade" },
       { "@type": "City", "name": "Green Hills" },
       { "@type": "City", "name": "Nolensville" },
-      { "@type": "City", "name": "Berry Hill" },
-      { "@type": "City", "name": "Hendersonville" },
-      { "@type": "City", "name": "Murfreesboro" },
-      { "@type": "City", "name": "Smyrna" }
+      { "@type": "City", "name": "Berry Hill" }
     ],
-    "description": "Certified mobile locksmith and walk-in storefront providing car key replacement, residential rekeying, commercial door hardware, and emergency lockout services across Middle Tennessee."
+    "description": "Certified mobile locksmith and walk-in storefront providing car key replacement, residential rekeying, commercial door hardware, and emergency lockout services across Nashville, Brentwood, Franklin, and surrounding Middle Tennessee communities."
   }
 ];
 ---
@@ -259,7 +240,7 @@ const serviceAreasSchema = [
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
-                <span><strong>Coverage:</strong> Davidson, Williamson, Rutherford & Wilson</span>
+                <span><strong>Coverage:</strong> Davidson, Williamson &amp; Wilson Counties</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
@@ -304,7 +285,7 @@ const serviceAreasSchema = [
             data-filter="all" 
             class="filter-btn active px-4 py-2 rounded-full text-xs font-bold transition bg-[#0f274a] bg-navy-grid text-white shadow-sm"
           >
-            All Areas (12)
+            All Areas (10)
           </button>
           <button 
             type="button" 
@@ -322,10 +303,10 @@ const serviceAreasSchema = [
           </button>
           <button 
             type="button" 
-            data-filter="other" 
+            data-filter="wilson" 
             class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-300"
           >
-            Rutherford &amp; Neighboring
+            Wilson County
           </button>
         </div>
       </div>
@@ -335,7 +316,7 @@ const serviceAreasSchema = [
         {serviceAreas.map((area) => (
           <div 
             class="area-card bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between"
-            data-county={area.county === 'davidson' ? 'davidson' : (area.county === 'williamson' ? 'williamson' : 'other')}
+            data-county={area.county}
           >
             <div>
               <div class="flex items-center justify-between gap-2 mb-2.5">
