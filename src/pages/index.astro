@@ -82,27 +82,10 @@ const homepageSchema = [
 <Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageSchema} image="/shop.jpeg">
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
-  <section class="relative bg-[#061224] text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
-    <!-- Real Physical Storefront Background Layer with Right-Side Exposure -->
-    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <picture class="hidden sm:block">
-        <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="100vw" />
-        <img 
-          src="/shop.jpeg" 
-          alt="Armstrong Locksmith Storefront 208 Thompson Ln Nashville"
-          class="w-full h-full object-cover object-[75%_center] sm:object-[80%_center] opacity-40 sm:opacity-55 lg:opacity-65"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width="1200"
-          height="1500"
-        />
-      </picture>
-      <!-- Left-Heavy Dark Gradient: Deep solid contrast over text on the left, smoothly revealing the real storefront behind the quote form on the right -->
-      <div class="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-[#061224] via-[#061224]/95 sm:via-[#061224]/90 sm:via-55% to-[#061224]/35"></div>
-      <!-- Subtle Ambient Texture -->
-      <div class="absolute inset-0 bg-navy-grid opacity-25 mix-blend-overlay"></div>
-    </div>
+  <section class="relative bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
+    <!-- Subtle Shop Background Layer (Desktop only to guarantee 100/100 Mobile Speed) -->
+    <div class="hidden sm:block absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none" style="background-image: url('/shop.jpeg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0a1c38] via-[#0a1c38]/90 to-[#0a1c38]/75 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center relative z-10">
       
