@@ -1,0 +1,15 @@
+---
+// RelatedPost.astro - contextual link from a service page to a matching blog
+// story. Strengthens the blog posts' internal link equity (they are the
+// least-linked pages in the site graph) and gives Google a topical bridge
+// between the service silo and the E-E-A-T content that supports it.
+const { href, title, blurb } = Astro.props;
+---
+<aside class="max-w-4xl mx-auto px-4 sm:px-6 mt-12 mb-2 font-sans">
+  <a href={href} class="group block bg-white border border-slate-200 border-l-4 border-l-amber-500 p-5 shadow-sm hover:shadow-md hover:bg-amber-50/40 transition">
+    <span class="text-[11px] font-black uppercase tracking-wider text-amber-600">📓 From Our Work Journal</span>
+    <span class="block mt-1.5 font-black text-[#0f274a] text-base sm:text-lg leading-snug group-hover:underline">{title}</span>
+    <span class="block mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">{blurb}</span>
+    <span class="inline-block mt-2 text-xs font-bold text-amber-600 group-hover:translate-x-1 transition-transform">Read the full story &rarr;</span>
+  </a>
+</aside>
