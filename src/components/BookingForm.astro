@@ -4,58 +4,66 @@
 
 <div class="w-full max-w-2xl mx-auto bg-white rounded-2xl border border-slate-300 shadow-[0_25px_60px_-10px_rgba(15,23,42,0.18)] font-sans text-left overflow-hidden transition-all">
   
-  <!-- ==================== MODERN SEGMENTED 3-STEP HEADER ==================== -->
-  <div class="bg-gradient-to-r from-slate-950 via-[#0a1c38] to-slate-950 text-white px-4 sm:px-8 py-4.5 sm:py-5 border-b border-slate-800">
+  <!-- ==================== ARROW CHEVRON STEPPER HEADER ==================== -->
+  <div class="bg-slate-50 border-b border-slate-300 px-4 sm:px-8 py-4 sm:py-5">
     
-    <!-- Top Live Dispatch Bar -->
-    <div class="flex items-center justify-between pb-3 mb-3.5 border-b border-white/10">
+    <!-- Brand Line -->
+    <div class="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-200">
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block ring-4 ring-emerald-400/20 animate-pulse"></span>
-        <span class="text-xs font-black tracking-wider text-slate-200 uppercase">Live Mobile Dispatch &bull; Nashville, TN</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block ring-4 ring-emerald-100"></span>
+        <span class="text-xs font-black tracking-wider text-slate-900 uppercase">Armstrong Locksmith Inc</span>
       </div>
       <a 
         href="tel:6156258000" 
-        class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 rounded-full text-xs font-black text-amber-400 hover:text-amber-300 transition shadow-sm"
+        class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-slate-300 rounded-full text-xs font-bold text-slate-700 hover:text-blue-600 shadow-sm transition"
       >
         <span>📞</span>
         <span>(615) 625-8000</span>
       </a>
     </div>
 
-    <!-- Modern 3 Segmented Pill Stepper -->
-    <div class="grid grid-cols-3 gap-2 sm:gap-3">
-      <!-- Step 1: Service -->
-      <div id="step-pill-1" class="flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300">
-        <div class="flex items-center justify-between text-[10px] sm:text-xs font-black tracking-wider uppercase">
-          <span id="pill-label-1" class="text-white">01. Service</span>
-          <span id="pill-badge-1" class="w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black">1</span>
+    <!-- Arrow Stepper Navigation Ribbon -->
+    <div class="grid grid-cols-3 gap-1.5 sm:gap-2.5 font-sans">
+      
+      <!-- Step 1 Arrow -->
+      <div 
+        id="step-arrow-1" 
+        class="relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all"
+      >
+        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
+          <span id="arrow-badge-1" class="w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs">1</span>
+          <span id="arrow-label-1" class="text-xs sm:text-sm font-black truncate tracking-tight text-white">Service</span>
         </div>
-        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-          <div id="pill-bar-1" class="h-full bg-blue-500 w-full transition-all duration-300"></div>
+        <svg class="w-4 h-4 shrink-0 text-white/80 hidden xs:block sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Step 2 Arrow -->
+      <div 
+        id="step-arrow-2" 
+        class="relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all"
+      >
+        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
+          <span id="arrow-badge-2" class="w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0">2</span>
+          <span id="arrow-label-2" class="text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600">Schedule</span>
+        </div>
+        <svg class="w-4 h-4 shrink-0 text-slate-300 hidden xs:block sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      <!-- Step 3 Arrow -->
+      <div 
+        id="step-arrow-3" 
+        class="relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all"
+      >
+        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
+          <span id="arrow-badge-3" class="w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0">3</span>
+          <span id="arrow-label-3" class="text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600">Confirm</span>
         </div>
       </div>
 
-      <!-- Step 2: Schedule -->
-      <div id="step-pill-2" class="flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300">
-        <div class="flex items-center justify-between text-[10px] sm:text-xs font-bold tracking-wider uppercase">
-          <span id="pill-label-2" class="text-slate-400">02. Schedule</span>
-          <span id="pill-badge-2" class="w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold">2</span>
-        </div>
-        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-          <div id="pill-bar-2" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
-        </div>
-      </div>
-
-      <!-- Step 3: Book -->
-      <div id="step-pill-3" class="flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300">
-        <div class="flex items-center justify-between text-[10px] sm:text-xs font-bold tracking-wider uppercase">
-          <span id="pill-label-3" class="text-slate-400">03. Book</span>
-          <span id="pill-badge-3" class="w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold">3</span>
-        </div>
-        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-          <div id="pill-bar-3" class="h-full bg-blue-500 w-0 transition-all duration-300"></div>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -400,21 +408,17 @@
     const success = document.getElementById('step-success');
     const form = document.getElementById('booking-form');
 
-    const pill1 = document.getElementById('step-pill-1');
-    const pill2 = document.getElementById('step-pill-2');
-    const pill3 = document.getElementById('step-pill-3');
+    const arrow1 = document.getElementById('step-arrow-1');
+    const arrow2 = document.getElementById('step-arrow-2');
+    const arrow3 = document.getElementById('step-arrow-3');
 
-    const pillLabel1 = document.getElementById('pill-label-1');
-    const pillLabel2 = document.getElementById('pill-label-2');
-    const pillLabel3 = document.getElementById('pill-label-3');
+    const arrowBadge1 = document.getElementById('arrow-badge-1');
+    const arrowBadge2 = document.getElementById('arrow-badge-2');
+    const arrowBadge3 = document.getElementById('arrow-badge-3');
 
-    const pillBadge1 = document.getElementById('pill-badge-1');
-    const pillBadge2 = document.getElementById('pill-badge-2');
-    const pillBadge3 = document.getElementById('pill-badge-3');
-
-    const pillBar1 = document.getElementById('pill-bar-1');
-    const pillBar2 = document.getElementById('pill-bar-2');
-    const pillBar3 = document.getElementById('pill-bar-3');
+    const arrowLabel1 = document.getElementById('arrow-label-1');
+    const arrowLabel2 = document.getElementById('arrow-label-2');
+    const arrowLabel3 = document.getElementById('arrow-label-3');
 
     const serviceInput = document.getElementById('field-service');
     const dateInput = document.getElementById('field-date');
@@ -448,67 +452,58 @@
       if (n === 1) {
         s1.classList.remove('hidden');
 
-        // Pill 1: Active
-        if (pill1) pill1.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300";
-        if (pillLabel1) { pillLabel1.className = "text-white font-black"; }
-        if (pillBadge1) { pillBadge1.className = "w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge1.textContent = "1"; }
-        if (pillBar1) { pillBar1.className = "h-full bg-blue-500 w-full transition-all duration-300"; }
+        // Step 1: Active Blue Arrow
+        if (arrow1) arrow1.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all";
+        if (arrowBadge1) { arrowBadge1.className = "w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge1.textContent = "1"; }
+        if (arrowLabel1) { arrowLabel1.className = "text-xs sm:text-sm font-black truncate tracking-tight text-white"; }
 
-        // Pill 2: Inactive
-        if (pill2) pill2.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300";
-        if (pillLabel2) { pillLabel2.className = "text-slate-400 font-bold"; }
-        if (pillBadge2) { pillBadge2.className = "w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold"; pillBadge2.textContent = "2"; }
-        if (pillBar2) { pillBar2.className = "h-full bg-blue-500 w-0 transition-all duration-300"; }
+        // Step 2: Upcoming Inactive
+        if (arrow2) arrow2.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all";
+        if (arrowBadge2) { arrowBadge2.className = "w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0"; arrowBadge2.textContent = "2"; }
+        if (arrowLabel2) { arrowLabel2.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600"; }
 
-        // Pill 3: Inactive
-        if (pill3) pill3.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300";
-        if (pillLabel3) { pillLabel3.className = "text-slate-400 font-bold"; }
-        if (pillBadge3) { pillBadge3.className = "w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold"; pillBadge3.textContent = "3"; }
-        if (pillBar3) { pillBar3.className = "h-full bg-blue-500 w-0 transition-all duration-300"; }
+        // Step 3: Upcoming Inactive
+        if (arrow3) arrow3.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all";
+        if (arrowBadge3) { arrowBadge3.className = "w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0"; arrowBadge3.textContent = "3"; }
+        if (arrowLabel3) { arrowLabel3.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600"; }
 
       } else if (n === 2) {
         s2.classList.remove('hidden');
 
-        // Pill 1: Done
-        if (pill1) pill1.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
-        if (pillLabel1) { pillLabel1.className = "text-emerald-300 font-bold"; }
-        if (pillBadge1) { pillBadge1.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge1.textContent = "✓"; }
-        if (pillBar1) { pillBar1.className = "h-full bg-emerald-500 w-full transition-all duration-300"; }
+        // Step 1: Done Emerald Arrow
+        if (arrow1) arrow1.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
+        if (arrowBadge1) { arrowBadge1.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge1.textContent = "✓"; }
+        if (arrowLabel1) { arrowLabel1.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white"; }
 
-        // Pill 2: Active
-        if (pill2) pill2.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300";
-        if (pillLabel2) { pillLabel2.className = "text-white font-black"; }
-        if (pillBadge2) { pillBadge2.className = "w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge2.textContent = "2"; }
-        if (pillBar2) { pillBar2.className = "h-full bg-blue-500 w-full transition-all duration-300"; }
+        // Step 2: Active Blue Arrow
+        if (arrow2) arrow2.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all";
+        if (arrowBadge2) { arrowBadge2.className = "w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge2.textContent = "2"; }
+        if (arrowLabel2) { arrowLabel2.className = "text-xs sm:text-sm font-black truncate tracking-tight text-white"; }
 
-        // Pill 3: Inactive
-        if (pill3) pill3.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-slate-900/60 border border-slate-700/60 shadow-sm transition-all duration-300";
-        if (pillLabel3) { pillLabel3.className = "text-slate-400 font-bold"; }
-        if (pillBadge3) { pillBadge3.className = "w-4 h-4 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center text-[10px] font-bold"; pillBadge3.textContent = "3"; }
-        if (pillBar3) { pillBar3.className = "h-full bg-blue-500 w-0 transition-all duration-300"; }
+        // Step 3: Upcoming Inactive
+        if (arrow3) arrow3.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all";
+        if (arrowBadge3) { arrowBadge3.className = "w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0"; arrowBadge3.textContent = "3"; }
+        if (arrowLabel3) { arrowLabel3.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600"; }
 
         if (selectedServiceTag) selectedServiceTag.textContent = serviceInput.value;
 
       } else if (n === 3) {
         s3.classList.remove('hidden');
 
-        // Pill 1: Done
-        if (pill1) pill1.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
-        if (pillLabel1) { pillLabel1.className = "text-emerald-300 font-bold"; }
-        if (pillBadge1) { pillBadge1.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge1.textContent = "✓"; }
-        if (pillBar1) { pillBar1.className = "h-full bg-emerald-500 w-full transition-all duration-300"; }
+        // Step 1: Done Emerald Arrow
+        if (arrow1) arrow1.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
+        if (arrowBadge1) { arrowBadge1.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge1.textContent = "✓"; }
+        if (arrowLabel1) { arrowLabel1.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white"; }
 
-        // Pill 2: Done
-        if (pill2) pill2.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
-        if (pillLabel2) { pillLabel2.className = "text-emerald-300 font-bold"; }
-        if (pillBadge2) { pillBadge2.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge2.textContent = "✓"; }
-        if (pillBar2) { pillBar2.className = "h-full bg-emerald-500 w-full transition-all duration-300"; }
+        // Step 2: Done Emerald Arrow
+        if (arrow2) arrow2.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
+        if (arrowBadge2) { arrowBadge2.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge2.textContent = "✓"; }
+        if (arrowLabel2) { arrowLabel2.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white"; }
 
-        // Pill 3: Active
-        if (pill3) pill3.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-blue-600/25 border border-blue-500/70 shadow-sm transition-all duration-300";
-        if (pillLabel3) { pillLabel3.className = "text-white font-black"; }
-        if (pillBadge3) { pillBadge3.className = "w-4 h-4 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-black"; pillBadge3.textContent = "3"; }
-        if (pillBar3) { pillBar3.className = "h-full bg-blue-500 w-full transition-all duration-300"; }
+        // Step 3: Active Blue Arrow
+        if (arrow3) arrow3.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all";
+        if (arrowBadge3) { arrowBadge3.className = "w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge3.textContent = "3"; }
+        if (arrowLabel3) { arrowLabel3.className = "text-xs sm:text-sm font-black truncate tracking-tight text-white"; }
 
         if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${dateInput.value} (${timeInput.value})`;
 
@@ -516,20 +511,17 @@
         form.classList.add('hidden');
         if (success) success.classList.remove('hidden');
 
-        [pill1, pill2, pill3].forEach(p => {
-          if (p) p.className = "flex flex-col gap-1.5 p-2 sm:p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/60 shadow-sm transition-all duration-300";
+        [arrow1, arrow2, arrow3].forEach(a => {
+          if (a) a.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
         });
-        [pillLabel1, pillLabel2, pillLabel3].forEach(l => {
-          if (l) l.className = "text-emerald-300 font-bold";
-        });
-        [pillBadge1, pillBadge2, pillBadge3].forEach(b => {
+        [arrowBadge1, arrowBadge2, arrowBadge3].forEach(b => {
           if (b) {
-            b.className = "w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black";
+            b.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs";
             b.textContent = "✓";
           }
         });
-        [pillBar1, pillBar2, pillBar3].forEach(bar => {
-          if (bar) bar.className = "h-full bg-emerald-500 w-full transition-all duration-300";
+        [arrowLabel1, arrowLabel2, arrowLabel3].forEach(l => {
+          if (l) l.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white";
         });
       }
 
