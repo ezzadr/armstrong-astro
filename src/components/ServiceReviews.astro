@@ -1,0 +1,50 @@
+---
+// ServiceReviews.astro - live Google reviews matched to this page's service.
+// Renders nothing until /api/reviews.php?service=<key> returns matches from
+// the server-side review archive, so a page with no matching reviews looks
+// exactly as it did before. Runs at browser idle; never competes with LCP.
+const { service, label } = Astro.props;
+---
+<div class="arm-service-reviews max-w-4xl mx-auto px-4 sm:px-6 mt-12 hidden font-sans" data-service={service} data-label={label}></div>
+<script is:inline>
+(function () {
+  var mounts = document.querySelectorAll('.arm-service-reviews:not([data-armsr-init])');
+  function esc(s) {
+    return String(s || '').replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function clamp(s, n) {
+    s = String(s || '');
+    return s.length > n ? s.slice(0, n).replace(/\s+\S*$/, '') + '…' : s;
+  }
+  mounts.forEach(function (el) {
+    el.setAttribute('data-armsr-init', '1');
+    function run() {
+      fetch('/api/reviews.php?service=' + encodeURIComponent(el.dataset.service))
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d || !d.reviews || !d.reviews.length) return;
+          var cards = d.reviews.slice(0, 3).map(function (rev) {
+            return '<div class="p-5 bg-white border border-slate-200 border-t-2 border-t-amber-400 shadow-sm text-left w-full sm:w-[320px] max-w-md">'
+              + '<div class="flex items-center justify-between gap-2">'
+              + '<span class="font-bold text-[#0f274a] text-sm">' + esc(rev.author_name) + '</span>'
+              + '<span class="text-amber-500 text-xs tracking-tighter">★★★★★</span></div>'
+              + '<div class="text-[11px] text-slate-400 mt-0.5">' + esc(rev.relative_time_description || 'Recently') + ' &bull; Verified Google Review</div>'
+              + '<p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">&ldquo;' + esc(clamp(rev.text, 320)) + '&rdquo;</p>'
+              + '</div>';
+          }).join('');
+          el.innerHTML = '<div class="text-center mb-4">'
+            + '<span class="text-[11px] font-black uppercase tracking-wider text-amber-600">⭐ Verified Google Reviews</span>'
+            + '<h2 class="text-lg sm:text-xl font-black text-[#0f274a] mt-1">What ' + esc(el.dataset.label) + ' Customers Say</h2>'
+            + '</div>'
+            + '<div class="flex flex-wrap justify-center gap-4">' + cards + '</div>';
+          el.classList.remove('hidden');
+        })
+        .catch(function () {});
+    }
+    if ('requestIdleCallback' in window) { requestIdleCallback(run, { timeout: 4000 }); }
+    else { setTimeout(run, 1500); }
+  });
+})();
+</script>

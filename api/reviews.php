@@ -4,7 +4,62 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
 $cacheFile = __DIR__ . '/google_reviews_cache.json';
+$archiveFile = __DIR__ . '/google_reviews_archive.json';
 $cacheDuration = 3600; // Cache for 1 hour to stay fast and avoid exceeding Google API rate limits
+
+// ---------------------------------------------------------------------------
+// Service-matched reviews: /api/reviews.php?service=bmw
+// Google only ever returns the 5 newest reviews, so the archive file (grown
+// by every hourly refresh below) is the matching pool - it gets richer over
+// time. Returns only 4-star-plus reviews with text whose wording matches the
+// service; an empty list is a valid answer and the page simply shows nothing.
+// ---------------------------------------------------------------------------
+if (isset($_GET['service'])) {
+    $serviceMap = [
+        'bmw'           => '/\bbmw\b/i',
+        'mercedes-benz' => '/mercedes|benz|\besl\b/i',
+        'audi'          => '/\baudi\b/i',
+        'land-rover'    => '/land\s*rover|range\s*rover/i',
+        'bentley'       => '/bentley/i',
+        'toyota'        => '/toyota|camry|corolla|rav4|tacoma|4runner/i',
+        'honda'         => '/honda|civic|accord|cr-?v/i',
+        'kia'           => '/\bkia\b|sorento|optima|sportage|telluride/i',
+        'hyundai'       => '/hyundai|elantra|sonata|tucson|santa fe/i',
+        'acura'         => '/acura/i',
+        'hummer'        => '/hummer/i',
+        'key-fob'       => '/\bfob\b|remote|battery/i',
+        'rekey'         => '/re-?key|deadbolt|house|home lock|door lock/i',
+        'commercial'    => '/commercial|storefront|office|business door|panic|mortise/i',
+        'lockout'       => '/locked out|lock-?out|unlock|locked my keys|keys in/i',
+        'dealer'        => '/dealer/i',
+    ];
+    $svc = preg_replace('/[^a-z-]/', '', strtolower($_GET['service']));
+    $pattern = isset($serviceMap[$svc]) ? $serviceMap[$svc] : null;
+    $out = ['service' => $svc, 'reviews' => []];
+    if ($pattern && file_exists($archiveFile)) {
+        $arch = json_decode(file_get_contents($archiveFile), true);
+        if (is_array($arch)) {
+            $matches = array_values(array_filter($arch, function ($r) use ($pattern) {
+                return (isset($r['rating']) ? $r['rating'] : 0) >= 4
+                    && trim(isset($r['text']) ? $r['text'] : '') !== ''
+                    && preg_match($pattern, $r['text']);
+            }));
+            usort($matches, function ($a, $b) {
+                return (isset($b['time']) ? $b['time'] : 0) - (isset($a['time']) ? $a['time'] : 0);
+            });
+            $out['reviews'] = array_slice(array_map(function ($r) {
+                return [
+                    'author_name' => $r['author_name'],
+                    'rating' => $r['rating'],
+                    'relative_time_description' => isset($r['relative_time_description']) ? $r['relative_time_description'] : '',
+                    'text' => $r['text'],
+                ];
+            }, $matches), 0, 6);
+        }
+    }
+    echo json_encode($out);
+    exit();
+}
 
 // Check cache
 if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $cacheDuration)) {
@@ -114,6 +169,30 @@ if (isset($data['result']['reviews'])) {
         }, $displayable)
     ];
     
+    // Grow the all-time archive that powers ?service= matching. Google only
+    // hands back the 5 newest reviews, so each refresh appends any not yet
+    // seen (deduped by time+author) and the pool compounds over time.
+    $archive = file_exists($archiveFile) ? json_decode(file_get_contents($archiveFile), true) : [];
+    if (!is_array($archive)) { $archive = []; }
+    $seen = [];
+    foreach ($archive as $r) {
+        $seen[(isset($r['time']) ? $r['time'] : 0) . '|' . (isset($r['author_name']) ? $r['author_name'] : '')] = true;
+    }
+    foreach ($data['result']['reviews'] as $r) {
+        $k = (isset($r['time']) ? $r['time'] : 0) . '|' . (isset($r['author_name']) ? $r['author_name'] : '');
+        if (!isset($seen[$k])) {
+            $archive[] = [
+                'author_name' => isset($r['author_name']) ? $r['author_name'] : '',
+                'rating' => isset($r['rating']) ? $r['rating'] : 5,
+                'relative_time_description' => isset($r['relative_time_description']) ? $r['relative_time_description'] : '',
+                'text' => isset($r['text']) ? $r['text'] : '',
+                'time' => isset($r['time']) ? $r['time'] : 0,
+            ];
+            $seen[$k] = true;
+        }
+    }
+    file_put_contents($archiveFile, json_encode($archive));
+
     file_put_contents($cacheFile, json_encode($resultData));
     echo json_encode($resultData);
 } else {
