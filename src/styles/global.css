@@ -147,11 +147,10 @@
     opacity: 1;
     transform: translateY(0);
   }
-  /* 8. Modern Content-Visibility Auto (Zero-Jank Below-the-Fold Rendering) */
-  .content-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 500px;
-  }
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+
 }
 
 /* Base Cards Legacy */
