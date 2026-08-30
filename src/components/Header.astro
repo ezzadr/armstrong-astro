@@ -260,7 +260,7 @@
             <span class="text-amber-600 group-hover/item:translate-x-1 transition-transform">&rarr;</span>
           </a>
           <a href="/google-reviews/" class="group/item flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 hover:text-[#0f274a] transition-colors">
-            <span>⭐ Google Reviews (771+)</span>
+            <span>⭐ Google Reviews (<span class="arm-review-count">771+</span>)</span>
             <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
           </a>
           <a href="/faq/" class="group/item flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 hover:text-[#0f274a] transition-colors">
@@ -385,7 +385,7 @@
               Armstrong <span class="text-gold-gradient">Locksmith</span>
             </div>
             <a href="/google-reviews/" class="mt-1 inline-flex items-center gap-1 text-[11px] font-bold text-amber-400 hover:text-white transition-colors">
-              ⭐ 4.9/5 &bull; 771+ Google Reviews
+              ⭐ 4.9/5 &bull; <span class="arm-review-count">771+</span> Google Reviews
             </a>
           </div>
           <button
@@ -466,7 +466,7 @@
           <div class="arm-accordion-content hidden px-3 pb-3">
             <div class="flex flex-col text-[12px] pt-1 border-t border-slate-100">
               <a href="/locksmith-pricing-nashville/" class="py-2 text-amber-900 font-bold hover:text-amber-600">&bull; 💵 Upfront Price Guide (2026)</a>
-              <a href="/google-reviews/" class="py-2 text-slate-600 font-semibold hover:text-amber-600 active:text-amber-700">&bull; ⭐ Google Reviews (771+)</a>
+              <a href="/google-reviews/" class="py-2 text-slate-600 font-semibold hover:text-amber-600 active:text-amber-700">&bull; ⭐ Google Reviews (<span class="arm-review-count">771+</span>)</a>
               <a href="/faq/" class="py-2 text-slate-600 font-semibold hover:text-amber-600 active:text-amber-700">&bull; ❓ FAQs &amp; Help</a>
               <a href="/payment-methods/" class="py-2 text-slate-600 font-semibold hover:text-amber-600 active:text-amber-700">&bull; 💳 Accepted Payment Methods</a>
             </div>
@@ -666,16 +666,40 @@
         });
       }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          setupMenu();
-          setupAccordions();
-          setupDesktopDropdowns();
-        });
-      } else {
+      // Sitewide live review count. Every hardcoded "771+" that should track
+      // the real Google total is wrapped in .arm-review-count; this swaps them
+      // for the live figure from the cached reviews endpoint. Runs at idle so
+      // it never competes with LCP; on any failure the server-rendered number
+      // simply stays, so there is no empty or shifting state.
+      function syncReviewCounts() {
+        if (!document.querySelector('.arm-review-count')) return;
+        fetch('/api/reviews.php')
+          .then(r => (r.ok ? r.json() : null))
+          .then(d => {
+            if (d && d.user_ratings_total) {
+              document.querySelectorAll('.arm-review-count').forEach(el => {
+                el.textContent = d.user_ratings_total + '+';
+              });
+            }
+          })
+          .catch(() => {});
+      }
+
+      function initAll() {
         setupMenu();
         setupAccordions();
         setupDesktopDropdowns();
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(syncReviewCounts, { timeout: 4000 });
+        } else {
+          setTimeout(syncReviewCounts, 1500);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+      } else {
+        initAll();
       }
     })();
   </script>

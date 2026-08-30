@@ -890,14 +890,8 @@ const homepageSchema = [
               ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${data.user_ratings_total || '771+'} Reviews)`;
             }
 
-            // Sync every hardcoded review-count mention (hero badges, View All
-            // button) to the live Google total. The static "771+" stays as the
-            // server-rendered default, so nothing shifts if the fetch fails.
-            if (data.user_ratings_total) {
-              document.querySelectorAll('.arm-review-count').forEach(el => {
-                el.textContent = data.user_ratings_total + '+';
-              });
-            }
+            // Count badges (.arm-review-count) are updated sitewide by the
+            // header's syncReviewCounts(); no duplicate loop needed here.
 
             if (container && data.reviews.length >= 3) {
               container.innerHTML = data.reviews.map(rev => `
