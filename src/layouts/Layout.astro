@@ -279,8 +279,7 @@ const baseBusinessSchema = {
   <!-- Responsive LCP Hero Image Preload for Instant First-Screen Paint on Home -->
   {(canonical === "/" || Astro.url.pathname === "/") && (
     <>
-      <link rel="preload" as="image" href="/shop-450.webp" type="image/webp" media="(max-width: 480px)" fetchpriority="high" />
-      <link rel="preload" as="image" href="/shop-600.webp" type="image/webp" media="(min-width: 481px) and (max-width: 768px)" fetchpriority="high" />
+      <link rel="preload" as="image" href="/shop-600.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
       <link rel="preload" as="image" href="/shop-1200.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
     </>
   )}
