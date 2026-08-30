@@ -140,7 +140,7 @@ const homepageSchema = [
         <div class="hidden lg:flex flex-wrap items-center gap-x-5 gap-y-2.5 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
           <div class="inline-flex items-center gap-2">
             <span class="text-amber-400 font-bold tracking-tighter text-sm">★★★★★</span>
-            <span><strong class="text-white font-bold">4.9 / 5.0</strong> (771+ Verified Reviews)</span>
+            <span><strong class="text-white font-bold">4.9 / 5.0</strong> (<span class="arm-review-count">771+</span> Verified Reviews)</span>
           </div>
           <span class="text-slate-600 font-bold">&bull;</span>
           <div class="inline-flex items-center gap-1.5">
@@ -274,7 +274,7 @@ const homepageSchema = [
         <div class="lg:hidden flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pt-4 text-xs text-slate-300 text-center">
           <div class="inline-flex items-center gap-1.5">
             <span class="text-amber-400 font-bold text-xs">★★★★★</span>
-            <span><strong class="text-white font-bold">4.9 / 5.0</strong> (771+ Reviews)</span>
+            <span><strong class="text-white font-bold">4.9 / 5.0</strong> (<span class="arm-review-count">771+</span> Reviews)</span>
           </div>
           <span class="text-slate-600 font-bold">&bull;</span>
           <div class="inline-flex items-center gap-1.5">
@@ -346,7 +346,7 @@ const homepageSchema = [
           </p>
         </div>
         <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700">
-          <span>771+ 5-Star Google Reviews</span>
+          <span><span class="arm-review-count">771+</span> 5-Star Google Reviews</span>
           <a href="/locksmith-pricing-nashville/" class="text-amber-600 hover:text-amber-700 font-extrabold flex items-center gap-1">Pricing Guide &rarr;</a>
         </div>
       </div>
@@ -576,7 +576,7 @@ const homepageSchema = [
             rel="noopener noreferrer" 
             class="inline-flex items-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-800 text-xs sm:text-sm font-bold border border-slate-300 shadow-sm transition"
           >
-            <span>⭐ View All (771+)</span>
+            <span>⭐ View All (<span class="arm-review-count">771+</span>)</span>
           </a>
         </div>
       </div>
@@ -888,6 +888,15 @@ const homepageSchema = [
             
             if (ratingText && data.rating) {
               ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${data.user_ratings_total || '771+'} Reviews)`;
+            }
+
+            // Sync every hardcoded review-count mention (hero badges, View All
+            // button) to the live Google total. The static "771+" stays as the
+            // server-rendered default, so nothing shifts if the fetch fails.
+            if (data.user_ratings_total) {
+              document.querySelectorAll('.arm-review-count').forEach(el => {
+                el.textContent = data.user_ratings_total + '+';
+              });
             }
 
             if (container && data.reviews.length >= 3) {
