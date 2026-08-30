@@ -11,7 +11,12 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/staff-sms-alerts-consent') && !page.includes('/404') && !page.includes('/review')
+      filter: (page) => !page.includes('/staff-sms-alerts-consent') && !page.includes('/404') && !page.includes('/review'),
+      serialize(item) {
+        // Stamp lastmod at build time so Google prioritizes recrawling updated pages
+        item.lastmod = new Date().toISOString();
+        return item;
+      }
     })
   ]
 });

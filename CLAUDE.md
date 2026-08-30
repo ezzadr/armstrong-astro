@@ -19,7 +19,7 @@
    - **Name:** Armstrong Locksmith Inc
    - **Phone:** (615) 625-8000
    - **Storefront:** 208 Thompson Ln, Nashville, TN 37211
-   - **Reviews Metric:** 769+ Google Reviews (4.9 Stars)
+   - **Reviews Metric:** 771+ Google Reviews (4.9 Stars) — keep synced with the live GBP count; update site schema `reviewCount` and visible "771+" mentions together
    - **Tennessee Licensing:** TN has no state locksmith license; never add license numbers.
    - **Operating Hours:** Storefront: Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM. Mobile dispatch: Mon–Fri 8:00 AM – 11:30 PM, Weekends On-Call.
 
