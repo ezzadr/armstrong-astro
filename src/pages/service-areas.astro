@@ -256,7 +256,7 @@ const serviceAreasSchema = [
             href="tel:6156258000" 
             class="py-2.5 px-4 rounded-xl bg-gold-metallic hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider text-center transition"
           >
-            Request Mobile Dispatch &rarr;
+            Call for Mobile Service &rarr;
           </a>
         </div>
 
@@ -347,13 +347,13 @@ const serviceAreasSchema = [
             </div>
 
             <div class="pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-[11px] text-slate-500 font-mono font-medium">ZIP: {area.zips}</span>
+              <span class="text-[11px] text-slate-500 font-mono">ZIP: <strong class="text-slate-700 font-medium">{area.zips}</strong></span>
               <a 
                 href="tel:6156258000" 
-                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow transition active:scale-95"
+                class="text-[#0f274a] hover:text-amber-600 font-bold text-xs inline-flex items-center gap-1 transition group"
               >
-                <span>📞</span>
-                <span>Call Dispatch</span>
+                <span>(615) 625-8000</span>
+                <span class="text-slate-400 group-hover:translate-x-0.5 transition-transform">&rarr;</span>
               </a>
             </div>
           </div>
