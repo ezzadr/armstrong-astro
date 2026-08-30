@@ -1,27 +1,29 @@
 <?php
 /**
- * Armstrong Locksmith — Smart 404 Router
+ * Armstrong Locksmith — Smart 404 Router & 301 Redirect Engine
  * 
  * On Cloudways, Nginx's try_files falls back to /index.php when no static
- * file matches. This script checks if the requested URL has a valid static
- * page, and if not, serves the custom 404 page with a proper HTTP 404 status.
- * 
- * If the request IS for the homepage (/), it serves index.html normally.
+ * file matches. This script:
+ * 1. Checks if the URL is for the homepage.
+ * 2. Checks if an exact static HTML file exists for this route.
+ * 3. Intercepts legacy deleted city/doorway/suburb URLs and 301 redirects to /service-areas/.
+ * 4. Intercepts legacy WordPress categories/tags and 301 redirects to /blog/.
+ * 5. Otherwise serves the custom 404 page with a proper HTTP 404 status.
  */
 
-$requestUri = strtok($_SERVER['REQUEST_URI'], '?');
-$requestUri = rtrim($requestUri, '/');
+$requestUri = strtok($_SERVER['REQUEST_URI'] ?? '', '?');
+$cleanUri = trim(strtolower($requestUri), '/');
 
 // If requesting homepage, serve it directly
-if ($requestUri === '' || $requestUri === '/index.html' || $requestUri === '/index.php') {
+if ($cleanUri === '' || $cleanUri === 'index.html' || $cleanUri === 'index.php') {
     readfile(__DIR__ . '/index.html');
     exit;
 }
 
 // Check if a static HTML file exists for this route
-$htmlPath = __DIR__ . $requestUri . '/index.html';
-$directPath = __DIR__ . $requestUri . '.html';
-$exactPath = __DIR__ . $requestUri;
+$htmlPath = __DIR__ . '/' . $cleanUri . '/index.html';
+$directPath = __DIR__ . '/' . $cleanUri . '.html';
+$exactPath = __DIR__ . '/' . $cleanUri;
 
 if (is_file($htmlPath)) {
     readfile($htmlPath);
@@ -31,6 +33,37 @@ if (is_file($htmlPath)) {
     exit;
 } elseif (is_file($exactPath)) {
     readfile($exactPath);
+    exit;
+}
+
+// ==============================================================================
+// 301 REDIRECT ENGINE FOR DELETED CITY / SUBURB / DOORWAY PAGES
+// ==============================================================================
+
+// 1. Service area subpaths & location folders
+if (preg_match('#^(service-area|locations?|cit(y|ies)|areas?)/#i', $cleanUri)) {
+    header('Location: /service-areas/', true, 301);
+    exit;
+}
+
+// 2. Generic location searches
+if (preg_match('#^(locksmith-near-me|emergency-locksmith-near-me|mobile-locksmith-near-me|24-hour-locksmith|24-7-locksmith|cheap-locksmith-nashville|locksmith-service-areas)$#i', $cleanUri)) {
+    header('Location: /service-areas/', true, 301);
+    exit;
+}
+
+// 3. Middle TN cities & suburbs regex list
+$citiesPattern = 'brentwood|franklin|cool-springs|coolsprings|murfreesboro|hendersonville|mount-juliet|mt-juliet|mtjuliet|lebanon|smyrna|la-vergne|lavergne|gallatin|spring-hill|springhill|antioch|donelson|hermitage|green-hills|greenhills|belle-meade|bellemeade|nolensville|east-nashville|goodlettsville|madison|columbia|dickson|clarksville|fairview|thompsons-station|thompson-station|berry-hill|berryhill|inglewood|old-hickory|oldhickory|bellevue|west-end|the-gulch|gulch|germantown';
+
+// Matches locksmith-[city], [city]-locksmith, commercial-locksmith-[city], [city], etc.
+if (preg_match('#(locksmith.*(' . $citiesPattern . ')|(' . $citiesPattern . ').*locksmith|^(' . $citiesPattern . ')(-tn)?$)#i', $cleanUri)) {
+    header('Location: /service-areas/', true, 301);
+    exit;
+}
+
+// 4. Legacy WordPress taxonomy & author archives
+if (preg_match('#^(category|tag|author)/#i', $cleanUri)) {
+    header('Location: /blog/', true, 301);
     exit;
 }
 

@@ -23,8 +23,31 @@ ErrorDocument 404 /404-handler.php
   # Admin Content Studio Direct Entry
   RewriteRule ^admin/?$ /admin/index.php [L,R=302]
 
-  # Legacy WordPress 301 Redirects — REMOVED 2026-08-27
-  # All slugs below now have dedicated standalone .astro pages & are in sitemap-0.xml.
+  # ============================================================================
+  # 301 PERMANENT REDIRECTS FOR LEGACY CITY / SUBURB / DOORWAY PAGES
+  # Forward all indexed regional and doorway URLs to the consolidated hub
+  # ============================================================================
+  
+  # Location / City prefix folders (e.g. /service-area/*, /locations/*, /cities/*)
+  RewriteRule ^service-area/.*$ /service-areas/ [L,R=301,NC]
+  RewriteRule ^locations?/.*$ /service-areas/ [L,R=301,NC]
+  RewriteRule ^cit(y|ies)/.*$ /service-areas/ [L,R=301,NC]
+  RewriteRule ^areas?/.*$ /service-areas/ [L,R=301,NC]
+
+  # Common generic "near-me" / 24-hour doorway queries
+  RewriteRule ^(locksmith-near-me|emergency-locksmith-near-me|mobile-locksmith-near-me|24-hour-locksmith|24-7-locksmith|cheap-locksmith-nashville|locksmith-service-areas)/?$ /service-areas/ [L,R=301,NC]
+
+  # All city/suburb prefix and suffix variations
+  # Matches locksmith-brentwood, brentwood-locksmith, locksmith-in-brentwood, commercial-locksmith-brentwood, etc.
+  RewriteRule ^(emergency-|commercial-|residential-|automotive-|car-|mobile-)?locksmith-(in-)?(brentwood|franklin|cool-springs|coolsprings|murfreesboro|hendersonville|mount-juliet|mt-juliet|mtjuliet|lebanon|smyrna|la-vergne|lavergne|gallatin|spring-hill|springhill|antioch|donelson|hermitage|green-hills|greenhills|belle-meade|bellemeade|nolensville|east-nashville|goodlettsville|madison|columbia|dickson|clarksville|fairview|thompsons-station|thompson-station|berry-hill|berryhill|inglewood|old-hickory|oldhickory|bellevue|west-end|the-gulch|gulch|germantown)(-tn)?/?$ /service-areas/ [L,R=301,NC]
+
+  RewriteRule ^(brentwood|franklin|cool-springs|coolsprings|murfreesboro|hendersonville|mount-juliet|mt-juliet|mtjuliet|lebanon|smyrna|la-vergne|lavergne|gallatin|spring-hill|springhill|antioch|donelson|hermitage|green-hills|greenhills|belle-meade|bellemeade|nolensville|east-nashville|goodlettsville|madison|columbia|dickson|clarksville|fairview|thompsons-station|thompson-station|berry-hill|berryhill|inglewood|old-hickory|oldhickory|bellevue|west-end|the-gulch|gulch|germantown)(-tn)?-locksmith/?$ /service-areas/ [L,R=301,NC]
+
+  # Standalone city slugs
+  RewriteRule ^(brentwood|franklin|cool-springs|coolsprings|murfreesboro|hendersonville|mount-juliet|mt-juliet|mtjuliet|lebanon|smyrna|la-vergne|lavergne|gallatin|spring-hill|springhill|antioch|donelson|hermitage|green-hills|greenhills|belle-meade|bellemeade|nolensville|east-nashville|goodlettsville|madison|columbia|dickson|clarksville|fairview|thompsons-station|thompson-station|berry-hill|berryhill|inglewood|old-hickory|oldhickory|bellevue|the-gulch|germantown)(-tn)?/?$ /service-areas/ [L,R=301,NC]
+
+  # Legacy WordPress taxonomy & author archives
+  RewriteRule ^(category|tag|author)/.*$ /blog/ [L,R=301,NC]
 
   # Sitemap Rewrites & Aliases for Search Console
   RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
