@@ -128,11 +128,11 @@ const computedTitle = post.data.title.length > 45
 
       <!-- Author Card Header -->
       <div class="flex items-center gap-3.5 pt-4 border-t border-white/10 w-fit">
-        <picture>
-          <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="(max-width: 640px) 100vw, 48px" />
-          <img 
-          src="/images/rahim-face.jpg" 
-          alt="Rahim Ezzadpanah" 
+        <picture class="block w-12 h-12 flex-shrink-0">
+          <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="48px" />
+          <img
+          src="/images/rahim-face.jpg"
+          alt="Rahim Ezzadpanah"
           class="w-12 h-12 rounded-full object-cover border-2 border-amber-500 shadow"
           width="48"
           height="48"
@@ -347,12 +347,14 @@ const computedTitle = post.data.title.length > 45
 
         <!-- Author Signature Card -->
         <div class="mt-12 p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center sm:items-start gap-5">
-          <picture>
-            <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="(max-width: 640px) 100vw, 96px" />
-            <img 
-            src="/images/rahim-face.jpg" 
-            alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville" 
-            class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500 shadow-md flex-shrink-0"
+          <!-- Size the <picture> itself: it is the flex child, and without its
+               own width it gets squeezed and the face renders half cut off. -->
+          <picture class="block w-24 h-24 flex-shrink-0">
+            <source type="image/webp" srcset="/images/rahim-face-96.webp 96w, /images/rahim-face-192.webp 192w" sizes="96px" />
+            <img
+            src="/images/rahim-face.jpg"
+            alt="Rahim Ezzadpanah, Owner of Armstrong Locksmith Nashville"
+            class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500 shadow-md"
             width="96"
             height="96"
             loading="lazy"
