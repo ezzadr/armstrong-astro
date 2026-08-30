@@ -4,66 +4,60 @@
 
 <div class="w-full max-w-2xl mx-auto bg-white rounded-2xl border border-slate-300 shadow-[0_25px_60px_-10px_rgba(15,23,42,0.18)] font-sans text-left overflow-hidden transition-all">
   
-  <!-- ==================== ARROW CHEVRON STEPPER HEADER ==================== -->
-  <div class="bg-slate-50 border-b border-slate-300 px-4 sm:px-8 py-4 sm:py-5">
+  <!-- ==================== MODERN BREADCRUMB ARROW STEPPER ==================== -->
+  <div class="bg-slate-900 text-white px-4 sm:px-8 pt-4.5 sm:pt-5 pb-4 border-b border-slate-800">
     
-    <!-- Brand Line -->
-    <div class="flex items-center justify-between pb-3 mb-3.5 border-b border-slate-200">
+    <!-- Top Brand & Direct Phone -->
+    <div class="flex items-center justify-between pb-3 mb-3.5 border-b border-white/10">
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block ring-4 ring-emerald-100"></span>
-        <span class="text-xs font-black tracking-wider text-slate-900 uppercase">Armstrong Locksmith Inc</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block ring-4 ring-emerald-400/20 animate-pulse"></span>
+        <span class="text-xs font-black tracking-wider text-slate-200 uppercase">Armstrong Locksmith Inc</span>
       </div>
       <a 
         href="tel:6156258000" 
-        class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-slate-300 rounded-full text-xs font-bold text-slate-700 hover:text-blue-600 shadow-sm transition"
+        class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 rounded-full text-xs font-black text-amber-400 hover:text-amber-300 transition shadow-sm"
       >
         <span>📞</span>
         <span>(615) 625-8000</span>
       </a>
     </div>
 
-    <!-- Arrow Stepper Navigation Ribbon -->
-    <div class="grid grid-cols-3 gap-1.5 sm:gap-2.5 font-sans">
+    <!-- 3-Step Arrow Breadcrumb Flow -->
+    <div class="flex items-center justify-between text-xs sm:text-sm font-sans pt-1">
       
-      <!-- Step 1 Arrow -->
-      <div 
-        id="step-arrow-1" 
-        class="relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all"
-      >
-        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
-          <span id="arrow-badge-1" class="w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs">1</span>
-          <span id="arrow-label-1" class="text-xs sm:text-sm font-black truncate tracking-tight text-white">Service</span>
-        </div>
-        <svg class="w-4 h-4 shrink-0 text-white/80 hidden xs:block sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+      <!-- Step 1 -->
+      <div id="step-flow-1" class="flex items-center gap-1.5 sm:gap-2 text-white transition-all">
+        <span id="flow-badge-1" class="w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0">1</span>
+        <span id="flow-label-1" class="font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm">Service</span>
       </div>
 
-      <!-- Step 2 Arrow -->
-      <div 
-        id="step-arrow-2" 
-        class="relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all"
-      >
-        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
-          <span id="arrow-badge-2" class="w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0">2</span>
-          <span id="arrow-label-2" class="text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600">Schedule</span>
-        </div>
-        <svg class="w-4 h-4 shrink-0 text-slate-300 hidden xs:block sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+      <!-- Arrow 1 -> 2 -->
+      <div id="flow-arrow-1" class="text-slate-600 font-black text-sm sm:text-base px-1 transition-all">
+        ➔
       </div>
 
-      <!-- Step 3 Arrow -->
-      <div 
-        id="step-arrow-3" 
-        class="relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all"
-      >
-        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
-          <span id="arrow-badge-3" class="w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0">3</span>
-          <span id="arrow-label-3" class="text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600">Confirm</span>
-        </div>
+      <!-- Step 2 -->
+      <div id="step-flow-2" class="flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all">
+        <span id="flow-badge-2" class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0">2</span>
+        <span id="flow-label-2" class="font-medium tracking-tight text-slate-400 text-xs sm:text-sm">Schedule</span>
       </div>
 
+      <!-- Arrow 2 -> 3 -->
+      <div id="flow-arrow-2" class="text-slate-600 font-black text-sm sm:text-base px-1 transition-all">
+        ➔
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step-flow-3" class="flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all">
+        <span id="flow-badge-3" class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0">3</span>
+        <span id="flow-label-3" class="font-medium tracking-tight text-slate-400 text-xs sm:text-sm">Confirm</span>
+      </div>
+
+    </div>
+
+    <!-- High-End Dynamic Progress Track -->
+    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3.5">
+      <div id="flow-progress" class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 w-1/3 transition-all duration-300 rounded-full"></div>
     </div>
 
   </div>
@@ -408,17 +402,21 @@
     const success = document.getElementById('step-success');
     const form = document.getElementById('booking-form');
 
-    const arrow1 = document.getElementById('step-arrow-1');
-    const arrow2 = document.getElementById('step-arrow-2');
-    const arrow3 = document.getElementById('step-arrow-3');
+    const flow1 = document.getElementById('step-flow-1');
+    const flow2 = document.getElementById('step-flow-2');
+    const flow3 = document.getElementById('step-flow-3');
 
-    const arrowBadge1 = document.getElementById('arrow-badge-1');
-    const arrowBadge2 = document.getElementById('arrow-badge-2');
-    const arrowBadge3 = document.getElementById('arrow-badge-3');
+    const flowBadge1 = document.getElementById('flow-badge-1');
+    const flowBadge2 = document.getElementById('flow-badge-2');
+    const flowBadge3 = document.getElementById('flow-badge-3');
 
-    const arrowLabel1 = document.getElementById('arrow-label-1');
-    const arrowLabel2 = document.getElementById('arrow-label-2');
-    const arrowLabel3 = document.getElementById('arrow-label-3');
+    const flowLabel1 = document.getElementById('flow-label-1');
+    const flowLabel2 = document.getElementById('flow-label-2');
+    const flowLabel3 = document.getElementById('flow-label-3');
+
+    const flowArrow1 = document.getElementById('flow-arrow-1');
+    const flowArrow2 = document.getElementById('flow-arrow-2');
+    const flowProgress = document.getElementById('flow-progress');
 
     const serviceInput = document.getElementById('field-service');
     const dateInput = document.getElementById('field-date');
@@ -452,77 +450,102 @@
       if (n === 1) {
         s1.classList.remove('hidden');
 
-        // Step 1: Active Blue Arrow
-        if (arrow1) arrow1.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all";
-        if (arrowBadge1) { arrowBadge1.className = "w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge1.textContent = "1"; }
-        if (arrowLabel1) { arrowLabel1.className = "text-xs sm:text-sm font-black truncate tracking-tight text-white"; }
+        // Step 1: Active Blue
+        if (flow1) flow1.className = "flex items-center gap-1.5 sm:gap-2 text-white transition-all";
+        if (flowBadge1) { flowBadge1.className = "w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge1.textContent = "1"; }
+        if (flowLabel1) { flowLabel1.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
+
+        // Arrow 1 -> 2
+        if (flowArrow1) flowArrow1.className = "text-slate-600 font-black text-sm sm:text-base px-1 transition-all";
 
         // Step 2: Upcoming Inactive
-        if (arrow2) arrow2.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all";
-        if (arrowBadge2) { arrowBadge2.className = "w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0"; arrowBadge2.textContent = "2"; }
-        if (arrowLabel2) { arrowLabel2.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600"; }
+        if (flow2) flow2.className = "flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all";
+        if (flowBadge2) { flowBadge2.className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0"; flowBadge2.textContent = "2"; }
+        if (flowLabel2) { flowLabel2.className = "font-medium tracking-tight text-slate-400 text-xs sm:text-sm"; }
+
+        // Arrow 2 -> 3
+        if (flowArrow2) flowArrow2.className = "text-slate-600 font-black text-sm sm:text-base px-1 transition-all";
 
         // Step 3: Upcoming Inactive
-        if (arrow3) arrow3.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all";
-        if (arrowBadge3) { arrowBadge3.className = "w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0"; arrowBadge3.textContent = "3"; }
-        if (arrowLabel3) { arrowLabel3.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600"; }
+        if (flow3) flow3.className = "flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all";
+        if (flowBadge3) { flowBadge3.className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0"; flowBadge3.textContent = "3"; }
+        if (flowLabel3) { flowLabel3.className = "font-medium tracking-tight text-slate-400 text-xs sm:text-sm"; }
+
+        if (flowProgress) { flowProgress.style.width = "33%"; }
 
       } else if (n === 2) {
         s2.classList.remove('hidden');
 
-        // Step 1: Done Emerald Arrow
-        if (arrow1) arrow1.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
-        if (arrowBadge1) { arrowBadge1.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge1.textContent = "✓"; }
-        if (arrowLabel1) { arrowLabel1.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white"; }
+        // Step 1: Done (Emerald)
+        if (flow1) flow1.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
+        if (flowBadge1) { flowBadge1.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge1.textContent = "✓"; }
+        if (flowLabel1) { flowLabel1.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm"; }
 
-        // Step 2: Active Blue Arrow
-        if (arrow2) arrow2.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all";
-        if (arrowBadge2) { arrowBadge2.className = "w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge2.textContent = "2"; }
-        if (arrowLabel2) { arrowLabel2.className = "text-xs sm:text-sm font-black truncate tracking-tight text-white"; }
+        // Arrow 1 -> 2 (Highlighted)
+        if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
+
+        // Step 2: Active Blue
+        if (flow2) flow2.className = "flex items-center gap-1.5 sm:gap-2 text-white transition-all";
+        if (flowBadge2) { flowBadge2.className = "w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge2.textContent = "2"; }
+        if (flowLabel2) { flowLabel2.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
+
+        // Arrow 2 -> 3
+        if (flowArrow2) flowArrow2.className = "text-slate-600 font-black text-sm sm:text-base px-1 transition-all";
 
         // Step 3: Upcoming Inactive
-        if (arrow3) arrow3.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-white text-slate-500 border border-slate-300 border-b-[3px] border-b-slate-300 rounded-lg transition-all";
-        if (arrowBadge3) { arrowBadge3.className = "w-5 h-5 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] font-bold shrink-0"; arrowBadge3.textContent = "3"; }
-        if (arrowLabel3) { arrowLabel3.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-slate-600"; }
+        if (flow3) flow3.className = "flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all";
+        if (flowBadge3) { flowBadge3.className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0"; flowBadge3.textContent = "3"; }
+        if (flowLabel3) { flowLabel3.className = "font-medium tracking-tight text-slate-400 text-xs sm:text-sm"; }
 
+        if (flowProgress) { flowProgress.style.width = "66%"; }
         if (selectedServiceTag) selectedServiceTag.textContent = serviceInput.value;
 
       } else if (n === 3) {
         s3.classList.remove('hidden');
 
-        // Step 1: Done Emerald Arrow
-        if (arrow1) arrow1.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
-        if (arrowBadge1) { arrowBadge1.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge1.textContent = "✓"; }
-        if (arrowLabel1) { arrowLabel1.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white"; }
+        // Step 1: Done (Emerald)
+        if (flow1) flow1.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
+        if (flowBadge1) { flowBadge1.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge1.textContent = "✓"; }
+        if (flowLabel1) { flowLabel1.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm"; }
 
-        // Step 2: Done Emerald Arrow
-        if (arrow2) arrow2.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
-        if (arrowBadge2) { arrowBadge2.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge2.textContent = "✓"; }
-        if (arrowLabel2) { arrowLabel2.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white"; }
+        // Arrow 1 -> 2 (Highlighted)
+        if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
 
-        // Step 3: Active Blue Arrow
-        if (arrow3) arrow3.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-blue-600 text-white rounded-lg border-b-[3px] border-b-blue-800 shadow-sm transition-all";
-        if (arrowBadge3) { arrowBadge3.className = "w-5 h-5 rounded-full bg-white text-blue-600 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs"; arrowBadge3.textContent = "3"; }
-        if (arrowLabel3) { arrowLabel3.className = "text-xs sm:text-sm font-black truncate tracking-tight text-white"; }
+        // Step 2: Done (Emerald)
+        if (flow2) flow2.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
+        if (flowBadge2) { flowBadge2.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge2.textContent = "✓"; }
+        if (flowLabel2) { flowLabel2.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm"; }
 
+        // Arrow 2 -> 3 (Highlighted)
+        if (flowArrow2) flowArrow2.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
+
+        // Step 3: Active Blue
+        if (flow3) flow3.className = "flex items-center gap-1.5 sm:gap-2 text-white transition-all";
+        if (flowBadge3) { flowBadge3.className = "w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge3.textContent = "3"; }
+        if (flowLabel3) { flowLabel3.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
+
+        if (flowProgress) { flowProgress.style.width = "100%"; }
         if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${dateInput.value} (${timeInput.value})`;
 
       } else if (n === 4) {
         form.classList.add('hidden');
         if (success) success.classList.remove('hidden');
 
-        [arrow1, arrow2, arrow3].forEach(a => {
-          if (a) a.className = "relative flex items-center justify-between py-2.5 sm:py-3 px-2 sm:px-4 bg-emerald-600 text-white rounded-lg border-b-[3px] border-b-emerald-800 shadow-sm transition-all";
+        [flow1, flow2, flow3].forEach(f => {
+          if (f) f.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
         });
-        [arrowBadge1, arrowBadge2, arrowBadge3].forEach(b => {
+        [flowBadge1, flowBadge2, flowBadge3].forEach(b => {
           if (b) {
-            b.className = "w-5 h-5 rounded-full bg-white text-emerald-700 flex items-center justify-center text-[11px] font-black shrink-0 shadow-xs";
+            b.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0";
             b.textContent = "✓";
           }
         });
-        [arrowLabel1, arrowLabel2, arrowLabel3].forEach(l => {
-          if (l) l.className = "text-xs sm:text-sm font-bold truncate tracking-tight text-white";
+        [flowLabel1, flowLabel2, flowLabel3].forEach(l => {
+          if (l) l.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm";
         });
+        if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
+        if (flowArrow2) flowArrow2.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
+        if (flowProgress) flowProgress.style.width = "100%";
       }
 
       window.scrollTo({ top: 100, behavior: 'smooth' });
