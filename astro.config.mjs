@@ -6,6 +6,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://armstronglocksmithinc.com',
+  build: {
+    // Inline the stylesheet into every page: kills the render-blocking CSS
+    // request PageSpeed flags (~170ms on mobile). Costs ~14KB gzipped per
+    // page view, a good trade for a call-now site where the first paint
+    // is what converts.
+    inlineStylesheets: 'always'
+  },
   vite: {
     plugins: [tailwindcss()]
   },

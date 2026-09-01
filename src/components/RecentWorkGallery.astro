@@ -309,7 +309,7 @@ const shopPhotoSchema = {
              consuming a whole screen before any text appears. -->
         <div class="lg:col-span-6 relative overflow-hidden bg-slate-900 h-[260px] sm:h-[340px] lg:h-auto lg:min-h-[420px]">
           <picture class="block absolute inset-0 w-full h-full">
-            <source type="image/webp" srcset={`${featuredProject.webpSrc600} 600w, ${featuredProject.webpSrc1200} 1200w`} sizes="(max-width: 1023px) 100vw, 50vw" />
+            <source type="image/webp" srcset={`${featuredProject.webpSrc600} 600w, ${featuredProject.webpSrc600.replace('-600.webp', '-900.webp')} 900w, ${featuredProject.webpSrc1200} 1200w`} sizes="(max-width: 1023px) 100vw, 50vw" />
             <img
               src={featuredProject.imageSrc}
               alt={featuredProject.alt}
@@ -389,7 +389,10 @@ const shopPhotoSchema = {
             <!-- Fixed Aspect Ratio Image Viewport -->
             <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
               <picture>
-                <source type="image/webp" srcset={`${project.webpSrc600} 600w, ${project.webpSrc1200} 1200w`} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
+                <!-- Grid cards render at ~380 CSS px, so 900w is already 2.4x
+                     density there; the 1200w tier only makes sense for the
+                     featured spotlight above. -->
+                <source type="image/webp" srcset={`${project.webpSrc600} 600w, ${project.webpSrc600.replace('-600.webp', '-900.webp')} 900w`} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
                 <img 
                   src={project.imageSrc} 
                   alt={project.alt} 
