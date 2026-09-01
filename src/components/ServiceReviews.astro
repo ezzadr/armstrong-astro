@@ -18,6 +18,9 @@ const { service, label } = Astro.props;
     s = String(s || '');
     return s.length > n ? s.slice(0, n).replace(/\s+\S*$/, '') + '…' : s;
   }
+  function initialsOf(n) {
+    return String(n || 'A').split(' ').filter(Boolean).map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
+  }
   mounts.forEach(function (el) {
     el.setAttribute('data-armsr-init', '1');
     function run() {
@@ -25,18 +28,27 @@ const { service, label } = Astro.props;
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) {
           if (!d || !d.reviews || !d.reviews.length) return;
+          // Card design mirrors the homepage reviews slider (gold strip,
+          // initials badge, 5.0 chip) so proof-of-work looks consistent sitewide.
           var cards = d.reviews.slice(0, 3).map(function (rev) {
-            return '<div class="p-5 bg-white border border-slate-200 border-t-2 border-t-amber-400 shadow-sm text-left w-full sm:w-[320px] max-w-md">'
-              + '<div class="flex items-center justify-between gap-2">'
-              + '<span class="font-bold text-[#0f274a] text-sm">' + esc(rev.author_name) + '</span>'
-              + '<span class="text-amber-500 text-xs tracking-tighter">★★★★★</span></div>'
-              + '<div class="text-[11px] text-slate-400 mt-0.5">' + esc(rev.relative_time_description || 'Recently') + ' &bull; Verified Google Review</div>'
-              + '<p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">&ldquo;' + esc(clamp(rev.text, 320)) + '&rdquo;</p>'
-              + '</div>';
+            return '<div class="bg-white border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left w-full sm:w-[320px] max-w-md flex flex-col">'
+              + '<div class="h-1 w-full bg-gradient-to-r from-amber-500 via-yellow-300 to-amber-500"></div>'
+              + '<div class="p-5 flex-1 flex flex-col">'
+              + '<div class="flex items-center gap-2.5 mb-2">'
+              + '<div class="w-9 h-9 bg-[#0f274a] border-2 border-amber-400/70 flex items-center justify-center text-amber-400 font-black text-xs shrink-0">' + initialsOf(rev.author_name) + '</div>'
+              + '<div><span class="font-bold text-[#0f274a] text-sm block leading-tight">' + esc(rev.author_name) + '</span>'
+              + '<span class="text-[11px] text-slate-400">📍 Nashville, TN &bull; ' + esc(rev.relative_time_description || 'Recently') + '</span></div>'
+              + '</div>'
+              + '<div class="flex items-center gap-2 mb-2"><span class="text-amber-500 text-sm tracking-tight">★★★★★</span>'
+              + '<span class="px-1.5 py-0.5 bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-black">5.0</span></div>'
+              + '<p class="text-xs sm:text-sm text-slate-700 leading-relaxed flex-1">&ldquo;' + esc(clamp(rev.text, 320)) + '&rdquo;</p>'
+              + '<div class="pt-3 mt-3 border-t border-slate-100 text-[11px] inline-flex items-center gap-1.5 text-emerald-700 font-bold">'
+              + '<span class="w-2 h-2 bg-emerald-500"></span> Verified Google Review</div>'
+              + '</div></div>';
           }).join('');
-          el.innerHTML = '<div class="text-center mb-4">'
-            + '<span class="text-[11px] font-black uppercase tracking-wider text-amber-600">⭐ Verified Google Reviews</span>'
-            + '<h2 class="text-lg sm:text-xl font-black text-[#0f274a] mt-1">What ' + esc(el.dataset.label) + ' Customers Say</h2>'
+          el.innerHTML = '<div class="text-center mb-5">'
+            + '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-black uppercase tracking-wider">⭐ Verified Google Reviews</span>'
+            + '<h2 class="text-lg sm:text-2xl font-black text-[#0f274a] uppercase mt-2">What ' + esc(el.dataset.label) + ' Customers Say</h2>'
             + '</div>'
             + '<div class="flex flex-wrap justify-center gap-4">' + cards + '</div>';
           el.classList.remove('hidden');

@@ -23,6 +23,15 @@
    - **Tennessee Licensing:** TN has no state locksmith license; never add license numbers.
    - **Operating Hours:** Storefront: Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM. Mobile dispatch: Mon–Fri 8:00 AM – 11:30 PM, Weekends On-Call.
 
+## Copy & Content Voice Rules (PERMANENT)
+
+- **No AI-sounding marketing fluff — anywhere.** This applies to page headlines, card titles, subtitles, alt text, meta descriptions, GBP posts, and blog content.
+- **Banned vocabulary:** "precision," "seamless," "elevate," "unlock your," "effortless," "cutting-edge," "state-of-the-art," "unparalleled," "hassle-free," "peace of mind," "look no further," "we've got you covered," and similar polished-marketing phrases.
+- **Never say "CNC laser cutting" (or any "CNC" phrasing) in customer-facing copy** — always "high-security laser cutting" instead. Customers know "high-security key"; "CNC" is machinist jargon.
+- **Write like Rahim talks:** plain first-person shop language. "Rahim duplicating a residential key at the shop" beats "Precision Key Cutting by Owner Rahim." Concrete facts (prices, brands, times, addresses) beat adjectives.
+- **When Rahim supplies his own phrasing, use it verbatim** (fix only clear typos, e.g. lock/key mixups — and confirm).
+- The site's credibility angle is "real local shop, not a call center" — copy that sounds machine-written undermines the entire brand.
+
 ## Development Commands
 
 - Start dev server: `npm run dev`
