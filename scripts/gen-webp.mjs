@@ -9,7 +9,11 @@
 // so framing stays exactly as it is today and no crop decisions are baked in.
 //
 // Usage:
-//   node scripts/gen-webp.mjs --widths=600,1200 images/foo.jpg images/bar.png
+//   node scripts/gen-webp.mjs --widths=600,1200 [--quality=55] images/foo.jpg images/bar.png
+//
+// --quality overrides the default (80 below 1000px, 74 above) for every width.
+// The site-wide shop.jpeg card is encoded at --quality=52: it only ever
+// displays at <=600x320, so heavy compression is invisible there.
 import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,6 +26,8 @@ const widthArg = args.find(a => a.startsWith('--widths='));
 const WIDTHS = widthArg
   ? widthArg.split('=')[1].split(',').map(Number)
   : [600, 1200];
+const qualityArg = args.find(a => a.startsWith('--quality='));
+const QUALITY = qualityArg ? Number(qualityArg.split('=')[1]) : null;
 const targets = args.filter(a => !a.startsWith('--'));
 
 if (!targets.length) {
@@ -51,7 +57,7 @@ for (const rel of targets) {
     await sharp(src)
       .resize({ width: target, withoutEnlargement: true })
       .keepExif() // carry GPS/attribution tags from geotag.mjs into derivatives
-      .webp({ quality: w >= 1000 ? 74 : 80 })
+      .webp({ quality: QUALITY ?? (w >= 1000 ? 74 : 80) })
       .toFile(out);
     const sz = fs.statSync(out).size;
     produced.push(`${w}w ${(sz / 1024).toFixed(0)}KB`);
