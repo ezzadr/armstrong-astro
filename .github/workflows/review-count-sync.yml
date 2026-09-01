@@ -1,0 +1,89 @@
+name: Nightly Review Count Sync
+
+# Keeps the JSON-LD aggregateRating (reviewCount + ratingValue) in the built
+# HTML current with the live Google count. The count is baked into static HTML
+# at build time (src/lib/reviewStats.mjs fetches /api/reviews.php), and the
+# Cloudways deploy only serves committed HTML — so refreshing it requires a
+# rebuild + commit + deploy, which is exactly what this job does, but ONLY when
+# the number has actually changed (no empty daily commits).
+#
+# Visible on-page counters already refresh in the browser on every page load;
+# this job is solely about the server-rendered schema Googlebot reads.
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # 08:00 UTC daily (~2-3am US Central) — low-traffic window
+  workflow_dispatch:        # allow manual runs from the Actions tab
+
+# Let the default GITHUB_TOKEN push the rebuilt HTML back to main.
+permissions:
+  contents: write
+
+# Never let two syncs overlap.
+concurrency:
+  group: review-count-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Rebuild schema count and deploy if changed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Capture current schema count
+        id: before
+        run: |
+          BEFORE=$(grep -oE '"ratingValue":"[0-9.]+","reviewCount":"[0-9]+"' index.html | head -1 || echo "none")
+          echo "value=$BEFORE" >> "$GITHUB_OUTPUT"
+          echo "Before build: $BEFORE"
+
+      - name: Build (fetches live Google count into the schema)
+        run: npm run build
+
+      - name: Compare and, if changed, commit + push + deploy
+        id: sync
+        run: |
+          AFTER=$(grep -oE '"ratingValue":"[0-9.]+","reviewCount":"[0-9]+"' index.html | head -1 || echo "none")
+          echo "After build:  $AFTER"
+          if [ "$AFTER" = "${{ steps.before.outputs.value }}" ]; then
+            echo "Review count unchanged — nothing to deploy."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "Review count changed: '${{ steps.before.outputs.value }}' -> '$AFTER'. Committing."
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(seo): sync schema reviewCount to live Google total"
+          git push origin main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # A GITHUB_TOKEN push does not trigger the deploy.yml workflow, so deploy
+      # inline here — same server command deploy.yml runs. Scoped strictly to
+      # the website app directory; touches nothing else on the server.
+      - name: Deploy to Cloudways
+        if: steps.sync.outputs.changed == 'true'
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CLOUDWAYS_HOST }}
+          username: ${{ secrets.CLOUDWAYS_USER }}
+          password: ${{ secrets.CLOUDWAYS_PASSWORD }}
+          key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+            echo "=== NIGHTLY REVIEW-COUNT SYNC DEPLOY ==="
+            cd /home/master/applications/btfdkcdpdw/public_html
+            git fetch origin main
+            git reset --hard origin/main
+            git status
