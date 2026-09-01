@@ -2,6 +2,21 @@
 // RecentWorkGallery.astro - Curated, high-conversion proof of work gallery
 const projects = [
   {
+    id: "shop-key-duplication",
+    category: "residential",
+    categoryLabel: "Key Duplication",
+    title: "Rahim Duplicating a Residential Key at the Shop",
+    subtitle: "Owner Rahim copying a house key on our shop duplicators — walk-ins welcome at Thompson Ln.",
+    badge: "208 Thompson Ln",
+    location: "Nashville, TN 37211",
+    href: "/nashville-locksmith-storefront/",
+    imageSrc: "/images/rahim-duplicating-residential-key-armstrong-locksmith-shop-nashville-tn.jpg",
+    webpSrc600: "/images/rahim-duplicating-residential-key-armstrong-locksmith-shop-nashville-tn-600.webp",
+    webpSrc1200: "/images/rahim-duplicating-residential-key-armstrong-locksmith-shop-nashville-tn-1200.webp",
+    alt: "Rahim, owner of Armstrong Locksmith, duplicating a residential key at the 208 Thompson Ln storefront shop in Nashville TN 37211",
+    tagColor: "emerald"
+  },
+  {
     id: "detex-lock",
     category: "commercial",
     categoryLabel: "Commercial Security",
@@ -179,6 +194,43 @@ const projects = [
 
 const featuredProject = projects.find(p => p.featured) || projects[0];
 const gridProjects = projects.filter(p => p.id !== featuredProject.id);
+
+// Geo-tagged ImageObject for the storefront key-cutting photo. The image files
+// themselves carry matching EXIF GPS (scripts/geotag.mjs); coordinates mirror
+// the LocalBusiness schema geo in Layout.astro.
+const shopPhotoUrl = "https://armstronglocksmithinc.com/images/rahim-duplicating-residential-key-armstrong-locksmith-shop-nashville-tn.jpg";
+const shopPhotoSchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "@id": `${shopPhotoUrl}#image`,
+  "contentUrl": shopPhotoUrl,
+  "url": shopPhotoUrl,
+  "name": "Residential Key Duplication at Armstrong Locksmith Nashville Storefront",
+  "caption": "Rahim, owner of Armstrong Locksmith, duplicating a residential key at the 208 Thompson Ln storefront shop in Nashville TN 37211",
+  "width": 1280,
+  "height": 960,
+  "dateCreated": "2026-08-31",
+  "creditText": "Armstrong Locksmith Inc",
+  "creator": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+  "copyrightHolder": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+  "contentLocation": {
+    "@type": "Place",
+    "name": "Armstrong Locksmith Inc",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.1118,
+      "longitude": -86.7378
+    }
+  }
+};
 ---
 
 <style>
@@ -190,6 +242,8 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
     scrollbar-width: none;
   }
 </style>
+
+<script type="application/ld+json" set:html={JSON.stringify(shopPhotoSchema)}></script>
 
 <section class="py-12 sm:py-20 bg-slate-50 border-y border-slate-200 overflow-hidden font-sans" id="recent-work-gallery">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,7 +273,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
             data-filter="all" 
             class="gallery-filter-btn active w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer text-center"
           >
-            All Work (11)
+            All Work (12)
           </button>
           <button 
             type="button" 
@@ -240,7 +294,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
             data-filter="residential" 
             class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
-            🏡 Residential (4)
+            🏡 Residential (5)
           </button>
         </div>
       </div>
@@ -390,7 +444,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
         id="gallery-toggle-btn"
         class="inline-flex items-center gap-2 px-6 py-3 bg-[#07152b] hover:bg-[#0f274a] text-white border border-amber-500/60 hover:border-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
       >
-        <span id="gallery-btn-text">Explore All 11 Field Projects</span>
+        <span id="gallery-btn-text">Explore All 12 Field Projects</span>
         <svg id="gallery-btn-icon" class="w-4 h-4 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -479,7 +533,7 @@ const gridProjects = projects.filter(p => p.id !== featuredProject.id);
           toggleText.textContent = 'Show Fewer Projects';
           toggleIcon.classList.add('rotate-180');
         } else {
-          toggleText.textContent = 'Explore All 11 Field Projects';
+          toggleText.textContent = 'Explore All 12 Field Projects';
           toggleIcon.classList.remove('rotate-180');
           const gallerySec = document.getElementById('recent-work-gallery');
           if (gallerySec) {

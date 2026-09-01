@@ -50,6 +50,7 @@ for (const rel of targets) {
     const out = path.join(dir, `${base}-${w}.webp`);
     await sharp(src)
       .resize({ width: target, withoutEnlargement: true })
+      .keepExif() // carry GPS/attribution tags from geotag.mjs into derivatives
       .webp({ quality: w >= 1000 ? 74 : 80 })
       .toFile(out);
     const sz = fs.statSync(out).size;
