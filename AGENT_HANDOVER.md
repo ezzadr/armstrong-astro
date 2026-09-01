@@ -35,28 +35,37 @@
 ---
 
 ## 3. Deployment & Git Workflow (CRITICAL)
-Cloudways serves static files directly from the git root directory. Therefore, **every build must sync `dist/` to the root** before committing:
-
-**`npm run build` already syncs `dist/` to the root.** Do NOT copy it by hand.
-The build runs `scripts/sync-to-root.mjs`, which wipes `_astro/` before copying.
-That pruning matters: every build emits new content-hashed bundle names, and the
-old plain-copy approach only ever added files — 82 files (6.1 MB) had piled up in
-`_astro/` of which exactly one was referenced. A manual `Copy-Item`/`cp` step
-bypasses nothing and re-teaches the wrong model, so it was removed.
+Cloudways serves static files directly from the git root directory, so the built
+HTML must live at the repo root. **As of 2026-09-01, CI builds it for you** — you
+commit source and push; you do NOT build locally before committing.
 
 ```bash
-npm run build          # builds AND syncs to root, pruning stale _astro
+# edit files under src/ (and public/)
 git add -A
-git commit -m "<descriptive message>"
-git push origin main   # push to main is the deploy
+git commit -m "<descriptive message>"   # SOURCE only — no local build output
+git push origin main                     # CI builds, commits HTML, deploys
 ```
 
-### How deployment actually works
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which SSHes to
-Cloudways and runs `git reset --hard origin/main`. **The action does not build.**
-Whatever HTML is committed at the repo root is what goes live — so a commit that
-touches only `src/` will never reach production. This has bitten the project
-before: four commits sat unbuilt and the live site served stale HTML for days.
+`npm run build` still exists (runs `astro build && node scripts/sync-to-root.mjs`,
+which syncs `dist/` to the root and prunes stale `_astro/`). Use it for local
+**preview** only — do not commit its output. Why: a local build produces slightly
+different minified CSS than CI (the lightningcss native binary differs per OS), so
+alternating local and CI builds churns every page's inlined CSS. Keeping all builds
+in CI removes that entirely.
+
+### How deployment actually works (updated 2026-09-01)
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which now:
+1. checks out, `npm ci`, `npm run build` (Linux CI build);
+2. commits the refreshed root HTML back to `main` if it changed (via GITHUB_TOKEN,
+   which deliberately does **not** re-trigger the workflow — no loop);
+3. SSHes to Cloudways and runs `git reset --hard origin/main`, then the nginx /
+   varnish steps.
+
+So a commit that touches only `src/` **does** now reach production — CI builds it.
+(Previously the action did not build, and unbuilt `src/`-only commits served stale
+HTML; that failure mode is gone.) A separate nightly job,
+`.github/workflows/review-count-sync.yml`, rebuilds once a day and redeploys only
+if the live Google review count changed (see §8).
 
 ---
 

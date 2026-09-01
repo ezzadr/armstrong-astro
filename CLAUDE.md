@@ -8,10 +8,17 @@
 
 ## Core Build & Deployment Rules
 
-1. **`npm run build` is MANDATORY before committing:**
-   - Runs `astro build && node scripts/sync-to-root.mjs`.
-   - Automatically syncs `dist/` to the repo root and cleans stale `_astro/` files.
-   - Pushing to `origin/main` triggers automated Cloudways deployment via git. If you only edit `src/` without running `npm run build`, production will NOT be updated.
+1. **CI builds on push — do NOT run `npm run build` before committing:**
+   - As of 2026-09-01 the GitHub Action `.github/workflows/deploy.yml` builds the
+     site in CI (Linux) on every push to `main`, commits the refreshed root HTML,
+     then deploys to Cloudways. Just edit files under `src/` (and `public/`),
+     commit the **source**, and push — CI does the build + deploy.
+   - **Committing a local `npm run build` is discouraged:** a local build produces
+     slightly different minified CSS than CI (lightningcss native binary differs
+     per OS), so alternating local/CI builds churns every page. `npm run dev` and
+     `npm run build` are fine for local *preview*; don't commit the build output.
+   - `npm run build` still runs `astro build && node scripts/sync-to-root.mjs`
+     (syncs `dist/` to the repo root, prunes stale `_astro/`). It's what CI runs.
 2. **Do NOT create separate per-city doorway pages:**
    - All regional coverage is consolidated on `/service-areas/` in compliance with Google Search Essentials.
    - Legacy city URLs are 301 permanently redirected to `/service-areas/` in `public/.htaccess` and `public/index.php`.
@@ -35,5 +42,6 @@
 ## Development Commands
 
 - Start dev server: `npm run dev`
-- Build & sync: `npm run build`
-- Deploy: `git add -A && git commit -m "..." && git push origin main`
+- Preview a production build locally: `npm run build` (do NOT commit its output — see rule 1)
+- Deploy: commit **source only**, then `git push origin main` — CI builds + deploys.
+  `git add -A && git commit -m "..." && git push origin main`
