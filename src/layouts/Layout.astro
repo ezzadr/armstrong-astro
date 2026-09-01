@@ -4,6 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
 import BackToTop from '../components/BackToTop.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+
+// Live-synced at build time (see src/lib/reviewStats.mjs). Feeds the schema
+// aggregateRating below so the structured data Google reads stays current
+// without a manual edit on every deploy.
+const { reviewCount, ratingValue } = await getReviewStats();
 
 export interface Props {
   title: string;
@@ -87,8 +93,8 @@ const baseBusinessSchema = {
   "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "773",
+    "ratingValue": ratingValue,
+    "reviewCount": reviewCount,
     "bestRating": "5",
     "worstRating": "1"
   },
