@@ -43,28 +43,37 @@ jobs:
       - name: Capture current schema count
         id: before
         run: |
-          BEFORE=$(grep -oE '"ratingValue":"[0-9.]+","reviewCount":"[0-9]+"' index.html | head -1 || echo "none")
-          echo "value=$BEFORE" >> "$GITHUB_OUTPUT"
-          echo "Before build: $BEFORE"
+          # Just the two integers/decimals from the business aggregateRating.
+          # Plain values (no quotes) so they can never break the later compare.
+          BEFORE_COUNT=$(grep -oE '"reviewCount":"[0-9]+"' index.html | head -1 | grep -oE '[0-9]+' || echo "0")
+          BEFORE_RATING=$(grep -oE '"aggregateRating":\{"@type":"AggregateRating","ratingValue":"[0-9.]+"' index.html | head -1 | grep -oE '[0-9.]+' | tail -1 || echo "0")
+          echo "count=$BEFORE_COUNT"   >> "$GITHUB_OUTPUT"
+          echo "rating=$BEFORE_RATING" >> "$GITHUB_OUTPUT"
+          echo "Before build: count=$BEFORE_COUNT rating=$BEFORE_RATING"
 
       - name: Build (fetches live Google count into the schema)
         run: npm run build
 
       - name: Compare and, if changed, commit + push + deploy
         id: sync
+        # Pass prior values as env vars, never interpolated into the script body.
+        env:
+          BEFORE_COUNT: ${{ steps.before.outputs.count }}
+          BEFORE_RATING: ${{ steps.before.outputs.rating }}
         run: |
-          AFTER=$(grep -oE '"ratingValue":"[0-9.]+","reviewCount":"[0-9]+"' index.html | head -1 || echo "none")
-          echo "After build:  $AFTER"
-          if [ "$AFTER" = "${{ steps.before.outputs.value }}" ]; then
-            echo "Review count unchanged — nothing to deploy."
+          AFTER_COUNT=$(grep -oE '"reviewCount":"[0-9]+"' index.html | head -1 | grep -oE '[0-9]+' || echo "0")
+          AFTER_RATING=$(grep -oE '"aggregateRating":\{"@type":"AggregateRating","ratingValue":"[0-9.]+"' index.html | head -1 | grep -oE '[0-9.]+' | tail -1 || echo "0")
+          echo "After build:  count=$AFTER_COUNT rating=$AFTER_RATING"
+          if [ "$AFTER_COUNT" = "$BEFORE_COUNT" ] && [ "$AFTER_RATING" = "$BEFORE_RATING" ]; then
+            echo "Review count/rating unchanged — nothing to deploy."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "Review count changed: '${{ steps.before.outputs.value }}' -> '$AFTER'. Committing."
+          echo "Changed: count ${BEFORE_COUNT}->${AFTER_COUNT}, rating ${BEFORE_RATING}->${AFTER_RATING}. Committing."
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "chore(seo): sync schema reviewCount to live Google total"
+          git commit -m "chore(seo): sync schema reviewCount to live Google total (${AFTER_COUNT} reviews)"
           git push origin main
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
