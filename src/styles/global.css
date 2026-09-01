@@ -238,3 +238,24 @@
   @media (max-width: 359px) {
     .arm-menu-label { display: none; }
   }
+
+  /* ------------------------------------------------------------------
+     Desktop nav: keep every label on one line across the laptop range.
+     The full horizontal menu (logo + 7 items + Call + Book Online) needs
+     more width than is available between 1280px (where it first appears,
+     Tailwind `xl`) and ~1536px, so the labels used to wrap to two rows.
+     Fix without simplifying the labels or downgrading laptops to the
+     drawer: never wrap, and in the tight 1280-1536 band shave the font
+     and item padding just enough to hold one line. Above 1536 it fits at
+     full size. Plain CSS because Tailwind arbitrary breakpoint variants
+     (min-[1280px]: etc.) do not compile in this setup (see .arm-menu-label).
+     ------------------------------------------------------------------ */
+  .arm-nav-item { white-space: nowrap; }
+
+  @media (min-width: 1280px) and (max-width: 1536px) {
+    .arm-desktop-nav { font-size: 12.5px; }
+    .arm-nav-item {
+      padding-left: 0.6rem;
+      padding-right: 0.6rem;
+    }
+  }

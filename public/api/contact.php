@@ -39,6 +39,14 @@ $details = isset($data['details']) ? trim($data['details']) : 'None specified';
 $email   = isset($data['email']) ? trim($data['email']) : 'Not provided';
 $notes   = isset($data['notes']) && !empty($data['notes']) ? trim($data['notes']) : (isset($data['message']) ? trim($data['message']) : '');
 
+// Strip CR/LF from every value that later reaches an email header ($name and
+// $service both flow into the Subject line; $email into Reply-To). A newline in
+// any of these would let a caller inject extra headers (Bcc:, etc.) and turn the
+// Workspace SMTP into an open relay. No legitimate value contains a line break.
+$name    = str_replace(["\r", "\n"], ' ', $name);
+$service = str_replace(["\r", "\n"], ' ', $service);
+$email   = str_replace(["\r", "\n"], '', $email);
+
 if (empty($name) || empty($phone)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Name and Phone are required.']);
@@ -251,7 +259,7 @@ function sendGoogleWorkspaceSmtp($toRecipients, $subject, $htmlBody, $replyToEma
     $toHeader = is_array($toRecipients) ? implode(', ', $toRecipients) : $toRecipients;
     $headers  = "From: Armstrong Locksmith <{$smtpUser}>\r\n";
     $headers .= "To: {$toHeader}\r\n";
-    if (!empty($replyToEmail) && $replyToEmail !== 'Not provided') {
+    if (!empty($replyToEmail) && $replyToEmail !== 'Not provided' && filter_var($replyToEmail, FILTER_VALIDATE_EMAIL)) {
         $headers .= "Reply-To: {$replyToEmail}\r\n";
     }
     $headers .= "Subject: {$subject}\r\n";

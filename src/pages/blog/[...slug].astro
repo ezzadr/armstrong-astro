@@ -63,6 +63,7 @@ const blogSchema = [
     "description": post.data.description,
     "datePublished": post.data.pubDate,
     "dateModified": post.data.pubDate,
+    "image": `https://armstronglocksmithinc.com${postImage}`,
     "author": {
       "@type": "Person",
       "name": post.data.author || "Rahim Ezzadpanah",

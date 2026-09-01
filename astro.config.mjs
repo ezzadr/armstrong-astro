@@ -18,12 +18,10 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/staff-sms-alerts-consent') && !page.includes('/404') && !page.includes('/review'),
-      serialize(item) {
-        // Stamp lastmod at build time so Google prioritizes recrawling updated pages
-        item.lastmod = new Date().toISOString();
-        return item;
-      }
+      // No lastmod: a build-time timestamp on every URL marks all 42 pages as
+      // "just changed" on each deploy, which Google treats as noise and ignores.
+      // Emitting no lastmod is more honest than emitting one that is always wrong.
+      filter: (page) => !page.includes('/staff-sms-alerts-consent') && !page.includes('/404') && !page.includes('/review')
     })
   ]
 });

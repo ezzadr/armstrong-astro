@@ -1,5 +1,5 @@
 ---
-title: "Home Rekey vs Lock Replacement: Brentwood & Nashville Guide"
+title: "Home Rekey vs Lock Replacement: Brentwood & Nashville"
 description: "Real Case: How a family moving near Crockett Park in Brentwood saved nearly $800 by rekeying their Baldwin locks instead of replacing them."
 pubDate: "2026-01-15"
 author: "Rahim Ezzadpanah"
