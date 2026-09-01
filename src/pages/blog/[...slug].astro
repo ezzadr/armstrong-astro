@@ -26,7 +26,8 @@ const blogImages: Record<string, string> = {
   "how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn": "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg",
   "real-locksmith-vs-dispatch-center-nashville": "/shop.jpeg",
   "reasons-need-locksmith-nashville": "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg",
-  "maserati-granturismo-key-replacement-nashville": "/images/Maserati-key-cut-and-programmed--scaled.jpg"
+  "maserati-granturismo-key-replacement-nashville": "/images/Maserati-key-cut-and-programmed--scaled.jpg",
+  "detex-exit-lock-replacement-green-hills-nashville": "/images/detex-commercial-lock-installation-nashville.jpg"
 };
 
 const postImage = blogImages[post.id] || "/shop.jpeg";
@@ -161,12 +162,16 @@ const computedTitle = post.data.title.length > 45
       <!-- MAIN ARTICLE COLUMN (Span 8) -->
       <main class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
         
-        <!-- Featured Image Banner -->
-        <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm max-h-96">
-          <img 
-            src={postImage} 
-            alt={post.data.title} 
-            class="w-full h-auto object-cover"
+        <!-- Featured Image Banner
+             max-h caps the height on the IMG with object-contain (not on the
+             container with overflow-hidden), so portrait job photos show in
+             full instead of having their bottom clipped off. Landscape images
+             render exactly as before. -->
+        <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-50">
+          <img
+            src={postImage}
+            alt={post.data.title}
+            class="w-full h-auto max-h-96 object-contain"
             width="800"
             height="400"
             fetchpriority="high"
