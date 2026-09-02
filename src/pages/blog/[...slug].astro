@@ -32,6 +32,18 @@ const blogImages: Record<string, string> = {
 
 const postImage = blogImages[post.id] || "/shop.jpeg";
 
+// Optional per-post YouTube video (frontmatter `video:` — bare ID or any
+// youtube.com/watch, youtu.be, or /embed/ URL). When present, the hero shows a
+// click-to-play facade (a thumbnail <img>; the iframe only loads on tap, so
+// Core Web Vitals are untouched) and the schema gains a VideoObject block.
+function parseYouTubeId(v: string | undefined): string | null {
+  if (!v) return null;
+  const m = v.match(/(?:youtu\.be\/|\/embed\/|[?&]v=)([\w-]{6,20})/);
+  if (m) return m[1];
+  return /^[\w-]{6,20}$/.test(v.trim()) ? v.trim() : null;
+}
+const videoId = parseYouTubeId(post.data.video);
+
 // BlogPosting JSON-LD Schema
 const blogSchema = [
   {
@@ -87,7 +99,18 @@ const blogSchema = [
       "@type": "WebPage",
       "@id": `https://armstronglocksmithinc.com/blog/${post.id}/`
     }
-  }
+  },
+  // Video rich-result eligibility when the post has a YouTube video.
+  ...(videoId ? [{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": post.data.title,
+    "description": post.data.description,
+    "thumbnailUrl": `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+    "uploadDate": post.data.pubDate,
+    "embedUrl": `https://www.youtube-nocookie.com/embed/${videoId}`,
+    "contentUrl": `https://www.youtube.com/watch?v=${videoId}`
+  }] : [])
 ];
 const computedTitle = post.data.title.length > 45 
   ? post.data.title 
@@ -162,21 +185,41 @@ const computedTitle = post.data.title.length > 45
       <!-- MAIN ARTICLE COLUMN (Span 8) -->
       <main class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
         
-        <!-- Featured Image Banner
-             max-h caps the height on the IMG with object-contain (not on the
-             container with overflow-hidden), so portrait job photos show in
-             full instead of having their bottom clipped off. Landscape images
-             render exactly as before. -->
-        <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-50">
-          <img
-            src={postImage}
-            alt={post.data.title}
-            class="w-full h-auto max-h-96 object-contain"
-            width="800"
-            height="400"
-            fetchpriority="high"
-          />
-        </div>
+        <!-- Hero: job video (click-to-play facade — only a thumbnail <img> loads
+             with the page; the YouTube iframe is created on tap, so the embed
+             costs nothing until someone plays it) when the post has `video:`
+             frontmatter; otherwise the featured image (max-h caps the IMG with
+             object-contain so portrait job photos show in full, never clipped). -->
+        {videoId ? (
+          <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-950 relative aspect-video" id="arm-yt-facade">
+            <button type="button" class="group w-full h-full block relative cursor-pointer" aria-label={`Play video: ${post.data.title}`} data-yt-id={videoId}>
+              <img
+                src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                alt={`Video: ${post.data.title}`}
+                class="w-full h-full object-cover"
+                width="800"
+                height="450"
+                fetchpriority="high"
+              />
+              <span class="absolute inset-0 flex items-center justify-center bg-slate-950/20 group-hover:bg-slate-950/10 transition">
+                <span class="w-16 h-16 bg-red-600 group-hover:bg-red-500 flex items-center justify-center shadow-xl transition">
+                  <svg class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+              </span>
+            </button>
+          </div>
+        ) : (
+          <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-50">
+            <img
+              src={postImage}
+              alt={post.data.title}
+              class="w-full h-auto max-h-96 object-contain"
+              width="800"
+              height="400"
+              fetchpriority="high"
+            />
+          </div>
+        )}
 
         <!-- Quick Facts / Key Takeaway Card -->
         <div class="mb-8 p-5 sm:p-6 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-slate-900">
@@ -491,4 +534,24 @@ const computedTitle = post.data.title.length > 45
     </section>
   )}
 
+  <!-- Click-to-play: swap the video facade for the real YouTube iframe on tap.
+       No-op on posts without a video (the facade element won't exist). -->
+  <script is:inline>
+    (function () {
+      var btn = document.querySelector('#arm-yt-facade button[data-yt-id]');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-yt-id');
+        var wrap = document.getElementById('arm-yt-facade');
+        var ifr = document.createElement('iframe');
+        ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+        ifr.title = 'Job video';
+        ifr.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        ifr.setAttribute('allowfullscreen', '');
+        ifr.className = 'w-full h-full absolute inset-0';
+        wrap.innerHTML = '';
+        wrap.appendChild(ifr);
+      });
+    })();
+  </script>
 </Layout>
