@@ -4,6 +4,7 @@ description: "Expert Audi key replacement and smart fob programming near Donelso
 pubDate: "2026-01-15"
 author: "Rahim Ezzadpanah"
 category: "Car Keys"
+image: "/images/rahim-made-audi-keys-in-nashville-1.png"
 ---
 
 Whether you’re in **Donelson**, **Hermitage**, near **Nashville International Airport (BNA)**, or Downtown, **Armstrong Locksmith Inc** is your trusted Audi key expert — delivering **fast, on-site service** anywhere in the Nashville area. 

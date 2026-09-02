@@ -9,15 +9,17 @@ const sortedPosts = posts.sort((a, b) => {
   return dateB - dateA;
 });
 
-// Map authentic thumbnail images for each blog article
-const blogImages: Record<string, string> = {
-  "audi-key-replacement-near-donelson-hermitage-nashville-airport": "/images/rahim-made-audi-keys-in-nashville-1.png",
-  "car-key-fob-stops-working-cold-weather-nashville": "/images/toyota-key-replacement-1536x2048.webp",
-  "home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents": "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
-  "how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn": "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg",
-  "real-locksmith-vs-dispatch-center-nashville": "/shop.jpeg",
-  "reasons-need-locksmith-nashville": "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg"
-};
+// Card images come from each post's own `image:` frontmatter — the single
+// source of truth, so new posts show their real job photo here automatically.
+// The storefront photo is only a last-resort fallback.
+const cardImage = (p: typeof sortedPosts[number]) => p.data.image || "/shop.jpeg";
+
+// pubDate is coerced to a Date by the content schema; rendering it directly
+// prints the full JS date string AND shifts the day (UTC midnight becomes the
+// previous evening in Central time). Format in UTC so the calendar day always
+// matches what the frontmatter says.
+const fmtDate = (d: Date | undefined) =>
+  d ? d.toLocaleDateString("en-US", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" }) : "2026";
 
 const featuredPost = sortedPosts[0];
 const remainingPosts = sortedPosts.slice(1);
@@ -56,7 +58,7 @@ const remainingPosts = sortedPosts.slice(1);
             <!-- Featured Image -->
             <div class="lg:col-span-6 h-64 sm:h-80 lg:h-full relative overflow-hidden bg-slate-900">
               <img 
-                src={blogImages[featuredPost.id] || "/shop.jpeg"} 
+                src={cardImage(featuredPost)}
                 alt={featuredPost.data.title}
                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                 width="800"
@@ -74,7 +76,7 @@ const remainingPosts = sortedPosts.slice(1);
                 <div class="flex items-center gap-3 text-xs font-bold text-amber-600 uppercase tracking-wider mb-3">
                   <span>{featuredPost.data.category || "Automotive"}</span>
                   <span>&bull;</span>
-                  <span class="text-slate-400">{featuredPost.data.pubDate || "2026"}</span>
+                  <span class="text-slate-400">{fmtDate(featuredPost.data.pubDate)}</span>
                   <span>&bull;</span>
                   <span class="text-slate-400">4 min read</span>
                 </div>
@@ -140,7 +142,7 @@ const remainingPosts = sortedPosts.slice(1);
                 <!-- Card Image -->
                 <div class="h-48 overflow-hidden relative bg-slate-100">
                   <img 
-                    src={blogImages[post.id] || "/shop.jpeg"} 
+                    src={cardImage(post)}
                     alt={post.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                     loading="lazy"
@@ -157,7 +159,7 @@ const remainingPosts = sortedPosts.slice(1);
                   <div class="flex items-center gap-2 text-[11px] text-slate-400 font-medium mb-2">
                     <span>By {post.data.author || "Rahim"}</span>
                     <span>&bull;</span>
-                    <span>{post.data.pubDate || "2026"}</span>
+                    <span>{fmtDate(post.data.pubDate)}</span>
                   </div>
 
                   <h3 class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-3 leading-snug group-hover:text-amber-600 transition">

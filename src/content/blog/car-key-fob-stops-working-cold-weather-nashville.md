@@ -4,6 +4,7 @@ description: "Learn why car key fob batteries drain in freezing Nashville weathe
 pubDate: "2026-01-15"
 author: "Rahim Ezzadpanah"
 category: "Car Keys"
+image: "/images/toyota-key-replacement-1536x2048.webp"
 ---
 
 By Rahim Ezzadpanah | Owner, Armstrong Locksmith

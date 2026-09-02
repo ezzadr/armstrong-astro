@@ -18,19 +18,11 @@ const relatedPosts = allPosts
   .filter((p) => p.id !== post.id)
   .slice(0, 3);
 
-// Map authentic thumbnail images for each blog article
-const blogImages: Record<string, string> = {
-  "audi-key-replacement-near-donelson-hermitage-nashville-airport": "/images/rahim-made-audi-keys-in-nashville-1.png",
-  "car-key-fob-stops-working-cold-weather-nashville": "/images/toyota-key-replacement-1536x2048.webp",
-  "home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents": "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
-  "how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn": "/images/Bmw-key-replacement-in-Brentwood-tn_20250629_163626_0000.jpg",
-  "real-locksmith-vs-dispatch-center-nashville": "/shop.jpeg",
-  "reasons-need-locksmith-nashville": "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg",
-  "maserati-granturismo-key-replacement-nashville": "/images/Maserati-key-cut-and-programmed--scaled.jpg",
-  "detex-exit-lock-replacement-green-hills-nashville": "/images/detex-commercial-lock-installation-nashville.jpg"
-};
-
-const postImage = blogImages[post.id] || "/shop.jpeg";
+// Post hero image comes from the post's own `image:` frontmatter — the single
+// source of truth (every post declares one; the admin portal writes it too).
+// The storefront photo is only a last-resort fallback so a post without an
+// image never renders broken.
+const postImage = post.data.image || "/shop.jpeg";
 
 // Optional per-post YouTube video (frontmatter `video:` — bare ID or any
 // youtube.com/watch, youtu.be, or /embed/ URL). When present, the hero shows a
