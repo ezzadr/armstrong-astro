@@ -162,10 +162,15 @@ const homepageSchema = [
           
           <div class="pb-2.5 mb-3 border-b border-slate-100 flex items-center justify-between">
             <div>
-              <h2 class="text-xl sm:text-2xl font-black font-heading text-[#0f274a] uppercase tracking-tight">
-                Get an Upfront Quote
-              </h2>
-              <p class="text-[11px] sm:text-xs text-slate-600 font-medium">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="text-xl sm:text-2xl font-black font-heading text-[#0f274a] uppercase tracking-tight">
+                  Get an Upfront Quote
+                </h2>
+                <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  ⚡ 3–5 min reply
+                </span>
+              </div>
+              <p class="text-[11px] sm:text-xs text-slate-600 font-medium mt-0.5">
                 Lockouts &bull; Car Keys &bull; Home Rekey &bull; Commercial Doors
               </p>
             </div>
@@ -216,15 +221,26 @@ const homepageSchema = [
                 class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 focus:border-amber-500 outline-none text-slate-950 font-medium cursor-pointer"
               >
                 <option value="">Select a service...</option>
-                <option value="Car Key Replacement">🔑 Car Key Replacement (All Makes)</option>
-                <option value="European Specialist">🏎️ European Key (BMW, Benz, Audi, Land Rover)</option>
-                <option value="Key Fob Programming">📶 Key Fob & Remote Programming</option>
-                <option value="Emergency Car Lockout">🚨 Emergency Car Lockout</option>
-                <option value="House Lockout / Rekey">🏡 House Lockout or Rekey</option>
-                <option value="Commercial Locksmith">🏢 Commercial Door Hardware & Storefront</option>
-                <option value="Other">🛠️ Other Locksmith Service</option>
+                <option value="Car Key Replacement">Car Key Replacement (All Makes)</option>
+                <option value="European Specialist">European Key (BMW, Benz, Audi, Land Rover)</option>
+                <option value="Key Fob Programming">Key Fob &amp; Remote Programming</option>
+                <option value="Emergency Car Lockout">🚨 Emergency Car Lockout (Immediate)</option>
+                <option value="House Lockout / Rekey">House Lockout or Rekey</option>
+                <option value="Commercial Locksmith">Commercial Door Hardware &amp; Storefront</option>
+                <option value="Other">Other Locksmith Service</option>
               </select>
               <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please select a service.</span>
+            </div>
+
+            <!-- Dynamic Emergency Lockout Alert (Hidden by default, slides open if Emergency Lockout is chosen) -->
+            <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs flex items-center justify-between gap-2 transition-all">
+              <div class="leading-tight">
+                <span class="font-black text-red-900 block">🚨 Locked out right now?</span>
+                <span class="text-[11px] text-red-800">Skip the form for immediate 15–20m van dispatch.</span>
+              </div>
+              <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider active:scale-95 transition shadow-sm">
+                Call (615) 625-8000
+              </a>
             </div>
 
             <div>
@@ -246,13 +262,13 @@ const homepageSchema = [
             <button 
               type="submit" 
               id="quote-submit-btn"
-              class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:brightness-110 text-slate-950 font-black text-base uppercase tracking-wider shadow-[0_6px_20px_rgba(245,158,11,0.35)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600 disabled:opacity-60 disabled:cursor-not-allowed"
+              class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-sm sm:text-base uppercase tracking-wider shadow-md transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              <span>Text Me a Quote &rarr;</span>
+              <span>Text Me a Flat Quote &rarr;</span>
             </button>
-            <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1">
+            <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              <span>Sent directly to Armstrong Dispatch &bull; Certified & Insured</span>
+              <span>Direct to Nashville Dispatch &bull; Upfront Rates &bull; Licensed &amp; Insured</span>
             </div>
           </form>
 
@@ -756,10 +772,20 @@ const homepageSchema = [
           phoneInput.classList.remove('border-red-500');
         });
       }
-      if (serviceSelect && serviceError) {
+      const lockoutAlert = document.getElementById('lockout-alert-box');
+      if (serviceSelect) {
         serviceSelect.addEventListener('change', function () {
-          serviceError.classList.add('hidden');
-          serviceSelect.classList.remove('border-red-500');
+          if (serviceError) {
+            serviceError.classList.add('hidden');
+            serviceSelect.classList.remove('border-red-500');
+          }
+          if (lockoutAlert) {
+            if (this.value === 'Emergency Car Lockout') {
+              lockoutAlert.classList.remove('hidden');
+            } else {
+              lockoutAlert.classList.add('hidden');
+            }
+          }
         });
       }
 
@@ -858,7 +884,7 @@ const homepageSchema = [
               }
               if (submitBtn) {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Text Me a Quote &rarr;</span>';
+                submitBtn.innerHTML = '<span>Text Me a Flat Quote &rarr;</span>';
               }
             }
           } catch (err) {
@@ -868,7 +894,7 @@ const homepageSchema = [
             }
             if (submitBtn) {
               submitBtn.disabled = false;
-              submitBtn.innerHTML = '<span>Text Me a Quote &rarr;</span>';
+              submitBtn.innerHTML = '<span>Text Me a Flat Quote &rarr;</span>';
             }
           }
         });

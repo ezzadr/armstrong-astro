@@ -66,6 +66,7 @@
   <form id="booking-form" class="p-6 sm:p-8 bg-white" novalidate>
     <!-- Hidden Form Fields & Honeypot -->
     <input type="hidden" id="field-service" name="service" value="Car key replacement" />
+    <input type="hidden" id="field-location" name="location" value="Mobile Van Dispatched To My Location" />
     <input type="hidden" id="field-date" name="booking_date" value="Today" />
     <input type="hidden" id="field-time" name="booking_time" value="ASAP" />
     
@@ -74,97 +75,103 @@
       <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
     </div>
 
-    <!-- ==================== STEP 1: CLEAN SERVICE LIST (NO SUBHEADINGS) ==================== -->
-    <div id="step-1" class="step-pane space-y-3">
+    <!-- ==================== STEP 1: CLEAN SERVICE LIST WITH UPFRONT VALUE ANCHORS ==================== -->
+    <div id="step-1" class="step-pane space-y-2.5">
       <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Select a Service:</div>
 
       <!-- 1. Car key replacement -->
       <button 
         type="button" 
-        class="service-item w-full py-4 px-5 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.10)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
+        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
         data-service="Car key replacement"
       >
-        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
           Car key replacement
         </span>
-        <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
-          ›
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">From $140</span>
+          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
+        </div>
       </button>
 
       <!-- 2. Residential lock and rekey -->
       <button 
         type="button" 
-        class="service-item w-full py-4 px-5 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.10)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
+        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
         data-service="Residential lock and rekey"
       >
-        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
           Residential lock and rekey
         </span>
-        <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
-          ›
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">From $19/cyl</span>
+          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
+        </div>
       </button>
 
       <!-- 3. Commercial lock and rekey -->
       <button 
         type="button" 
-        class="service-item w-full py-4 px-5 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.10)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
+        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
         data-service="Commercial lock and rekey"
       >
-        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
           Commercial lock and rekey
         </span>
-        <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
-          ›
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">B2B Upfront</span>
+          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
+        </div>
       </button>
 
       <!-- 4. Other locksmith services -->
       <button 
         type="button" 
-        class="service-item w-full py-4 px-5 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.10)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
+        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
         data-service="Other locksmith services"
       >
-        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
           Other locksmith services
         </span>
-        <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
-          ›
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Free Estimate</span>
+          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
+        </div>
       </button>
 
       <!-- 5. Emergency lockout -->
       <button 
         type="button" 
-        class="service-item w-full py-4 px-5 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.10)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
+        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
         data-service="Emergency lockout"
       >
-        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
           Emergency lockout
         </span>
-        <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
-          ›
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">15–20m ETA</span>
+          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
+        </div>
       </button>
 
       <!-- 6. European cars -->
       <button 
         type="button" 
-        class="service-item w-full py-4 px-5 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.10)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
+        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
         data-service="European cars"
       >
-        <span class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          European cars
+        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+          European cars (BMW, Benz, Audi)
         </span>
-        <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">
-          ›
-        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Save vs Dealer</span>
+          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
+        </div>
       </button>
     </div>
 
     <!-- ==================== STEP 2: SCHEDULE (DATE & TIME) ==================== -->
-    <div id="step-2" class="step-pane hidden space-y-6">
+    <div id="step-2" class="step-pane hidden space-y-5">
       
       <!-- Selected Service Bar -->
       <div class="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-300 rounded-xl shadow-inner">
@@ -175,6 +182,44 @@
         <button type="button" class="btn-back text-xs font-bold text-blue-600 hover:underline cursor-pointer">
           Change
         </button>
+      </div>
+
+      <!-- Service Location: Mobile Van vs Walk-In Storefront -->
+      <div class="space-y-2">
+        <label class="block text-xs font-extrabold text-slate-900">How would you like service?</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button 
+            type="button" 
+            id="loc-mobile"
+            class="loc-chip p-3 bg-blue-50 border-[1.5px] border-blue-600 border-b-[3px] border-b-blue-700 text-blue-950 rounded-xl text-xs font-black text-left shadow-[0_4px_12px_rgba(37,99,235,0.22)] transition cursor-pointer flex items-center justify-between" 
+            data-loc="Mobile Van Dispatched To My Location"
+          >
+            <div>
+              <div class="font-black text-blue-950 flex items-center gap-1.5">
+                <span>🚐</span>
+                <span>Mobile Van Dispatch</span>
+              </div>
+              <div class="text-[11px] text-blue-700 font-medium mt-0.5">Technician drives to your location</div>
+            </div>
+            <span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px]">✓</span>
+          </button>
+
+          <button 
+            type="button" 
+            id="loc-store"
+            class="loc-chip p-3 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-left shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer flex items-center justify-between" 
+            data-loc="Walk-In Storefront (208 Thompson Ln)"
+          >
+            <div>
+              <div class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span>🏪</span>
+                <span>Walk-In Storefront</span>
+              </div>
+              <div class="text-[11px] text-slate-500 font-normal mt-0.5">208 Thompson Ln (Save trip fee)</div>
+            </div>
+            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
+          </button>
+        </div>
       </div>
 
       <!-- Date Options -->
@@ -342,22 +387,37 @@
         />
       </div>
 
+      <div>
+        <label for="cust_photo" class="block text-xs font-extrabold text-slate-900 mb-1 flex items-center justify-between">
+          <span>Attach Photo of Key or Lock (Optional)</span>
+          <span class="text-[10px] text-slate-500 font-normal">Helps ensure exact quote</span>
+        </label>
+        <input 
+          type="file" 
+          id="cust_photo" 
+          name="photo" 
+          accept="image/*" 
+          class="w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-black file:bg-slate-100 file:text-slate-800 hover:file:bg-slate-200 border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl p-1.5 cursor-pointer bg-white" 
+        />
+        <div id="photo-preview-name" class="hidden text-[11px] text-emerald-700 font-bold mt-1"></div>
+      </div>
+
       <!-- Server Error Alert -->
       <div id="api-error" class="hidden p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl text-center font-bold">
         We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black">615-625-8000</a>.
       </div>
 
       <!-- Submit Button -->
-      <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+      <div class="pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
         <button type="button" class="btn-back px-4 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 cursor-pointer">
           &larr; Back
         </button>
         <button 
           type="submit" 
           id="btn-submit" 
-          class="px-8 py-3.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 hover:brightness-110 text-white rounded-xl text-xs font-black uppercase tracking-wider border-b-[3px] border-b-blue-950 shadow-[0_8px_22px_rgba(37,99,235,0.40)] hover:-translate-y-0.5 active:translate-y-0 transition cursor-pointer disabled:opacity-50"
+          class="px-8 py-3.5 bg-gold-metallic hover:brightness-105 text-[#07152b] rounded-xl text-xs font-black uppercase tracking-wider border-b-[3px] border-b-amber-600 shadow-md hover:-translate-y-0.5 active:translate-y-0 transition cursor-pointer disabled:opacity-50"
         >
-          Book Appointment
+          Confirm Booking &rarr;
         </button>
       </div>
 
@@ -419,6 +479,7 @@
     const flowProgress = document.getElementById('flow-progress');
 
     const serviceInput = document.getElementById('field-service');
+    const locationInput = document.getElementById('field-location');
     const dateInput = document.getElementById('field-date');
     const timeInput = document.getElementById('field-time');
 
@@ -426,6 +487,7 @@
     const summaryTag = document.getElementById('wkz-summary');
 
     const serviceItems = document.querySelectorAll('.service-item');
+    const locChips = document.querySelectorAll('.loc-chip');
     const dateChips = document.querySelectorAll('.date-chip');
     const timeChips = document.querySelectorAll('.time-chip');
 
@@ -436,6 +498,8 @@
 
     const nameIn = document.getElementById('cust_name');
     const phoneIn = document.getElementById('cust_phone');
+    const photoIn = document.getElementById('cust_photo');
+    const photoPreviewName = document.getElementById('photo-preview-name');
     const errName = document.getElementById('err-name');
     const errPhone = document.getElementById('err-phone');
     const honeypot = document.getElementById('company_website');
@@ -525,7 +589,8 @@
         if (flowLabel3) { flowLabel3.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
 
         if (flowProgress) { flowProgress.style.width = "100%"; }
-        if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${dateInput.value} (${timeInput.value})`;
+        const locLabel = locationInput && locationInput.value.includes('Walk-In') ? 'Storefront' : 'Mobile Van';
+        if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${locLabel} • ${dateInput.value} (${timeInput.value})`;
 
       } else if (n === 4) {
         form.classList.add('hidden');
@@ -559,6 +624,51 @@
         updateStepper(2);
       });
     });
+
+    // Step 2 Location (Mobile Van vs Walk-In Shop)
+    locChips.forEach(chip => {
+      chip.addEventListener('click', function () {
+        locChips.forEach(c => {
+          c.classList.remove('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
+          c.classList.add('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
+          const check = c.querySelector('span:last-child');
+          if (check) {
+            check.classList.remove('bg-blue-600', 'text-white');
+            check.classList.add('border', 'border-slate-300', 'text-transparent');
+          }
+        });
+        this.classList.remove('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
+        this.classList.add('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
+        const check = this.querySelector('span:last-child');
+        if (check) {
+          check.classList.remove('border', 'border-slate-300', 'text-transparent');
+          check.classList.add('bg-blue-600', 'text-white');
+        }
+        const val = this.getAttribute('data-loc');
+        if (locationInput) locationInput.value = val;
+
+        const addrInput = document.getElementById('cust_address');
+        if (addrInput) {
+          if (val.includes('Walk-In')) {
+            addrInput.value = '208 Thompson Ln, Nashville, TN 37211 (Storefront Shop)';
+          } else if (addrInput.value.includes('208 Thompson Ln')) {
+            addrInput.value = '';
+          }
+        }
+      });
+    });
+
+    // Step 3 Photo Attachment Preview
+    if (photoIn && photoPreviewName) {
+      photoIn.addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+          photoPreviewName.textContent = `✓ Selected: ${this.files[0].name}`;
+          photoPreviewName.classList.remove('hidden');
+        } else {
+          photoPreviewName.classList.add('hidden');
+        }
+      });
+    }
 
     // Step 2 Date
     dateChips.forEach(chip => {
@@ -644,17 +754,19 @@
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.textContent = 'Submitting...';
+          submitBtn.textContent = '⚡ Sending Request...';
         }
 
         const s = serviceInput ? serviceInput.value : 'Locksmith';
+        const loc = locationInput ? locationInput.value : 'Mobile Van Dispatched';
         const d = dateInput ? dateInput.value : 'Today';
         const t = timeInput ? timeInput.value : 'ASAP';
         const addr = document.getElementById('cust_address')?.value || '';
         const notes = document.getElementById('cust_notes')?.value || '';
+        const photoFile = photoIn?.files?.[0]?.name ? `Attached Photo: ${photoIn.files[0].name}` : '';
 
-        const fullService = `${s} [${d} • ${t}]`;
-        const detailsStr = [addr ? `Address: ${addr}` : '', notes ? `Notes: ${notes}` : ''].filter(Boolean).join(' | ');
+        const fullService = `${s} [${loc} • ${d} • ${t}]`;
+        const detailsStr = [addr ? `Location: ${addr}` : '', notes ? `Details: ${notes}` : '', photoFile].filter(Boolean).join(' | ');
 
         const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
 
@@ -677,7 +789,7 @@
             phone: phone,
             service: fullService,
             details: detailsStr || 'Website Booking',
-            notes: 'Online Booking Request',
+            notes: `Online Booking Request [${loc}]`,
             company_website: ''
           })
         }).catch(err => {
@@ -695,7 +807,7 @@
             if (apiError) apiError.classList.remove('hidden');
             if (submitBtn) {
               submitBtn.disabled = false;
-              submitBtn.textContent = 'Book Appointment';
+              submitBtn.textContent = 'Confirm Booking →';
             }
           }
         } catch (err) {
@@ -703,7 +815,7 @@
           if (apiError) apiError.classList.remove('hidden');
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Book Appointment';
+            submitBtn.textContent = 'Confirm Booking →';
           }
         }
       });
