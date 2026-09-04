@@ -9,7 +9,8 @@ import sys
 import uuid
 import zlib
 
-ROOT = Path('/home/master/applications/btfdkcdpdw/public_html')
+# Read-only release preflight verified this exact destination of the master alias.
+ROOT = Path('/home/1506337.cloudwaysapps.com/btfdkcdpdw/public_html')
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()

@@ -23,6 +23,11 @@ files inside a 0700 directory. They are server-local, not off-site disaster reco
 Larger website releases need a separately reviewed scope; this workflow does not
 silently publish the entire site. Publish only after the Dispatch receiver is live.
 
+Canonical target verified by read-only preflight: the master application alias
+resolves to /home/1506337.cloudwaysapps.com/btfdkcdpdw/public_html. The publisher
+pins this exact path, not an arbitrary resolved location. First releases stopped
+before changing any file because the original alias was deliberately rejected.
+
 Rollback: restore the recorded prior index.html bytes to the exact recorded
 book-online/index.html target, verifying the checksums.json before/after digest;
 use a same-directory temporary file plus atomic rename. Do not reset Git or touch
