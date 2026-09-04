@@ -92,10 +92,12 @@ const homepageSchema = [
       <!-- Left Hero Content -->
       <div class="lg:col-span-7 flex flex-col gap-3.5 sm:gap-6 text-left">
         
-        <!-- Gold Dash Eyebrow -->
-        <div class="flex items-center gap-2.5 text-xs sm:text-sm font-bold tracking-widest text-amber-400 uppercase font-sans">
-          <span class="w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent inline-block"></span>
-          <span>FAMILY-OWNED &bull; 20+ YEARS MASTER LOCKSMITH EXPERIENCE</span>
+        <!-- Luxury Pill Eyebrow Badge (Mobile-First Compact) -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full w-fit">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="text-[11px] sm:text-xs font-bold tracking-wider text-amber-300 uppercase">
+            Family-Owned &bull; 20+ Years Master Experience
+          </span>
         </div>
 
         <!-- Massive Bold Storefront Headline with Luxury Gold Gradient Accent -->
@@ -103,30 +105,27 @@ const homepageSchema = [
           NASHVILLE LOCKSMITH WITH A <span class="text-gold-gradient">REAL STOREFRONT</span>
         </h1>
 
-        <!-- Trust Grounded Sub-Copy
-             The middle clause is condensed on phones so the headline and the
-             call button sit closer together; the full wording returns at sm.
-             Both variants keep every service term, and both stay in the DOM. -->
+        <!-- Trust Grounded Sub-Copy -->
         <p class="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
           Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. <span class="hidden sm:inline">Visit our walk-in storefront for fast key cutting and programming, or request our prompt mobile dispatch for car lockouts, home rekeys, and commercial security.</span><span class="sm:hidden">Walk-in storefront and prompt mobile dispatch for car lockouts, home rekeys, and commercial security.</span> Upfront pricing guaranteed.
         </p>
 
-        <!-- Direct Action Buttons (Sharp Luxury) -->
+        <!-- Direct Action Buttons (Mobile-First Touch Friendly) -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
           <!-- Primary Call Button -->
           <a 
             href="tel:6156258000" 
-            class="px-8 py-3.5 sm:py-4 bg-gold-metallic text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl transition active:scale-95 border-b-2 border-amber-600 cursor-pointer"
+            class="px-8 py-3.5 sm:py-4 bg-gold-metallic text-slate-950 font-black text-base uppercase tracking-wider rounded flex items-center justify-center gap-2.5 shadow-xl transition active:scale-[0.98] border-b-2 border-amber-600 cursor-pointer"
             aria-label="Call Armstrong Locksmith at (615) 625-8000"
           >
             <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
             <span>CALL (615) 625-8000</span>
           </a>
 
-          <!-- Storefront Directions Button -->
+          <!-- Storefront Directions Button (High Contrast on Dark) -->
           <a 
             href="/nashville-locksmith-storefront/" 
-            class="px-6 py-3.5 sm:py-4 bg-[#07152b] bg-navy-grid/90 hover:bg-[#0f274a] text-white font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-600 hover:border-amber-400/80 shadow-xl transition active:scale-95 cursor-pointer"
+            class="px-6 py-3.5 sm:py-4 bg-[#07152b] hover:bg-[#0f274a] text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded flex items-center justify-center gap-2 border border-amber-500/40 hover:border-amber-400 shadow-xl transition active:scale-[0.98] cursor-pointer"
             aria-label="Visit Armstrong Locksmith storefront at 208 Thompson Ln"
           >
             <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -136,154 +135,153 @@ const homepageSchema = [
           </a>
         </div>
 
-        <!-- Desktop Luxury Trust Credibility Bar -->
-        <div class="hidden lg:flex items-center gap-2 pt-6 border-t border-white/10 text-xs sm:text-sm text-slate-300">
-          <span class="text-amber-400 font-bold">🔑</span>
-          <span class="font-medium text-slate-200">Auto &bull; Home &bull; Business Locksmith</span>
+        <!-- 3 High-Impact Trust Pill Badges (Balances Hero & Highlights Strengths) -->
+        <div class="flex flex-wrap items-center gap-2 pt-2 sm:pt-4 text-[11px] sm:text-xs">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="text-amber-400 font-bold">🏪</span>
+            <span>Walk-In Storefront</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="text-emerald-400 font-bold">🚐</span>
+            <span>Prompt Mobile Van</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="text-amber-400 font-bold">🛡️</span>
+            <span>Certified &amp; Insured</span>
+          </div>
         </div>
 
       </div>
 
-      <!-- Right Column: Hero Contact / Instant Quote Form Card (Sharp Luxury 3D Pop) -->
+      <!-- Right Column: Hero Contact / Instant Quote Form Card (Modern Mobile-First Elevated Card) -->
       <div class="lg:col-span-5 relative z-20" id="quote-form-section">
-        <!-- The black drop shadow does almost nothing against the navy hero -
-             you cannot darken navy with black. From sm up we add a wide, soft
-             white bloom behind the card, which is what actually separates a
-             light panel from a dark background. Kept off phones on purpose:
-             there is little dark area visible around the card there. -->
-        <div class="bg-white p-5 sm:p-7 shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.22)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.22),0_0_55px_10px_rgba(255,255,255,0.40)] border border-amber-500/50 text-slate-900 relative overflow-hidden ring-1 ring-amber-400/30">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.22)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_30px_rgba(245,158,11,0.22),0_0_55px_10px_rgba(255,255,255,0.40)] border-2 border-amber-500/40 text-slate-900 relative overflow-hidden ring-1 ring-amber-400/20">
           
-          <div class="pb-2.5 mb-3 border-b border-slate-100 flex items-center justify-between">
+          <!-- Card Header Bar (Crisp contrast & urgency badge) -->
+          <div class="bg-gradient-to-r from-[#07152b] via-[#0b1e3b] to-[#07152b] px-4 py-3.5 sm:px-6 sm:py-4 border-b border-amber-500/30 flex items-center justify-between">
             <div>
-              <div class="flex items-center gap-2 flex-wrap">
-                <h2 class="text-xl sm:text-2xl font-black font-heading text-[#0f274a] uppercase tracking-tight">
+              <div class="flex items-center gap-2">
+                <span class="text-amber-400 text-sm">⚡</span>
+                <h2 class="text-base sm:text-lg font-black font-heading text-white uppercase tracking-tight">
                   Get an Upfront Quote
                 </h2>
-                <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">
-                  ⚡ 3–5 min reply
-                </span>
               </div>
-              <p class="text-[11px] sm:text-xs text-slate-600 font-medium mt-0.5">
-                Lockouts &bull; Car Keys &bull; Home Rekey &bull; Commercial Doors
+              <p class="text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5">
+                Lockouts &bull; Car Keys &bull; Rekey &bull; Commercial Doors
               </p>
             </div>
+            <span class="inline-flex items-center px-2.5 py-1 text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full shrink-0">
+              ⚡ 3–5 min reply
+            </span>
           </div>
 
-          <!-- `arm-fields-3d` adds the raised/recessed field styling.
-               Delete just that one class to revert the fields to flat. -->
-          <form id="hero-quote-form" class="arm-fields-3d flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
-            <!-- Invisible Honeypot Field (Anti-bot) -->
-            <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
-              <label for="company_website">Company Website</label>
-              <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
-            </div>
+          <div class="p-4 sm:p-6">
+            <form id="hero-quote-form" class="arm-fields-3d flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
+              <!-- Invisible Honeypot Field (Anti-bot) -->
+              <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
+                <label for="company_website">Company Website</label>
+                <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
+              </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="quote-name" class="block text-xs font-extrabold text-slate-900 mb-1">Your Full Name *</label>
+                  <input 
+                    type="text" 
+                    id="quote-name" 
+                    name="name" 
+                    required 
+                    placeholder="e.g. John Smith" 
+                    class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                  />
+                  <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your full name.</span>
+                </div>
+                <div>
+                  <label for="quote-phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
+                  <input 
+                    type="tel" 
+                    id="quote-phone" 
+                    name="phone" 
+                    required 
+                    placeholder="(615) 000-0000" 
+                    class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                  />
+                  <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
+                </div>
+              </div>
+
               <div>
-                <label for="quote-name" class="block text-xs font-extrabold text-slate-900 mb-1">Your Full Name *</label>
+                <label for="quote-service" class="block text-xs font-extrabold text-slate-900 mb-1">Service Needed *</label>
+                <select 
+                  id="quote-service" 
+                  name="service" 
+                  required 
+                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 font-medium cursor-pointer"
+                >
+                  <option value="">Select a service...</option>
+                  <option value="Car Key Replacement">Car Key Replacement (All Makes)</option>
+                  <option value="European Specialist">European Key (BMW, Benz, Audi, Land Rover)</option>
+                  <option value="Key Fob Programming">Key Fob &amp; Remote Programming</option>
+                  <option value="Emergency Car Lockout">🚨 Emergency Car Lockout (Immediate)</option>
+                  <option value="House Lockout / Rekey">House Lockout or Rekey</option>
+                  <option value="Commercial Locksmith">Commercial Door Hardware &amp; Storefront</option>
+                  <option value="Other">Other Locksmith Service</option>
+                </select>
+                <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please select a service.</span>
+              </div>
+
+              <!-- Dynamic Emergency Lockout Alert (Hidden by default, slides open if Emergency Lockout is chosen) -->
+              <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs rounded-md flex items-center justify-between gap-2 transition-all">
+                <div class="leading-tight">
+                  <span class="font-black text-red-900 block">🚨 Locked out right now?</span>
+                  <span class="text-[11px] text-red-800">Skip the form for prompt on-site van dispatch.</span>
+                </div>
+                <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider rounded active:scale-95 transition shadow-sm">
+                  Call (615) 625-8000
+                </a>
+              </div>
+
+              <div>
+                <label for="quote-details" class="block text-xs font-extrabold text-slate-900 mb-1">Vehicle, Home or Business Details (Optional)</label>
                 <input 
                   type="text" 
-                  id="quote-name" 
-                  name="name" 
-                  required 
-                  placeholder="e.g. John Smith" 
-                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                  id="quote-details" 
+                  name="details" 
+                  placeholder="e.g. 3 deadbolts rekeyed, storefront door, or 2021 BMW X5" 
+                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
                 />
-                <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your full name.</span>
               </div>
-              <div>
-                <label for="quote-phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
-                <input 
-                  type="tel" 
-                  id="quote-phone" 
-                  name="phone" 
-                  required 
-                  placeholder="(615) 000-0000" 
-                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
-                />
-                <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
-              </div>
-            </div>
 
-            <div>
-              <label for="quote-service" class="block text-xs font-extrabold text-slate-900 mb-1">Service Needed *</label>
-              <select 
-                id="quote-service" 
-                name="service" 
-                required 
-                class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 focus:border-amber-500 outline-none text-slate-950 font-medium cursor-pointer"
+              <!-- Server / Network Error Alert -->
+              <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center rounded-md">
+                We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
+              </div>
+
+              <button 
+                type="submit" 
+                id="quote-submit-btn"
+                class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-sm sm:text-base uppercase tracking-wider rounded-lg shadow-md transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <option value="">Select a service...</option>
-                <option value="Car Key Replacement">Car Key Replacement (All Makes)</option>
-                <option value="European Specialist">European Key (BMW, Benz, Audi, Land Rover)</option>
-                <option value="Key Fob Programming">Key Fob &amp; Remote Programming</option>
-                <option value="Emergency Car Lockout">🚨 Emergency Car Lockout (Immediate)</option>
-                <option value="House Lockout / Rekey">House Lockout or Rekey</option>
-                <option value="Commercial Locksmith">Commercial Door Hardware &amp; Storefront</option>
-                <option value="Other">Other Locksmith Service</option>
-              </select>
-              <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please select a service.</span>
-            </div>
-
-            <!-- Dynamic Emergency Lockout Alert (Hidden by default, slides open if Emergency Lockout is chosen) -->
-            <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs flex items-center justify-between gap-2 transition-all">
-              <div class="leading-tight">
-                <span class="font-black text-red-900 block">🚨 Locked out right now?</span>
-                <span class="text-[11px] text-red-800">Skip the form for immediate 15–20m van dispatch.</span>
+                <span>Text Me a Flat Quote &rarr;</span>
+              </button>
+              <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span>Direct to Nashville Dispatch &bull; Upfront Rates &bull; Licensed &amp; Insured</span>
               </div>
-              <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider active:scale-95 transition shadow-sm">
-                Call (615) 625-8000
-              </a>
-            </div>
+            </form>
 
-            <div>
-              <label for="quote-details" class="block text-xs font-extrabold text-slate-900 mb-1">Vehicle, Home or Business Details (Optional)</label>
-              <input 
-                type="text" 
-                id="quote-details" 
-                name="details" 
-                placeholder="e.g. 3 deadbolts rekeyed, storefront door, or 2021 BMW X5" 
-                class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
-              />
+            <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 text-center rounded-lg">
+              <div class="text-4xl mb-2">✅</div>
+              <strong id="quote-success-title" class="block text-lg font-black text-emerald-950">Thank you! Your request was sent to Armstrong Locksmith.</strong>
+              <p id="quote-success-desc" class="text-xs text-emerald-800 mt-2 leading-relaxed font-medium">
+                Our dispatch team has received your submission and will review your request promptly for immediate service.
+              </p>
+              <div class="mt-4 pt-3 border-t border-emerald-200">
+                <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded shadow transition">
+                  <span>Need immediate emergency help? Call (615) 625-8000 &rarr;</span>
+                </a>
+              </div>
             </div>
-
-            <!-- Server / Network Error Alert -->
-            <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center">
-              We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
-            </div>
-
-            <button 
-              type="submit" 
-              id="quote-submit-btn"
-              class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-sm sm:text-base uppercase tracking-wider shadow-md transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-amber-600 disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              <span>Text Me a Flat Quote &rarr;</span>
-            </button>
-            <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-              <span>Direct to Nashville Dispatch &bull; Upfront Rates &bull; Licensed &amp; Insured</span>
-            </div>
-          </form>
-
-          <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 text-center">
-            <div class="text-4xl mb-2">✅</div>
-            <strong id="quote-success-title" class="block text-lg font-black text-emerald-950">Thank you! Your request was sent to Armstrong Locksmith.</strong>
-            <p id="quote-success-desc" class="text-xs text-emerald-800 mt-2 leading-relaxed font-medium">
-              Our dispatch team has received your submission and will review your request promptly for immediate service.
-            </p>
-            <div class="mt-4 pt-3 border-t border-emerald-200">
-              <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider shadow transition">
-                <span>Need immediate emergency help? Call (615) 625-8000 &rarr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mobile Trust Credibility Bar (Positioned cleanly under quote form on mobile) -->
-        <div class="lg:hidden flex items-center justify-center pt-4 text-xs text-slate-300 text-center">
-          <div class="inline-flex items-center gap-1.5">
-            <span class="text-amber-400">🔑</span>
-            <span class="font-medium text-slate-200">Auto &bull; Home &bull; Business Locksmith</span>
           </div>
         </div>
 
