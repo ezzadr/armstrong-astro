@@ -28,17 +28,25 @@
 
         <!-- Storefront Photo Card -->
         <div class="overflow-hidden border border-slate-700 shadow-md">
-          <picture>
-            <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 400px" />
-            <img 
-            src="/shop.jpeg" 
-            alt="Armstrong Locksmith Nashville Storefront 208 Thompson Lane" 
-            class="w-full h-auto"
-            width="400"
-            height="144"
-            loading="lazy"
-          />
-          </picture>
+          <div class="relative group">
+            <picture>
+              <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 400px" />
+              <img 
+              src="/shop.jpeg" 
+              alt="Armstrong Locksmith Nashville Storefront 208 Thompson Lane" 
+              class="w-full h-auto"
+              width="400"
+              height="144"
+              loading="lazy"
+              />
+            </picture>
+            <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+              <a href="https://g.page/r/CQS5BtikwbmqEBM" target="_blank" rel="noopener noreferrer" class="pointer-events-auto bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-[10px] uppercase tracking-widest px-4 py-2.5 rounded shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/></svg>
+                Get Directions
+              </a>
+            </div>
+          </div>
           <div class="p-3 bg-slate-900 text-xs flex flex-col gap-1 border-t border-slate-800">
             <div class="text-slate-200 font-medium">📍 208 Thompson Ln, Nashville, TN 37211</div>
             <div class="flex items-center justify-between text-slate-400 pt-0.5">
@@ -162,8 +170,17 @@
 
     <!-- Bottom Copyright & Legal Links -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <div>
-        &copy; {new Date().getFullYear()} Armstrong Locksmith Inc All Rights Reserved. Certified & Insured.
+      <div class="flex flex-col gap-2.5 items-center sm:items-start">
+        <div>
+          &copy; {new Date().getFullYear()} Armstrong Locksmith Inc All Rights Reserved. Certified & Insured.
+        </div>
+        <div class="flex items-center gap-1.5 opacity-80">
+          <span class="text-[9px] font-bold uppercase tracking-widest mr-1 text-slate-500">Accepted:</span>
+          <div class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-[9px] font-bold tracking-wide border border-slate-700">VISA</div>
+          <div class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-[9px] font-bold tracking-wide border border-slate-700">MC</div>
+          <div class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-[9px] font-bold tracking-wide border border-slate-700">AMEX</div>
+          <div class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-[9px] font-bold tracking-wide border border-slate-700">APPLE PAY</div>
+        </div>
       </div>
 
       <div class="flex items-center gap-4 flex-wrap text-slate-400">
