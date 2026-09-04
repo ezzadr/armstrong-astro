@@ -728,6 +728,7 @@
     if (form) {
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
+        if (submitBtn?.disabled) return;
         if (apiError) apiError.classList.add('hidden');
 
         let hasError = false;
@@ -774,13 +775,46 @@
           customer_name: name,
           phone: phone,
           service: fullService,
-          service_type: s,
+          service_type: fullService,
           vehicle: detailsStr || 'Website Booking',
           form_started_at: safeFormStartedAt,
           company_website: ''
         };
 
-        // Dual-Dispatch: Send concurrently to both AI App & Email/SMS
+        // Save the actual photo privately in Dispatch before the existing lead notification.
+        // The contact proxy uses the same phone/service, so its follow-up is deduplicated.
+        const selectedPhoto = photoIn?.files?.[0];
+        if (selectedPhoto) {
+          try {
+            if (selectedPhoto.size > 5 * 1024 * 1024) {
+              throw new Error('Choose a photo smaller than 5 MB.');
+            }
+            const upload = new FormData();
+            Object.entries(payload).forEach(([key, value]) => upload.append(key, String(value)));
+            upload.append('photo', selectedPhoto);
+            const result = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: upload
+            });
+            const saved = await result.json();
+            if (!result.ok || saved.photo_received !== true) {
+              throw new Error(saved.errors?.photo?.[0] || 'Your photo could not be saved. Please use a JPG, PNG or WebP photo under 5 MB and try again.');
+            }
+          } catch (error) {
+            if (apiError) {
+              apiError.textContent = error instanceof Error ? error.message : 'Photo upload failed. Please try again.';
+              apiError.classList.remove('hidden');
+            }
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Confirm Booking →';
+            }
+            return;
+          }
+        }
+
+        // Preserve the existing email/SMS notification and text-only booking flow.
         const emailPromise = fetch('/api/contact.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

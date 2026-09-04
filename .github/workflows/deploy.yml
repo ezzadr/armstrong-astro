@@ -1,63 +1,51 @@
-name: Build & Deploy to Cloudways
-
-# Build happens HERE (Linux CI), not on a developer machine. This keeps the
-# committed HTML byte-identical from deploy to deploy — a local build produced
-# slightly different minified CSS (lightningcss native binary differs per OS),
-# which used to make every page churn whenever a local build and a CI build
-# alternated. Now every build is a CI build, so that never happens.
-#
-# Workflow for contributors: edit files under src/ (and public/), commit the
-# SOURCE, and push. Do NOT run `npm run build` before committing — CI builds,
-# commits the refreshed root HTML, and deploys. `npm run dev` / `npm run build`
-# locally are still fine for previewing; just don't commit the build output.
-
+name: Verify website and release approved booking page
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
-
+    inputs:
+      publish_booking_page:
+        description: Publish Book Online only after Dispatch photo migration is live
+        type: boolean
+        default: false
 permissions:
-  contents: write
-
-# Never let two deploys run at once; let each finish rather than cancel mid-deploy.
+  contents: read
 concurrency:
   group: deploy-main
   cancel-in-progress: false
-
 jobs:
-  build-and-deploy:
-    name: Build in CI, then deploy to Cloudways
+  verify-and-release:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Set up Node
-        uses: actions/setup-node@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build (astro build + sync dist to repo root)
-        run: npm run build
-
-      - name: Commit refreshed build output if it changed
+      - run: npm ci
+      - run: node --test tests/booking-photo.test.mjs
+      - run: python3 -m unittest discover -s tests -p 'test_release*.py'
+      # No generated commits, production Git writes or shared-service changes.
+      - run: npx astro build
+      - name: Prepare exact public-page release
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_booking_page
+        id: bundle
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "chore(build): CI build output for ${GITHUB_SHA:0:7}"
-            git push origin main
-            echo "Committed and pushed refreshed build output."
-          else
-            echo "Build output unchanged — nothing to commit."
-          fi
-
-      - name: Execute SSH Commands on Cloudways
+          python3 - <<'PY'
+          import base64, hashlib, json, os, re, zlib
+          from pathlib import Path
+          page = Path('dist/book-online/index.html').read_bytes()
+          page += ('\n<!-- booking-release:' + os.environ['GITHUB_SHA'] + ' -->\n').encode()
+          assets = sorted(set(re.findall(r'/_astro/[A-Za-z0-9_.-]+', page.decode())))
+          bundle = {'page': base64.b64encode(zlib.compress(page)).decode(), 'sha256': hashlib.sha256(page).hexdigest(), 'commit': os.environ['GITHUB_SHA'], 'assets': {p.lstrip('/'): hashlib.sha256(Path('dist' + p).read_bytes()).hexdigest() for p in assets}}
+          script = base64.b64encode(Path('scripts/release-booking-page.py').read_bytes()).decode()
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('bundle=' + base64.b64encode(json.dumps(bundle).encode()).decode() + '\n')
+              output.write('script=' + script + '\n')
+              output.write('sha256=' + bundle['sha256'] + '\n')
+          PY
+      - name: Backup verify and publish only booking HTML
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_booking_page
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.CLOUDWAYS_HOST }}
@@ -65,70 +53,15 @@ jobs:
           password: ${{ secrets.CLOUDWAYS_PASSWORD }}
           key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
           port: 22
+          script_stop: true
           script: |
-            set -e
-            echo "=== AUTO DEPLOYING ARMSTRONG-ASTRO WEBSITE ==="
-            cd /home/master/applications/btfdkcdpdw/public_html
-            git fetch origin main
-            git reset --hard origin/main
-            git status
-
-            echo "=== CONFIGURING NGINX 404 HANDLING ==="
-            # Write custom Nginx error page directive for this application only
-            NGINX_CUSTOM_DIR="/home/master/applications/btfdkcdpdw/conf/nginx"
-            if [ -d "$NGINX_CUSTOM_DIR" ]; then
-              cat > "$NGINX_CUSTOM_DIR/custom_error_pages.conf" << 'NGINX_EOF'
-            # Armstrong Locksmith — Custom 404 Error Page Handling
-            # Serves /404-handler.php (which returns HTTP 404 + custom 404.html content)
-            # instead of falling back to /index.html with HTTP 200
-            error_page 404 /404-handler.php;
-            location = /404-handler.php {
-              internal;
-              fastcgi_pass unix:/run/php/php-fpm.sock;
-              fastcgi_param SCRIPT_FILENAME $document_root/404-handler.php;
-              include fastcgi_params;
-            }
-            NGINX_EOF
-              echo "Nginx custom 404 config written successfully"
-            else
-              echo "WARNING: Nginx custom config dir not found at $NGINX_CUSTOM_DIR"
-              echo "404 handling relies on .htaccess ErrorDocument fallback"
-            fi
-
-            echo "=== CONFIGURING TTL FOR CRAWLER-FACING TEXT ASSETS ==="
-            # robots.txt, the sitemaps and llms.txt inherit the Cloudways Nginx
-            # "expires 1y" rule for static extensions. That let Cloudflare pin a stale
-            # robots.txt at the edge for a year after it was updated. Exact-match
-            # locations outrank regex locations in Nginx, so these take priority.
-            if [ -d "$NGINX_CUSTOM_DIR" ]; then
-              cat > "$NGINX_CUSTOM_DIR/custom_cache_rules.conf" << 'NGINX_EOF'
-            # Armstrong Locksmith - short TTL for crawler-facing text assets.
-            # These change on deploy and must not sit in an edge cache for a year.
-            location = /robots.txt {
-              expires off;
-              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
-            }
-            location = /llms.txt {
-              expires off;
-              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
-            }
-            location = /sitemap-index.xml {
-              expires off;
-              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
-            }
-            location = /sitemap-0.xml {
-              expires off;
-              add_header Cache-Control "public, max-age=300, s-maxage=300" always;
-            }
-            NGINX_EOF
-              echo "Nginx text-asset cache TTL config written successfully"
-            fi
-
-            echo "=== PURGING LOCAL VARNISH CACHE ==="
-            curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
-            curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
-
-            # Attempt Nginx reload if available (Cloudways may require this)
-            sudo nginx -t 2>/dev/null && sudo systemctl reload nginx 2>/dev/null && echo "Nginx reloaded" || echo "Nginx reload skipped (may need Cloudways panel)"
-
-            echo "Website deploy complete!"
+            python3 -c "import base64; exec(compile(base64.b64decode('${{ steps.bundle.outputs.script }}'), '<approved-booking-release>', 'exec'))" '${{ steps.bundle.outputs.bundle }}'
+      - name: Verify live public page
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_booking_page
+        env:
+          EXPECTED: ${{ steps.bundle.outputs.sha256 }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error "https://armstronglocksmithinc.com/book-online/?release=${GITHUB_SHA}" -o /tmp/booking-live.html
+          grep -Fq "booking-release:${GITHUB_SHA}" /tmp/booking-live.html
+          grep -Fq 'photo_received' /tmp/booking-live.html
