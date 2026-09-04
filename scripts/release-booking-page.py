@@ -17,7 +17,7 @@ def digest(data):
 def publish(bundle):
     target = ROOT / 'book-online/index.html'
     if ROOT.resolve() != ROOT or target.resolve() != target or not target.is_file():
-        raise RuntimeError('Unexpected website target')
+        raise RuntimeError('Unexpected website target: root=' + str(ROOT.resolve()) + '; page=' + str(target.resolve()))
     content = zlib.decompress(base64.b64decode(bundle['page'], validate=True))
     if digest(content) != bundle['sha256']:
         raise RuntimeError('Release checksum mismatch')
