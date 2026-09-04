@@ -23,16 +23,18 @@ class ReleaseTests(unittest.TestCase):
                        'sha256': release.digest(b'new public page'), 'commit': 'a' * 40, 'assets': {}}
 
     def publish(self):
-        with patch.object(release, 'ROOT', self.root):
+        backup_root = Path(self.temp.name).resolve() / 'private-home' / '.armstrong-site-backups' / 'btfdkcdpdw'
+        with patch.object(release, 'ROOT', self.root), patch.object(release, 'BACKUP_ROOT', backup_root):
             release.publish(self.bundle)
+        return backup_root
 
     def test_backup_verified_and_only_booking_page_changes(self):
         other = self.root / 'other.html'
         other.write_bytes(b'untouched')
-        self.publish()
+        backup_root = self.publish()
         self.assertEqual(self.target.read_bytes(), b'new public page')
         self.assertEqual(other.read_bytes(), b'untouched')
-        backup = next((self.root.parent / '.booking-page-backups').glob('*/index.html'))
+        backup = next(backup_root.glob('*/index.html'))
         self.assertEqual(backup.read_bytes(), b'original public page')
         metadata = json.loads(backup.with_name('checksums.json').read_text())
         self.assertEqual(metadata['before'], release.digest(backup.read_bytes()))
@@ -42,7 +44,7 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             self.publish()
         self.assertEqual(self.target.read_bytes(), b'original public page')
-        self.assertFalse((self.root.parent / '.booking-page-backups').exists())
+        self.assertFalse((Path(self.temp.name).resolve() / 'private-home' / '.armstrong-site-backups' / 'btfdkcdpdw').exists())
 
     def test_missing_asset_stops_before_changes(self):
         self.bundle['assets'] = {'_astro/missing.css': 'unknown'}
@@ -61,5 +63,6 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaises(OSError):
                 self.publish()
         self.assertEqual(self.target.read_bytes(), b'original public page')
-        self.assertEqual(len(list((self.root.parent / '.booking-page-backups').glob('*/index.html'))), 1)
+        backup_root = Path(self.temp.name).resolve() / 'private-home' / '.armstrong-site-backups' / 'btfdkcdpdw'
+        self.assertEqual(len(list(backup_root.glob('*/index.html'))), 1)
         self.assertEqual(list(self.target.parent.glob('*.tmp')), [])

@@ -11,6 +11,7 @@ import zlib
 
 # Read-only release preflight verified this exact destination of the master alias.
 ROOT = Path('/home/1506337.cloudwaysapps.com/btfdkcdpdw/public_html')
+BACKUP_ROOT = Path.home() / '.armstrong-site-backups' / 'btfdkcdpdw'
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()
@@ -28,11 +29,18 @@ def publish(bundle):
         path = ROOT / asset
         if path.resolve() != path or not path.is_file() or digest(path.read_bytes()) != checksum:
             raise RuntimeError('Required asset missing or different; release stopped')
-    backups = ROOT.parent / '.booking-page-backups'
-    if backups.is_symlink():
+    backups = BACKUP_ROOT
+    backup_parent = backups.parent
+    resolved_root = ROOT.resolve()
+    if backup_parent.is_symlink() or backups.is_symlink():
         raise RuntimeError('Unsafe backup directory')
+    backup_parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    os.chmod(backup_parent, 0o700)
     backups.mkdir(mode=0o700, exist_ok=True)
     os.chmod(backups, 0o700)
+    resolved_backups = backups.resolve()
+    if resolved_backups == resolved_root or resolved_root in resolved_backups.parents:
+        raise RuntimeError('Backup directory must remain outside the public website')
     release = backups / uuid.uuid4().hex
     release.mkdir(mode=0o700)
     previous = target.read_bytes()
