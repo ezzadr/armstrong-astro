@@ -1,13 +1,17 @@
-# Book Online photo upload fix — local only, 2026-09-04
+# Book Online photo upload fix — released, 2026-09-04
 
-Current status: source pushed, not published. Dispatch receiver/migration is live
-at 7c98289 after its verified encrypted backup and 260 passing release tests.
-Website run 33896235258 (3df7d5d0) passed tests/build but stopped with permission
-denied creating /home/1506337.cloudwaysapps.com/btfdkcdpdw/.booking-page-backups.
-No website page was replaced. Do not bypass the backup gate. Provision a private
-website-only backup directory writable by its SSH account after specific hosting
-permission approval; do not grant rights to other applications or shared services.
-Then repeat the explicit publish operation and verify its live marker.
+Current status: live. Dispatch receiver/migration is live at 7c98289 after its
+verified encrypted backup and 260 passing release tests. Website source and the
+private-home rollback change are at 7669f8be. Protected website run 33904827267
+passed all tests/build, created and read-back verified the rollback copy at
+/home/master/.armstrong-site-backups/btfdkcdpdw/4f43ea8096c64bf5b4368d4ca448f67c/index.html,
+installed SHA-256 1ab9647ac3da4e57398999854f1bc30b177b1fa0669e7c122b958c871908cd65,
+and passed the live marker/photo acknowledgement checks. An independent HTTPS
+check also returned 200 with the exact release marker, multipart FormData code,
+and photo_received acknowledgement. The backup directory is outside public_html
+and is restricted to the existing deployment account; no server-wide permission,
+other-application, shared-service, or Nginx change was made.
+Roadmap scope is unchanged; this completes the already-approved upload path.
 
 The live form sent only the selected filename to contact.php. BookingForm now
 sends actual multipart photo bytes to the Dispatch website-bookings endpoint
