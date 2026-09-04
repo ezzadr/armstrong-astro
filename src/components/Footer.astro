@@ -60,9 +60,20 @@
               <svg class="w-3 h-3 text-slate-950 ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
 
-            <div class="flex items-center justify-between text-xs text-slate-400 pt-1 border-t border-slate-800/80">
-              <span>📞 <a href="tel:6156258000" class="text-white font-bold hover:text-amber-400 transition-colors">(615) 625-8000</a></span>
-              <span>✉️ <a href="mailto:locksmith@armstronglocksmithinc.com" class="text-slate-300 hover:text-amber-400 transition-colors font-medium">Email Shop</a></span>
+            <div class="flex flex-col gap-1.5 pt-2 border-t border-slate-800/80 text-xs text-slate-400">
+              <div class="flex items-center justify-between">
+                <span>📞 <a href="tel:6156258000" class="text-white font-bold hover:text-amber-400 transition-colors">(615) 625-8000</a></span>
+                <a href="/contact-armstrong-locksmith/" class="text-[11px] font-bold text-amber-400 hover:text-amber-300 transition-colors">Send Message &rarr;</a>
+              </div>
+              <div class="flex items-center gap-1.5 text-[11px] pt-0.5">
+                <span>✉️</span>
+                <a 
+                  href="mailto:locksmith@armstronglocksmithinc.com" 
+                  class="text-slate-300 hover:text-amber-400 transition-colors font-medium break-all cursor-pointer"
+                  id="footer-email-link"
+                  title="Click to email or copy address"
+                >locksmith@armstronglocksmithinc.com</a>
+              </div>
             </div>
           </div>
         </div>
@@ -277,5 +288,20 @@
     </div>
 
   </div>
+
+  <script is:inline>
+    const emailLink = document.getElementById('footer-email-link');
+    if (emailLink) {
+      emailLink.addEventListener('click', () => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText('locksmith@armstronglocksmithinc.com').then(() => {
+            const original = emailLink.innerText;
+            emailLink.innerText = '✓ Copied to clipboard!';
+            setTimeout(() => { emailLink.innerText = original; }, 2500);
+          }).catch(() => {});
+        }
+      });
+    }
+  </script>
 
 </footer>
