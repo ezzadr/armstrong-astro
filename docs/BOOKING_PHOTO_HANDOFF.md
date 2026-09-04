@@ -1,5 +1,14 @@
 # Book Online photo upload fix — local only, 2026-09-04
 
+Current status: source pushed, not published. Dispatch receiver/migration is live
+at 7c98289 after its verified encrypted backup and 260 passing release tests.
+Website run 33896235258 (3df7d5d0) passed tests/build but stopped with permission
+denied creating /home/1506337.cloudwaysapps.com/btfdkcdpdw/.booking-page-backups.
+No website page was replaced. Do not bypass the backup gate. Provision a private
+website-only backup directory writable by its SSH account after specific hosting
+permission approval; do not grant rights to other applications or shared services.
+Then repeat the explicit publish operation and verify its live marker.
+
 The live form sent only the selected filename to contact.php. BookingForm now
 sends actual multipart photo bytes to the Dispatch website-bookings endpoint
 before calling the existing contact.php notification flow. Matching phone and
