@@ -65,3 +65,25 @@ jobs:
           curl --fail --silent --show-error "https://armstronglocksmithinc.com/book-online/?release=${GITHUB_SHA}" -o /tmp/booking-live.html
           grep -Fq "booking-release:${GITHUB_SHA}" /tmp/booking-live.html
           grep -Fq 'photo_received' /tmp/booking-live.html
+      - name: Deploy website to Cloudways btfdkcdpdw
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.publish_booking_page)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CLOUDWAYS_HOST }}
+          username: ${{ secrets.CLOUDWAYS_USER }}
+          password: ${{ secrets.CLOUDWAYS_PASSWORD }}
+          key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            set -e
+            echo "=== AUTO DEPLOYING ARMSTRONG-ASTRO WEBSITE EXCLUSIVELY TO btfdkcdpdw ==="
+            cd /home/master/applications/btfdkcdpdw/public_html
+            git fetch origin main
+            git reset --hard origin/main
+            git status
+
+            echo "=== PURGING LOCAL VARNISH CACHE ==="
+            curl -s -X PURGE "http://127.0.0.1/" -H "Host: armstronglocksmithinc.com" || true
+            curl -s -X BAN "http://127.0.0.1/.*" -H "Host: armstronglocksmithinc.com" || true
+            echo "Website deploy complete!"
