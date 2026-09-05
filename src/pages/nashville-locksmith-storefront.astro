@@ -4,20 +4,42 @@ import Layout from '../layouts/Layout.astro';
 const seoTitle = "Locksmith Shop Nashville | 208 Thompson Ln | Armstrong";
 const seoDescription = "Visit our real Nashville shop at 208 Thompson Ln. Certified master locksmith with 773+ 5-star reviews. Walk-in key duplication & fobs. Call (615) 625-8000.";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Locksmith",
-  "name": "Armstrong Locksmith Storefront",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "208 Thompson Ln",
-    "addressLocality": "Nashville",
-    "addressRegion": "TN",
-    "postalCode": "37211",
-    "addressCountry": "US"
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Locksmith",
+    "name": "Armstrong Locksmith Storefront",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-615-625-8000"
   },
-  "telephone": "+1-615-625-8000"
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "armstrong locksmith shop",
+    "description": "Video tour of the Armstrong Locksmith Inc walk-in shop and storefront located at 208 Thompson Ln in Nashville, TN.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/Ico9ZEPpqEk/hqdefault.jpg"
+    ],
+    "uploadDate": "2026-02-15T20:04:05-08:00",
+    "embedUrl": "https://www.youtube.com/embed/Ico9ZEPpqEk",
+    "contentUrl": "https://www.youtube.com/watch?v=Ico9ZEPpqEk",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/nashville-locksmith-storefront/" schema={schema} image="/images/armstrong-locksmith-shop.jpeg">
@@ -140,12 +162,38 @@ const schema = {
         </div>
       </section>
 
+      <!-- Storefront Video Tour -->
+      <section class="bg-[#10233d] rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl">
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider">
+            <span>🎬 Walk-Through Tour</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black font-heading uppercase text-white leading-tight">
+            Take a Look Inside Our Nashville Shop
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base max-w-2xl">
+            See our shop at 208 Thompson Ln equipped with advanced key cutters, diagnostic benches, and thousands of key blanks ready for walk-in service.
+          </p>
+          <div class="w-full overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black mt-2">
+            <iframe 
+              class="w-full h-full" 
+              src="https://www.youtube.com/embed/Ico9ZEPpqEk" 
+              title="Armstrong Locksmith Shop Storefront | Nashville, TN" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
       <!-- Requirements for Key Services -->
       <section class="bg-[#10233d] rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl">
         <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-white mb-4">
           What to Bring for Automotive Key Service
         </h2>
-        <p class="text-slate-300 text-xs sm:text-sm mb-6">In compliance with Tennessee state locksmith regulations and vehicle security standards, please bring:</p>
+        <p class="text-slate-300 text-xs sm:text-sm mb-6">In compliance with vehicle security standards and anti-theft verification policies, please bring:</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-200">
           <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-start gap-3">
             <span class="text-emerald-400 font-bold">&#10003;</span>

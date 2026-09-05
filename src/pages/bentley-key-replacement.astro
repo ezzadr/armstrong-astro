@@ -4,9 +4,52 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Bentley Key Replacement Nashville TN | Armstrong Locksmith";
 const seoDescription = "Ultra-luxury Bentley key cutting & transponder programming in Nashville, TN. Save time and towing fees with mobile service. (615) 625-8000.";
+
+const bentleySchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Bentley Car Key Replacement",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Belle Meade", "Green Hills", "Forest Hills", "Williamson County"],
+    "description": "On-site ultra-luxury Bentley Continental GT, Flying Spur, and Bentayga key cutting and transponder programming in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2010 Bentley Continental GT Keys programmed",
+    "description": "Watch Armstrong Locksmith replace and program a key on the spot for a 2010 Bentley Continental GT in Nashville, TN without expensive dealership towing.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/4p5EnSbJAWg/hqdefault.jpg"
+    ],
+    "uploadDate": "2022-02-27T18:25:10-08:00",
+    "embedUrl": "https://www.youtube.com/embed/4p5EnSbJAWg",
+    "contentUrl": "https://www.youtube.com/watch?v=4p5EnSbJAWg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/bentley-key-replacement/">
+<Layout title={seoTitle} description={seoDescription} canonical="/bentley-key-replacement/" schema={bentleySchema}>
   
   <!-- Premium Hero Header -->
   <header class="bg-gradient-to-b from-[#0a192f] via-[#0f274a] to-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 relative overflow-hidden">

@@ -4,10 +4,54 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "Car Lockout Service Nashville TN | Fast Mobile Dispatch";
-const seoDescription = "Locked out of your car in Nashville? Damage-free car door unlocking by licensed locksmiths. Same-Day Mobile Dispatch. Call (615) 625-8000 now.";
+const seoDescription = "Locked out of your car in Nashville? Damage-free car door unlocking by professional locksmiths. Same-Day Mobile Dispatch. Call (615) 625-8000 now.";
+
+const lockoutSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Emergency Car Lockout Service Nashville",
+    "serviceType": "Car Lockout Service",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
+    "description": "Safe, non-destructive car lockout door unlocking in Nashville, TN. Professional automotive locksmith entry with zero damage to vehicle locks or weather seals."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "a guide to car lockout",
+    "description": "Watch a professional guide to safe car lockout entry techniques and vehicle door unlocking by Armstrong Locksmith Inc in Nashville, TN.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/abf1I0zO7pM/hqdefault.jpg"
+    ],
+    "uploadDate": "2023-02-08T22:41:26-08:00",
+    "embedUrl": "https://www.youtube.com/embed/abf1I0zO7pM",
+    "contentUrl": "https://www.youtube.com/watch?v=abf1I0zO7pM",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/emergency-car-lockout/" image="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/emergency-car-lockout/" schema={lockoutSchema} image="/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg">
   
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -87,6 +131,32 @@ const seoDescription = "Locked out of your car in Nashville? Damage-free car doo
         <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-900 font-medium">
           🛡️ <strong>100% Damage-Free Guarantee:</strong> We never use destructive jimmy tools that ruin your door weather-stripping or side curtain airbags.
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Demonstration Section -->
+  <section class="py-12 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-500/10 text-amber-900 text-xs font-bold border border-amber-500/20">
+        <span>🎬 Video Guide</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a]">
+        Watch Our Damage-Free Vehicle Unlocking Guide
+      </h2>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl">
+        See how Armstrong Locksmith safely accesses locked vehicles using professional tools and zero destructive methods.
+      </p>
+      <div class="w-full overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black mt-2">
+        <iframe 
+          class="w-full h-full" 
+          src="https://www.youtube.com/embed/abf1I0zO7pM" 
+          title="A Guide to Car Lockout | Armstrong Locksmith Inc" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
       </div>
     </div>
   </section>

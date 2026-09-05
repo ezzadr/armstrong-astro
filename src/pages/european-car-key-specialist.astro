@@ -5,9 +5,52 @@ import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "European Car Key Specialist Nashville | BMW, Audi, Mercedes";
 const seoDescription = "Dealer-level key cutting & programming for BMW, Mercedes, Audi, Land Rover & Bentley in Nashville, TN. Same-day service. (615) 625-8000.";
+
+const euroSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "European Car Key Specialist",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills", "Williamson County"],
+    "description": "Dealer-level automotive key cutting and immobilizer programming for BMW, Mercedes-Benz, Audi, Volkswagen, Porsche, Land Rover, and Bentley in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2024 VW Atlas Spare Key Programming | Nashville European Car Key Specialist",
+    "description": "Watch Armstrong Locksmith add and program a brand-new smart key to a 2024 Volkswagen Atlas at our Nashville shop, demonstrating advanced European automotive immobilizer capabilities.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/fvXPHQIMAOo/hqdefault.jpg"
+    ],
+    "uploadDate": "2025-12-21T12:37:27-08:00",
+    "embedUrl": "https://www.youtube.com/embed/fvXPHQIMAOo",
+    "contentUrl": "https://www.youtube.com/watch?v=fvXPHQIMAOo",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/european-car-key-specialist/" image="/images/Maserati-key-cut-and-programmed--scaled.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/european-car-key-specialist/" schema={euroSchema} image="/images/Maserati-key-cut-and-programmed--scaled.jpg">
   
   <!-- Hero Section -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">

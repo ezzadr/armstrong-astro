@@ -3,9 +3,52 @@ import Layout from '../layouts/Layout.astro';
 
 const seoTitle = "Armstrong Locksmith Google Reviews | Nashville TN";
 const seoDescription = "Read verified customer feedback for Armstrong Locksmith in Nashville, TN. Top-rated for European car keys, quick dispatch, lockouts, and fair pricing.";
+
+const reviewsSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Armstrong Locksmith Inc",
+    "image": "https://armstronglocksmithinc.com/shop.jpeg",
+    "telephone": "+1-615-625-8000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "773"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Armstrong Locksmith Our Reviews in Nashville TN | Our reviews do the talking",
+    "description": "Watch client reviews and testimonials for Armstrong Locksmith Inc in Nashville, TN, showcasing fast car key replacement, shop walk-in services, and emergency lockouts.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/DAPmg0fpzf4/hqdefault.jpg"
+    ],
+    "uploadDate": "2021-05-10T16:04:45-07:00",
+    "embedUrl": "https://www.youtube.com/embed/DAPmg0fpzf4",
+    "contentUrl": "https://www.youtube.com/watch?v=DAPmg0fpzf4",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/google-reviews/">
+<Layout title={seoTitle} description={seoDescription} canonical="/google-reviews/" schema={reviewsSchema}>
   
   <header class="relative bg-showroom text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden text-left">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -46,7 +89,33 @@ const seoDescription = "Read verified customer feedback for Armstrong Locksmith 
   </header>
 
   <main class="py-16 sm:py-24 bg-[#0a192f] text-white px-4 sm:px-6 lg:px-8 text-left">
-    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+    <div class="max-w-7xl mx-auto flex flex-col gap-16">
+
+      <!-- Video Review Feature -->
+      <section class="bg-[#10233d] rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl">
+        <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider">
+            <span>🎬 Video Testimonials</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black font-heading uppercase text-white leading-tight">
+            Our Reviews Do the Talking
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base max-w-2xl">
+            Hear directly from Middle Tennessee customers about their experience with Armstrong Locksmith's fast mobile dispatch, honest pricing, and professional workmanship.
+          </p>
+          <div class="w-full overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black mt-2">
+            <iframe 
+              class="w-full h-full" 
+              src="https://www.youtube.com/embed/DAPmg0fpzf4" 
+              title="Armstrong Locksmith Our Reviews in Nashville TN | Our reviews do the talking" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </section>
 
       <!-- Testimonials Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

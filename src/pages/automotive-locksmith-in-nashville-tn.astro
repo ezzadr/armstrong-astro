@@ -5,9 +5,52 @@ import RecentWorkGallery from '../components/RecentWorkGallery.astro';
 
 const seoTitle = "Automotive Locksmith Nashville TN | Armstrong Locksmith";
 const seoDescription = "Complete auto locksmith services in Nashville, TN. Car key cutting, transponders, smart fobs & ignition repairs on-site. (615) 625-8000.";
+
+const autoSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Automotive Locksmith",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
+    "description": "Comprehensive automotive locksmith services including laser car key cutting, transponder chip programming, smart proximity keys, and ignition repair in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2007 Porsche 911 New Keys Made | Porsche Locksmith Nashville TN",
+    "description": "Watch Armstrong Locksmith make and program replacement high-security keys for a 2007 Porsche 911 on-site in Nashville, Tennessee, demonstrating advanced automotive immobilizer programming.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/pRr53jg4xw4/hqdefault.jpg"
+    ],
+    "uploadDate": "2026-07-27T12:18:56-07:00",
+    "embedUrl": "https://www.youtube.com/embed/pRr53jg4xw4",
+    "contentUrl": "https://www.youtube.com/watch?v=pRr53jg4xw4",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/automotive-locksmith-in-nashville-tn/">
+<Layout title={seoTitle} description={seoDescription} canonical="/automotive-locksmith-in-nashville-tn/" schema={autoSchema}>
   
   <!-- Hero Section -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">

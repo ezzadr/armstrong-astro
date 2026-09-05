@@ -4,9 +4,52 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Land Rover Key Replacement Nashville | Armstrong Locksmith";
 const seoDescription = "Range Rover, Defender & Discovery smart proximity key cutting & KVM programming on-site in Nashville, TN. Call (615) 625-8000.";
+
+const landRoverSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Land Rover Car Key Replacement",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills", "Williamson County"],
+    "description": "On-site Land Rover, Range Rover, Defender, and Discovery smart proximity key replacement and KVM immobilizer module programming in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2017 Range Rover Keys Made On-Site | Fast Mobile Service in Nashville",
+    "description": "Watch Armstrong Locksmith program two brand-new smart proximity keys for a 2017 Range Rover on-site in Nashville, TN, solving All Keys Lost directly at the vehicle without KVM replacement fees.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/9gJuwldKGnc/hqdefault.jpg"
+    ],
+    "uploadDate": "2025-12-23T13:32:05-08:00",
+    "embedUrl": "https://www.youtube.com/embed/9gJuwldKGnc",
+    "contentUrl": "https://www.youtube.com/watch?v=9gJuwldKGnc",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/">
+<Layout title={seoTitle} description={seoDescription} canonical="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" schema={landRoverSchema}>
   
   <!-- Hero Section -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">

@@ -4,9 +4,52 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Audi Q3 Key Replacement Nashville TN | Armstrong Locksmith";
 const seoDescription = "Affordable Audi Q3 car key cutting, transponder & smart proximity fob programming in Nashville. Mobile on-site service. (615) 625-8000.";
+
+const audiQ3Schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Audi Q3 Car Key Replacement",
+    "provider": {
+      "@type": "Locksmith",
+      "name": "Armstrong Locksmith Inc",
+      "telephone": "+1-615-625-8000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "208 Thompson Ln",
+        "addressLocality": "Nashville",
+        "addressRegion": "TN",
+        "postalCode": "37211",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
+    "description": "On-site Audi Q3 smart proximity key cutting, MQB immobilizer pairing, and laser key duplication in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2018 Audi A3 / Q3 spare key made in Nashville TN",
+    "description": "Watch an Armstrong Locksmith technician demonstrate laser cutting and programming an extra proximity smart key for an Audi at our shop in Nashville, TN.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/i_GF_mS0lBk/hqdefault.jpg"
+    ],
+    "uploadDate": "2024-05-04T22:26:02-07:00",
+    "embedUrl": "https://www.youtube.com/embed/i_GF_mS0lBk",
+    "contentUrl": "https://www.youtube.com/watch?v=i_GF_mS0lBk",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Armstrong Locksmith Inc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://armstronglocksmithinc.com/logo.webp"
+      }
+    }
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/audi-q3-key-replacement/">
+<Layout title={seoTitle} description={seoDescription} canonical="/audi-q3-key-replacement/" schema={audiQ3Schema}>
   
   <!-- Hero Section -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
