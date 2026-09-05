@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import ServiceReviews from '../components/ServiceReviews.astro';
 
-const seoTitle = "2026 Locksmith Pricing Nashville | No Hidden Fees";
-const seoDescription = "Transparent Nashville locksmith prices for car keys, house rekeys, business locks & emergency lockouts. Real local shop at 208 Thompson Ln. Call (615) 625-8000.";
+const seoTitle = "2026 Locksmith Pricing Nashville | No Hidden Fees | Armstrong";
+const seoDescription = "Transparent Nashville locksmith prices for car keys, house rekeys, business locks & emergency lockouts. $0 shop fee at 208 Thompson Ln and mobile on-site dispatch. Call (615) 625-8000.";
 
-// Page Specific Schema: FAQPage + BreadcrumbList
+// Rich Schema: BreadcrumbList + FAQPage + OfferCatalog
 const pricingSchema = [
   {
     "@context": "https://schema.org",
@@ -26,22 +28,97 @@ const pricingSchema = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "Locksmith",
+    "name": "Armstrong Locksmith Inc",
+    "image": "https://armstronglocksmithinc.com/shop.jpeg",
+    "telephone": "+1-615-625-8000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Transparent Nashville Locksmith Pricing",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Emergency Car Lockout"
+          },
+          "price": "65",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Transponder Key Cut & Programmed"
+          },
+          "price": "95",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Smart Proximity Push-to-Start Fob"
+          },
+          "price": "145",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Standard Deadbolt Rekeying"
+          },
+          "price": "20",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Emergency House Lockout"
+          },
+          "price": "85",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Storefront Glass Door Lock Replacement"
+          },
+          "price": "165",
+          "priceCurrency": "USD"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Why do prices say 'starting at'?",
+        "name": "Why do your prices say 'starting at'?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every vehicle and lock is different. A 2005 Ford key uses standard transponder technology, while a 2023 BMW requires specialized encrypted security programming. When you call us, we give you a firm total before dispatching."
+          "text": "Every vehicle year, key technology, and lock manufacturer is unique. A 2005 Ford key requires a basic mechanical cut and transponder chip, while a 2024 BMW or Mercedes requires high-security encrypted immobilizer pairing. When you call us, we ask for your vehicle year, make, and model to give you an exact, firm total quote before dispatching."
         }
       },
       {
         "@type": "Question",
-        "name": "Is there a service call fee?",
+        "name": "How does your service call fee work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our mobile dispatch service call is $29 within Metro Nashville. If you visit our physical storefront at 208 Thompson Ln, there is NO service call fee."
+          "text": "If you visit our physical storefront at 208 Thompson Ln, there is a $0 service call fee—you pay only for keys, cutting, and hardware. For mobile on-site service, our service call fee varies depending on your distance and the time of call. We provide an exact, firm total quote over the phone before dispatching our van."
         }
       },
       {
@@ -49,219 +126,873 @@ const pricingSchema = [
         "name": "How does your pricing compare to the car dealership?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dealerships often charge $400 to $800+ for replacement smart keys and require expensive towing. We come directly to your driveway or parking spot with dealer-level equipment, saving you 40% to 60% with same-day service."
+          "text": "Dealerships often charge $400 to $900+ for replacement smart keys, require you to pay $100–$200 for flatbed towing, and make you wait 5 to 10 business days for key delivery. Armstrong Locksmith comes directly to your driveway or parking spot with dealer-level diagnostic equipment, saving you 40% to 60% with same-day on-site delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I avoid cheap '$15 locksmith' scams in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Out-of-state call centers place Google Ads advertising fake '$15' or '$19' service fees. Once on-site, untrained subcontractors drill out working locks and bill victims $250 to $450. Always verify a real physical Nashville address (like our shop at 208 Thompson Ln) and insist on a firm phone total before dispatch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide written or firm estimates before starting work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, 100%. We provide upfront pricing over the phone and confirm all costs in person before touching your vehicle or locks. There are never surprise fees or hidden add-ons."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods do you accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept all major credit cards (Visa, MasterCard, American Express, Discover), Apple Pay, Google Pay, debit cards, cash, and commercial net-30 invoicing for approved commercial accounts."
         }
       }
     ]
+  }
+];
+
+const serviceCategories = [
+  { id: "all", label: "All Services", icon: "✨" },
+  { id: "auto", label: "Car Keys & Auto", icon: "🚗" },
+  { id: "lockout", label: "Emergency Lockouts", icon: "🚨" },
+  { id: "residential", label: "Home & Rekey", icon: "🏠" },
+  { id: "commercial", label: "Business & Commercial", icon: "🏢" }
+];
+
+const pricingItems = [
+  // Automotive
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "Standard Non-Chip Metal Key",
+    badge: "Duplicate Key",
+    price: "$35",
+    priceNote: "Starting price",
+    details: "Precision duplicate cut on high-speed computerized laser machinery. Hand-tested before delivery.",
+    popular: false
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "Transponder Chipped Key",
+    badge: "Domestic / Asian",
+    price: "$95+",
+    priceNote: "Cut & Programmed",
+    details: "Precision blade cutting plus engine immobilizer security chip pairing via OBD2 diagnostic computer.",
+    popular: true
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "Remote Head Key (Cut & Programmed)",
+    badge: "Key + Remote Combo",
+    price: "$120+",
+    priceNote: "Complete Unit",
+    details: "Integrated key blade and keyless entry remote fob for lock/unlock/trunk functions with battery included.",
+    popular: false
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "Smart Proximity Push-to-Start Fob",
+    badge: "Keyless Go",
+    price: "$145+",
+    priceNote: "Cut & Programmed",
+    details: "OEM-grade proximity smart fob programmed on-site. Includes laser-cut emergency physical insert key.",
+    popular: true
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "European Luxury Key (BMW / Benz / Audi)",
+    badge: "Dealer Alternative",
+    price: "$180+",
+    priceNote: "CAS / FEM / BCM2 / EIS",
+    details: "Specialized EEPROM & OBD bench programming for German & British luxury vehicles. Save $300-$500 vs dealer.",
+    popular: true
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "All Keys Lost (Key Origination)",
+    badge: "Roadside Service",
+    price: "$165+",
+    priceNote: "No Existing Key",
+    details: "Lock tumblers decoded directly from vehicle lock wafers. Brand new factory-spec keys cut and paired.",
+    popular: false
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "Broken Key Extraction",
+    badge: "Ignition or Door",
+    price: "$75+",
+    priceNote: "Damage-Free",
+    details: "Surgical removal of snapped key fragments from lock cylinders without ruining internal components.",
+    popular: false
+  },
+  {
+    category: "auto",
+    categoryLabel: "Automotive",
+    title: "Ignition Cylinder Repair / Rebuild",
+    badge: "Mechanical Fix",
+    price: "$140+",
+    priceNote: "Parts & Labor",
+    details: "Repairing stuck ignitions, rebuilding internal wafers, or installing new OEM ignition matched to your key.",
+    popular: false
+  },
+
+  // Lockouts
+  {
+    category: "lockout",
+    categoryLabel: "Emergency Lockouts",
+    title: "Emergency Car Lockout (Standard)",
+    badge: "Non-Destructive Entry",
+    price: "$65+",
+    priceNote: "Mobile Dispatch",
+    details: "Gentle, non-destructive vehicle entry using vinyl air wedges and specialized bypass tools. Zero scratch guarantee.",
+    popular: true
+  },
+  {
+    category: "lockout",
+    categoryLabel: "Emergency Lockouts",
+    title: "Luxury / High-Security Car Lockout",
+    badge: "BMW / Audi / Benz",
+    price: "$85+",
+    priceNote: "Lishi Decoded",
+    details: "Decoded directly through the keyhole with precision German automotive Lishi decoders. Bypasses double-locks.",
+    popular: false
+  },
+  {
+    category: "lockout",
+    categoryLabel: "Emergency Lockouts",
+    title: "Emergency House / Condo Lockout",
+    badge: "Residential Entry",
+    price: "$85+",
+    priceNote: "Damage-Free Pick",
+    details: "Precision lock picking for front door deadbolts and handle sets. Fast mobile response across Metro Nashville.",
+    popular: true
+  },
+  {
+    category: "lockout",
+    categoryLabel: "Emergency Lockouts",
+    title: "Commercial Storefront Lockout",
+    badge: "Business Egress",
+    price: "$125+",
+    priceNote: "High Security",
+    details: "Emergency entry for commercial storefront aluminum glass doors, mortise cylinders, and deadlocks.",
+    popular: false
+  },
+
+  // Residential
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "Standard Deadbolt Rekeying",
+    badge: "Per Cylinder",
+    price: "$20 – $45",
+    priceNote: "Existing Hardware",
+    details: "Internal pins reconfigured so old keys never work again. Includes 2 brand new laser-cut keys per job.",
+    popular: true
+  },
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "High-Security Deadbolt Rekeying",
+    badge: "Pick-Resistant",
+    price: "$45 – $65",
+    priceNote: "Per Cylinder",
+    details: "Rekeying pick- and bump-resistant commercial-grade residential locks (Schlage Primus, Medeco, Mul-T-Lock).",
+    popular: false
+  },
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "Deadbolt or Leverset Replacement",
+    badge: "Hardware & Labor",
+    price: "$65+",
+    priceNote: "Plus Parts",
+    details: "Removal of broken, aged, or compromised locks and professional installation of heavy-duty security hardware.",
+    popular: false
+  },
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "Fresh Door Hole Drilling & Prep",
+    badge: "New Deadbolt Opening",
+    price: "$75",
+    priceNote: "Per Door Prep",
+    details: "Precision jig drilling of standard 2-1/8 inch crossbore and 1 inch edge bore for adding deadbolts to plain doors.",
+    popular: false
+  },
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "Electronic Smart Lock Installation",
+    badge: "Keypad & WiFi",
+    price: "$95",
+    priceNote: "Customer Hardware",
+    details: "Installation and door jam alignment for Schlage Encode, Yale Assure, Kwikset Halo, or August smart deadbolts.",
+    popular: true
+  },
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "Reinforced Security Strike Plate",
+    badge: "Kick-In Protection",
+    price: "$45",
+    priceNote: "Installed",
+    details: "Heavy gauge steel strike plates installed with 3-inch case-hardened anchor screws into structural wall studs.",
+    popular: false
+  },
+  {
+    category: "residential",
+    categoryLabel: "Residential",
+    title: "Residential Master Key System",
+    badge: "Multi-Family & Rental",
+    price: "$65+",
+    priceNote: "Plus Rekey",
+    details: "Hierarchical master pinning allowing landlords master access while tenants retain private individual keys.",
+    popular: false
+  },
+
+  // Commercial
+  {
+    category: "commercial",
+    categoryLabel: "Commercial",
+    title: "Storefront Mortise Cylinder Rekey",
+    badge: "Adams Rite Cylinders",
+    price: "$45 – $75",
+    priceNote: "Per Cylinder",
+    details: "Repinning standard and high-security mortise cylinders on retail and commercial aluminum glass storefronts.",
+    popular: true
+  },
+  {
+    category: "commercial",
+    categoryLabel: "Commercial",
+    title: "Commercial Storefront Lock Replacement",
+    badge: "Adams Rite Swing/Hook",
+    price: "$165+",
+    priceNote: "Plus Hardware",
+    details: "Complete replacement of worn or jammed storefront lock mechanisms, faceplates, and keyed cylinders.",
+    popular: false
+  },
+  {
+    category: "commercial",
+    categoryLabel: "Commercial",
+    title: "Panic Exit Crash Bar Installation",
+    badge: "UL & Fire Code",
+    price: "$285+",
+    priceNote: "Plus Hardware",
+    details: "Code-compliant panic hardware installation for emergency egress doors. Surface vertical rod or rim exit bars.",
+    popular: true
+  },
+  {
+    category: "commercial",
+    categoryLabel: "Commercial",
+    title: "Grade 1 Commercial Leverset",
+    badge: "ANSI/BHMA Grade 1",
+    price: "$125+",
+    priceNote: "Plus Hardware",
+    details: "Heavy-duty ADA compliant leversets engineered for high-traffic office and retail commercial doors.",
+    popular: false
+  },
+  {
+    category: "commercial",
+    categoryLabel: "Commercial",
+    title: "Commercial Hydraulic Door Closer",
+    badge: "Installation & Tuning",
+    price: "$175+",
+    priceNote: "Plus Closer",
+    details: "Heavy-duty pneumatic/hydraulic closer installation, sweep speed adjustment, and latch check tuning.",
+    popular: false
+  },
+  {
+    category: "commercial",
+    categoryLabel: "Commercial",
+    title: "Commercial Master Key Hierarchy",
+    badge: "Master / Sub-Master",
+    price: "$150+",
+    priceNote: "Plus Cylinders",
+    details: "Custom master key matrix charting, cylinder coding, and key stamping for multi-office commercial buildings.",
+    popular: false
   }
 ];
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/locksmith-pricing-nashville/" schema={pricingSchema}>
   
-  <!-- Hero Section -->
-  <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
-    <div class="max-w-7xl mx-auto text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-amber-300 w-fit mb-3">
-        <span>Upfront Estimates &bull; Zero Hidden Fees &bull; Certified & Insured</span>
+  <!-- Premium Hero Header -->
+  <header class="relative bg-showroom text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden text-left">
+    <div class="max-w-7xl mx-auto flex flex-col gap-6">
+      
+      <!-- Top Trust Pills -->
+      <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+        <span class="px-3.5 py-1 bg-amber-400/20 border border-amber-400/30 text-amber-300">
+          🛡️ Upfront Firm Pricing &bull; Zero Hidden Fees
+        </span>
+        <span class="hidden sm:inline text-slate-400">&bull;</span>
+        <span class="hidden sm:inline text-slate-300">Physical Storefront: 208 Thompson Ln</span>
+        <span class="text-slate-400">&bull;</span>
+        <span class="text-emerald-400 font-semibold">&#9733; 4.9 Stars (775+ Reviews)</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading font-black uppercase text-white tracking-tight leading-tight">
-        2026 Nashville <br />
-        <span class="text-amber-400">Locksmith Pricing Guide</span>
-      </h1>
-      <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl mt-3 font-normal leading-relaxed">
-        Honest, upfront pricing from a real physical locksmith shop at 208 Thompson Ln. No bait-and-switch tactics or hidden fees.
-      </p>
-    </div>
-  </header>
 
-  <!-- Quick Starting Price Highlight Cards -->
-  <section class="py-12 bg-slate-100 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-xl sm:text-2xl font-bold text-[#0f274a] font-heading font-black uppercase mb-6">
-        Quick Starting Prices
-      </h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-        <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-5 bg-white shadow-sm border border-slate-200">
-          <span class="text-2xl font-black text-[#0f274a] font-heading font-black uppercase block">$65+</span>
-          <strong class="text-xs font-bold text-slate-800 block mt-1">Car Lockout</strong>
-          <span class="text-[11px] text-slate-500">Damage-free vehicle entry</span>
-        </div>
-        <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-5 bg-white shadow-sm border border-slate-200">
-          <span class="text-2xl font-black text-amber-600 font-heading font-black uppercase block">$95+</span>
-          <strong class="text-xs font-bold text-slate-800 block mt-1">Transponder Key</strong>
-          <span class="text-[11px] text-slate-500">Standard domestic/Asian</span>
-        </div>
-        <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-5 bg-white shadow-sm border border-slate-200">
-          <span class="text-2xl font-black text-[#0f274a] font-heading font-black uppercase block">$85+</span>
-          <strong class="text-xs font-bold text-slate-800 block mt-1">Home Lockout</strong>
-          <span class="text-[11px] text-slate-500">Non-destructive door entry</span>
-        </div>
-        <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-5 bg-white shadow-sm border border-slate-200">
-          <span class="text-2xl font-black text-amber-600 font-heading font-black uppercase block">$45+</span>
-          <strong class="text-xs font-bold text-slate-800 block mt-1">Lock Rekeying</strong>
-          <span class="text-[11px] text-slate-500">Per deadbolt cylinder</span>
-        </div>
-        <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-5 bg-white shadow-sm border border-slate-200 col-span-2 sm:col-span-1">
-          <span class="text-2xl font-black text-emerald-700 font-heading font-black uppercase block">$125+</span>
-          <strong class="text-xs font-bold text-slate-800 block mt-1">Business Lockout</strong>
-          <span class="text-[11px] text-slate-500">Storefront glass doors</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Complete Multi-Section Pricing Tables -->
-  <section class="py-16 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto flex flex-col gap-12 text-slate-800 leading-relaxed text-sm sm:text-base">
-
-      <!-- Transparency Notice -->
-      <div class="p-6 sm:p-7 rounded-2xl bg-amber-50/70 border border-amber-200 flex flex-col gap-2">
-        <div class="flex items-center gap-2 text-amber-900 font-bold text-base">
-          <span>⚠️</span>
-          <span>Prices Are Starting Prices: Here Is Why</span>
-        </div>
-        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-          Every vehicle year, key technology, and lock manufacturer differs. When you call Armstrong Locksmith, we ask for your vehicle year/make/model or lock details and give you an <strong>upfront firm price</strong> before dispatching our van.
+      <!-- Main Headline -->
+      <div class="max-w-4xl">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading uppercase text-white tracking-tight leading-tight">
+          Nashville Locksmith <br />
+          <span class="text-amber-400">Pricing &amp; Rates Guide</span>
+        </h1>
+        <p class="text-slate-200 text-sm sm:text-base lg:text-lg mt-3 font-normal leading-relaxed">
+          Transparent, upfront pricing from a trusted local business. Compare our low starting rates with expensive dealership markups and out-of-state call center bait-and-switch ads.
         </p>
       </div>
 
-      <!-- Shop Drop-In Notice -->
-      <div class="p-6 sm:p-7 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <h3 class="font-bold text-[#0f274a] text-lg font-heading font-black uppercase">Want to Save the Dispatch Fee?</h3>
-          <p class="text-xs sm:text-sm text-slate-600">Bring your vehicle or lock directly to our shop at <strong>208 Thompson Ln, Nashville, TN 37211</strong>.</p>
+      <!-- Dual Service Channels (In-Shop vs Mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+        
+        <!-- Channel 1: In-Shop Storefront (Save the Fee) -->
+        <div class="p-6 bg-[#10233d]/90 border-2 border-emerald-500/50 shadow-xl flex flex-col justify-between gap-4 relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-emerald-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 tracking-wider">
+            Most Economical
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5 text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">
+              <span>🏪 Walk-In Shop Service</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl sm:text-4xl font-black text-white font-heading">$0</span>
+              <span class="text-xs font-bold uppercase text-emerald-300 tracking-wider">Service Call Fee</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              Drive your car directly to our shop or bring your door lock cylinders. You pay <strong>only for keys, programming, or parts</strong> with zero trip charges.
+            </p>
+            <div class="text-xs text-slate-400 mt-3 space-y-1">
+              <p>📍 <strong>208 Thompson Ln, Nashville, TN 37211</strong></p>
+              <p>⏰ Mon–Fri 8AM–6PM &bull; Sat 10AM–4PM</p>
+            </div>
+          </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider text-center transition flex items-center justify-center gap-2">
+            <span>Get Directions to Shop &rarr;</span>
+          </a>
         </div>
-        <a href="tel:6156258000" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm whitespace-nowrap shadow">
-          Call (615) 625-8000
-        </a>
+
+        <!-- Channel 2: Mobile Van Dispatch -->
+        <div class="p-6 bg-[#10233d]/90 border-2 border-amber-500/50 shadow-xl flex flex-col justify-between gap-4 relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 tracking-wider">
+            We Come to You
+          </div>
+          <div>
+            <div class="flex items-center gap-2.5 text-amber-300 font-bold text-xs uppercase tracking-wider mb-2">
+              <span>🚐 Mobile Van Dispatch</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-2xl sm:text-3xl font-black text-white font-heading">On-Site Service</span>
+              <span class="text-xs font-bold uppercase text-amber-300 tracking-wider">Distance &amp; Time Based</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              Fully equipped mobile workshop on wheels arrives at your home, driveway, office, or roadside. Service call rates depend on your location/distance and the time of call.
+            </p>
+            <div class="text-xs text-slate-400 mt-3 space-y-1">
+              <p>⚡ <strong>Firm total confirmed by phone before dispatch</strong></p>
+              <p>⏰ Mobile Hours: Mon–Fri 8AM–11:30PM</p>
+            </div>
+          </div>
+          <a href="tel:6156258000" class="w-full py-3 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider text-center shadow-lg transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call for Upfront Quote: (615) 625-8000</span>
+          </a>
+        </div>
+
       </div>
 
-      <!-- TABLE 1: Automotive Locksmith Pricing -->
-      <div>
-        <div class="flex items-center justify-between pb-3 border-b-2 border-slate-200 mb-4">
-          <h2 class="text-xl sm:text-2xl font-bold text-[#0f274a] font-heading font-black uppercase">Automotive Locksmith Pricing</h2>
-          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Mobile & Shop</span>
+    </div>
+  </header>
+
+  <!-- Interactive Filter & Live Search Section -->
+  <section id="pricing-directory" class="py-8 bg-slate-900 text-white px-4 sm:px-6 lg:px-8 border-b border-slate-800 sticky top-0 z-30 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      
+      <!-- Category Tabs (Horizontal scroll on mobile) -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none text-xs font-bold" id="category-tab-bar" role="tablist">
+        {serviceCategories.map((cat, idx) => (
+          <button
+            type="button"
+            data-cat={cat.id}
+            class={`category-tab px-3.5 py-2.5 whitespace-nowrap border text-xs font-black uppercase tracking-wider transition ${
+              idx === 0 
+                ? 'bg-amber-500 text-slate-950 border-amber-500 shadow-sm active-tab' 
+                : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
+            }`}
+          >
+            <span>{cat.icon}</span>
+            <span class="ml-1.5">{cat.label}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="relative min-w-[260px] sm:min-w-[320px]">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
-        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-          <table class="w-full text-left text-xs sm:text-sm">
-            <thead class="bg-slate-100 text-[#0f274a] uppercase text-[11px] font-extrabold tracking-wider border-b border-slate-200">
-              <tr>
-                <th class="p-3 sm:p-4">Service Description</th>
-                <th class="p-3 sm:p-4 text-right">Starting Price</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Emergency Car Lockout (Standard Vehicles)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$65</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Emergency Car Lockout (Luxury / High Security)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$85</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Standard Non-Chip Metal Key Duplicate</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$35</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Transponder / Chipped Key Cut & Programmed</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$95</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Remote Head Key (Cut & Programmed)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$120</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Smart Proximity Push-to-Start Fob</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$145</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">European Car Key (BMW, Benz, Audi, Land Rover)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$180</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">All Keys Lost (Originate Key from Vehicle)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$165</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Broken Key Extraction from Ignition/Door</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$75</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Ignition Cylinder Repair / Replacement</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$140</td></tr>
-            </tbody>
-          </table>
+        <input 
+          type="text" 
+          id="price-search-input" 
+          placeholder="Filter pricing (e.g. BMW, rekey, lockout, fob)..." 
+          class="w-full pl-10 pr-9 py-2.5 bg-slate-950 text-white placeholder-slate-400 text-xs sm:text-sm border border-slate-700 focus:border-amber-400 focus:outline-none transition"
+        />
+        <button 
+          type="button" 
+          id="clear-search-btn" 
+          class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white text-xs font-bold"
+          aria-label="Clear filter"
+        >
+          &times;
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Live Counter -->
+    <div class="max-w-7xl mx-auto mt-3 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+      <div id="results-count">
+        Showing all <span class="font-bold text-amber-400">24</span> transparent service prices
+      </div>
+      <div class="hidden sm:block text-slate-400">
+        💡 Tap any service to call or view breakdown
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Pricing Directory Cards (Mobile-First) -->
+  <main class="py-12 sm:py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 text-left">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Responsive Pricing Card Grid -->
+      <div id="pricing-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {pricingItems.map((item) => (
+          <div 
+            class="pricing-item-card bg-white border border-slate-200 hover:border-amber-500 shadow-sm hover:shadow-xl transition-all duration-200 flex flex-col justify-between p-5 sm:p-6 group relative"
+            data-category={item.category}
+            data-title={item.title.toLowerCase()}
+            data-details={item.details.toLowerCase()}
+            data-badge={item.badge.toLowerCase()}
+          >
+            {item.popular && (
+              <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[10px] font-black uppercase px-2.5 py-0.5 tracking-wider">
+                Popular
+              </div>
+            )}
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <span class="text-[11px] font-black uppercase tracking-wider text-slate-500 bg-slate-100 px-2.5 py-1 border border-slate-200">
+                  {item.categoryLabel}
+                </span>
+                <span class="text-[11px] font-bold text-amber-700">
+                  {item.badge}
+                </span>
+              </div>
+
+              <h3 class="text-base sm:text-lg font-bold text-[#0f274a] font-heading uppercase leading-snug group-hover:text-amber-600 transition-colors">
+                {item.title}
+              </h3>
+
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                {item.details}
+              </p>
+            </div>
+
+            <div class="pt-5 mt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                  {item.priceNote}
+                </span>
+                <span class="text-2xl sm:text-3xl font-black text-[#0f274a] font-heading tracking-tight group-hover:text-amber-600 transition-colors">
+                  {item.price}
+                </span>
+              </div>
+
+              <a 
+                href="tel:6156258000" 
+                class="px-4 py-2.5 bg-slate-100 hover:bg-gold-metallic text-slate-900 font-extrabold text-xs uppercase tracking-wider border border-slate-300 transition shrink-0 flex items-center gap-1.5"
+                title={`Call for quote on ${item.title}`}
+              >
+                <span>Call Quote</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- No Results Feedback -->
+      <div id="no-results-message" class="hidden py-16 text-center bg-white border border-slate-200 p-8 mt-6">
+        <p class="text-3xl mb-2">🔍</p>
+        <h3 class="text-lg font-bold text-[#0f274a] font-heading uppercase">No matching services found</h3>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
+          We service all makes, models, and lock types. Call our shop directly for an instant phone estimate on your specific job.
+        </p>
+        <div class="mt-4">
+          <a href="tel:6156258000" class="inline-flex items-center gap-2 px-6 py-3 bg-gold-metallic font-extrabold text-xs uppercase tracking-wider text-slate-950">
+            <span>Call (615) 625-8000</span>
+          </a>
         </div>
       </div>
 
-      <!-- TABLE 2: Residential Locksmith Pricing -->
-      <div>
-        <div class="flex items-center justify-between pb-3 border-b-2 border-slate-200 mb-4">
-          <h2 class="text-xl sm:text-2xl font-bold text-[#0f274a] font-heading font-black uppercase">Residential Locksmith Pricing</h2>
-          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Home Security</span>
-        </div>
-        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-          <table class="w-full text-left text-xs sm:text-sm">
-            <thead class="bg-slate-100 text-[#0f274a] uppercase text-[11px] font-extrabold tracking-wider border-b border-slate-200">
-              <tr>
-                <th class="p-3 sm:p-4">Service Description</th>
-                <th class="p-3 sm:p-4 text-right">Starting Price</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Emergency House Lockout (Non-Destructive)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$85</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Standard Lock Rekeying (Per Cylinder)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$20 – $45</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">High-Security Deadbolt Rekeying</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$45 – $65</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Deadbolt / Knob Replacement & Install</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$65 + Parts</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Fresh Door Hole Drilling & Prep</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$75</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Electronic Smart Lock Installation (Customer Supplied)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$95</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Reinforced Security Strike Plate Installation</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$45</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Master Key System Setup (Residential)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$65 + Rekey</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    </div>
+  </main>
 
-      <!-- TABLE 3: Commercial Locksmith Pricing -->
-      <div>
-        <div class="flex items-center justify-between pb-3 border-b-2 border-slate-200 mb-4">
-          <h2 class="text-xl sm:text-2xl font-bold text-[#0f274a] font-heading font-black uppercase">Commercial Locksmith Pricing</h2>
-          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Business Security</span>
-        </div>
-        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-          <table class="w-full text-left text-xs sm:text-sm">
-            <thead class="bg-slate-100 text-[#0f274a] uppercase text-[11px] font-extrabold tracking-wider border-b border-slate-200">
-              <tr>
-                <th class="p-3 sm:p-4">Service Description</th>
-                <th class="p-3 sm:p-4 text-right">Starting Price</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Emergency Commercial Business Lockout</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$125</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Adams Rite Mortise Cylinder Rekeying</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$45 – $75</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Commercial Storefront Glass Door Lock Replacement</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$165 + Parts</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Panic Exit Crash Bar Installation (UL Listed)</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$285 + Parts</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Commercial Grade 1 Leverset Installation</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$125 + Parts</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Master Key Hierarchy Charting & Setup</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$150 + Cylinders</td></tr>
-              <tr class="hover:bg-slate-50"><td class="p-3 sm:p-4 font-medium">Commercial Door Closer Installation & Adjustment</td><td class="p-3 sm:p-4 text-right font-bold text-[#0f274a]">$175 + Parts</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+  <!-- Interactive Vehicle Key Fitment & Estimator Section -->
+  <section class="py-12 bg-white px-4 sm:px-6 lg:px-8 border-t border-b border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <CarKeyEstimator 
+        title="Instant Car Key Price & Fitment Estimator"
+        subtitle="Select your vehicle make, year, and lost key status below to check instant key fob availability, pricing, and on-site service options across Metro Nashville."
+      />
+    </div>
+  </section>
 
-      <!-- Pricing FAQs -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-heading font-black uppercase mb-6">
-          Frequently Asked Questions About Locksmith Pricing
+  <!-- Armstrong vs Dealership vs Call Center Comparison Matrix -->
+  <section class="py-14 sm:py-20 bg-slate-100 px-4 sm:px-6 lg:px-8 border-b border-slate-200 text-left">
+    <div class="max-w-7xl mx-auto flex flex-col gap-10">
+      
+      <div class="max-w-3xl">
+        <span class="text-xs font-black uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 border border-amber-200 inline-block mb-3">
+          Truth in Locksmith Pricing
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black font-heading uppercase text-[#0f274a] leading-tight">
+          How Armstrong Pricing Compares
         </h2>
-        <div class="flex flex-col gap-4">
-          <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">Why do prices say "starting at"?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Every vehicle and lock is different. A 2005 Ford key uses standard transponder technology, while a 2023 BMW requires specialized encrypted security programming. When you call us, we give you a firm total before dispatching.
-            </p>
+        <p class="text-slate-600 text-xs sm:text-base mt-2 leading-relaxed">
+          Nashville has many out-of-state call center dispatchers running deceptive "$15 locksmith" ads. Here is how our transparent pricing compares to dealerships and lead-gen scams.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Armstrong Locksmith Inc (Winner) -->
+        <div class="bg-white border-2 border-amber-500 shadow-xl p-6 sm:p-7 flex flex-col justify-between relative">
+          <div class="absolute top-0 left-0 right-0 bg-amber-500 text-slate-950 font-black text-xs uppercase text-center py-1 tracking-wider">
+            Recommended Local Choice
           </div>
-          <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">Is there a service call fee?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Our mobile dispatch service call is $29 within Metro Nashville. If you visit our physical storefront at 208 Thompson Ln, there is NO service call fee.
-            </p>
+          <div class="pt-4">
+            <h3 class="text-xl font-bold font-heading uppercase text-[#0f274a]">
+              Armstrong Locksmith Inc
+            </h3>
+            <p class="text-xs text-emerald-700 font-bold mt-0.5">Physical Shop at 208 Thompson Ln</p>
+            <ul class="mt-5 space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-black">&#10003;</span>
+                <span><strong>Firm Phone Quotes:</strong> Upfront total confirmed before our mobile van is dispatched.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-black">&#10003;</span>
+                <span><strong>$0 Shop Fee:</strong> Pay only for keys and service when you visit our South Nashville storefront.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-black">&#10003;</span>
+                <span><strong>Same-Day Mobile:</strong> Typically 30–45 min on-site arrival. No towing needed.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-black">&#10003;</span>
+                <span><strong>4.9★ Rating:</strong> 775+ verified Google customer reviews with owner Rahim on-site.</span>
+              </li>
+            </ul>
           </div>
-          <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-6">
-            <h3 class="font-bold text-[#0f274a] text-base mb-1">How does your pricing compare to the car dealership?</h3>
-            <p class="text-xs sm:text-sm text-slate-600">
-              Dealerships often charge $400 to $800+ for replacement smart keys and require expensive towing. We come directly to your driveway or parking spot with dealer-level equipment, saving you 40% to 60% with same-day service.
-            </p>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a href="tel:6156258000" class="block w-full py-3 bg-gold-metallic text-slate-950 font-black text-xs uppercase tracking-wider text-center shadow">
+              Call (615) 625-8000
+            </a>
           </div>
         </div>
+
+        <!-- Car Dealerships -->
+        <div class="bg-white border border-slate-300 p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold font-heading uppercase text-slate-800">
+              Car Dealerships
+            </h3>
+            <p class="text-xs text-rose-600 font-bold mt-0.5">High Markups &amp; Delays</p>
+            <ul class="mt-5 space-y-3 text-xs sm:text-sm text-slate-600">
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>$400–$900+ Key Costs:</strong> Massive markup on replacement smart keys and transponders.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>Mandatory Towing:</strong> You must tow your vehicle to their service lot ($100–$200+).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>5 to 10-Day Backorders:</strong> Dealerships must order keys pre-cut from overseas warehouses.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>No Weekend Mobile:</strong> Service departments are closed nights and Sundays.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 text-center">
+            Save 40%–60% with Armstrong
+          </div>
+        </div>
+
+        <!-- Bait-and-Switch Scam Ads -->
+        <div class="bg-white border border-slate-300 p-6 sm:p-7 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold font-heading uppercase text-slate-800">
+              "$15 Locksmith" Ads
+            </h3>
+            <p class="text-xs text-rose-600 font-bold mt-0.5">Bait-and-Switch Call Centers</p>
+            <ul class="mt-5 space-y-3 text-xs sm:text-sm text-slate-600">
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>$15 Bait Fee:</strong> Once on-site, price balloons to $250–$450+ with fake "labor" surcharges.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>Destructive Drilling:</strong> Untrained subcontractors drill out working locks to sell you cheap replacements.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>No Physical Shop:</strong> Out-of-state call center with zero local accountability.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-600 font-black">&times;</span>
+                <span><strong>Unmarked Vehicles:</strong> No uniforms, no company signage, and no business warranty.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 text-center">
+            Never trust an unverified call center that won't give a firm phone total
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="bg-[#0f274a] bg-navy-grid text-white py-14 px-4 sm:px-6 text-center">
+  <!-- Detailed Pricing FAQs -->
+  <section class="py-14 sm:py-20 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200 text-left">
+    <div class="max-w-4xl mx-auto flex flex-col gap-8">
+      
+      <div>
+        <span class="text-xs font-black uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 border border-amber-200 inline-block mb-3">
+          Common Questions
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black font-heading uppercase text-[#0f274a]">
+          Pricing &amp; Rates FAQ
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-base mt-1">
+          Everything you need to know about our estimates, service call fees, and warranty.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="p-6 bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-[#0f274a] text-base sm:text-lg font-heading uppercase mb-2">
+            Why do prices say "starting at"?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Every vehicle and lock is different. A 2005 Ford mechanical key uses standard transponder technology, while a 2024 BMW or Mercedes requires high-security encrypted immobilizer pairing. When you call us, we ask for your vehicle year, make, and model to give you an <strong>exact firm total</strong> before dispatching our van.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-[#0f274a] text-base sm:text-lg font-heading uppercase mb-2">
+            How does the service call fee work?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            If you visit our physical storefront at <strong>208 Thompson Ln</strong>, there is a <strong>$0 service call fee</strong>—you only pay for keys, programming, or lock parts. For mobile on-site service, our service call fee is calculated fairly based on your exact distance/location and the time of call. We always provide a <strong>firm, transparent total quote</strong> over the phone before dispatching our technician.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-[#0f274a] text-base sm:text-lg font-heading uppercase mb-2">
+            How does your pricing compare to the dealership?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Dealerships charge $400 to $900+ for replacement smart keys, require expensive flatbed towing ($100–$200), and take 5 to 10 business days for key delivery. Armstrong Locksmith comes directly to your driveway with dealer-grade equipment, saving you 40% to 60% with same-day service.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-[#0f274a] text-base sm:text-lg font-heading uppercase mb-2">
+            Do you provide upfront pricing before dispatching?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Yes. We provide clear, transparent quotes over the phone based on your exact lock or vehicle specifications. Our technician will confirm the price in person before starting any work.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-[#0f274a] text-base sm:text-lg font-heading uppercase mb-2">
+            What payment methods do you accept?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            We accept all major credit cards (Visa, MasterCard, Amex, Discover), contactless Apple Pay, Google Pay, debit cards, cash, and commercial net-30 invoicing for verified commercial property accounts.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-50 border border-slate-200">
+          <h3 class="font-bold text-[#0f274a] text-base sm:text-lg font-heading uppercase mb-2">
+            Is there a warranty on keys and replacement hardware?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Yes. All new smart keys, remote fobs, transponder blades, and commercial/residential hardware installed by Armstrong Locksmith come with our full 90-day parts and labor guarantee.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Verified Customer Reviews Section -->
+  <section class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <ServiceReviews service="auto" label="Locksmith Service" />
+    </div>
+  </section>
+
+  <!-- Final High-Conversion CTA Banner -->
+  <section class="bg-[#07152b] bg-navy-grid text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 text-center border-t-4 border-amber-500">
     <div class="max-w-3xl mx-auto flex flex-col items-center gap-4">
-      <h2 class="text-2xl sm:text-4xl font-bold font-heading font-black uppercase text-white">Need an Exact Quote For Your Job?</h2>
-      <p class="text-slate-200 text-sm sm:text-base">Speak directly with Rahim or our shop team. Honest, upfront pricing guaranteed.</p>
-      <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
-        <a href="tel:6156258000" class="px-8 py-3.5 rounded-xl bg-gold-metallic hover:bg-amber-400 text-slate-950 font-extrabold text-base shadow">
-          Call (615) 625-8000
+      <span class="px-3.5 py-1 bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider">
+        Instant Phone Quotes &bull; Same-Day Service
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-black font-heading uppercase text-white leading-tight">
+        Need an Exact Price For Your Job?
+      </h2>
+      <p class="text-slate-200 text-sm sm:text-base max-w-xl">
+        Speak directly with Rahim or our shop team. We'll give you a firm total quote before our van is dispatched.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4 w-full sm:w-auto">
+        <a href="tel:6156258000" class="w-full sm:w-auto px-8 py-4 bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl transition active:scale-95">
+          <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+          <span>Call (615) 625-8000</span>
+        </a>
+        <a href="/book-online/" class="w-full sm:w-auto px-7 py-4 bg-slate-800 hover:bg-slate-700 text-white font-black text-xs uppercase tracking-wider border border-slate-600 transition flex items-center justify-center gap-2">
+          <span>Book Service Online &rarr;</span>
         </a>
       </div>
     </div>
   </section>
+
+</Layout>
+
+<!-- Client-Side Filter & Live Search Script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.category-tab');
+    const searchInput = document.getElementById('price-search-input');
+    const clearBtn = document.getElementById('clear-search-btn');
+    const cards = document.querySelectorAll('.pricing-item-card');
+    const resultsCount = document.getElementById('results-count');
+    const noResults = document.getElementById('no-results-message');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function filterCards() {
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category') || '';
+        const title = card.getAttribute('data-title') || '';
+        const details = card.getAttribute('data-details') || '';
+        const badge = card.getAttribute('data-badge') || '';
+
+        const matchesCat = (activeCategory === 'all' || cardCat === activeCategory);
+        const matchesSearch = (!searchQuery || 
+          title.includes(searchQuery) || 
+          details.includes(searchQuery) || 
+          badge.includes(searchQuery)
+        );
+
+        if (matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+          card.classList.add('flex');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+          card.classList.remove('flex');
+        }
+      });
+
+      // Update counter
+      if (resultsCount) {
+        if (searchQuery || activeCategory !== 'all') {
+          resultsCount.innerHTML = `Showing <span class="font-bold text-amber-400">${visibleCount}</span> of ${cards.length} services`;
+        } else {
+          resultsCount.innerHTML = `Showing all <span class="font-bold text-amber-400">${cards.length}</span> transparent service prices`;
+        }
+      }
+
+      // No results message
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      // Clear button visibility
+      if (clearBtn) {
+        if (searchQuery.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+    }
+
+    // Category tab click
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('bg-amber-500', 'text-slate-950', 'border-amber-500', 'active-tab');
+          t.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+        });
+
+        tab.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+        tab.classList.add('bg-amber-500', 'text-slate-950', 'border-amber-500', 'active-tab');
+
+        activeCategory = tab.getAttribute('data-cat') || 'all';
+        filterCards();
+      });
+    });
+
+    // Live search typing
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = (e.target.value || '').trim().toLowerCase();
+        filterCards();
+      });
+    }
+
+    // Clear search
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (searchInput) {
+          searchInput.value = '';
+          searchQuery = '';
+          searchInput.focus();
+          filterCards();
+        }
+      });
+    }
+  });
+</script>
 </Layout>
