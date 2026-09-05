@@ -71,7 +71,7 @@ Yes. We use your VIN and proof of ownership to cut the blade to code. Then, we u
 For a standard 3-bedroom home (roughly 6 keyholes), the process takes about 45 minutes to an hour. We do this on-site from our mobile vans.      
 
 **Do you drill out locks to open them?**  
-Drilling is a last resort. We pick or bypass 95% of locks. We only drill if the lock has malfunctioned internally or contains high-security anti-pick pins that cannot be bypassed non-destructively.      
+Drilling is always our last resort. We pick or bypass 95% of locks cleanly. We only drill if the lock has suffered internal mechanical failure or contains high-security anti-pick pins that cannot be picked open.      
 
 **Why is my key sticking in the ignition?**  
 This is often due to a worn key blade or worn wafers inside the ignition cylinder. We can cut a fresh key by code (restoring the original sharp factory cuts) which often solves the issue.            

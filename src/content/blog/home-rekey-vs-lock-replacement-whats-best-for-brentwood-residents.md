@@ -52,7 +52,7 @@ We recently helped a family who just moved into a beautiful property near **Croc
 ## ❓ Frequently Asked Questions
 
 ### Does rekeying weaken my door locks?
-**No.** Rekeying is a non-destructive procedure. We simply swap the internal brass tumbler pins. The lock will function just as strong and smooth as before, only matching your new key.
+**No.** Rekeying does not damage or weaken the lock at all. We simply swap the internal brass tumbler pins to fit a new key. The lock will function just as smoothly and securely as before, only matching your new key.
 
 ### How long does a home rekey take?
 For a standard home in Brentwood or Nashville with 4 to 6 locks, our mobile locksmiths are usually completely finished in **under 60 minutes**.
