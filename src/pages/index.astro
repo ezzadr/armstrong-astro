@@ -967,16 +967,21 @@ const homepageSchema = [
           if (!res.ok) return;
           const data = await res.json();
           
-          if (data && data.reviews && data.reviews.length > 0) {
-            const container = document.getElementById('reviews-grid-container');
-            const ratingText = document.getElementById('google-rating-text');
-            
-            if (ratingText && data.rating && data.user_ratings_total) {
-              ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${data.user_ratings_total}+ Reviews)`;
-            }
+          if (!data) return;
 
-            // Count badges (.arm-review-count) are updated sitewide by the
-            // header's syncReviewCounts(); no duplicate loop needed here.
+          // Rating line updates on its own, outside the reviews check below:
+          // the count must refresh even on a response that carries no review
+          // cards (Google sometimes returns totals with no displayable text).
+          const ratingText = document.getElementById('google-rating-text');
+          if (ratingText && data.rating && data.user_ratings_total) {
+            ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${data.user_ratings_total}+ Reviews)`;
+          }
+
+          // Count badges (.arm-review-count) are updated sitewide by the
+          // header's syncReviewCounts(); no duplicate loop needed here.
+
+          if (data.reviews && data.reviews.length > 0) {
+            const container = document.getElementById('reviews-grid-container');
 
             if (container && data.reviews.length >= 3) {
               // Card markup must stay identical to the SSR template above so the
