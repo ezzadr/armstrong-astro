@@ -9,7 +9,7 @@ on:
         type: boolean
         default: false
 permissions:
-  contents: read
+  contents: write   # the bot commits the CI-built root HTML back to main on push
 concurrency:
   group: deploy-main
   cancel-in-progress: false
@@ -25,8 +25,26 @@ jobs:
       - run: npm ci
       - run: node --test tests/booking-photo.test.mjs
       - run: python3 -m unittest discover -s tests -p 'test_release*.py'
-      # No generated commits, production Git writes or shared-service changes.
-      - run: npx astro build
+      # Build in CI (Linux) so the committed HTML is byte-identical from deploy
+      # to deploy: a local build's lightningcss output differs per OS and used
+      # to churn every page. The server serves the committed root HTML, so on a
+      # push the bot commits the refreshed output back (CLAUDE.md rule 1). A
+      # push made with GITHUB_TOKEN does not re-trigger this workflow, so there
+      # is no loop. The booking-page workflow_dispatch path below never commits.
+      - run: npm run build
+      - name: Commit refreshed build output (push events only)
+        if: github.event_name == 'push'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(build): CI build output for ${GITHUB_SHA:0:7}"
+            git push origin main
+            echo "Committed and pushed refreshed build output."
+          else
+            echo "Build output unchanged - nothing to commit."
+          fi
       - name: Prepare exact public-page release
         if: github.event_name == 'workflow_dispatch' && inputs.publish_booking_page
         id: bundle

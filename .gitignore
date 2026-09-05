@@ -38,3 +38,7 @@ api/key.php
 # Admin panel password (lives only on the server, see public/admin/index.php)
 public/admin/.auth.php
 admin/.auth.php
+
+# python test bytecode (CI runs unittest before the build commit)
+__pycache__/
+*.pyc
