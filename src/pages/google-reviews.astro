@@ -1,30 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 
 const seoTitle = "Armstrong Locksmith Google Reviews | Nashville TN";
 const seoDescription = "Read verified customer feedback for Armstrong Locksmith in Nashville, TN. Top-rated for European car keys, quick dispatch, lockouts, and fair pricing.";
 
 const reviewsSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Armstrong Locksmith Inc",
-    "image": "https://armstronglocksmithinc.com/shop.jpeg",
-    "telephone": "+1-615-625-8000",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "208 Thompson Ln",
-      "addressLocality": "Nashville",
-      "addressRegion": "TN",
-      "postalCode": "37211",
-      "addressCountry": "US"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "773"
-    }
-  },
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -56,7 +39,7 @@ const reviewsSchema = [
         <div class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
           <span class="px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300">&#9733; 4.9 / 5.0 Star Rating</span>
           <span>&bull;</span>
-          <span class="text-slate-300"><span class="arm-review-count">773+</span> Verified Reviews</span>
+          <span class="text-slate-300"><span class="arm-review-count">{reviewCount}+</span> Verified Reviews</span>
           <span>&bull;</span>
           <span class="text-emerald-400 font-semibold">Verified Master Locksmith</span>
         </div>
@@ -82,7 +65,7 @@ const reviewsSchema = [
       <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl text-white text-center">
         <div class="text-6xl font-black text-amber-400 mb-2">4.9</div>
         <div class="flex justify-center gap-1 text-amber-400 text-2xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="text-sm font-bold text-white mb-1">Based on <span class="arm-review-count">773+</span> Google Customer Reviews</p>
+        <p class="text-sm font-bold text-white mb-1">Based on <span class="arm-review-count">{reviewCount}+</span> Google Customer Reviews</p>
         <p class="text-xs text-slate-300">Verified Local Locksmith Storefront &bull; 208 Thompson Ln</p>
       </div>
     </div>
@@ -104,15 +87,7 @@ const reviewsSchema = [
             Hear directly from Middle Tennessee customers about their experience with Armstrong Locksmith's fast mobile dispatch, honest pricing, and professional workmanship.
           </p>
           <div class="w-full overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black mt-2">
-            <iframe 
-              class="w-full h-full" 
-              src="https://www.youtube.com/embed/DAPmg0fpzf4" 
-              title="Armstrong Locksmith Our Reviews in Nashville TN | Our reviews do the talking" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen 
-              loading="lazy">
-            </iframe>
+            <YouTubeFacade id="DAPmg0fpzf4" title="Armstrong Locksmith Our Reviews in Nashville TN | Our reviews do the talking" />
           </div>
         </div>
       </section>

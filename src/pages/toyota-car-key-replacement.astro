@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "Toyota Key Replacement Nashville TN | Armstrong Locksmith";
-const seoDescription = "Fast on-site Toyota car key cutting, transponder & smart proximity fob programming in Nashville. Mobile dispatch & shop at 208 Thompson Ln. (615) 625-8000.";
+const seoDescription = "Fast on-site Toyota car key cutting, transponder & smart proximity fob programming in Nashville. Mobile van or shop at 208 Thompson Ln. (615) 625-8000.";
 
 // Rich Schema for Toyota Service
 const toyotaSchema = [
@@ -12,19 +13,7 @@ const toyotaSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Toyota Car Key Replacement",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
     "description": "On-site Toyota smart key fob cutting and immobilizer programming for Camry, Corolla, RAV4, Highlander, Tacoma, Tundra, 4Runner, and Prius in Nashville, TN."
   },
@@ -60,7 +49,8 @@ const toyotaSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Toyota Key Replacement & Smart Key Programming",
     "description": "Fast Toyota laser key cutting and proximity smart fob programming in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/toyota-key-replacement-1536x2048.webp",
@@ -73,13 +63,9 @@ const toyotaSchema = [
       "priceCurrency": "USD",
       "lowPrice": "145",
       "highPrice": "295",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   },
   {
@@ -298,15 +284,7 @@ const toyotaModels = [
         </div>
 
         <div class="lg:col-span-6 overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black">
-          <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/E_Aie5nW7pQ" 
-            title="2016 Toyota Tacoma Smart Key Replacement Nashville | Push to Start" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
+          <YouTubeFacade id="E_Aie5nW7pQ" title="2016 Toyota Tacoma Smart Key Replacement Nashville | Push to Start" />
         </div>
       </section>
 

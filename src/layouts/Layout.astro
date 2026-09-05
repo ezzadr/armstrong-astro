@@ -18,9 +18,11 @@ export interface Props {
   schema?: Record<string, any> | Array<Record<string, any>>;
   noindex?: boolean;
   image?: string;
+  ogType?: string;      // "website" (default) or "article" for blog posts
+  breadcrumb?: boolean; // false when the page supplies its own BreadcrumbList
 }
 
-const { title, description, canonical, schema, noindex = false, image } = Astro.props;
+const { title, description, canonical, schema, noindex = false, image, ogType = "website", breadcrumb = true } = Astro.props;
 const siteUrl = "https://armstronglocksmithinc.com";
 const fullCanonical = canonical ? new URL(canonical, siteUrl).toString() : new URL(Astro.url.pathname, siteUrl).toString();
 
@@ -256,7 +258,7 @@ const baseBusinessSchema = {
   )}
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:url" content={fullCanonical} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -280,9 +282,6 @@ const baseBusinessSchema = {
   <meta name="geo.position" content="36.1118;-86.7378" />
   <meta name="ICBM" content="36.1118, -86.7378" />
 
-  <!-- Preload & Optimize Critical Assets (Zero LCP Delay) -->
-  <link rel="preload" as="image" href="/logo.webp" type="image/webp" fetchpriority="high" />
-
   <!-- Preload Critical Self-Hosted Fonts for 0ms FCP & 0ms LCP -->
   <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-3.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/latin-0.woff2" crossorigin />
@@ -295,7 +294,7 @@ const baseBusinessSchema = {
   <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
 
   <!-- Universal BreadcrumbList Schema for Google Search Snippet Hierarchy (Requires >=2 items for validity) -->
-  {canonical && canonical !== "/" && (
+  {breadcrumb && canonical && canonical !== "/" && (
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
   )}
 
@@ -321,6 +320,19 @@ const baseBusinessSchema = {
     Field data (CrUX) always measured the real page regardless, and that is what
     Search Console reports and what ranking uses.
   -->
+  <!-- Call-click tracking that survives the deferred GTM load below: the tap
+       that dials is also the tap that loads GTM, so GTM's own click triggers
+       never see it. Queue the event on dataLayer now; GTM replays the queue
+       when it loads. In GTM, trigger on Custom Event "call_click". -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      var a = t && t.closest ? t.closest('a[href^="tel:"]') : null;
+      if (a) window.dataLayer.push({ event: 'call_click', call_href: a.getAttribute('href'), call_page: window.location.pathname });
+    }, true);
+  </script>
+
   <!-- Zero-TBT Deferred Google Tag Manager -->
   <script is:inline>
     (function() {

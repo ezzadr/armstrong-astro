@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "Car Key Replacement Nashville TN | Armstrong Locksmith";
@@ -8,19 +9,7 @@ const serviceSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Car Key Replacement",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
     "description": "Mobile and storefront automotive key cutting, proximity fob programming, and laser key origination in Nashville, TN."
   },
@@ -48,7 +37,8 @@ const serviceSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Automotive Car Key Replacement & Programming",
     "description": "On-site mobile car key cutting, transponder keys, and proximity smart fobs in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
@@ -61,13 +51,9 @@ const serviceSchema = [
       "priceCurrency": "USD",
       "lowPrice": "125",
       "highPrice": "345",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   },
   {
@@ -155,7 +141,7 @@ const seoDescription = "Fast on-site car key cutting, transponder & smart key fo
           </p>
         </div>
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/pRr53jg4xw4" title="Car Key Replacement Nashville Demonstration" allowfullscreen loading="lazy"></iframe>
+          <YouTubeFacade id="pRr53jg4xw4" title="Car Key Replacement Nashville Demonstration" />
         </div>
       </section>
 

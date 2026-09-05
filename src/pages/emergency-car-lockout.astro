@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
@@ -12,19 +13,7 @@ const lockoutSchema = [
     "@type": "Service",
     "name": "Emergency Car Lockout Service Nashville",
     "serviceType": "Car Lockout Service",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
     "description": "Safe, damage-free car lockout door unlocking in Nashville, TN. Professional automotive locksmith entry with zero damage to vehicle locks or weather seals."
   },
@@ -148,15 +137,7 @@ const lockoutSchema = [
         See how Armstrong Locksmith safely accesses locked vehicles using professional tools without scratching paint or damaging locks.
       </p>
       <div class="w-full overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black mt-2">
-        <iframe 
-          class="w-full h-full" 
-          src="https://www.youtube.com/embed/abf1I0zO7pM" 
-          title="A Guide to Car Lockout | Armstrong Locksmith Inc" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen 
-          loading="lazy">
-        </iframe>
+        <YouTubeFacade id="abf1I0zO7pM" title="A Guide to Car Lockout | Armstrong Locksmith Inc" />
       </div>
     </div>
   </section>
@@ -173,7 +154,7 @@ const lockoutSchema = [
           Amateur lockout operators often jam metal slim jims into door panels, which can easily slice through internal side-airbag wiring, power window cables, and weatherstripping.
         </p>
         <p>
-          At Armstrong Locksmith, we treat your vehicle with professional care. Our licensed technicians use dedicated Lishi picks designed specifically for your vehicle's wafer lock, decoding the tumblers cleanly and safely with zero structural damage.
+          At Armstrong Locksmith, we treat your vehicle with professional care. Our certified technicians use dedicated Lishi picks designed specifically for your vehicle's wafer lock, decoding the tumblers cleanly and safely with zero structural damage.
         </p>
       </div>
 

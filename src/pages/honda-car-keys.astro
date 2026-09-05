@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Honda Key Replacement Nashville TN | Armstrong Locksmith";
@@ -95,7 +97,7 @@ const seoDescription = "Honda Civic, Accord, CR-V, Pilot & Odyssey smart key cut
       </div>
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-        <div><strong class="block text-slate-900 font-bold">4.9&#9733; Google Rating</strong><span class="text-slate-500 text-[11px]"><span class="arm-review-count">773+</span> Verified Reviews</span></div>
+        <div><strong class="block text-slate-900 font-bold">4.9&#9733; Google Rating</strong><span class="text-slate-500 text-[11px]"><span class="arm-review-count">{reviewCount}+</span> Verified Reviews</span></div>
       </div>
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>

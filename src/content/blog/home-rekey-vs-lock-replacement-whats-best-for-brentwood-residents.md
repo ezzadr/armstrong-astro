@@ -9,7 +9,7 @@ image: "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg"
 
 ## 🏠 Rekeying vs. Replacing: What’s the Real Difference?
 
-* **Rekeying:** We remove the lock cylinder, dump out the existing bottom and top brass pins, and insert new precision pins that match a completely new key cut. By rekeying, we change the shear line logic so the old key will no longer turn the plug. Your door handles and deadbolts stay exactly where they are.
+* **Rekeying:** We remove the lock cylinder, dump out the existing bottom and top brass pins, and insert new pins that match a completely new key cut. By rekeying, we change the shear line logic so the old key will no longer turn the plug. Your door handles and deadbolts stay exactly where they are.
 * **Replacing:** We completely unscrew the chassis and strike plates to install brand-new hardware. This resets the mechanical integrity of the lock but costs substantially more due to the price of materials.
 
 ---
@@ -58,7 +58,7 @@ We recently helped a family who just moved into a beautiful property near **Croc
 For a standard home in Brentwood or Nashville with 4 to 6 locks, our mobile locksmiths are usually completely finished in **under 60 minutes**.
 
 ### Can I rekey locks myself with a hardware store kit?
-While store-bought rekey kits exist, they lack the 0.003-inch precision of professional pinning kits. If you drop a top driver spring or misalign the pins, the lock will jam permanently and have to be drilled out.
+While store-bought rekey kits exist, they lack the 0.003-inch tolerances of professional pinning kits. If you drop a top driver spring or misalign the pins, the lock will jam permanently and have to be drilled out.
 
 ---
 
@@ -68,4 +68,4 @@ Armstrong Locksmith carries factory pins for **Schlage, Kwikset, Baldwin, Yale, 
 
 * 📞 **Call Direct:** [**(615) 625-8000**](tel:6156258000)
 * 📍 **Storefront Location:** **208 Thompson Ln, Nashville, TN 37211**
-* 📜 **Licensed & Insured:** Certified & Insured
+* 📜 **Certified & Insured:** Fully insured, real storefront

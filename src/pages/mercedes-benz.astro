@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Mercedes-Benz Key Replacement Nashville | Armstrong";
@@ -8,7 +11,8 @@ const seoDescription = "Mercedes-Benz key programming & EIS/FBS3/FBS4 diagnostic
 const mercedesSchema = [
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Mercedes-Benz Key Replacement & EIS Programming",
     "description": "Dealer-level Mercedes-Benz smart key programming and EIS/EZS diagnostics in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/mercedes-Benz_20250627_002342_0000-1-scaled.jpg",
@@ -21,13 +25,9 @@ const mercedesSchema = [
       "priceCurrency": "USD",
       "lowPrice": "225",
       "highPrice": "425",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   },
   {
@@ -142,7 +142,7 @@ const mercedesSchema = [
       </div>
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-        <div><strong class="block text-slate-900 font-bold">4.9★ Google Rating</strong><span class="text-slate-500 text-[11px]"><span class="arm-review-count">773+</span> Verified Reviews</span></div>
+        <div><strong class="block text-slate-900 font-bold">4.9★ Google Rating</strong><span class="text-slate-500 text-[11px]"><span class="arm-review-count">{reviewCount}+</span> Verified Reviews</span></div>
       </div>
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
@@ -177,15 +177,7 @@ const mercedesSchema = [
         </div>
 
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-video bg-slate-900 flex items-center justify-center">
-          <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/b7D_mmGUabI" 
-            title="Mercedes G 550 Key Replacement in Nashville | Armstrong Locksmith Inc" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen 
-            loading="lazy">
-          </iframe>
+          <YouTubeFacade id="b7D_mmGUabI" title="Mercedes G 550 Key Replacement in Nashville | Armstrong Locksmith Inc" />
         </div>
       </section>
 

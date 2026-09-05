@@ -12,7 +12,8 @@
  */
 
 $requestUri = strtok($_SERVER['REQUEST_URI'] ?? '', '?');
-$cleanUri = trim(strtolower($requestUri), '/');
+$rawUri   = trim($requestUri, '/');   // exact path as typed, for serving files
+$cleanUri = strtolower($rawUri);       // lowercased, for redirect matching only
 
 // If requesting homepage, serve it directly
 if ($cleanUri === '' || $cleanUri === 'index.html' || $cleanUri === 'index.php') {
@@ -20,20 +21,22 @@ if ($cleanUri === '' || $cleanUri === 'index.html' || $cleanUri === 'index.php')
     exit;
 }
 
-// Check if a static HTML file exists for this route
-$htmlPath = __DIR__ . '/' . $cleanUri . '/index.html';
-$directPath = __DIR__ . '/' . $cleanUri . '.html';
-$exactPath = __DIR__ . '/' . $cleanUri;
-
-if (is_file($htmlPath)) {
-    readfile($htmlPath);
-    exit;
-} elseif (is_file($directPath)) {
-    readfile($directPath);
-    exit;
-} elseif (is_file($exactPath)) {
-    readfile($exactPath);
-    exit;
+// Serve ONLY built pages: a directory's index.html or a bare .html file,
+// matched case-sensitively against the URL as typed. Never readfile() an
+// arbitrary existing path: Nginx only falls through to this script when the
+// exact file is missing, so a case-variant URL such as /api/REVIEWS.PHP used
+// to lowercase-match api/reviews.php and echo its PHP source (and key.php).
+$safePath = preg_match('#^[A-Za-z0-9._/-]+$#', $rawUri) === 1 && strpos($rawUri, '..') === false;
+if ($safePath) {
+    $htmlPath = __DIR__ . '/' . $rawUri . '/index.html';
+    if (is_file($htmlPath)) {
+        readfile($htmlPath);
+        exit;
+    }
+    if (substr($rawUri, -5) === '.html' && is_file(__DIR__ . '/' . $rawUri)) {
+        readfile(__DIR__ . '/' . $rawUri);
+        exit;
+    }
 }
 
 // ==============================================================================

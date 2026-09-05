@@ -34,3 +34,7 @@ Armstrong-Locksmith-Claude-Guide.pdf
 # Server-side Google Places API key (lives only on the server)
 public/api/key.php
 api/key.php
+
+# Admin panel password (lives only on the server, see public/admin/index.php)
+public/admin/.auth.php
+admin/.auth.php

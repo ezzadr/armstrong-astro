@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "BMW Key Replacement Nashville TN | Armstrong Locksmith";
-const seoDescription = "Affordable BMW car key cutting, transponder & smart proximity fob programming in Nashville. Mobile on-site service & shop at 208 Thompson Ln. (615) 625-8000.";
+const seoDescription = "Affordable BMW car key cutting, transponder & smart proximity fob programming in Nashville. Mobile van or shop at 208 Thompson Ln. (615) 625-8000.";
 
 // Rich Schema for BMW Service
 const bmwSchema = [
@@ -13,19 +14,7 @@ const bmwSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "BMW Car Key Replacement",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
     "description": "Mobile and storefront BMW smart key fob cutting and immobilizer programming for CAS1, CAS2, CAS3, CAS4, FEM, and BDC systems in Nashville, TN."
   },
@@ -69,7 +58,8 @@ const bmwSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "BMW Key Replacement & Programming Service",
     "description": "Dealer-level BMW key cutting and CAS/FEM/BDC smart proximity key fob programming in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/BMW-car-key-nashville.png",
@@ -82,13 +72,9 @@ const bmwSchema = [
       "priceCurrency": "USD",
       "lowPrice": "195",
       "highPrice": "385",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   },
   {
@@ -309,14 +295,7 @@ const bmwModels = [
         </div>
         
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-200 aspect-video bg-black">
-          <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/fWY-TUZffZA" 
-            title="Watch Us Make a BMW Key On-Site (Real Job)" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
+          <YouTubeFacade id="fWY-TUZffZA" title="Watch Us Make a BMW Key On-Site (Real Job)" />
         </div>
       </section>
 

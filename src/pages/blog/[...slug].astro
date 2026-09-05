@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
+import YouTubeFacade from '../../components/YouTubeFacade.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -74,10 +75,7 @@ const blogSchema = [
       "@type": "Person",
       "name": post.data.author || "Rahim Ezzadpanah",
       "jobTitle": "Master Locksmith & Owner",
-      "worksFor": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "worksFor": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     },
     "publisher": {
       "@type": "Organization",
@@ -114,6 +112,8 @@ const computedTitle = post.data.title.length > 45
   description={post.data.description} 
   canonical={`/blog/${post.id}/`}
   schema={blogSchema}
+  ogType="article"
+  breadcrumb={false}
 >
   <!-- Breadcrumbs -->
   <nav class="bg-[#0b162a] text-slate-400 py-3 px-4 sm:px-8 text-xs border-b border-slate-800" aria-label="Breadcrumb">
@@ -183,23 +183,12 @@ const computedTitle = post.data.title.length > 45
              frontmatter; otherwise the featured image (max-h caps the IMG with
              object-contain so portrait job photos show in full, never clipped). -->
         {videoId ? (
-          <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-950 relative aspect-video" id="arm-yt-facade">
-            <button type="button" class="group w-full h-full block relative cursor-pointer" aria-label={`Play video: ${post.data.title}`} data-yt-id={videoId}>
-              <img
-                src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
-                alt={`Video: ${post.data.title}`}
-                class="w-full h-full object-cover"
-                width="800"
-                height="450"
-                fetchpriority="high"
-              />
-              <span class="absolute inset-0 flex items-center justify-center bg-slate-950/20 group-hover:bg-slate-950/10 transition">
-                <span class="w-16 h-16 bg-red-600 group-hover:bg-red-500 flex items-center justify-center shadow-xl transition">
-                  <svg class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-              </span>
-            </button>
-          </div>
+          <YouTubeFacade
+            id={videoId}
+            title={post.data.title}
+            eager={true}
+            class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-950 relative aspect-video"
+          />
         ) : (
           <div class="rounded-2xl overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-50">
             <img
@@ -466,7 +455,7 @@ const computedTitle = post.data.title.length > 45
           <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 flex flex-col gap-1">
             <span>📍 <strong>208 Thompson Ln, Nashville</strong></span>
             <span>🕒 <strong>Shop:</strong> Mon-Fri 8AM–6PM | Sat 10AM–4PM</span>
-            <span class="text-emerald-700 font-semibold">🚐 <strong>Mobile:</strong> Mon-Fri 8AM–11:30PM | Weekends On-Call</span>
+            <span class="text-emerald-700 font-semibold">🚐 <strong>Mobile:</strong> Mon-Fri 8AM–11:30PM | Sat 10AM–4PM | Sun Closed</span>
           </div>
         </div>
 
@@ -526,24 +515,4 @@ const computedTitle = post.data.title.length > 45
     </section>
   )}
 
-  <!-- Click-to-play: swap the video facade for the real YouTube iframe on tap.
-       No-op on posts without a video (the facade element won't exist). -->
-  <script is:inline>
-    (function () {
-      var btn = document.querySelector('#arm-yt-facade button[data-yt-id]');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var id = btn.getAttribute('data-yt-id');
-        var wrap = document.getElementById('arm-yt-facade');
-        var ifr = document.createElement('iframe');
-        ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-        ifr.title = 'Job video';
-        ifr.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        ifr.setAttribute('allowfullscreen', '');
-        ifr.className = 'w-full h-full absolute inset-0';
-        wrap.innerHTML = '';
-        wrap.appendChild(ifr);
-      });
-    })();
-  </script>
 </Layout>

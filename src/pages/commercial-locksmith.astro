@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
@@ -30,18 +32,7 @@ const commercialSchema = [
     "@type": "Service",
     "name": "Commercial Locksmith & Door Hardware Services",
     "serviceType": "Commercial Locksmith",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+16156258000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Downtown Nashville", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
     "description": "Storefront glass door repair, Adams Rite mortise cylinders, UL-listed panic crash bars, master key hierarchies, and digital access control for Nashville businesses."
   },
@@ -77,7 +68,8 @@ const commercialSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Commercial Locksmith & Master Key Systems",
     "description": "Storefront lock installation, panic crash bar hardware, and commercial master rekeying in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/before-keypad-installation-on-commercial-door.jpg",
@@ -90,19 +82,15 @@ const commercialSchema = [
       "priceCurrency": "USD",
       "lowPrice": "95",
       "highPrice": "450",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/commercial-locksmith/" schema={commercialSchema} image="/images/before-keypad-installation-on-commercial-door.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/commercial-locksmith/" schema={commercialSchema} image="/images/before-keypad-installation-on-commercial-door.jpg" breadcrumb={false}>
   
   <!-- ==================== LUXURY HERO SECTION ==================== -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
@@ -142,7 +130,7 @@ const commercialSchema = [
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
           <div class="flex items-center gap-1.5">
             <span class="text-amber-400 font-bold">★★★★★</span>
-            <span><strong class="text-white">4.9/5 Rating</strong> (<span class="arm-review-count">773+</span> Reviews)</span>
+            <span><strong class="text-white">4.9/5 Rating</strong> (<span class="arm-review-count">{reviewCount}+</span> Reviews)</span>
           </div>
           <span class="hidden sm:inline text-slate-500">&bull;</span>
           <div class="flex items-center gap-1.5">
@@ -263,7 +251,7 @@ const commercialSchema = [
             <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-600 block mb-1">Emergency Exit &amp; Life Safety</span>
             <h3 class="text-base font-bold text-[#0f274a] font-heading font-black uppercase mb-1.5">Detex Emergency Exit Alarm Panic Lock</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
-              Heavy-duty Detex battery-alarmed exit control lock installed for life-safety code compliance, unauthorized egress prevention, and 24/7 commercial perimeter security.
+              Heavy-duty Detex battery-alarmed exit control lock installed for life-safety code compliance, unauthorized egress prevention, and back-door perimeter security.
             </p>
           </div>
         </div>

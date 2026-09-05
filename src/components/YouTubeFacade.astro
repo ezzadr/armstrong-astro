@@ -1,0 +1,58 @@
+---
+// Click-to-play YouTube embed. Only the thumbnail <img> loads with the page;
+// the real iframe is created on tap, so the YouTube player (roughly 1MB of JS)
+// never touches first paint or INP on a visit where nobody presses play.
+// Drop it inside any container that sets the aspect ratio (aspect-video).
+interface Props {
+  id: string;        // YouTube video ID
+  title: string;     // accessible label + iframe title
+  eager?: boolean;   // hero placement: fetch the thumbnail at high priority
+  class?: string;    // wrapper classes; defaults to filling the parent
+}
+const { id, title, eager = false, class: className = "w-full h-full relative" } = Astro.props;
+---
+
+<div class={className} data-yt-facade>
+  <button
+    type="button"
+    class="group w-full h-full block relative cursor-pointer"
+    aria-label={`Play video: ${title}`}
+    data-yt-id={id}
+    data-yt-title={title}
+  >
+    <img
+      src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+      alt={`Video: ${title}`}
+      class="w-full h-full object-cover"
+      width="480"
+      height="360"
+      loading={eager ? "eager" : "lazy"}
+      fetchpriority={eager ? "high" : undefined}
+      decoding="async"
+    />
+    <span class="absolute inset-0 flex items-center justify-center bg-slate-950/20 group-hover:bg-slate-950/10 transition">
+      <span class="w-16 h-16 bg-red-600 group-hover:bg-red-500 flex items-center justify-center shadow-xl transition">
+        <svg class="w-7 h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+    </span>
+  </button>
+</div>
+
+<script>
+  // Bundled once per page no matter how many facades the page has.
+  document.querySelectorAll<HTMLButtonElement>('[data-yt-facade] button[data-yt-id]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const wrap = btn.parentElement;
+      if (!wrap) return;
+      const id = btn.dataset.ytId;
+      const ifr = document.createElement('iframe');
+      ifr.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      ifr.title = btn.dataset.ytTitle || 'Video';
+      ifr.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      ifr.setAttribute('allowfullscreen', '');
+      ifr.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      ifr.className = 'w-full h-full absolute inset-0';
+      wrap.replaceChildren(ifr);
+    }, { once: true });
+  });
+</script>

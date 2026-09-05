@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Nashville Car Unlock Service | Mobile Auto Lockout";
-const seoDescription = "Locked out of your car in Nashville? Mobile auto lockout service by licensed locksmiths. Damage-free entry for all makes. Call (615) 625-8000.";
+const seoDescription = "Locked out of your car in Nashville? Mobile auto lockout service by certified locksmiths. Damage-free entry for all makes. Call (615) 625-8000.";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -49,19 +51,7 @@ const serviceSchema = {
   "@type": "Service",
   "@id": "https://armstronglocksmithinc.com/nashville-car-unlock-service/#service",
   "name": "Nashville Car Unlock & Vehicle Lockout Service",
-  "provider": {
-    "@type": "Locksmith",
-    "name": "Armstrong Locksmith Inc",
-    "telephone": "+1-615-625-8000",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "208 Thompson Ln",
-      "addressLocality": "Nashville",
-      "addressRegion": "TN",
-      "postalCode": "37211",
-      "addressCountry": "US"
-    }
-  },
+  "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
   "areaServed": "Nashville, TN, Brentwood, TN, Franklin, TN, Antioch, TN, Donelson, TN",
   "description": "Professional mobile automotive lock picking and vehicle unlocking across Greater Nashville with zero body or electrical damage."
 };
@@ -134,7 +124,7 @@ const serviceSchema = {
 
           <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-amber-300 font-bold">
             <span>Storefront: 208 Thompson Ln</span>
-            <span>⭐ 4.9 Stars (<span class="arm-review-count">773+</span> Reviews)</span>
+            <span>⭐ 4.9 Stars (<span class="arm-review-count">{reviewCount}+</span> Reviews)</span>
           </div>
         </div>
       </div>
@@ -174,7 +164,7 @@ const serviceSchema = {
         </p>
 
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          As licensed automotive locksmiths, we take a completely different approach. We carry dedicated vehicle-specific <strong>Lishi optical decoders</strong> (like HU66 for Audi/VW, HU100 for Chevy/GMC, HU92 for BMW, and HON66 for Honda). We read the tumbler depths directly inside the keyhole and turn the cylinder smoothly without touching the door frame.
+          As certified automotive locksmiths, we take a completely different approach. We carry dedicated vehicle-specific <strong>Lishi optical decoders</strong> (like HU66 for Audi/VW, HU100 for Chevy/GMC, HU92 for BMW, and HON66 for Honda). We read the tumbler depths directly inside the keyhole and turn the cylinder smoothly without touching the door frame.
         </p>
 
         <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs sm:text-sm text-emerald-950 font-medium flex items-center gap-3">
@@ -300,7 +290,7 @@ const serviceSchema = {
           </span>
           <h3 class="text-lg font-bold text-white font-heading font-black uppercase mb-2">Mobile Van Dispatched</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            A licensed technician drives to your exact location in a fully stocked locksmith van equipped with specialized lock-picking tools and key cutting machinery.
+            A certified technician drives to your exact location in a fully stocked locksmith van equipped with specialized lock-picking tools and key cutting machinery.
           </p>
         </div>
 

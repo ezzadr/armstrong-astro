@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Bentley Key Replacement Nashville TN | Armstrong Locksmith";
@@ -10,19 +13,7 @@ const bentleySchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Bentley Car Key Replacement",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Belle Meade", "Green Hills", "Forest Hills", "Williamson County"],
     "description": "On-site ultra-luxury Bentley Continental GT, Flying Spur, and Bentayga key cutting and transponder programming in Nashville, TN."
   },
@@ -138,7 +129,7 @@ const bentleySchema = [
       </div>
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-        <div><strong class="block text-slate-900 font-bold">4.9&#9733; Google Rating</strong><span class="text-slate-500 text-[11px]"><span class="arm-review-count">773+</span> Verified Reviews</span></div>
+        <div><strong class="block text-slate-900 font-bold">4.9&#9733; Google Rating</strong><span class="text-slate-500 text-[11px]"><span class="arm-review-count">{reviewCount}+</span> Verified Reviews</span></div>
       </div>
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shadow-sm"><svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
@@ -164,7 +155,7 @@ const bentleySchema = [
             Bentley-friendly handling: careful optical entry methods, correct immobilizer identification, and final start verification you can trust.
           </p>
           <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Bentley vehicles require specialized immobilizer matching and precision optical lock reading. We originate and sync smart keys without risking delicate leather upholstery or door electronics.
+            Bentley vehicles require immobilizer matching and Lishi lock decoding. We originate and sync smart keys without risking delicate leather upholstery or door electronics.
           </div>
           <div class="flex flex-wrap items-center gap-3 pt-1 text-xs font-bold text-slate-700">
             <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1.5 rounded-lg">&#10003; 100% On-Site Solution</span>
@@ -174,14 +165,7 @@ const bentleySchema = [
 
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-video bg-slate-900 flex items-center justify-center">
           
-            <iframe 
-              class="w-full h-full" 
-              src="https://www.youtube.com/embed/4p5EnSbJAWg" 
-              title="Bentley Key Replacement Demonstration" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+            <YouTubeFacade id="4p5EnSbJAWg" title="Bentley Key Replacement Demonstration" />
           
         </div>
       </section>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
@@ -11,19 +12,7 @@ const euroSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "European Car Key Specialist",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills", "Williamson County"],
     "description": "Dealer-level automotive key cutting and immobilizer programming for BMW, Mercedes-Benz, Audi, Volkswagen, Porsche, Land Rover, and Bentley in Nashville, TN."
   },
@@ -134,14 +123,7 @@ const euroSchema = [
           </div>
         </div>
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black">
-          <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/fvXPHQIMAOo" 
-            title="Dealer-Level European Key Programming in Nashville" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
+          <YouTubeFacade id="fvXPHQIMAOo" title="Dealer-Level European Key Programming in Nashville" />
         </div>
       </section>
       

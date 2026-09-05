@@ -1,67 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import RecentWorkGallery from '../components/RecentWorkGallery.astro';
+import { getReviewStats, getLiveReviews } from '../lib/reviewStats.mjs';
 
 const seoTitle = "Armstrong Locksmith Nashville | Car Keys, Rekeys & Lockouts";
 const seoDescription = "Owner-led Nashville locksmith with a storefront at 208 Thompson Ln. Car keys, rekeys, lockouts & commercial service. Certified. Call (615) 625-8000.";
 
-// Initial Verified Reviews (Instant SSR load with live client sync)
-const initialReviews = [
-  {
-    name: "Marcus Vance",
-    location: "Nashville, TN",
-    service: "BMW Key Replacement",
+// Live Google rating/count plus the newest real 5-star reviews, fetched once at
+// build time (src/lib/reviewStats.mjs). The cards below are server-rendered
+// from that data and then refreshed in the browser by syncLiveGoogleReviews().
+// Nothing here is hand-written: if the endpoint is unreachable at build the
+// list is empty and the browser fills the cards in on load.
+const { reviewCount, ratingValue } = await getReviewStats();
+const initialReviews = (await getLiveReviews())
+  .filter((r) => Number(r.rating) === 5)
+  .slice(0, 6)
+  .map((r) => ({
+    name: r.author_name,
+    location: "Google Review",
+    service: r.service || "Verified Customer",
     rating: 5,
-    date: "2 weeks ago",
-    text: "Saved me over $600 compared to the BMW dealership! The dealer wanted to tow my 2021 BMW 5-Series and keep it for 10 days. Rahim came out with dealer-level equipment, cut the emergency physical blade, and programmed the smart key fob the same day right on-site. Unbelievable service.",
+    date: r.relative_time_description || "",
+    text: r.text,
     verified: true
-  },
-  {
-    name: "Jessica Holloway",
-    location: "Nashville, TN",
-    service: "Residential Rekeying",
-    rating: 5,
-    date: "1 month ago",
-    text: "Rekeyed our entire home in Brentwood after moving in. Upfront pricing, showed up on time, and gave us high-security keys with zero hassle. Highest recommendation.",
-    verified: true
-  },
-  {
-    name: "Carlos Mendez",
-    location: "Nashville, TN",
-    service: "Audi Smart Key Fob",
-    rating: 5,
-    date: "3 weeks ago",
-    text: "Having an actual physical storefront made all the difference. I walked in during my lunch break, Rahim cut and programmed a second smart key for my Audi A6 promptly while I waited. Clean shop, honest pricing, and friendly master locksmith.",
-    verified: true
-  },
-  {
-    name: "Brittany Sterling",
-    location: "Nashville, TN",
-    service: "Emergency Car Lockout",
-    rating: 5,
-    date: "2 months ago",
-    text: "Accidentally locked my keys in the car on a Sunday evening. Armstrong had a mobile technician at my location promptly. Used soft-touch air wedges and had me back inside in under 3 minutes with zero damage to the door trim.",
-    verified: true
-  },
-  {
-    name: "David Sterling",
-    location: "Nashville, TN",
-    service: "Commercial Storefront Hardware",
-    rating: 5,
-    date: "1 month ago",
-    text: "We run a retail storefront and our mortise lock broke right before opening. Armstrong Locksmith arrived with full Adams Rite commercial hardware in their van, replaced the broken cylinder, and rekeyed our staff keys. True professionals.",
-    verified: true
-  },
-  {
-    name: "Amanda Chen",
-    location: "Nashville, TN",
-    service: "Mercedes Push-To-Start Fob",
-    rating: 5,
-    date: "3 months ago",
-    text: "Dealer told me 3 weeks backorder for a replacement Mercedes key fob. Called Armstrong, Rahim confirmed he had the OEM blank in stock at the shop, drove out, and had it fully synced to my EIS computer that afternoon. Fast, courteous, and transparent pricing.",
-    verified: true
-  }
-];
+  }));
 
 // Advanced Local Ranking Authority Schema for Homepage
 const homepageSchema = [
@@ -84,7 +46,7 @@ const homepageSchema = [
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
   <section class="relative bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
     <!-- Subtle Shop Background Layer (Desktop only to guarantee 100/100 Mobile Speed) -->
-    <div class="hidden sm:block absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none" style="background-image: url('/shop.jpeg');"></div>
+    <div class="hidden sm:block absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none" style="background-image: url('/shop-1200.webp');"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a1c38] via-[#0a1c38]/90 to-[#0a1c38]/75 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center relative z-10">
@@ -102,7 +64,7 @@ const homepageSchema = [
 
         <!-- Massive Bold Storefront Headline with Luxury Gold Gradient Accent -->
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading uppercase text-white tracking-tight leading-[1.08]">
-          NASHVILLE LOCKSMITH WITH A <span class="text-gold-gradient">REAL STOREFRONT</span>
+          Nashville Locksmith With a <span class="text-gold-gradient">Real Storefront</span>
         </h1>
 
         <!-- Trust Grounded Sub-Copy -->
@@ -256,7 +218,7 @@ const homepageSchema = [
               </button>
               <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
                 <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Direct to Nashville Dispatch &bull; Upfront Rates &bull; Licensed &amp; Insured</span>
+                <span>Direct to Nashville Dispatch &bull; Upfront Rates &bull; Certified &amp; Insured</span>
               </div>
             </form>
 
@@ -383,7 +345,7 @@ const homepageSchema = [
           <div class="flex flex-wrap gap-1.5 mb-4">
             <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Car &amp; Home Lockouts</span>
             <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">On-Site Key Origination</span>
-            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Rapid On-Call Fleet</span>
+            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Mobile Van Fleet</span>
           </div>
         </div>
 
@@ -427,7 +389,7 @@ const homepageSchema = [
 
           <!-- Copy -->
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-4">
-            Deal directly with Rahim and state-licensed master technicians. Upfront guaranteed pricing with zero middleman broker call center fees.
+            Deal directly with Rahim and our certified master technicians. Upfront guaranteed pricing with zero middleman broker call center fees.
           </p>
 
           <!-- Micro-feature pills -->
@@ -442,7 +404,7 @@ const homepageSchema = [
         <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
           <div class="flex items-center gap-1.5 text-slate-500 font-bold text-[11px]">
             <span class="text-amber-500">★★★★★</span>
-            <span><span class="arm-review-count font-extrabold text-slate-800">774+</span> Google Reviews</span>
+            <span><span class="arm-review-count font-extrabold text-slate-800">{reviewCount}+</span> Google Reviews</span>
           </div>
           <a href="/locksmith-pricing-nashville/" class="inline-flex items-center gap-1 font-black text-amber-600 hover:text-amber-700 uppercase tracking-wider text-[11px] group-hover:translate-x-0.5 transition-all">
             <span>Pricing Guide</span>
@@ -636,7 +598,7 @@ const homepageSchema = [
               <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
             </svg>
-            <span id="google-rating-text">Google Verified Business &bull; 4.9 Star Rating (773+ Reviews)</span>
+            <span id="google-rating-text">Google Verified Business &bull; {ratingValue} Star Rating ({reviewCount}+ Reviews)</span>
           </div>
 
           <h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
@@ -680,7 +642,7 @@ const homepageSchema = [
             rel="noopener noreferrer" 
             class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/15 text-white text-xs sm:text-sm font-bold border border-white/25 hover:border-amber-400 shadow-sm transition"
           >
-            <span>⭐ View All (<span class="arm-review-count">773+</span>)</span>
+            <span>⭐ View All (<span class="arm-review-count">{reviewCount}+</span>)</span>
           </a>
         </div>
       </div>
@@ -802,7 +764,7 @@ const homepageSchema = [
         Need Locksmith Service in Nashville?
       </h2>
       <p class="text-slate-200 text-sm sm:text-base max-w-lg">
-        Speak directly with our local team, get an upfront quote over the phone, and have a licensed technician dispatched promptly. No hidden fees.
+        Speak directly with our local team, get an upfront quote over the phone, and have a certified technician dispatched promptly. No hidden fees.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center gap-3.5 pt-2 w-full sm:w-auto">
@@ -1009,8 +971,8 @@ const homepageSchema = [
             const container = document.getElementById('reviews-grid-container');
             const ratingText = document.getElementById('google-rating-text');
             
-            if (ratingText && data.rating) {
-              ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${data.user_ratings_total || '773+'} Reviews)`;
+            if (ratingText && data.rating && data.user_ratings_total) {
+              ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${data.user_ratings_total}+ Reviews)`;
             }
 
             // Count badges (.arm-review-count) are updated sitewide by the

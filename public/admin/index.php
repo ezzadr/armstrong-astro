@@ -2,8 +2,16 @@
 // /admin/index.php - Armstrong Locksmith Private Content Studio & Management Portal
 session_start();
 
-// 1. Master Authentication Password (Changeable anytime)
-$masterPassword = 'Sardasht1';
+// 1. Master Authentication Password.
+// Lives ONLY in an untracked file next to this script, /admin/.auth.php, which
+// returns the password string:   <?php return 'your-password-here';
+// This repository is public, so no secret may be committed here. If the file is
+// missing, login is disabled (fail closed) rather than falling back to a default.
+$masterPassword = '';
+if (file_exists(__DIR__ . '/.auth.php')) {
+    $included = include __DIR__ . '/.auth.php';
+    if (is_string($included)) { $masterPassword = trim($included); }
+}
 
 // Handle Logout
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
@@ -17,7 +25,9 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 $loginError = '';
 if (isset($_POST['admin_password'])) {
     $input = trim($_POST['admin_password']);
-    if ($input === 'Sardasht1' || $input === 'sardasht1' || $input === 'armstrong406' || $input === '8000') {
+    if ($masterPassword === '') {
+        $loginError = 'Admin login is not configured on this server (missing /admin/.auth.php).';
+    } elseif (hash_equals($masterPassword, $input)) {
         $_SESSION['arm_auth'] = true;
         header('Location: /admin/index.php');
         exit();

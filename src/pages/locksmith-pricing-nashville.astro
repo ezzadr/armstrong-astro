@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "2026 Locksmith Pricing Nashville | No Hidden Fees | Armstrong";
-const seoDescription = "Transparent Nashville locksmith prices for car keys, house rekeys, business locks & emergency lockouts. Real local shop at 208 Thompson Ln. Call (615) 625-8000.";
+const seoDescription = "Transparent Nashville locksmith prices for car keys, house rekeys, business locks & emergency lockouts. Real shop at 208 Thompson Ln. (615) 625-8000.";
 
 const autoPricing = [
   {
@@ -16,13 +16,13 @@ const autoPricing = [
     name: "Emergency Car Lockout (Luxury / High-Security)",
     price: "$85+",
     badge: "BMW / Audi / Benz / Lexus",
-    note: "Decoded directly through the keyhole with precision German automotive Lishi decoders. Bypasses double-locks."
+    note: "Decoded directly through the keyhole with German-made Lishi decoders. Bypasses double-locks."
   },
   {
     name: "Standard Non-Chip Metal Key Duplicate",
     price: "$35+",
     badge: "In-Shop or On-Site",
-    note: "Single and double-sided mechanical keys cut on precision factory calibrated key duplicators."
+    note: "Single and double-sided mechanical keys cut on factory-calibrated key duplicators."
   },
   {
     name: "Transponder / Chipped Key Cut & Programmed",
@@ -58,7 +58,7 @@ const autoPricing = [
     name: "Broken Key Extraction from Lock or Ignition",
     price: "$75+",
     badge: "Clean Extraction",
-    note: "Precision broken blade removal without damaging internal wafers, plus an on-site fresh replacement key cut."
+    note: "Broken blade removal without damaging internal wafers, plus an on-site fresh replacement key cut."
   },
   {
     name: "Ignition Cylinder Repair / Replacement",
@@ -97,7 +97,7 @@ const residentialPricing = [
     name: "Fresh Door Hole Drilling & Mortise Prep",
     price: "$75+",
     badge: "New Deadbolt Addition",
-    note: "Precision template drilling and chisel mortising to add a brand-new deadbolt to an unprepared wooden or metal door."
+    note: "Template drilling and chisel mortising to add a brand-new deadbolt to an unprepared wooden or metal door."
   },
   {
     name: "Electronic Keypad & Smart Lock Installation",
@@ -160,7 +160,7 @@ const commercialPricing = [
     name: "Commercial Hydraulic Door Closer Install",
     price: "$175 + Parts",
     badge: "Controlled Closing",
-    note: "Mounting commercial surface closers with precision dual-valve closing speed and latching power adjustment."
+    note: "Mounting commercial surface closers with dual-valve closing speed and latching power adjustment."
   }
 ];
 
@@ -203,6 +203,7 @@ const pricingSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Locksmith",
+    "@id": "https://armstronglocksmithinc.com/#locksmith",
     "name": "Armstrong Locksmith Inc",
     "image": "https://armstronglocksmithinc.com/shop.jpeg",
     "telephone": "+1-615-625-8000",
@@ -277,7 +278,7 @@ const pricingSchema = [
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/locksmith-pricing-nashville/" schema={pricingSchema}>
+<Layout title={seoTitle} description={seoDescription} canonical="/locksmith-pricing-nashville/" schema={pricingSchema} breadcrumb={false}>
 
   <!-- Hero Section -->
   <header class="relative bg-showroom text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
@@ -516,9 +517,9 @@ const pricingSchema = [
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-200">
               Consumer Alert
             </span>
-            <h3 class="text-lg sm:text-xl font-bold font-heading uppercase text-slate-900">
+            <h2 class="text-lg sm:text-xl font-bold font-heading uppercase text-slate-900">
               How to Avoid "$15 Locksmith" Bait-and-Switch Scams
-            </h3>
+            </h2>
             <p class="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed">
               Out-of-state dispatch centers place search ads quoting unrealistic $15–$19 fees. Once on-site, untrained subcontractors drill out functioning locks and bill victims $250 to $450+. Armstrong Locksmith operates a real storefront at 208 Thompson Ln and gives you a firm total before dispatch.
             </p>

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
@@ -30,18 +32,7 @@ const residentialSchema = [
     "@type": "Service",
     "name": "Residential Locksmith & Rekeying Services",
     "serviceType": "Residential Locksmith",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+16156258000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Green Hills", "Belle Meade"],
     "description": "Comprehensive residential home security: deadbolt rekeying, high-security lock installation, smart keypad locks, and emergency home lockout assistance."
   },
@@ -77,7 +68,8 @@ const residentialSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Residential Lock Rekeying & Home Security",
     "description": "Professional home deadbolt rekeying, smart lock keypad installation, and lock repairs in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
@@ -90,19 +82,15 @@ const residentialSchema = [
       "priceCurrency": "USD",
       "lowPrice": "75",
       "highPrice": "250",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/residential-locksmith-nashville/" schema={residentialSchema} image="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/residential-locksmith-nashville/" schema={residentialSchema} image="/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg" breadcrumb={false}>
   
   <!-- ==================== LUXURY HERO SECTION ==================== -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
@@ -142,7 +130,7 @@ const residentialSchema = [
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
           <div class="flex items-center gap-1.5">
             <span class="text-amber-400 font-bold">★★★★★</span>
-            <span><strong class="text-white">4.9/5 Rating</strong> (<span class="arm-review-count">773+</span> Reviews)</span>
+            <span><strong class="text-white">4.9/5 Rating</strong> (<span class="arm-review-count">{reviewCount}+</span> Reviews)</span>
           </div>
           <span class="hidden sm:inline text-slate-500">&bull;</span>
           <div class="flex items-center gap-1.5">

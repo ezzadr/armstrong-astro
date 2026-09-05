@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "Hyundai Key Replacement Nashville | Keys & Smart Fobs";
-const seoDescription = "Lost your Hyundai key in Nashville? We cut laser blades and program proximity smart keys & flip fobs on-site across Middle TN. Save vs dealer. (615) 625-8000.";
+const seoDescription = "Lost your Hyundai key in Nashville? We cut laser blades and program smart keys & flip fobs on-site across Middle TN. Save vs dealer. (615) 625-8000.";
 
 // Rich Schema for Hyundai Service
 const hyundaiSchema = [
@@ -12,19 +14,7 @@ const hyundaiSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Hyundai Car Key Replacement",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
     "description": "On-site Hyundai smart key fob cutting and immobilizer programming for Elantra, Sonata, Tucson, Santa Fe, Palisade, Kona, and Ioniq in Nashville, TN."
   },
@@ -60,7 +50,8 @@ const hyundaiSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Hyundai Key Replacement & Smart Fob Programming",
     "description": "On-site Hyundai laser key cutting, transponder programming, and proximity key fobs in Nashville, TN.",
     "image": "https://armstronglocksmithinc.com/images/Hyundai-car-key.png",
@@ -73,13 +64,9 @@ const hyundaiSchema = [
       "priceCurrency": "USD",
       "lowPrice": "145",
       "highPrice": "285",
-      "offerCount": "1",
       "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Locksmith",
-        "name": "Armstrong Locksmith Inc"
-      }
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
   }
 ];
@@ -129,7 +116,7 @@ const hyundaiModels = [
           >
             <span class="text-amber-400">★★★★★</span>
             <span class="text-white font-extrabold">4.9</span>
-            <span class="text-slate-300">(775+ Reviews)</span>
+            <span class="text-slate-300">(<span class="arm-review-count">{reviewCount}+</span> Reviews)</span>
           </a>
         </div>
 
@@ -342,7 +329,7 @@ const hyundaiModels = [
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-[#0f274a]">
-            <span>Precision Computerized Mill</span>
+            <span>Computerized Key Mill</span>
             <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </div>
         </div>

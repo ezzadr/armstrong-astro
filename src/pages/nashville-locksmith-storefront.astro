@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 
 const seoTitle = "Locksmith Shop Nashville | 208 Thompson Ln | Armstrong";
-const seoDescription = "Visit our real Nashville shop at 208 Thompson Ln. Certified master locksmith with 773+ 5-star reviews. Walk-in key duplication & fobs. Call (615) 625-8000.";
+const seoDescription = "Visit our real Nashville shop at 208 Thompson Ln. Certified master locksmith, 4.9 stars on Google. Walk-in key duplication & fobs. Call (615) 625-8000.";
 
 const schema = [
   {
     "@context": "https://schema.org",
     "@type": "Locksmith",
-    "name": "Armstrong Locksmith Storefront",
+    "@id": "https://armstronglocksmithinc.com/#locksmith",
+    "name": "Armstrong Locksmith Inc",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "208 Thompson Ln",
@@ -175,15 +177,7 @@ const schema = [
             See our shop at 208 Thompson Ln equipped with advanced key cutters, diagnostic benches, and thousands of key blanks ready for walk-in service.
           </p>
           <div class="w-full overflow-hidden shadow-2xl border border-slate-700 aspect-video bg-black mt-2">
-            <iframe 
-              class="w-full h-full" 
-              src="https://www.youtube.com/embed/Ico9ZEPpqEk" 
-              title="Armstrong Locksmith Shop Storefront | Nashville, TN" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen 
-              loading="lazy">
-            </iframe>
+            <YouTubeFacade id="Ico9ZEPpqEk" title="Armstrong Locksmith Shop Storefront | Nashville, TN" />
           </div>
         </div>
       </section>

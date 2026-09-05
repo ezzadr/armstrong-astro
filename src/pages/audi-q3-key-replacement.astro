@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Audi Q3 Key Replacement Nashville TN | Armstrong Locksmith";
@@ -10,19 +11,7 @@ const audiQ3Schema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Audi Q3 Car Key Replacement",
-    "provider": {
-      "@type": "Locksmith",
-      "name": "Armstrong Locksmith Inc",
-      "telephone": "+1-615-625-8000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "208 Thompson Ln",
-        "addressLocality": "Nashville",
-        "addressRegion": "TN",
-        "postalCode": "37211",
-        "addressCountry": "US"
-      }
-    },
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
     "description": "On-site Audi Q3 smart proximity key cutting, MQB immobilizer pairing, and laser key duplication in Nashville, TN."
   },
@@ -133,14 +122,7 @@ const audiQ3Schema = [
           </div>
         </div>
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black">
-          <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/i_GF_mS0lBk" 
-            title="Dealer-Level Audi Q3 Key Programming in Action" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
+          <YouTubeFacade id="i_GF_mS0lBk" title="Dealer-Level Audi Q3 Key Programming in Action" />
         </div>
       </section>
       

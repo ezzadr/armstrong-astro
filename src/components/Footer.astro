@@ -1,5 +1,8 @@
 ---
 // Footer.astro - Clean, Spacious, Organized Modern Footer (Sharp Industrial Edges)
+import { getReviewStats } from '../lib/reviewStats.mjs';
+// Server-rendered so the count is right before JS runs; .arm-review-count spans are refreshed live by syncReviewCounts() in Header.astro.
+const { reviewCount } = await getReviewStats();
 ---
 
 <footer class="bg-[#0b172a] text-slate-300 pt-16 pb-24 md:pb-12 border-t-2 border-amber-500 font-sans" role="contentinfo">
@@ -217,7 +220,7 @@
             </div>
             <div class="flex justify-between items-center text-slate-300 text-[11px]">
               <span>Sunday:</span>
-              <span class="text-emerald-300 font-bold">On-Call Dispatch</span>
+              <span class="text-slate-400 font-bold">Closed</span>
             </div>
           </div>
         </div>
@@ -226,14 +229,14 @@
         <a 
           href="/google-reviews/" 
           class="p-3 bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-amber-500/40 rounded-sm transition-all group flex items-center justify-between shadow-xs"
-          aria-label="View our 774+ Google Reviews"
+          aria-label={`View our ${reviewCount}+ Google Reviews`}
         >
           <div class="flex flex-col">
             <div class="flex items-center gap-1.5">
               <span class="text-amber-400 text-xs">★★★★★</span>
               <span class="text-white font-bold text-xs">4.9 / 5.0</span>
             </div>
-            <span class="text-[10px] text-slate-400">774+ Verified Google Reviews</span>
+            <span class="text-[10px] text-slate-400"><span class="arm-review-count">{reviewCount}+</span> Verified Google Reviews</span>
           </div>
           <span class="text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
         </a>
