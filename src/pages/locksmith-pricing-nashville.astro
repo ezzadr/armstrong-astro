@@ -5,157 +5,6 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 const seoTitle = "2026 Locksmith Pricing Nashville | No Hidden Fees | Armstrong";
 const seoDescription = "Transparent Nashville locksmith prices for car keys, house rekeys, business locks & emergency lockouts. Real local shop at 208 Thompson Ln. Call (615) 625-8000.";
 
-// Rich Schema: BreadcrumbList + Locksmith OfferCatalog + FAQPage
-const pricingSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://armstronglocksmithinc.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Locksmith Pricing",
-        "item": "https://armstronglocksmithinc.com/locksmith-pricing-nashville/"
-      }
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Locksmith",
-    "name": "Armstrong Locksmith Inc",
-    "image": "https://armstronglocksmithinc.com/shop.jpeg",
-    "telephone": "+1-615-625-8000",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "208 Thompson Ln",
-      "addressLocality": "Nashville",
-      "addressRegion": "TN",
-      "postalCode": "37211",
-      "addressCountry": "US"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Transparent Nashville Locksmith Pricing",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Emergency Car Lockout"
-          },
-          "price": "65",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Transponder Key Cut & Programmed"
-          },
-          "price": "95",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Smart Proximity Push-to-Start Fob"
-          },
-          "price": "145",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Standard Deadbolt Rekeying"
-          },
-          "price": "20",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Emergency House Lockout"
-          },
-          "price": "85",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Commercial Storefront Glass Door Lock Replacement"
-          },
-          "price": "165",
-          "priceCurrency": "USD"
-        }
-      ]
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Why do your prices say 'starting at'?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every vehicle year, key technology, and lock manufacturer is unique. A 2005 Ford key requires a basic mechanical cut and transponder chip, while a 2024 BMW requires high-security encrypted immobilizer pairing. When you call us, we ask for your vehicle year, make, and model to give you an exact, firm total quote before dispatching."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does your service call fee work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If you visit our physical storefront at 208 Thompson Ln, there is a $0 service call fee—you pay only for keys, cutting, and hardware. For mobile on-site service, our service call fee varies depending on your travel distance from our shop and the time of call (standard hours vs. late night/weekend emergency). We provide an exact, firm total quote over the phone before dispatching our van."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does your pricing compare to the car dealership?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Dealerships often charge $400 to $900+ for replacement smart keys, require you to pay $100–$200 for flatbed towing, and make you wait 5 to 10 business days for key delivery. Armstrong Locksmith comes directly to your driveway or parking spot with dealer-level diagnostic equipment, saving you 40% to 60% with same-day on-site delivery."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I avoid cheap '$15 locksmith' scams in Nashville?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Out-of-state call centers place Google Ads advertising fake '$15' or '$19' service fees. Once on-site, untrained subcontractors drill out working locks and bill victims $250 to $450. Always verify a real physical Nashville address (like our shop at 208 Thompson Ln) and insist on a firm phone total before dispatch."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide written or firm estimates before starting work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, 100%. We provide upfront pricing over the phone and confirm all costs in person before touching your vehicle or locks. There are never surprise fees or hidden add-ons."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What payment methods do you accept?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We accept all major credit cards (Visa, MasterCard, American Express, Discover), Apple Pay, Google Pay, debit cards, cash, and commercial invoicing for approved business accounts."
-        }
-      }
-    ]
-  }
-];
-
 const autoPricing = [
   {
     name: "Emergency Car Lockout (Standard Vehicles)",
@@ -312,6 +161,118 @@ const commercialPricing = [
     price: "$175 + Parts",
     badge: "Controlled Closing",
     note: "Mounting commercial surface closers with precision dual-valve closing speed and latching power adjustment."
+  }
+];
+
+const offerCatalogItems = [...autoPricing, ...residentialPricing, ...commercialPricing].map(item => {
+  const match = item.price.match(/\d+/);
+  return {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": item.name,
+      "description": item.note
+    },
+    "price": match ? match[0] : "65",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://armstronglocksmithinc.com/locksmith-pricing-nashville/"
+  };
+});
+
+// Rich Schema: BreadcrumbList + Locksmith OfferCatalog (All 25 Services) + FAQPage
+const pricingSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://armstronglocksmithinc.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Locksmith Pricing",
+        "item": "https://armstronglocksmithinc.com/locksmith-pricing-nashville/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Locksmith",
+    "name": "Armstrong Locksmith Inc",
+    "image": "https://armstronglocksmithinc.com/shop.jpeg",
+    "telephone": "+1-615-625-8000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "208 Thompson Ln",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "postalCode": "37211",
+      "addressCountry": "US"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Transparent Nashville Locksmith Pricing",
+      "itemListElement": offerCatalogItems
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why do your prices say 'starting at'?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every vehicle year, key technology, and lock manufacturer is unique. A 2005 Ford key requires a basic mechanical cut and transponder chip, while a 2024 BMW requires high-security encrypted immobilizer pairing. When you call us, we ask for your vehicle year, make, and model to give you an exact, firm total quote before dispatching."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does your service call fee work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you visit our physical storefront at 208 Thompson Ln, there is a $0 service call fee—you pay only for keys, cutting, and hardware. For mobile on-site service, our service call fee varies depending on your travel distance from our shop and the time of call (standard hours vs. late night/weekend emergency). We provide an exact, firm total quote over the phone before dispatching our van."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does your pricing compare to the car dealership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dealerships often charge $400 to $900+ for replacement smart keys, require you to pay $100–$200 for flatbed towing, and make you wait 5 to 10 business days for key delivery. Armstrong Locksmith comes directly to your driveway or parking spot with dealer-level diagnostic equipment, saving you 40% to 60% with same-day on-site delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I avoid cheap '$15 locksmith' scams in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Out-of-state call centers place Google Ads advertising fake '$15' or '$19' service fees. Once on-site, untrained subcontractors drill out working locks and bill victims $250 to $450. Always verify a real physical Nashville address (like our shop at 208 Thompson Ln) and insist on a firm phone total before dispatch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide written or firm estimates before starting work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, 100%. We provide upfront pricing over the phone and confirm all costs in person before touching your vehicle or locks. There are never surprise fees or hidden add-ons."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods do you accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept all major credit cards (Visa, MasterCard, American Express, Discover), Apple Pay, Google Pay, debit cards, cash, and commercial invoicing for approved business accounts."
+        }
+      }
+    ]
   }
 ];
 ---
