@@ -1,0 +1,36 @@
+{
+  "_comment": "Last-known-good Google review snapshot, refreshed automatically by src/lib/reviewStats.mjs on any build that reaches /api/reviews.php. Real Google reviews only - never hand-write entries here.",
+  "synced_at": "2026-09-09T05:39:11.555Z",
+  "rating": 4.9,
+  "user_ratings_total": 778,
+  "reviews": [
+    {
+      "author_name": "Aidan Hardison",
+      "rating": 5,
+      "relative_time_description": "in the last week",
+      "text": "Had an amazing experience with Rahim! He was very knowledgeable and personable. I was in and out of the door, with 2 programmed keys, in less than 20 minutes!",
+      "service": "Verified Customer"
+    },
+    {
+      "author_name": "Scott Cassity",
+      "rating": 5,
+      "relative_time_description": "in the last week",
+      "text": "Fantastic service and very thorough!!!! Highly recommend",
+      "service": "Verified Customer"
+    },
+    {
+      "author_name": "April Dayton",
+      "rating": 5,
+      "relative_time_description": "in the last week",
+      "text": "​Fast and friendly service, I was in and out in ten minutes with exactly what I needed. Highly recommend Armstrong Locksmith!",
+      "service": "Verified Customer"
+    },
+    {
+      "author_name": "Grey Kenna",
+      "rating": 5,
+      "relative_time_description": "a week ago",
+      "text": "Armstrong Locksmith was so helpful, kind and efficient when I came in after both of my car key fobs broke. They helped fix one of my key fobs and then cut me a new manual key and made sure to test everything twice to make sure it worked. I’d recommend them to anyone who needs a reliable locksmith!",
+      "service": "Verified Customer"
+    }
+  ]
+}

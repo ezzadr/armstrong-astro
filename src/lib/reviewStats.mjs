@@ -9,18 +9,108 @@
 // syncReviewCounts() in Header.astro.
 //
 // The result is memoized at module scope so all ~45 pages in a build reuse a
-// single fetch. On any failure (offline build, endpoint down, bad payload) the
-// numbers fall back to the last known-good values below and the review list is
-// empty (never invented), so a build never breaks and the schema is never empty.
+// single fetch. On any failure (offline build, endpoint down, blocked runner,
+// bad payload) everything falls back to the last-known-good snapshot committed
+// at src/data/reviews-fallback.json — real reviews previously returned by the
+// live endpoint, never invented — so a build never breaks, the schema is never
+// empty, and Googlebot still gets review cards in the server-rendered HTML.
+//
+// That snapshot refreshes itself: any build that DOES reach the endpoint writes
+// the new reviews back to the file, and CI commits it with the build output.
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ENDPOINT = 'https://armstronglocksmithinc.com/api/reviews.php';
 
-// Last manually-verified figures. Bump these to the current live values so the
-// fallback is never badly stale if a build ever can't reach the endpoint.
-const FALLBACK = { reviewCount: '777', ratingValue: '4.9' };
+const SNAPSHOT_PATH = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+  'data',
+  'reviews-fallback.json',
+);
+
+// Last-resort figures, used only if the snapshot file is missing or unreadable.
+// Bump these to the current live values when you notice them drifting.
+const FALLBACK = { reviewCount: '778', ratingValue: '4.9' };
 
 let cached = null;
 let cachedReviews = [];
+
+// Only reviews that are 4 stars and up and actually have text ever get shown.
+function usableReviews(list) {
+  return Array.isArray(list)
+    ? list.filter(
+        (r) => r && r.author_name && (r.rating ?? 0) >= 4 && String(r.text || '').trim() !== '',
+      )
+    : [];
+}
+
+function readSnapshot() {
+  try {
+    const snap = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+    const count = parseInt(snap?.user_ratings_total, 10);
+    const rating = parseFloat(snap?.rating);
+    return {
+      reviewCount: Number.isFinite(count) && count > 0 ? String(count) : FALLBACK.reviewCount,
+      ratingValue: Number.isFinite(rating) && rating > 0 ? String(rating) : FALLBACK.ratingValue,
+      reviews: usableReviews(snap?.reviews),
+      syncedAt: snap?.synced_at || 'unknown',
+    };
+  } catch {
+    return null;
+  }
+}
+
+// Keep the committed snapshot current whenever a build reaches the endpoint.
+// Writes only on an actual change, so untouched builds stay diff-free. Never
+// throws: a read-only checkout must not break the build.
+function writeSnapshot(reviews, count, rating) {
+  if (reviews.length === 0) return;
+  try {
+    const next = {
+      _comment:
+        'Last-known-good Google review snapshot, refreshed automatically by src/lib/reviewStats.mjs on any build that reaches /api/reviews.php. Real Google reviews only - never hand-write entries here.',
+      synced_at: new Date().toISOString(),
+      rating: Number(rating),
+      user_ratings_total: Number(count),
+      reviews,
+    };
+    const sameAsDisk = (() => {
+      try {
+        const prev = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+        return (
+          JSON.stringify({ ...prev, synced_at: null }) === JSON.stringify({ ...next, synced_at: null })
+        );
+      } catch {
+        return false;
+      }
+    })();
+    if (sameAsDisk) return;
+    fs.mkdirSync(path.dirname(SNAPSHOT_PATH), { recursive: true });
+    fs.writeFileSync(SNAPSHOT_PATH, `${JSON.stringify(next, null, 2)}\n`);
+    console.log(`[reviewStats] refreshed fallback snapshot (${reviews.length} reviews)`);
+  } catch (err) {
+    console.warn(`[reviewStats] could not refresh snapshot (${err?.code || 'error'}); continuing`);
+  }
+}
+
+function useSnapshot(why) {
+  const snap = readSnapshot();
+  if (snap) {
+    cached = { reviewCount: snap.reviewCount, ratingValue: snap.ratingValue };
+    cachedReviews = snap.reviews;
+    console.warn(
+      `[reviewStats] ${why}; using snapshot from ${snap.syncedAt}: ${cached.reviewCount} reviews, ${cachedReviews.length} review cards`,
+    );
+  } else {
+    cached = { ...FALLBACK };
+    cachedReviews = [];
+    console.warn(`[reviewStats] ${why} and no readable snapshot; using ${FALLBACK.reviewCount}`);
+  }
+  return cached;
+}
 
 export async function getReviewStats() {
   if (cached) return cached;
@@ -32,29 +122,27 @@ export async function getReviewStats() {
       const count = parseInt(d?.user_ratings_total, 10);
       const rating = parseFloat(d?.rating);
       if (Number.isFinite(count) && count > 0) {
-        cached = {
-          reviewCount: String(count),
-          ratingValue: Number.isFinite(rating) && rating > 0 ? String(rating) : FALLBACK.ratingValue,
-        };
-        cachedReviews = Array.isArray(d?.reviews)
-          ? d.reviews.filter((r) => r && r.author_name && (r.rating ?? 0) >= 4 && String(r.text || '').trim() !== '')
-          : [];
-        console.log(`[reviewStats] synced from live endpoint: ${cached.reviewCount} reviews, ${cached.ratingValue} stars, ${cachedReviews.length} review cards`);
+        const ratingValue =
+          Number.isFinite(rating) && rating > 0 ? String(rating) : FALLBACK.ratingValue;
+        cached = { reviewCount: String(count), ratingValue };
+        cachedReviews = usableReviews(d?.reviews);
+        console.log(
+          `[reviewStats] synced from live endpoint: ${cached.reviewCount} reviews, ${cached.ratingValue} stars, ${cachedReviews.length} review cards`,
+        );
+        writeSnapshot(cachedReviews, count, ratingValue);
         return cached;
       }
     }
-    console.warn(`[reviewStats] endpoint returned no usable count (HTTP ${res.status}); using fallback ${FALLBACK.reviewCount}`);
+    return useSnapshot(`endpoint returned no usable count (HTTP ${res.status})`);
   } catch (err) {
-    console.warn(`[reviewStats] fetch failed (${err?.name || 'error'}); using fallback ${FALLBACK.reviewCount}`);
+    return useSnapshot(`fetch failed (${err?.name || 'error'})`);
   }
-
-  cached = { ...FALLBACK };
-  return cached;
 }
 
-// Newest real Google reviews (4 stars and up, with text) from the same fetch.
-// Empty when the endpoint could not be reached: the homepage then renders no
-// cards server-side and fills them in the browser once /api/reviews.php answers.
+// Newest real Google reviews (4 stars and up, with text). Live when the build
+// reached the endpoint, otherwise the last-known-good snapshot, so the homepage
+// always server-renders cards. The browser still refreshes them on load via
+// syncLiveGoogleReviews() in index.astro.
 export async function getLiveReviews() {
   await getReviewStats();
   return cachedReviews;
