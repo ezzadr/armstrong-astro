@@ -8,7 +8,7 @@ const { reviewCount } = await getReviewStats();
 <header id="arm-site-header" class="sticky top-0 z-50 w-full bg-white border-b-2 border-slate-200 shadow-sm font-sans">
 
   <!-- Main Navigation Row -->
-  <div class="max-w-[96rem] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4">
+  <div class="max-w-[96rem] mx-auto px-4 sm:px-6 xl:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3 xl:gap-4">
 
     <!-- Official Company Logo (Ultra-Lightweight 6KB WebP) -->
     <a href="/" class="flex items-center flex-shrink-0 group" aria-label="Armstrong Locksmith Homepage">
@@ -17,7 +17,7 @@ const { reviewCount } = await getReviewStats();
         <img
           src="/logo.png"
           alt="Armstrong Locksmith Nashville"
-          class="h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-transform group-hover:scale-102"
+          class="h-12 sm:h-14 md:h-16 xl:h-18 w-auto object-contain transition-transform group-hover:scale-102"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -27,18 +27,25 @@ const { reviewCount } = await getReviewStats();
       </picture>
     </a>
 
-    <!-- Desktop Navigation Links with column dividers (Available from lg: 1024px+) -->
-    <nav class="arm-desktop-nav hidden lg:flex items-center divide-x divide-slate-200 border-x border-slate-200 text-[13.5px] xl:text-[14px] font-bold text-slate-800" aria-label="Main Navigation">
+    <!-- Desktop Navigation Links with column dividers (Available from lg: 1024px+).
+         `relative` here is what the Car Keys panel anchors to - see below. The lg
+         sizes are deliberately tighter than xl: at 1024-1279px the full row
+         (logo + 4 items + both CTAs) otherwise overflows the viewport. -->
+    <nav class="arm-desktop-nav relative hidden lg:flex items-center divide-x divide-slate-200 border-x border-slate-200 text-[12px] xl:text-[14px] font-bold text-slate-800" aria-label="Main Navigation">
 
-      <!-- Silo 1: Car Keys & Makes Mega-Dropdown -->
-      <div class="relative group">
-        <a href="/car-key-replacement-nashville/" class="arm-nav-item px-3.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
+      <!-- Silo 1: Car Keys & Makes Mega-Dropdown.
+           This group is NOT `relative` on purpose: the 870px panel is anchored to
+           the <nav> instead of the trigger. Centering it on the trigger
+           (left-1/2 -translate-x-[42%]) pushed the whole European column off the
+           left edge of the screen at every width up to 1280px. -->
+      <div class="group">
+        <a href="/car-key-replacement-nashville/" class="arm-nav-item px-2 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-car-keys">
           <span>Car Keys &amp; Makes</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
         <!-- 3-Column Luxury Mega Dropdown Panel -->
-        <div class="absolute top-full left-1/2 -translate-x-[42%] hidden group-hover:block group-focus-within:block w-[870px] max-w-[calc(100vw-2rem)] bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
+        <div id="arm-menu-car-keys" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[870px] max-w-[calc(100vw-2rem)] bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
           <div class="h-[3px] bg-gold-metallic"></div>
 
           <div class="grid grid-cols-3 divide-x divide-slate-200 p-5 xl:p-6 gap-6">
@@ -51,7 +58,7 @@ const { reviewCount } = await getReviewStats();
                     <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg>
                     <span>European Specialists</span>
                   </div>
-                  <span class="text-[9px] bg-amber-500 text-slate-950 font-black px-1.5 py-0.5 tracking-wider">DEALER LEVEL</span>
+                  <span class="text-[9px] bg-amber-500 text-slate-950 font-black px-1.5 py-0.5 tracking-wider whitespace-nowrap shrink-0">DEALER LEVEL</span>
                 </div>
 
                 <div class="flex flex-col divide-y divide-slate-100">
@@ -205,12 +212,12 @@ const { reviewCount } = await getReviewStats();
 
       <!-- Silo 2: Commercial & Locks Mega-Dropdown (Balanced & High-Ticket Commercial Focus) -->
       <div class="relative group">
-        <a href="/commercial-locksmith/" class="arm-nav-item px-3.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
+        <a href="/commercial-locksmith/" class="arm-nav-item px-2 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-commercial">
           <span>Commercial &amp; Locks</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
-        <div class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[640px] max-w-[calc(100vw-2rem)] bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
+        <div id="arm-menu-commercial" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[640px] max-w-[calc(100vw-2rem)] bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
           <div class="h-[3px] bg-gold-metallic"></div>
 
           <div class="grid grid-cols-2 divide-x divide-slate-200 p-5 gap-6">
@@ -289,11 +296,11 @@ const { reviewCount } = await getReviewStats();
 
       <!-- Silo 3: Pricing & Reviews Dropdown -->
       <div class="relative group">
-        <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-3.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
+        <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-2 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-pricing">
           <span>Pricing &amp; Proof</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
-        <div class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-76 bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
+        <div id="arm-menu-pricing" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-76 bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
           <div class="h-[3px] bg-gold-metallic"></div>
           <div class="divide-y divide-slate-100">
             <a href="/locksmith-pricing-nashville/" class="group/item flex items-center justify-between px-4 py-3 bg-amber-50/60 hover:bg-amber-100 font-bold text-amber-950 transition-colors">
@@ -330,11 +337,11 @@ const { reviewCount } = await getReviewStats();
 
       <!-- Silo 4: Locations & About Dropdown -->
       <div class="relative group">
-        <a href="/service-areas/" class="arm-nav-item px-3.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
+        <a href="/service-areas/" class="arm-nav-item px-2 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-locations">
           <span>Locations &amp; About</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
-        <div class="absolute top-full right-0 hidden group-hover:block group-focus-within:block w-76 bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
+        <div id="arm-menu-locations" class="absolute top-full right-0 hidden group-hover:block group-focus-within:block w-76 bg-white shadow-luxury-card ring-1 ring-black/5 border-x border-b border-slate-200 z-50 mt-0 text-xs overflow-hidden">
           <div class="h-[3px] bg-gold-metallic"></div>
           <div class="divide-y divide-slate-100">
             <a href="/service-areas/" class="group/item flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 hover:text-[#0f274a] transition-colors">
@@ -384,7 +391,7 @@ const { reviewCount } = await getReviewStats();
       <!-- Prominent Call Button (Navy & High Contrast) -->
       <a
         href="tel:6156258000"
-        class="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap border border-slate-700"
+        class="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-3 xl:px-4 py-2 sm:py-2.5 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap border border-slate-700"
         aria-label="Call Armstrong Locksmith at (615) 625-8000"
       >
         <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
@@ -394,7 +401,7 @@ const { reviewCount } = await getReviewStats();
       <!-- Book Online Button (Desktop >= 768px) - Gold Metallic Exact Match -->
       <a
         href="/book-online/"
-        class="hidden md:inline-flex items-center justify-center px-4 py-2 sm:py-2.5 bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-xs sm:text-sm shadow-md transition active:scale-95 whitespace-nowrap border-b-2 border-amber-600 cursor-pointer"
+        class="hidden md:inline-flex items-center justify-center px-4 lg:px-3 xl:px-4 py-2 sm:py-2.5 bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-xs sm:text-sm shadow-md transition active:scale-95 whitespace-nowrap border-b-2 border-amber-600 cursor-pointer"
         aria-label="Book Locksmith Service Online"
       >
         <span>Book Online</span>
@@ -675,72 +682,70 @@ const { reviewCount } = await getReviewStats();
 
       // Desktop mega-dropdowns.
       //
-      // The panels open purely through Tailwind's group-hover / group-focus-within,
-      // which works for mouse and keyboard. Two problems came out of that:
-      //   1. The <button> triggers were inert - clicking them did nothing at all.
-      //   2. Their aria-expanded shipped as "false" and nothing ever updated it,
-      //      so a screen reader was told the menu was collapsed while it was
-      //      visibly open. A wrong state is worse than no state.
-      //
-      // Triggers that are <a> (Car Keys, About Us) are deliberately left alone:
-      // clicking them navigates to the hub page, which is the correct behaviour.
-      // Only the <button> triggers, which had no click behaviour to break, are wired up.
+      // The panels open through Tailwind's group-hover / group-focus-within, so
+      // mouse and keyboard users never need JS. This adds two things on top:
+      //   1. Keeps each trigger's aria-expanded truthful while a panel is open by
+      //      hover or focus (it ships as "false" and CSS can't update it).
+      //   2. Tap-only devices (iPad Pro landscape is 1024px and gets this nav):
+      //      there is no hover, so the first tap on a trigger opens its panel
+      //      instead of navigating and a second tap follows the link. Mouse and
+      //      keyboard users are unaffected - hover / focus has already opened the
+      //      panel by the time the click lands, so the click just navigates.
       function setupDesktopDropdowns() {
-        const triggers = document.querySelectorAll('nav button[aria-haspopup="true"]');
+        const items = [];
+        document.querySelectorAll('.arm-desktop-nav a.arm-nav-item[aria-controls]').forEach(trigger => {
+          const group = trigger.closest('.group');
+          const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+          if (group && panel) items.push({ trigger, group, panel, shownAt: 0 });
+        });
+        if (!items.length) return;
 
-        triggers.forEach(btn => {
-          const group = btn.closest('.group');
-          if (!group) return;
-          const panel = group.querySelector(':scope > div.absolute');
-          if (!panel) return;
+        const tapOnly = window.matchMedia('(hover: none)');
+        const isVisible = item => getComputedStyle(item.panel).display !== 'none';
+        // "pinned" = opened by a tap, held open with an inline style
+        const isPinned = item => item.panel.style.display === 'block';
+        const sync = item => item.trigger.setAttribute('aria-expanded', isVisible(item) ? 'true' : 'false');
+        const pin = item => { item.panel.style.display = 'block'; sync(item); };
+        const unpin = item => {
+          // removing the inline style hands control back to the hover/focus classes
+          item.panel.style.removeProperty('display');
+          sync(item);
+        };
 
-          const isOpen = () => panel.style.display === 'block';
-          const open = () => {
-            // inline display beats the utility classes; removing it hands control back
-            panel.style.display = 'block';
-            btn.setAttribute('aria-expanded', 'true');
-          };
-          const close = () => {
-            panel.style.removeProperty('display');
-            btn.setAttribute('aria-expanded', 'false');
-          };
+        items.forEach(item => {
+          const { trigger, group } = item;
 
-          btn.addEventListener('click', e => {
+          trigger.addEventListener('click', e => {
+            if (isPinned(item)) return; // second tap: follow the link
+            // Touch browsers emulate :hover on the tap itself, so on a tap-only
+            // device a panel that appeared in the same instant as this click
+            // was opened by this tap - keep it open rather than navigating.
+            if (isVisible(item) && (!tapOnly.matches || Date.now() - item.shownAt > 400)) return;
             e.preventDefault();
-            const wasOpen = isOpen();
-            // only one open at a time
-            triggers.forEach(other => {
-              const g = other.closest('.group');
-              const p = g && g.querySelector(':scope > div.absolute');
-              if (p) p.style.removeProperty('display');
-              other.setAttribute('aria-expanded', 'false');
-            });
-            if (!wasOpen) open();
+            items.forEach(unpin);
+            pin(item);
           });
 
-          // keep the attribute truthful when the panel is opened by hover or focus
-          group.addEventListener('mouseenter', () => btn.setAttribute('aria-expanded', 'true'));
-          group.addEventListener('mouseleave', () => {
-            if (!isOpen()) btn.setAttribute('aria-expanded', 'false');
-          });
-          group.addEventListener('focusin', () => btn.setAttribute('aria-expanded', 'true'));
+          // hover / focus open the panel via CSS; only the attribute needs updating
+          group.addEventListener('mouseenter', () => { item.shownAt = Date.now(); sync(item); });
+          group.addEventListener('mouseleave', () => { if (!isPinned(item)) sync(item); });
+          group.addEventListener('focusin', () => sync(item));
           group.addEventListener('focusout', () => {
-            if (!group.contains(document.activeElement) && !isOpen()) close();
-          });
-
-          document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && isOpen()) { close(); btn.focus(); }
+            // let focus land first so :focus-within reflects the new target
+            setTimeout(() => { if (!isPinned(item)) sync(item); }, 0);
           });
         });
 
         document.addEventListener('click', e => {
-          triggers.forEach(btn => {
-            const group = btn.closest('.group');
-            if (group && !group.contains(e.target)) {
-              const panel = group.querySelector(':scope > div.absolute');
-              if (panel) panel.style.removeProperty('display');
-              btn.setAttribute('aria-expanded', 'false');
-            }
+          items.forEach(item => {
+            if (isPinned(item) && !item.group.contains(e.target)) unpin(item);
+          });
+        });
+
+        document.addEventListener('keydown', e => {
+          if (e.key !== 'Escape') return;
+          items.forEach(item => {
+            if (isPinned(item)) { unpin(item); item.trigger.focus(); }
           });
         });
       }
