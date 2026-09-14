@@ -12,6 +12,13 @@ ErrorDocument 404 /404-handler.php
   RewriteEngine On
   RewriteBase /
 
+  # Block source and doc files from ever being served. The "Require all denied"
+  # block in section 7 is inert on this host -- Apache here honours mod_rewrite
+  # (the 301s below work) but ignores mod_authz_core Require directives, so a
+  # .py stayed readable at 200 while .md happened to be blocked upstream.
+  # mod_rewrite is the only mechanism we control, so the block lives here.
+  RewriteRule \.(py|mjs|md|yml|yaml|lock)$ - [F,L]
+
   # Force HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
