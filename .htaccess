@@ -12,11 +12,15 @@ ErrorDocument 404 /404-handler.php
   RewriteEngine On
   RewriteBase /
 
-  # Block source and doc files from ever being served. The "Require all denied"
-  # block in section 7 is inert on this host -- Apache here honours mod_rewrite
-  # (the 301s below work) but ignores mod_authz_core Require directives, so a
-  # .py stayed readable at 200 while .md happened to be blocked upstream.
-  # mod_rewrite is the only mechanism we control, so the block lives here.
+  # Block source and doc files from being served. NOTE: this rule does not
+  # currently fire. Cloudways serves existing static files straight from
+  # Nginx, so .htaccess never sees the request -- verified 2026-09-14, when
+  # /scripts/release-booking-page.py kept returning 200 with both this rule
+  # and the section 7 "Require all denied" block deployed. The .md/.mjs/.json
+  # blocking that does work comes from the host, not from us. Kept as defence
+  # in depth if the stack ever routes through Apache; the real fix is to keep
+  # non-web files out of the webroot. The 301s below work via index.php,
+  # which Nginx does fall back to for paths with no matching file.
   RewriteRule \.(py|mjs|md|yml|yaml|lock)$ - [F,L]
 
   # Force HTTPS
