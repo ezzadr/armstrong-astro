@@ -6,9 +6,11 @@
  * file matches. This script:
  * 1. Checks if the URL is for the homepage.
  * 2. Checks if an exact static HTML file exists for this route.
- * 3. Intercepts legacy deleted city/doorway/suburb URLs and 301 redirects to /service-areas/.
- * 4. Intercepts legacy WordPress categories/tags and 301 redirects to /blog/.
- * 5. Otherwise serves the custom 404 page with a proper HTTP 404 status.
+ * 3. Intercepts retired WordPress pages that still hold search traffic and 301s
+ *    each to its closest live equivalent.
+ * 4. Intercepts legacy deleted city/doorway/suburb URLs and 301 redirects to /service-areas/.
+ * 5. Intercepts legacy WordPress categories/tags and 301 redirects to /blog/.
+ * 6. Otherwise serves the custom 404 page with a proper HTTP 404 status.
  */
 
 $requestUri = strtok($_SERVER['REQUEST_URI'] ?? '', '?');
@@ -55,7 +57,25 @@ if (preg_match('#^(locksmith-near-me|emergency-locksmith-near-me|mobile-locksmit
     exit;
 }
 
-// 3. Middle TN cities & suburbs regex list
+// 3. Retired WordPress pages that still hold Search Console traffic.
+//    Exact matches only, so live slugs sharing a prefix are unaffected.
+$retiredPages = [
+    'price-list' => '/locksmith-pricing-nashville/',
+    'key-fob-locked-in-car-nashville' => '/emergency-car-lockout/',
+    'automotive-transponder-keys' => '/car-key-replacement-nashville/',
+    'locksmith-services-for-property-managers-and-landlords' => '/commercial-locksmith/',
+    'service-in-your-city' => '/service-areas/',
+    'nashville' => '/emergency-car-lockout/',
+    'auto-locksmith-immediate-response-nashville' => '/automotive-locksmith-in-nashville-tn/',
+];
+foreach ($retiredPages as $oldPath => $newPath) {
+    if (strcasecmp($cleanUri, $oldPath) === 0) {
+        header('Location: ' . $newPath, true, 301);
+        exit;
+    }
+}
+
+// 4. Middle TN cities & suburbs regex list
 $citiesPattern = 'brentwood|franklin|cool-springs|coolsprings|murfreesboro|hendersonville|mount-juliet|mt-juliet|mtjuliet|lebanon|smyrna|la-vergne|lavergne|gallatin|spring-hill|springhill|antioch|donelson|hermitage|green-hills|greenhills|belle-meade|bellemeade|nolensville|east-nashville|goodlettsville|madison|columbia|dickson|clarksville|fairview|thompsons-station|thompson-station|berry-hill|berryhill|inglewood|old-hickory|oldhickory|bellevue|west-end|the-gulch|gulch|germantown';
 
 // Matches locksmith-[city], [city]-locksmith, commercial-locksmith-[city], [city], etc.
@@ -64,7 +84,7 @@ if (preg_match('#(locksmith.*(' . $citiesPattern . ')|(' . $citiesPattern . ').*
     exit;
 }
 
-// 4. Legacy WordPress taxonomy & author archives
+// 5. Legacy WordPress taxonomy & author archives
 if (preg_match('#^(category|tag|author)/#i', $cleanUri)) {
     header('Location: /blog/', true, 301);
     exit;
