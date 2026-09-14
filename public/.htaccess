@@ -49,6 +49,18 @@ ErrorDocument 404 /404-handler.php
   # Legacy WordPress taxonomy & author archives
   RewriteRule ^(category|tag|author)/.*$ /blog/ [L,R=301,NC]
 
+  # Retired WordPress pages that still hold Search Console traffic. Each target
+  # is the closest live equivalent, never a blanket catch-all to the homepage.
+  # Anchored with ^...$ so live slugs that merely start with the same word
+  # (e.g. /nashville-rekey-service/) are not swallowed.
+  RewriteRule ^price-list/?$ /locksmith-pricing-nashville/ [L,R=301,NC]
+  RewriteRule ^key-fob-locked-in-car-nashville/?$ /emergency-car-lockout/ [L,R=301,NC]
+  RewriteRule ^automotive-transponder-keys/?$ /car-key-replacement-nashville/ [L,R=301,NC]
+  RewriteRule ^locksmith-services-for-property-managers-and-landlords/?$ /commercial-locksmith/ [L,R=301,NC]
+  RewriteRule ^service-in-your-city/?$ /service-areas/ [L,R=301,NC]
+  RewriteRule ^nashville/?$ /emergency-car-lockout/ [L,R=301,NC]
+  RewriteRule ^auto-locksmith-immediate-response-nashville/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
+
   # Sitemap Rewrites & Aliases for Search Console
   RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
   RewriteRule ^sitemap_index\.xml$ /sitemap-index.xml [L,R=301]
@@ -152,7 +164,7 @@ FileETag MTime Size
 # 7. Block Internal/Development Files from Public Access (Security)
 # Repo docs, configs, and build metadata deploy alongside the site because the
 # webroot is the repo root. None of these are site content - deny them all.
-<FilesMatch "\.(md|mjs)$">
+<FilesMatch "\.(md|mjs|py)$">
   Require all denied
 </FilesMatch>
 <FilesMatch "^(package\.json|package-lock\.json|tsconfig\.json|downloaded_images\.json|extracted_subpage_content\.json|seo_url_map\.json|Armstrong_Locksmith_Master_Management_Guide\.html)$">
