@@ -158,3 +158,8 @@ FileETag MTime Size
 <FilesMatch "^(package\.json|package-lock\.json|tsconfig\.json|downloaded_images\.json|extracted_subpage_content\.json|seo_url_map\.json|Armstrong_Locksmith_Master_Management_Guide\.html)$">
   Require all denied
 </FilesMatch>
+
+# Old WordPress pages scraped during the Astro migration. They were served at
+# /scraped_content/*.html with robots "index, follow" until 2026-09-14. The
+# files are now gone from the repo; this keeps the path dead if any reappear.
+RedirectMatch 403 ^/scraped_content(/|$)
