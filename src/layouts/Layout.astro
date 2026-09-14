@@ -74,7 +74,9 @@ const breadcrumbSchema = {
   ]
 };
 
-// Base LocalBusiness & Locksmith JSON-LD Schema with Entity Linking & TN License
+// Base LocalBusiness & Locksmith JSON-LD Schema with Entity Linking.
+// No license property: Tennessee repealed locksmith licensing in 2021 (SB 0012/
+// HB 0009), so there is nothing to license under. Never add one back.
 const baseBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "Locksmith",

@@ -194,7 +194,7 @@ if (!empty($editingSlug) && isset($posts[$editingSlug])) {
       </form>
 
       <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-500">
-        🔒 Armstrong Locksmith Inc &bull; TN Lic #406
+        🔒 Armstrong Locksmith Inc &bull; Certified &amp; Insured
       </div>
     </div>
   </div>
