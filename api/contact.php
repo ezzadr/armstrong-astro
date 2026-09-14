@@ -191,7 +191,7 @@ $htmlEmailBody = <<<HTML
 
     <!-- Footer -->
     <div class="footer">
-      <strong style="color: #f8fafc;">Armstrong Locksmith Inc</strong> &bull; TN License #406<br>
+      <strong style="color: #f8fafc;">Armstrong Locksmith Inc</strong> &bull; Certified &amp; Insured<br>
       📍 208 Thompson Ln, Nashville, TN 37211 &bull; 📞 (615) 625-8000<br>
       <span style="color: #64748b; font-size: 10px;">Automated lead dispatch system for Armstrong Locksmith team.</span>
     </div>
