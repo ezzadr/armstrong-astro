@@ -1,9 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import ServiceReviews from '../components/ServiceReviews.astro';
 
-const seoTitle = "2026 Locksmith Pricing Nashville | No Hidden Fees | Armstrong";
-const seoDescription = "Transparent Nashville locksmith prices for car keys, house rekeys, business locks & emergency lockouts. Real shop at 208 Thompson Ln. (615) 625-8000.";
+// Live Google total, synced at build (src/lib/reviewStats.mjs). Never hardcode it.
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Locksmith Prices in Nashville | Honest Upfront Rates`;
+const seoDescription = `See what locksmith services cost in Nashville — car keys, fobs, rekeys & lockouts. Upfront pricing, no surprises. Family-owned, ${reviewCount}+ 5-star reviews.`;
 
 const autoPricing = [
   {

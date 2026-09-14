@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 import RecentWorkGallery from '../components/RecentWorkGallery.astro';
 
-const seoTitle = "Automotive Locksmith Nashville TN | Armstrong Locksmith";
-const seoDescription = "Complete auto locksmith services in Nashville, TN. Car key cutting, transponders, smart fobs & ignition repairs on-site. (615) 625-8000.";
+// Live Google total, synced at build (src/lib/reviewStats.mjs). Never hardcode it.
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Automotive Locksmith Nashville | Car Keys & Fobs 4.9★`;
+const seoDescription = `Mobile automotive locksmith serving Nashville. Lost keys cut & programmed on-site for all makes, including European vehicles. ${reviewCount}+ five-star reviews.`;
 
 const autoSchema = [
   {

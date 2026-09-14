@@ -3,15 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import RecentWorkGallery from '../components/RecentWorkGallery.astro';
 import { getReviewStats, getLiveReviews } from '../lib/reviewStats.mjs';
 
-const seoTitle = "Armstrong Locksmith Nashville | Car Keys, Rekeys & Lockouts";
-const seoDescription = "Owner-led Nashville locksmith with a storefront at 208 Thompson Ln. Car keys, rekeys, lockouts & commercial service. Certified. Call (615) 625-8000.";
-
 // Live Google rating/count plus the newest real 5-star reviews, fetched once at
 // build time (src/lib/reviewStats.mjs). The cards below are server-rendered
 // from that data and then refreshed in the browser by syncLiveGoogleReviews().
 // Nothing here is hand-written: if the endpoint is unreachable at build the
 // list is empty and the browser fills the cards in on load.
 const { reviewCount, ratingValue } = await getReviewStats();
+
+const seoTitle = `Locksmith Nashville TN | Armstrong Locksmith 4.9★ (${reviewCount}+)`;
+const seoDescription = `Family-owned Nashville locksmith on Thompson Lane. Car keys, key fobs & European vehicles — Mercedes, BMW, Audi. 4.9 stars from ${reviewCount}+ Google reviews.`;
+
 const initialReviews = (await getLiveReviews())
   .filter((r) => Number(r.rating) === 5)
   .slice(0, 6)

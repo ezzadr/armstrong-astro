@@ -33,7 +33,7 @@ const SNAPSHOT_PATH = path.join(
 
 // Last-resort figures, used only if the snapshot file is missing or unreadable.
 // Bump these to the current live values when you notice them drifting.
-const FALLBACK = { reviewCount: '778', ratingValue: '4.9' };
+const FALLBACK = { reviewCount: '781', ratingValue: '4.9' };
 
 let cached = null;
 let cachedReviews = [];

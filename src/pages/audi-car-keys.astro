@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
-const seoTitle = "Audi Key Replacement Nashville TN | Armstrong Locksmith";
-const seoDescription = "Affordable Audi car key cutting, transponder & smart key fob programming in Nashville. Mobile van & shop at 208 Thompson Ln. (615) 625-8000.";
+// Live Google total, synced at build (src/lib/reviewStats.mjs). Never hardcode it.
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Audi Key Replacement Nashville | Audi Locksmith 4.9★`;
+const seoDescription = `Audi keys cut & programmed in Nashville — lost keys, spares & fobs, without the dealership wait. European vehicle specialists. ${reviewCount}+ 5-star reviews.`;
 
 // Rich Schema for Audi Service
 const audiSchema = [

@@ -1,12 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
-const seoTitle = "BMW Key Replacement Nashville TN | Armstrong Locksmith";
-const seoDescription = "Affordable BMW car key cutting, transponder & smart proximity fob programming in Nashville. Mobile van or shop at 208 Thompson Ln. (615) 625-8000.";
+// Live Google total, synced at build (src/lib/reviewStats.mjs). Never hardcode it.
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `BMW Key Replacement Nashville | BMW Locksmith 4.9★`;
+const seoDescription = `Lost BMW key? We cut & program BMW keys and fobs in Nashville at a fraction of dealer cost. Family-owned specialists, ${reviewCount}+ five-star reviews.`;
 
 // Rich Schema for BMW Service
 const bmwSchema = [
