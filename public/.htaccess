@@ -77,6 +77,7 @@ ErrorDocument 404 /404-handler.php
   RewriteRule ^nashville/?$ /emergency-car-lockout/ [L,R=301,NC]
   RewriteRule ^auto-locksmith-immediate-response-nashville/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
   RewriteRule ^best-places-to-hide-valuable-in-car/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
+  RewriteRule ^these-are-the-best-places-to-hide-valuables-in-your-car/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
 
   # Sitemap Rewrites & Aliases for Search Console
   RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
