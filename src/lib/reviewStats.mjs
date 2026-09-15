@@ -33,7 +33,7 @@ const SNAPSHOT_PATH = path.join(
 
 // Last-resort figures, used only if the snapshot file is missing or unreadable.
 // Bump these to the current live values when you notice them drifting.
-const FALLBACK = { reviewCount: '781', ratingValue: '4.9' };
+const FALLBACK = { reviewCount: '782', ratingValue: '4.9' };
 
 let cached = null;
 let cachedReviews = [];
@@ -116,7 +116,14 @@ export async function getReviewStats() {
   if (cached) return cached;
 
   try {
-    const res = await fetch(ENDPOINT, { signal: AbortSignal.timeout(8000) });
+    // Cache-bust and send no-store: Varnish sits in front of this endpoint and
+    // was serving builds a review count hours out of date, which then got baked
+    // into the HTML and the schema. reviews.php now sends no-store itself; this
+    // is the belt-and-braces half so a build can never read a cached figure.
+    const res = await fetch(`${ENDPOINT}?build=${Date.now()}`, {
+      signal: AbortSignal.timeout(8000),
+      headers: { 'Cache-Control': 'no-cache' },
+    });
     if (res.ok) {
       const d = await res.json();
       const count = parseInt(d?.user_ratings_total, 10);

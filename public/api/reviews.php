@@ -3,6 +3,16 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
+// Never let Varnish or the browser hold this response. The .htaccess rule
+// that sets no-cache for *.php is inert on this host (Cloudways serves from
+// Nginx and .htaccess is not in the request path), so Varnish was caching
+// this endpoint for hours -- browsers were shown a review count that was
+// already stale. The 1-hour $cacheDuration file cache below still protects
+// the Google API quota; this only stops a second, uncontrolled cache layer.
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
 $cacheFile = __DIR__ . '/google_reviews_cache.json';
 $archiveFile = __DIR__ . '/google_reviews_archive.json';
 $cacheDuration = 3600; // Cache for 1 hour to stay fast and avoid exceeding Google API rate limits

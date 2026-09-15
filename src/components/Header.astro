@@ -757,14 +757,31 @@ const { reviewCount } = await getReviewStats();
       // simply stays, so there is no empty or shifting state.
       function syncReviewCounts() {
         if (!document.querySelector('.arm-review-count')) return;
-        fetch('/api/reviews.php')
+        fetch('/api/reviews.php', { cache: 'no-store' })
           .then(r => (r.ok ? r.json() : null))
           .then(d => {
-            if (d && d.user_ratings_total) {
-              document.querySelectorAll('.arm-review-count').forEach(el => {
-                el.textContent = d.user_ratings_total + '+';
-              });
-            }
+            if (!d || !d.user_ratings_total) return;
+            document.querySelectorAll('.arm-review-count').forEach(el => {
+              el.textContent = d.user_ratings_total + '+';
+            });
+            // Keep the structured data in step with what the page now shows.
+            // The build and the nightly workflow both set these, but between
+            // runs Google can read a count the page itself has moved past.
+            document.querySelectorAll('script[type="application/ld+json"]').forEach(node => {
+              var changed = false, data;
+              try { data = JSON.parse(node.textContent); } catch (e) { return; }
+              (function walk(o) {
+                if (!o || typeof o !== 'object') return;
+                if (Array.isArray(o)) { o.forEach(walk); return; }
+                if (o['@type'] === 'AggregateRating') {
+                  o.reviewCount = String(d.user_ratings_total);
+                  if (d.rating) o.ratingValue = String(d.rating);
+                  changed = true;
+                }
+                Object.keys(o).forEach(function (k) { walk(o[k]); });
+              })(data);
+              if (changed) node.textContent = JSON.stringify(data);
+            });
           })
           .catch(() => {});
       }
