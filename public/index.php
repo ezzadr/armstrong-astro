@@ -8,9 +8,10 @@
  * 2. Checks if an exact static HTML file exists for this route.
  * 3. Intercepts retired WordPress pages that still hold search traffic and 301s
  *    each to its closest live equivalent.
- * 4. Intercepts legacy deleted city/doorway/suburb URLs and 301 redirects to /service-areas/.
- * 5. Intercepts legacy WordPress categories/tags and 301 redirects to /blog/.
- * 6. Otherwise serves the custom 404 page with a proper HTTP 404 status.
+ * 4. Sends root-level blog slugs to their /blog/ equivalent.
+ * 5. Intercepts legacy deleted city/doorway/suburb URLs and 301 redirects to /service-areas/.
+ * 6. Intercepts legacy WordPress categories/tags and 301 redirects to /blog/.
+ * 7. Otherwise serves the custom 404 page with a proper HTTP 404 status.
  */
 
 $requestUri = strtok($_SERVER['REQUEST_URI'] ?? '', '?');
@@ -76,16 +77,25 @@ foreach ($retiredPages as $oldPath => $newPath) {
     }
 }
 
-// 4. Middle TN cities & suburbs regex list
+// 4. Blog posts that sat at the site root under WordPress now live under
+//    /blog/. If the root slug matches a real post, send it there. Exact
+//    same article at the new path, so this is the strongest kind of 301,
+//    and it covers any future post that moves without another code change.
+if ($safePath && is_file(__DIR__ . "/blog/" . $rawUri . "/index.html")) {
+    header('Location: /blog/' . $rawUri . '/', true, 301);
+    exit;
+}
+
+// 5. Middle TN cities & suburbs regex list
 $citiesPattern = 'brentwood|franklin|cool-springs|coolsprings|murfreesboro|hendersonville|mount-juliet|mt-juliet|mtjuliet|lebanon|smyrna|la-vergne|lavergne|gallatin|spring-hill|springhill|antioch|donelson|hermitage|green-hills|greenhills|belle-meade|bellemeade|nolensville|east-nashville|goodlettsville|madison|columbia|dickson|clarksville|fairview|thompsons-station|thompson-station|berry-hill|berryhill|inglewood|old-hickory|oldhickory|bellevue|west-end|the-gulch|gulch|germantown';
 
 // Matches locksmith-[city], [city]-locksmith, commercial-locksmith-[city], [city], etc.
-if (preg_match('#(locksmith.*(' . $citiesPattern . ')|(' . $citiesPattern . ').*locksmith|^(' . $citiesPattern . ')(-tn)?$)#i', $cleanUri)) {
+if (preg_match('#(locksmith.*(' . $citiesPattern . ')|(' . $citiesPattern . ').*locksmith|^(' . $citiesPattern . ')(-tn|-tennessee)?$)#i', $cleanUri)) {
     header('Location: /service-areas/', true, 301);
     exit;
 }
 
-// 5. Legacy WordPress taxonomy & author archives
+// 6. Legacy WordPress taxonomy & author archives
 if (preg_match('#^(category|tag|author)/#i', $cleanUri)) {
     header('Location: /blog/', true, 301);
     exit;
