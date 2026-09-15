@@ -69,6 +69,7 @@ $retiredPages = [
     'nashville' => '/emergency-car-lockout/',
     'auto-locksmith-immediate-response-nashville' => '/automotive-locksmith-in-nashville-tn/',
     'best-places-to-hide-valuable-in-car' => '/automotive-locksmith-in-nashville-tn/',
+    'these-are-the-best-places-to-hide-valuables-in-your-car' => '/automotive-locksmith-in-nashville-tn/',
 ];
 foreach ($retiredPages as $oldPath => $newPath) {
     if (strcasecmp($cleanUri, $oldPath) === 0) {
