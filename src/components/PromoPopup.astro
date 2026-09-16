@@ -45,71 +45,78 @@ if (!promo || !promo.active) {
   </div>
 </div>
 
-<!-- 2. DESKTOP VIEW: Concept 2 Compact Card (>= 768px) -->
+<!-- 2. DESKTOP VIEW: Sleek Bento Card (>= 768px) -->
 <div 
   id="arm-promo-desktop" 
   class="hidden md:block fixed z-40 bottom-6 right-6 w-[340px] transition-all duration-300 ease-out opacity-0 translate-y-3 pointer-events-none will-change-transform"
   role="region"
   aria-label="Storefront Promotional Offer"
 >
-  <div class="relative bg-white text-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(15,23,42,0.25)] border-2 border-amber-400/90 overflow-hidden ring-4 ring-amber-500/10 p-4">
+  <div class="relative bg-[#0a192f] text-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700/80 p-4.5 overflow-hidden ring-1 ring-white/10">
     
-    <!-- Top Accent Line -->
-    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600"></div>
+    <!-- Top Emerald Accent Line -->
+    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600"></div>
 
     <!-- Close Button -->
     <button 
       type="button" 
-      class="arm-promo-close-btn absolute top-3 right-3 w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-500 hover:text-slate-900 flex items-center justify-center text-xs font-black transition cursor-pointer"
+      class="arm-promo-close-btn absolute top-3.5 right-3.5 w-6 h-6 rounded-full bg-slate-800/90 hover:bg-slate-700 active:bg-slate-600 text-slate-400 hover:text-white flex items-center justify-center text-xs font-bold transition cursor-pointer"
       aria-label="Dismiss discount offer"
     >
       ✕
     </button>
 
-    <!-- Badge & Coupon Code Header -->
-    <div class="flex items-center gap-2 mb-2 pr-6">
-      <span class="inline-flex items-center gap-1 bg-amber-500 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+    <!-- Header Badges: Emerald Discount + Clean Code Pill -->
+    <div class="flex items-center gap-2 mb-2.5 pr-6">
+      <span class="inline-flex items-center gap-1 bg-emerald-500 text-slate-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
         <span>🏪</span> {promo.discountBadge} IN SHOP
       </span>
-      <span class="text-[11px] font-mono font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+      <span class="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded-md">
         Code: {promo.promoCode}
       </span>
     </div>
 
-    <!-- Offer Title -->
-    <h3 class="text-sm font-black text-slate-900 leading-snug mb-1">
-      {promo.title}
-    </h3>
-
-    <!-- Location Pin & Subtitle -->
-    <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
-      {promo.subtitle}
-    </p>
-
-    <!-- Primary Action: Big GPS Directions Button -->
+    <!-- Offer Title (Tapping opens shop directions) -->
     <a 
       href={promo.directionsUrl} 
       target="_blank" 
       rel="noopener noreferrer" 
-      class="w-full mb-2 p-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 hover:brightness-105 active:scale-98 font-black text-xs flex items-center justify-center gap-1.5 transition shadow-sm"
+      class="group block mb-1.5"
+      title="Get Directions to 208 Thompson Ln"
     >
-      <svg class="w-4 h-4 text-slate-950 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/>
-      </svg>
-      <span>🗺️ Get GPS Directions (Save 20%)</span>
+      <h3 class="text-sm font-black text-white group-hover:text-emerald-400 transition-colors leading-snug flex items-center justify-between">
+        <span>{promo.title}</span>
+        <span class="text-emerald-400 text-xs opacity-80 group-hover:translate-x-0.5 transition-transform ml-1 shrink-0">&rarr;</span>
+      </h3>
     </a>
 
-    <!-- Storefront Hours Footnote -->
-    <div class="text-[10px] text-center text-slate-500 font-medium">
-      📍 208 Thompson Ln • {promo.footnote}
-    </div>
+    <!-- Location & Subtitle -->
+    <p class="text-[11.5px] text-slate-300 leading-relaxed mb-3">
+      {promo.subtitle}
+    </p>
+
+    <!-- Storefront Hours & Address Bar -->
+    <a 
+      href={promo.directionsUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="block p-2 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-emerald-500/50 hover:bg-slate-800 text-[10.5px] text-slate-300 transition"
+    >
+      <div class="flex items-center gap-1.5 font-bold text-emerald-400 mb-0.5">
+        <span>📍</span>
+        <span>208 Thompson Ln, Nashville, TN 37211</span>
+      </div>
+      <div class="text-[9.5px] text-slate-400 pl-4">
+        {promo.footnote}
+      </div>
+    </a>
 
   </div>
 </div>
 
 <script is:inline>
   (function() {
-    const storageKey = 'arm_promo_dismissed_v5';
+    const storageKey = 'arm_promo_dismissed_v6';
 
     function init() {
       try {
