@@ -611,6 +611,19 @@
         if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
         if (flowArrow2) flowArrow2.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
         if (flowProgress) flowProgress.style.width = "100%";
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'booking_submission', {
+            event_category: 'Booking',
+            event_label: serviceInput ? serviceInput.value : 'Online Booking',
+            value: 1
+          });
+          gtag('event', 'generate_lead', {
+            event_category: 'Booking',
+            event_label: serviceInput ? serviceInput.value : 'Online Booking',
+            value: 1
+          });
+        }
       }
 
       window.scrollTo({ top: 100, behavior: 'smooth' });

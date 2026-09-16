@@ -299,6 +299,18 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
             if (emailResult.ok) {
               form.classList.add('hidden');
               if (successMsg) successMsg.classList.remove('hidden');
+              if (typeof gtag === 'function') {
+                gtag('event', 'contact_form_submission', {
+                  event_category: 'Contact',
+                  event_label: service,
+                  value: 1
+                });
+                gtag('event', 'generate_lead', {
+                  event_category: 'Contact',
+                  event_label: service,
+                  value: 1
+                });
+              }
             } else {
               if (submitBtn) {
                 submitBtn.disabled = false;
