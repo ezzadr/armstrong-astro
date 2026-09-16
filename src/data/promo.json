@@ -1,9 +1,14 @@
 {
   "active": true,
   "discountBadge": "20% OFF",
-  "text": "Car Keys in Shop",
-  "subtext": "208 Thompson Ln • Code: SHOP20",
-  "buttonText": "GPS",
+  "title": "Any Car Key Cut & Programmed in Shop",
+  "subtitle": "Skip mobile trip fees by visiting our storefront key shop. Walk-ins welcome!",
+  "mobileText": "Car Keys in Shop",
+  "mobileSubtext": "208 Thompson Ln • Code: SHOP20",
+  "promoCode": "SHOP20",
+  "location": "208 Thompson Ln, Nashville, TN 37211",
   "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211",
-  "promoCode": "SHOP20"
+  "phone": "(615) 625-8000",
+  "phoneUrl": "tel:6156258000",
+  "footnote": "Mon–Fri 8am–6pm, Sat 10am–4pm • Closed Sunday"
 }
