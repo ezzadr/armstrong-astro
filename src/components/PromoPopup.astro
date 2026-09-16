@@ -1,5 +1,5 @@
 ---
-// PromoPopup.astro - Dual Responsive: Concept 1 (Micro-Pill) on Mobile & Concept 2 (Compact Card) on Desktop
+// PromoPopup.astro - Dual Responsive Storefront Offer: Micro-Pill (Mobile) & Compact Card (Desktop)
 import promo from '../data/promo.json';
 
 if (!promo || !promo.active) {
@@ -7,147 +7,157 @@ if (!promo || !promo.active) {
 }
 ---
 
+<!-- 1. MOBILE VIEW: Concept 1 Micro-Pill (< 768px) -->
 <div 
-  id="arm-promo-container"
-  class="fixed z-40 opacity-0 pointer-events-none transition-all duration-300 ease-out will-change-transform"
+  id="arm-promo-mobile" 
+  class="md:hidden fixed z-40 bottom-[64px] left-3 right-3 sm:left-auto sm:right-6 sm:max-w-sm transition-all duration-300 ease-out opacity-0 translate-y-3 pointer-events-none will-change-transform"
   role="region"
   aria-label="Storefront Promotional Offer"
 >
+  <div class="bg-slate-900/95 backdrop-blur-md border border-amber-500/80 rounded-full shadow-[0_12px_32px_rgba(0,0,0,0.5)] p-1.5 pl-3 flex items-center justify-between gap-2 ring-2 ring-black/40">
+    
+    <!-- Left: Badge & Storefront text (Clicking opens Google Maps GPS) -->
+    <a 
+      href={promo.directionsUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="flex items-center gap-2 min-w-0 flex-1 hover:opacity-95 transition-opacity"
+      title="Get GPS Directions to 208 Thompson Ln"
+    >
+      <span class="bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
+        {promo.discountBadge}
+      </span>
+      <div class="truncate text-left leading-tight">
+        <span class="block text-xs font-bold text-white tracking-tight truncate">{promo.mobileText}</span>
+        <span class="block text-[9.5px] text-amber-400 font-medium truncate">{promo.mobileSubtext}</span>
+      </div>
+    </a>
 
-  <!-- 1. MOBILE VIEW: Concept 1 Micro-Pill (< 768px) -->
-  <div class="block md:hidden fixed bottom-[64px] left-3 right-3 sm:left-auto sm:right-6 sm:max-w-sm">
-    <div class="bg-slate-900/95 backdrop-blur-md border border-amber-500/70 rounded-full shadow-[0_12px_32px_rgba(0,0,0,0.4)] p-1.5 pl-3 flex items-center justify-between gap-2 ring-2 ring-black/40">
-      
-      <!-- Left: Badge & Storefront text -->
+    <!-- Right: GPS Navigation Action & Dismiss -->
+    <div class="flex items-center gap-1.5 shrink-0">
       <a 
         href={promo.directionsUrl} 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="flex items-center gap-2 min-w-0 flex-1 hover:opacity-95 transition-opacity"
-        title="Get GPS Directions to 208 Thompson Ln"
+        class="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:brightness-105 active:scale-95 text-slate-950 font-black text-xs rounded-full flex items-center gap-1 shadow-xs transition"
+        aria-label="Get GPS Directions to 208 Thompson Ln"
       >
-        <span class="bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-1 rounded-full shrink-0 shadow-2xs">
-          {promo.discountBadge}
-        </span>
-        <div class="truncate text-left leading-tight">
-          <span class="block text-xs font-bold text-white tracking-tight truncate">{promo.mobileText}</span>
-          <span class="block text-[9.5px] text-amber-400 font-medium truncate">{promo.mobileSubtext}</span>
-        </div>
+        <span>GPS</span>
+        <span class="font-bold">&rarr;</span>
       </a>
 
-      <!-- Right: GPS Navigation Action & Dismiss -->
-      <div class="flex items-center gap-1.5 shrink-0">
-        <a 
-          href={promo.directionsUrl} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:brightness-105 active:scale-95 text-slate-950 font-black text-xs rounded-full flex items-center gap-1 shadow-xs transition"
-          aria-label="Get GPS Directions to 208 Thompson Ln"
-        >
-          <span>GPS</span>
-          <span class="font-bold">&rarr;</span>
-        </a>
-
-        <button 
-          type="button" 
-          class="arm-promo-close-btn w-6 h-6 rounded-full bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-400 hover:text-white flex items-center justify-center text-xs font-bold transition cursor-pointer"
-          aria-label="Dismiss offer"
-        >
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 2. DESKTOP VIEW: Concept 2 Compact Card (>= 768px) -->
-  <div class="hidden md:block fixed bottom-6 right-6 w-[340px]">
-    <div class="relative bg-white text-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(15,23,42,0.25)] border-2 border-amber-400/90 overflow-hidden ring-4 ring-amber-500/10 p-4">
-      
-      <!-- Top Accent Line -->
-      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600"></div>
-
-      <!-- Close Button -->
       <button 
         type="button" 
-        class="arm-promo-close-btn absolute top-3 right-3 w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-500 hover:text-slate-900 flex items-center justify-center text-xs font-black transition cursor-pointer"
-        aria-label="Dismiss discount offer"
+        class="arm-promo-close-btn w-6 h-6 rounded-full bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-400 hover:text-white flex items-center justify-center text-xs font-bold transition cursor-pointer"
+        aria-label="Dismiss offer"
       >
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        ✕
       </button>
-
-      <!-- Badge & Coupon Code Header -->
-      <div class="flex items-center gap-2 mb-2 pr-6">
-        <span class="inline-flex items-center gap-1 bg-amber-500 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-md uppercase tracking-wider">
-          <span>🏪</span> {promo.discountBadge} IN SHOP
-        </span>
-        <span class="text-[11px] font-mono font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-          Code: {promo.promoCode}
-        </span>
-      </div>
-
-      <!-- Offer Title -->
-      <h3 class="text-sm font-black text-slate-900 leading-snug mb-1">
-        {promo.title}
-      </h3>
-
-      <!-- Location Pin & Subtitle -->
-      <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
-        {promo.subtitle}
-      </p>
-
-      <!-- Primary Action: Big GPS Directions Button -->
-      <a 
-        href={promo.directionsUrl} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="w-full mb-2 p-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 hover:brightness-105 active:scale-98 font-black text-xs flex items-center justify-center gap-1.5 transition shadow-sm"
-      >
-        <svg class="w-4 h-4 text-slate-950 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/>
-        </svg>
-        <span>🗺️ Get GPS Directions (Save 20%)</span>
-      </a>
-
-      <!-- Storefront Hours Footnote -->
-      <div class="text-[10px] text-center text-slate-500 font-medium">
-        📍 208 Thompson Ln • {promo.footnote}
-      </div>
-
     </div>
-  </div>
 
+  </div>
 </div>
 
-<script is:inline define:vars={{ promoCode: promo.promoCode }}>
-  (function() {
-    const storageKey = 'arm_promo_dismissed_' + promoCode;
+<!-- 2. DESKTOP VIEW: Concept 2 Compact Card (>= 768px) -->
+<div 
+  id="arm-promo-desktop" 
+  class="hidden md:block fixed z-40 bottom-6 right-6 w-[340px] transition-all duration-300 ease-out opacity-0 translate-y-3 pointer-events-none will-change-transform"
+  role="region"
+  aria-label="Storefront Promotional Offer"
+>
+  <div class="relative bg-white text-slate-900 rounded-2xl shadow-[0_20px_45px_rgba(15,23,42,0.25)] border-2 border-amber-400/90 overflow-hidden ring-4 ring-amber-500/10 p-4">
+    
+    <!-- Top Accent Line -->
+    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600"></div>
 
-    function initPromo() {
+    <!-- Close Button -->
+    <button 
+      type="button" 
+      class="arm-promo-close-btn absolute top-3 right-3 w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-500 hover:text-slate-900 flex items-center justify-center text-xs font-black transition cursor-pointer"
+      aria-label="Dismiss discount offer"
+    >
+      ✕
+    </button>
+
+    <!-- Badge & Coupon Code Header -->
+    <div class="flex items-center gap-2 mb-2 pr-6">
+      <span class="inline-flex items-center gap-1 bg-amber-500 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-md uppercase tracking-wider">
+        <span>🏪</span> {promo.discountBadge} IN SHOP
+      </span>
+      <span class="text-[11px] font-mono font-black text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+        Code: {promo.promoCode}
+      </span>
+    </div>
+
+    <!-- Offer Title -->
+    <h3 class="text-sm font-black text-slate-900 leading-snug mb-1">
+      {promo.title}
+    </h3>
+
+    <!-- Location Pin & Subtitle -->
+    <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
+      {promo.subtitle}
+    </p>
+
+    <!-- Primary Action: Big GPS Directions Button -->
+    <a 
+      href={promo.directionsUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="w-full mb-2 p-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 hover:brightness-105 active:scale-98 font-black text-xs flex items-center justify-center gap-1.5 transition shadow-sm"
+    >
+      <svg class="w-4 h-4 text-slate-950 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/>
+      </svg>
+      <span>🗺️ Get GPS Directions (Save 20%)</span>
+    </a>
+
+    <!-- Storefront Hours Footnote -->
+    <div class="text-[10px] text-center text-slate-500 font-medium">
+      📍 208 Thompson Ln • {promo.footnote}
+    </div>
+
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    const storageKey = 'arm_promo_dismissed_v4';
+
+    function init() {
       try {
         if (sessionStorage.getItem(storageKey)) return;
       } catch (e) {}
 
-      const container = document.getElementById('arm-promo-container');
-      const closeButtons = document.querySelectorAll('.arm-promo-close-btn');
-      if (!container) return;
+      const mob = document.getElementById('arm-promo-mobile');
+      const dsk = document.getElementById('arm-promo-desktop');
 
-      // Reveal after initial paint / idle time (zero LCP or render blocking)
-      setTimeout(() => {
-        container.classList.remove('opacity-0', 'pointer-events-none');
-        container.classList.add('opacity-100');
-      }, 1000);
+      function reveal() {
+        if (mob) {
+          mob.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+          mob.classList.add('opacity-100', 'translate-y-0');
+        }
+        if (dsk) {
+          dsk.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+          dsk.classList.add('opacity-100', 'translate-y-0');
+        }
+      }
 
-      closeButtons.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
+      // Smooth reveal 500ms after DOM ready
+      setTimeout(reveal, 500);
+
+      document.querySelectorAll('.arm-promo-close-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          container.classList.remove('opacity-100');
-          container.classList.add('opacity-0', 'pointer-events-none');
+          if (mob) {
+            mob.classList.remove('opacity-100', 'translate-y-0');
+            mob.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+          }
+          if (dsk) {
+            dsk.classList.remove('opacity-100', 'translate-y-0');
+            dsk.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+          }
           try {
             sessionStorage.setItem(storageKey, '1');
           } catch (err) {}
@@ -155,16 +165,10 @@ if (!promo || !promo.active) {
       });
     }
 
-    if (document.readyState === 'complete') {
-      initPromo();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
     } else {
-      window.addEventListener('load', () => {
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initPromo);
-        } else {
-          setTimeout(initPromo, 800);
-        }
-      });
+      init();
     }
   })();
 </script>
