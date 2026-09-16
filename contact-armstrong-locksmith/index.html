@@ -16,29 +16,76 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-MNVMEG2BSG');
-  </script><!-- Call-click tracking that survives the deferred GTM load below: the tap
-       that dials is also the tap that loads GTM, so GTM's own click triggers
-       never see it. Queue the event on dataLayer now; GTM replays the queue
-       when it loads. Also sends immediate event and conversion to GA4. --><script>
+  </script><!-- Conversion & Interaction Tracking: Calls, Directions, Booking, Reviews --><script>
     document.addEventListener('click', function (e) {
       var t = e.target;
-      var a = t && t.closest ? t.closest('a[href^="tel:"]') : null;
-      if (a) {
-        var href = a.getAttribute('href');
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'call_click', call_href: href, call_page: window.location.pathname });
+      if (!t || !t.closest) return;
+      window.dataLayer = window.dataLayer || [];
+
+      // 1. Phone Call Click (Lead conversion)
+      var tel = t.closest('a[href^="tel:"]');
+      if (tel) {
+        var telHref = tel.getAttribute('href') || '';
+        window.dataLayer.push({ event: 'call_click', call_href: telHref, call_page: window.location.pathname });
         if (typeof gtag === 'function') {
           gtag('event', 'call_click', {
             event_category: 'Contact',
-            event_label: href,
+            event_label: telHref,
             page_path: window.location.pathname
           });
           gtag('event', 'generate_lead', {
             event_category: 'Contact',
-            event_label: href,
+            event_label: telHref,
             value: 1
           });
         }
+        return;
+      }
+
+      // 2. Google Maps / Storefront Directions Click
+      var map = t.closest('a[href*="google.com/maps"], a[href*="maps.google.com"]');
+      if (map) {
+        var mapHref = map.getAttribute('href') || '';
+        window.dataLayer.push({ event: 'directions_click', map_href: mapHref, call_page: window.location.pathname });
+        if (typeof gtag === 'function') {
+          gtag('event', 'directions_click', {
+            event_category: 'Location',
+            event_label: '208 Thompson Ln Storefront Directions',
+            destination_url: mapHref,
+            page_path: window.location.pathname
+          });
+        }
+        return;
+      }
+
+      // 3. Book Online Click
+      var book = t.closest('a[href*="/book-online/"], a[href*="/book-online"]');
+      if (book) {
+        var bookHref = book.getAttribute('href') || '';
+        window.dataLayer.push({ event: 'book_online_click', call_page: window.location.pathname });
+        if (typeof gtag === 'function') {
+          gtag('event', 'book_online_click', {
+            event_category: 'Engagement',
+            event_label: bookHref,
+            page_path: window.location.pathname
+          });
+        }
+        return;
+      }
+
+      // 4. Google Reviews Click
+      var rev = t.closest('a[href*="google-reviews"], a[href*="search.google.com/local/writereview"]');
+      if (rev) {
+        var revHref = rev.getAttribute('href') || '';
+        window.dataLayer.push({ event: 'review_click', call_page: window.location.pathname });
+        if (typeof gtag === 'function') {
+          gtag('event', 'review_click', {
+            event_category: 'Reputation',
+            event_label: revHref,
+            page_path: window.location.pathname
+          });
+        }
+        return;
       }
     }, true);
   </script><!-- Zero-TBT Deferred Google Tag Manager --><script>
@@ -356,6 +403,18 @@
             if (emailResult.ok) {
               form.classList.add('hidden');
               if (successMsg) successMsg.classList.remove('hidden');
+              if (typeof gtag === 'function') {
+                gtag('event', 'contact_form_submission', {
+                  event_category: 'Contact',
+                  event_label: service,
+                  value: 1
+                });
+                gtag('event', 'generate_lead', {
+                  event_category: 'Contact',
+                  event_label: service,
+                  value: 1
+                });
+              }
             } else {
               if (submitBtn) {
                 submitBtn.disabled = false;
