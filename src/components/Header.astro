@@ -1,7 +1,17 @@
 ---
-// Header.astro - Luxury Industrial Desktop Mega-Navigation with Precision Dividers
+// Header.astro - Desktop mega-navigation + mobile drawer.
+//
+// Both trees render from src/data/nav.json. They used to be two hand-written
+// blocks of markup, which silently drifted: /european-car-key-specialist/ and
+// /automotive-locksmith-in-nashville-tn/ were in the desktop menu and missing
+// from mobile. Sharing the arrays makes that class of bug impossible.
+//
+// Anchor text lives in nav.json. Desktop renders first in the DOM and first
+// link counts, so those labels are what Google attributes sitewide - they all
+// carry the head term of the page they point at.
 import { getReviewStats } from '../lib/reviewStats.mjs';
-// Server-rendered so the count is right before JS runs; .arm-review-count spans are refreshed live by syncReviewCounts() in Header.astro.
+import nav from '../data/nav.json';
+// Server-rendered so the count is right before JS runs; .arm-review-count spans are refreshed live by syncReviewCounts() below.
 const { reviewCount } = await getReviewStats();
 ---
 
@@ -27,21 +37,22 @@ const { reviewCount } = await getReviewStats();
       </picture>
     </a>
 
-    <!-- Desktop Navigation Links with column dividers (Available from lg: 1024px+).
-         `relative` here is what the Car Keys panel anchors to - see below. The lg
-         sizes are deliberately tighter than xl: at 1024-1279px the full row
-         (logo + 4 items + both CTAs) otherwise overflows the viewport. -->
+    <!-- Desktop Navigation (lg: 1024px+).
+         `relative` here is what the Car Keys panel anchors to. Labels are kept
+         short deliberately: at 1024-1279px the full row (logo + 5 items + both
+         CTAs) has to fit, and single-word labels also scan faster than the
+         compound "Pricing & Reviews" style they replaced. -->
     <nav class="arm-desktop-nav relative hidden lg:flex items-center divide-x divide-slate-200 border-x border-slate-200 text-[12px] xl:text-[14px] font-bold text-slate-800" aria-label="Main Navigation">
 
-      <!-- Silo 1: Car Keys & Makes Mega-Dropdown -->
+      <!-- Silo 1: Car Keys Mega-Dropdown -->
       <div class="group">
-        <a href="/car-key-replacement-nashville/" class="arm-nav-item px-2.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-car-keys">
+        <a href="/car-key-replacement-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-car-keys">
           <span class="text-amber-500 text-sm">🚗</span>
-          <span>Car Keys &amp; Makes</span>
+          <span>Car Keys</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
-        <!-- 3-Column Luxury Mega Dropdown Panel -->
+        <!-- 3-Column Mega Dropdown Panel -->
         <div id="arm-menu-car-keys" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[880px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden">
           <div class="h-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600"></div>
 
@@ -59,47 +70,32 @@ const { reviewCount } = await getReviewStats();
                 </div>
 
                 <div class="space-y-1.5">
-                  <a href="/bmw/" class="group/item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/70 hover:border-amber-400 hover:shadow-xs transition-all">
-                    <div>
-                      <span class="block text-slate-900 font-bold">BMW Smart Keys</span>
-                      <span class="block text-[10px] text-slate-500 font-normal">CAS, FEM &amp; BDC Key Programming</span>
-                    </div>
-                    <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                  </a>
-
-                  <a href="/mercedes-benz/" class="group/item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/70 hover:border-amber-400 hover:shadow-xs transition-all">
-                    <div>
-                      <span class="block text-slate-900 font-bold">Mercedes-Benz Keys</span>
-                      <span class="block text-[10px] text-slate-500 font-normal">EIS, FBS3/FBS4 &amp; Keyless Go</span>
-                    </div>
-                    <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                  </a>
-
-                  <a href="/audi-car-keys/" class="group/item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/70 hover:border-amber-400 hover:shadow-xs transition-all">
-                    <div>
-                      <span class="block text-slate-900 font-bold">Audi BCM2 Smart Keys</span>
-                      <span class="block text-[10px] text-slate-500 font-normal">Advanced 5th Gen Immobilizer Keys</span>
-                    </div>
-                    <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                  </a>
+                  {nav.european.map((item) => (
+                    <a href={item.href} class="group/item flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200/70 hover:border-amber-400 hover:shadow-xs transition-all">
+                      <div>
+                        <span class="block text-slate-900 font-bold">{item.label}</span>
+                        <span class="block text-[10px] text-slate-500 font-normal">{item.desc}</span>
+                      </div>
+                      <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
+                    </a>
+                  ))}
 
                   <div class="grid grid-cols-2 gap-1.5 pt-1">
-                    <a href="/audi-q3-key-replacement/" class="p-1.5 rounded bg-white border border-slate-200/70 text-slate-800 font-semibold hover:border-amber-400 hover:text-amber-700 text-[11px] truncate">
-                      Audi Q3 Keys
-                    </a>
-                    <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="p-1.5 rounded bg-white border border-slate-200/70 text-slate-800 font-semibold hover:border-amber-400 hover:text-amber-700 text-[11px] truncate">
-                      Range Rover
-                    </a>
-                    <a href="/bentley-key-replacement/" class="p-1.5 rounded bg-white border border-slate-200/70 text-slate-800 font-semibold hover:border-amber-400 hover:text-amber-700 text-[11px] truncate col-span-2 text-center">
-                      Bentley Key Replacement &rarr;
-                    </a>
+                    {nav.europeanCompact.map((item) => (
+                      <a
+                        href={item.href}
+                        class={`p-1.5 rounded bg-white border border-slate-200/70 text-slate-800 font-semibold hover:border-amber-400 hover:text-amber-700 text-[11px] truncate${item.wide ? ' col-span-2 text-center' : ''}`}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              <a href="/european-car-key-specialist/" class="mt-3 block p-2.5 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-950 font-black text-center transition-all duration-200 hover:shadow-xs">
-                <span>European Specialist Hub &rarr;</span>
-                <span class="block text-[10px] font-medium text-amber-800">Save $300&ndash;$600 vs Dealership</span>
+              <a href={nav.europeanHub.href} class="mt-3 block p-2.5 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-950 font-black text-center transition-all duration-200 hover:shadow-xs">
+                <span>{nav.europeanHub.label} &rarr;</span>
+                <span class="block text-[10px] font-medium text-amber-800">{nav.europeanHub.desc}</span>
               </a>
             </div>
 
@@ -114,44 +110,26 @@ const { reviewCount } = await getReviewStats();
                   <span class="text-[9px] bg-slate-200 text-slate-800 font-black px-1.5 py-0.5 rounded tracking-wider">OEM CHIP</span>
                 </div>
 
-                <!-- Clean Brand Tag Grid -->
                 <div class="grid grid-cols-2 gap-1.5 text-[11px] font-bold">
-                  <a href="/toyota-car-key-replacement/" class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
-                    <span>Toyota / Lexus</span>
-                  </a>
-                  <a href="/honda-car-keys/" class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
-                    <span>Honda Keys</span>
-                  </a>
-                  <a href="/kia-car-key-replacement/" class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
-                    <span>Kia Fobs</span>
-                  </a>
-                  <a href="/hyundai/" class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
-                    <span>Hyundai Keys</span>
-                  </a>
-                  <a href="/acura-car-key-replacement/" class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
-                    <span>Acura Smart</span>
-                  </a>
-                  <a href="/hummer-key-replacement-nashville/" class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
-                    <span>Hummer / GM</span>
-                  </a>
+                  {nav.makes.map((item) => (
+                    <a href={item.href} class="p-2 rounded-lg bg-slate-50 hover:bg-amber-50 hover:text-amber-700 text-slate-800 border border-slate-200/70 transition-colors flex items-center justify-between">
+                      <span class="truncate">{item.label}</span>
+                    </a>
+                  ))}
                 </div>
 
                 <div class="mt-3 space-y-1 text-[11px]">
-                  <a href="/key-fob-replacement-nashville/" class="block p-1.5 text-slate-700 hover:text-amber-600 font-semibold transition-colors">
-                    &bull; Key Fob Replacement &amp; Battery
-                  </a>
-                  <a href="/dealer-key/" class="block p-1.5 text-slate-700 hover:text-amber-600 font-semibold transition-colors">
-                    &bull; OEM Dealer Key Cut &amp; Program
-                  </a>
-                  <a href="/automotive-locksmith-in-nashville-tn/" class="block p-1.5 text-slate-700 hover:text-amber-600 font-semibold transition-colors">
-                    &bull; Automotive Locksmith Nashville
-                  </a>
+                  {nav.keyServices.map((item) => (
+                    <a href={item.href} class="block p-1.5 text-slate-700 hover:text-amber-600 font-semibold transition-colors">
+                      &bull; {item.label}
+                    </a>
+                  ))}
                 </div>
               </div>
 
-              <a href="/car-key-replacement-nashville/" class="mt-3 block p-2 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 font-black text-center transition-all duration-200 hover:shadow-xs">
-                <span>View All Vehicle Makes &rarr;</span>
-                <span class="block text-[10px] font-medium text-slate-600">Ford, Chevy, Nissan, Dodge &amp; More</span>
+              <a href={nav.makesHub.href} class="mt-3 block p-2 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-900 font-black text-center transition-all duration-200 hover:shadow-xs">
+                <span>{nav.makesHub.label} &rarr;</span>
+                <span class="block text-[10px] font-medium text-slate-600">{nav.makesHub.desc}</span>
               </a>
             </div>
 
@@ -165,15 +143,8 @@ const { reviewCount } = await getReviewStats();
                 <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
                   We decode locks with Lishi tools and originate fresh computerized keys on-site. Zero dealership towing needed.
                 </p>
-
-                <div class="mt-3 space-y-1 text-[11px]">
-                  <a href="/nashville-car-unlock-service/" class="block py-1 text-slate-700 hover:text-amber-700 font-bold transition-colors">
-                    &bull; Damage-Free Car Unlock
-                  </a>
-                </div>
               </div>
 
-              <!-- High-Visibility Emergency Lockout CTA -->
               <div class="mt-4 pt-3 border-t border-amber-200/80">
                 <a href="/emergency-car-lockout/" class="block p-2.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-black text-center text-[11px] uppercase tracking-wider shadow-sm transition-colors active:scale-95">
                   🚨 Emergency Car Lockout
@@ -201,11 +172,11 @@ const { reviewCount } = await getReviewStats();
         </div>
       </div>
 
-      <!-- Silo 2: Locks & Rekeying (Home & Business) -->
+      <!-- Silo 2: Locks & Rekeys (Home & Business) -->
       <div class="relative group">
-        <a href="/residential-locksmith-nashville/" class="arm-nav-item px-2.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-commercial">
+        <a href="/residential-locksmith-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-commercial">
           <span class="text-emerald-600 text-sm">🏠</span>
-          <span>Locks &amp; Rekeying</span>
+          <span>Locks &amp; Rekeys</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
@@ -225,21 +196,15 @@ const { reviewCount } = await getReviewStats();
               </div>
 
               <div class="flex flex-col divide-y divide-slate-100">
-                <a href="/residential-locksmith-nashville/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-700 font-semibold hover:bg-slate-50 hover:text-[#0f274a] hover:border-l-2 hover:border-amber-500 transition-all">
-                  <div>
-                    <span class="block text-slate-900 font-bold">Residential Rekeying</span>
-                    <span class="block text-[10px] text-slate-500 font-normal">New home move-in key resets</span>
-                  </div>
-                  <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                </a>
-
-                <a href="/nashville-rekey-service/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-700 font-semibold hover:bg-slate-50 hover:text-[#0f274a] hover:border-l-2 hover:border-amber-500 transition-all">
-                  <div>
-                    <span class="block text-slate-900 font-bold">Nashville Rekey Service</span>
-                    <span class="block text-[10px] text-slate-500 font-normal">Deadbolts, knobs &amp; high-security cylinders</span>
-                  </div>
-                  <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                </a>
+                {nav.residential.map((item) => (
+                  <a href={item.href} class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-700 font-semibold hover:bg-slate-50 hover:text-[#0f274a] hover:border-l-2 hover:border-amber-500 transition-all">
+                    <div>
+                      <span class="block text-slate-900 font-bold">{item.label}</span>
+                      <span class="block text-[10px] text-slate-500 font-normal">{item.desc}</span>
+                    </div>
+                    <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
+                  </a>
+                ))}
 
                 <a href="/book-online/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-800 font-bold bg-amber-50/60 hover:bg-amber-100 hover:border-l-2 hover:border-amber-500 rounded-lg transition-all mt-1">
                   <div>
@@ -262,21 +227,15 @@ const { reviewCount } = await getReviewStats();
               </div>
 
               <div class="flex flex-col divide-y divide-slate-100">
-                <a href="/commercial-locksmith/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-700 font-semibold hover:bg-slate-50 hover:text-[#0f274a] hover:border-l-2 hover:border-amber-500 transition-all">
-                  <div>
-                    <span class="block text-slate-900 font-bold">Commercial Doors &amp; Locks</span>
-                    <span class="block text-[10px] text-slate-500 font-normal">Mortise cylinders, panic bars &amp; levers</span>
-                  </div>
-                  <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                </a>
-
-                <a href="/commercial-locksmith/#hardware" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-700 font-semibold hover:bg-slate-50 hover:text-[#0f274a] hover:border-l-2 hover:border-amber-500 transition-all">
-                  <div>
-                    <span class="block text-slate-900 font-bold">Panic Hardware &amp; Exit Devices</span>
-                    <span class="block text-[10px] text-slate-500 font-normal">Detex, Adams Rite &amp; Von Duprin</span>
-                  </div>
-                  <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
-                </a>
+                {nav.commercial.map((item) => (
+                  <a href={item.href} class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-700 font-semibold hover:bg-slate-50 hover:text-[#0f274a] hover:border-l-2 hover:border-amber-500 transition-all">
+                    <div>
+                      <span class="block text-slate-900 font-bold">{item.label}</span>
+                      <span class="block text-[10px] text-slate-500 font-normal">{item.desc}</span>
+                    </div>
+                    <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all font-bold">&rarr;</span>
+                  </a>
+                ))}
 
                 <a href="/nashville-locksmith-storefront/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-emerald-900 font-bold bg-emerald-50/70 hover:bg-emerald-100 hover:border-l-2 hover:border-emerald-600 rounded-lg transition-all mt-1">
                   <div>
@@ -298,93 +257,87 @@ const { reviewCount } = await getReviewStats();
         </div>
       </div>
 
-      <!-- Silo 3: Pricing & Reviews Dropdown -->
+      <!-- Silo 3: Lockout. Direct link, no dropdown - the highest-intent visitor
+           on the site should not have to guess which menu it lives under. -->
+      <div>
+        <a href="/emergency-car-lockout/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 text-red-700 hover:text-white hover:bg-red-600 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
+          <span class="text-sm">🚨</span>
+          <span>Lockout</span>
+        </a>
+      </div>
+
+      <!-- Silo 4: Pricing Dropdown -->
       <div class="relative group">
-        <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-2.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-pricing">
+        <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-pricing">
           <span class="text-amber-500 text-sm">💰</span>
-          <span>Pricing &amp; Reviews</span>
+          <span>Pricing</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
         <div id="arm-menu-pricing" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
           <div class="h-1 bg-gradient-to-r from-amber-500 to-yellow-400"></div>
           <div class="divide-y divide-slate-100 p-2">
-            <a href="/locksmith-pricing-nashville/" class="group/item flex items-center justify-between p-3 rounded-xl bg-amber-50/60 hover:bg-amber-100 font-bold text-amber-950 transition-colors">
-              <div>
-                <span class="block text-amber-950 font-black">💵 2026 Upfront Price Guide</span>
-                <span class="block text-[10px] text-amber-800 font-normal">Flat transparent rates &bull; No hidden fees</span>
-              </div>
-              <span class="text-amber-600 group-hover/item:translate-x-1 transition-transform">&rarr;</span>
-            </a>
-            <a href="/google-reviews/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">⭐ Google Reviews (<span class="arm-review-count">{reviewCount}+</span>)</span>
-                <span class="block text-[10px] text-slate-500">4.9 Star Verified Local Rating</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
-            <a href="/faq/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">❓ Frequently Asked Questions</span>
-                <span class="block text-[10px] text-slate-500">Pricing, dispatch times &amp; warranty</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
-            <a href="/payment-methods/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">💳 Accepted Payment Methods</span>
-                <span class="block text-[10px] text-slate-500">Cards, Apple Pay, Cash &amp; Invoicing</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
+            {nav.pricing.map((item) => (
+              <a
+                href={item.href}
+                class={item.feature
+                  ? 'group/item flex items-center justify-between p-3 rounded-xl bg-amber-50/60 hover:bg-amber-100 font-bold text-amber-950 transition-colors'
+                  : 'group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors'}
+              >
+                <div>
+                  <span class={item.feature ? 'block text-amber-950 font-black' : 'block font-bold text-slate-900'}>
+                    {item.icon} {item.label}
+                    {item.showCount && <> (<span class="arm-review-count">{reviewCount}+</span>)</>}
+                  </span>
+                  <span class={item.feature ? 'block text-[10px] text-amber-800 font-normal' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
+                </div>
+                <span class={item.feature
+                  ? 'text-amber-600 group-hover/item:translate-x-1 transition-transform'
+                  : 'text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all'}>&rarr;</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
-      <!-- Silo 4: Storefront & Areas Dropdown -->
+      <!-- Silo 5: Locations. Shop + areas first, company links visually split
+           below so the two intents are not presented as one flat list. -->
       <div class="relative group">
-        <a href="/service-areas/" class="arm-nav-item px-2.5 xl:px-4 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-locations">
+        <a href="/service-areas/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-locations">
           <span class="text-blue-500 text-sm">📍</span>
-          <span>Storefront &amp; About</span>
+          <span>Locations</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
         <div id="arm-menu-locations" class="absolute top-full right-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
           <div class="h-1 bg-gradient-to-r from-blue-600 to-amber-500"></div>
           <div class="divide-y divide-slate-100 p-2">
-            <a href="/nashville-locksmith-storefront/" class="group/item flex items-center justify-between p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100 transition-colors">
-              <div>
-                <span class="block font-bold text-emerald-950">🏪 208 Thompson Ln Storefront</span>
-                <span class="block text-[10px] text-emerald-800">Walk-in Key Shop &bull; While You Wait</span>
-              </div>
-              <span class="text-emerald-700 group-hover/item:translate-x-1 transition-transform font-bold">&rarr;</span>
-            </a>
-            <a href="/service-areas/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">📍 Nashville Service Areas</span>
-                <span class="block text-[10px] text-slate-500">Davidson, Williamson &amp; Wilson Counties</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
-            <a href="/about-us/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">👨‍🔧 Meet Owner Rahim</span>
-                <span class="block text-[10px] text-slate-500">20+ Years Master Craftsmanship</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
-            <a href="/contact-armstrong-locksmith/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">📞 Contact &amp; Dispatch Hours</span>
-                <span class="block text-[10px] text-slate-500">Direct phone, mobile &amp; email</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
-            <a href="/blog/" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-              <div>
-                <span class="block font-bold text-slate-900">📰 Guides &amp; Field Case Studies</span>
-                <span class="block text-[10px] text-slate-500">Recent jobs &amp; locksmith tips</span>
-              </div>
-              <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
-            </a>
+            {nav.locations.map((item) => (
+              <a
+                href={item.href}
+                class={item.feature
+                  ? 'group/item flex items-center justify-between p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100 transition-colors'
+                  : 'group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors'}
+              >
+                <div>
+                  <span class={item.feature ? 'block font-bold text-emerald-950' : 'block font-bold text-slate-900'}>{item.icon} {item.label}</span>
+                  <span class={item.feature ? 'block text-[10px] text-emerald-800' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
+                </div>
+                <span class={item.feature
+                  ? 'text-emerald-700 group-hover/item:translate-x-1 transition-transform font-bold'
+                  : 'text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all'}>&rarr;</span>
+              </a>
+            ))}
+          </div>
+          <div class="px-2 pb-2">
+            <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-3 pt-2 pb-1 border-t border-slate-100">The Company</div>
+            {nav.company.map((item) => (
+              <a href={item.href} class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
+                <div>
+                  <span class="block font-bold text-slate-900">{item.icon} {item.label}</span>
+                  <span class="block text-[10px] text-slate-500">{item.desc}</span>
+                </div>
+                <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -439,7 +392,7 @@ const { reviewCount } = await getReviewStats();
 
   </div>
 
-  <!-- Mobile Drawer Menu (Luxury Native App-Style Navigation) -->
+  <!-- Mobile Drawer Menu (Native App-Style Navigation) -->
   <div
     id="arm-mobile-drawer"
     class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[100] hidden opacity-0 transition-opacity duration-300 lg:hidden font-sans"
@@ -480,7 +433,7 @@ const { reviewCount } = await getReviewStats();
           </a>
         </div>
 
-        <!-- High-Intent Quick Navigation: Emergency vs Storefront Split -->
+        <!-- High-Intent Quick Navigation -->
         <div class="grid grid-cols-2 gap-1.5 mt-2.5 pt-2.5 border-t border-white/10 text-[11px]">
           <a href="/emergency-car-lockout/" class="p-1.5 rounded bg-red-950/70 border border-red-500/50 text-red-200 font-bold flex items-center gap-1.5 hover:bg-red-900/60 transition-colors">
             <span>🚨</span>
@@ -501,7 +454,7 @@ const { reviewCount } = await getReviewStats();
         </div>
       </div>
 
-      <!-- Mobile Navigation Silos with Polished Brand Badges -->
+      <!-- Mobile Navigation Silos -->
       <nav class="flex-1 flex flex-col px-3 py-2 text-sm font-bold text-slate-800" aria-label="Mobile Navigation Links">
 
         <!-- 1. Car Keys & Vehicle Makes Accordion -->
@@ -516,40 +469,33 @@ const { reviewCount } = await getReviewStats();
               <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
           </button>
-          
+
           <div class="arm-accordion-content hidden px-1 pb-3">
-            
+
             <!-- European Luxury Section -->
             <div class="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1 pt-1.5 mb-1.5 flex items-center justify-between">
               <span>European Specialists</span>
               <span class="text-amber-600 font-bold">DEALER LEVEL</span>
             </div>
 
-            <!-- Tappable Brand Pill Cards (Replaces Raw Bullets) -->
-            <div class="grid grid-cols-2 gap-1.5 mb-3 text-[11px]">
-              <a href="/bmw/" class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
-                <span>BMW Keys</span>
-                <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black">CAS/FEM</span>
-              </a>
-              <a href="/mercedes-benz/" class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
-                <span>Mercedes</span>
-                <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black">EIS/FBS</span>
-              </a>
-              <a href="/audi-car-keys/" class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
-                <span>Audi Keys</span>
-                <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black">BCM2</span>
-              </a>
-              <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
-                <span>Range Rover</span>
-                <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black">Prox</span>
-              </a>
-              <a href="/audi-q3-key-replacement/" class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 text-center">
-                Audi Q3 Keys
-              </a>
-              <a href="/bentley-key-replacement/" class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 text-center">
-                Bentley Keys
-              </a>
+            <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
+              {nav.european.map((item) => (
+                <a href={item.href} class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-1 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
+                  <span class="truncate">{item.label}</span>
+                  <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black shrink-0">{item.chip}</span>
+                </a>
+              ))}
+              {nav.europeanCompact.map((item) => (
+                <a href={item.href} class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 text-center truncate">
+                  {item.label}
+                </a>
+              ))}
             </div>
+
+            <!-- European hub: was desktop-only before the shared nav data -->
+            <a href={nav.europeanHub.href} class="block mb-3 py-2 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-[11px] active:bg-amber-100 transition-colors">
+              🏎️ {nav.europeanHub.label} &rarr;
+            </a>
 
             <!-- Domestic & Asian Section -->
             <div class="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1 mb-1.5 flex items-center justify-between">
@@ -558,44 +504,27 @@ const { reviewCount } = await getReviewStats();
             </div>
 
             <div class="grid grid-cols-2 gap-1.5 mb-3 text-[11px]">
-              <a href="/toyota-car-key-replacement/" class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400">
-                Toyota &bull; Lexus
-              </a>
-              <a href="/honda-car-keys/" class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400">
-                Honda &bull; Acura
-              </a>
-              <a href="/kia-car-key-replacement/" class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400">
-                Kia Proximity
-              </a>
-              <a href="/hyundai/" class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400">
-                Hyundai Smart
-              </a>
-              <a href="/acura-car-key-replacement/" class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400">
-                Acura Remotes
-              </a>
-              <a href="/hummer-key-replacement-nashville/" class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400">
-                Hummer &bull; GM
-              </a>
+              {nav.makes.map((item) => (
+                <a href={item.href} class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400 truncate">
+                  {item.label}
+                </a>
+              ))}
             </div>
 
             <!-- Key Tech & Urgent Links -->
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
-              <a href="/key-fob-replacement-nashville/" class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
-                🔑 Key Fobs &amp; Battery
-              </a>
-              <a href="/dealer-key/" class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
-                🏷️ OEM Dealer Keys
-              </a>
-              <a href="/emergency-car-lockout/" class="p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 font-bold">
-                🚨 Emergency Lockout
-              </a>
-              <a href="/nashville-car-unlock-service/" class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
-                🔓 Car Unlock Service
+              {nav.keyServices.map((item) => (
+                <a href={item.href} class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
+                  {item.icon} {item.label}
+                </a>
+              ))}
+              <a href="/emergency-car-lockout/" class="p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 font-bold col-span-2 text-center">
+                🚨 Emergency Car Lockout
               </a>
             </div>
 
-            <a href="/car-key-replacement-nashville/" class="block py-2.5 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors shadow-2xs">
-              🔑 All Vehicle Keys Hub &rarr;
+            <a href={nav.makesHub.href} class="block py-2.5 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors shadow-2xs">
+              🔑 {nav.makesHub.label} &rarr;
             </a>
 
           </div>
@@ -610,39 +539,25 @@ const { reviewCount } = await getReviewStats();
             </span>
             <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          
+
           <div class="arm-accordion-content hidden px-1 pb-3">
             <div class="flex flex-col gap-1.5 text-[12px] pt-1">
-              <a href="/residential-locksmith-nashville/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between">
-                <div>
-                  <span class="block text-slate-900 font-bold">🏡 Residential Rekey &amp; Deadbolts</span>
-                  <span class="block text-[10px] text-slate-500 font-normal">New home move-ins &amp; lock hardware</span>
-                </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
-              </a>
+              {[...nav.residential, ...nav.commercial].map((item) => (
+                <a href={item.href} class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between gap-2">
+                  <div class="min-w-0">
+                    <span class="block text-slate-900 font-bold">{item.icon} {item.label}</span>
+                    <span class="block text-[10px] text-slate-500 font-normal">{item.desc}</span>
+                  </div>
+                  <span class="text-amber-500 font-bold shrink-0">&rarr;</span>
+                </a>
+              ))}
 
-              <a href="/nashville-rekey-service/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between">
-                <div>
-                  <span class="block text-slate-900 font-bold">🔑 Nashville Rekey Service</span>
-                  <span class="block text-[10px] text-slate-500 font-normal">Deadbolts, knobs &amp; master key cylinders</span>
+              <a href="/book-online/" class="p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-bold flex items-center justify-between gap-2">
+                <div class="min-w-0">
+                  <span class="block font-black text-amber-950">📅 Schedule Lock Service</span>
+                  <span class="block text-[10px] text-amber-800 font-normal">Select date &amp; time online</span>
                 </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
-              </a>
-
-              <a href="/commercial-locksmith/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between">
-                <div>
-                  <span class="block text-slate-900 font-bold">🏢 Commercial Doors &amp; Panic Hardware</span>
-                  <span class="block text-[10px] text-slate-500 font-normal">Von Duprin, Detex &amp; exit devices</span>
-                </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
-              </a>
-
-              <a href="/commercial-locksmith/#hardware" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between">
-                <div>
-                  <span class="block text-slate-900 font-bold">🚪 Storefront Mortise Cylinders</span>
-                  <span class="block text-[10px] text-slate-500 font-normal">Adams Rite retail &amp; office security</span>
-                </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
+                <span class="text-amber-600 font-bold shrink-0">&rarr;</span>
               </a>
 
               <a href="/nashville-locksmith-storefront/" class="mt-1 p-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-black text-center text-xs active:bg-emerald-100 transition-colors">
@@ -652,49 +567,35 @@ const { reviewCount } = await getReviewStats();
           </div>
         </div>
 
-        <!-- 3. Pricing & Verified Reviews Accordion -->
+        <!-- 3. Pricing & Reviews Accordion -->
         <div class="border-b border-slate-100">
           <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
             <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">
               <span class="text-amber-500">💰</span>
-              <span>Pricing &amp; 782+ Reviews</span>
+              <span>Pricing &amp; <span class="arm-review-count">{reviewCount}+</span> Reviews</span>
             </span>
             <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          
+
           <div class="arm-accordion-content hidden px-1 pb-3">
             <div class="flex flex-col gap-1.5 text-[12px] pt-1">
-              <a href="/locksmith-pricing-nashville/" class="p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black flex items-center justify-between">
-                <div>
-                  <span class="block font-black text-amber-950">💵 2026 Upfront Price Guide</span>
-                  <span class="block text-[10px] text-amber-800 font-normal">Flat transparent rates &bull; No surprise fees</span>
-                </div>
-                <span class="text-amber-600 font-bold">&rarr;</span>
-              </a>
-
-              <a href="/google-reviews/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold flex items-center justify-between">
-                <div>
-                  <span class="block font-bold text-slate-900">⭐ Google Reviews (<span class="arm-review-count">{reviewCount}+</span>)</span>
-                  <span class="block text-[10px] text-slate-500">4.9 Star Verified Local Rating</span>
-                </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
-              </a>
-
-              <a href="/faq/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold flex items-center justify-between">
-                <div>
-                  <span class="block font-bold text-slate-900">❓ Frequently Asked Questions</span>
-                  <span class="block text-[10px] text-slate-500">Arrival times, key codes &amp; warranties</span>
-                </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
-              </a>
-
-              <a href="/payment-methods/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold flex items-center justify-between">
-                <div>
-                  <span class="block font-bold text-slate-900">💳 Accepted Payment Methods</span>
-                  <span class="block text-[10px] text-slate-500">Credit cards, Apple Pay &amp; corporate invoicing</span>
-                </div>
-                <span class="text-amber-500 font-bold">&rarr;</span>
-              </a>
+              {nav.pricing.map((item) => (
+                <a
+                  href={item.href}
+                  class={item.feature
+                    ? 'p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black flex items-center justify-between gap-2'
+                    : 'p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold flex items-center justify-between gap-2'}
+                >
+                  <div class="min-w-0">
+                    <span class={item.feature ? 'block font-black text-amber-950' : 'block font-bold text-slate-900'}>
+                      {item.icon} {item.label}
+                      {item.showCount && <> (<span class="arm-review-count">{reviewCount}+</span>)</>}
+                    </span>
+                    <span class={item.feature ? 'block text-[10px] text-amber-800 font-normal' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
+                  </div>
+                  <span class={item.feature ? 'text-amber-600 font-bold shrink-0' : 'text-amber-500 font-bold shrink-0'}>&rarr;</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -704,28 +605,29 @@ const { reviewCount } = await getReviewStats();
           <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
             <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">
               <span class="text-blue-500">📍</span>
-              <span>Storefront &amp; Areas</span>
+              <span>Locations &amp; Company</span>
             </span>
             <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          
+
           <div class="arm-accordion-content hidden px-1 pb-3">
             <div class="flex flex-col gap-1.5 text-[12px] pt-1">
-              <a href="/nashville-locksmith-storefront/" class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold">
-                🏪 208 Thompson Ln Storefront
-              </a>
-              <a href="/service-areas/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
-                🚐 Nashville Metro Service Areas
-              </a>
-              <a href="/about-us/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
-                👨‍🔧 Meet Owner Rahim (Master Locksmith)
-              </a>
-              <a href="/contact-armstrong-locksmith/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
-                📞 Contact &amp; Dispatch Hours
-              </a>
-              <a href="/blog/" class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
-                📰 Guides &amp; Field Case Studies
-              </a>
+              {nav.locations.map((item) => (
+                <a
+                  href={item.href}
+                  class={item.feature
+                    ? 'p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold'
+                    : 'p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold'}
+                >
+                  {item.icon} {item.label}
+                </a>
+              ))}
+              <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-1 pt-2 pb-0.5">The Company</div>
+              {nav.company.map((item) => (
+                <a href={item.href} class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
+                  {item.icon} {item.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -844,6 +746,10 @@ const { reviewCount } = await getReviewStats();
       //      instead of navigating and a second tap follows the link. Mouse and
       //      keyboard users are unaffected - hover / focus has already opened the
       //      panel by the time the click lands, so the click just navigates.
+      //
+      // The Lockout item is a plain link with no aria-controls, so it is not
+      // picked up here and always navigates on the first tap - which is the
+      // whole point of promoting it out of a dropdown.
       function setupDesktopDropdowns() {
         const items = [];
         document.querySelectorAll('.arm-desktop-nav a.arm-nav-item[aria-controls]').forEach(trigger => {

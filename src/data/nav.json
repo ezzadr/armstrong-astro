@@ -1,0 +1,154 @@
+{
+  "_comment": "Single source of truth for the header navigation. Header.astro renders BOTH the desktop mega-menu and the mobile drawer from these arrays, so the two trees cannot drift apart. Before this file existed they were two hand-written blocks of markup and /european-car-key-specialist/ and /automotive-locksmith-in-nashville-tn/ had gone missing from mobile without anyone noticing. Anchor text lives here too: `label` is what Google reads (desktop renders first, and first link counts), so every label carries the head term the target page is trying to rank for.",
+
+  "european": [
+    {
+      "href": "/bmw/",
+      "label": "BMW Key Replacement",
+      "desc": "CAS, FEM & BDC Key Programming",
+      "chip": "CAS/FEM"
+    },
+    {
+      "href": "/mercedes-benz/",
+      "label": "Mercedes-Benz Car Keys",
+      "desc": "EIS, FBS3/FBS4 & Keyless Go",
+      "chip": "EIS/FBS"
+    },
+    {
+      "href": "/audi-car-keys/",
+      "label": "Audi Car Keys",
+      "desc": "Advanced 5th Gen Immobilizer Keys",
+      "chip": "BCM2"
+    }
+  ],
+
+  "europeanCompact": [
+    { "href": "/audi-q3-key-replacement/", "label": "Audi Q3 Car Keys" },
+    { "href": "/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/", "label": "Range Rover Keys" },
+    { "href": "/bentley-key-replacement/", "label": "Bentley Key Replacement", "wide": true }
+  ],
+
+  "europeanHub": {
+    "href": "/european-car-key-specialist/",
+    "label": "European Car Key Specialist",
+    "desc": "Save $300–$600 vs Dealership"
+  },
+
+  "makes": [
+    { "href": "/toyota-car-key-replacement/", "label": "Toyota Car Keys" },
+    { "href": "/honda-car-keys/", "label": "Honda Car Keys" },
+    { "href": "/kia-car-key-replacement/", "label": "Kia Car Keys" },
+    { "href": "/hyundai/", "label": "Hyundai Car Keys" },
+    { "href": "/acura-car-key-replacement/", "label": "Acura Car Keys" },
+    { "href": "/hummer-key-replacement-nashville/", "label": "Hummer Key Replacement" }
+  ],
+
+  "keyServices": [
+    { "href": "/key-fob-replacement-nashville/", "label": "Key Fob Replacement & Battery", "icon": "🔑" },
+    { "href": "/dealer-key/", "label": "OEM Dealer Key Cut & Program", "icon": "🏷️" },
+    { "href": "/automotive-locksmith-in-nashville-tn/", "label": "Automotive Locksmith Nashville", "icon": "🔧" },
+    { "href": "/nashville-car-unlock-service/", "label": "Damage-Free Car Unlock", "icon": "🔓" }
+  ],
+
+  "makesHub": {
+    "href": "/car-key-replacement-nashville/",
+    "label": "All Vehicle Car Keys",
+    "desc": "Ford, Chevy, Nissan, Dodge & More"
+  },
+
+  "residential": [
+    {
+      "href": "/residential-locksmith-nashville/",
+      "label": "Residential Rekeying",
+      "desc": "New home move-in key resets",
+      "icon": "🏡"
+    },
+    {
+      "href": "/nashville-rekey-service/",
+      "label": "Nashville Rekey Service",
+      "desc": "Deadbolts, knobs & high-security cylinders",
+      "icon": "🔑"
+    }
+  ],
+
+  "commercial": [
+    {
+      "href": "/commercial-locksmith/",
+      "label": "Commercial Doors & Locks",
+      "desc": "Mortise cylinders, panic bars & levers",
+      "icon": "🏢"
+    },
+    {
+      "href": "/commercial-locksmith/#hardware",
+      "label": "Panic Hardware & Exit Devices",
+      "desc": "Detex, Adams Rite & Von Duprin",
+      "icon": "🚪"
+    }
+  ],
+
+  "pricing": [
+    {
+      "href": "/locksmith-pricing-nashville/",
+      "label": "2026 Upfront Price Guide",
+      "desc": "Flat transparent rates • No hidden fees",
+      "icon": "💵",
+      "feature": true
+    },
+    {
+      "href": "/google-reviews/",
+      "label": "Google Reviews",
+      "desc": "4.9 Star Verified Local Rating",
+      "icon": "⭐",
+      "showCount": true
+    },
+    {
+      "href": "/faq/",
+      "label": "Frequently Asked Questions",
+      "desc": "Pricing, dispatch times & warranty",
+      "icon": "❓"
+    },
+    {
+      "href": "/payment-methods/",
+      "label": "Accepted Payment Methods",
+      "desc": "Cards, Apple Pay, Cash & Invoicing",
+      "icon": "💳"
+    }
+  ],
+
+  "locations": [
+    {
+      "href": "/nashville-locksmith-storefront/",
+      "label": "208 Thompson Ln Storefront",
+      "desc": "Walk-in Key Shop • While You Wait",
+      "icon": "🏪",
+      "feature": true
+    },
+    {
+      "href": "/service-areas/",
+      "label": "Nashville Service Areas",
+      "desc": "Davidson, Williamson & Wilson Counties",
+      "icon": "📍"
+    }
+  ],
+
+  "company": [
+    {
+      "href": "/about-us/",
+      "label": "Meet Owner Rahim",
+      "desc": "20+ Years Master Craftsmanship",
+      "icon": "👨‍🔧"
+    },
+    {
+      "href": "/contact-armstrong-locksmith/",
+      "label": "Contact & Dispatch Hours",
+      "desc": "Direct phone, mobile & email",
+      "icon": "📞"
+    },
+    {
+      "href": "/blog/",
+      "label": "Guides & Field Case Studies",
+      "desc": "Recent jobs & locksmith tips",
+      "icon": "📰"
+    }
+  ]
+}
