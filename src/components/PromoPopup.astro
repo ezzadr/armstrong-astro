@@ -114,14 +114,9 @@ if (!promo || !promo.active) {
 
 <script is:inline>
   (function() {
-    // Bumped with each redesign so people who dismissed the old card see this one.
-    const storageKey = 'arm_promo_dismissed_v8';
-
+    // Closing the card only hides it on the current page. Nothing is saved, so
+    // it shows again on the next page the visitor opens or when they refresh.
     function init() {
-      try {
-        if (sessionStorage.getItem(storageKey)) return;
-      } catch (e) {}
-
       const mob = document.getElementById('arm-promo-mobile');
       const dsk = document.getElementById('arm-promo-desktop');
 
@@ -144,9 +139,6 @@ if (!promo || !promo.active) {
             el.classList.remove('opacity-100', 'translate-y-0');
             el.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
           });
-          try {
-            sessionStorage.setItem(storageKey, '1');
-          } catch (err) {}
         });
       });
     }
