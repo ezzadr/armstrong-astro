@@ -12,60 +12,70 @@ const seoDescription = `See what locksmith services cost in Nashville — car ke
 const autoPricing = [
   {
     name: "Emergency Car Lockout (Standard Vehicles)",
+    href: "/emergency-car-lockout/",
     price: "$65+",
     badge: "Damage-Free Entry",
     note: "Gentle vehicle entry using soft vinyl air wedges and specialized bypass tools. Zero scratch guarantee."
   },
   {
     name: "Emergency Car Lockout (Luxury / High-Security)",
+    href: "/nashville-car-unlock-service/",
     price: "$85+",
     badge: "BMW / Audi / Benz / Lexus",
     note: "Decoded directly through the keyhole with German-made Lishi decoders. Bypasses double-locks."
   },
   {
     name: "Standard Non-Chip Metal Key Duplicate",
+    href: "/nashville-locksmith-storefront/",
     price: "$35+",
     badge: "In-Shop or On-Site",
     note: "Single and double-sided mechanical keys cut on factory-calibrated key duplicators."
   },
   {
     name: "Transponder / Chipped Key Cut & Programmed",
+    href: "/car-key-replacement-nashville/",
     price: "$95+",
     badge: "Domestic & Asian",
     note: "Laser-cut key blade with embedded RFID chip synchronized to vehicle immobilizer on-site."
   },
   {
     name: "Remote Head Key (Cut & Programmed)",
+    href: "/key-fob-replacement-nashville/",
     price: "$120+",
     badge: "Integrated Fob",
     note: "Integrated mechanical key blade and lock/unlock/trunk remote transmitter fully programmed."
   },
   {
     name: "Smart Proximity Push-to-Start Fob",
+    href: "/dealer-key/",
     price: "$145+",
     badge: "OEM & Aftermarket",
     note: "Smart keyless access fob pairing, proximity start programming, and emergency slide-out key cut."
   },
   {
     name: "European Car Key Specialist",
+    href: "/european-car-key-specialist/",
     price: "$180+",
     badge: "Dealer Alternative",
     note: "BMW (CAS/FEM/BDC), Mercedes-Benz (EIS/FBS3/FBS4), Audi, Land Rover, Porsche, Bentley key generation."
   },
   {
     name: "All Keys Lost (Originated at Vehicle)",
+    href: "/automotive-locksmith-in-nashville-tn/",
     price: "$165+",
     badge: "Full On-Site Solution",
     note: "No existing key required. Lock cylinder decoded, factory laser key cut to code, and ECU reprogrammed on the spot."
   },
   {
     name: "Broken Key Extraction from Lock or Ignition",
+    href: "/automotive-locksmith-in-nashville-tn/",
     price: "$75+",
     badge: "Clean Extraction",
     note: "Broken blade removal without damaging internal wafers, plus an on-site fresh replacement key cut."
   },
   {
     name: "Ignition Cylinder Repair / Replacement",
+    href: "/automotive-locksmith-in-nashville-tn/",
     price: "$140+",
     badge: "Parts & Labor",
     note: "Repairing stuck ignitions, rebuilding internal wafers, or installing new OEM ignition matched to your existing key."
@@ -75,48 +85,56 @@ const autoPricing = [
 const residentialPricing = [
   {
     name: "Emergency House Lockout",
+    href: "/residential-locksmith-nashville/",
     price: "$85+",
     badge: "Damage-Free Picking",
     note: "Clean lock picking and latch bypass for deadbolts and entry doorknobs with zero door or frame damage."
   },
   {
     name: "Standard Lock Rekeying (Per Cylinder)",
+    href: "/nashville-rekey-service/",
     price: "$20 – $45",
     badge: "Most Popular",
     note: "Internal brass tumbler pins replaced to fit a brand-new key. Renders all previous lost or contractor keys useless."
   },
   {
     name: "High-Security Deadbolt Rekeying",
+    href: "/nashville-rekey-service/",
     price: "$45 – $65",
     badge: "Commercial Grade",
     note: "Rekeying Medeco, Mul-T-Lock, Schlage Primus, and restricted pick-resistant cylinders."
   },
   {
     name: "Deadbolt or Doorknob Replacement & Install",
+    href: "/residential-locksmith-nashville/",
     price: "$65 + Parts",
     badge: "Hardware Upgrade",
     note: "Professional installation and alignment of new Schlage, Kwikset, Yale, or Baldwin deadbolts."
   },
   {
     name: "Fresh Door Hole Drilling & Mortise Prep",
+    href: "/residential-locksmith-nashville/",
     price: "$75+",
     badge: "New Deadbolt Addition",
     note: "Template drilling and chisel mortising to add a brand-new deadbolt to an unprepared wooden or metal door."
   },
   {
     name: "Electronic Keypad & Smart Lock Installation",
+    href: "/residential-locksmith-nashville/",
     price: "$95+",
     badge: "Keyless Entry",
     note: "Mounting, door alignment, throw adjustment, and smartphone/Wi-Fi code setup for consumer smart locks."
   },
   {
     name: "Reinforced Security Strike Plate Installation",
+    href: "/residential-locksmith-nashville/",
     price: "$45+",
     badge: "Kick-In Defense",
     note: "Heavy-gauge steel strike plate anchored with 3-inch hardened steel screws directly into the wall framing stud."
   },
   {
     name: "Residential Master Key System Setup",
+    href: "/nashville-rekey-service/",
     price: "$65 + Rekey",
     badge: "Multi-Door Convenience",
     note: "Configure a single master key to open all house deadbolts while maintaining separate keys for tenant suites or guest rooms."
@@ -126,42 +144,49 @@ const residentialPricing = [
 const commercialPricing = [
   {
     name: "Emergency Commercial Business Lockout",
+    href: "/commercial-locksmith/",
     price: "$125+",
     badge: "Storefront & Office",
     note: "Rapid mobile access for retail storefronts, office suites, mortise cylinders, and commercial aluminum doors."
   },
   {
     name: "Adams Rite Storefront Cylinder Rekeying",
+    href: "/commercial-locksmith/",
     price: "$45 – $75",
     badge: "Retail Standard",
     note: "Rekeying aluminum glass storefront mortise cylinders after employee turnover or management transitions."
   },
   {
     name: "Commercial Storefront Lock Replacement",
+    href: "/commercial-locksmith/",
     price: "$165 + Parts",
     badge: "Complete Lockbody",
     note: "Replacing worn hookbolt, maximum security deadlatch, or mortise cylinder on commercial glass entry doors."
   },
   {
     name: "Panic Exit Crash Bar Installation",
+    href: "/commercial-locksmith/#hardware",
     price: "$285 + Parts",
     badge: "UL & Life Safety Code",
     note: "Installation and latch alignment of commercial rim exit devices and fire-rated panic push bars."
   },
   {
     name: "Commercial Grade 1 Heavy-Duty Leverset",
+    href: "/commercial-locksmith/",
     price: "$125 + Parts",
     badge: "ADA Compliant",
     note: "High-traffic commercial cylindrical leversets engineered for heavy daily commercial use."
   },
   {
     name: "Master Key Hierarchy Charting & Setup",
+    href: "/commercial-locksmith/",
     price: "$150 + Cylinders",
     badge: "Facility Management",
     note: "Complete key hierarchy architecture (Great Grandmaster, Master, Sub-Master, and Individual Tenant keys)."
   },
   {
     name: "Commercial Hydraulic Door Closer Install",
+    href: "/commercial-locksmith/",
     price: "$175 + Parts",
     badge: "Controlled Closing",
     note: "Mounting commercial surface closers with dual-valve closing speed and latching power adjustment."
@@ -432,7 +457,9 @@ const pricingSchema = [
             <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/80 transition">
               <div class="space-y-1 sm:max-w-2xl">
                 <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-bold text-slate-900 text-sm sm:text-base">{item.name}</h3>
+                  <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                    <a href={item.href} class="hover:text-amber-700 hover:underline underline-offset-2 decoration-amber-500/60 transition-colors">{item.name}</a>
+                  </h3>
                   <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
                     {item.badge}
                   </span>
@@ -447,6 +474,16 @@ const pricingSchema = [
           ))}
         </div>
       </section>
+
+      <p class="text-xs sm:text-sm text-slate-600 mt-4 max-w-3xl">
+        Prices start where they are listed and change with the vehicle, not with the hour of the day.
+        What moves a price, what a service call covers and how long each job takes are answered in the
+        <a href="/faq/" class="font-bold text-[#0f274a] underline decoration-amber-500/60 underline-offset-2 hover:text-amber-700">locksmith FAQ</a>,
+        you can see the shop rates in person at the
+        <a href="/nashville-locksmith-storefront/" class="font-bold text-[#0f274a] underline decoration-amber-500/60 underline-offset-2 hover:text-amber-700">Thompson Ln storefront</a>,
+        and we take cards, Apple Pay and cash &mdash; the full list is on
+        <a href="/payment-methods/" class="font-bold text-[#0f274a] underline decoration-amber-500/60 underline-offset-2 hover:text-amber-700">accepted payment methods</a>.
+      </p>
 
       <!-- SECTION 2: Residential Locksmith Pricing -->
       <section id="residential-rates">
@@ -465,7 +502,9 @@ const pricingSchema = [
             <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/80 transition">
               <div class="space-y-1 sm:max-w-2xl">
                 <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-bold text-slate-900 text-sm sm:text-base">{item.name}</h3>
+                  <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                    <a href={item.href} class="hover:text-amber-700 hover:underline underline-offset-2 decoration-amber-500/60 transition-colors">{item.name}</a>
+                  </h3>
                   <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
                     {item.badge}
                   </span>
@@ -498,7 +537,9 @@ const pricingSchema = [
             <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/80 transition">
               <div class="space-y-1 sm:max-w-2xl">
                 <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-bold text-slate-900 text-sm sm:text-base">{item.name}</h3>
+                  <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                    <a href={item.href} class="hover:text-amber-700 hover:underline underline-offset-2 decoration-amber-500/60 transition-colors">{item.name}</a>
+                  </h3>
                   <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
                     {item.badge}
                   </span>
