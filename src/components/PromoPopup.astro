@@ -3,9 +3,9 @@
 // The discount is the whole point of this card, so it is the biggest thing in
 // it: one huge number, one line saying what it is for, one button. Everything
 // else (promo code, hours) is a footnote.
-// Colours are the site's own amber (#f59e0b, the accent used ~1,000 times
-// across the site) with black text, and the navy from the header for the
-// button so the one action still reads as a button against the amber.
+// Colours are a bright yellow (Tailwind yellow-400) with black text, and the
+// navy from the header for the button so the one action still reads as a
+// button against the yellow.
 import promo from '../data/promo.json';
 
 if (!promo || !promo.active) {
@@ -13,14 +13,14 @@ if (!promo || !promo.active) {
 }
 ---
 
-<!-- 1. MOBILE: bold amber bar (< 768px) -->
+<!-- 1. MOBILE: bold yellow bar (< 768px) -->
 <div
   id="arm-promo-mobile"
   class="md:hidden fixed z-40 bottom-[64px] left-3 right-3 transition-all duration-300 ease-out opacity-0 translate-y-3 pointer-events-none will-change-transform"
   role="region"
   aria-label="In-shop car key discount"
 >
-  <div class="bg-amber-500 border-2 border-amber-600 rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.4)] ring-4 ring-amber-500/25 p-2 flex items-center gap-2.5">
+  <div class="bg-yellow-400 border-2 border-yellow-500 rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.4)] ring-4 ring-yellow-400/25 p-2 flex items-center gap-2.5">
 
     <!-- Whole row is the tap target for directions -->
     <a
@@ -62,7 +62,7 @@ if (!promo || !promo.active) {
   role="region"
   aria-label="In-shop car key discount"
 >
-  <div class="relative bg-amber-500 text-black rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] border-2 border-amber-600 overflow-hidden">
+  <div class="relative bg-yellow-400 text-black rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] border-2 border-yellow-500 overflow-hidden">
 
     <button
       type="button"
@@ -87,7 +87,7 @@ if (!promo || !promo.active) {
         {promo.subtitle}
       </p>
 
-      <!-- One action. Navy so it still reads as a button on amber. -->
+      <!-- One action. Navy so it still reads as a button on yellow. -->
       <a
         href={promo.directionsUrl}
         target="_blank"
