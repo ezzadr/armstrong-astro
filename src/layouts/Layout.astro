@@ -293,6 +293,10 @@ const baseBusinessSchema = {
   <link rel="preconnect" href="https://booking.armstronglocksmithinc.com" crossorigin />
   <link rel="dns-prefetch" href="https://booking.armstronglocksmithinc.com" />
 
+  <!-- Preconnect to Google Tag Manager / GA4 for 0ms DNS/TLS on Analytics -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
   <!-- WebPage Schema with Primary Image & Speakable for Google Rich Snippets -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
 
@@ -323,16 +327,40 @@ const baseBusinessSchema = {
     Field data (CrUX) always measured the real page regardless, and that is what
     Search Console reports and what ranking uses.
   -->
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNVMEG2BSG" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MNVMEG2BSG');
+  </script>
+
   <!-- Call-click tracking that survives the deferred GTM load below: the tap
        that dials is also the tap that loads GTM, so GTM's own click triggers
        never see it. Queue the event on dataLayer now; GTM replays the queue
-       when it loads. In GTM, trigger on Custom Event "call_click". -->
+       when it loads. Also sends immediate event and conversion to GA4. -->
   <script is:inline>
-    window.dataLayer = window.dataLayer || [];
     document.addEventListener('click', function (e) {
       var t = e.target;
       var a = t && t.closest ? t.closest('a[href^="tel:"]') : null;
-      if (a) window.dataLayer.push({ event: 'call_click', call_href: a.getAttribute('href'), call_page: window.location.pathname });
+      if (a) {
+        var href = a.getAttribute('href');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'call_click', call_href: href, call_page: window.location.pathname });
+        if (typeof gtag === 'function') {
+          gtag('event', 'call_click', {
+            event_category: 'Contact',
+            event_label: href,
+            page_path: window.location.pathname
+          });
+          gtag('event', 'generate_lead', {
+            event_category: 'Contact',
+            event_label: href,
+            value: 1
+          });
+        }
+      }
     }, true);
   </script>
 
