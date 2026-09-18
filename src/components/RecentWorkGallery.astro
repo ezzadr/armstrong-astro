@@ -311,7 +311,7 @@ const shopPhotoSchema = {
           <picture class="block absolute inset-0 w-full h-full">
             <source type="image/webp" srcset={`${featuredProject.webpSrc600} 600w, ${featuredProject.webpSrc600.replace('-600.webp', '-900.webp')} 900w, ${featuredProject.webpSrc1200} 1200w`} sizes="(max-width: 1023px) 100vw, 50vw" />
             <img
-              src={featuredProject.imageSrc}
+              src={featuredProject.webpSrc600 || featuredProject.imageSrc}
               alt={featuredProject.alt}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
@@ -394,7 +394,7 @@ const shopPhotoSchema = {
                      featured spotlight above. -->
                 <source type="image/webp" srcset={`${project.webpSrc600} 600w, ${project.webpSrc600.replace('-600.webp', '-900.webp')} 900w`} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
                 <img 
-                  src={project.imageSrc} 
+                  src={project.webpSrc600 || project.imageSrc} 
                   alt={project.alt} 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   loading="lazy" 

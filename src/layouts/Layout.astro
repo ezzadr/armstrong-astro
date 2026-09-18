@@ -327,8 +327,7 @@ const baseBusinessSchema = {
     Field data (CrUX) always measured the real page regardless, and that is what
     Search Console reports and what ranking uses.
   -->
-  <!-- Google tag (gtag.js) - Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNVMEG2BSG" is:inline></script>
+  <!-- Google tag (gtag.js) - Google Analytics 4 Data Layer Queue -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -411,27 +410,35 @@ const baseBusinessSchema = {
     }, true);
   </script>
 
-  <!-- Zero-TBT Deferred Google Tag Manager -->
+  <!-- Zero-TBT Deferred Google Analytics 4 & Tag Manager -->
   <script is:inline>
     (function() {
-      var gtmLoaded = false;
-      function loadGTM() {
-        if (gtmLoaded) return;
-        gtmLoaded = true;
+      var analyticsLoaded = false;
+      function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+
+        // 1. Asynchronously load GA4 (gtag.js)
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-MNVMEG2BSG';
+        document.head.appendChild(ga);
+
+        // 2. Asynchronously load Google Tag Manager
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WPH6NBVK');
       }
-      var events = ['click', 'touchstart', 'keydown'];
+      var events = ['click', 'touchstart', 'keydown', 'scroll'];
       events.forEach(function(e) {
-        window.addEventListener(e, loadGTM, { once: true, passive: true });
+        window.addEventListener(e, loadAnalytics, { once: true, passive: true });
       });
       if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(function() { setTimeout(loadGTM, 8000); });
+        window.requestIdleCallback(function() { setTimeout(loadAnalytics, 5000); });
       } else {
-        setTimeout(loadGTM, 8000);
+        setTimeout(loadAnalytics, 5000);
       }
     })();
   </script>
