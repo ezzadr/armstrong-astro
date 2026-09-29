@@ -1,902 +1,1231 @@
 ---
-// BookingForm.astro - Clean Workiz Booking Flow with Stepper (No Subheadings, Clean High-End Typography)
+// BookingForm.astro - 1:1 Design match of official Armstrong Dispatch booking interface
 ---
 
-<div class="w-full max-w-2xl mx-auto bg-white rounded-2xl border border-slate-300 shadow-[0_25px_60px_-10px_rgba(15,23,42,0.18)] font-sans text-left overflow-hidden transition-all">
-  
-  <!-- ==================== MODERN BREADCRUMB ARROW STEPPER ==================== -->
-  <div class="bg-slate-900 text-white px-4 sm:px-8 pt-4.5 sm:pt-5 pb-4 border-b border-slate-800">
-    
-    <!-- Top Brand & Direct Phone -->
-    <div class="flex items-center justify-between pb-3 mb-3.5 border-b border-white/10">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block ring-4 ring-emerald-400/20 animate-pulse"></span>
-        <span class="text-xs font-black tracking-wider text-slate-200 uppercase">Armstrong Locksmith Inc</span>
-      </div>
-      <a 
-        href="tel:6156258000" 
-        class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400/10 hover:bg-amber-400/20 border border-amber-400/30 rounded-full text-xs font-black text-amber-400 hover:text-amber-300 transition shadow-sm"
-      >
-        <span>📞</span>
-        <span>(615) 625-8000</span>
-      </a>
-    </div>
-
-    <!-- 3-Step Arrow Breadcrumb Flow -->
-    <div class="flex items-center justify-between text-xs sm:text-sm font-sans pt-1">
-      
-      <!-- Step 1 -->
-      <div id="step-flow-1" class="flex items-center gap-1.5 sm:gap-2 text-white transition-all">
-        <span id="flow-badge-1" class="w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0">1</span>
-        <span id="flow-label-1" class="font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm">Service</span>
-      </div>
-
-      <!-- Arrow 1 -> 2 -->
-      <div id="flow-arrow-1" class="text-slate-600 font-black text-sm sm:text-base px-1 transition-all">
-        ➔
-      </div>
-
-      <!-- Step 2 -->
-      <div id="step-flow-2" class="flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all">
-        <span id="flow-badge-2" class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0">2</span>
-        <span id="flow-label-2" class="font-medium tracking-tight text-slate-400 text-xs sm:text-sm">Schedule</span>
-      </div>
-
-      <!-- Arrow 2 -> 3 -->
-      <div id="flow-arrow-2" class="text-slate-600 font-black text-sm sm:text-base px-1 transition-all">
-        ➔
-      </div>
-
-      <!-- Step 3 -->
-      <div id="step-flow-3" class="flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all">
-        <span id="flow-badge-3" class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0">3</span>
-        <span id="flow-label-3" class="font-medium tracking-tight text-slate-400 text-xs sm:text-sm">Confirm</span>
-      </div>
-
-    </div>
-
-    <!-- High-End Dynamic Progress Track -->
-    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3.5">
-      <div id="flow-progress" class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 w-1/3 transition-all duration-300 rounded-full"></div>
-    </div>
-
-  </div>
-
-  <!-- ==================== FORM BODY ==================== -->
-  <form id="booking-form" class="p-6 sm:p-8 bg-white" novalidate>
-    <!-- Hidden Form Fields & Honeypot -->
-    <input type="hidden" id="field-service" name="service" value="Car key replacement" />
-    <input type="hidden" id="field-location" name="location" value="Mobile Van Dispatched To My Location" />
-    <input type="hidden" id="field-date" name="booking_date" value="Today" />
-    <input type="hidden" id="field-time" name="booking_time" value="ASAP" />
-    
-    <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
-      <label for="company_website">Company Website</label>
-      <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
-    </div>
-
-    <!-- ==================== STEP 1: CLEAN SERVICE LIST WITH UPFRONT VALUE ANCHORS ==================== -->
-    <div id="step-1" class="step-pane space-y-2.5">
-      <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Select a Service:</div>
-
-      <!-- 1. Car key replacement -->
-      <button 
-        type="button" 
-        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
-        data-service="Car key replacement"
-      >
-        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          Car key replacement
-        </span>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">From $140</span>
-          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
-        </div>
-      </button>
-
-      <!-- 2. Residential lock and rekey -->
-      <button 
-        type="button" 
-        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
-        data-service="Residential lock and rekey"
-      >
-        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          Residential lock and rekey
-        </span>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">From $19/cyl</span>
-          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
-        </div>
-      </button>
-
-      <!-- 3. Commercial lock and rekey -->
-      <button 
-        type="button" 
-        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
-        data-service="Commercial lock and rekey"
-      >
-        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          Commercial lock and rekey
-        </span>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">B2B Upfront</span>
-          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
-        </div>
-      </button>
-
-      <!-- 4. Other locksmith services -->
-      <button 
-        type="button" 
-        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
-        data-service="Other locksmith services"
-      >
-        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          Other locksmith services
-        </span>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Free Estimate</span>
-          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
-        </div>
-      </button>
-
-      <!-- 5. Emergency lockout -->
-      <button 
-        type="button" 
-        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
-        data-service="Emergency lockout"
-      >
-        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          Emergency lockout
-        </span>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">15–20m ETA</span>
-          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
-        </div>
-      </button>
-
-      <!-- 6. European cars -->
-      <button 
-        type="button" 
-        class="service-item w-full py-3.5 px-4 sm:px-6 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl hover:border-blue-600 hover:border-b-blue-700 hover:bg-blue-50/50 flex items-center justify-between transition-all duration-150 cursor-pointer text-left group shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_18px_rgba(37,99,235,0.18)] hover:-translate-y-0.5 active:translate-y-0" 
-        data-service="European cars"
-      >
-        <span class="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-          European cars (BMW, Benz, Audi)
-        </span>
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="text-[11px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Save vs Dealer</span>
-          <span class="text-slate-400 group-hover:text-blue-600 text-xl font-bold transition-transform group-hover:translate-x-1">›</span>
-        </div>
-      </button>
-    </div>
-
-    <!-- ==================== STEP 2: SCHEDULE (DATE & TIME) ==================== -->
-    <div id="step-2" class="step-pane hidden space-y-5">
-      
-      <!-- Selected Service Bar -->
-      <div class="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-300 rounded-xl shadow-inner">
-        <div class="text-xs">
-          <span class="text-slate-500 font-medium">Service:</span>
-          <strong id="wkz-selected-service" class="text-slate-900 ml-1 font-extrabold">Car key replacement</strong>
-        </div>
-        <button type="button" class="btn-back text-xs font-bold text-blue-600 hover:underline cursor-pointer">
-          Change
-        </button>
-      </div>
-
-      <!-- Service Location: Mobile Van vs Walk-In Storefront -->
-      <div class="space-y-2">
-        <label class="block text-xs font-extrabold text-slate-900">How would you like service?</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <button 
-            type="button" 
-            id="loc-mobile"
-            class="loc-chip p-3 bg-blue-50 border-[1.5px] border-blue-600 border-b-[3px] border-b-blue-700 text-blue-950 rounded-xl text-xs font-black text-left shadow-[0_4px_12px_rgba(37,99,235,0.22)] transition cursor-pointer flex items-center justify-between" 
-            data-loc="Mobile Van Dispatched To My Location"
-          >
-            <div>
-              <div class="font-black text-blue-950 flex items-center gap-1.5">
-                <span>🚐</span>
-                <span>Mobile Van Dispatch</span>
-              </div>
-              <div class="text-[11px] text-blue-700 font-medium mt-0.5">Technician drives to your location</div>
-            </div>
-            <span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px]">✓</span>
-          </button>
-
-          <button 
-            type="button" 
-            id="loc-store"
-            class="loc-chip p-3 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-left shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer flex items-center justify-between" 
-            data-loc="Walk-In Storefront (208 Thompson Ln)"
-          >
-            <div>
-              <div class="font-bold text-slate-900 flex items-center gap-1.5">
-                <span>🏪</span>
-                <span>Walk-In Storefront</span>
-              </div>
-              <div class="text-[11px] text-slate-500 font-normal mt-0.5">208 Thompson Ln (Save trip fee)</div>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Date Options -->
-      <div class="space-y-2">
-        <label class="block text-xs font-extrabold text-slate-900">When do you need us?</label>
-        <div class="grid grid-cols-3 gap-2.5">
-          <button 
-            type="button" 
-            class="date-chip p-3 bg-blue-50 border-[1.5px] border-blue-600 border-b-[3px] border-b-blue-700 text-blue-950 rounded-xl text-xs font-black text-center shadow-[0_4px_12px_rgba(37,99,235,0.22)] transition cursor-pointer" 
-            data-date="Today"
-          >
-            Today
-          </button>
-          <button 
-            type="button" 
-            class="date-chip p-3 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-center shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer" 
-            data-date="Tomorrow"
-          >
-            Tomorrow
-          </button>
-          <button 
-            type="button" 
-            class="date-chip p-3 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-center shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer" 
-            data-date="Custom Date"
-          >
-            Custom Date
-          </button>
-        </div>
-      </div>
-
-      <!-- Time Window Options -->
-      <div class="space-y-2">
-        <label class="block text-xs font-extrabold text-slate-900">Select arrival window:</label>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          
-          <button 
-            type="button" 
-            class="time-chip p-3.5 bg-blue-50 border-[1.5px] border-blue-600 border-b-[3px] border-b-blue-700 text-blue-950 rounded-xl text-xs font-black text-left shadow-[0_4px_12px_rgba(37,99,235,0.22)] transition cursor-pointer flex items-center justify-between" 
-            data-time="ASAP Immediate Dispatch"
-          >
-            <div>
-              <div class="font-black text-blue-950">⚡ ASAP Dispatch</div>
-              <div class="text-[11px] text-blue-700 font-medium">Nearest mobile unit</div>
-            </div>
-            <span class="w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px]">✓</span>
-          </button>
-
-          <button 
-            type="button" 
-            class="time-chip p-3.5 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-left shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer flex items-center justify-between" 
-            data-time="Morning (8:00 AM – 12:00 PM)"
-          >
-            <div>
-              <div class="font-bold text-slate-900">Morning Window</div>
-              <div class="text-[11px] text-slate-500 font-normal">8:00 AM – 12:00 PM</div>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
-          </button>
-
-          <button 
-            type="button" 
-            class="time-chip p-3.5 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-left shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer flex items-center justify-between" 
-            data-time="Afternoon (12:00 PM – 4:00 PM)"
-          >
-            <div>
-              <div class="font-bold text-slate-900">Afternoon Window</div>
-              <div class="text-[11px] text-slate-500 font-normal">12:00 PM – 4:00 PM</div>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
-          </button>
-
-          <button 
-            type="button" 
-            class="time-chip p-3.5 bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 text-slate-800 rounded-xl text-xs font-bold text-left shadow-[0_4px_10px_rgba(15,23,42,0.08)] hover:border-blue-500 hover:border-b-blue-600 hover:-translate-y-0.5 transition cursor-pointer flex items-center justify-between" 
-            data-time="Evening (4:00 PM – 8:00 PM)"
-          >
-            <div>
-              <div class="font-bold text-slate-900">Evening Window</div>
-              <div class="text-[11px] text-slate-500 font-normal">4:00 PM – 8:00 PM</div>
-            </div>
-            <span class="w-4 h-4 rounded-full border border-slate-300 text-transparent flex items-center justify-center text-[10px]">✓</span>
-          </button>
-
-        </div>
-      </div>
-
-      <!-- Navigation Buttons -->
-      <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-        <button type="button" class="btn-back px-4 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 cursor-pointer">
-          &larr; Back
-        </button>
-        <button 
-          type="button" 
-          id="btn-to-3" 
-          class="px-7 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider border-b-[3px] border-b-blue-900 shadow-[0_6px_18px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition cursor-pointer"
-        >
-          Continue to Details &rarr;
-        </button>
-      </div>
-
-    </div>
-
-    <!-- ==================== STEP 3: BOOK (CONTACT & DETAILS) ==================== -->
-    <div id="step-3" class="step-pane hidden space-y-4">
-      
-      <!-- Summary Line -->
-      <div class="p-3 bg-slate-50 border border-slate-300 rounded-xl text-xs flex items-center justify-between shadow-inner">
-        <div>
-          <span class="text-slate-500 font-medium">Selected:</span>
-          <strong id="wkz-summary" class="text-slate-900 ml-1 font-extrabold">Car key replacement &bull; Today (ASAP)</strong>
-        </div>
-        <button type="button" class="btn-back text-xs font-bold text-blue-600 hover:underline cursor-pointer">
-          Edit
-        </button>
-      </div>
-
-      <!-- Inputs -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-        <div>
-          <label for="cust_name" class="block text-xs font-extrabold text-slate-900 mb-1">Full Name *</label>
-          <input 
-            type="text" 
-            id="cust_name" 
-            name="customer_name" 
-            required 
-            placeholder="John Smith" 
-            class="w-full px-3.5 py-3 text-sm bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl focus:border-blue-600 focus:border-b-blue-700 focus:ring-4 focus:ring-blue-500/20 focus:outline-none shadow-[0_4px_12px_rgba(15,23,42,0.12)] focus:shadow-[0_8px_20px_rgba(37,99,235,0.20)] transition-all font-medium text-slate-950 placeholder:text-slate-400" 
-          />
-          <span id="err-name" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
-        </div>
-
-        <div>
-          <label for="cust_phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
-          <input 
-            type="tel" 
-            id="cust_phone" 
-            name="phone" 
-            required 
-            placeholder="(615) 000-0000" 
-            class="w-full px-3.5 py-3 text-sm bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl focus:border-blue-600 focus:border-b-blue-700 focus:ring-4 focus:ring-blue-500/20 focus:outline-none shadow-[0_4px_12px_rgba(15,23,42,0.12)] focus:shadow-[0_8px_20px_rgba(37,99,235,0.20)] transition-all font-medium text-slate-950 placeholder:text-slate-400" 
-          />
-          <span id="err-phone" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your phone number.</span>
-        </div>
-      </div>
-
+<div class="booking-dispatch-container">
+  <header class="topbar">
+    <div class="brand">
+      <img src="/logo.webp" alt="Armstrong Locksmith" width="64" height="64" loading="eager" />
       <div>
-        <label for="cust_address" class="block text-xs font-extrabold text-slate-900 mb-1">Service Address / Location</label>
-        <input 
-          type="text" 
-          id="cust_address" 
-          name="address" 
-          placeholder="e.g. 123 Main St, Nashville, TN (or 'Storefront Walk-In')" 
-          class="w-full px-3.5 py-3 text-sm bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl focus:border-blue-600 focus:border-b-blue-700 focus:ring-4 focus:ring-blue-500/20 focus:outline-none shadow-[0_4px_12px_rgba(15,23,42,0.12)] focus:shadow-[0_8px_20px_rgba(37,99,235,0.20)] transition-all font-medium text-slate-950 placeholder:text-slate-400" 
-        />
+        <strong>Schedule a Job</strong>
+        <span>Armstrong Locksmith</span>
       </div>
-
-      <div>
-        <label for="cust_notes" class="block text-xs font-extrabold text-slate-900 mb-1">Vehicle Year/Make/Model or Job Details (Optional)</label>
-        <input 
-          type="text" 
-          id="cust_notes" 
-          name="details" 
-          placeholder="e.g. 2021 BMW X5 all keys lost, or 3 house locks" 
-          class="w-full px-3.5 py-3 text-sm bg-white border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl focus:border-blue-600 focus:border-b-blue-700 focus:ring-4 focus:ring-blue-500/20 focus:outline-none shadow-[0_4px_12px_rgba(15,23,42,0.12)] focus:shadow-[0_8px_20px_rgba(37,99,235,0.20)] transition-all font-medium text-slate-950 placeholder:text-slate-400" 
-        />
-      </div>
-
-      <div>
-        <label for="cust_photo" class="block text-xs font-extrabold text-slate-900 mb-1 flex items-center justify-between">
-          <span>Attach Photo of Key or Lock (Optional)</span>
-          <span class="text-[10px] text-slate-500 font-normal">Helps ensure exact quote</span>
-        </label>
-        <input 
-          type="file" 
-          id="cust_photo" 
-          name="photo" 
-          accept="image/*" 
-          class="w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-black file:bg-slate-100 file:text-slate-800 hover:file:bg-slate-200 border-[1.5px] border-slate-300 border-b-[3px] border-b-slate-400 rounded-xl p-1.5 cursor-pointer bg-white" 
-        />
-        <div id="photo-preview-name" class="hidden text-[11px] text-emerald-700 font-bold mt-1"></div>
-      </div>
-
-      <!-- Server Error Alert -->
-      <div id="api-error" class="hidden p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl text-center font-bold">
-        We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black">615-625-8000</a>.
-      </div>
-
-      <!-- Submit Button -->
-      <div class="pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
-        <button type="button" class="btn-back px-4 py-2 text-xs font-bold text-slate-600 hover:text-slate-900 cursor-pointer">
-          &larr; Back
-        </button>
-        <button 
-          type="submit" 
-          id="btn-submit" 
-          class="px-8 py-3.5 bg-gold-metallic hover:brightness-105 text-[#07152b] rounded-xl text-xs font-black uppercase tracking-wider border-b-[3px] border-b-amber-600 shadow-md hover:-translate-y-0.5 active:translate-y-0 transition cursor-pointer disabled:opacity-50"
-        >
-          Confirm Booking &rarr;
-        </button>
-      </div>
-
     </div>
+  </header>
 
-  </form>
+  <main class="shell">
+    <ol class="progress" id="booking-progress-bar" aria-label="Booking progress">
+      <li class="active" data-indicator="1"><span class="dot"></span>Service</li>
+      <li data-indicator="2"><span class="dot"></span>Schedule</li>
+      <li data-indicator="3"><span class="dot"></span>Details</li>
+      <li data-indicator="4"><span class="dot"></span>Summary</li>
+    </ol>
 
-  <!-- ==================== SUCCESS CONFIRMATION ==================== -->
-  <div id="step-success" class="hidden p-8 sm:p-12 text-center space-y-3 bg-white">
-    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto">
-      ✓
-    </div>
-    <h2 class="text-base sm:text-lg font-bold text-slate-900">
-      Thank you! Your request was sent to Armstrong Locksmith.
-    </h2>
-    <p class="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-      Our dispatch team will review your appointment request and contact you shortly with confirmation.
-    </p>
-    <div class="pt-2">
-      <a href="tel:6156258000" class="text-xs font-semibold text-blue-600 hover:underline">
-        Need immediate dispatch? Call (615) 625-8000
-      </a>
-    </div>
-  </div>
+    <form id="booking-engine-form" novalidate>
+      <input type="hidden" name="service_category" value="" data-service-category />
+      <input type="hidden" name="service_details" value="" data-service-details />
+      
+      <!-- Anti-Spam Honeypot Trap -->
+      <div class="hp" aria-hidden="true">
+        <label>Company website<input type="text" id="booking-hp" name="company_website" tabindex="-1" autocomplete="off" /></label>
+      </div>
 
-  <!-- Trust Footer -->
-  <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-200 text-center text-xs text-slate-500">
-    Armstrong Locksmith Inc &bull; Verified Master Locksmith &bull; Bonded &amp; Insured &bull; <a href="tel:6156258000" class="font-bold text-amber-500 hover:text-amber-600 underline underline-offset-2">(615) 625-8000</a>
-  </div>
+      <!-- Submission / Validation Error Box -->
+      <div class="errors" id="booking-error-box" hidden>
+        <span id="booking-error-message">Please check required fields and try again.</span>
+      </div>
 
+      <!-- STEP 1: SERVICE SELECTION -->
+      <section class="step" data-step="1">
+        <h1 class="question">What service do you need?</h1>
+        <div class="services">
+          <label class="service">
+            <input type="radio" name="service_type" value="Automotive Locksmith" data-category="automotive" required />
+            <span>Automotive Locksmith</span>
+          </label>
+          <label class="service">
+            <input type="radio" name="service_type" value="Car Lockout" data-category="emergency_lockout" required />
+            <span>Car Lockout</span>
+          </label>
+          <label class="service">
+            <input type="radio" name="service_type" value="Car Key / Programming" data-category="automotive" required />
+            <span>Car Key / Programming</span>
+          </label>
+          <label class="service">
+            <input type="radio" name="service_type" value="Residential Locksmith" data-category="residential" required />
+            <span>Residential Locksmith</span>
+          </label>
+          <label class="service">
+            <input type="radio" name="service_type" value="House Lockout" data-category="emergency_lockout" required />
+            <span>House Lockout</span>
+          </label>
+          <label class="service">
+            <input type="radio" name="service_type" value="Rekey / Lock Change" data-category="residential" required />
+            <span>Rekey / Lock Change</span>
+          </label>
+          <label class="service">
+            <input type="radio" name="service_type" value="Commercial Locksmith" data-category="commercial" required />
+            <span>Commercial Locksmith</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- STEP 2: SCHEDULE (DATE & TIME WINDOW) -->
+      <section class="step" data-step="2" hidden>
+        <h1 class="question">When works best for you?</h1>
+        <p class="date-title" data-date-title></p>
+        <div class="date-browser">
+          <button class="arrow" type="button" data-prev aria-label="Earlier dates">‹</button>
+          <div class="dates" data-dates></div>
+          <button class="arrow" type="button" data-later aria-label="Later dates">›</button>
+        </div>
+        <div class="native-date">
+          <input id="preferred_date" name="preferred_date" type="date" value="" />
+        </div>
+        <p class="local-time">Times are shown in Nashville local time.</p>
+        <p class="time-title">Select a preferred arrival window</p>
+        <div class="times">
+          <label class="time">
+            <input type="radio" name="preferred_time_window" value="morning" required />
+            <span>8:00am – 11:00am</span>
+          </label>
+          <label class="time">
+            <input type="radio" name="preferred_time_window" value="afternoon" required />
+            <span>11:00am – 3:00pm</span>
+          </label>
+          <label class="time">
+            <input type="radio" name="preferred_time_window" value="evening" required />
+            <span>3:00pm – 6:00pm</span>
+          </label>
+          <label class="time">
+            <input type="radio" name="preferred_time_window" value="anytime" checked required />
+            <span>Any available time</span>
+          </label>
+        </div>
+        <div class="actions">
+          <button class="back" type="button" data-back>‹ Back</button>
+          <button class="continue" type="button" data-next>Continue ›</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: CONTACT DETAILS -->
+      <section class="step" data-step="3" hidden>
+        <h1 class="question">Please provide your contact info</h1>
+        <div class="fields">
+          <div class="field">
+            <label for="customer_name">Full name</label>
+            <input id="customer_name" name="customer_name" value="" maxlength="255" autocomplete="name" placeholder="John Doe" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" value="" maxlength="50" autocomplete="tel" inputmode="tel" placeholder="(615) 555-0123" required />
+          </div>
+          <div class="field full">
+            <label for="email">Email address <span class="optional">(optional)</span></label>
+            <input id="email" name="email" type="email" value="" maxlength="255" autocomplete="email" placeholder="john@example.com" />
+          </div>
+          <div class="field full">
+            <label for="service_address">Address</label>
+            <input id="service_address" name="service_address" value="" maxlength="255" autocomplete="street-address" placeholder="Street address or location in Nashville" required />
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <input id="city" name="city" value="Nashville" maxlength="255" autocomplete="address-level2" required />
+          </div>
+          <div class="field">
+            <label for="postal_code">ZIP code</label>
+            <input id="postal_code" name="postal_code" value="" maxlength="20" autocomplete="postal-code" inputmode="numeric" placeholder="37211" required />
+          </div>
+          <input type="hidden" name="state" value="TN" />
+          <div class="field full">
+            <span class="legend">Contact me by</span>
+            <div class="contacts">
+              <label class="contact">
+                <input type="radio" name="contact_preference" value="phone" checked required />
+                <span>Phone call</span>
+              </label>
+              <label class="contact">
+                <input type="radio" name="contact_preference" value="text" required />
+                <span>Text message</span>
+              </label>
+              <label class="contact">
+                <input type="radio" name="contact_preference" value="email" required />
+                <span>Email</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="back" type="button" data-back>‹ Back</button>
+          <button class="continue" type="button" data-next>Continue ›</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: SUMMARY & SUBMISSION -->
+      <section class="step" data-step="4" hidden>
+        <h1 class="question">Review your request</h1>
+        <div class="summary">
+          <div class="summary-row">
+            <span>Service</span>
+            <p data-review="service"></p>
+            <button class="edit" type="button" data-edit="1">Edit</button>
+          </div>
+          <div class="summary-row">
+            <span>Preferred time</span>
+            <p data-review="schedule"></p>
+            <button class="edit" type="button" data-edit="2">Edit</button>
+          </div>
+          <div class="summary-row">
+            <span>Customer</span>
+            <p data-review="customer"></p>
+            <button class="edit" type="button" data-edit="3">Edit</button>
+          </div>
+          <div class="summary-row">
+            <span>Address</span>
+            <p data-review="address"></p>
+            <button class="edit" type="button" data-edit="3">Edit</button>
+          </div>
+        </div>
+        <p class="confirmation">
+          This is a request, not a confirmed appointment. Armstrong will contact you to confirm availability and pricing.
+        </p>
+        <div class="actions">
+          <button class="back" type="button" data-back>‹ Back</button>
+          <button class="submit" type="submit" id="booking-submit-btn">Send request</button>
+        </div>
+      </section>
+
+      <!-- STEP 5: SUCCESS CONFIRMATION -->
+      <section class="step" data-step="5" hidden>
+        <div class="success-box">
+          <div class="success-icon">✓</div>
+          <h2 class="success-title">Booking Request Received!</h2>
+          <p class="success-desc">
+            Thank you! Your job request has been received by Armstrong Locksmith dispatch. We will contact you shortly to confirm arrival timing and final quote.
+          </p>
+          <div class="summary" style="margin-bottom: 24px; text-align: left;">
+            <div class="summary-row">
+              <span>Service</span>
+              <p data-success="service"></p>
+            </div>
+            <div class="summary-row">
+              <span>Preferred time</span>
+              <p data-success="schedule"></p>
+            </div>
+            <div class="summary-row">
+              <span>Customer</span>
+              <p data-success="customer"></p>
+            </div>
+            <div class="summary-row">
+              <span>Address</span>
+              <p data-success="address"></p>
+            </div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px !important; padding: 18px; margin-top: 16px;">
+            <p style="margin: 0 0 8px; font-weight: 700; color: #0b2138; font-size: 0.95rem;">
+              Locked out or need emergency assistance right now?
+            </p>
+            <a 
+              href="tel:6156258000" 
+              style="display: inline-flex; align-items: center; gap: 8px; background: #f2bd3f; color: #0b2138; font-weight: 800; padding: 12px 24px; border-radius: 7px !important; text-decoration: none; font-size: 0.95rem; margin-top: 4px;"
+            >
+              <span>📞 Call Dispatch: (615) 625-8000</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="footer">
+    Powered by <strong>Armstrong Locksmith</strong>
+  </footer>
 </div>
 
-<!-- Script -->
 <script is:inline>
   (function () {
-    const formStartedAt = Math.floor(Date.now() / 1000);
+    const form = document.getElementById('booking-engine-form');
+    if (!form) return;
+
+    const steps = [...form.querySelectorAll('[data-step]')];
+    const indicators = [...document.querySelectorAll('[data-indicator]')];
+    const progressBar = document.getElementById('booking-progress-bar');
+    const category = form.querySelector('[data-service-category]');
+    const details = form.querySelector('[data-service-details]');
+    const dateInput = form.querySelector('#preferred_date');
+    const dates = form.querySelector('[data-dates]');
+    const dateTitle = form.querySelector('[data-date-title]');
+    const errorBox = document.getElementById('booking-error-box');
+    const errorMessage = document.getElementById('booking-error-message');
+    const submitBtn = document.getElementById('booking-submit-btn');
+    const honeypot = document.getElementById('booking-hp');
+    const prevArrow = form.querySelector('[data-prev]');
+
     let step = 1;
+    let offset = 0;
 
-    const s1 = document.getElementById('step-1');
-    const s2 = document.getElementById('step-2');
-    const s3 = document.getElementById('step-3');
-    const success = document.getElementById('step-success');
-    const form = document.getElementById('booking-form');
+    const checked = name => form.querySelector(`[name="${name}"]:checked`);
+    const value = name => String(form.elements[name]?.value || '').trim();
+    const localIso = date => {
+      const d = new Date(date);
+      d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+      return d.toISOString().slice(0, 10);
+    };
 
-    const flow1 = document.getElementById('step-flow-1');
-    const flow2 = document.getElementById('step-flow-2');
-    const flow3 = document.getElementById('step-flow-3');
-
-    const flowBadge1 = document.getElementById('flow-badge-1');
-    const flowBadge2 = document.getElementById('flow-badge-2');
-    const flowBadge3 = document.getElementById('flow-badge-3');
-
-    const flowLabel1 = document.getElementById('flow-label-1');
-    const flowLabel2 = document.getElementById('flow-label-2');
-    const flowLabel3 = document.getElementById('flow-label-3');
-
-    const flowArrow1 = document.getElementById('flow-arrow-1');
-    const flowArrow2 = document.getElementById('flow-arrow-2');
-    const flowProgress = document.getElementById('flow-progress');
-
-    const serviceInput = document.getElementById('field-service');
-    const locationInput = document.getElementById('field-location');
-    const dateInput = document.getElementById('field-date');
-    const timeInput = document.getElementById('field-time');
-
-    const selectedServiceTag = document.getElementById('wkz-selected-service');
-    const summaryTag = document.getElementById('wkz-summary');
-
-    const serviceItems = document.querySelectorAll('.service-item');
-    const locChips = document.querySelectorAll('.loc-chip');
-    const dateChips = document.querySelectorAll('.date-chip');
-    const timeChips = document.querySelectorAll('.time-chip');
-
-    const btnTo3 = document.getElementById('btn-to-3');
-    const backBtns = document.querySelectorAll('.btn-back');
-    const submitBtn = document.getElementById('btn-submit');
-    const apiError = document.getElementById('api-error');
-
-    const nameIn = document.getElementById('cust_name');
-    const phoneIn = document.getElementById('cust_phone');
-    const photoIn = document.getElementById('cust_photo');
-    const photoPreviewName = document.getElementById('photo-preview-name');
-    const errName = document.getElementById('err-name');
-    const errPhone = document.getElementById('err-phone');
-    const honeypot = document.getElementById('company_website');
-
-    function updateStepper(n) {
-      step = n;
-      s1.classList.add('hidden');
-      s2.classList.add('hidden');
-      s3.classList.add('hidden');
-      if (success) success.classList.add('hidden');
-
-      if (n === 1) {
-        s1.classList.remove('hidden');
-
-        // Step 1: Active Blue
-        if (flow1) flow1.className = "flex items-center gap-1.5 sm:gap-2 text-white transition-all";
-        if (flowBadge1) { flowBadge1.className = "w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge1.textContent = "1"; }
-        if (flowLabel1) { flowLabel1.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
-
-        // Arrow 1 -> 2
-        if (flowArrow1) flowArrow1.className = "text-slate-600 font-black text-sm sm:text-base px-1 transition-all";
-
-        // Step 2: Upcoming Inactive
-        if (flow2) flow2.className = "flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all";
-        if (flowBadge2) { flowBadge2.className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0"; flowBadge2.textContent = "2"; }
-        if (flowLabel2) { flowLabel2.className = "font-medium tracking-tight text-slate-400 text-xs sm:text-sm"; }
-
-        // Arrow 2 -> 3
-        if (flowArrow2) flowArrow2.className = "text-slate-600 font-black text-sm sm:text-base px-1 transition-all";
-
-        // Step 3: Upcoming Inactive
-        if (flow3) flow3.className = "flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all";
-        if (flowBadge3) { flowBadge3.className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0"; flowBadge3.textContent = "3"; }
-        if (flowLabel3) { flowLabel3.className = "font-medium tracking-tight text-slate-400 text-xs sm:text-sm"; }
-
-        if (flowProgress) { flowProgress.style.width = "33%"; }
-
-      } else if (n === 2) {
-        s2.classList.remove('hidden');
-
-        // Step 1: Done (Emerald)
-        if (flow1) flow1.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
-        if (flowBadge1) { flowBadge1.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge1.textContent = "✓"; }
-        if (flowLabel1) { flowLabel1.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm"; }
-
-        // Arrow 1 -> 2 (Highlighted)
-        if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
-
-        // Step 2: Active Blue
-        if (flow2) flow2.className = "flex items-center gap-1.5 sm:gap-2 text-white transition-all";
-        if (flowBadge2) { flowBadge2.className = "w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge2.textContent = "2"; }
-        if (flowLabel2) { flowLabel2.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
-
-        // Arrow 2 -> 3
-        if (flowArrow2) flowArrow2.className = "text-slate-600 font-black text-sm sm:text-base px-1 transition-all";
-
-        // Step 3: Upcoming Inactive
-        if (flow3) flow3.className = "flex items-center gap-1.5 sm:gap-2 text-slate-400 transition-all";
-        if (flowBadge3) { flowBadge3.className = "w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center border border-slate-700 shrink-0"; flowBadge3.textContent = "3"; }
-        if (flowLabel3) { flowLabel3.className = "font-medium tracking-tight text-slate-400 text-xs sm:text-sm"; }
-
-        if (flowProgress) { flowProgress.style.width = "66%"; }
-        if (selectedServiceTag) selectedServiceTag.textContent = serviceInput.value;
-
-      } else if (n === 3) {
-        s3.classList.remove('hidden');
-
-        // Step 1: Done (Emerald)
-        if (flow1) flow1.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
-        if (flowBadge1) { flowBadge1.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge1.textContent = "✓"; }
-        if (flowLabel1) { flowLabel1.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm"; }
-
-        // Arrow 1 -> 2 (Highlighted)
-        if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
-
-        // Step 2: Done (Emerald)
-        if (flow2) flow2.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
-        if (flowBadge2) { flowBadge2.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge2.textContent = "✓"; }
-        if (flowLabel2) { flowLabel2.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm"; }
-
-        // Arrow 2 -> 3 (Highlighted)
-        if (flowArrow2) flowArrow2.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
-
-        // Step 3: Active Blue
-        if (flow3) flow3.className = "flex items-center gap-1.5 sm:gap-2 text-white transition-all";
-        if (flowBadge3) { flowBadge3.className = "w-6 h-6 rounded-full bg-blue-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0"; flowBadge3.textContent = "3"; }
-        if (flowLabel3) { flowLabel3.className = "font-extrabold tracking-tight text-slate-100 text-xs sm:text-sm"; }
-
-        if (flowProgress) { flowProgress.style.width = "100%"; }
-        const locLabel = locationInput && locationInput.value.includes('Walk-In') ? 'Storefront' : 'Mobile Van';
-        if (summaryTag) summaryTag.textContent = `${serviceInput.value} • ${locLabel} • ${dateInput.value} (${timeInput.value})`;
-
-      } else if (n === 4) {
-        form.classList.add('hidden');
-        if (success) success.classList.remove('hidden');
-
-        [flow1, flow2, flow3].forEach(f => {
-          if (f) f.className = "flex items-center gap-1.5 sm:gap-2 text-emerald-300 transition-all";
+    function renderDates() {
+      if (!dates || !dateInput) return;
+      dates.innerHTML = '';
+      if (prevArrow) {
+        prevArrow.disabled = offset <= 0;
+      }
+      for (let i = 0; i < 7; i++) {
+        const d = new Date();
+        d.setHours(12, 0, 0, 0);
+        d.setDate(d.getDate() + offset + i);
+        const iso = localIso(d);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'date' + (dateInput.value === iso ? ' selected' : '');
+        button.innerHTML = `<span>${d.toLocaleDateString('en-US', { weekday: 'short' })}</span><strong>${d.getDate()}</strong>`;
+        button.onclick = () => {
+          dateInput.value = iso;
+          renderDates();
+        };
+        dates.append(button);
+      }
+      const selected = dateInput.value ? new Date(`${dateInput.value}T12:00:00`) : new Date();
+      if (dateTitle) {
+        dateTitle.textContent = selected.toLocaleDateString('en-US', {
+          weekday: 'short',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
         });
-        [flowBadge1, flowBadge2, flowBadge3].forEach(b => {
-          if (b) {
-            b.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shadow-sm shrink-0";
-            b.textContent = "✓";
-          }
-        });
-        [flowLabel1, flowLabel2, flowLabel3].forEach(l => {
-          if (l) l.className = "font-bold tracking-tight text-emerald-300 text-xs sm:text-sm";
-        });
-        if (flowArrow1) flowArrow1.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
-        if (flowArrow2) flowArrow2.className = "text-emerald-400 font-black text-sm sm:text-base px-1 transition-all";
-        if (flowProgress) flowProgress.style.width = "100%";
+      }
+    }
 
-        if (typeof gtag === 'function') {
-          gtag('event', 'booking_submission', {
-            event_category: 'Booking',
-            event_label: serviceInput ? serviceInput.value : 'Online Booking',
-            value: 1
-          });
-          gtag('event', 'generate_lead', {
-            event_category: 'Booking',
-            event_label: serviceInput ? serviceInput.value : 'Online Booking',
-            value: 1
-          });
+    const timeWindowLabels = {
+      morning: '8:00am – 11:00am',
+      afternoon: '11:00am – 3:00pm',
+      evening: '3:00pm – 6:00pm',
+      anytime: 'Any available time'
+    };
+
+    function getTimeWindowText() {
+      const val = checked('preferred_time_window')?.value || 'anytime';
+      return timeWindowLabels[val] || val;
+    }
+
+    function review() {
+      const service = checked('service_type')?.value || '';
+      const time = getTimeWindowText();
+      const dateFormatted = dateInput?.value ? new Date(`${dateInput.value}T12:00:00`).toLocaleDateString('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      }) : 'Soonest Available';
+
+      const scheduleText = `${dateFormatted}\n${time}`;
+      const customerText = [value('customer_name'), value('phone'), value('email')].filter(Boolean).join('\n');
+      const addressText = `${value('service_address')}\n${value('city')}, TN ${value('postal_code')}`;
+
+      const rService = form.querySelector('[data-review="service"]');
+      const rSchedule = form.querySelector('[data-review="schedule"]');
+      const rCustomer = form.querySelector('[data-review="customer"]');
+      const rAddress = form.querySelector('[data-review="address"]');
+
+      if (rService) rService.textContent = service;
+      if (rSchedule) rSchedule.textContent = scheduleText;
+      if (rCustomer) rCustomer.textContent = customerText;
+      if (rAddress) rAddress.textContent = addressText;
+
+      const sService = form.querySelector('[data-success="service"]');
+      const sSchedule = form.querySelector('[data-success="schedule"]');
+      const sCustomer = form.querySelector('[data-success="customer"]');
+      const sAddress = form.querySelector('[data-success="address"]');
+
+      if (sService) sService.textContent = service;
+      if (sSchedule) sSchedule.textContent = scheduleText;
+      if (sCustomer) sCustomer.textContent = customerText;
+      if (sAddress) sAddress.textContent = addressText;
+    }
+
+    function show(number) {
+      step = Math.max(1, Math.min(5, number));
+      steps.forEach(s => (s.hidden = +s.dataset.step !== step));
+
+      if (step === 5 && progressBar) {
+        progressBar.hidden = true;
+      } else if (progressBar) {
+        progressBar.hidden = false;
+        indicators.forEach((item, i) => {
+          item.classList.toggle('active', i + 1 === step);
+          item.classList.toggle('complete', i + 1 < step);
+          item.setAttribute('aria-current', i + 1 === step ? 'step' : 'false');
+        });
+      }
+
+      if (errorBox) errorBox.hidden = true;
+
+      if (step === 4 || step === 5) review();
+      window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+    }
+
+    function valid() {
+      const currentStepElem = steps[step - 1];
+      if (!currentStepElem) return true;
+
+      if (step === 2) {
+        if (!dateInput.value) {
+          showError('Please select a date.');
+          return false;
+        }
+        if (!checked('preferred_time_window')) {
+          showError('Please select an arrival window.');
+          return false;
         }
       }
 
-      window.scrollTo({ top: 100, behavior: 'smooth' });
+      if (step === 3) {
+        const nameField = form.querySelector('#customer_name');
+        const phoneField = form.querySelector('#phone');
+        const addrField = form.querySelector('#service_address');
+        const zipField = form.querySelector('#postal_code');
+
+        [nameField, phoneField, addrField, zipField].forEach(f => f?.classList.remove('input-error'));
+
+        if (!nameField?.value.trim()) {
+          nameField?.classList.add('input-error');
+          nameField?.focus();
+          showError('Please enter your full name.');
+          return false;
+        }
+
+        const phoneDigits = (phoneField?.value || '').replace(/\D/g, '');
+        if (phoneDigits.length < 7) {
+          phoneField?.classList.add('input-error');
+          phoneField?.focus();
+          showError('Please enter a valid phone number so our locksmith can reach you.');
+          return false;
+        }
+
+        if (!addrField?.value.trim()) {
+          addrField?.classList.add('input-error');
+          addrField?.focus();
+          showError('Please enter the service address.');
+          return false;
+        }
+
+        if (!zipField?.value.trim()) {
+          zipField?.classList.add('input-error');
+          zipField?.focus();
+          showError('Please enter your ZIP code.');
+          return false;
+        }
+      }
+
+      for (const field of currentStepElem.querySelectorAll('input,textarea')) {
+        if (field.type !== 'hidden' && field.tabIndex !== -1 && !field.checkValidity()) {
+          field.reportValidity();
+          field.focus();
+          return false;
+        }
+      }
+
+      if (errorBox) errorBox.hidden = true;
+      return true;
     }
 
-    // Step 1 Click -> Advances directly to Step 2
-    serviceItems.forEach(item => {
-      item.addEventListener('click', function () {
-        const val = this.getAttribute('data-service');
-        if (serviceInput) serviceInput.value = val;
-        updateStepper(2);
-      });
-    });
-
-    // Step 2 Location (Mobile Van vs Walk-In Shop)
-    locChips.forEach(chip => {
-      chip.addEventListener('click', function () {
-        locChips.forEach(c => {
-          c.classList.remove('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
-          c.classList.add('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
-          const check = c.querySelector('span:last-child');
-          if (check) {
-            check.classList.remove('bg-blue-600', 'text-white');
-            check.classList.add('border', 'border-slate-300', 'text-transparent');
-          }
-        });
-        this.classList.remove('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
-        this.classList.add('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
-        const check = this.querySelector('span:last-child');
-        if (check) {
-          check.classList.remove('border', 'border-slate-300', 'text-transparent');
-          check.classList.add('bg-blue-600', 'text-white');
-        }
-        const val = this.getAttribute('data-loc');
-        if (locationInput) locationInput.value = val;
-
-        const addrInput = document.getElementById('cust_address');
-        if (addrInput) {
-          if (val.includes('Walk-In')) {
-            addrInput.value = '208 Thompson Ln, Nashville, TN 37211 (Storefront Shop)';
-          } else if (addrInput.value.includes('208 Thompson Ln')) {
-            addrInput.value = '';
-          }
-        }
-      });
-    });
-
-    // Step 3 Photo Attachment Preview
-    if (photoIn && photoPreviewName) {
-      photoIn.addEventListener('change', function () {
-        if (this.files && this.files[0]) {
-          photoPreviewName.textContent = `✓ Selected: ${this.files[0].name}`;
-          photoPreviewName.classList.remove('hidden');
-        } else {
-          photoPreviewName.classList.add('hidden');
-        }
-      });
+    function showError(msg) {
+      if (errorBox && errorMessage) {
+        errorMessage.textContent = msg;
+        errorBox.hidden = false;
+      }
     }
 
-    // Step 2 Date
-    dateChips.forEach(chip => {
-      chip.addEventListener('click', function () {
-        dateChips.forEach(c => {
-          c.classList.remove('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
-          c.classList.add('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
-        });
-        this.classList.remove('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
-        this.classList.add('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
-        if (dateInput) dateInput.value = this.getAttribute('data-date');
-      });
-    });
-
-    // Step 2 Time
-    timeChips.forEach(chip => {
-      chip.addEventListener('click', function () {
-        timeChips.forEach(c => {
-          c.classList.remove('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
-          c.classList.add('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
-          const check = c.querySelector('span:last-child');
-          if (check) {
-            check.classList.remove('bg-blue-600', 'text-white');
-            check.classList.add('border', 'border-slate-300', 'text-transparent');
-          }
-        });
-        this.classList.remove('border-slate-300', 'border-b-slate-400', 'bg-white', 'text-slate-800', 'font-bold', 'shadow-[0_4px_10px_rgba(15,23,42,0.08)]');
-        this.classList.add('border-blue-600', 'border-b-blue-700', 'bg-blue-50', 'text-blue-950', 'font-black', 'shadow-[0_4px_12px_rgba(37,99,235,0.22)]');
-        const check = this.querySelector('span:last-child');
-        if (check) {
-          check.classList.remove('border', 'border-slate-300', 'text-transparent');
-          check.classList.add('bg-blue-600', 'text-white');
-        }
-        if (timeInput) timeInput.value = this.getAttribute('data-time');
-      });
-    });
-
-    if (btnTo3) btnTo3.addEventListener('click', () => updateStepper(3));
-    backBtns.forEach(b => b.addEventListener('click', () => {
-      if (step > 1) updateStepper(step - 1);
-    }));
-
-    if (nameIn && errName) {
-      nameIn.addEventListener('input', () => {
-        errName.classList.add('hidden');
-        nameIn.classList.remove('border-red-500');
-      });
-    }
-    if (phoneIn && errPhone) {
-      phoneIn.addEventListener('input', () => {
-        errPhone.classList.add('hidden');
-        phoneIn.classList.remove('border-red-500');
-      });
+    function selectService(input) {
+      if (category) category.value = input.dataset.category || '';
+      if (details) details.value = input.value;
+      setTimeout(() => show(2), 120);
     }
 
-    // Submit
-    if (form) {
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        if (submitBtn?.disabled) return;
-        if (apiError) apiError.classList.add('hidden');
+    form.addEventListener('change', event => {
+      const service = event.target.closest('[name="service_type"]');
+      if (service) selectService(service);
+    });
 
-        let hasError = false;
-        const name = nameIn ? nameIn.value.trim() : '';
-        const phone = phoneIn ? phoneIn.value.trim() : '';
-        const bot = honeypot ? honeypot.value.trim() : '';
-
-        if (!name) {
-          if (errName) errName.classList.remove('hidden');
-          if (nameIn) nameIn.classList.add('border-red-500');
-          hasError = true;
+    form.onclick = event => {
+      const service = event.target.closest('.service');
+      if (service) {
+        const radio = service.querySelector('[name="service_type"]');
+        if (radio) {
+          radio.checked = true;
+          selectService(radio);
         }
-        if (!phone || phone.length < 7) {
-          if (errPhone) errPhone.classList.remove('hidden');
-          if (phoneIn) phoneIn.classList.add('border-red-500');
-          hasError = true;
-        }
+      } else if (event.target.closest('[data-next]')) {
+        if (valid()) show(step + 1);
+      } else if (event.target.closest('[data-back]')) {
+        show(step - 1);
+      } else if (event.target.closest('[data-edit]')) {
+        show(+event.target.closest('[data-edit]').dataset.edit);
+      }
+    };
 
-        if (hasError) return;
-        if (bot !== '') {
-          updateStepper(4);
-          return;
-        }
+    if (prevArrow) {
+      prevArrow.onclick = () => {
+        offset = Math.max(0, offset - 7);
+        renderDates();
+      };
+    }
 
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = '⚡ Sending Request...';
-        }
+    const laterArrow = form.querySelector('[data-later]');
+    if (laterArrow) {
+      laterArrow.onclick = () => {
+        offset += 7;
+        renderDates();
+      };
+    }
 
-        const s = serviceInput ? serviceInput.value : 'Locksmith';
-        const loc = locationInput ? locationInput.value : 'Mobile Van Dispatched';
-        const d = dateInput ? dateInput.value : 'Today';
-        const t = timeInput ? timeInput.value : 'ASAP';
-        const addr = document.getElementById('cust_address')?.value || '';
-        const notes = document.getElementById('cust_notes')?.value || '';
-        const photoFile = photoIn?.files?.[0]?.name ? `Attached Photo: ${photoIn.files[0].name}` : '';
+    // Submit handler
+    form.onsubmit = async event => {
+      event.preventDefault();
+      if (!valid()) return;
 
-        const fullService = `${s} [${loc} • ${d} • ${t}]`;
-        const detailsStr = [addr ? `Location: ${addr}` : '', notes ? `Details: ${notes}` : '', photoFile].filter(Boolean).join(' | ');
+      // Spam bot honeypot check
+      if (honeypot && honeypot.value.trim() !== '') {
+        show(5);
+        return;
+      }
 
-        const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending request...';
+      }
 
-        const payload = {
-          customer_name: name,
-          phone: phone,
-          service: fullService,
-          service_type: fullService,
-          vehicle: detailsStr || 'Website Booking',
-          form_started_at: safeFormStartedAt,
-          company_website: ''
-        };
+      const serviceName = checked('service_type')?.value || 'Locksmith Service';
+      const windowText = getTimeWindowText();
+      const preferredDateVal = dateInput.value;
+      const fullService = `${serviceName} [${preferredDateVal} • ${windowText}]`;
+      const custName = value('customer_name');
+      const custPhone = value('phone');
+      const custEmail = value('email');
+      const custAddress = value('service_address');
+      const custCity = value('city') || 'Nashville';
+      const custZip = value('postal_code');
+      const contactPref = checked('contact_preference')?.value || 'phone';
 
-        // Save the actual photo privately in Dispatch before the existing lead notification.
-        // The contact proxy uses the same phone/service, so its follow-up is deduplicated.
-        const selectedPhoto = photoIn?.files?.[0];
-        if (selectedPhoto) {
-          try {
-            if (selectedPhoto.size > 5 * 1024 * 1024) {
-              throw new Error('Choose a photo smaller than 5 MB.');
-            }
-            const upload = new FormData();
-            Object.entries(payload).forEach(([key, value]) => upload.append(key, String(value)));
-            upload.append('photo', selectedPhoto);
-            const result = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
-              method: 'POST',
-              headers: { Accept: 'application/json' },
-              body: upload
-            });
-            const saved = await result.json();
-            if (!result.ok || saved.photo_received !== true) {
-              throw new Error(saved.errors?.photo?.[0] || 'Your photo could not be saved. Please use a JPG, PNG or WebP photo under 5 MB and try again.');
-            }
-          } catch (error) {
-            if (apiError) {
-              apiError.textContent = error instanceof Error ? error.message : 'Photo upload failed. Please try again.';
-              apiError.classList.remove('hidden');
-            }
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.textContent = 'Confirm Booking →';
-            }
-            return;
-          }
-        }
+      const detailsStr = `Address: ${custAddress}, ${custCity}, TN ${custZip} | Prefers: ${contactPref}${custEmail ? ' | Email: ' + custEmail : ''}`;
 
-        // Preserve the existing email/SMS notification and text-only booking flow.
-        const emailPromise = fetch('/api/contact.php', {
+      try {
+        const response = await fetch('/api/contact.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: name,
-            phone: phone,
+            name: custName,
+            phone: custPhone,
             service: fullService,
-            details: detailsStr || 'Website Booking',
-            notes: `Online Booking Request [${loc}]`,
+            details: detailsStr,
+            email: custEmail || 'Not provided',
+            notes: `Online Booking Request: ${serviceName} on ${preferredDateVal} (${windowText}), Contact via ${contactPref}`,
             company_website: ''
           })
-        }).catch(err => {
-          console.warn('Email booking notification notice:', err);
-          return { ok: false, status: 0 };
         });
 
-        try {
-          const emailResult = await emailPromise;
+        // Trigger Google Analytics 4 conversion events
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'booking_submission', {
+            event_category: 'Booking',
+            event_label: serviceName,
+            value: 1
+          });
+          window.gtag('event', 'generate_lead', {
+            event_category: 'Booking',
+            event_label: serviceName,
+            value: 1
+          });
+        }
 
-          if (emailResult.ok) {
-            updateStepper(4);
-          } else {
-            // Both failed (network offline / server issue)
-            if (apiError) apiError.classList.remove('hidden');
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.textContent = 'Confirm Booking →';
-            }
-          }
-        } catch (err) {
-          console.error('Booking submission error:', err);
-          if (apiError) apiError.classList.remove('hidden');
+        if (response.ok) {
+          show(5);
+        } else {
+          showError('We could not send your request right now. Please call us directly at (615) 625-8000.');
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Confirm Booking →';
+            submitBtn.textContent = 'Send request';
           }
         }
-      });
+      } catch (err) {
+        console.error('Booking submission error:', err);
+        showError('Network error. Please try again or call (615) 625-8000.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send request';
+        }
+      }
+    };
+
+    // Initial setup
+    if (!dateInput.value) {
+      dateInput.value = localIso(new Date());
     }
+    dateInput.min = localIso(new Date());
+    renderDates();
+    show(1);
   })();
 </script>
 
-
-
 <style is:inline>
-  #booking-form input:not([type="hidden"]):not([tabindex="-1"]),
-  #booking-form select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  :root {
+    --navy: #0b2138;
+    --blue: #2484bf;
+    --gold: #f2bd3f;
+    --ink: #172231;
+    --muted: #6b7785;
+    --line: #dce3e8;
+    --bg: #f3f7f9;
   }
-  .pac-container {
-    z-index: 100000 !important;
-    font-family: inherit;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    border: 1px solid #e2e8f0;
-    margin-top: 4px;
+
+  .booking-dispatch-container {
+    box-sizing: border-box;
+    min-height: 100%;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.4;
+    padding-bottom: 30px;
   }
-  .pac-item {
-    padding: 10px 14px;
-    font-size: 14px;
+
+  .booking-dispatch-container * {
+    box-sizing: border-box;
+  }
+
+  .booking-dispatch-container button,
+  .booking-dispatch-container input,
+  .booking-dispatch-container textarea {
+    font: inherit;
+  }
+
+  .booking-dispatch-container .topbar {
+    background: #fff;
+    border-bottom: 1px solid #e5eaee;
+  }
+
+  .booking-dispatch-container .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: min(780px, calc(100% - 36px));
+    min-height: 92px;
+    margin: auto;
+  }
+
+  .booking-dispatch-container .brand img {
+    width: 64px;
+    height: 64px;
+    padding: 5px;
+    border: 1px solid var(--line);
+    border-radius: 9px !important;
+    object-fit: contain;
+    background: #fff;
+  }
+
+  .booking-dispatch-container .brand strong,
+  .booking-dispatch-container .brand span {
+    display: block;
+  }
+
+  .booking-dispatch-container .brand strong {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .booking-dispatch-container .brand span {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .booking-dispatch-container .shell {
+    width: min(780px, calc(100% - 36px));
+    margin: 0 auto;
+    padding: 24px 0 90px;
+  }
+
+  .booking-dispatch-container .progress {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 0 27px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .booking-dispatch-container .progress li {
+    position: relative;
+    color: #7c8792;
+    text-align: center;
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .booking-dispatch-container .progress li:not(:last-child):before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 12px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #dfe5e9;
+  }
+
+  .booking-dispatch-container .dot {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    margin: 0 auto 8px;
+    border: 4px solid var(--bg);
+    border-radius: 50% !important;
+    background: #dfe5e9;
+  }
+
+  .booking-dispatch-container .progress .active {
+    color: var(--blue);
+  }
+
+  .booking-dispatch-container .progress .active .dot {
+    border: 2px solid var(--blue);
+    background: #fff;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  .booking-dispatch-container .progress .complete .dot {
+    background: var(--blue);
+  }
+
+  .booking-dispatch-container .progress .complete:not(:last-child):before {
+    background: var(--blue);
+  }
+
+  .booking-dispatch-container form {
+    min-height: 420px;
+  }
+
+  .booking-dispatch-container .step[hidden] {
+    display: none;
+  }
+
+  .booking-dispatch-container .question {
+    margin: 0 0 18px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .booking-dispatch-container .errors {
+    margin-bottom: 18px;
+    padding: 13px 15px;
+    border: 1px solid #fecaca;
+    border-radius: 9px !important;
+    color: #991b1b;
+    background: #fff1f2;
+    font-size: 0.88rem;
+  }
+
+  .booking-dispatch-container .services {
+    display: grid;
+    gap: 12px;
+  }
+
+  .booking-dispatch-container .service {
+    position: relative;
     cursor: pointer;
   }
-  .pac-item:hover {
-    background-color: #f8fafc;
+
+  .booking-dispatch-container .service input,
+  .booking-dispatch-container .time input,
+  .booking-dispatch-container .contact input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .booking-dispatch-container .service span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    padding: 18px 22px;
+    border: 1px solid transparent;
+    border-radius: 7px !important;
+    background: #fff;
+    box-shadow: 0 7px 18px rgba(21, 41, 58, 0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: 0.14s ease;
+  }
+
+  .booking-dispatch-container .service span:after {
+    content: "›";
+    color: #a1abb4;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .booking-dispatch-container .service:hover span {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(21, 41, 58, 0.14);
+  }
+
+  .booking-dispatch-container .service input:focus-visible + span,
+  .booking-dispatch-container .service input:checked + span {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(36, 132, 191, 0.13);
+  }
+
+  .booking-dispatch-container .date-title {
+    margin: 0 0 17px;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .booking-dispatch-container .date-browser {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .booking-dispatch-container .arrow {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    color: var(--navy);
+    background: transparent;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .booking-dispatch-container .arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .booking-dispatch-container .dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+  }
+
+  .booking-dispatch-container .date {
+    min-width: 0;
+    min-height: 76px;
+    padding: 8px 3px;
+    border: 0;
+    border-radius: 7px !important;
+    color: var(--ink);
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(21, 41, 58, 0.08);
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .booking-dispatch-container .date span,
+  .booking-dispatch-container .date strong {
+    display: block;
+  }
+
+  .booking-dispatch-container .date span {
+    font-size: 0.68rem;
+  }
+
+  .booking-dispatch-container .date strong {
+    margin-top: 4px;
+    font-size: 1rem;
+  }
+
+  .booking-dispatch-container .date.selected {
+    color: #fff;
+    background: var(--blue);
+  }
+
+  .booking-dispatch-container .local-time {
+    margin: 15px 0 22px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.76rem;
+  }
+
+  .booking-dispatch-container .time-title {
+    margin: 0 0 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .booking-dispatch-container .times {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .booking-dispatch-container .time {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .booking-dispatch-container .time span {
+    display: grid;
+    place-items: center;
+    min-height: 64px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 7px !important;
+    background: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    transition: 0.14s ease;
+  }
+
+  .booking-dispatch-container .time input:focus-visible + span,
+  .booking-dispatch-container .time input:checked + span {
+    border-color: var(--blue);
+    color: #075f93;
+    background: #edf8fe;
+    box-shadow: 0 0 0 3px rgba(36, 132, 191, 0.12);
+  }
+
+  .booking-dispatch-container .native-date {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .booking-dispatch-container .fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .booking-dispatch-container .field {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .booking-dispatch-container .full {
+    grid-column: 1 / -1;
+  }
+
+  .booking-dispatch-container .field label,
+  .booking-dispatch-container .legend {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .booking-dispatch-container .field input,
+  .booking-dispatch-container .field textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 13px;
+    border: 1px solid var(--line);
+    border-radius: 7px !important;
+    color: var(--ink);
+    background: #fff;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.14s, box-shadow 0.14s;
+  }
+
+  .booking-dispatch-container .field input:focus,
+  .booking-dispatch-container .field textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(36, 132, 191, 0.12);
+  }
+
+  .booking-dispatch-container .field input.input-error {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+  }
+
+  .booking-dispatch-container .optional {
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .booking-dispatch-container .contacts {
+    display: flex;
+    gap: 8px;
+  }
+
+  .booking-dispatch-container .contact {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .booking-dispatch-container .contact span {
+    display: block;
+    padding: 9px 13px;
+    border: 1px solid var(--line);
+    border-radius: 7px !important;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    transition: 0.14s ease;
+  }
+
+  .booking-dispatch-container .contact input:checked + span {
+    border-color: var(--blue);
+    color: #075f93;
+    background: #edf8fe;
+  }
+
+  .booking-dispatch-container .summary {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px !important;
+    background: #fff;
+  }
+
+  .booking-dispatch-container .summary-row {
+    display: grid;
+    grid-template-columns: 145px 1fr auto;
+    gap: 14px;
+    padding: 15px 17px;
+    border-bottom: 1px solid #edf0f2;
+    align-items: center;
+  }
+
+  .booking-dispatch-container .summary-row:last-child {
+    border-bottom: 0;
+  }
+
+  .booking-dispatch-container .summary-row > span {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .booking-dispatch-container .summary-row p {
+    margin: 0;
+    white-space: pre-line;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .booking-dispatch-container .edit {
+    align-self: center;
+    border: 0;
+    color: var(--blue);
+    background: transparent;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+
+  .booking-dispatch-container .edit:hover {
+    text-decoration: underline;
+  }
+
+  .booking-dispatch-container .confirmation {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  .booking-dispatch-container .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .booking-dispatch-container .back,
+  .booking-dispatch-container .continue,
+  .booking-dispatch-container .submit {
+    min-height: 48px;
+    padding: 10px 20px;
+    border-radius: 7px !important;
+    font-weight: 750;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.15s, transform 0.1s;
+  }
+
+  .booking-dispatch-container .back {
+    border: 0;
+    color: var(--navy);
+    background: transparent;
+  }
+
+  .booking-dispatch-container .back:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  .booking-dispatch-container .continue {
+    margin-left: auto;
+    border: 0;
+    color: #fff;
+    background: var(--blue);
+  }
+
+  .booking-dispatch-container .continue:hover {
+    filter: brightness(1.08);
+  }
+
+  .booking-dispatch-container .submit {
+    margin-left: auto;
+    border: 0;
+    color: var(--navy);
+    background: var(--gold);
+  }
+
+  .booking-dispatch-container .submit:hover {
+    filter: brightness(1.05);
+  }
+
+  .booking-dispatch-container .submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .booking-dispatch-container .footer {
+    padding: 16px;
+    color: #7c8792;
+    text-align: center;
+    font-size: 0.72rem;
+    margin-top: 20px;
+  }
+
+  .booking-dispatch-container .footer strong {
+    color: var(--navy);
+  }
+
+  .booking-dispatch-container .success-box {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px !important;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(21, 41, 58, 0.08);
+  }
+
+  .booking-dispatch-container .success-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    background: #dcfce7;
+    color: #15803d;
+    border-radius: 50% !important;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  .booking-dispatch-container .success-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+
+  .booking-dispatch-container .success-desc {
+    color: var(--muted);
+    font-size: 0.92rem;
+    max-width: 480px;
+    margin: 0 auto 24px;
+    line-height: 1.5;
+  }
+
+  .booking-dispatch-container .hp {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  @media (max-width: 620px) {
+    .booking-dispatch-container .brand {
+      min-height: 76px;
+    }
+    .booking-dispatch-container .brand img {
+      width: 50px;
+      height: 50px;
+    }
+    .booking-dispatch-container .shell {
+      width: min(100% - 24px, 780px);
+      padding-top: 18px;
+    }
+    .booking-dispatch-container .progress {
+      margin-bottom: 23px;
+    }
+    .booking-dispatch-container .progress li {
+      font-size: 0.65rem;
+    }
+    .booking-dispatch-container .service span {
+      min-height: 64px;
+      padding: 15px 17px;
+    }
+    .booking-dispatch-container .dates {
+      gap: 4px;
+    }
+    .booking-dispatch-container .date {
+      min-height: 66px;
+    }
+    .booking-dispatch-container .date span {
+      font-size: 0.6rem;
+    }
+    .booking-dispatch-container .times,
+    .booking-dispatch-container .fields {
+      grid-template-columns: 1fr;
+    }
+    .booking-dispatch-container .full {
+      grid-column: auto;
+    }
+    .booking-dispatch-container .summary-row {
+      grid-template-columns: 88px 1fr auto;
+      padding: 13px 12px;
+    }
+    .booking-dispatch-container .contacts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .booking-dispatch-container .contact span {
+      text-align: center;
+      padding: 9px 5px;
+    }
+    .booking-dispatch-container .actions {
+      position: sticky;
+      bottom: 0px;
+      padding: 12px 0;
+      background: var(--bg);
+      z-index: 10;
+    }
   }
 </style>
-
-
-
-
