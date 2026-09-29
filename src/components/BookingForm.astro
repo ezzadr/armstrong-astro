@@ -486,83 +486,162 @@
       };
     }
 
-    // Submit handler
-    form.onsubmit = async event => {
-      event.preventDefault();
-      if (!valid()) return;
+    const formStartedAt = Math.floor(Date.now() / 1000);
+    const nameIn = document.getElementById('customer_name');
+    const phoneIn = document.getElementById('phone');
+    const apiError = document.getElementById('booking-error-message');
+    const errName = null;
+    const errPhone = null;
+    const serviceInput = { get value() { return checked('service_type')?.value || 'Locksmith'; } };
+    const locationInput = { get value() { return 'Nashville'; } };
+    const timeInput = { get value() { return getTimeWindowText(); } };
+    const photoIn = { files: [] };
+    const updateStepper = stage => show(stage === 4 ? 5 : stage);
 
-      // Spam bot honeypot check
-      if (honeypot && honeypot.value.trim() !== '') {
-        show(5);
-        return;
-      }
+    // Submit
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        if (submitBtn?.disabled) return;
+        if (apiError) apiError.classList.add('hidden');
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending request...';
-      }
+        let hasError = false;
+        const name = nameIn ? nameIn.value.trim() : '';
+        const phone = phoneIn ? phoneIn.value.trim() : '';
+        const bot = honeypot ? honeypot.value.trim() : '';
 
-      const serviceName = checked('service_type')?.value || 'Locksmith Service';
-      const windowText = getTimeWindowText();
-      const preferredDateVal = dateInput.value;
-      const fullService = `${serviceName} [${preferredDateVal} • ${windowText}]`;
-      const custName = value('customer_name');
-      const custPhone = value('phone');
-      const custEmail = value('email');
-      const custAddress = value('service_address');
-      const custCity = value('city') || 'Nashville';
-      const custZip = value('postal_code');
-      const contactPref = checked('contact_preference')?.value || 'phone';
+        if (!name) {
+          if (errName) errName.classList.remove('hidden');
+          if (nameIn) nameIn.classList.add('border-red-500');
+          hasError = true;
+        }
+        if (!phone || phone.length < 7) {
+          if (errPhone) errPhone.classList.remove('hidden');
+          if (phoneIn) phoneIn.classList.add('border-red-500');
+          hasError = true;
+        }
 
-      const detailsStr = `Address: ${custAddress}, ${custCity}, TN ${custZip} | Prefers: ${contactPref}${custEmail ? ' | Email: ' + custEmail : ''}`;
+        if (hasError) return;
+        if (bot !== '') {
+          updateStepper(4);
+          return;
+        }
 
-      try {
-        const response = await fetch('/api/contact.php', {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = '⚡ Sending Request...';
+        }
+
+        const s = serviceInput ? serviceInput.value : 'Locksmith';
+        const loc = locationInput ? locationInput.value : 'Nashville';
+        const d = dateInput ? dateInput.value : 'Today';
+        const t = timeInput ? timeInput.value : 'ASAP';
+        const addr = document.getElementById('service_address')?.value || document.getElementById('cust_address')?.value || '';
+        const notes = document.getElementById('cust_notes')?.value || '';
+        const photoFile = photoIn?.files?.[0]?.name ? `Attached Photo: ${photoIn.files[0].name}` : '';
+
+        const fullService = `${s} [${loc} • ${d} • ${t}]`;
+        const detailsStr = [addr ? `Location: ${addr}` : '', notes ? `Details: ${notes}` : '', photoFile].filter(Boolean).join(' | ');
+
+        const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
+
+        const payload = {
+          customer_name: name,
+          phone: phone,
+          service: fullService,
+          service_type: fullService,
+          vehicle: detailsStr || 'Website Booking',
+          form_started_at: safeFormStartedAt,
+          company_website: ''
+        };
+
+        // Save the actual photo privately in Dispatch before the existing lead notification.
+        // The contact proxy uses the same phone/service, so its follow-up is deduplicated.
+        const selectedPhoto = photoIn?.files?.[0];
+        if (selectedPhoto) {
+          try {
+            if (selectedPhoto.size > 5 * 1024 * 1024) {
+              throw new Error('Choose a photo smaller than 5 MB.');
+            }
+            const upload = new FormData();
+            Object.entries(payload).forEach(([key, value]) => upload.append(key, String(value)));
+            upload.append('photo', selectedPhoto);
+            const result = await fetch('https://booking.armstronglocksmithinc.com/api/website-bookings', {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: upload
+            });
+            const saved = await result.json();
+            if (!result.ok || saved.photo_received !== true) {
+              throw new Error(saved.errors?.photo?.[0] || 'Your photo could not be saved. Please use a JPG, PNG or WebP photo under 5 MB and try again.');
+            }
+          } catch (error) {
+            if (apiError) {
+              apiError.textContent = error instanceof Error ? error.message : 'Photo upload failed. Please try again.';
+              apiError.classList.remove('hidden');
+            }
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send request';
+            }
+            return;
+          }
+        }
+
+        // Preserve the existing email/SMS notification and text-only booking flow.
+        const emailPromise = fetch('/api/contact.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: custName,
-            phone: custPhone,
+            name: name,
+            phone: phone,
             service: fullService,
-            details: detailsStr,
-            email: custEmail || 'Not provided',
-            notes: `Online Booking Request: ${serviceName} on ${preferredDateVal} (${windowText}), Contact via ${contactPref}`,
+            details: detailsStr || 'Website Booking',
+            notes: `Online Booking Request [${loc}]`,
             company_website: ''
           })
+        }).catch(err => {
+          console.warn('Email booking notification notice:', err);
+          return { ok: false, status: 0 };
         });
 
         // Trigger Google Analytics 4 conversion events
-        if (typeof window.gtag === 'function') {
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
           window.gtag('event', 'booking_submission', {
             event_category: 'Booking',
-            event_label: serviceName,
+            event_label: s,
             value: 1
           });
           window.gtag('event', 'generate_lead', {
             event_category: 'Booking',
-            event_label: serviceName,
+            event_label: s,
             value: 1
           });
         }
 
-        if (response.ok) {
-          show(5);
-        } else {
-          showError('We could not send your request right now. Please call us directly at (615) 625-8000.');
+        try {
+          const emailResult = await emailPromise;
+
+          if (emailResult.ok) {
+            updateStepper(4);
+          } else {
+            // Both failed (network offline / server issue)
+            if (apiError) apiError.classList.remove('hidden');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send request';
+            }
+          }
+        } catch (err) {
+          console.error('Booking submission error:', err);
+          if (apiError) apiError.classList.remove('hidden');
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Send request';
           }
         }
-      } catch (err) {
-        console.error('Booking submission error:', err);
-        showError('Network error. Please try again or call (615) 625-8000.');
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send request';
-        }
-      }
-    };
+      });
+    }
 
     // Initial setup
     if (!dateInput.value) {
