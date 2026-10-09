@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { storeWeekdays, storeSaturday, mobileUntil } from '../data/hours.mjs';
 import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Hummer Key Replacement Nashville | Armstrong Locksmith";
@@ -95,7 +96,7 @@ const schema = {
           </picture>
           <div class="p-4 bg-slate-950 text-white text-xs flex justify-between items-center border-t border-slate-800">
             <span class="text-slate-300">📍 208 Thompson Ln, Nashville, TN 37211</span>
-            <span class="text-amber-400 font-bold">Shop Mon–Fri 8AM–6PM, Sat 10AM–4PM &bull; Mobile until 11:30PM</span>
+            <span class="text-amber-400 font-bold">Shop Mon–Fri {storeWeekdays}, Sat {storeSaturday} &bull; Mobile until {mobileUntil}</span>
           </div>
         </div>
         <div class="lg:col-span-6 flex flex-col gap-4">

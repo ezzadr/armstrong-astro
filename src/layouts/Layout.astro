@@ -6,11 +6,13 @@ import MobileCallBar from '../components/MobileCallBar.astro';
 import BackToTop from '../components/BackToTop.astro';
 import PromoPopup from '../components/PromoPopup.astro';
 import { getReviewStats } from '../lib/reviewStats.mjs';
+import { HOURS } from '../data/hours.mjs';
 
 // Live-synced at build time (see src/lib/reviewStats.mjs). Feeds the schema
 // aggregateRating below so the structured data Google reads stays current
-// without a manual edit on every deploy.
-const { reviewCount, ratingValue } = await getReviewStats();
+// without a manual edit on every deploy. Schema gets the exact count; the
+// visible "790+" style figure is reviewCount.
+const { exactReviewCount, ratingValue } = await getReviewStats();
 
 export interface Props {
   title: string;
@@ -99,7 +101,7 @@ const baseBusinessSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": ratingValue,
-    "reviewCount": reviewCount,
+    "reviewCount": exactReviewCount,
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -137,19 +139,19 @@ const baseBusinessSchema = {
   // for the local pack and the "Open now" label, so structured data must not
   // contradict it. Mobile dispatch runs later (until 23:30 Mon-Fri) and is
   // communicated in page copy, where a reader gets the surrounding context
-  // rather than a bare open/closed label.
+  // rather than a bare open/closed label. Values come from src/data/hours.mjs.
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
+      "opens": HOURS.store.weekdays[0],
+      "closes": HOURS.store.weekdays[1]
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Saturday"],
-      "opens": "10:00",
-      "closes": "16:00"
+      "opens": HOURS.store.saturday[0],
+      "closes": HOURS.store.saturday[1]
     }
   ],
   "areaServed": [

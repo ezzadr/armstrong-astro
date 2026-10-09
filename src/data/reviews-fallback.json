@@ -1,35 +1,42 @@
 {
   "_comment": "Last-known-good Google review snapshot, refreshed automatically by src/lib/reviewStats.mjs on any build that reaches /api/reviews.php. Real Google reviews only - never hand-write entries here.",
-  "synced_at": "2026-09-09T05:39:11.555Z",
+  "synced_at": "2026-10-09T16:18:43.069Z",
   "rating": 4.9,
-  "user_ratings_total": 778,
+  "user_ratings_total": 795,
   "reviews": [
     {
-      "author_name": "Aidan Hardison",
+      "author_name": "James Otto",
       "rating": 5,
       "relative_time_description": "in the last week",
-      "text": "Had an amazing experience with Rahim! He was very knowledgeable and personable. I was in and out of the door, with 2 programmed keys, in less than 20 minutes!",
+      "text": "They were able to fix my locks instead of replacing them and saved me $$$$. They also showed up just hours after I called. Excellent, fast and reasonably priced service is hard to beat.",
       "service": "Verified Customer"
     },
     {
-      "author_name": "Scott Cassity",
+      "author_name": "Giselle Holman",
       "rating": 5,
       "relative_time_description": "in the last week",
-      "text": "Fantastic service and very thorough!!!! Highly recommend",
+      "text": "I got my car key fixed! Very fast and efficient! Thank u so much!",
       "service": "Verified Customer"
     },
     {
-      "author_name": "April Dayton",
+      "author_name": "Robbie Tenpenny",
       "rating": 5,
       "relative_time_description": "in the last week",
-      "text": "​Fast and friendly service, I was in and out in ten minutes with exactly what I needed. Highly recommend Armstrong Locksmith!",
+      "text": "Great service. Nice people.",
       "service": "Verified Customer"
     },
     {
-      "author_name": "Grey Kenna",
+      "author_name": "Fred Francis",
+      "rating": 5,
+      "relative_time_description": "in the last week",
+      "text": "My experience with Raheim, at Armstrong Locksmith,  was exceptional. He immediately addressed and resolved my issues with rekeying the door lock to a new set of keys. I would highly recommend anyone to consider this business. He was kind, professional and precise. I will not hesitate to return in the future and encourage you to pay Reheim and his Brother a visit. Definitely a five star out of 5 stars.",
+      "service": "Verified Customer"
+    },
+    {
+      "author_name": "Wallace Thompson",
       "rating": 5,
       "relative_time_description": "a week ago",
-      "text": "Armstrong Locksmith was so helpful, kind and efficient when I came in after both of my car key fobs broke. They helped fix one of my key fobs and then cut me a new manual key and made sure to test everything twice to make sure it worked. I’d recommend them to anyone who needs a reliable locksmith!",
+      "text": "I had an excellent experience here. I lost the key to my car and they were able to come out and program a new one. I had a relatively unique situation which they were able to handle without issue. The pricing was upfront and, while not cheap, was significantly cheaper than the dealership, OEM quality AND cheaper then other locksmith quotes I received.\n\nI highly recommend Armstrong Locksmith",
       "service": "Verified Customer"
     }
   ]

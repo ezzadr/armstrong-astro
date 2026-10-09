@@ -38,6 +38,19 @@ const FALLBACK = { reviewCount: '782', ratingValue: '4.9' };
 let cached = null;
 let cachedReviews = [];
 
+// Visitors see the count rounded down to the 10s ("790+"): the title, menu,
+// footer and page copy all use reviewCount, and the live refresh in
+// Header.astro rounds the same way, so they never disagree by a few reviews
+// between builds. It still moves on its own (800+ once Google reaches 800).
+// The schema needs the true figure, so Layout.astro uses exactReviewCount.
+function toStats(count, ratingValue) {
+  return {
+    reviewCount: String(Math.floor(Number(count) / 10) * 10),
+    exactReviewCount: String(count),
+    ratingValue,
+  };
+}
+
 // Only reviews that are 4 stars and up and actually have text ever get shown.
 function usableReviews(list) {
   return Array.isArray(list)
@@ -99,13 +112,13 @@ function writeSnapshot(reviews, count, rating) {
 function useSnapshot(why) {
   const snap = readSnapshot();
   if (snap) {
-    cached = { reviewCount: snap.reviewCount, ratingValue: snap.ratingValue };
+    cached = toStats(snap.reviewCount, snap.ratingValue);
     cachedReviews = snap.reviews;
     console.warn(
-      `[reviewStats] ${why}; using snapshot from ${snap.syncedAt}: ${cached.reviewCount} reviews, ${cachedReviews.length} review cards`,
+      `[reviewStats] ${why}; using snapshot from ${snap.syncedAt}: ${cached.exactReviewCount} reviews, ${cachedReviews.length} review cards`,
     );
   } else {
-    cached = { ...FALLBACK };
+    cached = toStats(FALLBACK.reviewCount, FALLBACK.ratingValue);
     cachedReviews = [];
     console.warn(`[reviewStats] ${why} and no readable snapshot; using ${FALLBACK.reviewCount}`);
   }
@@ -131,10 +144,10 @@ export async function getReviewStats() {
       if (Number.isFinite(count) && count > 0) {
         const ratingValue =
           Number.isFinite(rating) && rating > 0 ? String(rating) : FALLBACK.ratingValue;
-        cached = { reviewCount: String(count), ratingValue };
+        cached = toStats(count, ratingValue);
         cachedReviews = usableReviews(d?.reviews);
         console.log(
-          `[reviewStats] synced from live endpoint: ${cached.reviewCount} reviews, ${cached.ratingValue} stars, ${cachedReviews.length} review cards`,
+          `[reviewStats] synced from live endpoint: ${cached.exactReviewCount} reviews, ${cached.ratingValue} stars, ${cachedReviews.length} review cards`,
         );
         writeSnapshot(cachedReviews, count, ratingValue);
         return cached;

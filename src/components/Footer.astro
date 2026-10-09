@@ -1,6 +1,7 @@
 ---
 // Footer.astro - Clean, Spacious, Organized Modern Footer (Sharp Industrial Edges)
 import { getReviewStats } from '../lib/reviewStats.mjs';
+import { storeWeekdays, storeSaturday, mobileWeekdays, mobileSaturday } from '../data/hours.mjs';
 // Server-rendered so the count is right before JS runs; .arm-review-count spans are refreshed live by syncReviewCounts() in Header.astro.
 const { reviewCount } = await getReviewStats();
 ---
@@ -186,21 +187,23 @@ const { reviewCount } = await getReviewStats();
         </p>
         
         <div class="bg-slate-900/90 p-3.5 border border-slate-800 rounded-sm flex flex-col gap-2.5 text-xs shadow-xs">
-          <!-- Storefront -->
+          <!-- Storefront. Hours come from src/data/hours.mjs. (There used to be
+               a green "Open" dot here that showed even on Sundays and at night.) -->
           <div class="border-b border-slate-800/80 pb-2">
             <div class="flex items-center justify-between mb-1">
-              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">🏪 Walk-In Storefront</span>
-              <span class="inline-flex items-center gap-1 text-[9px] font-bold text-slate-400 uppercase">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Open
-              </span>
+              <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider">🏬 Walk-In Storefront</span>
             </div>
             <div class="flex justify-between items-center text-slate-300 text-[11px]">
               <span>Mon – Fri:</span>
-              <span class="text-white font-bold">8:00 AM – 6:00 PM</span>
+              <span class="text-white font-bold">{storeWeekdays}</span>
             </div>
             <div class="flex justify-between items-center text-slate-300 text-[11px]">
               <span>Saturday:</span>
-              <span class="text-white font-bold">10:00 AM – 4:00 PM</span>
+              <span class="text-white font-bold">{storeSaturday}</span>
+            </div>
+            <div class="flex justify-between items-center text-slate-300 text-[11px]">
+              <span>Sunday:</span>
+              <span class="text-slate-400 font-bold">Closed</span>
             </div>
           </div>
           
@@ -212,11 +215,11 @@ const { reviewCount } = await getReviewStats();
             </div>
             <div class="flex justify-between items-center text-slate-300 text-[11px]">
               <span>Mon – Fri:</span>
-              <span class="text-emerald-300 font-bold">8:00 AM – 11:30 PM</span>
+              <span class="text-emerald-300 font-bold">{mobileWeekdays}</span>
             </div>
             <div class="flex justify-between items-center text-slate-300 text-[11px]">
               <span>Saturday:</span>
-              <span class="text-emerald-300 font-bold">10:00 AM – 4:00 PM</span>
+              <span class="text-emerald-300 font-bold">{mobileSaturday}</span>
             </div>
             <div class="flex justify-between items-center text-slate-300 text-[11px]">
               <span>Sunday:</span>

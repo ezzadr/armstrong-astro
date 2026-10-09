@@ -11,6 +11,7 @@
 // carry the head term of the page they point at.
 import { getReviewStats } from '../lib/reviewStats.mjs';
 import nav from '../data/nav.json';
+import { storeWeekdays, storeSaturday, mobileSaturday, mobileUntil } from '../data/hours.mjs';
 // Server-rendered so the count is right before JS runs; .arm-review-count spans are refreshed live by syncReviewCounts() below.
 const { reviewCount } = await getReviewStats();
 ---
@@ -239,7 +240,7 @@ const { reviewCount } = await getReviewStats();
 
                 <a href="/nashville-locksmith-storefront/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-emerald-900 font-bold bg-emerald-50/70 hover:bg-emerald-100 hover:border-l-2 hover:border-emerald-600 rounded-lg transition-all mt-1">
                   <div>
-                    <span class="block text-emerald-950 font-black">🏪 Walk-In Storefront Shop</span>
+                    <span class="block text-emerald-950 font-black">🏬 Walk-In Storefront Shop</span>
                     <span class="block text-[10px] text-emerald-700 font-normal">208 Thompson Ln &bull; While You Wait</span>
                   </div>
                   <span class="text-emerald-700 group-hover/item:translate-x-1 transition-transform font-bold">&rarr;</span>
@@ -409,14 +410,16 @@ const { reviewCount } = await getReviewStats();
             <div class="text-base font-black uppercase tracking-wide text-white leading-tight">
               Armstrong <span class="text-gold-gradient">Locksmith</span>
             </div>
-            <a href="/google-reviews/" class="mt-1 inline-flex items-center gap-1 text-[11px] font-bold text-amber-400 hover:text-white transition-colors">
+            <!-- 44px tall for the tap target. The negative bottom margin only
+                 eats into the empty gap above the buttons, never the buttons. -->
+            <a href="/google-reviews/" class="mt-1 -mb-2 flex w-fit items-center min-h-11 gap-1 text-[11px] font-bold text-amber-400 hover:text-white transition-colors">
               ⭐ 4.9/5 &bull; <span class="arm-review-count">{reviewCount}+</span> Google Reviews
             </a>
           </div>
           <button
             id="arm-drawer-close"
             type="button"
-            class="w-8 h-8 shrink-0 bg-white/5 border border-amber-500/50 hover:border-amber-400 text-amber-400 hover:text-white flex items-center justify-center text-lg font-bold cursor-pointer transition shadow-md active:scale-95"
+            class="relative before:absolute before:-inset-2 before:content-[''] w-8 h-8 shrink-0 bg-white/5 border border-amber-500/50 hover:border-amber-400 text-amber-400 hover:text-white flex items-center justify-center text-lg font-bold cursor-pointer transition shadow-md active:scale-95"
             aria-label="Close menu"
           >
             &times;
@@ -425,30 +428,30 @@ const { reviewCount } = await getReviewStats();
 
         <!-- Thumb-First Primary CTAs -->
         <div class="grid grid-cols-2 gap-2 mt-3">
-          <a href="tel:6156258000" class="py-2.5 bg-gold-metallic text-[#07152b] font-black text-center text-xs flex items-center justify-center gap-1.5 border-b-2 border-amber-600 active:scale-95 transition" aria-label="Call Armstrong Locksmith at (615) 625-8000">
+          <a href="tel:6156258000" class="min-h-11 py-2.5 bg-gold-metallic text-[#07152b] font-black text-center text-xs flex items-center justify-center gap-1.5 border-b-2 border-amber-600 active:scale-95 transition" aria-label="Call Armstrong Locksmith at (615) 625-8000">
             📞 Call Store
           </a>
-          <a href="/book-online/" class="py-2.5 bg-[#0e2242] border border-amber-400/80 text-amber-300 hover:text-white font-black text-center text-xs flex items-center justify-center gap-1.5 active:scale-95 transition">
+          <a href="/book-online/" class="min-h-11 py-2.5 bg-[#0e2242] border border-amber-400/80 text-amber-300 hover:text-white font-black text-center text-xs flex items-center justify-center gap-1.5 active:scale-95 transition">
             📅 Book Online
           </a>
         </div>
 
         <!-- High-Intent Quick Navigation -->
         <div class="grid grid-cols-2 gap-1.5 mt-2.5 pt-2.5 border-t border-white/10 text-[11px]">
-          <a href="/emergency-car-lockout/" class="p-1.5 rounded bg-red-950/70 border border-red-500/50 text-red-200 font-bold flex items-center gap-1.5 hover:bg-red-900/60 transition-colors">
+          <a href="/emergency-car-lockout/" class="min-h-11 p-1.5 rounded bg-red-950/70 border border-red-500/50 text-red-200 font-bold flex items-center gap-1.5 hover:bg-red-900/60 transition-colors">
             <span>🚨</span>
             <span class="truncate">Car Lockout</span>
           </a>
-          <a href="/car-key-replacement-nashville/" class="p-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center gap-1.5 hover:bg-white/10 transition-colors">
+          <a href="/car-key-replacement-nashville/" class="min-h-11 p-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center gap-1.5 hover:bg-white/10 transition-colors">
             <span>🔑</span>
             <span class="truncate">Lost All Keys</span>
           </a>
-          <a href="/nashville-rekey-service/" class="p-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center gap-1.5 hover:bg-white/10 transition-colors">
+          <a href="/nashville-rekey-service/" class="min-h-11 p-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center gap-1.5 hover:bg-white/10 transition-colors">
             <span>🏡</span>
             <span class="truncate">Rekey House</span>
           </a>
-          <a href="/nashville-locksmith-storefront/" class="p-1.5 rounded bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 font-bold flex items-center gap-1.5 hover:bg-emerald-900/60 transition-colors">
-            <span>🏪</span>
+          <a href="/nashville-locksmith-storefront/" class="min-h-11 p-1.5 rounded bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 font-bold flex items-center gap-1.5 hover:bg-emerald-900/60 transition-colors">
+            <span>🏬</span>
             <span class="truncate">Visit Store</span>
           </a>
         </div>
@@ -459,8 +462,8 @@ const { reviewCount } = await getReviewStats();
 
         <!-- 1. Car Keys & Vehicle Makes Accordion -->
         <div class="border-b border-slate-100">
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
+            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
               <span class="text-amber-500">🚗</span>
               <span>Car Keys &amp; Vehicle Makes</span>
             </span>
@@ -475,25 +478,25 @@ const { reviewCount } = await getReviewStats();
             <!-- European Luxury Section -->
             <div class="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1 pt-1.5 mb-1.5 flex items-center justify-between">
               <span>European Specialists</span>
-              <span class="text-amber-600 font-bold">DEALER LEVEL</span>
+              <span class="text-slate-500 font-bold">DEALER LEVEL</span>
             </div>
 
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
               {nav.european.map((item) => (
-                <a href={item.href} class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-1 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
+                <a href={item.href} class="min-h-11 p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-1 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
                   <span class="truncate">{item.label}</span>
                   <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black shrink-0">{item.chip}</span>
                 </a>
               ))}
               {nav.europeanCompact.map((item) => (
-                <a href={item.href} class="p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 text-center truncate">
-                  {item.label}
+                <a href={item.href} class="min-h-11 p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 flex items-center justify-center">
+                  <span class="truncate">{item.label}</span>
                 </a>
               ))}
             </div>
 
             <!-- European hub: was desktop-only before the shared nav data -->
-            <a href={nav.europeanHub.href} class="block mb-3 py-2 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-[11px] active:bg-amber-100 transition-colors">
+            <a href={nav.europeanHub.href} class="min-h-11 flex items-center justify-center mb-3 py-2 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-[11px] active:bg-amber-100 transition-colors">
               🏎️ {nav.europeanHub.label} &rarr;
             </a>
 
@@ -505,8 +508,8 @@ const { reviewCount } = await getReviewStats();
 
             <div class="grid grid-cols-2 gap-1.5 mb-3 text-[11px]">
               {nav.makes.map((item) => (
-                <a href={item.href} class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-center text-slate-800 font-bold hover:border-amber-400 truncate">
-                  {item.label}
+                <a href={item.href} class="min-h-11 p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-center">
+                  <span class="truncate">{item.label}</span>
                 </a>
               ))}
             </div>
@@ -514,16 +517,16 @@ const { reviewCount } = await getReviewStats();
             <!-- Key Tech & Urgent Links -->
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
               {nav.keyServices.map((item) => (
-                <a href={item.href} class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
+                <a href={item.href} class="min-h-11 flex items-center p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
                   {item.icon} {item.label}
                 </a>
               ))}
-              <a href="/emergency-car-lockout/" class="p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 font-bold col-span-2 text-center">
+              <a href="/emergency-car-lockout/" class="min-h-11 flex items-center justify-center p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 font-bold col-span-2 text-center">
                 🚨 Emergency Car Lockout
               </a>
             </div>
 
-            <a href={nav.makesHub.href} class="block py-2.5 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors shadow-2xs">
+            <a href={nav.makesHub.href} class="min-h-11 flex items-center justify-center py-2.5 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors shadow-2xs">
               🔑 {nav.makesHub.label} &rarr;
             </a>
 
@@ -532,8 +535,8 @@ const { reviewCount } = await getReviewStats();
 
         <!-- 2. Home & Business Locks Accordion -->
         <div class="border-b border-slate-100">
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
+            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
               <span class="text-emerald-600">🏠</span>
               <span>Home &amp; Business Locks</span>
             </span>
@@ -560,8 +563,8 @@ const { reviewCount } = await getReviewStats();
                 <span class="text-amber-600 font-bold shrink-0">&rarr;</span>
               </a>
 
-              <a href="/nashville-locksmith-storefront/" class="mt-1 p-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-black text-center text-xs active:bg-emerald-100 transition-colors">
-                🏪 208 Thompson Ln Key Shop &rarr;
+              <a href="/nashville-locksmith-storefront/" class="min-h-11 flex items-center justify-center mt-1 p-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-black text-center text-xs active:bg-emerald-100 transition-colors">
+                🏬 208 Thompson Ln Key Shop &rarr;
               </a>
             </div>
           </div>
@@ -569,8 +572,8 @@ const { reviewCount } = await getReviewStats();
 
         <!-- 3. Pricing & Reviews Accordion -->
         <div class="border-b border-slate-100">
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
+            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
               <span class="text-amber-500">💰</span>
               <span>Pricing &amp; <span class="arm-review-count">{reviewCount}+</span> Reviews</span>
             </span>
@@ -602,8 +605,8 @@ const { reviewCount } = await getReviewStats();
 
         <!-- 4. Locations & Company Accordion -->
         <div>
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-amber-600 tracking-wider flex items-center gap-2">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
+            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
               <span class="text-blue-500">📍</span>
               <span>Locations &amp; Company</span>
             </span>
@@ -616,15 +619,15 @@ const { reviewCount } = await getReviewStats();
                 <a
                   href={item.href}
                   class={item.feature
-                    ? 'p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold'
-                    : 'p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold'}
+                    ? 'min-h-11 flex items-center p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold'
+                    : 'min-h-11 flex items-center p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold'}
                 >
                   {item.icon} {item.label}
                 </a>
               ))}
               <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-1 pt-2 pb-0.5">The Company</div>
               {nav.company.map((item) => (
-                <a href={item.href} class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
+                <a href={item.href} class="min-h-11 flex items-center p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
                   {item.icon} {item.label}
                 </a>
               ))}
@@ -634,16 +637,24 @@ const { reviewCount } = await getReviewStats();
 
       </nav>
 
-      <!-- Emergency Lockout Strip -->
-      <a href="/emergency-car-lockout/" class="mx-3 mb-2 shrink-0 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 font-black text-center text-xs active:bg-red-100 transition-colors shadow-2xs">
-        🚨 Locked out right now? Emergency Dispatch &rarr;
+      <!-- Lockout card. Same style as the "Schedule Lock Service" card above.
+           Calm on purpose: we are not 24/7, and the red "Emergency Dispatch"
+           strip this replaced read like we were. -->
+      <a href="/emergency-car-lockout/" class="mx-3 mb-2 shrink-0 p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 font-bold flex items-center justify-between gap-2 active:bg-amber-100 transition-colors shadow-2xs">
+        <div class="min-w-0">
+          <span class="block font-black text-amber-950 text-xs">🔓 Locked out?</span>
+          <span class="block text-[10px] text-amber-800 font-normal">Mobile service until {mobileUntil} weekdays</span>
+        </div>
+        <span class="text-amber-600 font-bold shrink-0">&rarr;</span>
       </a>
 
-      <!-- Storefront Footer (Consistent NAP) -->
+      <!-- Storefront Footer (Consistent NAP). Hours come from src/data/hours.mjs.
+           Kept to short lines so nothing wraps at 375px. -->
       <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-200 text-[11px] text-slate-600 shrink-0">
         <div class="font-bold text-slate-900">📍 208 Thompson Ln, Nashville, TN 37211</div>
-        <div class="mt-0.5">Storefront: Mon&ndash;Fri 8 AM&ndash;6 PM &bull; Sat 10 AM&ndash;4 PM</div>
-        <div class="mt-0.5">Mobile dispatch: Mon&ndash;Fri until 11:30 PM &bull; Sat 10 AM&ndash;4 PM &bull; Sun closed</div>
+        <div class="mt-0.5">Storefront: Mon&ndash;Fri {storeWeekdays} &bull; Sat {storeSaturday}</div>
+        <div class="mt-0.5">Mobile service: Mon&ndash;Fri until {mobileUntil} &bull; Sat {mobileSaturday}</div>
+        <div class="mt-0.5">Closed Sunday</div>
       </div>
 
     </div>
@@ -811,7 +822,9 @@ const { reviewCount } = await getReviewStats();
 
       // Sitewide live review count. Every server-rendered count that should track
       // the real Google total is wrapped in .arm-review-count; this swaps them
-      // for the live figure from the cached reviews endpoint. Runs at idle so
+      // for the live figure from the cached reviews endpoint, rounded down to
+      // the 10s ("790+") the same way reviewStats.mjs rounds it at build time,
+      // so the page title and the counters agree. Runs at idle so
       // it never competes with LCP; on any failure the server-rendered number
       // simply stays, so there is no empty or shifting state.
       function syncReviewCounts() {
@@ -820,8 +833,9 @@ const { reviewCount } = await getReviewStats();
           .then(r => (r.ok ? r.json() : null))
           .then(d => {
             if (!d || !d.user_ratings_total) return;
+            const shown = Math.floor(d.user_ratings_total / 10) * 10;
             document.querySelectorAll('.arm-review-count').forEach(el => {
-              el.textContent = d.user_ratings_total + '+';
+              el.textContent = shown + '+';
             });
             // Keep the structured data in step with what the page now shows.
             // The build and the nightly workflow both set these, but between

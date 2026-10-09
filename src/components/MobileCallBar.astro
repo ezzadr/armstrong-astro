@@ -1,5 +1,17 @@
 ---
 // MobileCallBar.astro - High-Converting 3-Segment Sticky Bottom Bar
+import { HOURS, fmt, minutes } from '../data/hours.mjs';
+
+// Minutes since midnight, for the open/closed label under the phone number.
+const hours = {
+  weekdayOpen: minutes(HOURS.store.weekdays[0]),
+  storeWeekdayClose: minutes(HOURS.store.weekdays[1]),
+  mobileWeekdayClose: minutes(HOURS.mobile.weekdays[1]),
+  saturdayOpen: minutes(HOURS.store.saturday[0]),
+  saturdayClose: minutes(HOURS.store.saturday[1]),
+  weekdayOpenLabel: fmt(HOURS.store.weekdays[0]).toUpperCase(),
+  saturdayOpenLabel: fmt(HOURS.store.saturday[0]).toUpperCase(),
+};
 ---
 
 <div id="arm-mobile-callbar" class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0f274a] bg-navy-grid border-t-2 border-amber-500 shadow-2xl flex items-stretch h-14">
@@ -50,7 +62,8 @@
 
 </div>
 
-<script is:inline>
+<!-- Times come from src/data/hours.mjs (define:vars passes them to the browser). -->
+<script is:inline define:vars={{ hours }}>
   (function() {
     function updateCallBarStatus() {
       const el = document.getElementById('arm-callbar-status');
@@ -70,27 +83,30 @@
       const m = {};
       parts.forEach(p => { if (p.type !== 'literal') m[p.type] = p.value; });
       const day = dayMap[m.weekday];
-      const hour = parseInt(m.hour, 10);
+      const hour = parseInt(m.hour, 10) % 24; // some browsers report midnight as "24"
       const minute = parseInt(m.minute, 10);
       const cur = hour * 60 + minute;
 
-      const wOpen = 8 * 60, wClose = 23 * 60 + 30; // Mon-Fri: 8:00 AM - 11:30 PM
-      const sOpen = 10 * 60, sClose = 16 * 60;      // Sat: 10:00 AM - 4:00 PM
-
+      const h = hours;
       let statusText = "OPEN NOW";
       if (day >= 1 && day <= 5) {
-        if (cur >= wOpen && cur <= 18 * 60) {
+        if (cur < h.weekdayOpen) {
+          statusText = "OPENS " + h.weekdayOpenLabel;
+        } else if (cur < h.storeWeekdayClose) {
           statusText = "OPEN NOW";
-        } else if (cur > 18 * 60 && cur <= wClose) {
-          statusText = "MOBILE DISPATCH";
+        } else if (cur < h.mobileWeekdayClose) {
+          statusText = "MOBILE SERVICE";
         } else {
-          statusText = "OPENS 8:00 AM";
+          // Friday night: next opening is Saturday, not 8 AM
+          statusText = day === 5 ? "OPENS SAT " + h.saturdayOpenLabel : "OPENS " + h.weekdayOpenLabel;
         }
       } else if (day === 6) {
-        if (cur >= sOpen && cur <= sClose) {
+        if (cur < h.saturdayOpen) {
+          statusText = "OPENS " + h.saturdayOpenLabel;
+        } else if (cur < h.saturdayClose) {
           statusText = "OPEN NOW";
         } else {
-          statusText = "OPENS MON 8AM";
+          statusText = "OPENS MON " + h.weekdayOpenLabel;
         }
       } else if (day === 0) {
         statusText = "CLOSED SUNDAY";

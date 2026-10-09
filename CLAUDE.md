@@ -26,9 +26,9 @@
    - **Name:** Armstrong Locksmith Inc
    - **Phone:** (615) 625-8000
    - **Storefront:** 208 Thompson Ln, Nashville, TN 37211
-   - **Reviews Metric:** synced automatically from Google at build time (`src/lib/reviewStats.mjs`; bump its `FALLBACK` when you notice it drifting). **Never hardcode a review count** in copy, meta descriptions or schema: render `{reviewCount}+` inside `<span class="arm-review-count">` so it is right server-side and refreshes live
+   - **Reviews Metric:** synced automatically from Google at build time (`src/lib/reviewStats.mjs`; bump its `FALLBACK` when you notice it drifting). **Never hardcode a review count** in copy, meta descriptions or schema: render `{reviewCount}+` inside `<span class="arm-review-count">` so it is right server-side and refreshes live. Visible counts are **rounded down to the 10s** ("790+") at build and in the live refresh, so title and counters always agree; only the schema uses the exact `exactReviewCount`.
    - **Tennessee Licensing:** TN has no state locksmith license; never add license numbers.
-   - **Operating Hours:** Storefront: Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM. Mobile dispatch: Mon–Fri 8:00 AM – 11:30 PM, Sat 10:00 AM – 4:00 PM. **Closed Sunday.** There is no 24/7, after-hours or on-call service; never claim it anywhere (copy, schema, llms.txt, GBP).
+   - **Operating Hours:** Storefront: Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM. Mobile dispatch: Mon–Fri 8:00 AM – 11:30 PM, Sat 10:00 AM – 4:00 PM. **Closed Sunday.** There is no 24/7, after-hours or on-call service; never claim it anywhere (copy, schema, llms.txt, GBP). Hours live in **one file, `src/data/hours.mjs`** — pages, menu, footer, call bar and schema import from it; never type hours into a component. (`public/llms.txt` and two blog posts can't import it; the file's header lists them.)
 
 ## Copy & Content Voice Rules (PERMANENT)
 

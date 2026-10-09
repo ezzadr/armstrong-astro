@@ -7,6 +7,7 @@
 // navy from the header for the button so the one action still reads as a
 // button against the yellow.
 import promo from '../data/promo.json';
+import { storeHoursLine } from '../data/hours.mjs';
 
 if (!promo || !promo.active) {
   return;
@@ -105,7 +106,7 @@ if (!promo || !promo.active) {
         {promo.location}
       </p>
       <p class="text-center text-[10px] text-black/60 mt-0.5 font-medium">
-        {promo.footnote}
+        {storeHoursLine}
       </p>
 
     </div>
