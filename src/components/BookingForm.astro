@@ -25,9 +25,15 @@
       <input type="hidden" name="service_category" value="" data-service-category />
       <input type="hidden" name="service_details" value="" data-service-details />
       
-      <!-- Anti-Spam Honeypot Trap -->
-      <div class="hp" aria-hidden="true">
-        <label>Company website<input type="text" id="booking-hp" name="company_website" tabindex="-1" autocomplete="off" /></label>
+      <!-- Anti-Spam Honeypot Trap.
+           Hidden with display:none, NOT off-screen: an off-screen field is still
+           "visible" to browser autofill, and this one used to be named
+           "Company website", which Chrome/Safari fill in when a customer picks
+           their saved address. The page then treated the customer as a bot and
+           showed a fake success with no lead sent (Oct 2026). The JSON key sent
+           to contact.php is still company_website; only the DOM field changed. -->
+      <div class="hp" aria-hidden="true" style="display:none!important">
+        <label>Leave this field empty<input type="text" id="booking-hp" name="hp_leave_empty" tabindex="-1" autocomplete="off" /></label>
       </div>
 
       <!-- Submission / Validation Error Box -->
@@ -1242,11 +1248,7 @@
   }
 
   .booking-dispatch-container .hp {
-    position: absolute !important;
-    left: -10000px !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
+    display: none !important;
   }
 
   @media (max-width: 620px) {
