@@ -25,6 +25,10 @@ jobs:
       - run: npm ci
       - run: node --test tests/booking-photo.test.mjs
       - run: python3 -m unittest discover -s tests -p 'test_release*.py'
+      # A parse error in a lead-form script would break every form on the site;
+      # fail the deploy instead of discovering it from a customer.
+      - name: PHP syntax check
+        run: for f in public/*.php public/api/*.php; do php -l "$f"; done
       # Build in CI (Linux) so the committed HTML is byte-identical from deploy
       # to deploy: a local build's lightningcss output differs per OS and used
       # to churn every page. The server serves the committed root HTML, so on a
