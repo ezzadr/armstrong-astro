@@ -5,6 +5,22 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
+// The dispatch-forwarding log lives in a dot-file: nginx serves plain static
+// files itself and ignores .htaccess, but it denies anything starting with a
+// dot (same reason .leads_store.json is private). The log used to be the
+// world-readable api/ai_dispatch_log.txt; fold that file into the dot-file
+// and delete it the first time this script runs after deploy - on ANY
+// request, so a plain GET is enough to trigger the cleanup.
+$aiLogFile = __DIR__ . '/.ai_dispatch_log.txt';
+$oldAiLogFile = __DIR__ . '/ai_dispatch_log.txt';
+if (file_exists($oldAiLogFile)) {
+    $old = @file_get_contents($oldAiLogFile);
+    if ($old !== false) {
+        @file_put_contents($aiLogFile, $old, FILE_APPEND | LOCK_EX);
+    }
+    @unlink($oldAiLogFile);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
@@ -316,7 +332,7 @@ $aiHttpCode = curl_getinfo($chAi, CURLINFO_HTTP_CODE);
 $aiError = curl_error($chAi);
 curl_close($chAi);
 
-@file_put_contents(__DIR__ . '/ai_dispatch_log.txt', date('Y-m-d H:i:s') . " | HTTP: $aiHttpCode | Err: $aiError | Resp: $aiResponse
+@file_put_contents($aiLogFile, date('Y-m-d H:i:s') . " | HTTP: $aiHttpCode | Err: $aiError | Resp: $aiResponse
 ", FILE_APPEND);
 
 
