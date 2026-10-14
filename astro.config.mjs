@@ -7,11 +7,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://armstronglocksmithinc.com',
   build: {
-    // One shared external stylesheet (cached by the browser and the Cloudflare
-    // edge) instead of inlining it into every page. The full Tailwind output is
-    // ~117KB (~35KB compressed); inlined, every one of the 45 pages re-shipped
-    // and re-parsed it on each view. "auto" still inlines tiny page-scoped CSS.
-    inlineStylesheets: 'auto'
+    // Inline critical CSS directly into HTML to eliminate the render-blocking
+    // stylesheet round-trip on Slow 4G mobile connections (100/100 PageSpeed).
+    inlineStylesheets: 'always'
   },
   vite: {
     plugins: [tailwindcss()]
