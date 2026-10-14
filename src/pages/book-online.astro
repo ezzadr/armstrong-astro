@@ -4,20 +4,9 @@ import BookingForm from '../components/BookingForm.astro';
 
 const seoTitle = "Schedule a Locksmith | Armstrong Locksmith Nashville";
 const seoDescription = "Schedule your service request directly with Armstrong Locksmith. Car keys, residential rekeys, lockouts, and commercial door security in Nashville, TN.";
-
-const bookingSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://armstronglocksmithinc.com/book-online/#webpage",
-    "url": "https://armstronglocksmithinc.com/book-online/",
-    "name": "Schedule a Locksmith | Armstrong Locksmith",
-    "description": "Send your service request directly to Armstrong Dispatch in Nashville, TN."
-  }
-];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/book-online/" schema={bookingSchema}>
+<Layout title={seoTitle} description={seoDescription} canonical="/book-online/">
   <div class="bg-[#f3f7f9] min-h-[85vh]">
     <BookingForm />
   </div>

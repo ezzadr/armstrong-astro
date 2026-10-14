@@ -994,6 +994,7 @@ const homepageSchema = [
             if (container && data.reviews.length >= 3) {
               // Card markup must stay identical to the SSR template above so the
               // design doesn't visibly change when live reviews swap in.
+              const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
               const initialsOf = (n) => (n || 'A').split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
               container.innerHTML = data.reviews.map(rev => `
                 <div class="min-w-[85%] sm:min-w-[320px] lg:min-w-[350px] max-w-[380px] snap-start shrink-0 flex flex-col relative bg-white border border-white/10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
@@ -1003,25 +1004,25 @@ const homepageSchema = [
                     <div>
                       <div class="flex items-center gap-3 mb-3">
                         <div class="w-11 h-11 bg-[#0f274a] border-2 border-amber-400/70 flex items-center justify-center text-amber-400 font-black text-sm shrink-0">
-                          ${initialsOf(rev.author_name || rev.name)}
+                          ${esc(initialsOf(rev.author_name || rev.name))}
                         </div>
                         <div>
-                          <h3 class="font-bold text-[#0f274a] text-sm sm:text-base leading-tight">${rev.author_name || rev.name}</h3>
-                          <div class="text-[11px] text-slate-400 mt-0.5">📍 Nashville, TN &bull; ${rev.relative_time_description || 'Recently'}</div>
+                          <h3 class="font-bold text-[#0f274a] text-sm sm:text-base leading-tight">${esc(rev.author_name || rev.name)}</h3>
+                          <div class="text-[11px] text-slate-400 mt-0.5">📍 Nashville, TN &bull; ${esc(rev.relative_time_description || 'Recently')}</div>
                         </div>
                       </div>
 
                       <div class="flex items-center gap-2 mb-3">
                         <div class="flex items-center text-amber-500 text-base tracking-tight">★★★★★</div>
-                        <span class="px-1.5 py-0.5 bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-black">${rev.rating || 5.0}</span>
+                        <span class="px-1.5 py-0.5 bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-black">${esc(rev.rating || 5.0)}</span>
                       </div>
 
                       <div class="inline-block px-2.5 py-1 bg-[#07152b] text-amber-300 text-[10px] font-black uppercase tracking-wider mb-3">
-                        ${rev.service || 'Verified Customer'}
+                        ${esc(rev.service || 'Verified Customer')}
                       </div>
 
                       <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
-                        "${rev.text}"
+                        "${esc(rev.text)}"
                       </p>
                     </div>
 
@@ -1029,7 +1030,7 @@ const homepageSchema = [
                       <span class="inline-flex items-center gap-1.5 text-emerald-700 font-bold">
                         <span class="w-2 h-2 bg-emerald-500"></span> Verified Google Review
                       </span>
-                      <span class="font-bold text-slate-400">${rev.rating || 5.0} ★</span>
+                      <span class="font-bold text-slate-400">${esc(rev.rating || 5.0)} ★</span>
                     </div>
                   </div>
                 </div>

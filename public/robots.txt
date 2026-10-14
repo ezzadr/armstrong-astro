@@ -76,4 +76,3 @@ Disallow: /api/
 
 # Sitemaps & Structured Data for AI & Search Indexing
 Sitemap: https://armstronglocksmithinc.com/sitemap-index.xml
-Sitemap: https://armstronglocksmithinc.com/sitemap-0.xml
