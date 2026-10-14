@@ -179,6 +179,18 @@ $legacySlugs = [
     'service-areas/hermitage' => '/service-areas/',
     'service-areas/antioch' => '/service-areas/',
     'service-areas/donelson' => '/service-areas/',
+    'our-tiktok-page' => '/about-us/',
+    'elementor-landing-page-297726' => '/',
+    'thank-you' => '/contact-armstrong-locksmith/',
+    'christmas-safety-tips-from-locksmith' => '/residential-locksmith-nashville/',
+    'how-to-replace-a-lost-car-key-cost-effective-options-near-the-gulch-tn' => '/car-key-replacement-nashville/',
+    'brentwood-tn-surprising-facts-about-americas-wealthiest-city' => '/service-areas/',
+    'the-different-types-of-locks-and-their-features' => '/residential-locksmith-nashville/',
+    'locked-out-in-antioch-heres-what-to-do-before-calling-a-locksmith' => '/service-areas/',
+    'geo-sitemap.xml' => '/sitemap-0.xml',
+    'page-sitemap.xml' => '/sitemap-0.xml',
+    'post-sitemap.xml' => '/sitemap-0.xml',
+    'sitemap_index.xml' => '/sitemap-index.xml',
 ];
 if (isset($legacySlugs[$cleanUri])) {
     header('Location: ' . $legacySlugs[$cleanUri], true, 301);

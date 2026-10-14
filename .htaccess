@@ -78,12 +78,21 @@ ErrorDocument 404 /404-handler.php
   RewriteRule ^auto-locksmith-immediate-response-nashville/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
   RewriteRule ^best-places-to-hide-valuable-in-car/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
   RewriteRule ^these-are-the-best-places-to-hide-valuables-in-your-car/?$ /automotive-locksmith-in-nashville-tn/ [L,R=301,NC]
+  RewriteRule ^our-tiktok-page/?$ /about-us/ [L,R=301,NC]
+  RewriteRule ^elementor-landing-page-297726/?$ / [L,R=301,NC]
+  RewriteRule ^thank-you/?$ /contact-armstrong-locksmith/ [L,R=301,NC]
+  RewriteRule ^christmas-safety-tips-from-locksmith/?$ /residential-locksmith-nashville/ [L,R=301,NC]
+  RewriteRule ^how-to-replace-a-lost-car-key-cost-effective-options-near-the-gulch-tn/?$ /car-key-replacement-nashville/ [L,R=301,NC]
+  RewriteRule ^brentwood-tn-surprising-facts-about-americas-wealthiest-city/?$ /service-areas/ [L,R=301,NC]
+  RewriteRule ^the-different-types-of-locks-and-their-features/?$ /residential-locksmith-nashville/ [L,R=301,NC]
+  RewriteRule ^locked-out-in-antioch-heres-what-to-do-before-calling-a-locksmith/?$ /service-areas/ [L,R=301,NC]
 
   # Sitemap Rewrites & Aliases for Search Console
   RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,R=301]
   RewriteRule ^sitemap_index\.xml$ /sitemap-index.xml [L,R=301]
   RewriteRule ^page-sitemap\.xml$ /sitemap-0.xml [L,R=301]
   RewriteRule ^post-sitemap\.xml$ /sitemap-0.xml [L,R=301]
+  RewriteRule ^geo-sitemap\.xml$ /sitemap-0.xml [L,R=301]
 
   # Clean URLs (serve directory index.html)
   RewriteCond %{REQUEST_FILENAME} -d
