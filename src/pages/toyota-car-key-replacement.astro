@@ -4,6 +4,7 @@ import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const { reviewCount } = await getReviewStats();
 
@@ -520,4 +521,9 @@ const toyotaModels = [
     </div>
   </main>
   <ServiceReviews service="toyota" label="Toyota" />
+  <RelatedPost
+    href="/blog/toyota-and-audi-spare-key-fobs-brentwood-tn-nashville-shop/"
+    title="Making Spare Keys for a Toyota C-HR and an Audi at Our Shop"
+    blurb="A customer and her husband came down from Brentwood to our 208 Thompson Ln shop for spare keys for both cars."
+  />
 </Layout>

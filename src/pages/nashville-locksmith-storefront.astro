@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { storeWeekdays, storeSaturday, mobileWeekdays } from '../data/hours.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "Locksmith Shop Nashville | 208 Thompson Ln | Armstrong";
 const seoDescription = "Visit our real Nashville shop at 208 Thompson Ln. Certified master locksmith, 4.9 stars on Google. Walk-in key duplication & fobs. Call (615) 625-8000.";
@@ -188,4 +189,9 @@ const schema = [
 
     </div>
   </main>
+  <RelatedPost
+    href="/blog/toyota-and-audi-spare-key-fobs-brentwood-tn-nashville-shop/"
+    title="Making Spare Keys for a Toyota C-HR and an Audi at Our Shop"
+    blurb="A customer and her husband came down from Brentwood to our 208 Thompson Ln shop and got spare keys made for both vehicles."
+  />
 </Layout>
