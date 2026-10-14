@@ -271,7 +271,7 @@ const shopPhotoSchema = {
       </div>
       <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-[#0f274a] tracking-tight leading-tight uppercase">
         Don't Trust Stock Photos. <br />
-        <span class="text-amber-500">See Our Real Work.</span>
+        <span class="text-amber-700">See Our Real Work.</span>
       </h2>
       <p class="text-slate-600 mt-2.5 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
         Many online listings are out-of-state call centers using generic stock photos. We are real master technicians in Nashville. Browse our recent automotive, commercial, and residential projects.
@@ -324,12 +324,13 @@ const shopPhotoSchema = {
              consuming a whole screen before any text appears. -->
         <div class="lg:col-span-6 relative overflow-hidden bg-slate-900 h-[260px] sm:h-[340px] lg:h-auto lg:min-h-[420px]">
           <picture class="block absolute inset-0 w-full h-full">
-            <source type="image/webp" srcset={`${featuredProject.webpSrc600} 600w, ${featuredProject.webpSrc600.replace('-600.webp', '-900.webp')} 900w, ${featuredProject.webpSrc1200} 1200w`} sizes="(max-width: 1023px) 100vw, 50vw" />
+            <source type="image/webp" srcset={`${featuredProject.webpSrc600} 600w, ${featuredProject.webpSrc600.replace('-600.webp', '-900.webp')} 900w, ${featuredProject.webpSrc1200} 1200w`} sizes="(max-width: 639px) 340px, (max-width: 1023px) 50vw, 50vw" />
             <img
               src={featuredProject.webpSrc600 || featuredProject.imageSrc}
               alt={featuredProject.alt}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
+              fetchpriority="low"
               decoding="async"
               width="600"
               height="800"
@@ -404,15 +405,15 @@ const shopPhotoSchema = {
             <!-- Fixed Aspect Ratio Image Viewport -->
             <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
               <picture>
-                <!-- Grid cards render at ~380 CSS px, so 900w is already 2.4x
-                     density there; the 1200w tier only makes sense for the
-                     featured spotlight above. -->
-                <source type="image/webp" srcset={`${project.webpSrc600} 600w, ${project.webpSrc600.replace('-600.webp', '-900.webp')} 900w`} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />
+                <!-- Grid cards render at ~380 CSS px, so 600w on mobile and 900w on
+                     tablet/desktop keeps mobile payloads light while preserving sharpness. -->
+                <source type="image/webp" srcset={`${project.webpSrc600} 600w, ${project.webpSrc600.replace('-600.webp', '-900.webp')} 900w`} sizes="(max-width: 639px) 340px, (max-width: 1023px) 50vw, 33vw" />
                 <img 
                   src={project.webpSrc600 || project.imageSrc} 
                   alt={project.alt} 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   loading="lazy" 
+                  fetchpriority="low"
                   decoding="async" 
                   width="600" 
                   height="450" 
@@ -447,7 +448,7 @@ const shopPhotoSchema = {
           <!-- Card Footer Action -->
           <div class="px-4 sm:px-5 py-2.5 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-700 group-hover:bg-amber-50/50 transition">
             <span class="text-[11px] text-slate-500">Verified Job</span>
-            <span class="text-amber-600 font-extrabold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <span class="text-amber-700 font-extrabold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
               View Service &rarr;
             </span>
           </div>

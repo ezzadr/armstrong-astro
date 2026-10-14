@@ -58,7 +58,7 @@ const homepageSchema = [
         
         <!-- Luxury Pill Eyebrow Badge (Mobile-First Compact) -->
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full w-fit">
-          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
           <span class="text-[11px] sm:text-xs font-bold tracking-wider text-amber-300 uppercase">
             Family-Owned &bull; 20+ Years Master Experience
           </span>
@@ -996,11 +996,14 @@ const homepageSchema = [
         });
       }
 
+      let liveReviewsSynced = false;
       async function syncLiveGoogleReviews() {
+        if (liveReviewsSynced) return;
+        liveReviewsSynced = true;
         try {
-          const res = await fetch('/api/reviews.php');
-          if (!res.ok) return;
-          const data = await res.json();
+          const data = window.__armGetLiveReviews
+            ? await window.__armGetLiveReviews()
+            : await fetch('/api/reviews.php').then(r => (r.ok ? r.json() : null));
           
           if (!data) return;
 
@@ -1011,7 +1014,10 @@ const homepageSchema = [
           if (ratingText && data.rating && data.user_ratings_total) {
             // rounded down to the 10s, same as every other visible count
             const shownCount = Math.floor(data.user_ratings_total / 10) * 10;
-            ratingText.textContent = `Google Verified Business • ${data.rating} Star Rating (${shownCount}+ Reviews)`;
+            const nextRatingLine = `Google Verified Business • ${data.rating} Star Rating (${shownCount}+ Reviews)`;
+            if (ratingText.textContent.trim() !== nextRatingLine) {
+              ratingText.textContent = nextRatingLine;
+            }
           }
 
           // Count badges (.arm-review-count) are updated sitewide by the
@@ -1021,6 +1027,10 @@ const homepageSchema = [
             const container = document.getElementById('reviews-grid-container');
 
             if (container && data.reviews.length >= 3) {
+              const firstAuthor = String(data.reviews[0].author_name || data.reviews[0].name || '').trim();
+              if (firstAuthor && container.textContent.includes(firstAuthor)) {
+                return;
+              }
               // Card markup must stay identical to the SSR template above so the
               // design doesn't visibly change when live reviews swap in.
               const esc = (s) => String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1071,13 +1081,16 @@ const homepageSchema = [
         }
       }
 
-      // Sync live reviews non-blockingly during idle time.
+      // Sync live reviews non-blockingly after initial critical load or on first interaction.
       // No user-agent gate here: measurement tools get the same page as visitors,
       // so the lab score keeps describing what people actually load.
+      ['click', 'touchstart', 'keydown', 'scroll'].forEach(function (ev) {
+        window.addEventListener(ev, syncLiveGoogleReviews, { once: true, passive: true });
+      });
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(syncLiveGoogleReviews, { timeout: 6000 });
+        requestIdleCallback(function () { setTimeout(syncLiveGoogleReviews, 5000); });
       } else {
-        setTimeout(syncLiveGoogleReviews, 6000);
+        setTimeout(syncLiveGoogleReviews, 5000);
       }
     })();
   </script>
