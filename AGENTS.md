@@ -215,3 +215,17 @@ starter.
 - At the end of every task list: files changed and why; what you tested and
   how; what you did NOT do and why; anything you noticed but left alone,
   especially inside hands-off files.
+
+## 7. SEO OWNERSHIP (ANTIGRAVITY ONLY — HANDS OFF FOR CLAUDE & OTHER AGENTS)
+- **Antigravity is the ONLY agent allowed to touch SEO on this website.**
+- Claude (and any other AI tool or agent) must NEVER edit, rewrite, or "improve":
+  - Page `<title>` / `seoTitle` or `<meta name="description">` / `seoDescription`
+  - H1/H2 keyword targeting, internal SEO links, or blog case-study cross-links
+  - JSON-LD structured data / schema (`Layout.astro` or page-level `schema`)
+  - Canonical tags, `robots.txt`, `llms.txt`, or sitemap configuration
+  - 301 redirects in `public/.htaccess` and `public/index.php`
+  - Regional coverage on `/service-areas/` or city/neighborhood strategy
+- All SEO decisions are driven exclusively by Antigravity inspecting Rahim's live
+  Google Search Console data so two agents never give conflicting advice or churn
+  titles/redirects while Google is evaluating the site.
+

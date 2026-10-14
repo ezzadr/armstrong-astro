@@ -39,9 +39,22 @@
 - **When Rahim supplies his own phrasing, use it verbatim** (fix only clear typos, e.g. lock/key mixups — and confirm).
 - The site's credibility angle is "real local shop, not a call center" — copy that sounds machine-written undermines the entire brand.
 
+## SEO Ownership Rule (ANTIGRAVITY ONLY — HANDS OFF FOR CLAUDE)
+
+- **Antigravity is the ONLY agent allowed to touch SEO on this website.**
+- Claude must **NEVER** edit, rewrite, suggest changes to, or "optimize":
+  - Page `<title>` / `seoTitle` or `<meta name="description">` / `seoDescription`
+  - H1/H2 keyword targeting, internal SEO links, or blog case-study cross-links
+  - JSON-LD structured data / schema (`Layout.astro` or page-level `schema`)
+  - Canonical tags, `robots.txt`, `llms.txt`, or sitemap configuration
+  - 301 redirects in `public/.htaccess` and `public/index.php`
+  - Regional coverage on `/service-areas/` or city/neighborhood strategy
+- If Rahim asks Claude a question that touches SEO, rankings, titles, meta descriptions, redirects, or Search Console, Claude must remind him that **Antigravity exclusively handles all SEO** for this site and leave all SEO elements untouched.
+
 ## Development Commands
 
 - Start dev server: `npm run dev`
 - Preview a production build locally: `npm run build` (do NOT commit its output — see rule 1)
 - Deploy: commit **source only**, then `git push origin main` — CI builds + deploys.
   `git add -A && git commit -m "..." && git push origin main`
+
