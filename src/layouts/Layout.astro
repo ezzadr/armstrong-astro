@@ -287,9 +287,6 @@ const baseBusinessSchema = {
   <meta name="geo.position" content="36.1118;-86.7378" />
   <meta name="ICBM" content="36.1118, -86.7378" />
 
-  <!-- Preload Critical Heading Font (H1 LCP Element, 12KB subsetted WOFF2) -->
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-900.woff2" crossorigin />
-
   <!-- Preconnect to Booking API for 0ms DNS/TLS on Form Submissions -->
   <link rel="preconnect" href="https://booking.armstronglocksmithinc.com" crossorigin />
   <link rel="dns-prefetch" href="https://booking.armstronglocksmithinc.com" />
@@ -313,6 +310,52 @@ const baseBusinessSchema = {
   {schema && (
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   )}
+
+</head>
+<body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-900 overflow-x-hidden w-full max-w-full">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPH6NBVK"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <Header />
+  
+  <main class="flex-grow w-full max-w-full pb-20 md:pb-0">
+    <slot />
+  </main>
+
+  <Footer />
+  <MobileCallBar />
+  <PromoPopup />
+  <BackToTop />
+
+  <!-- Lightweight Scroll Reveal Animation Script -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: '50px',
+          threshold: 0.05
+        });
+
+        document.querySelectorAll('.reveal-up').forEach((el) => {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.reveal-up').forEach((el) => {
+          el.classList.add('is-visible');
+        });
+      }
+    });
+  </script>
 
   <!--
     Deferred Google Tag Manager.
@@ -442,53 +485,6 @@ const baseBusinessSchema = {
         setTimeout(loadAnalytics, 5000);
       }
     })();
-  </script>
-
-
-</head>
-<body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-900 overflow-x-hidden w-full max-w-full">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPH6NBVK"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <Header />
-  
-  <main class="flex-grow w-full max-w-full pb-20 md:pb-0">
-    <slot />
-  </main>
-
-  <Footer />
-  <MobileCallBar />
-  <PromoPopup />
-  <BackToTop />
-
-  <!-- Lightweight Scroll Reveal Animation Script -->
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          root: null,
-          rootMargin: '50px',
-          threshold: 0.05
-        });
-
-        document.querySelectorAll('.reveal-up').forEach((el) => {
-          observer.observe(el);
-        });
-      } else {
-        document.querySelectorAll('.reveal-up').forEach((el) => {
-          el.classList.add('is-visible');
-        });
-      }
-    });
   </script>
 </body>
 </html>

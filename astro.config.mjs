@@ -7,9 +7,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://armstronglocksmithinc.com',
   build: {
-    // Inline critical CSS directly into HTML to eliminate the render-blocking
-    // stylesheet round-trip on Slow 4G mobile connections (100/100 PageSpeed).
-    inlineStylesheets: 'always'
+    // One shared external stylesheet (cached by the browser and the Cloudflare
+    // edge) instead of inlining it into every page.
+    inlineStylesheets: 'auto'
   },
   vite: {
     plugins: [tailwindcss()]
