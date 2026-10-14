@@ -2,6 +2,21 @@
 // RecentWorkGallery.astro - Curated, high-conversion proof of work gallery
 const projects = [
   {
+    id: "toyota-audi-brentwood-shop",
+    category: "automotive",
+    categoryLabel: "Shop Key Programming",
+    title: "Toyota C-HR & Audi Spare Keys Made at the Shop",
+    subtitle: "A customer and her husband came down from Brentwood to our 208 Thompson Ln shop for spare keys for both vehicles.",
+    badge: "208 Thompson Ln",
+    location: "Brentwood / Nashville",
+    href: "/blog/toyota-and-audi-spare-key-fobs-brentwood-tn-nashville-shop/",
+    imageSrc: "/images/toyota-chr-and-audi-spare-key-fobs-brentwood-nashville.jpg",
+    webpSrc600: "/images/toyota-chr-and-audi-spare-key-fobs-brentwood-nashville-600.webp",
+    webpSrc1200: "/images/toyota-chr-and-audi-spare-key-fobs-brentwood-nashville-1200.webp",
+    alt: "Toyota C-HR and Audi spare smart key fobs cut and programmed at Armstrong Locksmith 208 Thompson Ln Nashville for a Brentwood couple",
+    tagColor: "amber"
+  },
+  {
     id: "shop-key-duplication",
     category: "residential",
     categoryLabel: "Key Duplication",
@@ -273,14 +288,14 @@ const shopPhotoSchema = {
             data-filter="all" 
             class="gallery-filter-btn active w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer text-center"
           >
-            All Work (12)
+            All Work (13)
           </button>
           <button 
             type="button" 
             data-filter="automotive" 
             class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
-            🚗 Automotive (5)
+            🚗 Automotive (6)
           </button>
           <button 
             type="button" 
@@ -447,7 +462,7 @@ const shopPhotoSchema = {
         id="gallery-toggle-btn"
         class="inline-flex items-center gap-2 px-6 py-3 bg-[#07152b] hover:bg-[#0f274a] text-white border border-amber-500/60 hover:border-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
       >
-        <span id="gallery-btn-text">Explore All 12 Field Projects</span>
+        <span id="gallery-btn-text">Explore All 13 Field Projects</span>
         <svg id="gallery-btn-icon" class="w-4 h-4 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -536,7 +551,7 @@ const shopPhotoSchema = {
           toggleText.textContent = 'Show Fewer Projects';
           toggleIcon.classList.add('rotate-180');
         } else {
-          toggleText.textContent = 'Explore All 12 Field Projects';
+          toggleText.textContent = 'Explore All 13 Field Projects';
           toggleIcon.classList.remove('rotate-180');
           const gallerySec = document.getElementById('recent-work-gallery');
           if (gallerySec) {
