@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
-const seoTitle = "Toyota Key Replacement Nashville TN | Armstrong Locksmith";
-const seoDescription = "Fast on-site Toyota car key cutting, transponder & smart proximity fob programming in Nashville. Mobile van or shop at 208 Thompson Ln. (615) 625-8000.";
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Toyota Key Replacement Nashville | Smart Fobs & Keys 4.9★`;
+const seoDescription = `On-site Toyota car key cutting & smart proximity fob programming in Nashville. Camry, RAV4, Tacoma, Highlander & 4Runner. ${reviewCount}+ 5-star reviews.`;
 
 // Rich Schema for Toyota Service
 const toyotaSchema = [

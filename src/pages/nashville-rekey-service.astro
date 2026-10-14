@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { storeWeekdays, storeSaturday, mobileUntil } from '../data/hours.mjs';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
-const seoTitle = "Lock Rekeying Nashville | Home & Business Rekey Service";
-const seoDescription = "Need locks rekeyed in Nashville? Armstrong Locksmith rekeys homes, rentals and businesses with same-day mobile service available. Call (615) 625-8000.";
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Lock Rekeying Nashville TN | Home & Business Rekey 4.9★`;
+const seoDescription = `Need locks rekeyed in Nashville? In-shop cylinder rekey from $20 or same-day mobile service for homes & businesses. ${reviewCount}+ 5-star Google reviews.`;
 
 const schema = {
   "@context": "https://schema.org",

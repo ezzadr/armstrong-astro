@@ -4,8 +4,8 @@ import { storeWeekdays, storeSaturday, mobileHoursLine } from '../data/hours.mjs
 import { getReviewStats } from '../lib/reviewStats.mjs';
 const { reviewCount, ratingValue } = await getReviewStats();
 
-const seoTitle = "Locksmith Service Areas Nashville TN | Armstrong Locksmith";
-const seoDescription = "Certified mobile locksmith & storefront serving Nashville, Brentwood, Franklin, Antioch, Donelson & Middle TN. 208 Thompson Ln. Call (615) 625-8000.";
+const seoTitle = `Locksmith Nashville, Brentwood, Franklin & Antioch | 4.9★`;
+const seoDescription = `Mobile locksmith & 208 Thompson Ln shop serving Nashville, Brentwood, Franklin, Antioch & Donelson. Car keys, rekeys & lockouts. ${reviewCount}+ 5-star reviews.`;
 
 const serviceAreas = [
   {
@@ -31,7 +31,9 @@ const serviceAreas = [
     zips: "37027",
     tag: "European & Residential",
     desc: "Lost your BMW, Mercedes, or Audi keys in Brentwood? Our mobile technicians cut and program smart fobs right in your driveway and install high-security deadbolts for local homes.",
-    features: ["BMW, Mercedes & Audi Smart Keys", "High-Security Deadbolts", "On-Site Driveway Service"]
+    features: ["BMW, Mercedes & Audi Smart Keys", "High-Security Deadbolts", "On-Site Driveway Service"],
+    blogHref: "/blog/how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn/",
+    blogLabel: "Read our Brentwood BMW key job →"
   },
   {
     name: "Franklin & Cool Springs",
@@ -39,7 +41,9 @@ const serviceAreas = [
     zips: "37064, 37067, 37069",
     tag: "Cool Springs & Historic Downtown",
     desc: "Serving corporate offices in Cool Springs and residential homes in Franklin. We replace car keys on-site, rekey office suites, and install commercial keyless access systems.",
-    features: ["Office & Commercial Rekeying", "Keyless Entry Deadbolts", "Push-to-Start Key Fobs"]
+    features: ["Office & Commercial Rekeying", "Keyless Entry Deadbolts", "Push-to-Start Key Fobs"],
+    blogHref: "/blog/home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents/",
+    blogLabel: "Home Rekey vs. Lock Replacement Guide →"
   },
   {
     name: "Donelson & Nashville Airport (BNA)",
@@ -47,7 +51,9 @@ const serviceAreas = [
     zips: "37214",
     tag: "Airport Priority Dispatch",
     desc: "Landed at BNA and can't find your car keys or locked them in the trunk? Our mobile vans drive straight to airport parking lots to unlock your vehicle and cut new keys on the spot.",
-    features: ["BNA Airport Parking Assistance", "Replacement Keys Made on Site", "Damage-Free Car Unlocking"]
+    features: ["BNA Airport Parking Assistance", "Replacement Keys Made on Site", "Damage-Free Car Unlocking"],
+    blogHref: "/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/",
+    blogLabel: "Read our Donelson / BNA Audi key job →"
   },
   {
     name: "Green Hills & Belle Meade",
@@ -55,7 +61,9 @@ const serviceAreas = [
     zips: "37215, 37205",
     tag: "Luxury Home Security",
     desc: "Specialized residential lock service for Green Hills and Belle Meade. We repair and rekey Baldwin and Emtek mortise hardware and program smart keys for luxury SUVs and European imports.",
-    features: ["Baldwin & Emtek Lock Service", "Luxury SUV & Car Keys", "Keypad Deadbolt Installation"]
+    features: ["Baldwin & Emtek Lock Service", "Luxury SUV & Car Keys", "Keypad Deadbolt Installation"],
+    blogHref: "/blog/detex-exit-lock-replacement-green-hills-nashville/",
+    blogLabel: "Read our Green Hills Detex lock job →"
   },
   {
     name: "Antioch & Priest Lake",
@@ -335,6 +343,11 @@ const serviceAreasSchema = [
                   </div>
                 ))}
               </div>
+              {area.blogHref && (
+                <a href={area.blogHref} class="inline-block text-xs font-bold text-amber-700 hover:text-amber-600 underline mb-3">
+                  {area.blogLabel}
+                </a>
+              )}
             </div>
 
             <div class="pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">

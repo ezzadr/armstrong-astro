@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
-const seoTitle = "Car Lockout Service Nashville TN | Fast Mobile Dispatch";
-const seoDescription = "Locked out of your car in Nashville? Damage-free car door unlocking by professional locksmiths. Same-Day Mobile Dispatch. Call (615) 625-8000 now.";
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Emergency Car Lockout Nashville TN | Keys Locked in Car 4.9★`;
+const seoDescription = `Keys locked inside your car in Nashville? Fast mobile dispatch & damage-free door unlocking from our Thompson Ln shop. ${reviewCount}+ 5-star reviews.`;
 
 const lockoutSchema = [
   {

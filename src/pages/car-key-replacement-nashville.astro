@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
-const seoTitle = "Car Key Replacement Nashville TN | Armstrong Locksmith";
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Car Key Replacement Nashville TN | Keys & Fobs 4.9★`;
 const serviceSchema = [
   {
     "@context": "https://schema.org",
@@ -78,7 +81,7 @@ const serviceSchema = [
   }
 ];
 
-const seoDescription = "Fast on-site car key cutting, transponder & smart key fob programming in Nashville. Mobile dispatch & 208 Thompson Ln shop. Call (615) 625-8000.";
+const seoDescription = `Lost your car keys in Nashville? On-site laser key cutting, transponder chips & smart fobs for all makes. 208 Thompson Ln shop, ${reviewCount}+ reviews.`;
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/car-key-replacement-nashville/" schema={serviceSchema} image="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg">

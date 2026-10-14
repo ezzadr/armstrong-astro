@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
-const seoTitle = "Audi Q3 Key Replacement Nashville TN | Armstrong Locksmith";
-const seoDescription = "Affordable Audi Q3 car key cutting, transponder & smart proximity fob programming in Nashville. Mobile on-site service. (615) 625-8000.";
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Audi Q3 Key Replacement Nashville | MQB Smart Keys 4.9★`;
+const seoDescription = `Audi Q3 car key cutting, MQB immobilizer & smart proximity fob programming in Nashville. On-site or 208 Thompson Ln shop. ${reviewCount}+ 5-star reviews.`;
 
 const audiQ3Schema = [
   {
@@ -305,10 +309,10 @@ const audiQ3Schema = [
             🚨 Prompt Same-Day Mobile Dispatch Across Middle Tennessee
           </span>
           <h3 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-white mt-3 mb-2">
-            Need A Audi Q3 Key Made Today?
+            Need An Audi Q3 Key Made Today?
           </h3>
           <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-            Skip the dealership delays and high towing fees. Our mobile locksmith vans carry laser cutters and factory key programmers right to your vehicle.
+            Skip the dealership delays and high towing fees. Our mobile locksmith vans carry laser cutters and factory key programmers right to your vehicle. Looking for another Audi model? See our full <a href="/audi-car-keys/" class="text-amber-300 underline font-bold hover:text-amber-200">Audi Key Replacement Nashville</a> guide.
           </p>
         </div>
 
@@ -326,4 +330,9 @@ const audiQ3Schema = [
     </div>
   </main>
   <ServiceReviews service="audi" label="Audi" />
+  <RelatedPost
+    href="/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/"
+    title="Audi Key Replacement Near Donelson, Hermitage & BNA Airport"
+    blurb="A real Audi key job near the airport - what BCM2 programming involves and why mobile service beat the dealership."
+  />
 </Layout>

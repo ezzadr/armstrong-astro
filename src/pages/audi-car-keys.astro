@@ -101,7 +101,7 @@ const audiModels = [
   { name: "Audi A6 / S6 / RS6", type: "Mid-Size Luxury", system: "BCM2 / MLB" },
   { name: "Audi A7 / S7 / RS7", type: "Sportback Luxury", system: "BCM2 / MLB" },
   { name: "Audi A8 / S8", type: "Flagship Luxury", system: "BCM2 System" },
-  { name: "Audi Q3", type: "Subcompact SUV", system: "MQB Keyless" },
+  { name: "Audi Q3", type: "Subcompact SUV", system: "MQB Keyless", href: "/audi-q3-key-replacement/" },
   { name: "Audi Q5 / SQ5", type: "Compact SUV", system: "BCM2 Proximity" },
   { name: "Audi Q7 / SQ7", type: "3-Row Luxury SUV", system: "BCM2 / MLB" },
   { name: "Audi Q8 / SQ8 / RSQ8", type: "Coupe SUV", system: "MLB Evo System" },
@@ -362,15 +362,27 @@ const audiModels = [
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
           {audiModels.map((m) => (
-            <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-300 font-bold text-xs text-slate-800 flex items-center gap-3 transition-colors">
-              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
-                <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            m.href ? (
+              <a href={m.href} class="p-3.5 rounded-xl bg-amber-50/70 hover:bg-amber-100/80 border border-amber-300 font-bold text-xs text-slate-800 flex items-center gap-3 transition-colors">
+                <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
+                  <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="flex flex-col truncate">
+                  <span class="text-slate-900 font-extrabold truncate underline">{m.name} &rarr;</span>
+                  <span class="text-[10px] text-amber-800 font-semibold truncate">{m.type} ({m.system})</span>
+                </div>
+              </a>
+            ) : (
+              <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-300 font-bold text-xs text-slate-800 flex items-center gap-3 transition-colors">
+                <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
+                  <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="flex flex-col truncate">
+                  <span class="text-slate-900 font-extrabold truncate">{m.name}</span>
+                  <span class="text-[10px] text-slate-500 font-normal truncate">{m.type} ({m.system})</span>
+                </div>
               </div>
-              <div class="flex flex-col truncate">
-                <span class="text-slate-900 font-extrabold truncate">{m.name}</span>
-                <span class="text-[10px] text-slate-500 font-normal truncate">{m.type} ({m.system})</span>
-              </div>
-            </div>
+            )
           ))}
         </div>
       </section>
