@@ -153,23 +153,42 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label for="contact-service" class="block text-xs font-bold text-slate-800 mb-1">Service Needed *</label>
+              <div class="relative" id="contact-service-wrap">
+                <label for="contact-service-btn" class="block text-xs font-bold text-slate-800 mb-1">Service Needed *</label>
                 <select 
                   id="contact-service" 
                   name="service" 
-                  required 
-                  class="w-full px-3.5 py-3 text-sm rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-200/50 outline-none text-slate-900 font-medium transition-all"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  class="sr-only"
                 >
                   <option value="">Select service...</option>
-                  <option value="Car Key Replacement">🔑 Car Key Replacement</option>
-                  <option value="European Specialist">🏎️ European Key (BMW, Benz, Audi, etc.)</option>
-                  <option value="Key Fob Programming">📶 Key Fob & Remote Programming</option>
-                  <option value="Emergency Car Lockout">🚨 Emergency Car Lockout</option>
-                  <option value="House Lockout / Rekey">🏡 House Lockout or Rekey</option>
-                  <option value="Commercial Locksmith">🏢 Commercial Door Hardware</option>
-                  <option value="Other">🛠️ Other Locksmith Service</option>
+                  <option value="Car Key Replacement">Car Key Replacement</option>
+                  <option value="Key Fob Programming">Spare Key &amp; Fob Programming</option>
+                  <option value="European Specialist">European Car Keys (BMW, Benz, Audi)</option>
+                  <option value="Emergency Car Lockout">Emergency Car Lockout</option>
+                  <option value="House Lockout / Rekey">House Rekey or Lockout</option>
+                  <option value="Commercial Locksmith">Commercial Locks &amp; Hardware</option>
+                  <option value="Other">Other Locksmith Service</option>
                 </select>
+                <button
+                  type="button"
+                  id="contact-service-btn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  class="arm-service-btn w-full px-3.5 py-3 text-sm rounded-xl bg-slate-50 border border-slate-300 focus:bg-white focus:border-amber-500 focus:ring-4 focus:ring-amber-200/50 outline-none text-slate-500 font-medium transition-all cursor-pointer text-left truncate"
+                >
+                  <span id="contact-service-label">Select service...</span>
+                </button>
+                <div id="contact-service-menu" role="listbox" class="arm-service-menu hidden">
+                  <button type="button" role="option" data-value="Car Key Replacement" class="arm-service-item"><span>Car Key Replacement</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Key Fob Programming" class="arm-service-item"><span>Spare Key &amp; Fob Programming</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="European Specialist" class="arm-service-item"><span>European Car Keys (BMW, Benz, Audi)</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Emergency Car Lockout" class="arm-service-item"><span>Emergency Car Lockout</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="House Lockout / Rekey" class="arm-service-item"><span>House Rekey or Lockout</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Commercial Locksmith" class="arm-service-item"><span>Commercial Locks &amp; Hardware</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Other" class="arm-service-item"><span>Other Locksmith Service</span><span class="arm-service-check">&#10003;</span></button>
+                </div>
               </div>
 
               <div>
@@ -236,11 +255,68 @@ const seoDescription = "Visit our shop at 208 Thompson Ln or call (615) 625-8000
       const form = document.getElementById('contact-page-form');
       const successMsg = document.getElementById('contact-success-msg');
       const submitBtn = document.getElementById('contact-submit-btn');
+      const serviceSelect = document.getElementById('contact-service');
+      const serviceWrap = document.getElementById('contact-service-wrap');
+      const serviceBtn = document.getElementById('contact-service-btn');
+      const serviceLabel = document.getElementById('contact-service-label');
+      const serviceMenu = document.getElementById('contact-service-menu');
       const formStartedAt = Math.floor(Date.now() / 1000);
+
+      if (serviceBtn && serviceMenu && serviceSelect) {
+        const closeServiceMenu = function () {
+          serviceMenu.classList.add('hidden');
+          serviceBtn.setAttribute('aria-expanded', 'false');
+        };
+        serviceBtn.addEventListener('click', function () {
+          const isOpen = !serviceMenu.classList.contains('hidden');
+          if (isOpen) {
+            closeServiceMenu();
+          } else {
+            serviceMenu.classList.remove('hidden');
+            serviceBtn.setAttribute('aria-expanded', 'true');
+          }
+        });
+        const items = serviceMenu.querySelectorAll('.arm-service-item');
+        items.forEach(function (item) {
+          item.addEventListener('click', function () {
+            const val = item.getAttribute('data-value') || '';
+            const textSpan = item.querySelector('span');
+            const labelText = textSpan ? textSpan.textContent : val;
+            serviceSelect.value = val;
+            if (serviceLabel) serviceLabel.textContent = labelText;
+            serviceBtn.classList.remove('text-slate-500', 'border-red-500');
+            serviceBtn.classList.add('text-slate-900');
+            items.forEach(function (el) { el.classList.remove('is-selected'); });
+            item.classList.add('is-selected');
+            closeServiceMenu();
+            serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          });
+        });
+        document.addEventListener('click', function (e) {
+          if (serviceWrap && !serviceWrap.contains(e.target)) {
+            closeServiceMenu();
+          }
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeServiceMenu();
+        });
+      }
 
       if (form) {
         form.addEventListener('submit', async function (e) {
           e.preventDefault();
+
+          if (serviceSelect && !serviceSelect.value) {
+            if (serviceBtn) {
+              serviceBtn.classList.add('border-red-500');
+              serviceBtn.focus();
+            }
+            if (serviceMenu) {
+              serviceMenu.classList.remove('hidden');
+              if (serviceBtn) serviceBtn.setAttribute('aria-expanded', 'true');
+            }
+            return;
+          }
 
           const honeypot = form.company_website ? form.company_website.value.trim() : '';
           if (honeypot !== '') {

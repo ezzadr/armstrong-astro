@@ -119,7 +119,7 @@ const homepageSchema = [
 
       <!-- Right Column: Hero Contact / Instant Quote Form Card (High-Contrast Elevated Card) -->
       <div class="lg:col-span-5 relative z-20" id="quote-form-section">
-        <div class="bg-white rounded-xl sm:rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_35px_rgba(251,191,36,0.35)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_35px_rgba(251,191,36,0.35),0_0_55px_10px_rgba(255,255,255,0.40)] border-2 border-amber-400 text-slate-900 relative overflow-hidden ring-2 ring-amber-400/40">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_35px_rgba(251,191,36,0.35)] sm:shadow-[0_25px_60px_-10px_rgba(0,0,0,0.85),0_0_35px_rgba(251,191,36,0.35),0_0_55px_10px_rgba(255,255,255,0.40)] border-2 border-amber-400 text-slate-900 relative ring-2 ring-amber-400/40">
           
           <!-- High-Contrast Bright Header Bar (Leaps off the dark navy hero background) -->
           <div class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 px-4 py-3.5 sm:px-6 sm:py-4 border-b-2 border-[#07152b] flex items-center justify-between gap-2">
@@ -167,31 +167,42 @@ const homepageSchema = [
                 </div>
               </div>
 
-              <div>
-                <label for="quote-service" class="block text-xs font-extrabold text-slate-900 mb-1">Service Needed *</label>
+              <div class="relative" id="quote-service-wrap">
+                <label for="quote-service-btn" class="block text-xs font-extrabold text-slate-900 mb-1">Service Needed *</label>
                 <select 
                   id="quote-service" 
                   name="service" 
-                  required 
-                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 font-medium cursor-pointer"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  class="sr-only"
                 >
                   <option value="">Select a service...</option>
-                  <optgroup label="🚗 Automotive &amp; Car Keys">
-                    <option value="Car Key Replacement">🔑 Car Key Replacement (All Makes)</option>
-                    <option value="Key Fob Programming">📶 Spare Key Fob &amp; Remote Programming</option>
-                    <option value="European Specialist">🏎️ European Key (BMW, Benz, Audi, Land Rover)</option>
-                  </optgroup>
-                  <optgroup label="🚨 Emergency Lockouts">
-                    <option value="Emergency Car Lockout">🚨 Emergency Car Lockout (Immediate)</option>
-                  </optgroup>
-                  <optgroup label="🏡 Home &amp; 🏢 Business">
-                    <option value="House Lockout / Rekey">🏡 House Rekey, Lock Change or Lockout</option>
-                    <option value="Commercial Locksmith">🏢 Commercial Door Hardware &amp; Locks</option>
-                  </optgroup>
-                  <optgroup label="🛠️ Other">
-                    <option value="Other">🛠️ Other Locksmith Service</option>
-                  </optgroup>
+                  <option value="Car Key Replacement">Car Key Replacement</option>
+                  <option value="Key Fob Programming">Spare Key &amp; Fob Programming</option>
+                  <option value="European Specialist">European Car Keys (BMW, Benz, Audi)</option>
+                  <option value="Emergency Car Lockout">Emergency Car Lockout</option>
+                  <option value="House Lockout / Rekey">House Rekey or Lockout</option>
+                  <option value="Commercial Locksmith">Commercial Locks &amp; Hardware</option>
+                  <option value="Other">Other Locksmith Service</option>
                 </select>
+                <button
+                  type="button"
+                  id="quote-service-btn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  class="arm-service-btn w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-500 font-medium cursor-pointer text-left truncate"
+                >
+                  <span id="quote-service-label">Select a service...</span>
+                </button>
+                <div id="quote-service-menu" role="listbox" class="arm-service-menu hidden">
+                  <button type="button" role="option" data-value="Car Key Replacement" class="arm-service-item"><span>Car Key Replacement</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Key Fob Programming" class="arm-service-item"><span>Spare Key &amp; Fob Programming</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="European Specialist" class="arm-service-item"><span>European Car Keys (BMW, Benz, Audi)</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Emergency Car Lockout" class="arm-service-item"><span>Emergency Car Lockout</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="House Lockout / Rekey" class="arm-service-item"><span>House Rekey or Lockout</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Commercial Locksmith" class="arm-service-item"><span>Commercial Locks &amp; Hardware</span><span class="arm-service-check">&#10003;</span></button>
+                  <button type="button" role="option" data-value="Other" class="arm-service-item"><span>Other Locksmith Service</span><span class="arm-service-check">&#10003;</span></button>
+                </div>
                 <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please select a service.</span>
               </div>
 
@@ -832,6 +843,10 @@ const homepageSchema = [
       const nameInput = document.getElementById('quote-name');
       const phoneInput = document.getElementById('quote-phone');
       const serviceSelect = document.getElementById('quote-service');
+      const serviceWrap = document.getElementById('quote-service-wrap');
+      const serviceBtn = document.getElementById('quote-service-btn');
+      const serviceLabel = document.getElementById('quote-service-label');
+      const serviceMenu = document.getElementById('quote-service-menu');
       const detailsInput = document.getElementById('quote-details');
       const honeypotInput = document.getElementById('company_website');
 
@@ -859,6 +874,9 @@ const homepageSchema = [
             serviceError.classList.add('hidden');
             serviceSelect.classList.remove('border-red-500');
           }
+          if (serviceBtn) {
+            serviceBtn.classList.remove('border-red-500');
+          }
           if (lockoutAlert) {
             if (this.value === 'Emergency Car Lockout') {
               lockoutAlert.classList.remove('hidden');
@@ -866,6 +884,46 @@ const homepageSchema = [
               lockoutAlert.classList.add('hidden');
             }
           }
+        });
+      }
+
+      if (serviceBtn && serviceMenu && serviceSelect) {
+        const closeServiceMenu = function () {
+          serviceMenu.classList.add('hidden');
+          serviceBtn.setAttribute('aria-expanded', 'false');
+        };
+        serviceBtn.addEventListener('click', function () {
+          const isOpen = !serviceMenu.classList.contains('hidden');
+          if (isOpen) {
+            closeServiceMenu();
+          } else {
+            serviceMenu.classList.remove('hidden');
+            serviceBtn.setAttribute('aria-expanded', 'true');
+          }
+        });
+        const items = serviceMenu.querySelectorAll('.arm-service-item');
+        items.forEach(function (item) {
+          item.addEventListener('click', function () {
+            const val = item.getAttribute('data-value') || '';
+            const textSpan = item.querySelector('span');
+            const labelText = textSpan ? textSpan.textContent : val;
+            serviceSelect.value = val;
+            if (serviceLabel) serviceLabel.textContent = labelText;
+            serviceBtn.classList.remove('text-slate-500');
+            serviceBtn.classList.add('text-slate-950');
+            items.forEach(function (el) { el.classList.remove('is-selected'); });
+            item.classList.add('is-selected');
+            closeServiceMenu();
+            serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+          });
+        });
+        document.addEventListener('click', function (e) {
+          if (serviceWrap && !serviceWrap.contains(e.target)) {
+            closeServiceMenu();
+          }
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeServiceMenu();
         });
       }
 
@@ -897,6 +955,7 @@ const homepageSchema = [
           if (!service) {
             if (serviceError) serviceError.classList.remove('hidden');
             if (serviceSelect) serviceSelect.classList.add('border-red-500');
+            if (serviceBtn) serviceBtn.classList.add('border-red-500');
             hasError = true;
           }
 
