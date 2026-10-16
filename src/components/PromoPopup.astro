@@ -63,10 +63,9 @@ if (!promo || !promo.active) {
     </a>
 
     <button
-      id="arm-promo-mobile-collapse"
       type="button"
-      class="w-7 h-7 bg-black/15 hover:bg-black/25 active:bg-black/35 text-black flex items-center justify-center text-xs font-bold transition cursor-pointer shrink-0 self-start"
-      aria-label="Minimize offer"
+      class="arm-promo-close-btn w-7 h-7 bg-black/15 hover:bg-black/25 active:bg-black/35 text-black flex items-center justify-center text-xs font-bold transition cursor-pointer shrink-0 self-start"
+      aria-label="Dismiss offer"
     >
       ✕
     </button>
@@ -139,7 +138,6 @@ if (!promo || !promo.active) {
       const dsk = document.getElementById('arm-promo-desktop');
       const toggleBtn = document.getElementById('arm-promo-mobile-toggle');
       const card = document.getElementById('arm-promo-mobile-card');
-      const collapseBtn = document.getElementById('arm-promo-mobile-collapse');
 
       if (toggleBtn && card) {
         toggleBtn.addEventListener('click', function() {
@@ -147,17 +145,6 @@ if (!promo || !promo.active) {
           card.classList.remove('hidden');
           card.classList.add('flex');
           toggleBtn.setAttribute('aria-expanded', 'true');
-        });
-      }
-
-      if (collapseBtn && toggleBtn && card) {
-        collapseBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          card.classList.add('hidden');
-          card.classList.remove('flex');
-          toggleBtn.classList.remove('hidden');
-          toggleBtn.setAttribute('aria-expanded', 'false');
         });
       }
 
