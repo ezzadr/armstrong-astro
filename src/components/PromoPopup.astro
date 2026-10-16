@@ -14,15 +14,32 @@ if (!promo || !promo.active) {
 }
 ---
 
-<!-- 1. MOBILE: bold yellow bar (< 768px) -->
+<!-- 1. MOBILE: compact left-side 20% OFF tab that expands on tap (< 768px) -->
 <div
   id="arm-promo-mobile"
-  class="md:hidden fixed z-40 bottom-[64px] left-3 right-3 transition-all duration-300 ease-out opacity-100 translate-y-0"
+  class="md:hidden fixed z-40 bottom-18 left-3 transition-all duration-300 ease-out opacity-100 translate-y-0"
   role="region"
   aria-label="In-shop car key discount"
 >
-  <div class="bg-yellow-400 border-2 border-yellow-500 rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.4)] ring-4 ring-yellow-400/25 p-2 flex items-center gap-2.5">
+  <!-- Compact Left-Side Badge (Default State — never blocks the right-side TOP button) -->
+  <button
+    id="arm-promo-mobile-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="arm-promo-mobile-card"
+    class="bg-yellow-400 hover:bg-yellow-300 active:scale-95 border-2 border-yellow-500 shadow-[0_8px_24px_rgba(0,0,0,0.4)] px-3 py-2 flex items-center gap-1.5 cursor-pointer transition"
+  >
+    <span class="text-sm font-black tracking-tight text-black leading-none">{promo.discountNumber} {promo.discountWord}</span>
+    <svg class="w-3.5 h-3.5 text-black shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
+      <path d="M9 18l6-6-6-6"/>
+    </svg>
+  </button>
 
+  <!-- Expanded Offer Card (Shown when visitor taps the 20% OFF badge) -->
+  <div
+    id="arm-promo-mobile-card"
+    class="hidden w-[calc(100vw-1.5rem)] max-w-sm bg-yellow-400 border-2 border-yellow-500 shadow-[0_12px_36px_rgba(0,0,0,0.45)] ring-4 ring-yellow-400/25 p-2.5 items-center gap-2.5"
+  >
     <!-- Whole row is the tap target for directions -->
     <a
       href={promo.directionsUrl}
@@ -46,13 +63,13 @@ if (!promo || !promo.active) {
     </a>
 
     <button
+      id="arm-promo-mobile-collapse"
       type="button"
-      class="arm-promo-close-btn w-7 h-7 rounded-full bg-black/15 hover:bg-black/25 active:bg-black/35 text-black flex items-center justify-center text-xs font-bold transition cursor-pointer shrink-0 self-start"
-      aria-label="Dismiss offer"
+      class="w-7 h-7 bg-black/15 hover:bg-black/25 active:bg-black/35 text-black flex items-center justify-center text-xs font-bold transition cursor-pointer shrink-0 self-start"
+      aria-label="Minimize offer"
     >
       ✕
     </button>
-
   </div>
 </div>
 
@@ -120,6 +137,29 @@ if (!promo || !promo.active) {
     function init() {
       const mob = document.getElementById('arm-promo-mobile');
       const dsk = document.getElementById('arm-promo-desktop');
+      const toggleBtn = document.getElementById('arm-promo-mobile-toggle');
+      const card = document.getElementById('arm-promo-mobile-card');
+      const collapseBtn = document.getElementById('arm-promo-mobile-collapse');
+
+      if (toggleBtn && card) {
+        toggleBtn.addEventListener('click', function() {
+          toggleBtn.classList.add('hidden');
+          card.classList.remove('hidden');
+          card.classList.add('flex');
+          toggleBtn.setAttribute('aria-expanded', 'true');
+        });
+      }
+
+      if (collapseBtn && toggleBtn && card) {
+        collapseBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          card.classList.add('hidden');
+          card.classList.remove('flex');
+          toggleBtn.classList.remove('hidden');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
 
       document.querySelectorAll('.arm-promo-close-btn').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
