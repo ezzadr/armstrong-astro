@@ -745,8 +745,8 @@
   .booking-dispatch-container .progress {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin: 0 0 27px;
-    padding: 0;
+    margin: 0 0 28px;
+    padding: 4px 0 0;
     list-style: none;
   }
 
@@ -754,19 +754,29 @@
     position: relative;
     color: #7c8792;
     text-align: center;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     font-weight: 700;
+    transition: color 0.2s ease;
   }
 
   .booking-dispatch-container .progress li:not(:last-child):before {
     content: "";
     position: absolute;
     z-index: 0;
-    top: 12px;
+    top: 8px;
     left: 50%;
     width: 100%;
     height: 2px;
-    background: #dfe5e9;
+    background: #d5dee6;
+    transition: background 0.25s ease;
+  }
+
+  @layer base {
+    .booking-dispatch-container .dot,
+    .booking-dispatch-container .dot:after {
+      border-radius: 50% !important;
+      -webkit-border-radius: 50% !important;
+    }
   }
 
   .booking-dispatch-container .dot {
@@ -774,30 +784,62 @@
     z-index: 1;
     display: grid;
     place-items: center;
-    width: 26px;
-    height: 26px;
-    margin: 0 auto 8px;
-    border: 4px solid var(--bg);
+    width: 18px;
+    height: 18px;
+    margin: 0 auto 10px;
+    border: 2px solid #cbd5e1;
     border-radius: 50% !important;
-    background: #dfe5e9;
+    background: #fff;
+    box-shadow: 0 0 0 4px var(--bg);
+    transition: all 0.25s ease;
+  }
+
+  .booking-dispatch-container .dot:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50% !important;
+    background: transparent;
+    transition: all 0.25s ease;
   }
 
   .booking-dispatch-container .progress .active {
-    color: var(--blue);
+    color: var(--navy);
+    font-weight: 800;
   }
 
   .booking-dispatch-container .progress .active .dot {
-    border: 2px solid var(--blue);
+    border-color: var(--blue);
+    background: var(--blue);
+    box-shadow:
+      0 0 0 3px var(--bg),
+      0 0 0 6px rgba(36, 132, 191, 0.22),
+      0 0 12px rgba(36, 132, 191, 0.55);
+  }
+
+  .booking-dispatch-container .progress .active .dot:after {
     background: #fff;
-    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  .booking-dispatch-container .progress .complete {
+    color: var(--blue);
   }
 
   .booking-dispatch-container .progress .complete .dot {
+    border-color: var(--blue);
     background: var(--blue);
+    box-shadow:
+      0 0 0 3px var(--bg),
+      0 0 8px rgba(36, 132, 191, 0.35);
+  }
+
+  .booking-dispatch-container .progress .complete .dot:after {
+    background: #fff;
   }
 
   .booking-dispatch-container .progress .complete:not(:last-child):before {
     background: var(--blue);
+    box-shadow: 0 0 6px rgba(36, 132, 191, 0.4);
   }
 
   .booking-dispatch-container form {
