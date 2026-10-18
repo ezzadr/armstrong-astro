@@ -5,6 +5,7 @@ pubDate: "2026-10-18"
 author: "Rahim Ezzadpanah"
 category: "Commercial"
 image: "/images/alarm-lock-dl1200-keypad-conversion-nashville.jpg"
+video: "jtJmgiL046o"
 ---
 
 ## Upgrading a Nashville Business from Keys to Keypad Access
@@ -14,20 +15,6 @@ A business owner in Nashville called us because their aluminum glass storefront 
 They wanted to convert that standard narrow-stile mortise setup into a commercial keypad lock that could handle daily business traffic without wiring the door for a full electric strike panel.
 
 We installed a heavy-duty **Alarm Lock Trilogy DL1200** narrow-stile keypad lock on the outside and paired it with a **one-motion exit push paddle** on the inside.
-
-<div style="max-width: 380px; margin: 2rem auto; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.35); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);">
-  <iframe
-    width="100%"
-    height="675"
-    src="https://www.youtube.com/embed/jtJmgiL046o"
-    title="Commercial Mortise Lock Converted to Alarm Lock Keypad in Nashville, TN | Armstrong Locksmith"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-    loading="lazy"
-    style="display: block; aspect-ratio: 9 / 16;"
-  ></iframe>
-</div>
 
 ## What We Installed on the Storefront Door
 
