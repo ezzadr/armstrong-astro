@@ -1,11 +1,11 @@
 ---
 title: "Commercial Storefront Mortise Lock Converted to Alarm Lock Keypad in Nashville, TN"
-description: "We upgraded a Nashville commercial glass storefront door from a standard mortise cylinder lock to an Alarm Lock Trilogy DL1200 narrow-stile keypad lock with 100+ user PIN codes, key override, and an interior exit push paddle."
+description: "We upgraded a Nashville commercial glass storefront door from a standard mortise cylinder lock to an Alarm Lock Trilogy DL1200 narrow-stile keypad lock with up to 100 user PIN codes, key override, and an interior exit push paddle."
 pubDate: "2026-10-18"
 author: "Rahim Ezzadpanah"
 category: "Commercial"
 image: "/images/alarm-lock-dl1200-keypad-conversion-nashville.jpg"
-video: "jtJmgiL046o"
+video: "KSAIeFZQUK8"
 ---
 
 ## Upgrading a Nashville Business from Keys to Keypad Access
@@ -20,7 +20,7 @@ We installed a heavy-duty **Alarm Lock Trilogy DL1200** narrow-stile keypad lock
 
 Aluminum glass storefront doors have a narrow frame stile, so a standard wide residential or office keypad won't fit the door prep. The **Alarm Lock DL1200** is built specifically for narrow-stile aluminum storefront doors and works directly with a commercial mortise deadlatch body:
 
-- **100+ User PIN Codes:** The business owner can program unique PIN codes for employees, managers, and regular deliveries right at the 12-button metal keypad — and delete a single code in seconds whenever staff changes.
+- **Up to 100 User PIN Codes:** The business owner can program unique PIN codes for employees, managers, and regular deliveries right at the 12-button metal keypad — and delete a single code in seconds whenever staff changes.
 - **Commercial Exterior Lever + Key Override:** On the outside, typing a valid PIN engages the heavy-duty clutch lever. It also keeps a standard mortise key cylinder built into the lower housing for master key or physical key override.
 - **Passage Mode for Store Hours:** During busy daytime hours, the keypad can be switched into unlocked passage mode with a single command so customers can walk right in, then locked back up at closing time.
 - **Heavy-Duty Mortise Deadlatch & Armor Faceplate:** Inside the door edge, the steel mortise deadlatch includes an anti-jimmy deadlatch plunger behind a flush aluminum armor faceplate.
