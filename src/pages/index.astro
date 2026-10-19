@@ -56,11 +56,18 @@ const homepageSchema = [
       <!-- Left Hero Content -->
       <div class="lg:col-span-7 flex flex-col gap-3.5 sm:gap-6 text-left">
         
-        <!-- Luxury Pill Eyebrow Badge (Mobile-First Compact) -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full w-fit">
-          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+        <!-- Local Owner Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2.5 pr-3.5 pl-1.5 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full w-fit">
+          <img
+            src="/images/rahim-face-96.webp"
+            alt="Rahim, Owner of Armstrong Locksmith"
+            width="28"
+            height="28"
+            decoding="async"
+            class="w-7 h-7 rounded-full object-cover border border-amber-400 shrink-0"
+          />
           <span class="text-[11px] sm:text-xs font-bold tracking-wider text-amber-300 uppercase">
-            Family-Owned &bull; 20+ Years Master Experience
+            Owner-Operated by Rahim &bull; Walk-In Shop at 208 Thompson Ln
           </span>
         </div>
 
@@ -71,7 +78,7 @@ const homepageSchema = [
 
         <!-- Trust Grounded Sub-Copy -->
         <p class="text-xs sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
-          Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. <span class="hidden sm:inline">Visit our walk-in storefront for fast key cutting and programming, or request our prompt mobile dispatch for car lockouts, home rekeys, and commercial security.</span><span class="sm:hidden">Walk-in storefront and prompt mobile dispatch for car lockouts, home rekeys, and commercial security.</span> Upfront pricing guaranteed.
+          Armstrong Locksmith Inc is a family-owned local locksmith in Nashville, TN. <span class="hidden sm:inline">Stop by our walk-in shop on Thompson Lane for key cutting and programming, or have our mobile van come to your car, home, or business.</span><span class="sm:hidden">Walk-in shop at 208 Thompson Ln and mobile vans for car keys, lockouts, home rekeys, and business locks.</span> Upfront pricing before we start.
         </p>
 
         <!-- Direct Action Buttons (Single-Line Text on Both Mobile & Desktop) -->
@@ -101,17 +108,17 @@ const homepageSchema = [
 
         <!-- 3 High-Impact Trust Pill Badges (Desktop Only - Shown below form on mobile/tablet) -->
         <div class="hidden lg:flex flex-wrap items-center gap-2 pt-4 text-xs">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
-            <span class="text-amber-400 font-bold">🏪</span>
-            <span>Walk-In Storefront</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Walk-In Shop: 208 Thompson Ln</span>
           </div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
-            <span class="text-emerald-400 font-bold">🚐</span>
-            <span>Prompt Mobile Van</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Mobile Key Vans</span>
           </div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
-            <span class="text-amber-400 font-bold">🛡️</span>
-            <span>Certified &amp; Insured</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Locally Owned Since 2015</span>
           </div>
         </div>
 
@@ -123,8 +130,7 @@ const homepageSchema = [
           
           <!-- High-Contrast Bright Header Bar (Leaps off the dark navy hero background) -->
           <div class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 px-4 py-3.5 sm:px-6 sm:py-4 border-b-2 border-[#07152b] flex items-center justify-between gap-2">
-            <h2 class="text-lg sm:text-2xl font-black font-heading text-[#07152b] uppercase tracking-tight flex items-center gap-2">
-              <span class="text-lg sm:text-xl">💬</span>
+            <h2 class="text-lg sm:text-2xl font-black font-heading text-[#07152b] uppercase tracking-tight">
               <span>Get an Upfront Quote</span>
             </h2>
             <span class="px-2.5 py-1 bg-[#07152b] text-amber-300 text-[10px] sm:text-xs font-black uppercase tracking-wider shrink-0 shadow-xs">
@@ -209,8 +215,8 @@ const homepageSchema = [
               <!-- Dynamic Emergency Lockout Alert (Hidden by default, slides open if Emergency Lockout is chosen) -->
               <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs rounded-md flex items-center justify-between gap-2 transition-all">
                 <div class="leading-tight">
-                  <span class="font-black text-red-900 block">🚨 Locked out right now?</span>
-                  <span class="text-[11px] text-red-800">Skip the form for prompt on-site van dispatch.</span>
+                  <span class="font-black text-red-900 block">Locked out right now?</span>
+                  <span class="text-[11px] text-red-800">Call the shop directly for the fastest response.</span>
                 </div>
                 <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider rounded active:scale-95 transition shadow-sm">
                   Call (615) 625-8000
@@ -242,19 +248,18 @@ const homepageSchema = [
               </button>
               <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
                 <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Direct to Nashville Dispatch &bull; Upfront Rates &bull; Certified &amp; Insured</span>
+                <span>Sent Directly to Rahim &amp; Our Nashville Shop &bull; Upfront Flat Rates</span>
               </div>
             </form>
 
             <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 text-center rounded-lg">
-              <div class="text-4xl mb-2">✅</div>
-              <strong id="quote-success-title" class="block text-lg font-black text-emerald-950">Thank you! Your request was sent to Armstrong Locksmith.</strong>
+              <strong id="quote-success-title" class="block text-lg font-black text-emerald-950">Thank you! Your message is at our shop.</strong>
               <p id="quote-success-desc" class="text-xs text-emerald-800 mt-2 leading-relaxed font-medium">
-                Our dispatch team has received your submission and will review your request promptly for immediate service.
+                We received your request and will call or text you right back with an upfront flat price.
               </p>
               <div class="mt-4 pt-3 border-t border-emerald-200">
                 <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded shadow transition">
-                  <span>Need immediate emergency help? Call (615) 625-8000 &rarr;</span>
+                  <span>Need help right now? Call (615) 625-8000 &rarr;</span>
                 </a>
               </div>
             </div>
@@ -263,17 +268,17 @@ const homepageSchema = [
 
         <!-- 3 High-Impact Trust Pill Badges (Mobile & Tablet Only - Placed After the Form) -->
         <div class="flex lg:hidden flex-wrap items-center justify-center gap-2 pt-4 text-xs">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
-            <span class="text-amber-400 font-bold">🏪</span>
-            <span>Walk-In Storefront</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Walk-In Shop: 208 Thompson Ln</span>
           </div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
-            <span class="text-emerald-400 font-bold">🚐</span>
-            <span>Prompt Mobile Van</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Mobile Key Vans</span>
           </div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
-            <span class="text-amber-400 font-bold">🛡️</span>
-            <span>Certified &amp; Insured</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-200 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Locally Owned Since 2015</span>
           </div>
         </div>
 
@@ -370,13 +375,13 @@ const homepageSchema = [
             </div>
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-900 border border-emerald-200/80 shadow-2xs">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Prompt Mobile Vans
+              We Come to You
             </span>
           </div>
 
           <!-- Title -->
           <h3 class="text-xl font-black font-heading text-[#0f274a] uppercase tracking-tight mb-2.5 group-hover:text-emerald-700 transition-colors">
-            Mobile Van Dispatch
+            Mobile Key &amp; Lock Vans
           </h3>
 
           <!-- Copy -->
@@ -388,7 +393,7 @@ const homepageSchema = [
           <div class="flex flex-wrap gap-1.5 mb-4">
             <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Car &amp; Home Lockouts</span>
             <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Keys Cut at Your Car</span>
-            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Mobile Van Fleet</span>
+            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Equipped Mobile Vans</span>
           </div>
         </div>
 
@@ -405,7 +410,7 @@ const homepageSchema = [
         </div>
       </div>
 
-      <!-- Card 3: Direct Master Locksmiths -->
+      <!-- Card 3: Deal Directly With Rahim -->
       <div class="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-amber-400/80 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden p-6 sm:p-7">
         <!-- Top Gradient Ambient Accent Line -->
         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-900 via-amber-500 to-slate-900 opacity-90 group-hover:h-1.5 transition-all"></div>
@@ -413,32 +418,35 @@ const homepageSchema = [
         <div>
           <!-- Icon + Status Pill Header -->
           <div class="flex items-center justify-between gap-3 mb-5">
-            <div class="w-12 h-12 rounded-xl bg-[#07152b] text-amber-400 flex items-center justify-center border border-amber-400/30 group-hover:scale-110 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all duration-300 shadow-xs">
-              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
-            </div>
+            <img
+              src="/images/rahim-face-96.webp"
+              alt="Rahim, Owner of Armstrong Locksmith"
+              width="48"
+              height="48"
+              loading="lazy"
+              decoding="async"
+              class="w-12 h-12 rounded-xl object-cover border-2 border-amber-400 shadow-xs"
+            />
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-100 text-slate-900 border border-slate-200 shadow-2xs">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-              Certified &bull; Insured
+              Owner-Operated
             </span>
           </div>
 
           <!-- Title -->
           <h3 class="text-xl font-black font-heading text-[#0f274a] uppercase tracking-tight mb-2.5 group-hover:text-amber-600 transition-colors">
-            Direct Master Technicians
+            Deal Directly With Rahim
           </h3>
 
           <!-- Copy -->
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-4">
-            Deal directly with Rahim and our certified master technicians. Upfront guaranteed pricing with zero middleman broker call center fees.
+            You talk directly with Rahim and our local Nashville locksmiths — never an out-of-state call center or middleman broker. We give you a flat price before we start.
           </p>
 
           <!-- Micro-feature pills -->
           <div class="flex flex-wrap gap-1.5 mb-4">
-            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">20+ Yrs Master Experience</span>
-            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">No Call Center Middlemen</span>
+            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">20+ Yrs Experience</span>
+            <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">No Call Center Brokers</span>
             <span class="inline-flex items-center text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Upfront Flat Rates</span>
           </div>
         </div>
@@ -513,7 +521,7 @@ const homepageSchema = [
             <span class="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-3">Emergency</span>
             <h3 class="text-xl font-bold text-[#0f274a] mb-2">Car &amp; Home Lockouts</h3>
             <p class="text-sm text-slate-600 leading-relaxed mb-6 font-medium">
-              Prompt same-day mobile dispatch across Nashville with specialized tools for clean, damage-free vehicle and door unlocking.
+              Locked keys in your car or house? We come out across Nashville and unlock your door cleanly without scratching your paint or damaging your lock.
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
@@ -580,7 +588,7 @@ const homepageSchema = [
         
         <div class="p-5 bg-slate-50 border border-slate-200">
           <h3 class="font-bold text-[#0f274a] text-sm uppercase tracking-wider mb-3">
-            🏎️ Luxury European Key Hub
+            European Car Key Hub
           </h3>
           <ul class="flex flex-col gap-2 text-slate-600">
             <li><a href="/bmw/" class="hover:text-amber-600 font-semibold underline">BMW Key Replacement Nashville</a></li>
@@ -593,7 +601,7 @@ const homepageSchema = [
 
         <div class="p-5 bg-slate-50 border border-slate-200">
           <h3 class="font-bold text-[#0f274a] text-sm uppercase tracking-wider mb-3">
-            🚗 Domestic & Asian Vehicle Keys
+            Domestic & Asian Vehicle Keys
           </h3>
           <ul class="flex flex-col gap-2 text-slate-600">
             <li><a href="/toyota-car-key-replacement/" class="hover:text-amber-600 font-semibold underline">Toyota Smart Key & Transponder Keys</a></li>
@@ -606,13 +614,13 @@ const homepageSchema = [
 
         <div class="p-5 bg-slate-50 border border-slate-200">
           <h3 class="font-bold text-[#0f274a] text-sm uppercase tracking-wider mb-3">
-            🏢 Locks, Pricing & Service Zones
+            Locks, Pricing & Service Areas
           </h3>
           <ul class="flex flex-col gap-2 text-slate-600">
             <li><a href="/locksmith-pricing-nashville/" class="hover:text-amber-600 font-semibold underline">2026 Nashville Locksmith Price Guide</a></li>
             <li><a href="/residential-locksmith-nashville/" class="hover:text-amber-600 font-semibold underline">Home Rekeying & Deadbolt Installation</a></li>
             <li><a href="/commercial-locksmith/" class="hover:text-amber-600 font-semibold underline">Storefront Doors, Panic Bars & Master Keys</a></li>
-            <li><a href="/emergency-car-lockout/" class="hover:text-amber-600 font-semibold underline">Prompt Mobile ETA Emergency Car Lockouts</a></li>
+            <li><a href="/emergency-car-lockout/" class="hover:text-amber-600 font-semibold underline">Emergency Car Lockout Service in Nashville</a></li>
             <li><a href="/service-areas/" class="hover:text-amber-600 font-semibold underline">Service Areas in Davidson & Williamson County</a></li>
           </ul>
         </div>
@@ -645,7 +653,7 @@ const homepageSchema = [
             Verified Customer <span class="text-amber-400">Reviews</span>
           </h2>
           <p class="text-xs sm:text-sm text-slate-300 mt-1">
-            ⭐ Real feedback from local vehicle owners, homeowners, and businesses across Metro Nashville.
+            Real feedback from local drivers, homeowners, and businesses across Metro Nashville.
           </p>
         </div>
 
@@ -674,7 +682,7 @@ const homepageSchema = [
             rel="noopener noreferrer" 
             class="inline-flex items-center gap-2 px-4 py-2.5 bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 text-xs sm:text-sm font-extrabold shadow-sm transition"
           >
-            <span>✍️ Write Review</span>
+            <span>Write a Review</span>
           </a>
           <a 
             href="https://g.page/r/CQS5BtikwbmqEBM" 
@@ -682,7 +690,7 @@ const homepageSchema = [
             rel="noopener noreferrer" 
             class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/15 text-white text-xs sm:text-sm font-bold border border-white/25 hover:border-amber-400 shadow-sm transition"
           >
-            <span>⭐ View All (<span class="arm-review-count">{reviewCount}+</span>)</span>
+            <span>View All (<span class="arm-review-count">{reviewCount}+</span>)</span>
           </a>
         </div>
       </div>
@@ -705,7 +713,7 @@ const homepageSchema = [
                   </div>
                   <div>
                     <h3 class="font-bold text-[#0f274a] text-sm sm:text-base leading-tight">{rev.name}</h3>
-                    <div class="text-[11px] text-slate-600 mt-0.5">📍 {rev.location} &bull; {rev.date}</div>
+                    <div class="text-[11px] text-slate-600 mt-0.5">{rev.location} &bull; {rev.date}</div>
                   </div>
                 </div>
 
@@ -803,12 +811,12 @@ const homepageSchema = [
   <!-- ==================== FINAL EMERGENCY CALL BANNER ==================== -->
   <section class="bg-[#0f274a] bg-navy-grid text-white py-16 px-4 sm:px-8 text-center border-t-4 border-amber-500 font-sans">
     <div class="max-w-3xl mx-auto flex flex-col items-center gap-4">
-      <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Mobile Dispatch</span>
+      <span class="text-xs font-bold uppercase tracking-wider text-amber-400">208 Thompson Ln &amp; Mobile Service</span>
       <h2 class="text-3xl sm:text-4xl font-black uppercase text-white">
         Need Locksmith Service in Nashville?
       </h2>
       <p class="text-slate-200 text-sm sm:text-base max-w-lg">
-        Speak directly with our local team, get an upfront quote over the phone, and have a certified technician dispatched promptly. No hidden fees.
+        Call our shop directly for an upfront flat price over the phone, stop by our counter at 208 Thompson Ln, or have our mobile van come to you. No hidden fees.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center gap-3.5 pt-2 w-full sm:w-auto">
@@ -824,7 +832,7 @@ const homepageSchema = [
       </div>
 
       <div class="text-xs text-slate-400 mt-2">
-        Nashville, TN &bull; Certified & Insured
+        208 Thompson Ln, Nashville, TN 37211 &bull; Locally Owned &amp; Insured
       </div>
     </div>
   </section>
@@ -971,7 +979,7 @@ const homepageSchema = [
           // Disable button while submitting to prevent double-clicks
           if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>⚡ Sending Request...</span>';
+            submitBtn.innerHTML = '<span>Sending Request...</span>';
           }
 
           // Ensure form_started_at is at least 8s in past so browser autofill never trips bot speed check
@@ -1104,7 +1112,7 @@ const homepageSchema = [
                         </div>
                         <div>
                           <h3 class="font-bold text-[#0f274a] text-sm sm:text-base leading-tight">${esc(rev.author_name || rev.name)}</h3>
-                          <div class="text-[11px] text-slate-600 mt-0.5">📍 Nashville, TN &bull; ${esc(rev.relative_time_description || 'Recently')}</div>
+                          <div class="text-[11px] text-slate-600 mt-0.5">Nashville, TN &bull; ${esc(rev.relative_time_description || 'Recently')}</div>
                         </div>
                       </div>
 
