@@ -41,10 +41,10 @@
   ],
 
   "keyServices": [
-    { "href": "/key-fob-replacement-nashville/", "label": "Key Fob Replacement & Battery", "icon": "🔑" },
-    { "href": "/dealer-key/", "label": "OEM Dealer Key Cut & Program", "icon": "🏷️" },
-    { "href": "/automotive-locksmith-in-nashville-tn/", "label": "Automotive Locksmith Nashville", "icon": "🔧" },
-    { "href": "/nashville-car-unlock-service/", "label": "Damage-Free Car Unlock", "icon": "🔓" }
+    { "href": "/key-fob-replacement-nashville/", "label": "Key Fob Replacement & Battery" },
+    { "href": "/dealer-key/", "label": "OEM Dealer Key Cut & Program" },
+    { "href": "/automotive-locksmith-in-nashville-tn/", "label": "Automotive Locksmith Nashville" },
+    { "href": "/nashville-car-unlock-service/", "label": "Damage-Free Car Unlock" }
   ],
 
   "makesHub": {
@@ -57,14 +57,12 @@
     {
       "href": "/residential-locksmith-nashville/",
       "label": "Residential Rekeying",
-      "desc": "New home move-in key resets",
-      "icon": "🏡"
+      "desc": "Change locks for a new home or tenant"
     },
     {
       "href": "/nashville-rekey-service/",
       "label": "Nashville Rekey Service",
-      "desc": "Deadbolts, knobs & high-security cylinders",
-      "icon": "🔑"
+      "desc": "Deadbolts, knobs & keypad locks"
     }
   ],
 
@@ -72,14 +70,12 @@
     {
       "href": "/commercial-locksmith/",
       "label": "Commercial Doors & Locks",
-      "desc": "Mortise cylinders, panic bars & levers",
-      "icon": "🏢"
+      "desc": "Mortise cylinders, panic bars & levers"
     },
     {
       "href": "/commercial-locksmith/#hardware",
       "label": "Panic Hardware & Exit Devices",
-      "desc": "Detex, Adams Rite & Von Duprin",
-      "icon": "🚪"
+      "desc": "Detex, Adams Rite & Von Duprin"
     }
   ],
 
@@ -87,28 +83,24 @@
     {
       "href": "/locksmith-pricing-nashville/",
       "label": "2026 Upfront Price Guide",
-      "desc": "Flat transparent rates • No hidden fees",
-      "icon": "💵",
+      "desc": "Clear flat rates • No hidden fees",
       "feature": true
     },
     {
       "href": "/google-reviews/",
       "label": "Google Reviews",
       "desc": "4.9 Star Verified Local Rating",
-      "icon": "⭐",
       "showCount": true
     },
     {
       "href": "/faq/",
       "label": "Frequently Asked Questions",
-      "desc": "Pricing, dispatch times & warranty",
-      "icon": "❓"
+      "desc": "Pricing, dispatch times & warranty"
     },
     {
       "href": "/payment-methods/",
       "label": "Accepted Payment Methods",
-      "desc": "Cards, Apple Pay, Cash & Invoicing",
-      "icon": "💳"
+      "desc": "Cards, Apple Pay, Cash & Invoicing"
     }
   ],
 
@@ -117,14 +109,12 @@
       "href": "/nashville-locksmith-storefront/",
       "label": "208 Thompson Ln Storefront",
       "desc": "Walk-in Key Shop • While You Wait",
-      "icon": "🏬",
       "feature": true
     },
     {
       "href": "/service-areas/",
       "label": "Nashville Service Areas",
-      "desc": "Davidson, Williamson & Wilson Counties",
-      "icon": "📍"
+      "desc": "Davidson, Williamson & Wilson Counties"
     }
   ],
 
@@ -132,20 +122,18 @@
     {
       "href": "/about-us/",
       "label": "Meet Owner Rahim",
-      "desc": "20+ Years Master Craftsmanship",
-      "icon": "👨‍🔧"
+      "desc": "20+ years serving Nashville",
+      "ownerPhoto": true
     },
     {
       "href": "/contact-armstrong-locksmith/",
       "label": "Contact & Dispatch Hours",
-      "desc": "Direct phone, mobile & email",
-      "icon": "📞"
+      "desc": "Direct phone, mobile & email"
     },
     {
       "href": "/blog/",
       "label": "Guides & Field Case Studies",
-      "desc": "Recent jobs & locksmith tips",
-      "icon": "📰"
+      "desc": "Recent jobs & locksmith tips"
     }
   ]
 }

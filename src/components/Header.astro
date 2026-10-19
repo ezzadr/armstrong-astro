@@ -48,26 +48,23 @@ const { reviewCount } = await getReviewStats();
       <!-- Silo 1: Car Keys Mega-Dropdown -->
       <div class="group">
         <a href="/car-key-replacement-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-car-keys">
-          <span class="text-amber-500 text-sm">🚗</span>
+          <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
           <span>Car Keys</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
         <!-- 3-Column Mega Dropdown Panel -->
         <div id="arm-menu-car-keys" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[880px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden">
-          <div class="h-1 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600"></div>
+          <div class="h-1 bg-[#d4a017]"></div>
 
           <div class="grid grid-cols-12 gap-5 p-5 xl:p-6 text-left">
 
-            <!-- Col 1: European Specialists (High Ticket) -->
+            <!-- Col 1: European Car Keys -->
             <div class="col-span-5 bg-slate-50/80 p-4 rounded-xl border border-slate-200/80 flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-200">
-                  <div class="flex items-center gap-2 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
-                    <span class="w-5 h-5 rounded bg-[#07152b] text-amber-400 flex items-center justify-center text-[10px]">🏎️</span>
-                    <span>European Specialists</span>
-                  </div>
-                  <span class="text-[9px] bg-amber-100 text-amber-900 border border-amber-300 font-black px-1.5 py-0.5 rounded tracking-wider whitespace-nowrap shrink-0">DEALER LEVEL</span>
+                <div class="flex items-center gap-2 pb-2.5 mb-3 border-b border-slate-200 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
+                  <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/></svg>
+                  <span>European Car Keys</span>
                 </div>
 
                 <div class="space-y-1.5">
@@ -103,12 +100,9 @@ const { reviewCount } = await getReviewStats();
             <!-- Col 2: Popular Domestic & Asian Brands -->
             <div class="col-span-4 flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-200">
-                  <div class="flex items-center gap-2 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
-                    <span class="w-5 h-5 rounded bg-slate-200 text-slate-700 flex items-center justify-center text-[10px]">🚗</span>
-                    <span>All Makes &amp; Fobs</span>
-                  </div>
-                  <span class="text-[9px] bg-slate-200 text-slate-800 font-black px-1.5 py-0.5 rounded tracking-wider">OEM CHIP</span>
+                <div class="flex items-center gap-2 pb-2.5 mb-3 border-b border-slate-200 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
+                  <svg class="w-4 h-4 text-slate-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <span>Domestic &amp; Asian Makes</span>
                 </div>
 
                 <div class="grid grid-cols-2 gap-1.5 text-[11px] font-bold">
@@ -122,7 +116,7 @@ const { reviewCount } = await getReviewStats();
                 <div class="mt-3 space-y-1 text-[11px]">
                   {nav.keyServices.map((item) => (
                     <a href={item.href} class="block p-1.5 text-slate-700 hover:text-amber-600 font-semibold transition-colors">
-                      &bull; {item.label}
+                      &rsaquo; {item.label}
                     </a>
                   ))}
                 </div>
@@ -134,21 +128,33 @@ const { reviewCount } = await getReviewStats();
               </a>
             </div>
 
-            <!-- Col 3: Key Technology & Urgent Assistance -->
-            <div class="col-span-3 bg-amber-50/70 p-4 rounded-xl border border-amber-200 flex flex-col justify-between">
+            <!-- Col 3: Lost All Keys & Urgent Assistance -->
+            <div class="col-span-3 bg-[#07152b] text-white p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
               <div>
-                <div class="w-8 h-8 rounded-lg bg-[#07152b] text-amber-400 flex items-center justify-center font-bold text-sm mb-2.5 shadow-xs">
-                  ⚡
+                <div class="flex items-center gap-2.5 mb-2.5 pb-2.5 border-b border-white/10">
+                  <img
+                    src="/images/rahim-face-96.webp"
+                    alt="Rahim, Owner of Armstrong Locksmith"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-9 h-9 rounded-full object-cover border-2 border-amber-400 shrink-0"
+                  />
+                  <div>
+                    <div class="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Real Nashville Shop</div>
+                    <div class="text-[11px] font-bold text-white leading-tight">208 Thompson Ln</div>
+                  </div>
                 </div>
-                <div class="text-xs font-black text-slate-900 uppercase tracking-tight">Lost All Vehicle Keys?</div>
-                <p class="text-[11px] text-slate-600 mt-1 leading-relaxed">
-                  We decode locks with Lishi tools and originate fresh computerized keys on-site. Zero dealership towing needed.
+                <div class="text-xs font-black text-white uppercase tracking-tight">Lost All Your Car Keys?</div>
+                <p class="text-[11px] text-slate-300 mt-1.5 leading-relaxed">
+                  We come to where your car is parked and cut and program a new key on the spot — no towing to the dealer.
                 </p>
               </div>
 
-              <div class="mt-4 pt-3 border-t border-amber-200/80">
+              <div class="mt-4 pt-3 border-t border-white/10">
                 <a href="/emergency-car-lockout/" class="block p-2.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-black text-center text-[11px] uppercase tracking-wider shadow-sm transition-colors active:scale-95">
-                  🚨 Emergency Car Lockout
+                  Emergency Car Lockout &rarr;
                 </a>
               </div>
             </div>
@@ -159,14 +165,14 @@ const { reviewCount } = await getReviewStats();
           <div class="bg-[#07152b] bg-navy-grid px-6 py-3 border-t border-amber-500/20 flex items-center justify-between text-white text-xs">
             <div class="flex items-center gap-3">
               <span class="flex items-center gap-1.5 text-amber-400 font-bold">
-                <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/></svg>
-                <span>Walk-In Storefront: 208 Thompson Ln</span>
+                <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5Z"/></svg>
+                <span>Walk-In Shop: 208 Thompson Ln, Nashville</span>
               </span>
               <span class="hidden md:inline text-slate-500">&bull;</span>
-              <span class="hidden md:inline text-slate-300">Prompt Mobile Van Dispatch Across Nashville Metro</span>
+              <span class="hidden md:inline text-slate-300">Mobile vans across Metro Nashville</span>
             </div>
             <a href="tel:6156258000" class="font-bold text-amber-400 hover:text-white transition-colors flex items-center gap-1">
-              <span>Call Store: (615) 625-8000 &rarr;</span>
+              <span>Call Shop: (615) 625-8000 &rarr;</span>
             </a>
           </div>
 
@@ -176,24 +182,21 @@ const { reviewCount } = await getReviewStats();
       <!-- Silo 2: Locks & Rekeys (Home & Business) -->
       <div class="relative group">
         <a href="/residential-locksmith-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-commercial">
-          <span class="text-emerald-600 text-sm">🏠</span>
+          <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           <span>Locks &amp; Rekeys</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
         <div id="arm-menu-commercial" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[680px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden">
-          <div class="h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-500"></div>
+          <div class="h-1 bg-[#d4a017]"></div>
 
           <div class="grid grid-cols-2 divide-x divide-slate-200 p-5 gap-6 text-left">
 
             <!-- Residential Security Section -->
             <div>
-              <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-200">
-                <div class="flex items-center gap-2 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
-                  <span class="w-5 h-5 rounded bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px]">🏡</span>
-                  <span>Home &amp; Residential</span>
-                </div>
-                <span class="text-[9px] bg-emerald-100 text-emerald-900 border border-emerald-300 font-black px-1.5 py-0.5 rounded tracking-wider">FAMILY</span>
+              <div class="flex items-center gap-2 pb-2 mb-3 border-b border-slate-200 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
+                <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home &amp; Residential</span>
               </div>
 
               <div class="flex flex-col divide-y divide-slate-100">
@@ -209,7 +212,7 @@ const { reviewCount } = await getReviewStats();
 
                 <a href="/book-online/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-800 font-bold bg-amber-50/60 hover:bg-amber-100 hover:border-l-2 hover:border-amber-500 rounded-lg transition-all mt-1">
                   <div>
-                    <span class="block text-slate-900 font-bold">📅 Schedule Lock Service</span>
+                    <span class="block text-slate-900 font-bold">Schedule Lock Service</span>
                     <span class="block text-[10px] text-amber-800 font-medium">Select date &amp; time online</span>
                   </div>
                   <span class="text-amber-600 group-hover/item:translate-x-1 transition-transform font-bold">&rarr;</span>
@@ -219,12 +222,9 @@ const { reviewCount } = await getReviewStats();
 
             <!-- Commercial Security Section -->
             <div class="pl-6">
-              <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-200">
-                <div class="flex items-center gap-2 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
-                  <span class="w-5 h-5 rounded bg-blue-100 text-blue-800 flex items-center justify-center text-[10px]">🏢</span>
-                  <span>Commercial Hardware</span>
-                </div>
-                <span class="text-[9px] bg-blue-100 text-blue-900 border border-blue-300 font-black px-1.5 py-0.5 rounded tracking-wider">BUSINESS</span>
+              <div class="flex items-center gap-2 pb-2 mb-3 border-b border-slate-200 font-heading font-black tracking-wider uppercase text-[11px] text-slate-900">
+                <svg class="w-4 h-4 text-[#0f274a] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                <span>Business &amp; Commercial</span>
               </div>
 
               <div class="flex flex-col divide-y divide-slate-100">
@@ -238,12 +238,12 @@ const { reviewCount } = await getReviewStats();
                   </a>
                 ))}
 
-                <a href="/nashville-locksmith-storefront/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-emerald-900 font-bold bg-emerald-50/70 hover:bg-emerald-100 hover:border-l-2 hover:border-emerald-600 rounded-lg transition-all mt-1">
+                <a href="/nashville-locksmith-storefront/" class="group/item flex items-center justify-between px-2.5 py-2.5 text-slate-900 font-bold bg-slate-100 hover:bg-slate-200 hover:border-l-2 hover:border-[#0f274a] rounded-lg transition-all mt-1">
                   <div>
-                    <span class="block text-emerald-950 font-black">🏬 Walk-In Storefront Shop</span>
-                    <span class="block text-[10px] text-emerald-700 font-normal">208 Thompson Ln &bull; While You Wait</span>
+                    <span class="block text-[#0f274a] font-black">Walk-In Storefront Shop</span>
+                    <span class="block text-[10px] text-slate-600 font-normal">208 Thompson Ln &bull; While You Wait</span>
                   </div>
-                  <span class="text-emerald-700 group-hover/item:translate-x-1 transition-transform font-bold">&rarr;</span>
+                  <span class="text-[#0f274a] group-hover/item:translate-x-1 transition-transform font-bold">&rarr;</span>
                 </a>
               </div>
             </div>
@@ -251,7 +251,7 @@ const { reviewCount } = await getReviewStats();
           </div>
 
           <div class="bg-slate-50 px-6 py-2.5 border-t border-slate-200 text-slate-600 text-[11px] flex items-center justify-between">
-            <span class="font-medium">🛡️ Master Locksmith &bull; Bonded &amp; Insured Commercial Contractor</span>
+            <span class="font-medium">Locally Owned Nashville Shop &bull; Bonded &amp; Insured</span>
             <a href="/contact-armstrong-locksmith/" class="font-bold text-[#0f274a] hover:underline">Get Free Estimate &rarr;</a>
           </div>
 
@@ -262,7 +262,6 @@ const { reviewCount } = await getReviewStats();
            on the site should not have to guess which menu it lives under. -->
       <div>
         <a href="/emergency-car-lockout/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 text-red-700 hover:text-white hover:bg-red-600 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
-          <span class="text-sm">🚨</span>
           <span>Lockout</span>
         </a>
       </div>
@@ -270,12 +269,11 @@ const { reviewCount } = await getReviewStats();
       <!-- Silo 4: Pricing Dropdown -->
       <div class="relative group">
         <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-pricing">
-          <span class="text-amber-500 text-sm">💰</span>
           <span>Pricing</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
         <div id="arm-menu-pricing" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
-          <div class="h-1 bg-gradient-to-r from-amber-500 to-yellow-400"></div>
+          <div class="h-1 bg-[#d4a017]"></div>
           <div class="divide-y divide-slate-100 p-2">
             {nav.pricing.map((item) => (
               <a
@@ -286,7 +284,7 @@ const { reviewCount } = await getReviewStats();
               >
                 <div>
                   <span class={item.feature ? 'block text-amber-950 font-black' : 'block font-bold text-slate-900'}>
-                    {item.icon} {item.label}
+                    {item.label}
                     {item.showCount && <> (<span class="arm-review-count">{reviewCount}+</span>)</>}
                   </span>
                   <span class={item.feature ? 'block text-[10px] text-amber-800 font-normal' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
@@ -304,39 +302,51 @@ const { reviewCount } = await getReviewStats();
            below so the two intents are not presented as one flat list. -->
       <div class="relative group">
         <a href="/service-areas/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-locations">
-          <span class="text-blue-500 text-sm">📍</span>
           <span>Locations</span>
           <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
         <div id="arm-menu-locations" class="absolute top-full right-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
-          <div class="h-1 bg-gradient-to-r from-blue-600 to-amber-500"></div>
+          <div class="h-1 bg-[#d4a017]"></div>
           <div class="divide-y divide-slate-100 p-2">
             {nav.locations.map((item) => (
               <a
                 href={item.href}
                 class={item.feature
-                  ? 'group/item flex items-center justify-between p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100 transition-colors'
+                  ? 'group/item flex items-center justify-between p-3 rounded-xl bg-amber-50/60 hover:bg-amber-100 transition-colors'
                   : 'group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors'}
               >
                 <div>
-                  <span class={item.feature ? 'block font-bold text-emerald-950' : 'block font-bold text-slate-900'}>{item.icon} {item.label}</span>
-                  <span class={item.feature ? 'block text-[10px] text-emerald-800' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
+                  <span class={item.feature ? 'block font-black text-amber-950' : 'block font-bold text-slate-900'}>{item.label}</span>
+                  <span class={item.feature ? 'block text-[10px] text-amber-800' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
                 </div>
                 <span class={item.feature
-                  ? 'text-emerald-700 group-hover/item:translate-x-1 transition-transform font-bold'
+                  ? 'text-amber-700 group-hover/item:translate-x-1 transition-transform font-bold'
                   : 'text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all'}>&rarr;</span>
               </a>
             ))}
           </div>
           <div class="px-2 pb-2">
-            <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-3 pt-2 pb-1 border-t border-slate-100">The Company</div>
+            <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-3 pt-2 pb-1 border-t border-slate-100">Our Local Shop</div>
             {nav.company.map((item) => (
-              <a href={item.href} class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
-                <div>
-                  <span class="block font-bold text-slate-900">{item.icon} {item.label}</span>
-                  <span class="block text-[10px] text-slate-500">{item.desc}</span>
+              <a href={item.href} class="group/item flex items-center justify-between gap-2.5 p-2.5 rounded-xl hover:bg-slate-50 text-slate-800 transition-colors">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  {item.ownerPhoto && (
+                    <img
+                      src="/images/rahim-face-96.webp"
+                      alt="Owner Rahim"
+                      width="34"
+                      height="34"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-8.5 h-8.5 rounded-full object-cover border border-amber-500 shrink-0"
+                    />
+                  )}
+                  <div class="min-w-0">
+                    <span class="block font-bold text-slate-900">{item.label}</span>
+                    <span class="block text-[10px] text-slate-500">{item.desc}</span>
+                  </div>
                 </div>
-                <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all">&rarr;</span>
+                <span class="text-amber-500 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all shrink-0">&rarr;</span>
               </a>
             ))}
           </div>
@@ -354,7 +364,7 @@ const { reviewCount } = await getReviewStats();
         class="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-3 xl:px-4 py-2 sm:py-2.5 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap border border-slate-700"
         aria-label="Call Armstrong Locksmith at (615) 625-8000"
       >
-        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
         <span>CALL (615) 625-8000</span>
       </a>
 
@@ -406,15 +416,24 @@ const { reviewCount } = await getReviewStats();
       <!-- Navy Showroom Brand Header -->
       <div class="bg-[#07152b] bg-navy-grid px-4 pt-4 pb-3.5 shrink-0">
         <div class="flex items-start justify-between gap-3">
-          <div class="min-w-0">
-            <div class="text-base font-black uppercase tracking-wide text-white leading-tight">
-              Armstrong <span class="text-gold-gradient">Locksmith</span>
+          <div class="flex items-center gap-2.5 min-w-0">
+            <img
+              src="/images/rahim-face-96.webp"
+              alt="Rahim, Owner of Armstrong Locksmith"
+              width="40"
+              height="40"
+              loading="lazy"
+              decoding="async"
+              class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shrink-0"
+            />
+            <div class="min-w-0">
+              <div class="text-base font-black uppercase tracking-wide text-white leading-tight">
+                Armstrong <span class="text-gold-gradient">Locksmith</span>
+              </div>
+              <a href="/google-reviews/" class="flex w-fit items-center gap-1 text-[11px] font-bold text-amber-400 hover:text-white transition-colors mt-0.5">
+                4.9 ★ &bull; <span class="arm-review-count">{reviewCount}+</span> Google Reviews
+              </a>
             </div>
-            <!-- 44px tall for the tap target. The negative bottom margin only
-                 eats into the empty gap above the buttons, never the buttons. -->
-            <a href="/google-reviews/" class="mt-1 -mb-2 flex w-fit items-center min-h-11 gap-1 text-[11px] font-bold text-amber-400 hover:text-white transition-colors">
-              ⭐ 4.9/5 &bull; <span class="arm-review-count">{reviewCount}+</span> Google Reviews
-            </a>
           </div>
           <button
             id="arm-drawer-close"
@@ -429,30 +448,27 @@ const { reviewCount } = await getReviewStats();
         <!-- Thumb-First Primary CTAs -->
         <div class="grid grid-cols-2 gap-2 mt-3">
           <a href="tel:6156258000" class="min-h-11 py-2.5 bg-gold-metallic text-[#07152b] font-black text-center text-xs flex items-center justify-center gap-1.5 border-b-2 border-amber-600 active:scale-95 transition" aria-label="Call Armstrong Locksmith at (615) 625-8000">
-            📞 Call Store
+            <svg class="w-3.5 h-3.5 text-[#07152b] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call Store</span>
           </a>
           <a href="/book-online/" class="min-h-11 py-2.5 bg-[#0e2242] border border-amber-400/80 text-amber-300 hover:text-white font-black text-center text-xs flex items-center justify-center gap-1.5 active:scale-95 transition">
-            📅 Book Online
+            <span>Book Online</span>
           </a>
         </div>
 
         <!-- High-Intent Quick Navigation -->
         <div class="grid grid-cols-2 gap-1.5 mt-2.5 pt-2.5 border-t border-white/10 text-[11px]">
-          <a href="/emergency-car-lockout/" class="min-h-11 p-1.5 rounded bg-red-950/70 border border-red-500/50 text-red-200 font-bold flex items-center gap-1.5 hover:bg-red-900/60 transition-colors">
-            <span>🚨</span>
+          <a href="/emergency-car-lockout/" class="min-h-11 px-2.5 py-1.5 rounded bg-red-950/70 border border-red-500/50 text-red-200 font-bold flex items-center justify-center text-center hover:bg-red-900/60 transition-colors">
             <span class="truncate">Car Lockout</span>
           </a>
-          <a href="/car-key-replacement-nashville/" class="min-h-11 p-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center gap-1.5 hover:bg-white/10 transition-colors">
-            <span>🔑</span>
+          <a href="/car-key-replacement-nashville/" class="min-h-11 px-2.5 py-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center justify-center text-center hover:bg-white/10 transition-colors">
             <span class="truncate">Lost All Keys</span>
           </a>
-          <a href="/nashville-rekey-service/" class="min-h-11 p-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center gap-1.5 hover:bg-white/10 transition-colors">
-            <span>🏡</span>
+          <a href="/nashville-rekey-service/" class="min-h-11 px-2.5 py-1.5 rounded bg-white/5 border border-white/10 text-slate-200 font-bold flex items-center justify-center text-center hover:bg-white/10 transition-colors">
             <span class="truncate">Rekey House</span>
           </a>
-          <a href="/nashville-locksmith-storefront/" class="min-h-11 p-1.5 rounded bg-emerald-950/70 border border-emerald-500/50 text-emerald-300 font-bold flex items-center gap-1.5 hover:bg-emerald-900/60 transition-colors">
-            <span>🏬</span>
-            <span class="truncate">Visit Store</span>
+          <a href="/nashville-locksmith-storefront/" class="min-h-11 px-2.5 py-1.5 rounded bg-white/10 border border-amber-400/40 text-amber-300 font-bold flex items-center justify-center text-center hover:bg-white/15 transition-colors">
+            <span class="truncate">208 Thompson Ln</span>
           </a>
         </div>
       </div>
@@ -464,21 +480,17 @@ const { reviewCount } = await getReviewStats();
         <div class="border-b border-slate-100">
           <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
             <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <span class="text-amber-500">🚗</span>
+              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
               <span>Car Keys &amp; Vehicle Makes</span>
             </span>
-            <div class="flex items-center gap-1.5">
-              <span class="text-[10px] bg-amber-100 text-amber-900 border border-amber-300 font-extrabold px-1.5 py-0.5 rounded">12 Makes</span>
-              <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
+            <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
 
           <div class="arm-accordion-content hidden px-1 pb-3">
 
-            <!-- European Luxury Section -->
-            <div class="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1 pt-1.5 mb-1.5 flex items-center justify-between">
-              <span>European Specialists</span>
-              <span class="text-slate-500 font-bold">DEALER LEVEL</span>
+            <!-- European Car Keys Section -->
+            <div class="text-[10px] font-black uppercase tracking-wider text-slate-500 px-1 pt-1.5 mb-1.5">
+              <span>European Car Keys</span>
             </div>
 
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
@@ -494,15 +506,13 @@ const { reviewCount } = await getReviewStats();
               ))}
             </div>
 
-            <!-- European hub: was desktop-only before the shared nav data -->
             <a href={nav.europeanHub.href} class="min-h-11 flex items-center justify-center mb-3 py-2 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-[11px] active:bg-amber-100 transition-colors">
-              🏎️ {nav.europeanHub.label} &rarr;
+              {nav.europeanHub.label} &rarr;
             </a>
 
             <!-- Domestic & Asian Section -->
-            <div class="text-[10px] font-black uppercase tracking-wider text-slate-400 px-1 mb-1.5 flex items-center justify-between">
+            <div class="text-[10px] font-black uppercase tracking-wider text-slate-500 px-1 mb-1.5">
               <span>Domestic &amp; Asian Makes</span>
-              <span class="text-slate-500 font-semibold">ON-SITE CHIP</span>
             </div>
 
             <div class="grid grid-cols-2 gap-1.5 mb-3 text-[11px]">
@@ -513,20 +523,20 @@ const { reviewCount } = await getReviewStats();
               ))}
             </div>
 
-            <!-- Key Tech & Urgent Links -->
+            <!-- Key Services & Urgent Links -->
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
               {nav.keyServices.map((item) => (
                 <a href={item.href} class="min-h-11 flex items-center p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
-                  {item.icon} {item.label}
+                  {item.label}
                 </a>
               ))}
               <a href="/emergency-car-lockout/" class="min-h-11 flex items-center justify-center p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 font-bold col-span-2 text-center">
-                🚨 Emergency Car Lockout
+                Emergency Car Lockout &rarr;
               </a>
             </div>
 
             <a href={nav.makesHub.href} class="min-h-11 flex items-center justify-center py-2.5 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors shadow-2xs">
-              🔑 {nav.makesHub.label} &rarr;
+              {nav.makesHub.label} &rarr;
             </a>
 
           </div>
@@ -536,7 +546,7 @@ const { reviewCount } = await getReviewStats();
         <div class="border-b border-slate-100">
           <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
             <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <span class="text-emerald-600">🏠</span>
+              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               <span>Home &amp; Business Locks</span>
             </span>
             <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -547,7 +557,7 @@ const { reviewCount } = await getReviewStats();
               {[...nav.residential, ...nav.commercial].map((item) => (
                 <a href={item.href} class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between gap-2">
                   <div class="min-w-0">
-                    <span class="block text-slate-900 font-bold">{item.icon} {item.label}</span>
+                    <span class="block text-slate-900 font-bold">{item.label}</span>
                     <span class="block text-[10px] text-slate-500 font-normal">{item.desc}</span>
                   </div>
                   <span class="text-amber-500 font-bold shrink-0">&rarr;</span>
@@ -556,14 +566,14 @@ const { reviewCount } = await getReviewStats();
 
               <a href="/book-online/" class="p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-bold flex items-center justify-between gap-2">
                 <div class="min-w-0">
-                  <span class="block font-black text-amber-950">📅 Schedule Lock Service</span>
+                  <span class="block font-black text-amber-950">Schedule Lock Service</span>
                   <span class="block text-[10px] text-amber-800 font-normal">Select date &amp; time online</span>
                 </div>
                 <span class="text-amber-600 font-bold shrink-0">&rarr;</span>
               </a>
 
-              <a href="/nashville-locksmith-storefront/" class="min-h-11 flex items-center justify-center mt-1 p-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 font-black text-center text-xs active:bg-emerald-100 transition-colors">
-                🏬 208 Thompson Ln Key Shop &rarr;
+              <a href="/nashville-locksmith-storefront/" class="min-h-11 flex items-center justify-center mt-1 p-2.5 rounded-lg bg-slate-100 border border-slate-300 text-[#0f274a] font-black text-center text-xs active:bg-slate-200 transition-colors">
+                208 Thompson Ln Key Shop &rarr;
               </a>
             </div>
           </div>
@@ -573,7 +583,7 @@ const { reviewCount } = await getReviewStats();
         <div class="border-b border-slate-100">
           <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
             <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <span class="text-amber-500">💰</span>
+              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               <span>Pricing &amp; <span class="arm-review-count">{reviewCount}+</span> Reviews</span>
             </span>
             <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -590,7 +600,7 @@ const { reviewCount } = await getReviewStats();
                 >
                   <div class="min-w-0">
                     <span class={item.feature ? 'block font-black text-amber-950' : 'block font-bold text-slate-900'}>
-                      {item.icon} {item.label}
+                      {item.label}
                       {item.showCount && <> (<span class="arm-review-count">{reviewCount}+</span>)</>}
                     </span>
                     <span class={item.feature ? 'block text-[10px] text-amber-800 font-normal' : 'block text-[10px] text-slate-500'}>{item.desc}</span>
@@ -606,7 +616,7 @@ const { reviewCount } = await getReviewStats();
         <div>
           <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
             <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <span class="text-blue-500">📍</span>
+              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               <span>Locations &amp; Company</span>
             </span>
             <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -618,16 +628,31 @@ const { reviewCount } = await getReviewStats();
                 <a
                   href={item.href}
                   class={item.feature
-                    ? 'min-h-11 flex items-center p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold'
-                    : 'min-h-11 flex items-center p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold'}
+                    ? 'min-h-11 flex items-center justify-between p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-bold'
+                    : 'min-h-11 flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold'}
                 >
-                  {item.icon} {item.label}
+                  <span>{item.label}</span>
+                  <span class="text-amber-600 font-bold">&rarr;</span>
                 </a>
               ))}
-              <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-1 pt-2 pb-0.5">The Company</div>
+              <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-1 pt-2 pb-0.5">Our Local Shop</div>
               {nav.company.map((item) => (
-                <a href={item.href} class="min-h-11 flex items-center p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
-                  {item.icon} {item.label}
+                <a href={item.href} class="min-h-11 flex items-center justify-between gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
+                  <div class="flex items-center gap-2 min-w-0">
+                    {item.ownerPhoto && (
+                      <img
+                        src="/images/rahim-face-96.webp"
+                        alt="Owner Rahim"
+                        width="28"
+                        height="28"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-7 h-7 rounded-full object-cover border border-amber-500 shrink-0"
+                      />
+                    )}
+                    <span>{item.label}</span>
+                  </div>
+                  <span class="text-amber-500 font-bold shrink-0">&rarr;</span>
                 </a>
               ))}
             </div>
@@ -641,7 +666,7 @@ const { reviewCount } = await getReviewStats();
            strip this replaced read like we were. -->
       <a href="/emergency-car-lockout/" class="mx-3 mb-2 shrink-0 p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 font-bold flex items-center justify-between gap-2 active:bg-amber-100 transition-colors shadow-2xs">
         <div class="min-w-0">
-          <span class="block font-black text-amber-950 text-xs">🔓 Locked out?</span>
+          <span class="block font-black text-amber-950 text-xs">Locked out of your car or house?</span>
           <span class="block text-[10px] text-amber-800 font-normal">Mobile service until {mobileUntil} weekdays</span>
         </div>
         <span class="text-amber-600 font-bold shrink-0">&rarr;</span>
@@ -650,7 +675,7 @@ const { reviewCount } = await getReviewStats();
       <!-- Storefront Footer (Consistent NAP). Hours come from src/data/hours.mjs.
            Kept to short lines so nothing wraps at 375px. -->
       <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-200 text-[11px] text-slate-600 shrink-0">
-        <div class="font-bold text-slate-900">📍 208 Thompson Ln, Nashville, TN 37211</div>
+        <div class="font-bold text-slate-900">208 Thompson Ln, Nashville, TN 37211</div>
         <div class="mt-0.5">Storefront: Mon&ndash;Fri {storeWeekdays} &bull; Sat {storeSaturday}</div>
         <div class="mt-0.5">Mobile service: Mon&ndash;Fri until {mobileUntil} &bull; Sat {mobileSaturday}</div>
         <div class="mt-0.5">Closed Sunday</div>
