@@ -485,7 +485,6 @@ const { reviewCount } = await getReviewStats();
               {nav.european.map((item) => (
                 <a href={item.href} class="min-h-11 p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-1 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
                   <span class="truncate">{item.label}</span>
-                  <span class="text-[9px] text-amber-700 bg-amber-100/80 px-1 py-0.5 rounded font-black shrink-0">{item.chip}</span>
                 </a>
               ))}
               {nav.europeanCompact.map((item) => (

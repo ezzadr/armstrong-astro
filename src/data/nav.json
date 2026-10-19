@@ -5,20 +5,17 @@
     {
       "href": "/bmw/",
       "label": "BMW Key Replacement",
-      "desc": "CAS, FEM & BDC Key Programming",
-      "chip": "CAS/FEM"
+      "desc": "Smart keys & push-to-start fobs"
     },
     {
       "href": "/mercedes-benz/",
       "label": "Mercedes-Benz Car Keys",
-      "desc": "EIS, FBS3/FBS4 & Keyless Go",
-      "chip": "EIS/FBS"
+      "desc": "Smart keys & Keyless Go"
     },
     {
       "href": "/audi-car-keys/",
       "label": "Audi Car Keys",
-      "desc": "Advanced 5th Gen Immobilizer Keys",
-      "chip": "BCM2"
+      "desc": "Smart keys & remote fobs"
     }
   ],
 
