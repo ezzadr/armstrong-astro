@@ -26,7 +26,7 @@ If your key fob acts dead during a Nashville freeze, don’t panic. In cold weat
 
 ## Need a Key Fast? We’re Mobile in Nashville
 Call Armstrong Locksmith • 208 Thompson Ln  
-[📞 Call Now](tel:6156258000) • [📍 Directions](/contact-armstrong-locksmith/)
+[Call Now: (615) 625-8000](tel:6156258000) • [Directions](/contact-armstrong-locksmith/)
 
 ---
 

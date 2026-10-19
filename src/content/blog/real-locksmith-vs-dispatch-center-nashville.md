@@ -19,7 +19,7 @@ Some locksmith websites belong to real local businesses with a shop, a known tea
  
 That does not always mean the technician will be bad. But it does mean the business you thought you hired may not be the business doing the work.
 
-> “Awesome customer service! Rahim was responsive on the phone and put me at ease that he could make it happen when I gave him the make and model. He got me squared away with my new duplicate key fob, cut and programmed quickly right in front of me at the shop. Highly recommend 🤝”
+> “Awesome customer service! Rahim was responsive on the phone and put me at ease that he could make it happen when I gave him the make and model. He got me squared away with my new duplicate key fob, cut and programmed quickly right in front of me at the shop. Highly recommend.”
 >
 > **Mike Brooks** — Local Guide · 18 reviews · 3 photos ★★★★★ 9 months ago
          

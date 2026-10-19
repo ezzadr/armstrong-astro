@@ -11,7 +11,7 @@ image: "/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg"
  
 Most calls we get in Nashville are for [emergency car lockouts](/emergency-car-lockout/), replacing lost key fobs (especially [high-security Audi models](/audi-car-keys/)), rekeying new homes, fixing jammed commercial doors, or installing smart locks correctly.
  
-**Locked out right now in Nashville, Brentwood, or Franklin?** Call [**(615) 625-8000**](tel:6156258000) for immediate dispatch.
+**Locked out right now in Nashville, Brentwood, or Franklin?** Call [**(615) 625-8000**](tel:6156258000) for same-day mobile service.
    
 ## 1. Car Lockouts & Key Programming
  
@@ -25,7 +25,7 @@ We use **Lishi picks** to decode your specific door lock cylinder. This allows u
  
 If you’ve lost your keys entirely—perhaps at a Predators game or near Broadway—we can [generate a new one on-site](/car-key-replacement-nashville/). We carry diagnostic programmers that connect to your car's **OBD2 port** to bypass the immobilizer and sync a new transponder chip.
 
-**💡 Pro-Tip:** If your push-to-start button isn't working, hold the fob logo directly against the button. If the car starts, it’s just a dead fob battery (usually a CR2032), not a broken system.   
+**Pro-Tip:** If your push-to-start button isn't working, hold the fob logo directly against the button. If the car starts, it’s just a dead fob battery (usually a CR2032), not a broken system.   
 
 ## 2. Home Rekeying (Don't Replace Hardware)
  

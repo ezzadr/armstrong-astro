@@ -7,14 +7,14 @@ category: "Residential"
 image: "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg"
 ---
 
-## 🏠 Rekeying vs. Replacing: What’s the Real Difference?
+## Rekeying vs. Replacing: What’s the Real Difference?
 
 * **Rekeying:** We remove the lock cylinder, dump out the existing bottom and top brass pins, and insert new pins that match a completely new key cut. By rekeying, we change the shear line logic so the old key will no longer turn the plug. Your door handles and deadbolts stay exactly where they are.
 * **Replacing:** We completely unscrew the chassis and strike plates to install brand-new hardware. This resets the mechanical integrity of the lock but costs substantially more due to the price of materials.
 
 ---
 
-## 🔑 When to Rekey (The "Smart Spend" Option)
+## When to Rekey (The "Smart Spend" Option)
 
 In our experience servicing homes from **Cool Springs to Crieve Hall and Brentwood**, rekeying is the gold standard for new homeowners. You get the security of a brand new key without paying for expensive decorative metal you don’t need.
 
@@ -27,7 +27,7 @@ In our experience servicing homes from **Cool Springs to Crieve Hall and Brentwo
 
 ---
 
-## 🛠️ When to Replace (The Upgrade Option)
+## When to Replace (The Upgrade Option)
 
 Sometimes, the internal mechanism is too worn to save, or the security rating is too low. In these cases, replacement is necessary:
 
@@ -38,18 +38,18 @@ Sometimes, the internal mechanism is too worn to save, or the security rating is
 
 ---
 
-## 🌳 Real Case: A Move-In Near Crockett Park in Brentwood
+## Real Case: A Move-In Near Crockett Park in Brentwood
 
 We recently helped a family who just moved into a beautiful property near **Crockett Park in Brentwood**. They assumed they needed to replace all 8 exterior locks because they wanted “fresh keys.”
 
-### 💰 The Quote Comparison:
+### The Quote Comparison:
 * **Replacement Cost:** Replacing 8 handlesets and deadbolts with high-quality hardware would have cost them upwards of **$1,200** in parts and labor.
 * **Our Solution:** We inspected the locks and found they were high-end **Baldwin architectural hardware** in perfect mechanical condition. We simply rekeyed the internal cylinders.
 * **The Result:** The family **saved nearly $800**, kept their beautiful matching hardware, and we were finished in under **90 minutes**!
 
 ---
 
-## ❓ Frequently Asked Questions
+## Frequently Asked Questions
 
 ### Does rekeying weaken my door locks?
 **No.** Rekeying does not damage or weaken the lock at all. We simply swap the internal brass tumbler pins to fit a new key. The lock will function just as smoothly and securely as before, only matching your new key.
@@ -62,10 +62,10 @@ While store-bought rekey kits exist, they lack the 0.003-inch tolerances of prof
 
 ---
 
-## 📍 Schedule a Residential Rekey in Nashville & Brentwood
+## Schedule a Residential Rekey in Nashville & Brentwood
 
 Armstrong Locksmith carries factory pins for **Schlage, Kwikset, Baldwin, Yale, Weiser, Defiant, and Medeco**.
 
-* 📞 **Call Direct:** [**(615) 625-8000**](tel:6156258000)
-* 📍 **Storefront Location:** **208 Thompson Ln, Nashville, TN 37211**
-* 📜 **Certified & Insured:** Fully insured, real storefront
+* **Call Direct:** [**(615) 625-8000**](tel:6156258000)
+* **Storefront Location:** **208 Thompson Ln, Nashville, TN 37211**
+* **Certified & Insured:** Fully insured, real storefront

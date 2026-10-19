@@ -168,12 +168,10 @@ const serviceAreasSchema = [
         </div>
         <span class="hidden sm:inline text-slate-500">&bull;</span>
         <div class="flex items-center gap-1.5">
-          <span class="text-amber-400">🛡️</span>
           <span><strong class="text-white">Certified &amp; Insured</strong></span>
         </div>
         <span class="hidden sm:inline text-slate-500">&bull;</span>
         <div class="flex items-center gap-1.5">
-          <span class="text-amber-400">📍</span>
           <span><strong class="text-white">Shop:</strong> 208 Thompson Ln</span>
         </div>
       </div>
@@ -191,7 +189,7 @@ const serviceAreasSchema = [
         <div class="bg-slate-50 rounded-2xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-amber-400 transition">
           <div>
             <div class="flex items-center gap-2 mb-3">
-              <span class="w-8 h-8 rounded-lg bg-gold-metallic text-slate-950 flex items-center justify-center font-bold text-sm">📍</span>
+              <span class="w-8 h-8 rounded-lg bg-gold-metallic text-slate-950 flex items-center justify-center font-black text-xs">01</span>
               <h2 class="text-xl font-bold text-[#0f274a] font-heading font-black uppercase">Walk-In Storefront</h2>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
@@ -222,12 +220,12 @@ const serviceAreasSchema = [
           </a>
         </div>
 
-        <!-- Card 2: Mobile Van Dispatch -->
+        <!-- Card 2: Mobile Vans -->
         <div class="card-clean shadow-sharp hover-lift reveal-up rounded-3xl p-6 sm:p-8 flex flex-col justify-between border-2 border-amber-400/40 bg-white relative">
           <div>
             <div class="flex items-center gap-2 mb-2">
-              <span class="text-2xl">🚐</span>
-              <h2 class="text-xl font-bold text-[#0f274a] font-heading font-black uppercase">Direct Mobile Dispatch</h2>
+              <span class="w-8 h-8 rounded-lg bg-[#0f274a] text-amber-400 flex items-center justify-center font-black text-xs">02</span>
+              <h2 class="text-xl font-bold text-[#0f274a] font-heading font-black uppercase">Mobile Key &amp; Lock Vans</h2>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
               Stranded on the roadside, at work, or at home? Our mobile locksmith vans bring laser key cutters, OEM programming computers, and lock hardware straight to you.
@@ -235,7 +233,7 @@ const serviceAreasSchema = [
             <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
-                <span><strong>Dispatch Hours:</strong> {mobileHoursLine}</span>
+                <span><strong>Mobile Hours:</strong> {mobileHoursLine}</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
@@ -274,7 +272,7 @@ const serviceAreasSchema = [
           Find Your Neighborhood
         </h2>
         <p class="text-slate-600 text-xs sm:text-sm mt-2">
-          Select a county or area below to explore local locksmith services and emergency dispatch:
+          Select a county or area below to explore local locksmith services:
         </p>
 
         <!-- Filter Tabs -->
@@ -375,23 +373,20 @@ const serviceAreasSchema = [
         </h2>
 
         <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
-          Convenient central location with dedicated parking. Drop in during posted hours or call our dispatch team for on-site mobile service.
+          Convenient central location with dedicated parking. Drop in during posted hours or call our shop for on-site mobile service.
         </p>
 
         <div class="space-y-2.5 text-xs text-slate-700 mb-6">
           <div class="flex items-center gap-2.5">
-            <span class="text-base">📍</span>
-            <span><strong>208 Thompson Ln, Nashville, TN 37211</strong></span>
+            <span><strong>Address:</strong> 208 Thompson Ln, Nashville, TN 37211</span>
           </div>
           <div class="flex items-center gap-2.5">
-            <span class="text-base">📞</span>
-            <a href="tel:6156258000" class="text-[#0f274a] font-bold hover:text-amber-600">(615) 625-8000</a>
+            <span><strong>Phone:</strong> <a href="tel:6156258000" class="text-[#0f274a] font-bold hover:text-amber-600">(615) 625-8000</a></span>
           </div>
           <div class="flex items-start gap-2.5">
-            <span class="text-base">🕒</span>
             <div>
               <div><strong>Storefront:</strong> Mon–Fri {storeWeekdays} &bull; Sat {storeSaturday}</div>
-              <div class="text-emerald-700 font-semibold"><strong>Mobile Dispatch:</strong> {mobileHoursLine}</div>
+              <div class="text-emerald-700 font-semibold"><strong>Mobile Service:</strong> {mobileHoursLine}</div>
             </div>
           </div>
         </div>

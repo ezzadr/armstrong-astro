@@ -37,7 +37,7 @@ const { service, label } = Astro.props;
               + '<div class="flex items-center gap-2.5 mb-2">'
               + '<div class="w-9 h-9 bg-[#0f274a] border-2 border-amber-400/70 flex items-center justify-center text-amber-400 font-black text-xs shrink-0">' + initialsOf(rev.author_name) + '</div>'
               + '<div><span class="font-bold text-[#0f274a] text-sm block leading-tight">' + esc(rev.author_name) + '</span>'
-              + '<span class="text-[11px] text-slate-400">📍 Nashville, TN &bull; ' + esc(rev.relative_time_description || 'Recently') + '</span></div>'
+              + '<span class="text-[11px] text-slate-400">Nashville, TN &bull; ' + esc(rev.relative_time_description || 'Recently') + '</span></div>'
               + '</div>'
               + '<div class="flex items-center gap-2 mb-2"><span class="text-amber-500 text-sm tracking-tight">★★★★★</span>'
               + '<span class="px-1.5 py-0.5 bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-black">5.0</span></div>'
@@ -47,7 +47,7 @@ const { service, label } = Astro.props;
               + '</div></div>';
           }).join('');
           el.innerHTML = '<div class="text-center mb-5">'
-            + '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-black uppercase tracking-wider">⭐ Verified Google Reviews</span>'
+            + '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-black uppercase tracking-wider">Verified Google Reviews</span>'
             + '<h2 class="text-lg sm:text-2xl font-black text-[#0f274a] uppercase mt-2">What ' + esc(el.dataset.label) + ' Customers Say</h2>'
             + '</div>'
             + '<div class="flex flex-wrap justify-center gap-4">' + cards + '</div>';
