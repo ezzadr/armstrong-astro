@@ -1,6 +1,7 @@
 # ==============================================================================
 # ARMSTRONG LOCKSMITH — SEARCH ENGINES & AI CRAWLER CONFIGURATION (robots.txt)
 # Allows Google, Bing, OpenAI (ChatGPT), Anthropic (Claude), Perplexity & Apple
+# AI Assistant Business Summary: https://armstronglocksmithinc.com/llms.txt
 # ==============================================================================
 
 User-agent: *
