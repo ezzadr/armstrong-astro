@@ -1,6 +1,6 @@
 ---
-title: "2011 Dodge Ram Broken FOBIK Remote Replaced at Our Shop — $150 Less Than Other Quotes"
-description: "A customer walked into our 208 Thompson Ln storefront with a broken remote FOBIK key for his 2011 Dodge Ram. We programmed a new FOBIK key on the spot for $150 less than other locksmith companies quoted him."
+title: "Dodge Ram FOBIK Key Replacement Nashville TN | 2011 Ram Key"
+description: "A driver brought his 2011 Dodge Ram with a broken FOBIK remote to our 208 Thompson Ln shop in Nashville. We programmed a new FOBIK key for $150 less than other quotes."
 pubDate: "2026-10-17"
 author: "Rahim Ezzadpanah"
 category: "Car Keys"

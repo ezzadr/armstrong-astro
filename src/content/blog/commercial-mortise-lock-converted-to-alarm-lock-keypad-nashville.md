@@ -1,6 +1,6 @@
 ---
-title: "Commercial Storefront Mortise Lock Converted to Alarm Lock Keypad in Nashville, TN"
-description: "We upgraded a Nashville commercial glass storefront door from a standard mortise cylinder lock to an Alarm Lock Trilogy DL1200 narrow-stile keypad lock with up to 100 user PIN codes, key override, and an interior exit push paddle."
+title: "Commercial Keypad Lock Installation Nashville | Alarm Lock"
+description: "How we converted a Nashville glass storefront door from a mortise cylinder to an Alarm Lock Trilogy DL1200 keypad with PIN codes and interior exit paddle."
 pubDate: "2026-10-18"
 author: "Rahim Ezzadpanah"
 category: "Commercial"

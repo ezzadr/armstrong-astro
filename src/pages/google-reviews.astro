@@ -4,8 +4,8 @@ import YouTubeFacade from '../components/YouTubeFacade.astro';
 import { getReviewStats } from '../lib/reviewStats.mjs';
 const { reviewCount, ratingValue } = await getReviewStats();
 
-const seoTitle = "Armstrong Locksmith Google Reviews | Nashville TN";
-const seoDescription = "Read verified customer feedback for Armstrong Locksmith in Nashville, TN. Top-rated for European car keys, quick dispatch, lockouts, and fair pricing.";
+const seoTitle = `Armstrong Locksmith Reviews Nashville | 4.9★ (${reviewCount}+ Reviews)`;
+const seoDescription = `Read ${reviewCount}+ verified 5-star Google reviews for Armstrong Locksmith at 208 Thompson Ln, Nashville. Real local shop for car keys, fobs, lockouts & rekeys.`;
 
 const reviewsSchema = [
   {

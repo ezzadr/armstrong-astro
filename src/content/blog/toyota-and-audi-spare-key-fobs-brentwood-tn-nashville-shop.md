@@ -1,6 +1,6 @@
 ---
-title: "Making Spare Keys for a Toyota C-HR and an Audi at Our Shop"
-description: "A customer and her husband came down from Brentwood, TN to our shop at 208 Thompson Ln for spare keys for their Toyota C-HR and Audi. We made both keys in one stop and saved them good money over the dealership."
+title: "Toyota & Audi Spare Key Fob Programming Nashville TN Shop"
+description: "A couple drove from Brentwood, TN to our 208 Thompson Ln shop in Nashville for spare Toyota C-HR and Audi key fobs. Both keys cut and programmed in one visit."
 pubDate: "2026-10-14"
 author: "Rahim Ezzadpanah"
 category: "Car Keys"

@@ -11,8 +11,8 @@ import { storeWeekdays, storeSaturday } from '../data/hours.mjs';
 // list is empty and the browser fills the cards in on load.
 const { reviewCount, ratingValue } = await getReviewStats();
 
-const seoTitle = `Locksmith Nashville TN | Armstrong Locksmith 4.9★ (${reviewCount}+)`;
-const seoDescription = `Family-owned Nashville locksmith on Thompson Lane. Car keys, key fobs & European vehicles — Mercedes, BMW, Audi. 4.9 stars from ${reviewCount}+ Google reviews.`;
+const seoTitle = `Locksmith Nashville TN | Car Keys, Lockouts & Rekey Service`;
+const seoDescription = `Real Nashville locksmith shop at 208 Thompson Ln & mobile vans. Car keys, smart fobs, lockouts, home rekeying & commercial locks. ${reviewCount}+ 5-star reviews. (615) 625-8000.`;
 
 const initialReviews = (await getLiveReviews())
   .filter((r) => Number(r.rating) === 5)
