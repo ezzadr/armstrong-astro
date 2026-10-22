@@ -238,3 +238,7 @@ starter.
   git log -n 3 --oneline
   ```
 - Report the last 3 commits in plain words and confirm that his computer now has the latest live website updates and is ready for work.
+
+## 9. ALWAYS SHOW A LIVE PREVIEW BEFORE ASKING TO COMMIT
+- Whenever you make any visual, copy, layout, or page change, ALWAYS start the local preview (`npx astro preview --port 4321` after `npx astro build`, or `npm run dev`) and open the changed page in Rahim's browser (plus give him the clickable `http://localhost:4321/...` link) BEFORE asking him to commit or merge.
+- Never ask Rahim to commit a page or design change he has not seen in preview first.
