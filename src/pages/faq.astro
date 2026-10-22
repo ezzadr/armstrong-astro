@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { storeWeekdays, storeSaturday } from '../data/hours.mjs';
 
 const seoTitle = "Nashville Locksmith FAQ | Car Keys, Rekeying & Lockout Cost";
 const seoDescription = "Straight answers to common Nashville locksmith questions: lost car key replacement, smart fob programming, home lock rekeying, lockouts & upfront pricing.";
@@ -56,61 +57,61 @@ const schema = {
         <span class="text-amber-400">About Nashville Locksmith Services</span>
       </h1>
       <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl mt-4 font-normal leading-relaxed">
-        Straightforward, transparent answers from our master locksmith team regarding automotive key programming, mobile dispatch turnaround, storefront walk-ins, and pricing.
+        Straightforward, transparent answers from our master locksmith team regarding automotive key programming, same-day mobile service, storefront walk-ins, and pricing.
       </p>
     </div>
   </header>
 
-  <main class="py-16 sm:py-24 bg-[#0a192f] text-white px-4 sm:px-6 lg:px-8 text-left">
+  <main class="py-16 sm:py-24 bg-slate-50 text-slate-900 px-4 sm:px-6 lg:px-8 text-left">
     <div class="max-w-4xl mx-auto space-y-6">
 
-      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
-        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-amber-400 mb-3">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
           Can you make a replacement car key if I lost all my keys?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Yes! In an "all-keys-lost" scenario, you do not need to tow your car to the dealer. Our mobile locksmith van comes directly to your location in Nashville or Middle Tennessee. We decode your door lock cylinder using Lishi decoding tools, cut factory-spec laser key blades, and program the transponder chip or smart fob directly into your vehicle's immobilizer ECU on-site.
         </p>
       </div>
 
-      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
-        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-amber-400 mb-3">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
           How much money do I save compared to the car dealership?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Most customers save between 30% and 50% compared to dealership quotes. You also eliminate the $150+ towing fee and the typical 3-to-7 day dealership delay because we complete the job on-site with prompt same-day service.
         </p>
       </div>
 
-      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
-        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-amber-400 mb-3">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
           Do you have a real physical shop I can visit?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          Yes! We are not an out-of-state call center or a trunk-only operation. We own and operate a physical storefront at <strong>208 Thompson Ln, Nashville, TN 37211</strong>. You are welcome to walk in for key duplication, spare fob programming, and lock rekeying during our storefront hours (Mon–Fri 8AM–6PM, Sat 10AM–4PM).
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Yes! We are not an out-of-state call center or a trunk-only operation. We own and operate a physical storefront at <strong>208 Thompson Ln, Nashville, TN 37211</strong>. You are welcome to walk in for key duplication, spare fob programming, and lock rekeying during our storefront hours (Mon–Fri {storeWeekdays}, Sat {storeSaturday}).
         </p>
       </div>
 
-      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
-        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-amber-400 mb-3">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
           What is the difference between rekeying and replacing locks?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Rekeying changes only the internal tumbler pins inside your existing lock cylinder so old keys no longer work. Replacing involves removing and buying entirely new deadbolts and handle sets. Rekeying is 90% of the time the smarter, faster, and much cheaper choice ($20/cylinder in shop).
         </p>
       </div>
 
-      <div class="p-6 sm:p-8 rounded-2xl bg-[#10233d] border border-slate-700/80">
-        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-amber-400 mb-3">
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
           How fast can a locksmith arrive for emergency lockouts?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           We run same-day mobile service vans across Nashville, Brentwood, Franklin, Antioch, Green Hills, East Nashville, and Donelson. When you call our shop, we give you an honest arrival window based on live traffic and where our van is working.
         </p>
       </div>
 
       <!-- FAQ CTA -->
-      <div class="p-8 rounded-3xl bg-gradient-to-br from-[#0f274a] via-[#16335c] to-[#0f274a] text-white border-t-4 border-amber-500 flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
+      <div class="p-8 rounded-3xl bg-gradient-to-br from-[#0f274a] via-[#16335c] to-[#0f274a] text-white border-t-4 border-amber-500 flex flex-col sm:flex-row items-center justify-between gap-6 mt-8 shadow-xl">
         <div>
           <h2 class="text-xl font-bold font-heading font-black uppercase text-white mb-1">Have a Question Not Listed Here?</h2>
           <p class="text-xs text-slate-300">Call Rahim and the Armstrong Locksmith team directly for an honest upfront quote.</p>
