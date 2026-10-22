@@ -229,3 +229,12 @@ starter.
   Google Search Console data so two agents never give conflicting advice or churn
   titles/redirects while Google is evaluating the site.
 
+## 8. "I AM HOME" / "I AM AT THE SHOP" SYNC TRIGGER
+- Whenever Rahim says **"I am home"** (or **"I am at the shop"**), immediately run:
+  ```bash
+  git checkout main
+  git pull --rebase origin main
+  git status --porcelain
+  git log -n 3 --oneline
+  ```
+- Report the last 3 commits in plain words and confirm that his computer now has the latest live website updates and is ready for work.
