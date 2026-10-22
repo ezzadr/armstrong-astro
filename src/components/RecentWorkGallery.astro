@@ -2,6 +2,21 @@
 // RecentWorkGallery.astro - Curated, high-conversion proof of work gallery
 const projects = [
   {
+    id: "adams-rite-mortise-deadlatch-rekey-37211",
+    category: "commercial",
+    categoryLabel: "Commercial Lock Re-Key",
+    title: "Adams Rite Storefront Deadlatch & Schlage Re-Key in 37211",
+    subtitle: "Kawa installed a new Adams Rite mortise deadlatch on a South Nashville (37211) storefront door and re-keyed the locks so the business owner uses one key for all doors.",
+    badge: "Same Key Setup",
+    location: "Nashville, TN 37211",
+    href: "/blog/commercial-mortise-deadlatch-installation-lock-rekey-nashville-37211/",
+    imageSrc: "/images/adams-rite-mortise-deadlatch-push-paddle-nashville-37211.jpg",
+    webpSrc600: "/images/adams-rite-mortise-deadlatch-push-paddle-nashville-37211-600.webp",
+    webpSrc1200: "/images/adams-rite-mortise-deadlatch-push-paddle-nashville-37211-1200.webp",
+    alt: "Adams Rite ASSA ABLOY mortise deadlatch and interior push exit paddle installed by Kawa in South Nashville TN 37211",
+    tagColor: "emerald"
+  },
+  {
     id: "alarm-lock-dl1200-nashville",
     category: "commercial",
     categoryLabel: "Commercial Keypad Upgrade",
@@ -317,28 +332,28 @@ const shopPhotoSchema = {
             data-filter="all" 
             class="gallery-filter-btn active w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-black uppercase tracking-wider bg-[#07152b] text-amber-400 border border-amber-500 shadow-sm transition-all cursor-pointer text-center"
           >
-            All Work (13)
+            All Work ({projects.length})
           </button>
           <button 
             type="button" 
             data-filter="automotive" 
             class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
-            Automotive (6)
+            Automotive ({projects.filter(p => p.category === 'automotive').length})
           </button>
           <button 
             type="button" 
             data-filter="commercial" 
             class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
-            Commercial (2)
+            Commercial ({projects.filter(p => p.category === 'commercial').length})
           </button>
           <button 
             type="button" 
             data-filter="residential" 
             class="gallery-filter-btn w-full sm:w-auto px-3.5 py-2.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white text-slate-700 hover:text-slate-900 border border-slate-300 hover:border-amber-400 shadow-sm transition-all cursor-pointer text-center"
           >
-            Residential (5)
+            Residential ({projects.filter(p => p.category === 'residential').length})
           </button>
         </div>
       </div>
@@ -489,10 +504,10 @@ const shopPhotoSchema = {
     <div class="mt-8 sm:mt-10 text-center" id="gallery-expand-wrapper">
       <button 
         type="button" 
-        id="gallery-toggle-btn"
+        id="gallery-toggle-btn" data-default-label={`Explore All ${projects.length} Field Projects`}
         class="inline-flex items-center gap-2 px-6 py-3 bg-[#07152b] hover:bg-[#0f274a] text-white border border-amber-500/60 hover:border-amber-400 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-all active:scale-95 cursor-pointer"
       >
-        <span id="gallery-btn-text">Explore All 13 Field Projects</span>
+        <span id="gallery-btn-text">Explore All {projects.length} Field Projects</span>
         <svg id="gallery-btn-icon" class="w-4 h-4 text-amber-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -581,7 +596,7 @@ const shopPhotoSchema = {
           toggleText.textContent = 'Show Fewer Projects';
           toggleIcon.classList.add('rotate-180');
         } else {
-          toggleText.textContent = 'Explore All 13 Field Projects';
+          toggleText.textContent = 'Explore All {projects.length} Field Projects';
           toggleIcon.classList.remove('rotate-180');
           const gallerySec = document.getElementById('recent-work-gallery');
           if (gallerySec) {
