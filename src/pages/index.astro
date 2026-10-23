@@ -141,9 +141,9 @@ const homepageSchema = [
           <div class="p-4 sm:p-6">
             <form id="hero-quote-form" class="arm-fields-3d flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
               <!-- Invisible Honeypot Field (Anti-bot) -->
-              <div class="hidden" aria-hidden="true" style="display:none!important;position:absolute;left:-9999px;">
-                <label for="company_website">Company Website</label>
-                <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" value="" />
+              <div class="hidden" aria-hidden="true" style="display:none!important;">
+                <label for="hp_leave_empty">Leave this field empty</label>
+                <input type="text" id="hp_leave_empty" name="hp_leave_empty" tabindex="-1" autocomplete="off" value="" />
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -856,7 +856,7 @@ const homepageSchema = [
       const serviceLabel = document.getElementById('quote-service-label');
       const serviceMenu = document.getElementById('quote-service-menu');
       const detailsInput = document.getElementById('quote-details');
-      const honeypotInput = document.getElementById('company_website');
+      const honeypotInput = document.getElementById('hp_leave_empty');
 
       const nameError = document.getElementById('name-error');
       const phoneError = document.getElementById('phone-error');
