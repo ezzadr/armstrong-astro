@@ -300,11 +300,3 @@
      (min-[1280px]: etc.) do not compile in this setup (see .arm-menu-label).
      ------------------------------------------------------------------ */
   .arm-nav-item { white-space: nowrap; }
-
-  @media (min-width: 1280px) and (max-width: 1536px) {
-    .arm-desktop-nav { font-size: 12.5px; }
-    .arm-nav-item {
-      padding-left: 0.6rem;
-      padding-right: 0.6rem;
-    }
-  }

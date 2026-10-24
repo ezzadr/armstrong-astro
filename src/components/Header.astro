@@ -16,41 +16,105 @@ import { storeWeekdays, storeSaturday, mobileSaturday, mobileUntil } from '../da
 const { reviewCount } = await getReviewStats();
 ---
 
-<header id="arm-site-header" class="sticky top-0 z-50 w-full bg-white border-b-2 border-slate-200 shadow-sm font-sans">
+<header id="arm-site-header" class="sticky top-0 z-50 w-full bg-white shadow-md font-sans border-b-2 border-slate-200 lg:border-b-0">
 
-  <!-- Main Navigation Row -->
-  <div class="max-w-[96rem] mx-auto px-4 sm:px-6 xl:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3 xl:gap-4">
+  <!-- Tier 1: Brand Logo, Walk-In Shop Info Strip (Desktop), and Action CTAs -->
+  <div class="max-w-[96rem] mx-auto px-4 sm:px-6 xl:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-4">
 
-    <!-- Official Company Logo (Ultra-Lightweight 6KB WebP) -->
-    <a href="/" class="flex items-center flex-shrink-0 group" aria-label="Armstrong Locksmith Homepage">
-      <picture>
-        <source srcset="/logo.webp" type="image/webp" />
-        <img
-          src="/logo.png"
-          alt="Armstrong Locksmith Nashville"
-          class="h-12 sm:h-14 md:h-16 xl:h-18 w-auto object-contain transition-transform group-hover:scale-102"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          width="200"
-          height="153"
-        />
-      </picture>
-    </a>
+    <!-- Left: Official Company Logo + Storefront Trust Info (Desktop) -->
+    <div class="flex items-center gap-5 xl:gap-7">
+      <a href="/" class="flex items-center flex-shrink-0 group" aria-label="Armstrong Locksmith Homepage">
+        <picture>
+          <source srcset="/logo.webp" type="image/webp" />
+          <img
+            src="/logo.png"
+            alt="Armstrong Locksmith Nashville"
+            class="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-102"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="200"
+            height="153"
+          />
+        </picture>
+      </a>
 
-    <!-- Desktop Navigation (lg: 1024px+).
-         `relative` here is what the Car Keys panel anchors to. Labels are kept
-         short deliberately: at 1024-1279px the full row (logo + 5 items + both
-         CTAs) has to fit, and single-word labels also scan faster than the
-         compound "Pricing & Reviews" style they replaced. -->
-    <nav class="arm-desktop-nav relative hidden lg:flex items-center divide-x divide-slate-200 border-x border-slate-200 text-[12px] xl:text-[14px] font-bold text-slate-800" aria-label="Main Navigation">
+      <!-- Desktop Storefront & Reviews Callout -->
+      <div class="hidden lg:flex items-center gap-5 pl-5 border-l border-slate-200 text-xs">
+        <a href="/nashville-locksmith-storefront/" class="group flex items-center gap-2.5 text-slate-700 hover:text-[#0f274a]">
+          <div class="w-8 h-8 rounded-md bg-slate-100 border border-slate-200 flex items-center justify-center text-[#0f274a] group-hover:bg-[#0f274a] group-hover:text-amber-400 transition-colors shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <span class="block font-extrabold text-[#0f274a] text-[13px] leading-tight group-hover:underline">Walk-In Shop: 208 Thompson Ln</span>
+            <span class="block text-[11px] text-slate-500 mt-0.5">Mon–Fri {storeWeekdays} &bull; Sat {storeSaturday}</span>
+          </div>
+        </a>
+
+        <a href="/google-reviews/" class="hidden xl:flex items-center gap-2 pl-5 border-l border-slate-200 text-slate-700 hover:text-[#0f274a]">
+          <span class="text-amber-500 text-sm tracking-tight">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <div>
+            <span class="block font-extrabold text-[#0f274a] text-[13px] leading-tight">4.9 Google Rating</span>
+            <span class="block text-[11px] text-slate-500 mt-0.5"><span class="arm-review-count font-bold text-slate-700">{reviewCount}+</span> Local Reviews</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Header Action CTAs + Mobile Menu Button -->
+    <div class="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+
+      <!-- Prominent Call Button (All Screens: Compact on Phone, Full on Tablet/Desktop) -->
+      <a
+        href="tel:6156258000"
+        class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-md bg-[#0f274a] hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap"
+        aria-label="Call Armstrong Locksmith at (615) 625-8000"
+      >
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+        <span class="hidden sm:inline">CALL </span><span>(615) 625-8000</span>
+      </a>
+
+      <!-- Book Online Button (Desktop >= 768px) -->
+      <a
+        href="/book-online/"
+        class="hidden md:inline-flex items-center justify-center px-4 py-2.5 rounded-md bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-xs sm:text-sm shadow-sm transition active:scale-95 whitespace-nowrap border-b-2 border-amber-600 cursor-pointer"
+        aria-label="Book Locksmith Service Online"
+      >
+        <span>Book Online</span>
+      </a>
+
+      <!-- Mobile Menu Toggle Button (High-Contrast Shop Gold) -->
+      <button
+        id="arm-mobile-menu-btn"
+        type="button"
+        class="lg:hidden flex items-center gap-1.5 px-3 py-2 rounded-md bg-[#f59e0b] hover:bg-amber-400 border-b-2 border-amber-600 text-[#07152b] shadow-sm active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0f274a]"
+        aria-label="Open mobile navigation menu"
+        aria-expanded="false"
+      >
+        <div class="flex flex-col gap-1 w-4 shrink-0 pointer-events-none">
+          <span class="w-full h-0.5 bg-[#07152b]"></span>
+          <span class="w-full h-0.5 bg-[#07152b]"></span>
+          <span class="w-full h-0.5 bg-[#07152b]"></span>
+        </div>
+        <span class="arm-menu-label text-[11px] font-black uppercase tracking-wider text-[#07152b] select-none pointer-events-none">
+          MENU
+        </span>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Tier 2: High-Contrast Shop Gold Desktop Navigation Bar (lg: 1024px+) -->
+  <div class="hidden lg:block bg-[#f59e0b] border-y border-amber-600 shadow-md">
+    <div class="max-w-[96rem] mx-auto px-6 xl:px-8 flex items-center justify-between">
+      <nav class="arm-desktop-nav relative flex items-center divide-x divide-[#07152b]/15 border-x border-[#07152b]/15 text-[15px] xl:text-[16px] font-black text-[#07152b] tracking-tight" aria-label="Main Navigation">
 
       <!-- Silo 1: Car Keys Mega-Dropdown -->
       <div class="group">
-        <a href="/car-key-replacement-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-car-keys">
-          <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+        <a href="/car-key-replacement-nashville/" class="arm-nav-item px-5 xl:px-6 py-2.5 hover:bg-[#07152b] hover:text-white group-hover:bg-[#07152b] group-hover:text-white transition-colors inline-flex items-center gap-2 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-car-keys">
           <span>Car Keys</span>
-          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+          <svg class="w-4 h-4 text-[#07152b] group-hover:text-amber-400 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
         <!-- 3-Column Mega Dropdown Panel -->
@@ -181,10 +245,9 @@ const { reviewCount } = await getReviewStats();
 
       <!-- Silo 2: Locks & Rekeys (Home & Business) -->
       <div class="relative group">
-        <a href="/residential-locksmith-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-commercial">
-          <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <a href="/residential-locksmith-nashville/" class="arm-nav-item px-5 xl:px-6 py-2.5 hover:bg-[#07152b] hover:text-white group-hover:bg-[#07152b] group-hover:text-white transition-colors inline-flex items-center gap-2 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-commercial">
           <span>Locks &amp; Rekeys</span>
-          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+          <svg class="w-4 h-4 text-[#07152b] group-hover:text-amber-400 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
 
         <div id="arm-menu-commercial" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-[680px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden">
@@ -261,16 +324,17 @@ const { reviewCount } = await getReviewStats();
       <!-- Silo 3: Lockout. Direct link, no dropdown - the highest-intent visitor
            on the site should not have to guess which menu it lives under. -->
       <div>
-        <a href="/emergency-car-lockout/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 text-red-700 hover:text-white hover:bg-red-600 transition-colors inline-flex items-center gap-1.5 cursor-pointer">
+        <a href="/emergency-car-lockout/" class="arm-nav-item px-5 xl:px-6 py-2.5 text-[#07152b] hover:bg-red-700 hover:text-white transition-colors inline-flex items-center gap-2 cursor-pointer">
+          <span class="w-2 h-2 rounded-full bg-red-600"></span>
           <span>Lockout</span>
         </a>
       </div>
 
       <!-- Silo 4: Pricing Dropdown -->
       <div class="relative group">
-        <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-pricing">
+        <a href="/locksmith-pricing-nashville/" class="arm-nav-item px-5 xl:px-6 py-2.5 hover:bg-[#07152b] hover:text-white group-hover:bg-[#07152b] group-hover:text-white transition-colors inline-flex items-center gap-2 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-pricing">
           <span>Pricing</span>
-          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+          <svg class="w-4 h-4 text-[#07152b] group-hover:text-amber-400 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
         <div id="arm-menu-pricing" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
           <div class="h-1 bg-[#d4a017]"></div>
@@ -301,11 +365,11 @@ const { reviewCount } = await getReviewStats();
       <!-- Silo 5: Locations. Shop + areas first, company links visually split
            below so the two intents are not presented as one flat list. -->
       <div class="relative group">
-        <a href="/service-areas/" class="arm-nav-item px-2.5 xl:px-3.5 py-2 hover:text-[#0f274a] hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-locations">
+        <a href="/service-areas/" class="arm-nav-item px-5 xl:px-6 py-2.5 hover:bg-[#07152b] hover:text-white group-hover:bg-[#07152b] group-hover:text-white transition-colors inline-flex items-center gap-2 cursor-pointer" aria-expanded="false" aria-controls="arm-menu-locations">
           <span>Locations</span>
-          <svg class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-amber-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+          <svg class="w-4 h-4 text-[#07152b] group-hover:text-amber-400 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
         </a>
-        <div id="arm-menu-locations" class="absolute top-full right-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
+        <div id="arm-menu-locations" class="absolute top-full left-0 hidden group-hover:block group-focus-within:block w-80 bg-white rounded-2xl shadow-[0_20px_50px_rgba(15,23,42,0.18)] border border-slate-200 z-50 mt-1 text-xs overflow-hidden text-left">
           <div class="h-1 bg-[#d4a017]"></div>
           <div class="divide-y divide-slate-100 p-2">
             {nav.locations.map((item) => (
@@ -353,54 +417,16 @@ const { reviewCount } = await getReviewStats();
         </div>
       </div>
 
-    </nav>
+      </nav>
 
-    <!-- Header Action CTAs -->
-    <div class="flex items-center gap-2.5 flex-shrink-0">
-
-      <!-- Prominent Call Button (Navy & High Contrast) -->
-      <a
-        href="tel:6156258000"
-        class="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 lg:px-3 xl:px-4 py-2 sm:py-2.5 bg-[#0f274a] bg-navy-grid hover:bg-[#16335c] text-white font-black text-xs sm:text-sm shadow transition active:scale-95 whitespace-nowrap border border-slate-700"
-        aria-label="Call Armstrong Locksmith at (615) 625-8000"
-      >
-        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
-        <span>CALL (615) 625-8000</span>
-      </a>
-
-      <!-- Book Online Button (Desktop >= 768px) - Gold Metallic Exact Match -->
-      <a
-        href="/book-online/"
-        class="hidden md:inline-flex items-center justify-center px-4 lg:px-3 xl:px-4 py-2 sm:py-2.5 bg-gold-metallic hover:brightness-105 text-[#07152b] font-black text-xs sm:text-sm shadow-md transition active:scale-95 whitespace-nowrap border-b-2 border-amber-600 cursor-pointer"
-        aria-label="Book Locksmith Service Online"
-      >
-        <span>Book Online</span>
-      </a>
-
-      <!-- Mobile Menu Toggle Button (Luxury Showroom Styling) -->
-      <button
-        id="arm-mobile-menu-btn"
-        type="button"
-        class="lg:hidden flex items-center gap-1.5 px-2.5 sm:px-3 py-2 bg-[#07152b] border border-amber-500/60 hover:border-amber-400 text-amber-400 hover:text-white shadow-md active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
-        aria-label="Open mobile navigation menu"
-        aria-expanded="false"
-      >
-        <div class="flex flex-col gap-1 w-4 shrink-0 pointer-events-none">
-          <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
-          <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
-          <span class="w-full h-0.5 bg-amber-400 group-hover:bg-amber-300 transition-colors"></span>
-        </div>
-        <!-- Hidden on the narrowest phones: the logo + full phone number + this
-             word overflowed the viewport by ~31px at 320px wide. The hamburger
-             icon carries the meaning on its own, and the phone number is the one
-             thing that must never shrink on a locksmith site. -->
-        <span class="arm-menu-label text-[11px] font-black uppercase tracking-widest text-amber-400 group-hover:text-white transition-colors select-none pointer-events-none">
-          MENU
-        </span>
-      </button>
-
+      <!-- Right Side of Gold Menu Bar: Direct Storefront & Mobile Dispatch Hours -->
+      <div class="hidden xl:flex items-center gap-4 text-xs font-bold text-[#07152b]">
+        <span>Mobile Vans: Mon–Fri until {mobileUntil} &bull; Sat {mobileSaturday}</span>
+        <a href="/contact-armstrong-locksmith/" class="px-3 py-1 rounded bg-[#07152b] text-amber-400 hover:bg-slate-800 hover:text-white font-extrabold transition-colors">
+          Get Directions / Contact &rarr;
+        </a>
+      </div>
     </div>
-
   </div>
 
   <!-- Mobile Drawer Menu (Native App-Style Navigation) -->
@@ -474,19 +500,18 @@ const { reviewCount } = await getReviewStats();
       </div>
 
       <!-- Mobile Navigation Silos -->
-      <nav class="flex-1 flex flex-col px-3 py-2 text-sm font-bold text-slate-800" aria-label="Mobile Navigation Links">
+      <nav class="flex-1 flex flex-col gap-2 px-3 py-3 text-sm font-bold text-slate-800" aria-label="Mobile Navigation Links">
 
         <!-- 1. Car Keys & Vehicle Makes Accordion -->
-        <div class="border-b border-slate-100">
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
-              <span>Car Keys &amp; Vehicle Makes</span>
+        <div class="rounded-lg border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-12 px-3.5 py-3 bg-white hover:bg-slate-50 active:bg-slate-100 transition" aria-expanded="false">
+            <span class="text-[13px] font-black text-[#0f274a] tracking-tight">
+              Car Keys &amp; Vehicle Makes
             </span>
-            <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="arm-chevron w-4 h-4 text-[#0f274a] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </button>
 
-          <div class="arm-accordion-content hidden px-1 pb-3">
+          <div class="arm-accordion-content hidden px-2.5 pb-3 pt-1 border-t border-slate-200">
 
             <!-- European Car Keys Section -->
             <div class="text-[10px] font-black uppercase tracking-wider text-slate-500 px-1 pt-1.5 mb-1.5">
@@ -495,18 +520,18 @@ const { reviewCount } = await getReviewStats();
 
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
               {nav.european.map((item) => (
-                <a href={item.href} class="min-h-11 p-2 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-1 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
+                <a href={item.href} class="min-h-10 p-2 rounded-md bg-white border border-slate-200 flex items-center justify-between gap-1 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50">
                   <span class="truncate">{item.label}</span>
                 </a>
               ))}
               {nav.europeanCompact.map((item) => (
-                <a href={item.href} class="min-h-11 p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 flex items-center justify-center">
+                <a href={item.href} class="min-h-10 p-2 rounded-md bg-white border border-slate-200 text-slate-800 font-bold hover:border-amber-400 active:bg-amber-50 flex items-center justify-center">
                   <span class="truncate">{item.label}</span>
                 </a>
               ))}
             </div>
 
-            <a href={nav.europeanHub.href} class="min-h-11 flex items-center justify-center mb-3 py-2 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-[11px] active:bg-amber-100 transition-colors">
+            <a href={nav.europeanHub.href} class="min-h-10 flex items-center justify-center mb-3 py-2 px-3 rounded-md bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-[11px] active:bg-amber-100 transition-colors">
               {nav.europeanHub.label} &rarr;
             </a>
 
@@ -517,7 +542,7 @@ const { reviewCount } = await getReviewStats();
 
             <div class="grid grid-cols-2 gap-1.5 mb-3 text-[11px]">
               {nav.makes.map((item) => (
-                <a href={item.href} class="min-h-11 p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-center">
+                <a href={item.href} class="min-h-10 p-1.5 rounded-md bg-white border border-slate-200 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-center">
                   <span class="truncate">{item.label}</span>
                 </a>
               ))}
@@ -526,16 +551,16 @@ const { reviewCount } = await getReviewStats();
             <!-- Key Services & Urgent Links -->
             <div class="grid grid-cols-2 gap-1.5 mb-2 text-[11px]">
               {nav.keyServices.map((item) => (
-                <a href={item.href} class="min-h-11 flex items-center p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
+                <a href={item.href} class="min-h-10 flex items-center p-2 rounded-md bg-white border border-slate-200 text-slate-800 font-semibold hover:border-amber-400">
                   {item.label}
                 </a>
               ))}
-              <a href="/emergency-car-lockout/" class="min-h-11 flex items-center justify-center p-2 rounded-lg bg-red-50 border border-red-200 text-red-700 font-bold col-span-2 text-center">
+              <a href="/emergency-car-lockout/" class="min-h-10 flex items-center justify-center p-2 rounded-md bg-red-50 border border-red-200 text-red-700 font-bold col-span-2 text-center">
                 Emergency Car Lockout &rarr;
               </a>
             </div>
 
-            <a href={nav.makesHub.href} class="min-h-11 flex items-center justify-center py-2.5 px-3 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors shadow-2xs">
+            <a href={nav.makesHub.href} class="min-h-10 flex items-center justify-center py-2 px-3 rounded-md bg-amber-50 border border-amber-300 text-amber-950 font-black text-center text-xs active:bg-amber-100 transition-colors">
               {nav.makesHub.label} &rarr;
             </a>
 
@@ -543,19 +568,18 @@ const { reviewCount } = await getReviewStats();
         </div>
 
         <!-- 2. Home & Business Locks Accordion -->
-        <div class="border-b border-slate-100">
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>Home &amp; Business Locks</span>
+        <div class="rounded-lg border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-12 px-3.5 py-3 bg-white hover:bg-slate-50 active:bg-slate-100 transition" aria-expanded="false">
+            <span class="text-[13px] font-black text-[#0f274a] tracking-tight">
+              Home &amp; Business Locks
             </span>
-            <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="arm-chevron w-4 h-4 text-[#0f274a] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </button>
 
-          <div class="arm-accordion-content hidden px-1 pb-3">
-            <div class="flex flex-col gap-1.5 text-[12px] pt-1">
+          <div class="arm-accordion-content hidden px-2.5 pb-3 pt-2 border-t border-slate-200">
+            <div class="flex flex-col gap-1.5 text-[12px]">
               {[...nav.residential, ...nav.commercial].map((item) => (
-                <a href={item.href} class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between gap-2">
+                <a href={item.href} class="p-2.5 rounded-md bg-white border border-slate-200 text-slate-800 font-bold hover:border-amber-400 flex items-center justify-between gap-2">
                   <div class="min-w-0">
                     <span class="block text-slate-900 font-bold">{item.label}</span>
                     <span class="block text-[10px] text-slate-500 font-normal">{item.desc}</span>
@@ -564,7 +588,7 @@ const { reviewCount } = await getReviewStats();
                 </a>
               ))}
 
-              <a href="/book-online/" class="p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-bold flex items-center justify-between gap-2">
+              <a href="/book-online/" class="p-2.5 rounded-md bg-amber-50 border border-amber-300 text-amber-950 font-bold flex items-center justify-between gap-2">
                 <div class="min-w-0">
                   <span class="block font-black text-amber-950">Schedule Lock Service</span>
                   <span class="block text-[10px] text-amber-800 font-normal">Select date &amp; time online</span>
@@ -572,7 +596,7 @@ const { reviewCount } = await getReviewStats();
                 <span class="text-amber-600 font-bold shrink-0">&rarr;</span>
               </a>
 
-              <a href="/nashville-locksmith-storefront/" class="min-h-11 flex items-center justify-center mt-1 p-2.5 rounded-lg bg-slate-100 border border-slate-300 text-[#0f274a] font-black text-center text-xs active:bg-slate-200 transition-colors">
+              <a href="/nashville-locksmith-storefront/" class="min-h-10 flex items-center justify-center mt-1 p-2.5 rounded-md bg-white border border-slate-300 text-[#0f274a] font-black text-center text-xs active:bg-slate-100 transition-colors">
                 208 Thompson Ln Key Shop &rarr;
               </a>
             </div>
@@ -580,23 +604,22 @@ const { reviewCount } = await getReviewStats();
         </div>
 
         <!-- 3. Pricing & Reviews Accordion -->
-        <div class="border-b border-slate-100">
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span>Pricing &amp; <span class="arm-review-count">{reviewCount}+</span> Reviews</span>
+        <div class="rounded-lg border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-12 px-3.5 py-3 bg-white hover:bg-slate-50 active:bg-slate-100 transition" aria-expanded="false">
+            <span class="text-[13px] font-black text-[#0f274a] tracking-tight">
+              Pricing &amp; <span class="arm-review-count">{reviewCount}+</span> Reviews
             </span>
-            <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="arm-chevron w-4 h-4 text-[#0f274a] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </button>
 
-          <div class="arm-accordion-content hidden px-1 pb-3">
-            <div class="flex flex-col gap-1.5 text-[12px] pt-1">
+          <div class="arm-accordion-content hidden px-2.5 pb-3 pt-2 border-t border-slate-200">
+            <div class="flex flex-col gap-1.5 text-[12px]">
               {nav.pricing.map((item) => (
                 <a
                   href={item.href}
                   class={item.feature
-                    ? 'p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-black flex items-center justify-between gap-2'
-                    : 'p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold flex items-center justify-between gap-2'}
+                    ? 'p-2.5 rounded-md bg-amber-50 border border-amber-300 text-amber-950 font-black flex items-center justify-between gap-2'
+                    : 'p-2.5 rounded-md bg-white border border-slate-200 text-slate-800 font-bold flex items-center justify-between gap-2'}
                 >
                   <div class="min-w-0">
                     <span class={item.feature ? 'block font-black text-amber-950' : 'block font-bold text-slate-900'}>
@@ -613,23 +636,22 @@ const { reviewCount } = await getReviewStats();
         </div>
 
         <!-- 4. Locations & Company Accordion -->
-        <div>
-          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-11 p-3 hover:bg-slate-50 active:bg-slate-100 transition rounded-lg" aria-expanded="false">
-            <span class="text-[12px] font-black uppercase text-slate-900 tracking-wider flex items-center gap-2">
-              <svg class="w-4 h-4 text-amber-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Locations &amp; Company</span>
+        <div class="rounded-lg border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="arm-accordion-btn w-full flex items-center justify-between min-h-12 px-3.5 py-3 bg-white hover:bg-slate-50 active:bg-slate-100 transition" aria-expanded="false">
+            <span class="text-[13px] font-black text-[#0f274a] tracking-tight">
+              Locations &amp; Company
             </span>
-            <svg class="arm-chevron w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="arm-chevron w-4 h-4 text-[#0f274a] transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </button>
 
-          <div class="arm-accordion-content hidden px-1 pb-3">
-            <div class="flex flex-col gap-1.5 text-[12px] pt-1">
+          <div class="arm-accordion-content hidden px-2.5 pb-3 pt-2 border-t border-slate-200">
+            <div class="flex flex-col gap-1.5 text-[12px]">
               {nav.locations.map((item) => (
                 <a
                   href={item.href}
                   class={item.feature
-                    ? 'min-h-11 flex items-center justify-between p-2.5 rounded-lg bg-amber-50 border border-amber-300 text-amber-950 font-bold'
-                    : 'min-h-11 flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold'}
+                    ? 'min-h-10 flex items-center justify-between p-2.5 rounded-md bg-amber-50 border border-amber-300 text-amber-950 font-bold'
+                    : 'min-h-10 flex items-center justify-between p-2.5 rounded-md bg-white border border-slate-200 text-slate-800 font-bold'}
                 >
                   <span>{item.label}</span>
                   <span class="text-amber-600 font-bold">&rarr;</span>
@@ -637,7 +659,7 @@ const { reviewCount } = await getReviewStats();
               ))}
               <div class="text-[9px] font-black uppercase tracking-wider text-slate-400 px-1 pt-2 pb-0.5">Our Local Shop</div>
               {nav.company.map((item) => (
-                <a href={item.href} class="min-h-11 flex items-center justify-between gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-bold">
+                <a href={item.href} class="min-h-10 flex items-center justify-between gap-2.5 p-2.5 rounded-md bg-white border border-slate-200 text-slate-800 font-bold">
                   <div class="flex items-center gap-2 min-w-0">
                     {item.ownerPhoto && (
                       <img
