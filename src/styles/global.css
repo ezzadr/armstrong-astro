@@ -39,79 +39,70 @@
     letter-spacing: -0.02em;
   }
 
-  /* Universal Strict Zero-Curve Rule: Every element on every page has 100% sharp edges */
-  *, *::before, *::after {
-    border-radius: 0px !important;
-    -webkit-border-radius: 0px !important;
-    -moz-border-radius: 0px !important;
+  /* Grounded, subtle 6px corners on cards & buttons (never cartoon 24px bubbles),
+     while keeping circular avatars (.rounded-full) genuinely round */
+  .rounded-xl, .rounded-2xl, .rounded-3xl {
+    border-radius: 6px !important;
+  }
+  .rounded-lg, .rounded-md, .rounded {
+    border-radius: 5px !important;
+  }
+  .rounded-full {
+    border-radius: 9999px !important;
   }
 }
 
 @layer utilities {
-  /* ==================== LUXURY FINESSE UTILITIES ==================== */
+  /* ==================== SHOP BRAND UTILITIES ==================== */
   
-  /* 1. Showroom Cinematic Lighting (Deep Navy with Ambient Top Spotlight) */
+  /* 1. Clean Deep Navy Header Background (No Tech Blueprint Grid) */
   .bg-showroom {
-    background-color: #0a1c38;
-    background-image: 
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 70%),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-color: #0c1f3f;
   }
 
-  /* 2. Brushed Metallic Gold Gradient (Buttons & Foil Badges) */
+  /* 2. Solid Trustworthy Shop Gold Button (No Shiny 3-Stop Foil Gradient) */
   .bg-gold-metallic {
-    background: linear-gradient(135deg, #fef08a 0%, #f59e0b 45%, #d97706 100%);
-    color: #091528;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+    background-color: #f59e0b;
+    color: #0f172a;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
   }
   .bg-gold-metallic:hover {
-    background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f59e0b 100%);
-    filter: brightness(1.05);
-    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-    transform: translateY(-1px);
+    background-color: #fbbf24;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
   }
 
-  /* 3. Gold Gradient Text */
+  /* 3. Clean Warm Gold Accent Text */
   .text-gold-gradient {
-    background: linear-gradient(135deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fbbf24;
   }
 
-  /* 4. Luxury Hairline Glass & Dividers */
+  /* 4. Hairline Dividers */
   .border-hairline {
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
   .border-hairline-slate {
     border: 1px solid #e2e8f0;
   }
 
-  /* 5. Precision Architectural Shadows */
+  /* 5. Clean Card Shadows */
   .shadow-sharp {
-    box-shadow: 6px 6px 0px 0px rgba(15, 39, 74, 1);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
   }
   .shadow-sharp-gold {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   }
   .shadow-luxury-card {
-    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.8);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .shadow-luxury-card:hover {
-    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px #cbd5e1;
-    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.09);
   }
 
-  /* 6. Deep Navy Automotive Grid Texture */
+  /* 6. Clean Solid Deep Navy Section Background */
   .bg-navy-grid {
-    background-color: #07152b;
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-    background-size: 32px 32px;
+    background-color: #0c1f3f;
   }
 
   /* 7. Reveal-Up Observer Animations */
