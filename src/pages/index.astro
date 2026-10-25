@@ -12,7 +12,7 @@ import { storeWeekdays, storeSaturday } from '../data/hours.mjs';
 const { reviewCount, ratingValue } = await getReviewStats();
 
 const seoTitle = `Locksmith Nashville TN | Car Keys, Lockouts & Rekey Service`;
-const seoDescription = `Real Nashville locksmith shop at 208 Thompson Ln & mobile vans. Car keys, smart fobs, lockouts, home rekeying & commercial locks. ${reviewCount}+ 5-star reviews. (615) 625-8000.`;
+const seoDescription = `Real Nashville locksmith shop at 208 Thompson Ln & mobile vans. Car keys, smart fobs, lockouts, rekeying & commercial locks. ${reviewCount}+ reviews. (615) 625-8000.`;
 
 const initialReviews = (await getLiveReviews())
   .filter((r) => Number(r.rating) === 5)
