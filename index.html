@@ -479,6 +479,11 @@
             form.classList.add('hidden');
             if (successMsg) {
               successMsg.classList.remove('hidden');
+              if (typeof gtag === 'function') {
+                gtag('event', 'contact_form_submission', { event_category: 'Contact', event_label: service, value: 1 });
+                gtag('event', 'generate_lead', { event_category: 'Contact', event_label: service, value: 1 });
+                gtag('event', 'conversion', { send_to: 'AW-10794342610/ZSBoCKzJ-uwZENKxkpso' });
+              }
             }
           }
 
@@ -810,6 +815,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-MNVMEG2BSG');
+    gtag('config', 'AW-10794342610');
   </script><!-- Conversion & Interaction Tracking: Calls, Directions, Booking, Reviews --><script>
     document.addEventListener('click', function (e) {
       var t = e.target;
@@ -827,6 +833,7 @@
             event_label: telHref,
             page_path: window.location.pathname
           });
+          gtag('event', 'conversion', { send_to: 'AW-10794342610/aioDCNO37OwZENKxkpso' });
           gtag('event', 'generate_lead', {
             event_category: 'Contact',
             event_label: telHref,
