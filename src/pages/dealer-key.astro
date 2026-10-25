@@ -5,9 +5,43 @@ import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 
 const seoTitle = "OEM Car Key Replacement Nashville TN | Dealer Key Alternative";
 const seoDescription = "Genuine OEM car keys and smart fobs cut & programmed in Nashville without dealership backorders or towing fees. Walk into 208 Thompson Ln or book mobile service.";
+
+const dealerKeySchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "OEM Car Key Replacement & Dealership Alternative",
+    "serviceType": "Automotive Locksmith",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
+    "description": "Genuine OEM factory car keys and smart proximity fobs cut and programmed in Nashville, TN at 40% to 60% below dealership pricing."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are your replacement car keys the same OEM quality as the dealership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We stock genuine OEM factory smart fobs alongside tested aftermarket options so you can choose the exact key that fits your vehicle and budget, programmed with dealer-grade diagnostic equipment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much can I save vs getting a replacement key at a Nashville car dealership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most drivers save 40% to 60% compared to franchise dealership parts and labor rates—plus you save $100 to $200+ in towing fees because our mobile vans come directly to your parked vehicle."
+        }
+      }
+    ]
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/dealer-key/">
+<Layout title={seoTitle} description={seoDescription} canonical="/dealer-key/" schema={dealerKeySchema}>
   
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

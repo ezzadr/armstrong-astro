@@ -7,9 +7,44 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Kia Key Replacement Nashville TN | Smart Keys & Fob Programming";
 const seoDescription = "Kia car key replacement, flip remotes, and push-to-start smart fob programming in Nashville, TN for Telluride, Sorento, Sportage, Forte, K5 & Soul. (615) 625-8000.";
+
+const kiaSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Kia Key Replacement & Smart Fob Programming",
+    "serviceType": "Automotive Locksmith",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage"],
+    "description": "Same-day Kia flip key cutting, push-to-start smart proximity fob programming, and ignition repair across Nashville, TN.",
+    "brand": { "@type": "Brand", "name": "Kia" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you make a replacement Kia key in Nashville if I lost all my keys?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our mobile locksmith vans come directly to your vehicle in Nashville, Antioch, Brentwood, or Donelson, decode your Kia lock cylinder, cut a new laser or standard blade, and program a flip remote or push-to-start smart key on the spot."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you repair damaged Kia ignitions after an attempted break-in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If your Kia Soul, Optima, Forte, Sportage, or Sorento ignition cylinder was damaged, we replace and re-key the ignition cylinder to match your existing door locks at your location or at our 208 Thompson Ln shop."
+        }
+      }
+    ]
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/kia-car-key-replacement/">
+<Layout title={seoTitle} description={seoDescription} canonical="/kia-car-key-replacement/" schema={kiaSchema}>
   
   <!-- Premium Hero Header -->
   <header class="bg-gradient-to-b from-[#0a192f] via-[#0f274a] to-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 relative overflow-hidden">

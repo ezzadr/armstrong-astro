@@ -6,13 +6,38 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 const seoTitle = "Hummer Key Replacement Nashville TN | H1, H2 & H3 Car Keys";
 const seoDescription = "Lost your Hummer keys in Nashville? On-site Hummer H1, H2 & H3 key cutting, Passlock transponder programming & remote fobs. Call (615) 625-8000.";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Hummer Key Replacement Nashville",
-  "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-  "areaServed": "Nashville, TN"
-};
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Hummer Key Replacement Nashville",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": "Nashville, TN",
+    "description": "On-site and in-shop Hummer H1, H2, and H3 key cutting, Passlock transponder programming, and keyless remote fobs in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you make a key and remote fob for a Hummer H2 or Hummer H3 in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We stock keys and remote keyless entry fobs for Hummer H1, H2, and H3 trucks and program GM Passlock and PK3+ immobilizer systems on-site or at our 208 Thompson Ln shop in Nashville."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my Hummer H3 or H2 security light is flashing and it won't start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A flashing security light on a Hummer H2 or H3 usually points to a worn ignition cylinder or a Passlock sensor out of sync. We repair Hummer ignition cylinders and perform Passlock immobilizer relearns on-site."
+        }
+      }
+    ]
+  }
+];
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/hummer-key-replacement-nashville/" schema={schema} image="/images/hummer-1536x832-1.webp">

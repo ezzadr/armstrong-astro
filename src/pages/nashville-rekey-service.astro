@@ -10,13 +10,46 @@ const { reviewCount } = await getReviewStats();
 const seoTitle = `Lock Rekeying Nashville TN | House & Commercial Lock Rekey`;
 const seoDescription = `Need locks rekeyed in Nashville? Bring cylinders to our 208 Thompson Ln shop ($20/cylinder) or book same-day mobile rekeying for your home or business. (615) 625-8000.`;
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Lock Rekeying Service Nashville",
-  "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-  "areaServed": "Nashville, TN"
-};
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Lock Rekeying Service Nashville",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
+    "description": "In-shop lock cylinder rekeying ($20/cylinder at 208 Thompson Ln) and same-day mobile residential and commercial lock rekeying across Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does it cost to rekey a lock in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you remove your lock cylinders and bring them into our shop at 208 Thompson Ln, Nashville, TN 37211, we rekey them for $20 per cylinder while you wait. For mobile on-site service at your home or business, we quote an upfront flat rate over the phone based on how many keyholes you have."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it better to rekey locks or replace them after buying a house?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your existing deadbolts and handles are in good shape, rekeying gives you 100% new key security at a fraction of the cost of buying new hardware. We replace the internal brass pins so old keys from previous owners, contractors, or realtors immediately stop working."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you rekey commercial storefront mortise cylinders and Schlage locks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We rekey commercial aluminum storefront mortise cylinders, Adams Rite deadlatches, Schlage commercial levers, and multi-door master key systems for Nashville businesses and property managers."
+        }
+      }
+    ]
+  }
+];
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/nashville-rekey-service/" schema={schema}>

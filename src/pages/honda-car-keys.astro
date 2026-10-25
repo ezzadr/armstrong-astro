@@ -7,9 +7,44 @@ import ServiceReviews from '../components/ServiceReviews.astro';
 
 const seoTitle = "Honda Key Replacement Nashville TN | Smart Key Fob Programming";
 const seoDescription = "On-site Honda car key cutting, high-security laser blades, and smart fob programming in Nashville for Civic, Accord, CR-V, Pilot, HR-V & Odyssey. Call (615) 625-8000.";
+
+const hondaSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Honda Key Replacement & Smart Fob Programming",
+    "serviceType": "Automotive Locksmith",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills"],
+    "description": "On-site Honda smart proximity fob programming, high-security laser key cutting, and ignition cylinder repair in Nashville, TN.",
+    "brand": { "@type": "Brand", "name": "Honda" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you fix a Honda ignition when the key won't turn?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Older Honda Accord, Civic, CR-V, Pilot, and Odyssey models use split-wafer high-security locks that frequently wear down and jam. We rebuild your Honda ignition cylinder with new brass wafers and cut a fresh factory-spec laser blade on-site so your original key code still matches your doors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a replacement Honda key fob cost in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Honda remote head keys and push-to-start smart proximity fobs at Armstrong Locksmith typically start at $120 to $220 cut and programmed—saving 40% to 50% compared to Nashville Honda dealerships, with walk-in service at 208 Thompson Ln or mobile dispatch."
+        }
+      }
+    ]
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/honda-car-keys/">
+<Layout title={seoTitle} description={seoDescription} canonical="/honda-car-keys/" schema={hondaSchema}>
   
   <!-- Premium Hero Header -->
   <header class="bg-gradient-to-b from-[#0a192f] via-[#0f274a] to-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 relative overflow-hidden">

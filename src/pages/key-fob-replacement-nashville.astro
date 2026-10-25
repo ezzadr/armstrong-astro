@@ -9,9 +9,43 @@ const { reviewCount } = await getReviewStats();
 
 const seoTitle = `Key Fob Replacement Nashville TN | Smart Key Fob Programming`;
 const seoDescription = `Same-day car key fob replacement and push-to-start remote programming in Nashville, TN. Save 40–60% vs dealership prices at 208 Thompson Ln or on-site. (615) 625-8000.`;
+
+const keyFobSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Key Fob Replacement & Push-to-Start Programming",
+    "serviceType": "Automotive Locksmith",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
+    "description": "Same-day push-to-start smart key fob replacement, remote head keys, flip keys, and Dodge/Jeep FOBIK programming at 208 Thompson Ln or via mobile service across Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does key fob replacement and programming cost in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Remote head keys and flip fobs start at $120+, push-to-start smart proximity fobs start at $145+, and European smart fobs start at $180+—including cutting the emergency mechanical blade and pairing the remote to your vehicle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you erase a lost or stolen key fob from my car's memory?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. During immobilizer programming we can clear missing or stolen fobs from your vehicle's computer so anyone who finds an old remote can no longer unlock or start your car."
+        }
+      }
+    ]
+  }
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/key-fob-replacement-nashville/" image="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/key-fob-replacement-nashville/" schema={keyFobSchema} image="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg">
   
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
