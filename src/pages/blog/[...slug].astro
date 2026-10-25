@@ -76,6 +76,9 @@ const blogSchema = [
       "@type": "Person",
       "name": post.data.author || "Rahim Ezzadpanah",
       "jobTitle": "Master Locksmith & Owner",
+      "@id": "https://armstronglocksmithinc.com/#rahim",
+      "url": "https://armstronglocksmithinc.com/about-us/",
+      "image": "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
       "worksFor": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     },
     "publisher": {
@@ -113,6 +116,7 @@ const computedTitle = post.data.title.length > 45
   description={post.data.description} 
   canonical={`/blog/${post.id}/`}
   schema={blogSchema}
+  image={postImage}
   ogType="article"
   breadcrumb={false}
 >

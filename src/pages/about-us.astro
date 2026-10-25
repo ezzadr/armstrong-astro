@@ -3,9 +3,23 @@ import Layout from '../layouts/Layout.astro';
 
 const seoTitle = "About Armstrong Locksmith Nashville | Owner Rahim Ezzadpanah";
 const seoDescription = "Meet Rahim Ezzadpanah, owner of Armstrong Locksmith. 20+ years security experience, real shop on Thompson Ln, Certified & Insured. Call (615) 625-8000.";
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://armstronglocksmithinc.com/#rahim",
+    "name": "Rahim Ezzadpanah",
+    "jobTitle": "Master Locksmith & Owner",
+    "url": "https://armstronglocksmithinc.com/about-us/",
+    "image": "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
+    "worksFor": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "knowsAbout": ["European Car Key Programming", "BMW & Mercedes-Benz Immobilizer Systems", "Commercial Door Hardware", "Residential Lock Rekeying"]
+  }
+};
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/about-us/" image="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg">
+<Layout title={seoTitle} description={seoDescription} canonical="/about-us/" schema={aboutSchema} image="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg">
   
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto text-left">
