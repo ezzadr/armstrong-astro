@@ -380,6 +380,7 @@ const seoDescription = "Visit our Nashville locksmith shop at 208 Thompson Ln or
             if (emailResult.ok) {
               form.classList.add('hidden');
               if (successMsg) successMsg.classList.remove('hidden');
+              if (typeof gtag === 'function') { gtag('event', 'conversion', { send_to: 'AW-10794342610/ZSBoCKzJ-uwZENKxkpso' }); }
               if (typeof gtag === 'function') {
                 gtag('event', 'contact_form_submission', {
                   event_category: 'Contact',

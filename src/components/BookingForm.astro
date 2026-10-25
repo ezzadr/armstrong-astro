@@ -502,7 +502,7 @@
     const locationInput = { get value() { return 'Nashville'; } };
     const timeInput = { get value() { return getTimeWindowText(); } };
     const photoIn = { files: [] };
-    const updateStepper = stage => show(stage === 4 ? 5 : stage);
+    const updateStepper = stage => { if (stage === 4 && typeof window !== 'undefined' && typeof window.gtag === 'function') { window.gtag('event', 'conversion', { send_to: 'AW-10794342610/ZSBoCKzJ-uwZENKxkpso' }); } show(stage === 4 ? 5 : stage); };
 
     // Submit
     if (form) {

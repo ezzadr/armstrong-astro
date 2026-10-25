@@ -896,6 +896,11 @@ const homepageSchema = [
             form.classList.add('hidden');
             if (successMsg) {
               successMsg.classList.remove('hidden');
+              if (typeof gtag === 'function') {
+                gtag('event', 'contact_form_submission', { event_category: 'Contact', event_label: service, value: 1 });
+                gtag('event', 'generate_lead', { event_category: 'Contact', event_label: service, value: 1 });
+                gtag('event', 'conversion', { send_to: 'AW-10794342610/ZSBoCKzJ-uwZENKxkpso' });
+              }
             }
           }
 
