@@ -272,7 +272,7 @@ const yearRanges = [
         } else if (isAsian) {
           techDesc.textContent = `High-security proximity smart key programming, 8A/4D/46/47/4A transponders, & computerized factory laser cutting for ${make}.`;
         } else {
-          techDesc.textContent = `Factory OEM key fob & PEPS proximity programming with computerized high-security laser blade origination for ${make}.`;
+          techDesc.textContent = (make.toLowerCase() === 'ford' || make.toLowerCase() === 'lincoln') ? `Official Ford FDRS dealer software for 2020–2026 push-to-start models (Escape, F-150, Explorer, Bronco, Transit) plus PATS transponder & laser cutting for ${make}.` : `Factory OEM key fob & PEPS proximity programming with computerized high-security laser blade origination for ${make}.`;
         }
       }
 
