@@ -35,6 +35,14 @@ const serviceSchema = [
           "@type": "Answer",
           "text": "Our mobile locksmith vans arrive in prompt same-day service across Greater Nashville and complete key cutting and programming on-site with zero delay."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Which American, Asian, and European vehicle brands do you make keys for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We cut and program keys daily for American makes (Ford, Lincoln, Chevrolet, GMC, Cadillac, Buick, Dodge, RAM, Jeep, Chrysler), Asian makes (Toyota, Lexus, Honda, Acura, Nissan, Infiniti, Hyundai, Kia, Subaru, Mazda, Mitsubishi), and European makes (BMW, Mercedes-Benz, Audi, Volkswagen, Land Rover, Porsche, Bentley, Volvo, MINI)."
+        }
       }
     ]
   },
@@ -169,22 +177,64 @@ const seoDescription = `Lost your car keys in Nashville? We cut & program replac
 
       <!-- Supported Makes Grid -->
       <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm">
-        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
-          Makes &amp; Brands We Replace Daily
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-2">
+          American, Asian &amp; European Car Keys We Replace Daily
         </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mb-6 max-w-3xl">
+          Most of our daily jobs are American trucks, SUVs, and sedans alongside Japanese and Korean vehicles—plus full in-house programming for European luxury cars.
+        </p>
+
+        <!-- 3-Column Regional Breakdown -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-1">Domestic Trucks, SUVs &amp; Cars</span>
+            <h3 class="text-base font-black text-[#0f274a] uppercase mb-2">American Vehicles</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>Ford &amp; Lincoln:</strong> F-150, F-250, Explorer, Escape, Expedition, Mustang, Transit, Bronco.<br />
+              <strong>Chevy, GMC &amp; Cadillac:</strong> Silverado, Sierra, Tahoe, Suburban, Equinox, Traverse, Escalade, Hummer.<br />
+              <strong>Dodge, RAM, Jeep &amp; Chrysler:</strong> Ram 1500/2500, Wrangler, Grand Cherokee, Charger, Challenger, Pacifica (FOBIK &amp; smart fobs).
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-1">Japanese &amp; Korean Imports</span>
+            <h3 class="text-base font-black text-[#0f274a] uppercase mb-2">Asian Vehicles</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>Toyota &amp; Lexus:</strong> Camry, RAV4, Tacoma, Tundra, Highlander, 4Runner, Corolla, RX350.<br />
+              <strong>Honda &amp; Acura:</strong> Civic, Accord, CR-V, Pilot, Odyssey, MDX, RDX, TLX (plus stuck ignition repair).<br />
+              <strong>Nissan, Infiniti, Subaru &amp; Mazda:</strong> Altima, Rogue, Sentra, Maxima, Pathfinder, Outback, Forester, CX-5.<br />
+              <strong>Hyundai &amp; Kia:</strong> Tucson, Santa Fe, Elantra, Sonata, Palisade, Telluride, Sorento, Sportage, Forte, Soul.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-1">In-House Immobilizer Specialty</span>
+            <h3 class="text-base font-black text-[#0f274a] uppercase mb-2">European Specialty</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <strong>BMW &amp; MINI:</strong> 3, 5, 7 Series, X3, X5, X7 (CAS &amp; FEM/BDC).<br />
+              <strong>Mercedes-Benz:</strong> C-Class, E-Class, S-Class, GLE, GLC, Sprinter (EIS/FBS3).<br />
+              <strong>Audi, VW &amp; Porsche:</strong> A4, A6, Q3, Q5, Q7, Atlas, Jetta, 911, Cayenne, Macan.<br />
+              <strong>Volvo (All Models Up to 2026):</strong> XC90, XC60, XC40, S60, S90, V60, V90 smart keys.<br />
+              <strong>Land Rover &amp; Bentley:</strong> Range Rover, Defender, Discovery, Continental GT, Bentayga.
+            </p>
+          </div>
+        </div>
+
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs font-bold text-slate-800">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Ford / Lincoln</div>
+          <a href="/hummer-key-replacement-nashville/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Chevy / GMC / Cadillac</a>
+          <a href="/blog/2011-dodge-ram-fobik-key-replacement-nashville-shop/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Dodge / Jeep / RAM</a>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Nissan / Infiniti</div>
           <a href="/toyota-car-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Toyota / Lexus</a>
-          <a href="/honda-car-keys/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Honda / Acura</a>
-          <a href="/bmw/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> BMW / MINI</a>
-          <a href="/audi-car-keys/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Audi / VW</a>
-          <a href="/mercedes-benz/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Mercedes-Benz</a>
-          <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Land Rover / Range Rover</a>
+          <a href="/honda-car-keys/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Honda</a>
+          <a href="/acura-car-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Acura</a>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Subaru / Mazda</div>
           <a href="/hyundai/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Hyundai</a>
           <a href="/kia-car-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Kia</a>
-          <a href="/acura-car-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Acura</a>
-          <a href="/audi-q3-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Audi Q3</a>
-          <a href="/hummer-key-replacement-nashville/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Hummer / GM</a>
-          <a href="/bentley-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Bentley</a>
+          <a href="/bmw/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> BMW / MINI</a>
+          <a href="/mercedes-benz/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Mercedes-Benz</a>
+          <a href="/audi-car-keys/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Audi / VW</a>
+          <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Land Rover / Range Rover</a>
+          <a href="/european-car-key-specialist/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Volvo (All Models Up to 2026)</a>
+          <a href="/bentley-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-amber-400 border border-slate-200 transition flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span> Bentley / Porsche</a>
         </div>
 
         <h3 class="text-sm font-black font-heading uppercase tracking-wide text-[#0f274a] mt-8 mb-3">Key Types &amp; Related Services</h3>
