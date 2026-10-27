@@ -20,9 +20,10 @@
   ],
 
   "europeanCompact": [
+    { "href": "/volvo-car-key-replacement/", "label": "Volvo Car Keys" },
     { "href": "/audi-q3-key-replacement/", "label": "Audi Q3 Car Keys" },
     { "href": "/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/", "label": "Range Rover Keys" },
-    { "href": "/bentley-key-replacement/", "label": "Bentley Key Replacement", "wide": true }
+    { "href": "/bentley-key-replacement/", "label": "Bentley Key Replacement" }
   ],
 
   "europeanHub": {
@@ -33,6 +34,7 @@
 
   "makes": [
     { "href": "/ford-car-key-replacement/", "label": "Ford Car Keys" },
+    { "href": "/dodge-ram-car-key-replacement/", "label": "Dodge & RAM Keys" },
     { "href": "/toyota-car-key-replacement/", "label": "Toyota Car Keys" },
     { "href": "/honda-car-keys/", "label": "Honda Car Keys" },
     { "href": "/kia-car-key-replacement/", "label": "Kia Car Keys" },

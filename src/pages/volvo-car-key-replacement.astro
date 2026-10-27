@@ -1,0 +1,627 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+import ServiceReviews from '../components/ServiceReviews.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import RelatedPost from '../components/RelatedPost.astro';
+
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Volvo Key Replacement Nashville TN | XC90, XC60, XC40 & S60 Keys`;
+const seoDescription = `Volvo key replacement & CEM smart fob programming in Nashville, TN. All Volvo models up to 2026 (XC90, XC60, XC40, S60, S90, S40, C30). Call (615) 625-8000.`;
+
+const volvoPlace = {
+  "@type": "Place",
+  "name": "Armstrong Locksmith Inc",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "208 Thompson Ln",
+    "addressLocality": "Nashville",
+    "addressRegion": "TN",
+    "postalCode": "37211",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 36.1118,
+    "longitude": -86.7378
+  }
+};
+
+const volvoSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Volvo Car Key Replacement",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Belle Meade", "Green Hills", "Hendersonville", "Mount Juliet", "Murfreesboro"],
+    "description": "In-shop and mobile Volvo car key replacement, CEM immobilizer programming, and high-security laser key cutting for all Volvo models up to 2026 (XC90, XC60, XC40, S60, S90, V60, V90, S40, C30) in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you make a key for a 2016–2026 Volvo XC90, XC60, XC40, or S60 when all keys are lost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We program all Volvo models up to 2026—including SPA and CMA platform XC90, XC60, XC40, S60, S90, V60, and V90 vehicles—even when all keys are lost. We read the CEM (Central Electronic Module) security data and program brand-new Volvo proximity smart fobs the same day without dealership backorders."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you also replace 5-button slot keys and flip keys for older Volvo S40, C30, V50, S80, and XC70 models?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our mobile workshop vans and walk-in shop cut and program Volvo 5-button slot fobs, PCC keyless drive fobs, and high-security laser blades for 2004–2015 Volvo S40, C30, V50, C70, S60, S80, XC60, XC70, and XC90 models on-site across Greater Nashville."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Volvo key replacement cost compared to the Nashville Volvo dealership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Volvo dealerships typically charge $450 to $950+ for a replacement smart key plus VIDA software download fees and towing. Our Volvo key replacement starts at $180 for transponder/slot keys and saves most Volvo owners $250 to $500 compared to dealer quotes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bring my Volvo to your shop for a spare key?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If you have one working Volvo key and want a backup smart fob or 5-button remote before losing your only key, pull up to our shop at 208 Thompson Ln in Nashville and we will cut and program your spare same day with zero mobile trip fee."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "Volvo Key Replacement & CEM Immobilizer Programming (Up to 2026)",
+    "description": "Mobile and storefront Volvo smart proximity key programming, CEM immobilizer pairing, and 5-button remote fob replacement in Nashville, TN.",
+    "image": [
+      "https://armstronglocksmithinc.com/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/volvo-car-key-replacement-mobile-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/volvo-remote-fob-programmed-mobile-van-nashville.jpg"
+    ],
+    "brand": {
+      "@type": "Brand",
+      "name": "Volvo"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "180",
+      "highPrice": "450",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": "https://armstronglocksmithinc.com/images/volvo-car-key-replacement-mobile-nashville.jpg#image",
+    "contentUrl": "https://armstronglocksmithinc.com/images/volvo-car-key-replacement-mobile-nashville.jpg",
+    "url": "https://armstronglocksmithinc.com/images/volvo-car-key-replacement-mobile-nashville.jpg",
+    "name": "Volvo 5-Button Remote Key Fob Cut & Programmed On-Site in Nashville TN",
+    "caption": "Volvo 5-button remote key fob cut and programmed on-site in Nashville TN by Armstrong Locksmith Inc (615) 625-8000",
+    "width": 768,
+    "height": 1024,
+    "creditText": "Armstrong Locksmith Inc",
+    "creator": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "copyrightHolder": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "contentLocation": volvoPlace
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "@id": "https://armstronglocksmithinc.com/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville.jpg#image",
+    "contentUrl": "https://armstronglocksmithinc.com/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville.jpg",
+    "url": "https://armstronglocksmithinc.com/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville.jpg",
+    "name": "Volvo XC90 T6 All Keys Lost — 2 Smart Keys Programmed at Armstrong Locksmith Nashville",
+    "caption": "Volvo XC90 T6 parked at Armstrong Locksmith 208 Thompson Ln Nashville with 2 newly programmed Volvo smart proximity keys",
+    "width": 1200,
+    "height": 900,
+    "creditText": "Armstrong Locksmith Inc",
+    "creator": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "copyrightHolder": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "contentLocation": volvoPlace
+  }
+];
+
+const volvoModels = [
+  { name: "Volvo XC90 (Up to 2026)", type: "3-Row Luxury SUV", keys: "SPA Smart Proximity & CEM" },
+  { name: "Volvo XC60 (Up to 2026)", type: "Mid-Size Luxury SUV", keys: "Smart Proximity & 5-Button Slot" },
+  { name: "Volvo XC40 / C40 (Up to 2026)", type: "Compact Luxury Crossover", keys: "CMA Smart Proximity Key" },
+  { name: "Volvo S60 / V60 (Up to 2026)", type: "Sport Sedan & Wagon", keys: "SPA Smart Fob & Slot Key" },
+  { name: "Volvo S90 / V90 Cross Country", type: "Executive Sedan & Wagon", keys: "SPA Side-Button Smart Fob" },
+  { name: "Volvo S40 / V50 (2004–2012)", type: "Compact Sedan & Wagon", keys: "5-Button Waterfall Slot Fob" },
+  { name: "Volvo C30 / C70", type: "Hatchback & Hardtop Convertible", keys: "5-Button Slot Fob & Laser Blade" },
+  { name: "Volvo S80 / XC70", type: "Full-Size Sedan & All-Road Wagon", keys: "5-Button Slot & PCC Keyless" }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/volvo-car-key-replacement/" schema={volvoSchema} image="/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville.jpg">
+  
+  <!-- Hero Section with Real Volvo XC90 All-Keys-Lost Photo -->
+  <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+      
+      <!-- Hero Left Column -->
+      <div class="lg:col-span-7 text-left flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider w-fit">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>All Volvo Models Up to 2026</span>
+          <span>&bull;</span>
+          <span>CEM &amp; Smart Fob Specialist</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading font-black uppercase text-white tracking-tight leading-tight">
+          Volvo Key Replacement <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">in Nashville, TN</span>
+        </h1>
+
+        <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl font-normal leading-relaxed">
+          XC90, XC60, XC40, S60, S90, V60, V90, S40, C30, and XC70. Most locksmiths turn down Volvo calls—we cut and program <strong>all Volvo models up to 2026</strong>, including <strong>all-keys-lost CEM immobilizer programming</strong> and 5-button slot keys, at our shop or from our mobile workshop vans.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
+          <a 
+            href="tel:6156258000" 
+            class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-base flex items-center justify-center gap-2.5 shadow-xl transition-all duration-200 active:scale-95 shadow-emerald-950/40"
+          >
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+
+          <a href="/book-online/" class="px-7 py-4 rounded-xl bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl transition-all duration-200 active:scale-95 border border-amber-300/40">
+            <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Book Online Appointment</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Right: Real Volvo XC90 All-Keys-Lost Card -->
+      <div class="lg:col-span-5">
+        <div class="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/15 shadow-2xl flex flex-col gap-5">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 font-black text-xs">
+                VOLVO
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">CEM &amp; SPA/CMA Smart Keys</p>
+                <span class="text-xs text-slate-300">All Volvo Models Up to 2026</span>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              Same-Day
+            </span>
+          </div>
+
+          <div class="relative rounded-xl overflow-hidden bg-slate-900/60 border border-white/10">
+            <img 
+              src="/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville-900.webp" 
+              srcset="/images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville-600.webp 600w, /images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville-900.webp 900w, /images/volvo-xc90-all-keys-lost-armstrong-locksmith-shop-nashville-1200.webp 1200w"
+              sizes="(max-width: 1024px) 100vw, 480px"
+              alt="Volvo XC90 T6 parked at Armstrong Locksmith in Nashville with 2 newly programmed Volvo smart proximity keys" 
+              class="w-full h-52 sm:h-60 object-cover"
+              width="1200"
+              height="900"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <div class="absolute bottom-2 left-2 bg-[#07152b]/90 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md border border-amber-400/30 backdrop-blur-sm">
+              Real Shop Job: Volvo XC90 T6 All Keys Lost (2 Smart Keys Made)
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="bg-white/5 rounded-lg p-3 border border-white/10">
+              <span class="block text-slate-300 text-[11px]">Volvo Dealer + Tow</span>
+              <strong class="text-red-400 font-extrabold text-sm line-through">$450 - $950+</strong>
+            </div>
+            <div class="bg-emerald-500/15 rounded-lg p-3 border border-emerald-400/30">
+              <span class="block text-emerald-200 text-[11px]">Armstrong Locksmith</span>
+              <strong class="text-emerald-300 font-extrabold text-sm">From $180+ (Save $250+)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Quick Key Takeaways Bar -->
+  <section class="bg-amber-50 border-b border-amber-200 py-4 px-4 sm:px-6 lg:px-8 shadow-inner">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 border border-amber-300">
+          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-slate-900 font-bold text-xs sm:text-sm">Up to 2026 Models</strong>
+          <span class="text-slate-600 text-[11px]">XC90, XC60, XC40, S60, S90</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 border border-amber-300">
+          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-slate-900 font-bold text-xs sm:text-sm">Shop or Mobile Van</strong>
+          <span class="text-slate-600 text-[11px]">Walk-In Counter &amp; On-Site</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
+          <svg class="w-5 h-5 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-emerald-900 font-bold text-xs sm:text-sm">Save $250-$500</strong>
+          <span class="text-emerald-700 text-[11px]">vs Volvo Dealership Quotes</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 border border-amber-300">
+          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-slate-900 font-bold text-xs sm:text-sm">All Keys Lost CEM</strong>
+          <span class="text-slate-600 text-[11px]">Smart Fobs &amp; 5-Button Slot Keys</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Body Content -->
+  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
+      
+      <!-- Real Job #1: Volvo XC90 T6 All Keys Lost at the Shop -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-400/70 shadow-md">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-950 text-xs font-extrabold uppercase tracking-wider mb-2 border border-amber-300">
+              &#10003; Real Nashville Shop Job &bull; All Keys Lost
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight">
+              Volvo XC90 T6 All Keys Lost — 2 Smart Keys Programmed In-House
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
+              This Volvo XC90 T6 came to our Nashville shop with <strong>all keys lost</strong>. While most locksmiths turn down late-model Volvos because of the encrypted CEM (Central Electronic Module), we interfaced directly with the vehicle in-house, cut and programmed <strong>two brand-new Volvo smart proximity keys</strong> the same day, and saved the owner hundreds compared to the dealership.
+            </p>
+          </div>
+          <a href="tel:6156258000" class="px-5 py-3 rounded-xl bg-[#0f274a] hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider whitespace-nowrap self-start lg:self-auto">
+            Need a Volvo Key? Call (615) 625-8000
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/volvo-xc90-two-new-smart-keys-nashville-600.webp"
+              alt="Two new Volvo smart proximity keys programmed for a Volvo XC90 at Armstrong Locksmith in Nashville TN"
+              class="w-full h-80 object-cover object-bottom"
+              loading="lazy"
+              decoding="async"
+              width="586"
+              height="1024"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">1. Two New Volvo Smart Keys</strong>
+              <span class="text-[11px] text-slate-600">Primary + backup Volvo proximity fobs cut and paired from scratch</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/volvo-xc90-key-programming-208-thompson-ln-nashville-600.webp"
+              alt="Inside Volvo XC90 during all keys lost CEM immobilizer programming at Armstrong Locksmith in Nashville TN"
+              class="w-full h-80 object-cover object-center"
+              loading="lazy"
+              decoding="async"
+              width="610"
+              height="1024"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">2. In-House CEM Immobilizer Programming</strong>
+              <span class="text-[11px] text-slate-600">Diagnostic programmer connected inside the XC90 right at our shop door</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/volvo-xc90-storefront-sign-208-thompson-ln-nashville-600.webp"
+              alt="Volvo XC90 T6 parked at Armstrong Locksmith in Nashville with 2 newly programmed smart keys"
+              class="w-full h-80 object-cover object-top"
+              loading="lazy"
+              decoding="async"
+              width="655"
+              height="1024"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">3. Ready to Drive Home Same Day</strong>
+              <span class="text-[11px] text-slate-600">Completed at our Nashville storefront — all Volvo models up to 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Real Job #2: Mobile On-Site Volvo 5-Button Remote Key + Inside Our Mobile Workshop Van -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-md">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-950 text-xs font-extrabold uppercase tracking-wider mb-2 border border-emerald-300">
+            &#10003; Real Mobile Van Job &bull; On-Site Key Cutting &amp; Programming
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight">
+            On-Site Volvo 5-Button Key Fob &amp; Inside Our Mobile Workshop Van
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
+            Can't drive your Volvo to the shop? Our custom-built mobile workshop van pulls right up to your driveway anywhere in Greater Nashville. Here is a <strong>Volvo 5-button remote key fob</strong> we cut and programmed on-site in a customer's driveway, along with a look inside the mobile key-cutting workshop we bring to your vehicle.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/volvo-car-key-replacement-mobile-nashville-600.webp"
+              srcset="/images/volvo-car-key-replacement-mobile-nashville-600.webp 600w, /images/volvo-car-key-replacement-mobile-nashville-900.webp 900w"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+              alt="Volvo 5-button remote key fob cut and programmed on-site in Nashville TN by Armstrong Locksmith"
+              class="w-full h-72 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="768"
+              height="1024"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">Volvo 5-Button Remote Key</strong>
+              <span class="text-[11px] text-slate-600">High-security laser blade &amp; remote fob cut and paired on-site</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/volvo-remote-fob-programmed-mobile-van-nashville-600.webp"
+              srcset="/images/volvo-remote-fob-programmed-mobile-van-nashville-600.webp 600w, /images/volvo-remote-fob-programmed-mobile-van-nashville-900.webp 900w"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+              alt="Programmed Volvo 5-button key fob tested inside the vehicle with Armstrong Locksmith mobile van parked outside"
+              class="w-full h-72 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="768"
+              height="1024"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">Mobile Van at Your Driveway</strong>
+              <span class="text-[11px] text-slate-600">Tested inside the Volvo with our mobile van right in front</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/armstrong-locksmith-mobile-workshop-van-interior-nashville-600.webp"
+              srcset="/images/armstrong-locksmith-mobile-workshop-van-interior-nashville-600.webp 600w, /images/armstrong-locksmith-mobile-workshop-van-interior-nashville-900.webp 900w"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+              alt="Inside Armstrong Locksmith custom-built mobile workshop van featuring dual key cutting benches and laser machines"
+              class="w-full h-72 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="1024"
+              height="768"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">Custom Mobile Key Lab</strong>
+              <span class="text-[11px] text-slate-600">Dual workbenches, high-security laser cutters &amp; key stock on wheels</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+            <img
+              src="/images/armstrong-locksmith-van-laser-key-machines-nashville-600.webp"
+              srcset="/images/armstrong-locksmith-van-laser-key-machines-nashville-600.webp 600w, /images/armstrong-locksmith-van-laser-key-machines-nashville-900.webp 900w"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+              alt="Computerized high-security laser key cutting machine inside Armstrong Locksmith mobile service van in Nashville TN"
+              class="w-full h-72 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="1024"
+              height="768"
+            />
+            <div class="p-3.5 bg-white border-t border-slate-100">
+              <strong class="block text-xs font-bold text-[#0f274a]">High-Security Laser Cutters</strong>
+              <span class="text-[11px] text-slate-600">Computerized laser cutting for Volvo HU56, NE66 &amp; emergency blades</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Volvo Key Estimator -->
+      <CarKeyEstimator 
+        defaultMake="Volvo" 
+        title="Volvo Key Replacement & Fitment Guide" 
+        subtitle="Select your Volvo model year range and situation to check instant key compatibility, dealer savings, and response times in Nashville." 
+      />
+
+      <!-- 3 Core Volvo Key Services -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-700 flex items-center justify-center mb-5 border border-amber-300/40 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+            </div>
+            <p class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">2016–2026 SPA &amp; CMA Smart Fobs</p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Side-button proximity smart keys and CEM immobilizer programming for 2016–2026 Volvo XC90, XC60, XC40, S60, S90, V60, and V90 models—spare keys or all keys lost.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>All Models Up to 2026</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-700 flex items-center justify-center mb-5 border border-amber-300/40 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879a3 3 0 11-4.242-4.242 3 3 0 014.242 0zM14.121 9.879L19 5m-7 7L9.121 9.879a3 3 0 10-4.242 4.242 3 3 0 004.242 0z"/></svg>
+            </div>
+            <p class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">5-Button Slot &amp; Flip Keys</p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Replacement 5-button dashboard slot fobs, waterfall remotes, and flip keys for 2004–2015 Volvo S40, C30, V50, C70, S60, S80, XC60, XC70, and first-generation XC90.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>High-Security Laser Cutting</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-700 flex items-center justify-center mb-5 border border-amber-300/40 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <p class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">All Keys Lost CEM Service</p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Lost every key to your Volvo? We extract the CEM immobilizer security PIN, laser-cut the emergency door blade, and pair new keys without waiting weeks for a dealer order.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>Same-Day Turnaround</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Supported Models Grid -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-md">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs font-extrabold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-200">Full Model Coverage</span>
+        </div>
+        
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
+          Volvo Models We Service in Greater Nashville
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base max-w-3xl mb-8 leading-relaxed">
+          Whether you drive a brand-new 2026 Volvo XC90 or a classic Volvo S40/C30, our shop and mobile vans carry the diagnostic interfaces and laser cutters for:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5">
+          {volvoModels.map((m) => (
+            <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-300 font-bold text-xs text-slate-800 flex items-center gap-3 transition-colors">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
+                <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div class="flex flex-col truncate">
+                <span class="text-slate-900 font-extrabold truncate">{m.name}</span>
+                <span class="text-[10px] text-slate-500 font-normal truncate">{m.type} ({m.keys})</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Comprehensive FAQ Section -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-md">
+        <span class="text-xs font-extrabold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-200 inline-block mb-3">FAQ</span>
+        
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
+          Frequently Asked Questions About Volvo Keys
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              Can you make keys for 2016–2026 Volvo XC90, XC60, XC40, and S60?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes. We program all Volvo models up to 2026, including SPA and CMA chassis vehicles using side-button proximity smart keys, both for spare keys and when all keys are lost.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              Do you program older Volvo 5-button slot keys and flip fobs?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes! As shown in our real job photos above, we cut and program 5-button remote fobs and high-security laser blades for Volvo S40, C30, V50, C70, S60, S80, XC60, XC70, and XC90 models.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              How much will I save compared to the Volvo dealership?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Volvo dealerships routinely charge $450 to $950+ per key plus VIDA software fees and towing. Our customers typically save $250 to $500 and get their keys the same day.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              Can I bring my Volvo to your shop for a spare key?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes! Pull right up to our storefront at 208 Thompson Ln in Nashville for in-shop key cutting and programming with zero mobile trip fee.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Emergency Dispatch CTA Banner -->
+      <section class="p-8 sm:p-12 rounded-3xl bg-showroom text-white shadow-2xl border-t-4 border-amber-500 flex flex-col md:flex-row items-center justify-between gap-8 text-left relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-2xl relative z-10">
+          <span class="text-xs font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/30 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 mb-2">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>All Volvo Models Up to 2026</span>
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-white mt-3 mb-2">
+            Need A Volvo Key Made Today?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+            Skip dealership towing and multi-day waits. Visit our Nashville shop or have our custom-built mobile workshop van come directly to your Volvo.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 w-full md:w-auto flex-shrink-0 relative z-10">
+          <a href="tel:6156258000" class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-sm text-center shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"></path></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+          <a href="/book-online/" class="px-6 py-4 rounded-xl bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 font-extrabold text-xs text-center shadow transition-all active:scale-95 flex items-center justify-center whitespace-nowrap border border-amber-300">
+            <span>Book Online</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+  <ServiceReviews service="auto" label="Volvo & European Car Key" />
+  <RelatedPost
+    href="/european-car-key-specialist/"
+    title="European Car Key Specialist in Nashville (BMW, Mercedes, Audi, Volvo & Range Rover)"
+    blurb="See how we program smart keys and immobilizer modules for European vehicles in-house and on-site across Middle Tennessee."
+  />
+</Layout>
