@@ -52,13 +52,17 @@ const hyundaiSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Hyundai Key Replacement & Smart Fob Programming",
-    "description": "On-site Hyundai laser key cutting, transponder programming, and proximity key fobs in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/Hyundai-car-key.png",
-    "brand": {
-      "@type": "Brand",
-      "name": "Hyundai"
-    },
+    "name": "Hyundai & Genesis Key Replacement & Smart Fob Programming",
+    "description": "On-site and storefront Hyundai and Genesis laser key cutting, transponder programming, and proximity key fobs in Nashville, TN.",
+    "image": [
+      "https://armstronglocksmithinc.com/images/2025-hyundai-genesis-smart-key-replacement-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2025-genesis-gv80-push-to-start-key-programming-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/Hyundai-car-key.png"
+    ],
+    "brand": [
+      { "@type": "Brand", "name": "Hyundai" },
+      { "@type": "Brand", "name": "Genesis" }
+    ],
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "USD",
@@ -68,6 +72,34 @@ const hyundaiSchema = [
       "availability": "https://schema.org/InStock",
       "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2025 Hyundai & Genesis Smart Key Fob Replacement in Nashville, TN | Armstrong Locksmith",
+    "description": "2025 Genesis and Hyundai proximity smart key fob cut and programmed at our 208 Thompson Ln locksmith shop in Nashville, TN by Armstrong Locksmith Inc.",
+    "thumbnailUrl": [
+      "https://armstronglocksmithinc.com/images/2025-hyundai-genesis-smart-key-replacement-nashville.jpg"
+    ],
+    "uploadDate": "2026-10-27T11:50:00-05:00",
+    "duration": "PT18S",
+    "contentUrl": "https://www.youtube.com/watch?v=CRf0V57gXXI",
+    "embedUrl": "https://www.youtube.com/embed/CRf0V57gXXI",
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2025 Genesis GV80 Push-to-Start Smart Key Programming in Nashville, TN | Armstrong Locksmith",
+    "description": "Testing and starting a 2025 Genesis SUV with the newly programmed OEM proximity smart key fob (Part #95440-T6AA0) at our 208 Thompson Ln locksmith shop in Nashville, TN.",
+    "thumbnailUrl": [
+      "https://armstronglocksmithinc.com/images/2025-genesis-gv80-push-to-start-key-programming-nashville.jpg"
+    ],
+    "uploadDate": "2026-10-27T12:03:00-05:00",
+    "duration": "PT37S",
+    "contentUrl": "https://www.youtube.com/watch?v=tlqq0dAb3wQ",
+    "embedUrl": "https://www.youtube.com/embed/tlqq0dAb3wQ",
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   }
 ];
 
@@ -83,11 +115,11 @@ const hyundaiModels = [
   { name: "Hyundai Santa Cruz", type: "Sport Adventure Vehicle", keys: "Smart Proximity Key" },
   { name: "Hyundai Accent", type: "Subcompact Sedan", keys: "Transponder & Remote Key" },
   { name: "Hyundai Veloster", type: "Sport Hatchback", keys: "Proximity Smart Key" },
-  { name: "Hyundai Genesis (Pre-2017)", type: "Luxury Sedan / Coupe", keys: "Smart Key System" }
+  { name: "Genesis GV70 / GV80 / G70 / G80", type: "Luxury SUVs & Sedans (Up to 2026)", keys: "Smart Proximity Key Fob" }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/hyundai/" schema={hyundaiSchema} image="/images/Hyundai-car-key.png">
+<Layout title={seoTitle} description={seoDescription} canonical="/hyundai/" schema={hyundaiSchema} image="/images/2025-hyundai-genesis-smart-key-replacement-nashville.jpg">
   
   <!-- ==================== HERO SECTION ==================== -->
   <header class="relative bg-showroom text-white py-12 sm:py-18 lg:py-20 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
@@ -193,21 +225,32 @@ const hyundaiModels = [
 
           <!-- Featured Key Photo -->
           <div class="p-5 flex flex-col gap-4 bg-slate-50">
-            <div class="relative bg-white border border-slate-200 flex items-center justify-center p-4 shadow-inner">
-              <picture>
-                <source type="image/webp" srcset="/images/Hyundai-car-key-300.webp 300w, /images/Hyundai-car-key-600.webp 600w" sizes="(max-width: 640px) 100vw, 300px" />
-                <img 
-                  src="/images/Hyundai-car-key.png" 
-                  alt="Hyundai Car Key Replacement Nashville" 
-                  class="h-36 sm:h-44 w-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
-                  width="300"
-                  height="176"
-                  loading="eager"
-                />
-              </picture>
-              <div class="absolute bottom-2 left-2 bg-[#07152b] text-amber-300 text-[10px] font-bold px-2 py-0.5 border border-amber-400/30">
-                Direct OBD2 PIN Extraction
-              </div>
+            <div id="hyundai-genesis-video-box" class="relative bg-slate-900 border border-slate-300 overflow-hidden aspect-video group">
+              <img 
+                src="/images/2025-hyundai-genesis-smart-key-replacement-nashville-900.webp" 
+                srcset="/images/2025-hyundai-genesis-smart-key-replacement-nashville-600.webp 600w, /images/2025-hyundai-genesis-smart-key-replacement-nashville-900.webp 900w, /images/2025-hyundai-genesis-smart-key-replacement-nashville-1200.webp 1200w"
+                sizes="(max-width: 1024px) 100vw, 480px"
+                alt="2025 Genesis SUV and Hyundai Palisade at our 208 Thompson Ln Nashville locksmith shop with two programmed proximity smart key fobs" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                width="1200"
+                height="675"
+                loading="eager"
+                fetchpriority="high"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none"></div>
+              <button
+                type="button"
+                id="play-hyundai-video-btn"
+                aria-label="Play 2025 Hyundai and Genesis smart key replacement video"
+                class="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-2 cursor-pointer focus:outline-none"
+              >
+                <span class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-2xl border-2 border-white/90 group-hover:scale-110 transition-transform">
+                  <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                <span class="px-3 py-1 bg-slate-950/85 text-amber-300 text-[11px] font-extrabold border border-amber-400/40 shadow-lg">
+                  &#9654; Watch Real Job: 2025 Genesis &amp; Hyundai (0:18)
+                </span>
+              </button>
             </div>
 
             <!-- Pricing Comparison -->
@@ -290,6 +333,91 @@ const hyundaiModels = [
   <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 font-sans">
     <div class="max-w-7xl mx-auto flex flex-col gap-12 sm:gap-16">
       
+      <!-- Real Nashville Shop Jobs: 2025 Genesis & Hyundai Smart Key Fobs (Exterior & Push-to-Start Test) -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
+        <!-- Card 1: Exterior 2025 Genesis & Hyundai Palisade at 208 Thompson Ln -->
+        <div class="bg-white p-6 sm:p-8 border-2 border-amber-500/70 shadow-md flex flex-col justify-between gap-5">
+          <div>
+            <div class="overflow-hidden border border-slate-200 bg-slate-100 mb-5">
+              <img
+                src="/images/2025-hyundai-genesis-smart-key-replacement-nashville-900.webp"
+                srcset="/images/2025-hyundai-genesis-smart-key-replacement-nashville-600.webp 600w, /images/2025-hyundai-genesis-smart-key-replacement-nashville-900.webp 900w, /images/2025-hyundai-genesis-smart-key-replacement-nashville-1200.webp 1200w"
+                sizes="(max-width: 1024px) 100vw, 540px"
+                alt="2025 Genesis SUV and Hyundai Palisade parked at our 208 Thompson Ln locksmith shop in Nashville TN with two programmed proximity smart key fobs"
+                class="w-full h-64 sm:h-72 object-cover"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="675"
+              />
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-amber-300 mb-2">
+              208 Thompson Ln Shop Job &bull; 2025 Genesis &amp; Hyundai Palisade
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black font-heading uppercase text-[#0f274a] leading-tight mb-2">
+              2025 Genesis &amp; Hyundai Smart Key Fob — Cut &amp; Programmed at Our Shop
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              This <strong>2025 Genesis</strong> owner pulled right up to our walk-in locksmith shop at <strong>208 Thompson Ln</strong> in Nashville (parked right beside a <strong>Hyundai Palisade</strong> in our lot). Newer 2023–2026 Hyundai and Genesis models use updated immobilizer PIN codes and high-security laser emergency blades that many generic key shops turn away.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100 text-xs font-bold">
+            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 px-2.5 py-1">&#10003; 2025–2026 PIN &amp; Smart Fob Ready</span>
+            <a href="https://youtu.be/CRf0V57gXXI" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 inline-flex items-center gap-1 font-extrabold">
+              <span>Watch Exterior Video &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Inside the 2025 Genesis GV80 Testing Push-to-Start (#95440-T6AA0) -->
+        <div class="bg-white p-6 sm:p-8 border-2 border-amber-500/70 shadow-md flex flex-col justify-between gap-5">
+          <div>
+            <div id="genesis-interior-video-box" class="relative overflow-hidden border border-slate-200 bg-slate-900 mb-5 h-64 sm:h-72 group">
+              <img
+                src="/images/2025-genesis-gv80-push-to-start-key-programming-nashville-900.webp"
+                srcset="/images/2025-genesis-gv80-push-to-start-key-programming-nashville-600.webp 600w, /images/2025-genesis-gv80-push-to-start-key-programming-nashville-900.webp 900w, /images/2025-genesis-gv80-push-to-start-key-programming-nashville-1200.webp 1200w"
+                sizes="(max-width: 1024px) 100vw, 540px"
+                alt="Inside the 2025 Genesis GV80 testing push-to-start ignition with newly programmed OEM smart key fob 95440-T6AA0 at our 208 Thompson Ln shop in Nashville"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="675"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none"></div>
+              <button
+                type="button"
+                id="play-genesis-interior-btn"
+                aria-label="Play 2025 Genesis GV80 push-to-start ignition test video"
+                class="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-2 cursor-pointer focus:outline-none"
+              >
+                <span class="w-14 h-14 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-2xl border-2 border-white/90 group-hover:scale-110 transition-transform">
+                  <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                <span class="px-3 py-1 bg-slate-950/85 text-amber-300 text-[11px] font-extrabold border border-amber-400/40 shadow-lg">
+                  &#9654; Watch Push-to-Start Ignition Test (0:37)
+                </span>
+              </button>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-emerald-300 mb-2">
+              Inside the Cockpit &bull; OEM Part #95440-T6AA0
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black font-heading uppercase text-[#0f274a] leading-tight mb-2">
+              2025 Genesis GV80 Push-to-Start Test — Programmed While You Wait
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Inside the vehicle at <strong>208 Thompson Ln</strong>, we paired the new OEM proximity smart key fob (<strong>Part #95440-T6AA0</strong>) and tested push-button start, remote lock/unlock, and proximity detection right on the spot—saving the owner days of waiting on the dealership service bay.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100 text-xs font-bold">
+            <span class="bg-slate-100 text-slate-700 border border-slate-200 px-2.5 py-1">&#10003; Done in Our Parking Lot</span>
+            <a href="https://youtu.be/tlqq0dAb3wQ" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 inline-flex items-center gap-1 font-extrabold">
+              <span>Watch on YouTube &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <!-- Interactive Hyundai Key Estimator -->
       <CarKeyEstimator 
         defaultMake="Hyundai" 
@@ -561,5 +689,22 @@ const hyundaiModels = [
   </main>
   
   <ServiceReviews service="hyundai" label="Hyundai" />
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('play-hyundai-video-btn');
+      var box = document.getElementById('hyundai-genesis-video-box');
+      if (btn && box) {
+        btn.addEventListener('click', function () {
+          box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/CRf0V57gXXI?autoplay=1&rel=0" title="2025 Hyundai & Genesis Smart Key Fob Replacement in Nashville, TN | Armstrong Locksmith" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        });
+      }
+      var btn2 = document.getElementById('play-genesis-interior-btn');
+      var box2 = document.getElementById('genesis-interior-video-box');
+      if (btn2 && box2) {
+        btn2.addEventListener('click', function () {
+          box2.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/tlqq0dAb3wQ?autoplay=1&rel=0" title="2025 Genesis GV80 Push-to-Start Smart Key Programming in Nashville, TN | Armstrong Locksmith" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        });
+      }
+    })();
+  </script>
 </Layout>
-
