@@ -1,0 +1,523 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+import ServiceReviews from '../components/ServiceReviews.astro';
+import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import RelatedPost from '../components/RelatedPost.astro';
+
+const { reviewCount } = await getReviewStats();
+
+const seoTitle = `Ford Key Replacement Nashville TN | F-150, Escape & Explorer Keys`;
+const seoDescription = `Ford key replacement & push-to-start fob programming in Nashville, TN. F-150, Escape, Explorer, Transit & Bronco with Ford FDRS tool. Call (615) 625-8000.`;
+
+const fordSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Ford Car Key Replacement",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
+    "description": "On-site and walk-in Ford and Lincoln car key cutting, push-to-start smart fob programming, and official Ford FDRS dealer-tool diagnostics for F-150, Escape, Explorer, Expedition, Bronco, and Transit in Nashville, TN."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you program 2020–2026 Ford push-to-start smart keys that require the Ford FDRS dealer tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Newer 2020–2026 Ford and Lincoln push-to-start models (including the 2022 Ford Escape, F-150, Explorer, Bronco, Expedition, and Transit) are locked behind Ford's newer security gateway and cannot be programmed with standard aftermarket locksmith tablets. Our mobile vans carry the official Ford FDRS dealer tool and program new smart keys on-site after owner verification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I lost all keys to my Ford truck, SUV, or commercial van?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No towing is needed. Our mobile locksmith van comes directly to where your Ford is parked in Nashville, decodes the door cylinder with Lishi tools, laser-cuts a new HU101 or standard key blade, and programs the transponder chip or proximity fob on the spot."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Ford key replacement cost compared to the dealership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ford dealerships typically charge $300 to $650+ plus towing fees and require a multi-day service wait. Our Ford key replacement starts at $120 for transponder and remote keys and $145 to $325 for push-to-start smart fobs, saving most Nashville drivers $150 to $350."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you make keys for Ford Transit vans and commercial fleet trucks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We cut and program replacement and spare keys for Ford Transit 150/250/350, Transit Connect, E-Series (Econoline), and Super Duty F-250/F-350/F-450 fleet trucks on-site or at our walk-in shop."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "Ford & Lincoln Key Replacement & Ford FDRS Smart Fob Programming",
+    "description": "Mobile and storefront Ford car key cutting, HU101 high-security laser blades, and Ford FDRS push-to-start smart key programming in Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/2022-ford-escape-push-to-start-key-fdrs-nashville.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Ford"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "325",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
+  }
+];
+
+const fordModels = [
+  { name: "Ford F-150 / F-250 / F-350", type: "Full-Size & Super Duty Trucks", keys: "Smart Fob, Flip Key & FDRS" },
+  { name: "Ford Escape (Up to 2026)", type: "Compact SUV", keys: "Push-to-Start & Ford FDRS" },
+  { name: "Ford Explorer (Up to 2026)", type: "3-Row SUV", keys: "Proximity Fob & Ford FDRS" },
+  { name: "Ford Expedition", type: "Full-Size SUV", keys: "PEPS Smart Proximity Key" },
+  { name: "Ford Transit / Connect", type: "Commercial Cargo & Fleet Van", keys: "Flip Remote, Tibbe & FDRS" },
+  { name: "Ford Bronco / Bronco Sport", type: "Off-Road SUV (2021–2026)", keys: "Push-to-Start & Ford FDRS" },
+  { name: "Ford Edge", type: "Mid-Size Crossover", keys: "Smart Proximity & Remote Head" },
+  { name: "Ford Mustang", type: "Sports Coupe & Convertible", keys: "Smart Proximity Key Fob" },
+  { name: "Ford Ranger / Maverick", type: "Mid-Size & Compact Trucks", keys: "Flip Key & Push-to-Start" },
+  { name: "Ford Fusion / Focus / Fiesta", type: "Sedans & Hatchbacks", keys: "HU101 Laser Blade & Smart Fob" },
+  { name: "Ford E-Series (Econoline)", type: "Commercial Work Van", keys: "80-Bit Transponder & Fleet Keys" },
+  { name: "Lincoln Navigator / Aviator", type: "Lincoln Luxury SUVs", keys: "PEPS Smart Key & Ford FDRS" }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/ford-car-key-replacement/" schema={fordSchema} image="/images/2022-ford-escape-push-to-start-key-fdrs-nashville.jpg">
+  
+  <!-- Hero Section with Real 2022 Ford Escape FDRS Mobile Van Photo -->
+  <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+      
+      <!-- Hero Left Column -->
+      <div class="lg:col-span-7 text-left flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider w-fit">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>Ford &amp; Lincoln Key Specialist</span>
+          <span>&bull;</span>
+          <span>Official Ford FDRS Dealer Tool</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading font-black uppercase text-white tracking-tight leading-tight">
+          Ford Key Replacement <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">in Nashville, TN</span>
+        </h1>
+
+        <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl font-normal leading-relaxed">
+          F-150, F-250, Escape, Explorer, Expedition, Bronco, Mustang, and Transit commercial vans. We cut and program Ford transponder keys, flip remotes, and <strong>2020–2026 push-to-start smart fobs using licensed Ford FDRS dealer software</strong> right at your vehicle or at our shop.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
+          <a 
+            href="tel:6156258000" 
+            class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-base flex items-center justify-center gap-2.5 shadow-xl transition-all duration-200 active:scale-95 shadow-emerald-950/40"
+          >
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+
+          <a href="/book-online/" class="px-7 py-4 rounded-xl bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl transition-all duration-200 active:scale-95 border border-amber-300/40">
+            <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>Book Online Appointment</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Right: Real 2022 Ford Escape FDRS Mobile Job Card -->
+      <div class="lg:col-span-5">
+        <div class="bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/15 shadow-2xl flex flex-col gap-5">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 font-black text-xs">
+                FORD
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">Licensed Ford FDRS &amp; PATS</p>
+                <span class="text-xs text-slate-300">All Ford Models Up to 2026</span>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              Same-Day
+            </span>
+          </div>
+
+          <div class="relative rounded-xl overflow-hidden bg-slate-900/60 border border-white/10">
+            <img 
+              src="/images/2022-ford-escape-push-to-start-key-fdrs-nashville-900.webp" 
+              srcset="/images/2022-ford-escape-push-to-start-key-fdrs-nashville-600.webp 600w, /images/2022-ford-escape-push-to-start-key-fdrs-nashville-900.webp 900w, /images/2022-ford-escape-push-to-start-key-fdrs-nashville-1200.webp 1200w"
+              sizes="(max-width: 1024px) 100vw, 480px"
+              alt="Armstrong Locksmith mobile workshop van programming a 2022 Ford Escape push-to-start smart key on-site in Nashville with the Ford FDRS dealer tool" 
+              class="w-full h-52 sm:h-60 object-cover"
+              width="1024"
+              height="762"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <div class="absolute bottom-2 left-2 bg-[#07152b]/90 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md border border-amber-400/30 backdrop-blur-sm">
+              Real Mobile Job: 2022 Ford Escape Push-to-Start (Ford FDRS)
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="bg-white/5 rounded-lg p-3 border border-white/10">
+              <span class="block text-slate-300 text-[11px]">Dealer Price + Towing</span>
+              <strong class="text-red-400 font-extrabold text-sm line-through">$350 - $650+</strong>
+            </div>
+            <div class="bg-emerald-500/15 rounded-lg p-3 border border-emerald-400/30">
+              <span class="block text-emerald-200 text-[11px]">Armstrong Locksmith</span>
+              <strong class="text-emerald-300 font-extrabold text-sm">From $120+ (Save $150+)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Quick Key Takeaways Bar -->
+  <section class="bg-amber-50 border-b border-amber-200 py-4 px-4 sm:px-6 lg:px-8 shadow-inner">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 border border-amber-300">
+          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-slate-900 font-bold text-xs sm:text-sm">Ford FDRS Dealer Tool</strong>
+          <span class="text-slate-600 text-[11px]">2020–2026 Push-to-Start</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 border border-amber-300">
+          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-slate-900 font-bold text-xs sm:text-sm">Walk-In or Mobile Van</strong>
+          <span class="text-slate-600 text-[11px]">Shop Counter &amp; On-Site</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
+          <svg class="w-5 h-5 text-emerald-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-emerald-900 font-bold text-xs sm:text-sm">Save $150-$350</strong>
+          <span class="text-emerald-700 text-[11px]">vs Ford Dealership Quotes</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 border border-amber-300">
+          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div>
+          <strong class="block text-slate-900 font-bold text-xs sm:text-sm">Fleet &amp; Personal Vehicles</strong>
+          <span class="text-slate-600 text-[11px]">F-150, Transit, Escape, Explorer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Body Content -->
+  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
+      
+      <!-- Real Nashville Mobile Job Case Study: 2022 Ford Escape Push-to-Start (Ford FDRS) -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-400/70 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-100">
+          <img
+            src="/images/2022-ford-escape-push-to-start-key-fdrs-nashville-900.webp"
+            srcset="/images/2022-ford-escape-push-to-start-key-fdrs-nashville-600.webp 600w, /images/2022-ford-escape-push-to-start-key-fdrs-nashville-900.webp 900w, /images/2022-ford-escape-push-to-start-key-fdrs-nashville-1200.webp 1200w"
+            sizes="(max-width: 1024px) 100vw, 560px"
+            alt="Armstrong Locksmith mobile workshop van parked next to a 2022 Ford Escape in Nashville programming a push-to-start smart key with the Ford FDRS dealer tool"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+            decoding="async"
+            width="1024"
+            height="762"
+          />
+        </div>
+        <div class="lg:col-span-6 flex flex-col gap-3.5 text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-amber-300">
+            Real Nashville Mobile Job &bull; Official Ford FDRS Dealer Tool
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight">
+            2022 Ford Escape Push-to-Start — Made On-Site With Ford FDRS
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            We got a call for this <strong>2022 Ford Escape push-to-start</strong> that needed a key made in the field. On newer 2020–2026 Ford models (including the Escape, F-150, Explorer, Bronco, Expedition, and Transit), standard aftermarket key programmers fail because of Ford's encrypted gateway—<strong>the vehicle is only doable with the official Ford FDRS (Ford Diagnostic and Repair System) dealer tool</strong>.
+          </p>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            We drove our mobile workshop van out to where the vehicle was parked, completed <strong>owner verification</strong>, and connected with our licensed Ford FDRS dealer setup to cut and program a brand-new push-to-start smart key on the spot. No tow truck, and no waiting days at the dealership.
+          </p>
+          <div class="flex flex-wrap items-center gap-3 pt-1 text-xs font-bold text-slate-700">
+            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Official Ford FDRS Dealer Software
+            </span>
+            <span class="bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-lg">&#10003; Owner Verification Completed</span>
+            <span class="bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-lg">&#10003; Zero Towing Required</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Ford Key Estimator -->
+      <CarKeyEstimator 
+        defaultMake="Ford" 
+        title="Ford & Lincoln Key Replacement & Fitment Guide" 
+        subtitle="Select your Ford or Lincoln model year range and situation to check instant key compatibility, dealer savings, and response times in Nashville." 
+      />
+
+      <!-- 3 Core Ford Key Services -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-700 flex items-center justify-center mb-5 border border-amber-300/40 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+            </div>
+            <p class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">Ford FDRS Push-to-Start Fobs</p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Licensed Ford FDRS dealer software for 2020–2026 push-to-start models (Escape, F-150, Explorer, Bronco, Expedition, Transit) plus PEPS smart keys for 2011–2019 models.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>2020–2026 Gateway Supported</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-700 flex items-center justify-center mb-5 border border-amber-300/40 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879a3 3 0 11-4.242-4.242 3 3 0 014.242 0zM14.121 9.879L19 5m-7 7L9.121 9.879a3 3 0 10-4.242 4.242 3 3 0 004.242 0z"/></svg>
+            </div>
+            <p class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">HU101 Laser &amp; Flip Keys</p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              High-security laser cutting for Ford HU101 sidewinder flip keys (F-150, Fusion, Explorer, Transit), Tibbe transit keys, and 80-bit PATS transponder keys.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>High-Security Laser Cutting</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-700 flex items-center justify-center mb-5 border border-amber-300/40 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <p class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">Ford Trucks &amp; Commercial Fleets</p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Lost all keys to a work truck or service van? We originate keys on-site for Ford F-150/F-250/F-350, Transit 150/250/350, and E-Series commercial fleets across Middle TN.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs font-bold text-amber-700">
+            <span>Same-Day Mobile Service</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Supported Models Grid -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-md">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs font-extrabold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-200">Full Model Coverage</span>
+        </div>
+        
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
+          Ford &amp; Lincoln Models We Service in Greater Nashville
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base max-w-3xl mb-8 leading-relaxed">
+          From classic 80-bit PATS transponder keys to 2020–2026 push-to-start smart fobs requiring Ford FDRS dealer diagnostics, our shop and mobile vans stock keys for:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+          {fordModels.map((m) => (
+            <div class="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50/50 border border-slate-200 hover:border-amber-300 font-bold text-xs text-slate-800 flex items-center gap-3 transition-colors">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300">
+                <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div class="flex flex-col truncate">
+                <span class="text-slate-900 font-extrabold truncate">{m.name}</span>
+                <span class="text-[10px] text-slate-500 font-normal truncate">{m.type} ({m.keys})</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Dealership vs Armstrong Comparison Table -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-md overflow-hidden">
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
+          Ford Dealership vs. Armstrong Locksmith
+        </h2>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b-2 border-slate-200 bg-slate-100">
+                <th class="py-4 px-5 font-bold text-slate-700">Feature</th>
+                <th class="py-4 px-5 font-bold text-slate-700">Ford Dealership</th>
+                <th class="py-4 px-5 font-extrabold text-emerald-950 bg-emerald-100/80">Armstrong Locksmith</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-5 font-semibold text-slate-800">Towing Required?</td>
+                <td class="py-3.5 px-5 text-red-600 font-bold flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-red-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                  Yes ($125-$200 Tow)
+                </td>
+                <td class="py-3.5 px-5 font-extrabold text-emerald-800 bg-emerald-50/60">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    No (Mobile Van Comes to Your Ford)
+                  </span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-5 font-semibold text-slate-800">2020–2026 Ford FDRS Tool</td>
+                <td class="py-3.5 px-5 text-slate-600 font-medium">Service Bay Appointment Only</td>
+                <td class="py-3.5 px-5 font-extrabold text-emerald-800 bg-emerald-50/60">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    On-Site in Our Mobile Vans
+                  </span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-5 font-semibold text-slate-800">Turnaround Time</td>
+                <td class="py-3.5 px-5 text-slate-600 font-medium">2 to 5 Business Days</td>
+                <td class="py-3.5 px-5 font-extrabold text-emerald-800 bg-emerald-50/60">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    Same-Day Service
+                  </span>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-5 font-semibold text-slate-800">Walk-In Storefront Option</td>
+                <td class="py-3.5 px-5 text-slate-600 font-medium">Drop-Off Required</td>
+                <td class="py-3.5 px-5 font-extrabold text-emerald-800 bg-emerald-50/60">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    Cut &amp; Programmed While You Wait
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Comprehensive FAQ Section -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-md">
+        <span class="text-xs font-extrabold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-100 text-amber-900 border border-amber-200 inline-block mb-3">FAQ</span>
+        
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
+          Frequently Asked Questions About Ford Keys
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              Can you program 2020–2026 Ford push-to-start keys?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes. Newer push-to-start Ford models (such as the 2022 Ford Escape, F-150, Explorer, Bronco, and Transit) require the official Ford FDRS dealer tool. We carry licensed Ford FDRS software in our mobile vans and program keys on-site after owner verification.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              What if all keys to my Ford F-150 or SUV are lost?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              We decode the door lock cylinder on-site with Lishi tools, laser-cut the HU101 or mechanical key blade to factory code, and program a new fob or transponder chip without towing your truck.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              Do you make keys for Ford Transit and commercial fleet vehicles?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes! We service Ford Transit 150/250/350, Transit Connect, E-Series vans, and F-250/F-350 Super Duty fleet trucks across Nashville and Middle Tennessee.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2 flex items-center gap-2">
+              <span class="text-amber-500 font-black">Q:</span>
+              Can I bring my Ford to your storefront for a spare key?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes! If you have a working key and want a spare flip key or push-to-start fob, pull up to our shop at 208 Thompson Ln in Nashville and we will cut and program it while you wait with zero mobile trip fee.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Emergency Dispatch CTA Banner -->
+      <section class="p-8 sm:p-12 rounded-3xl bg-showroom text-white shadow-2xl border-t-4 border-amber-500 flex flex-col md:flex-row items-center justify-between gap-8 text-left relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-2xl relative z-10">
+          <span class="text-xs font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/30 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5 mb-2">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>Mobile Dispatch Across Greater Nashville</span>
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-white mt-3 mb-2">
+            Need A Ford Key Made Today?
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+            Skip dealership towing and multi-day waits. Our mobile vans carry high-security HU101 laser cutters and licensed Ford FDRS dealer software directly to your truck, SUV, or van.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 w-full md:w-auto flex-shrink-0 relative z-10">
+          <a href="tel:6156258000" class="px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-sm text-center shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 whitespace-nowrap">
+            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"></path></svg>
+            <span>Call (615) 625-8000</span>
+          </a>
+          <a href="/book-online/" class="px-6 py-4 rounded-xl bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 font-extrabold text-xs text-center shadow transition-all active:scale-95 flex items-center justify-center whitespace-nowrap border border-amber-300">
+            <span>Book Online</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+  <ServiceReviews service="auto" label="Ford & Automotive" />
+  <RelatedPost
+    href="/blog/2011-dodge-ram-fobik-key-replacement-nashville-shop/"
+    title="2011 Dodge Ram Broken FOBIK Key Replaced at Our Shop"
+    blurb="See how a walk-in truck owner replaced his broken remote FOBIK key at our shop for $150 less than other locksmith quotes."
+  />
+</Layout>
