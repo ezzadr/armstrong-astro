@@ -63,7 +63,11 @@ const fordSchema = [
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Ford & Lincoln Key Replacement & Ford FDRS Smart Fob Programming",
     "description": "Mobile and storefront Ford car key cutting, HU101 high-security laser blades, and Ford FDRS push-to-start smart key programming in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/2022-ford-escape-push-to-start-key-fdrs-nashville.jpg",
+    "image": [
+      "https://armstronglocksmithinc.com/images/2022-ford-escape-push-to-start-key-fdrs-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2022-ford-bronco-smart-key-replacement-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2022-ford-f150-smart-key-replacement-nashville.jpg"
+    ],
     "brand": {
       "@type": "Brand",
       "name": "Ford"
@@ -77,6 +81,20 @@ const fordSchema = [
       "availability": "https://schema.org/InStock",
       "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "2022 Ford Bronco Smart Key Fob Replacement in Nashville, TN | Armstrong Locksmith",
+    "description": "On-site 2022 Ford Bronco smart key fob replacement and programming in Nashville, TN from our mobile locksmith van by Armstrong Locksmith Inc.",
+    "thumbnailUrl": [
+      "https://armstronglocksmithinc.com/images/2022-ford-bronco-smart-key-replacement-nashville.jpg"
+    ],
+    "uploadDate": "2026-10-27T10:25:00-05:00",
+    "duration": "PT35S",
+    "contentUrl": "https://www.youtube.com/watch?v=i5lTlP5DtU8",
+    "embedUrl": "https://www.youtube.com/embed/i5lTlP5DtU8",
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   }
 ];
 
@@ -158,21 +176,32 @@ const fordModels = [
             </span>
           </div>
 
-          <div class="relative rounded-xl overflow-hidden bg-slate-900/60 border border-white/10">
+          <div id="ford-bronco-video-box" class="relative rounded-xl overflow-hidden bg-slate-900 border border-white/15 aspect-video group">
             <img 
-              src="/images/2022-ford-escape-push-to-start-key-fdrs-nashville-900.webp" 
-              srcset="/images/2022-ford-escape-push-to-start-key-fdrs-nashville-600.webp 600w, /images/2022-ford-escape-push-to-start-key-fdrs-nashville-900.webp 900w, /images/2022-ford-escape-push-to-start-key-fdrs-nashville-1200.webp 1200w"
+              src="/images/2022-ford-bronco-smart-key-replacement-nashville-900.webp" 
+              srcset="/images/2022-ford-bronco-smart-key-replacement-nashville-600.webp 600w, /images/2022-ford-bronco-smart-key-replacement-nashville-900.webp 900w, /images/2022-ford-bronco-smart-key-replacement-nashville-1200.webp 1200w"
               sizes="(max-width: 1024px) 100vw, 480px"
-              alt="Armstrong Locksmith mobile locksmith van programming a 2022 Ford Escape push-to-start smart key on-site in Nashville with the Ford FDRS dealer tool" 
-              class="w-full h-52 sm:h-60 object-cover"
-              width="1024"
-              height="762"
+              alt="Custom 2022 Ford Bronco parked in front of our Armstrong Locksmith mobile locksmith van in Nashville TN for smart key fob programming" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              width="1200"
+              height="555"
               loading="eager"
               fetchpriority="high"
             />
-            <div class="absolute bottom-2 left-2 bg-[#07152b]/90 text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-md border border-amber-400/30 backdrop-blur-sm">
-              Real Mobile Job: 2022 Ford Escape Push-to-Start (Ford FDRS)
-            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none"></div>
+            <button
+              type="button"
+              id="play-bronco-video-btn"
+              aria-label="Play 2022 Ford Bronco key replacement job video"
+              class="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-2 cursor-pointer focus:outline-none"
+            >
+              <span class="w-16 h-16 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-2xl border-2 border-white/90 group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              <span class="px-3 py-1 rounded-full bg-slate-950/85 text-amber-300 text-xs font-extrabold border border-amber-400/40 shadow-lg">
+                &#9654; Watch Real Nashville Job: 2022 Ford Bronco (0:35)
+              </span>
+            </button>
           </div>
 
           <div class="grid grid-cols-2 gap-3 text-xs">
@@ -275,6 +304,75 @@ const fordModels = [
             </span>
             <span class="bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-lg">&#10003; Owner Verification Completed</span>
             <span class="bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-lg">&#10003; Zero Towing Required</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Real Storefront & Mobile Jobs: 2022 Ford F-150 & 2022 Ford Bronco -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- 2022 Ford F-150 at 208 Thompson Ln Storefront -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md flex flex-col justify-between gap-5">
+          <div>
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-5">
+              <img
+                src="/images/2022-ford-f150-smart-key-replacement-nashville-900.webp"
+                srcset="/images/2022-ford-f150-smart-key-replacement-nashville-600.webp 600w, /images/2022-ford-f150-smart-key-replacement-nashville-900.webp 900w, /images/2022-ford-f150-smart-key-replacement-nashville-1200.webp 1200w"
+                sizes="(max-width: 1024px) 100vw, 540px"
+                alt="New 2022 Ford F-150 proximity smart key fob cut and programmed outside our Armstrong Locksmith shop at 208 Thompson Ln in Nashville TN"
+                class="w-full h-64 sm:h-72 object-cover"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="898"
+              />
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-emerald-300 mb-2">
+              208 Thompson Ln Shop Job &bull; 2022 Ford F-150
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight mb-2">
+              2022 Ford F-150 Proximity Smart Key — Cut &amp; Programmed at Our Shop
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              This <strong>2022 Ford F-150</strong> owner pulled right up to our walk-in locksmith shop at <strong>208 Thompson Ln</strong> in Nashville. We laser-cut the emergency HU101 door blade and programmed a new OEM Ford proximity smart fob in our parking lot while he waited—saving him the dealership drop-off and trip fee.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 text-xs font-bold text-slate-700">
+            <span class="bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">&#10003; Walk-In Storefront Pricing</span>
+            <span class="bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200">&#10003; Done in ~25 Minutes</span>
+          </div>
+        </div>
+
+        <!-- 2022 Ford Bronco On-Site Mobile Job -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md flex flex-col justify-between gap-5">
+          <div>
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 mb-5">
+              <img
+                src="/images/2022-ford-bronco-smart-key-replacement-nashville-900.webp"
+                srcset="/images/2022-ford-bronco-smart-key-replacement-nashville-600.webp 600w, /images/2022-ford-bronco-smart-key-replacement-nashville-900.webp 900w, /images/2022-ford-bronco-smart-key-replacement-nashville-1200.webp 1200w"
+                sizes="(max-width: 1024px) 100vw, 540px"
+                alt="2022 Ford Bronco in a Nashville driveway with our Armstrong Locksmith mobile locksmith van parked behind it for smart key programming"
+                class="w-full h-64 sm:h-72 object-cover"
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="555"
+              />
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-amber-300 mb-2">
+              On-Site Driveway Job &bull; 2022 Ford Bronco
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight mb-2">
+              2022 Ford Bronco Push-to-Start Fob — Programmed in the Driveway
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              We brought our mobile locksmith van out to the customer&apos;s driveway in Nashville to cut and program a new smart key fob for this custom <strong>2022 Ford Bronco</strong>. Using our licensed Ford FDRS setup, we paired the new push-to-start fob and tested remote lock, unlock, and ignition right on site.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs font-bold">
+            <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md border border-slate-200">&#10003; Mobile Locksmith Van Dispatch</span>
+            <a href="https://youtu.be/i5lTlP5DtU8" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 inline-flex items-center gap-1 font-extrabold">
+              <span>Watch on YouTube &rarr;</span>
+            </a>
           </div>
         </div>
       </section>
@@ -520,4 +618,14 @@ const fordModels = [
     title="2011 Dodge Ram Broken FOBIK Key Replaced at Our Shop"
     blurb="See how a walk-in truck owner replaced his broken remote FOBIK key at our shop for $150 less than other locksmith quotes."
   />
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('play-bronco-video-btn');
+      var box = document.getElementById('ford-bronco-video-box');
+      if (!btn || !box) return;
+      btn.addEventListener('click', function () {
+        box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/i5lTlP5DtU8?autoplay=1&rel=0" title="2022 Ford Bronco Smart Key Fob Replacement in Nashville, TN | Armstrong Locksmith" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      });
+    })();
+  </script>
 </Layout>
