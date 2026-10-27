@@ -9,34 +9,34 @@ export interface Props {
 const { 
   defaultMake = "", 
   title = "Instant Vehicle Key Estimator & Fitment Guide",
-  subtitle = "Select your vehicle make, year range, and situation to check instant key availability, dealer cost savings, and on-site service options in Nashville."
+  subtitle = "Select your vehicle make, year range, and situation to see in plain English if we can make your key, what you need to bring, and starting prices in Nashville."
 } = Astro.props;
 
 const makes = [
   "Acura", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet", 
-  "Chrysler", "Dodge", "Ford", "GMC", "Honda", "Hummer", "Hyundai", 
+  "Chrysler", "Dodge", "Ford", "Genesis", "GMC", "Honda", "Hummer", "Hyundai", 
   "Infiniti", "Jaguar", "Jeep", "Kia", "Land Rover", "Lexus", "Lincoln", 
   "Mazda", "Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Porsche", 
   "RAM", "Subaru", "Toyota", "Volkswagen", "Volvo", "Other Make"
 ];
 
 const yearRanges = [
-  { label: "2021 – 2026 (Latest Push-to-Start Smart Keys)", value: "2021-2026" },
-  { label: "2016 – 2020 (Modern Proximity & Flip Keys)", value: "2016-2020" },
-  { label: "2010 – 2015 (Transponder Chips & Remote Fobs)", value: "2010-2015" },
-  { label: "2000 – 2009 (Standard Transponder / Laser Cut)", value: "2000-2009" },
-  { label: "Pre-2000 (Mechanical & Early Transponder)", value: "pre-2000" }
+  { label: "2021 – 2026 (Newer Push-to-Start & Smart Keys)", value: "2021-2026" },
+  { label: "2016 – 2020 (Smart Fobs & Flip Keys)", value: "2016-2020" },
+  { label: "2010 – 2015 (Remote Keys, Fobs & Chip Keys)", value: "2010-2015" },
+  { label: "2000 – 2009 (Standard Chip Keys & Remotes)", value: "2000-2009" },
+  { label: "Before 2000 (Older Mechanical & Early Chip Keys)", value: "pre-2000" }
 ];
 ---
 
-<div class="estimator-widget-card bg-white  p-6 sm:p-10 border-2 border-slate-200 shadow-xl relative overflow-hidden my-10 font-sans text-left">
+<div class="estimator-widget-card bg-white p-6 sm:p-10 border-2 border-slate-200 shadow-xl relative overflow-hidden my-10 font-sans text-left">
   
   <!-- Subtle Header Accents -->
   <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-200">
     <div>
-      <div class="inline-flex items-center gap-2 px-3 py-1  bg-amber-100 text-amber-950 text-xs font-black uppercase tracking-wider mb-2">
-        <span class="w-2 h-2  bg-emerald-500 animate-pulse"></span>
-        <span>Interactive Estimator</span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-950 text-xs font-black uppercase tracking-wider mb-2">
+        <span class="w-2 h-2 bg-emerald-500 animate-pulse"></span>
+        <span>Interactive Key &amp; Lockout Check</span>
       </div>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0f274a] font-serif tracking-tight">
         {title}
@@ -46,8 +46,8 @@ const yearRanges = [
       </p>
     </div>
     
-    <div class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 px-3.5 py-2  border border-slate-200">
-      <span>Stocked at 208 Thompson Ln & Mobile Vans</span>
+    <div class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 px-3.5 py-2 border border-slate-200">
+      <span>208 Thompson Ln Shop &amp; Mobile Locksmith Vans</span>
     </div>
   </div>
 
@@ -62,7 +62,7 @@ const yearRanges = [
       <div class="relative">
         <select 
           id="est-make-select" 
-          class="w-full px-4 py-3.5  bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
+          class="w-full px-4 py-3.5 bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
         >
           <option value="">-- Choose Make --</option>
           {makes.map(m => (
@@ -83,7 +83,7 @@ const yearRanges = [
       <div class="relative">
         <select 
           id="est-year-select" 
-          class="w-full px-4 py-3.5  bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
+          class="w-full px-4 py-3.5 bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
         >
           <option value="">-- Choose Year Range --</option>
           {yearRanges.map(yr => (
@@ -104,12 +104,12 @@ const yearRanges = [
       <div class="relative">
         <select 
           id="est-situation-select" 
-          class="w-full px-4 py-3.5  bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
+          class="w-full px-4 py-3.5 bg-slate-50 border-2 border-slate-300 hover:border-amber-400 focus:border-[#0f274a] focus:bg-white text-slate-900 font-bold text-sm outline-none transition appearance-none cursor-pointer pr-10 shadow-sm"
         >
-          <option value="all_lost">Lost ALL Keys (Car won't start)</option>
-          <option value="spare">Have 1 Key (Need duplicate spare)</option>
+          <option value="all_lost">Lost ALL Keys (Car won&apos;t start)</option>
+          <option value="spare">Have 1 Working Key (Need a spare)</option>
           <option value="broken">Broken Key / Cracked Fob Shell</option>
-          <option value="lockout">Emergency Lockout (Keys Inside)</option>
+          <option value="lockout">Locked Keys Inside the Car</option>
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-600 font-bold">
           ▼
@@ -121,48 +121,48 @@ const yearRanges = [
 
   <!-- Dynamic Live Estimation Result Panel -->
   <div id="estimator-result-panel" class="mt-8 pt-6 border-t-2 border-slate-100 hidden transition-all duration-300">
-    <div class="bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c]  p-6 sm:p-8 text-white shadow-2xl border-t-4 border-amber-500">
+    <div class="bg-gradient-to-br from-[#07152b] via-[#0f274a] to-[#16335c] p-6 sm:p-8 text-white shadow-2xl border-t-4 border-amber-500">
       
       <!-- Result Top Badge & Title -->
       <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div class="flex items-center gap-2">
-          <span class="w-3 h-3  bg-emerald-400 animate-ping"></span>
-          <span class="text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/70 px-3 py-1  border border-emerald-500/30">
-            Hardware & Key Blank In-Stock
+          <span id="est-status-dot" class="w-3 h-3 bg-emerald-400 animate-ping"></span>
+          <span id="est-status-badge" class="text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/70 px-3 py-1 border border-emerald-500/30">
+            Yes — We Make This Key
           </span>
         </div>
         <div class="text-xs text-amber-300 font-bold">
-          Family-Owned &bull; Verified Master Locksmith
+          208 Thompson Ln Shop &bull; Mobile Locksmith Vans
         </div>
       </div>
 
       <h3 id="est-result-title" class="text-xl sm:text-2xl font-black font-serif text-white mb-3">
-        Replacement Key Fitment for Your Vehicle
+        Key Replacement Info for Your Vehicle
       </h3>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
         
-        <!-- Pillar 1: Service Capability -->
-        <div class="p-4  bg-white/5 border border-white/10 space-y-1">
-          <div class="text-[11px] font-black uppercase tracking-wider text-amber-400">Technology & Equipment</div>
+        <!-- Pillar 1: Can We Make It & Requirements -->
+        <div class="p-4 bg-white/5 border border-white/10 space-y-1.5">
+          <div id="est-col1-label" class="text-[11px] font-black uppercase tracking-wider text-amber-400">Can We Do Your Vehicle?</div>
           <p id="est-tech-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-            Laser cutting & factory OBD2 transponder programming on-site.
+            Yes — we cut and program keys for your vehicle at our shop or on-site.
           </p>
         </div>
 
-        <!-- Pillar 2: Dealer Comparison -->
-        <div class="p-4  bg-white/5 border border-white/10 space-y-1">
-          <div class="text-[11px] font-black uppercase tracking-wider text-emerald-400">Dealer Comparison</div>
+        <!-- Pillar 2: Starting Price & Dealer Savings -->
+        <div class="p-4 bg-white/5 border border-white/10 space-y-1.5">
+          <div id="est-col2-label" class="text-[11px] font-black uppercase tracking-wider text-emerald-400">Starting Price &amp; Savings</div>
           <p id="est-savings-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-            Save $150 – $500 vs. Dealership pricing with zero towing needed.
+            Starts from $175 and up — saving you $150 to $400 vs. the dealership with no tow fee.
           </p>
         </div>
 
-        <!-- Pillar 3: ETA & Service Method -->
-        <div class="p-4  bg-white/5 border border-white/10 space-y-1">
-          <div class="text-[11px] font-black uppercase tracking-wider text-amber-400">Response & Location</div>
+        <!-- Pillar 3: Shop vs Mobile Van & What to Bring -->
+        <div class="p-4 bg-white/5 border border-white/10 space-y-1.5">
+          <div id="est-col3-label" class="text-[11px] font-black uppercase tracking-wider text-amber-400">How It Works</div>
           <p id="est-dispatch-desc" class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-            Same-day mobile van to your driveway or walk in at 208 Thompson Ln.
+            Stop by our 208 Thompson Ln locksmith shop or have our mobile locksmith van come to you.
           </p>
         </div>
 
@@ -171,14 +171,14 @@ const yearRanges = [
       <!-- Action CTAs -->
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
         <div class="text-xs text-slate-300 font-medium max-w-md">
-          Ready for upfront pricing? Call Rahim or text a photo of your VIN/key for a quote in minutes.
+          Want an exact price for your car? Call Rahim at (615) 625-8000 or text a photo of your VIN or key for a fast quote.
         </div>
 
         <div class="flex flex-wrap items-center gap-3 shrink-0">
           <a 
             id="est-call-btn" 
             href="tel:6156258000" 
-            class="px-6 py-3.5  bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+            class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
           >
             <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.2.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.9 21.2 2.8 13.1 2.8 3.2 2.8 2.5 3.3 2 4 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.2.6 3.2.1.4 0 .9-.2 1.2L6.6 10.8Z"/></svg>
             <span>Call (615) 625-8000</span>
@@ -186,7 +186,7 @@ const yearRanges = [
 
           <a 
             href="sms:6156258000" 
-            class="px-5 py-3.5  bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
+            class="px-5 py-3.5 bg-gold-metallic shadow-sharp-gold hover-lift-gold text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-95 transition"
           >
             <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             <span>Text Photo</span>
@@ -202,8 +202,8 @@ const yearRanges = [
   </div>
 
   <!-- Initial Callout Before Selection -->
-  <div id="estimator-prompt-placeholder" class="mt-6 p-6  bg-amber-50/70 border border-amber-200 text-center text-slate-700 text-xs sm:text-sm font-medium">
-    Select your <strong>Make</strong> and <strong>Model Year</strong> above to view instant key compatibility and pricing savings.
+  <div id="estimator-prompt-placeholder" class="mt-6 p-6 bg-amber-50/70 border border-amber-200 text-center text-slate-700 text-xs sm:text-sm font-medium">
+    Select your <strong>Make</strong> and <strong>Model Year</strong> above to see if we can make your key, what you need to bring, and starting prices.
   </div>
 
 </div>
@@ -216,7 +216,12 @@ const yearRanges = [
     const resultPanel = document.getElementById('estimator-result-panel');
     const placeholder = document.getElementById('estimator-prompt-placeholder');
     
+    const statusDot = document.getElementById('est-status-dot');
+    const statusBadge = document.getElementById('est-status-badge');
     const resultTitle = document.getElementById('est-result-title');
+    const col1Label = document.getElementById('est-col1-label');
+    const col2Label = document.getElementById('est-col2-label');
+    const col3Label = document.getElementById('est-col3-label');
     const techDesc = document.getElementById('est-tech-desc');
     const savingsDesc = document.getElementById('est-savings-desc');
     const dispatchDesc = document.getElementById('est-dispatch-desc');
@@ -224,8 +229,18 @@ const yearRanges = [
     if (!makeSelect || !yearSelect || !sitSelect || !resultPanel || !placeholder) return;
 
     const euroMakes = ["BMW", "Audi", "Mercedes-Benz", "Land Rover", "Jaguar", "Porsche", "Bentley", "Volvo", "MINI", "Volkswagen"];
-    const asianMakes = ["Toyota", "Lexus", "Honda", "Acura", "Hyundai", "Kia", "Nissan", "Infiniti", "Subaru", "Mazda", "Mitsubishi"];
-    const domesticMakes = ["Ford", "Lincoln", "Chevrolet", "GMC", "Buick", "Cadillac", "Dodge", "Jeep", "RAM", "Chrysler", "Hummer"];
+
+    function setBadge(state, text) {
+      if (!statusDot || !statusBadge) return;
+      statusBadge.textContent = text;
+      if (state === 'green') {
+        statusDot.className = 'w-3 h-3 bg-emerald-400 animate-ping';
+        statusBadge.className = 'text-xs font-black uppercase tracking-widest text-emerald-400 bg-emerald-950/70 px-3 py-1 border border-emerald-500/30';
+      } else if (state === 'amber') {
+        statusDot.className = 'w-3 h-3 bg-amber-400 animate-pulse';
+        statusBadge.className = 'text-xs font-black uppercase tracking-widest text-amber-300 bg-amber-950/80 px-3 py-1 border border-amber-400/40';
+      }
+    }
 
     function updateEstimator() {
       const make = makeSelect?.value || "";
@@ -241,57 +256,218 @@ const yearRanges = [
       placeholder?.classList.add('hidden');
       resultPanel?.classList.remove('hidden');
 
-      const isEuro = euroMakes.some(m => m.toLowerCase() === make.toLowerCase());
-      const isAsian = asianMakes.some(m => m.toLowerCase() === make.toLowerCase());
-      
+      const m = make.toLowerCase();
+      const isEuro = euroMakes.some(em => em.toLowerCase() === m);
+
       let sitLabel = "All Keys Lost Replacement";
-      if (situation === "spare") sitLabel = "Duplicate Spare Key & Fob";
-      if (situation === "broken") sitLabel = "Key Shell & Immobilizer Repair";
-      if (situation === "lockout") sitLabel = "Emergency Vehicle Door Unlock";
+      if (situation === "spare") sitLabel = "Add a Spare Key";
+      if (situation === "broken") sitLabel = "Broken Key Shell Replacement";
+      if (situation === "lockout") sitLabel = "Locked Keys Inside the Car";
 
       if (resultTitle) {
-        resultTitle.textContent = `${make} (${year}) — ${sitLabel}`;
+        resultTitle.textContent = `${make} (${year === 'pre-2000' ? 'Before 2000' : year}) — ${sitLabel}`;
       }
 
-      if (techDesc) {
-        if (isEuro) {
-          const m = make.toLowerCase();
-          if (m === 'bmw' || m === 'mini') {
-            techDesc.textContent = `Dealer-level CAS3/CAS4/FEM/BDC diagnostic programming & high-security laser cutting for ${make}.`;
-          } else if (m === 'mercedes-benz') {
-            techDesc.textContent = `Specialized EIS / EZS & FBS3 / FBS4 infrared smart key programming and laser cutting for ${make}.`;
-          } else if (m === 'audi' || m === 'volkswagen' || m === 'porsche' || m === 'bentley') {
-            techDesc.textContent = `VAG dealer-level MQB, BCM2, and KESSY component security programming for ${make}.`;
-          } else if (m === 'jaguar' || m === 'land rover') {
-            techDesc.textContent = `Specialized KVM (Keyless Vehicle Module) & RFA module programming with emergency laser blade cutting for ${make}.`;
-          } else if (m === 'volvo') {
-            techDesc.textContent = `All Volvo models up to 2026 (XC90, XC60, XC40, S60, S90, V60, V90 — CEM / SPA / CMA smart proximity fobs) cut and programmed in-house.`;
-          } else {
-            techDesc.textContent = `Dealer-level European diagnostic programming & computerized high-security laser cutting for ${make}.`;
+      if (col1Label) col1Label.textContent = "Can We Do Your Vehicle?";
+      if (col2Label) col2Label.textContent = "Starting Price & Savings";
+      if (col3Label) col3Label.textContent = "How It Works";
+
+      // 1. EMERGENCY LOCKOUT (Keys locked inside the car) — No limitations on any vehicle or year
+      if (situation === "lockout") {
+        setBadge('green', 'Yes — We Unlock All Models & Years');
+        if (techDesc) {
+          techDesc.textContent = `Yes — we unlock all ${make} models and years with no limitations. We open the door cleanly using professional air wedges and door tools without scratching your paint or weatherstripping.`;
+        }
+        if (savingsDesc) {
+          savingsDesc.textContent = `Because your working key is already inside the car, you only need a simple door unlock — no tow truck and no expensive key replacement.`;
+        }
+        if (dispatchDesc) {
+          dispatchDesc.textContent = `Call (615) 625-8000 and we will send our mobile locksmith van straight to your parking lot or driveway anywhere in Greater Nashville.`;
+        }
+        return;
+      }
+
+      // 2. BROKEN KEY SHELL (Electronics still work, shell/blade is cracked) — All makes & years
+      if (situation === "broken") {
+        setBadge('green', 'Yes — Replacement Key Shells Available');
+        if (techDesc) {
+          techDesc.textContent = `Yes — we provide replacement key shells and flip blades for all ${make} models and years. If your remote buttons and car start still work, we move your original electronics into a brand-new shell and cut a fresh key blade.`;
+        }
+        if (savingsDesc) {
+          savingsDesc.textContent = `Car dealerships won't replace just a broken plastic shell — they charge you for a brand-new key. Swapping the shell at our shop saves you a lot of money.`;
+        }
+        if (dispatchDesc) {
+          dispatchDesc.textContent = `Bring your broken ${make} key to our walk-in locksmith shop at 208 Thompson Ln in Nashville and we'll swap the shell and cut the blade while you wait.`;
+        }
+        return;
+      }
+
+      // 3. ALL KEYS LOST or ADD A SPARE KEY
+      const euroPriceText = `Each vehicle is different, but European keys start from $350 and up — saving you $250 to $600+ compared to dealership prices and towing.`;
+      const standardPriceText = `Each vehicle is different, but keys for ${make} start from $175 and up — saving most drivers $150 to $350+ compared to the dealership with no tow truck needed.`;
+
+      // --- MERCEDES-BENZ ---
+      if (m === 'mercedes-benz') {
+        if (year === '2021-2026' || year === '2016-2020') {
+          setBadge('amber', '2015 & Newer Mercedes: Dealership Only');
+          if (techDesc) {
+            techDesc.textContent = `Honest answer: We make all Mercedes keys from 2000 to 2014, but 2015 and newer Mercedes models use a locked factory system that must go through the Mercedes-Benz dealership. As far as we know, no independent locksmith can make a 2015+ Mercedes key.`;
           }
-        } else if (isAsian) {
-          techDesc.textContent = `High-security proximity smart key programming, 8A/4D/46/47/4A transponders, & computerized factory laser cutting for ${make}.`;
+          if (col2Label) col2Label.textContent = "Is It a 2014 or Older Model?";
+          if (savingsDesc) {
+            savingsDesc.textContent = `If your Mercedes is a 2000 to 2014 model, we CAN make your key (both All Keys Lost and Spare Key) starting from $350 and up — switch Step 2 above to 2010–2015 or 2000–2009.`;
+          }
+          if (col3Label) col3Label.textContent = "Locked Key Inside or Broken Shell?";
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `If your working key is just locked inside your 2015+ Mercedes, or you just need a broken key shell replaced, we CAN do that! Call us at (615) 625-8000.`;
+          }
+        } else if (year === 'pre-2000') {
+          setBadge('amber', 'Pre-2000 Mercedes: Call to Check Key Stock');
+          if (techDesc) {
+            techDesc.textContent = `For Mercedes-Benz models before 2000, please call or text us first so we can check if we have the right key for your specific model.`;
+          }
+          if (savingsDesc) savingsDesc.textContent = euroPriceText;
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `Call or text a photo of your VIN or existing key to (615) 625-8000, or stop by our shop at 208 Thompson Ln so we can check right away.`;
+          }
         } else {
-          techDesc.textContent = (make.toLowerCase() === 'ford' || make.toLowerCase() === 'lincoln') ? `Official Ford FDRS dealer software for 2020–2026 push-to-start models (Escape, F-150, Explorer, Bronco, Transit) plus PATS transponder & laser cutting for ${make}.` : `Factory OEM key fob & PEPS proximity programming with computerized high-security laser blade origination for ${make}.`;
+          // 2000-2009 or 2010-2015 (2000 to 2014 covered)
+          setBadge('green', 'Yes — We Cover 2000 to 2014 Mercedes');
+          if (techDesc) {
+            techDesc.textContent = `Yes — from 2000 to 2014, we do both All Keys Lost and spare keys for Mercedes-Benz. (Note: 2015 and newer Mercedes models must go through the dealership.)`;
+          }
+          if (savingsDesc) savingsDesc.textContent = euroPriceText;
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `We can make and program your 2000–2014 Mercedes key at our 208 Thompson Ln locksmith shop, or send our mobile locksmith van out to your vehicle.`;
+          }
         }
+        return;
       }
 
+      // --- BMW & MINI ---
+      if (m === 'bmw' || m === 'mini') {
+        if (year === '2021-2026') {
+          setBadge('green', 'Covered Up to 2026 • Ordered by VIN at Our Shop');
+          if (techDesc) {
+            techDesc.textContent = `Yes — we do ${make} all the way up to 2026 for both All Keys Lost and spare keys. For 2020 to 2026 models, we order the key based on your VIN number.`;
+          }
+          if (savingsDesc) savingsDesc.textContent = euroPriceText;
+          if (col3Label) col3Label.textContent = "What You Need to Bring";
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `Bring your valid Driver's License and matching Vehicle Registration to our shop at 208 Thompson Ln so we can order your key. We will send you a text message as soon as it's ready!`;
+          }
+        } else {
+          setBadge('green', 'Yes — Covered Up to 2026 (ID & Registration Required)');
+          if (techDesc) {
+            techDesc.textContent = `Yes — we do both All Keys Lost and add a spare key for ${make}. For 2020+ models we order the key by VIN at our shop; for 2019 and older models we can often make it the same day.`;
+          }
+          if (savingsDesc) savingsDesc.textContent = euroPriceText;
+          if (col3Label) col3Label.textContent = "What You Need to Bring";
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `We require owner verification — please have a valid Driver's License and Vehicle Registration that match in name at our 208 Thompson Ln shop (or call us for mobile service).`;
+          }
+        }
+        return;
+      }
+
+      // --- AUDI & VOLKSWAGEN ---
+      if (m === 'audi' || m === 'volkswagen') {
+        setBadge('green', 'Yes — Covered Up to 2026 With Dealer Tool');
+        if (techDesc) {
+          techDesc.textContent = `Yes — we do all ${make} models up to 2026 (both All Keys Lost and adding a spare key) at our shop using the official dealer tool.`;
+        }
+        if (savingsDesc) savingsDesc.textContent = euroPriceText;
+        if (col3Label) col3Label.textContent = "What You Need to Bring";
+        if (dispatchDesc) {
+          dispatchDesc.textContent = `We require owner verification: bring your valid Driver's License and Vehicle Registration with matching names to our shop at 208 Thompson Ln (or call us if all keys are lost).`;
+        }
+        return;
+      }
+
+      // --- PORSCHE ---
+      if (m === 'porsche') {
+        if (year === '2021-2026') {
+          setBadge('amber', 'Porsche Covered Up to 2020');
+          if (techDesc) {
+            techDesc.textContent = `We make and program Porsche keys for models up to 2020 (both All Keys Lost and spare keys). For 2021 and newer Porsche models, please call us to check or contact the dealership.`;
+          }
+          if (savingsDesc) {
+            savingsDesc.textContent = `For Porsche models up to 2020, European keys start from $350 and up depending on your model and year.`;
+          }
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `Call (615) 625-8000 with your Porsche year and model, or if you just locked your working key inside the car, we can unlock any year Porsche.`;
+          }
+        } else {
+          setBadge('green', 'Yes — We Cover Porsche Up to 2020');
+          if (techDesc) {
+            techDesc.textContent = `Yes — we do Porsche keys up to 2020 for both All Keys Lost and spare keys. Valid Driver's License and matching Vehicle Registration are required.`;
+          }
+          if (savingsDesc) savingsDesc.textContent = euroPriceText;
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `Visit our walk-in locksmith shop at 208 Thompson Ln with your ID and registration, or call (615) 625-8000 for mobile service.`;
+          }
+        }
+        return;
+      }
+
+      // --- BENTLEY ---
+      if (m === 'bentley') {
+        if (year === '2021-2026') {
+          setBadge('amber', 'Bentley Covered Up to 2016');
+          if (techDesc) {
+            techDesc.textContent = `We make and program Bentley keys up to model year 2015–2016 (both All Keys Lost and spare keys). For 2017 and newer Bentley models, please call us first to check.`;
+          }
+          if (savingsDesc) {
+            savingsDesc.textContent = `For Bentley models up to 2016, European keys start from $350 and up depending on the model and year.`;
+          }
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `Call (615) 625-8000 with your Bentley year and model — and remember we can unlock the door or replace a broken shell on any year.`;
+          }
+        } else {
+          setBadge('green', 'Yes — We Cover Bentley Up to 2015–2016');
+          if (techDesc) {
+            techDesc.textContent = `Yes — we do Bentley keys up to 2015 and 2016 for both All Keys Lost and spare keys (for 2017–2020 models, please call us first to verify).`;
+          }
+          if (savingsDesc) savingsDesc.textContent = euroPriceText;
+          if (dispatchDesc) {
+            dispatchDesc.textContent = `Visit our locksmith shop at 208 Thompson Ln in Nashville or call (615) 625-8000 to schedule our mobile locksmith van.`;
+          }
+        }
+        return;
+      }
+
+      // --- LAND ROVER / RANGE ROVER, JAGUAR & VOLVO ---
+      if (m === 'land rover' || m === 'jaguar' || m === 'volvo') {
+        const displayName = m === 'land rover' ? 'Range Rover & Land Rover' : make;
+        setBadge('green', `Yes — We Cover ${displayName} Up to 2026`);
+        if (techDesc) {
+          techDesc.textContent = `Yes — we cover all ${displayName} models up to 2026 for both All Keys Lost and adding a spare smart key.`;
+        }
+        if (savingsDesc) savingsDesc.textContent = euroPriceText;
+        if (dispatchDesc) {
+          dispatchDesc.textContent = situation === 'spare'
+            ? `Pull up to our walk-in locksmith shop at 208 Thompson Ln with your ID and registration, or have our mobile locksmith van come to you.`
+            : `We can make your new ${displayName} key at our 208 Thompson Ln shop or send our mobile locksmith van straight to your vehicle.`;
+        }
+        return;
+      }
+
+      // --- ALL AMERICAN, JAPANESE & KOREAN MAKES (No year limits, up to 2026, Shop & Mobile, $175+) ---
+      setBadge('green', `Yes — All ${make} Years Covered Up to 2026`);
+      if (techDesc) {
+        if (m === 'ford' || m === 'lincoln') {
+          techDesc.textContent = `Yes — we cover all ${make} models and years up to 2026 with no limitations (both All Keys Lost and spare keys), including 2020–2026 push-to-start models using our official Ford dealer tool.`;
+        } else {
+          techDesc.textContent = `Yes — we have no year limits on ${make}. We do both All Keys Lost and spare keys (push-to-start smart fobs, flip keys, and chip keys) for all models up to 2026.`;
+        }
+      }
       if (savingsDesc) {
-        if (isEuro) {
-          savingsDesc.textContent = `Typically saves $250 – $650 vs. ${make} dealership tow fees & 2-week backorders. Ready same day.`;
-        } else {
-          savingsDesc.textContent = `Typically saves $150 – $400 vs dealership prices with no towing needed. Cut & programmed on-site.`;
-        }
+        savingsDesc.textContent = standardPriceText;
       }
-
       if (dispatchDesc) {
-        if (situation === "lockout") {
-          dispatchDesc.textContent = `Urgent mobile dispatch with soft vinyl air wedges. At your vehicle with prompt same-day service.`;
-        } else if (situation === "spare") {
-          dispatchDesc.textContent = `Drop by our 208 Thompson Ln storefront for quick in-shop key cutting, or request our mobile van to your home.`;
-        } else {
-          dispatchDesc.textContent = `Mobile van dispatched directly to your vehicle anywhere in Nashville & Middle TN with keys cut on-site.`;
-        }
+        dispatchDesc.textContent = situation === 'spare'
+          ? `Have a working key? Drive to our walk-in shop at 208 Thompson Ln to get a spare made while you wait (and skip the mobile trip fee), or have our mobile van come to you.`
+          : `We can send our mobile locksmith van straight to your driveway or parking lot anywhere in Nashville to make your key on the spot, or you can visit our shop at 208 Thompson Ln.`;
       }
     }
 
@@ -301,7 +477,7 @@ const yearRanges = [
 
     // If initial make is selected via prop, pre-select default year to show instant preview
     if (makeSelect.value && !yearSelect.value) {
-      yearSelect.value = "2016-2020";
+      yearSelect.value = "2021-2026";
       updateEstimator();
     }
   })();
