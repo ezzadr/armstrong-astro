@@ -33,7 +33,8 @@
 ## Copy & Content Voice Rules (PERMANENT)
 
 - **No AI-sounding marketing fluff — anywhere.** This applies to page headlines, card titles, subtitles, alt text, meta descriptions, GBP posts, and blog content.
-- **Banned vocabulary:** "precision," "seamless," "elevate," "unlock your," "effortless," "cutting-edge," "state-of-the-art," "unparalleled," "hassle-free," "peace of mind," "look no further," "we've got you covered," and similar polished-marketing phrases.
+- **Banned vocabulary:** "precision," "seamless," "elevate," "unlock your," "effortless," "cutting-edge," "state-of-the-art," "unparalleled," "hassle-free," "peace of mind," "look no further," "we've got you covered," "lab," "key lab," "mobile lab," "workshop," "workstation," and similar AI/marketing phrases.
+- **Never call the van or shop a "lab," "key lab," "workshop," or "workstation"** — always say "locksmith van," "mobile locksmith van," or "locksmith shop." A real local locksmith never calls a van or shop a "lab."
 - **Never say "CNC laser cutting" (or any "CNC" phrasing) in customer-facing copy** — always "high-security laser cutting" instead. Customers know "high-security key"; "CNC" is machinist jargon.
 - **Write like Rahim talks:** plain first-person shop language. "Rahim duplicating a residential key at the shop" beats "Precision Key Cutting by Owner Rahim." Concrete facts (prices, brands, times, addresses) beat adjectives.
 - **When Rahim supplies his own phrasing, use it verbatim** (fix only clear typos, e.g. lock/key mixups — and confirm).
