@@ -242,7 +242,21 @@ starter.
   git log -n 3 --oneline
   ```
 - Report the last 3 commits in plain words and confirm that his computer now has the latest live website updates and is ready for work.
+- Check `docs/APPLE_BUSINESS_CONNECT.md` for any due Apple Business Connect checks (such as pending `In Review` items or upcoming Showcase renewals) and mention them briefly if due.
 
 ## 9. ALWAYS SHOW A LIVE PREVIEW BEFORE ASKING TO COMMIT
 - Whenever you make any visual, copy, layout, or page change, ALWAYS start the local preview (`npx astro preview --port 4321` after `npx astro build`, or `npm run dev`) and open the changed page in Rahim's browser (plus give him the clickable `http://localhost:4321/...` link) BEFORE asking him to commit or merge.
 - Never ask Rahim to commit a page or design change he has not seen in preview first.
+
+## 10. IMPORTANT LISTINGS & ONGOING CHECKS (GSC, GBP & APPLE BUSINESS CONNECT)
+- Antigravity keeps an eye on Rahim's three core local search listings alongside the website:
+  1. **Google Search Console**: `https://armstronglocksmithinc.com/`
+  2. **Google Business Profile**: `https://g.page/r/CQS5BtikwbmqEBM` (reviews: `https://g.page/r/CQS5BtikwbmqEBM/review`)
+  3. **Apple Business Connect (Apple Maps)**: `https://business.apple.com/companies/1461790501084574208/maps/locations/1563086994871944632/info` (live Place Card: `https://maps.apple.com/place?auid=10423668849052500220` — full baseline & checklist in `docs/APPLE_BUSINESS_CONNECT.md`)
+- **Apple Business Connect checks to watch:**
+  - **Quick Actions (`/info/actions`)**: Confirm `In Review` finishes and stays `Primary Action = Schedule` → `https://armstronglocksmithinc.com/book-online/`, `More Actions: Pricing` → `https://armstronglocksmithinc.com/locksmith-pricing-nashville/`, and `More Actions: Quote` → `https://armstronglocksmithinc.com/book-online/` (#1 above Yelp). Never allow old Workiz URLs or let Yelp take back Primary Action.
+  - **About (`/info/descriptions`)**: Confirm `In Review` clears to published.
+  - **Showcases (`/showcases`)**: 4 approved 30-day Showcases run back-to-back from `2026-10-30` through `2027-02-28`. Remind Rahim by `2027-02-15` to queue the next 4 Showcases so top-of-card promo coverage never drops to zero.
+  - **Photos (`/photos`) & Good to Know (`/info/good-to-know`)**: Keep all 10 captioned/alt-tagged photos and 10 storefront badges (`Walk-Ins Welcome`, `Free Self-Parking`, `Parking Lot`, `Outdoor Parking`, payment methods) published.
+  - **Insights (`/insights`)**: Compare `Directions`, `Call`, `Website`, `Showcase`, and `Photos` taps against the `2026-10-30` baseline in `docs/APPLE_BUSINESS_CONNECT.md`.
+  - **Hands-off Core NAP on Apple Maps**: Never edit Display Name, `208 Thompson Ln, Nashville, TN 37211`, Map Pin, `+1 (615) 625-8000`, `armstronglocksmithinc.com`, or regular storefront hours (`Mon–Fri 8 AM–6 PM, Sat 10 AM–4 PM, Sun Closed`) without Rahim's explicit OK so `Brand: Verified` never triggers re-verification.
