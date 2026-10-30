@@ -46,7 +46,7 @@ const homepageSchema = [
 <Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageSchema} image="/shop.jpeg">
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
-  <section class="relative bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 overflow-hidden font-sans">
+  <section class="relative z-20 bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 font-sans">
     <!-- Subtle Shop Background Layer (Desktop only to guarantee 100/100 Mobile Speed) -->
     <div class="hidden sm:block absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none" style="background-image: url('/shop-1200.webp');"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a1c38] via-[#0a1c38]/90 to-[#0a1c38]/75 pointer-events-none"></div>
@@ -112,9 +112,9 @@ const homepageSchema = [
 
       <!-- Right Column: Hero Contact / Instant Quote Form Card -->
       <div class="lg:col-span-5 relative z-20" id="quote-form-section">
-        <div class="bg-white rounded-xl shadow-xl border border-slate-200 text-slate-900 relative overflow-hidden">
+        <div class="bg-white rounded-xl shadow-xl border border-slate-200 text-slate-900 relative">
           
-          <div class="bg-slate-50 px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-200">
+          <div class="bg-slate-50 rounded-t-xl px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-200">
             <h2 class="text-lg sm:text-xl font-black font-heading text-[#0f274a]">
               Get an Upfront Price Quote
             </h2>
