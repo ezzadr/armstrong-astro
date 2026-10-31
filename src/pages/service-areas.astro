@@ -74,11 +74,11 @@ const serviceAreas = [
     features: ["Toyota, Honda & Ford Key Fobs", "Fast House & Car Unlocking", "Deadbolt Installation & Rekey"]
   },
   {
-    name: "Hermitage & Mt. Juliet",
-    county: "wilson",
-    zips: "37076, 37122",
+    name: "Hermitage & Old Hickory",
+    county: "davidson",
+    zips: "37076, 37138",
     tag: "Subdivisions & Retail",
-    desc: "Full mobile locksmith service for homes and businesses in Hermitage and Mt. Juliet. We rekey new home purchases, replace lost car fobs, and service retail storefront locks.",
+    desc: "Full mobile locksmith service for homes and businesses in Hermitage and Old Hickory. We rekey new home purchases, replace lost car fobs, and service retail storefront locks.",
     features: ["New Home Lock Rekeying", "Retail Door Lock Repair", "Car Key & Remote Replacement"]
   },
   {
@@ -129,7 +129,7 @@ const serviceAreasSchema = [
         "name": "Which cities and neighborhoods around Nashville does Armstrong Locksmith cover?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our mobile locksmith vans dispatch from our 208 Thompson Ln shop across all of Davidson and Williamson Counties, including Downtown Nashville, South Nashville (37211), Brentwood, Franklin, Cool Springs, Green Hills, Belle Meade, Donelson (BNA Airport), Hermitage, Antioch, East Nashville, Berry Hill, Nolensville, and Mt. Juliet."
+          "text": "Our mobile locksmith vans dispatch from our 208 Thompson Ln shop across all of Davidson and Williamson Counties, including Downtown Nashville, South Nashville (37211), Brentwood, Franklin, Cool Springs, Green Hills, Belle Meade, Donelson (BNA Airport), Hermitage, Antioch, East Nashville, Berry Hill, and Nolensville."
         }
       },
       {
@@ -259,7 +259,7 @@ const serviceAreasSchema = [
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
-                <span><strong>Coverage:</strong> Davidson, Williamson &amp; Wilson Counties</span>
+                <span><strong>Coverage:</strong> Davidson &amp; Williamson Counties</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
@@ -319,13 +319,6 @@ const serviceAreasSchema = [
             class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition border"
           >
             Williamson County
-          </button>
-          <button 
-            type="button" 
-            data-filter="wilson" 
-            class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition border"
-          >
-            Wilson County
           </button>
         </div>
       </div>
