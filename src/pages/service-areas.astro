@@ -1,101 +1,189 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { storeWeekdays, storeSaturday, mobileHoursLine } from '../data/hours.mjs';
+import { storeWeekdays, storeSaturday, mobileWeekdays, mobileSaturday, mobileHoursLine } from '../data/hours.mjs';
 import { getReviewStats } from '../lib/reviewStats.mjs';
-const { reviewCount, ratingValue } = await getReviewStats();
+const { reviewCount } = await getReviewStats();
 
-const seoTitle = `Mobile Locksmith Nashville, Brentwood, Franklin & Antioch TN`;
-const seoDescription = `Mobile locksmith vans & 208 Thompson Ln shop serving Nashville, Brentwood, Franklin, Antioch & Donelson. Car keys, lockouts & rekeys. Call (615) 625-8000.`;
+const seoTitle = `Locksmith Brentwood, Antioch & Hermitage TN | 4.9★ (${reviewCount}+)`;
+const seoDescription = `Fast locksmith for Brentwood, Antioch & Hermitage TN from our 208 Thompson Ln Nashville shop. Car keys, smart fobs, lockouts & rekeys. Call (615) 625-8000.`;
+
+const priorityTowns = [
+  {
+    id: "brentwood",
+    city: "Brentwood, TN",
+    zip: "37027",
+    driveBadge: "10–15 Min South via I-65 & Franklin Rd",
+    corridors: "Maryland Farms, Old Hickory Blvd, Concord Rd, Wilson Pike, Murray Ln & Crockett Park",
+    summary: "Our 208 Thompson Ln shop sits straight north of Brentwood, so our mobile locksmith vans get to driveways and office parks across 37027 fast — or you can make the 10-minute drive up to our counter and skip the mobile trip fee.",
+    bullets: [
+      "On-site European & luxury smart key fobs (BMW, Mercedes-Benz, Audi, Range Rover, Volvo & Lexus) with zero towing",
+      "Full-house lock rekeying, Baldwin & Emtek hardware repair, and keypad deadbolt installation",
+      "Maryland Farms office suite rekeying, master key systems & commercial keypad locks"
+    ],
+    serviceLinks: [
+      { label: "European Car Keys", href: "/european-car-key-specialist/" },
+      { label: "Home & Office Rekey", href: "/nashville-rekey-service/" }
+    ],
+    caseStudies: [
+      { label: "Saved a Brentwood BMW owner $600+ on a smart key →", href: "/blog/how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn/" },
+      { label: "Toyota & Audi spare key fobs for a Brentwood family →", href: "/blog/toyota-and-audi-spare-key-fobs-brentwood-tn-nashville-shop/" }
+    ]
+  },
+  {
+    id: "antioch",
+    city: "Antioch, TN",
+    zip: "37013",
+    driveBadge: "10–15 Min Southeast via Nolensville Pike & I-24",
+    corridors: "Bell Rd, Antioch Pike, Hickory Hollow, Cane Ridge, Priest Lake & Harding Pl",
+    summary: "Antioch is right down Nolensville Pike and I-24 from our shop. When all your car keys are lost or locked inside, our mobile locksmith van cuts and programs keys right where your car is parked — or bring a working key to 208 Thompson Ln for lower in-shop duplicate pricing.",
+    bullets: [
+      "All-keys-lost car key replacement & push-to-start smart fobs (Toyota, Honda, Nissan, Ford, Chevy, Dodge/RAM, Hyundai & Kia)",
+      "Fast damage-free car unlocking, house lockouts, and worn ignition or door cylinder repair",
+      "House & townhome lock rekeying plus Adams Rite & Alarm Lock storefront hardware along Bell Rd and Nolensville Pike"
+    ],
+    serviceLinks: [
+      { label: "Car Key Replacement", href: "/car-key-replacement-nashville/" },
+      { label: "Car Lockout Service", href: "/emergency-car-lockout/" },
+      { label: "Commercial Locks", href: "/commercial-locksmith/" }
+    ],
+    caseStudies: [
+      { label: "South Nashville & 37211 commercial storefront deadlatch job →", href: "/blog/commercial-mortise-deadlatch-installation-lock-rekey-nashville-37211/" }
+    ]
+  },
+  {
+    id: "hermitage",
+    city: "Hermitage, TN",
+    zip: "37076",
+    driveBadge: "15–20 Min East via Briley Pkwy & I-40",
+    corridors: "Lebanon Pike, Old Hickory Blvd, Andrew Jackson Pkwy, Central Pike, Tulip Grove & Old Hickory (37138)",
+    summary: "From our shop right off Briley Pkwy (TN-155), our mobile locksmith vans have a direct shot across I-40 East into Hermitage and Old Hickory for lost car keys, home rekeys, and commercial door repairs.",
+    bullets: [
+      "Mobile car key cutting, high-security laser cutting & smart fob programming for American, Asian & European vehicles",
+      "New-home lock rekeying after closing, deadbolt upgrades, keypad smart locks & house lockouts",
+      "Retail storefront mortise locks, door closers, exit hardware & commercial rekeys along Lebanon Pike and Old Hickory Blvd"
+    ],
+    serviceLinks: [
+      { label: "Automotive Locksmith", href: "/automotive-locksmith-in-nashville-tn/" },
+      { label: "Residential Locksmith", href: "/residential-locksmith-nashville/" }
+    ],
+    caseStudies: [
+      { label: "Read our Hermitage & Donelson Audi key replacement job →", href: "/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/" }
+    ]
+  }
+];
 
 const serviceAreas = [
-  {
-    name: "Downtown & Metro Nashville",
-    county: "davidson",
-    zips: "37201, 37203, 37219",
-    tag: "Downtown & Broadway",
-    desc: "Locked out of your car in a downtown parking garage or need your condo deadbolt rekeyed? We provide fast mobile response across Broadway, Midtown, and the Gulch, plus commercial lock service for local venues.",
-    features: ["Car & Garage Lockouts", "Condo & Apartment Rekeys", "Storefront Panic Bars & Locks"]
-  },
   {
     name: "South Nashville & Thompson Ln",
     county: "davidson",
     zips: "37211, 37210",
     tag: "Walk-In Shop & HQ",
-    desc: "Our permanent physical storefront is located at 208 Thompson Lane. Stop by for instant key copies, key fob programming, and ignition repairs without mobile callout fees.",
-    features: ["Walk-In Key Copying", "American, Asian & European Key Fobs", "Ignition Cylinder Repair"],
+    desc: "Our permanent physical storefront is located at 208 Thompson Lane. Stop by for key copies, smart key fob programming, and lock rekeying at our counter without mobile service call fees.",
+    features: ["Walk-In Key Copying", "American, Asian & European Key Fobs", "Ignition & Lock Cylinder Repair"],
+    blogHref: "/blog/commercial-mortise-deadlatch-installation-lock-rekey-nashville-37211/",
+    blogLabel: "Read our South Nashville (37211) lock job →",
     isHQ: true
   },
   {
     name: "Brentwood",
     county: "williamson",
     zips: "37027",
-    tag: "Car Keys & Residential Re-Key",
-    desc: "Lost your BMW, Mercedes, or Audi keys in Brentwood? Our mobile technicians cut and program smart fobs right in your driveway and install high-security deadbolts for local homes.",
-    features: ["BMW, Mercedes & Audi Smart Keys", "High-Security Deadbolts", "On-Site Driveway Service"],
+    tag: "10–15 Min South • Car Keys & Rekeys",
+    desc: "Lost your BMW, Mercedes, Audi, or Range Rover keys in Brentwood? Our mobile locksmith vans cut and program smart fobs right in your driveway and rekey homes and Maryland Farms offices.",
+    features: ["BMW, Mercedes & Audi Smart Keys", "Home Rekey & Keypad Deadbolts", "Maryland Farms Commercial Locks"],
     blogHref: "/blog/how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn/",
     blogLabel: "Read our Brentwood BMW key job →"
   },
   {
-    name: "Franklin & Cool Springs",
-    county: "williamson",
-    zips: "37064, 37067, 37069",
-    tag: "Cool Springs & Historic Downtown",
-    desc: "Serving corporate offices in Cool Springs and residential homes in Franklin. We replace car keys on-site, rekey office suites, and install commercial keyless access systems.",
-    features: ["Office & Commercial Rekeying", "Keyless Entry Deadbolts", "Push-to-Start Key Fobs"],
-    blogHref: "/blog/home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents/",
-    blogLabel: "Home Rekey vs. Lock Replacement Guide →"
+    name: "Antioch & Cane Ridge",
+    county: "davidson",
+    zips: "37013, 37217",
+    tag: "10–15 Min SE • Car Keys & Lockouts",
+    desc: "On-site replacement car keys and push-to-start fobs for Toyota, Honda, Ford, Chevy, Nissan, Kia, and Hyundai across Bell Rd, Hickory Hollow, Cane Ridge, and Priest Lake, plus fast car and house lockouts.",
+    features: ["Toyota, Honda, Ford & Nissan Fobs", "Fast House & Car Unlocking", "Home & Storefront Rekeying"]
+  },
+  {
+    name: "Hermitage & Old Hickory",
+    county: "davidson",
+    zips: "37076, 37138",
+    tag: "15–20 Min East • Keys & Home Rekey",
+    desc: "Full mobile locksmith service along Lebanon Pike, Andrew Jackson Pkwy, Central Pike, and Old Hickory. We replace lost car fobs on-site, rekey new home purchases, and repair retail storefront locks.",
+    features: ["On-Site Car Key & Fob Programming", "New Home Lock Rekeying", "Retail Storefront Lock Repair"],
+    blogHref: "/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/",
+    blogLabel: "Read our Hermitage / Donelson Audi key job →"
   },
   {
     name: "Donelson & Nashville Airport (BNA)",
     county: "davidson",
     zips: "37214",
     tag: "Airport Priority Dispatch",
-    desc: "Landed at BNA and can't find your car keys or locked them in the trunk? Our mobile vans drive straight to airport parking lots to unlock your vehicle and cut new keys on the spot.",
+    desc: "Landed at BNA and can't find your car keys or locked them in the trunk? Our mobile locksmith vans drive straight to airport parking garages and Donelson neighborhoods to open your locked car and make new keys on the spot.",
     features: ["BNA Airport Parking Assistance", "Replacement Keys Made on Site", "Damage-Free Car Unlocking"],
     blogHref: "/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/",
     blogLabel: "Read our Donelson / BNA Audi key job →"
   },
   {
-    name: "Green Hills & Belle Meade",
+    name: "Green Hills, Oak Hill & Belle Meade",
     county: "davidson",
-    zips: "37215, 37205",
-    tag: "Luxury Home Security",
-    desc: "Specialized residential lock service for Green Hills and Belle Meade. We repair and rekey Baldwin and Emtek mortise hardware and program smart keys for luxury SUVs and European imports.",
-    features: ["Baldwin & Emtek Lock Service", "Luxury SUV & Car Keys", "Keypad Deadbolt Installation"],
+    zips: "37215, 37220, 37205",
+    tag: "Home Hardware & Luxury Car Keys",
+    desc: "10 minutes from our Thompson Ln shop across Oak Hill, Forest Hills, Green Hills, and Belle Meade. We repair and rekey Baldwin and Emtek mortise hardware and program smart keys for European and luxury SUVs.",
+    features: ["Baldwin & Emtek Lock Service", "European & Luxury SUV Smart Keys", "Keypad Deadbolt Installation"],
     blogHref: "/blog/detex-exit-lock-replacement-green-hills-nashville/",
     blogLabel: "Read our Green Hills Detex lock job →"
   },
   {
-    name: "Antioch & Priest Lake",
+    name: "Downtown & Midtown Nashville",
     county: "davidson",
-    zips: "37013, 37217",
-    tag: "Automotive & Home Lockouts",
-    desc: "Affordable replacement keys for Toyota, Honda, Ford, Chevy, Kia, and Hyundai. We handle house lockouts, deadbolt installs, and ignition repairs across Antioch and Priest Lake.",
-    features: ["Toyota, Honda & Ford Key Fobs", "Fast House & Car Unlocking", "Deadbolt Installation & Rekey"]
-  },
-  {
-    name: "Hermitage & Old Hickory",
-    county: "davidson",
-    zips: "37076, 37138",
-    tag: "Subdivisions & Retail",
-    desc: "Full mobile locksmith service for homes and businesses in Hermitage and Old Hickory. We rekey new home purchases, replace lost car fobs, and service retail storefront locks.",
-    features: ["New Home Lock Rekeying", "Retail Door Lock Repair", "Car Key & Remote Replacement"]
+    zips: "37201, 37203, 37219",
+    tag: "Downtown, Gulch & Midtown",
+    desc: "Locked out of your car in a downtown parking garage or need your condo or restaurant locks rekeyed? Fast mobile response across Broadway, Midtown, and the Gulch, plus commercial panic bars and keypads.",
+    features: ["Car & Garage Lockouts", "Condo & Apartment Rekeys", "Storefront Panic Bars & Keypads"]
   },
   {
     name: "Nolensville & Berry Hill",
     county: "davidson",
     zips: "37135, 37204",
     tag: "New Homes & Local Businesses",
-    desc: "Just moved into a new build in Nolensville or need locks updated for your Berry Hill business? We rekey entire properties, install electronic smart deadbolts, and cut spare keys on-site.",
-    features: ["New Construction Rekeying", "Keyless Smart Locks", "On-Site Key Cutting"]
+    desc: "Right next door in Berry Hill (37204) and down Nolensville Rd into 37135. We rekey newly purchased homes, install electronic keypad deadbolts, service studio and office doors, and cut spare car keys.",
+    features: ["New Home Lock Rekeying", "Keyless Smart Deadbolts", "Commercial & Studio Door Locks"]
   },
   {
     name: "East Nashville & Inglewood",
     county: "davidson",
     zips: "37206, 37216",
     tag: "Historic & Modern Homes",
-    desc: "East Nashville and Inglewood homes often have vintage mortise locks and unique entry hardware. We repair and rekey antique locks without damaging your doors, and assist with vehicle lockouts.",
-    features: ["Vintage Mortise Lock Repair", "Residential Rekeying", "Vehicle Lockout Assistance"]
+    desc: "East Nashville and Inglewood homes often have older mortise locks alongside modern deadbolts. We repair and rekey residential hardware cleanly without damaging your doors, and handle car keys and lockouts.",
+    features: ["Mortise & Deadbolt Rekeying", "Car Key & Fob Replacement", "Vehicle & House Lockouts"]
+  },
+  {
+    name: "Franklin & Cool Springs",
+    county: "williamson",
+    zips: "37064, 37067, 37069",
+    tag: "Scheduled Keys & Commercial Rekeys",
+    desc: "Mobile car key programming, commercial office rekeying, and residential deadbolt service across Cool Springs and Franklin down the I-65 corridor.",
+    features: ["Office & Commercial Rekeying", "Keyless Entry Deadbolts", "Push-to-Start Smart Key Fobs"],
+    blogHref: "/blog/home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents/",
+    blogLabel: "Home Rekey vs. Lock Replacement Guide →"
+  }
+];
+
+const areaFaqs = [
+  {
+    q: "How fast can your mobile locksmith van reach Brentwood, Antioch, or Hermitage?",
+    a: "Because our shop sits centrally at 208 Thompson Ln (right off Briley Pkwy, I-65, I-24, and Nolensville Pike), Brentwood (37027) and Antioch (37013) are normally a 10 to 15 minute drive, and Hermitage (37076) is about 15 to 20 minutes via Briley Pkwy and I-40 East. When you call (615) 625-8000, we give you a straight arrival window based on live traffic and where our closest mobile locksmith van is finishing up."
+  },
+  {
+    q: "Can you replace lost car keys and program smart fobs on-site in Brentwood, Antioch, and Hermitage?",
+    a: "Yes. Our mobile locksmith vans carry high-security laser cutting machines and factory-grade immobilizer programmers to cut and program replacement car keys and push-to-start smart fobs right in your driveway, apartment complex, or workplace across Brentwood, Antioch, Hermitage, and Nashville — with zero towing to the dealership."
+  },
+  {
+    q: "Is it cheaper to drive from Brentwood, Antioch, or Hermitage to your 208 Thompson Ln shop?",
+    a: "Yes. If you still have a working car key and want a spare smart fob programmed, or if you can unbolt a lock cylinder and bring it to our counter at 208 Thompson Ln, you skip the mobile service call fee and get lower walk-in shop pricing while you wait."
+  },
+  {
+    q: "What are your walk-in shop and mobile locksmith hours?",
+    a: `Our walk-in locksmith shop at 208 Thompson Ln is open Monday–Friday ${storeWeekdays} and Saturday ${storeSaturday}. Our mobile locksmith vans dispatch across Nashville, Brentwood, Antioch, and Hermitage Monday–Friday ${mobileWeekdays} and Saturday ${mobileSaturday} (closed Sunday).`
   }
 ];
 
@@ -104,43 +192,35 @@ const serviceAreasSchema = [
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://armstronglocksmithinc.com/service-areas/#service",
-    "name": "Locksmith Service Areas Greater Nashville",
+    "name": "Mobile & Walk-In Locksmith Serving Brentwood, Antioch, Hermitage & Nashville TN",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": [
+      { "@type": "City", "name": "Brentwood", "postalCode": "37027" },
+      { "@type": "Place", "name": "Antioch, Nashville, TN", "postalCode": "37013" },
+      { "@type": "Place", "name": "Hermitage, Nashville, TN", "postalCode": "37076" },
       { "@type": "City", "name": "Nashville" },
-      { "@type": "City", "name": "Brentwood" },
-      { "@type": "City", "name": "Franklin" },
-      { "@type": "City", "name": "Antioch" },
-      { "@type": "City", "name": "Donelson" },
-      { "@type": "City", "name": "Hermitage" },
+      { "@type": "Place", "name": "Donelson, Nashville, TN", "postalCode": "37214" },
+      { "@type": "City", "name": "Oak Hill" },
+      { "@type": "City", "name": "Forest Hills" },
       { "@type": "City", "name": "Belle Meade" },
-      { "@type": "City", "name": "Green Hills" },
+      { "@type": "Place", "name": "Green Hills, Nashville, TN", "postalCode": "37215" },
+      { "@type": "City", "name": "Berry Hill" },
       { "@type": "City", "name": "Nolensville" },
-      { "@type": "City", "name": "Berry Hill" }
+      { "@type": "City", "name": "Franklin" }
     ],
-    "description": "Certified mobile locksmith and walk-in storefront providing car key replacement, residential rekeying, commercial door hardware, and emergency lockout services across Nashville, Brentwood, Franklin, and surrounding Middle Tennessee communities."
+    "description": "Walk-in locksmith shop at 208 Thompson Ln and mobile locksmith vans providing car key replacement, smart fob programming, residential rekeying, commercial storefront locks, and lockout service across Brentwood (37027), Antioch (37013), Hermitage (37076), and Metro Nashville."
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Which cities and neighborhoods around Nashville does Armstrong Locksmith cover?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our mobile locksmith vans dispatch from our 208 Thompson Ln shop across all of Davidson and Williamson Counties, including Downtown Nashville, South Nashville (37211), Brentwood, Franklin, Cool Springs, Green Hills, Belle Meade, Donelson (BNA Airport), Hermitage, Antioch, East Nashville, Berry Hill, and Nolensville."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are your storefront and mobile locksmith dispatch hours?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our walk-in shop at 208 Thompson Ln is open Monday–Friday 8:00 AM – 6:00 PM and Saturday 10:00 AM – 4:00 PM. Our mobile locksmith vans run Monday–Friday 8:00 AM – 11:30 PM and Saturday 10:00 AM – 4:00 PM (closed Sunday)."
-        }
+    "mainEntity": areaFaqs.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
       }
-    ]
+    }))
   }
 ];
 ---
@@ -153,18 +233,18 @@ const serviceAreasSchema = [
       
       <!-- Eyebrow Tag -->
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-bold text-amber-300 mb-4">
-        <span>STOREFRONT &bull; MOBILE VANS &bull; MIDDLE TENNESSEE</span>
+        <span>208 THOMPSON LN SHOP &bull; MOBILE VANS &bull; DAVIDSON &amp; WILLIAMSON</span>
       </div>
 
       <!-- Main Headline -->
       <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading font-black uppercase text-white tracking-tight leading-tight max-w-4xl">
-        Locksmith Service Areas <br />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">Across Metro Nashville</span>
+        Nashville, Brentwood, Antioch &amp; Hermitage <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">Locksmith Service Areas</span>
       </h1>
 
       <!-- Grounded Subtext -->
       <p class="text-slate-200 text-sm sm:text-base lg:text-lg max-w-2xl mt-4 leading-relaxed font-normal">
-        Visit our central shop on <strong>Thompson Lane</strong> for instant key programming, or call for fast mobile dispatch to your driveway, office, or roadside anywhere in Middle Tennessee.
+        Our walk-in locksmith shop at <strong>208 Thompson Ln</strong> sits 10 to 20 minutes from <strong>Brentwood</strong>, <strong>Antioch</strong>, and <strong>Hermitage</strong>. Stop by our counter to save on mobile fees, or call for fast on-site van service at your home, car, or business.
       </p>
 
       <!-- Primary Action Buttons -->
@@ -182,8 +262,24 @@ const serviceAreasSchema = [
         </a>
       </div>
 
+      <!-- Quick Jump Links for Priority Close-In Towns -->
+      <nav aria-label="Priority service towns" class="flex flex-wrap items-center justify-center gap-2 pt-5">
+        <a href="#brentwood" class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-xs font-bold text-amber-200 border border-white/15 transition">
+          Brentwood (37027) &darr;
+        </a>
+        <a href="#antioch" class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-xs font-bold text-amber-200 border border-white/15 transition">
+          Antioch (37013) &darr;
+        </a>
+        <a href="#hermitage" class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-xs font-bold text-amber-200 border border-white/15 transition">
+          Hermitage (37076) &darr;
+        </a>
+        <a href="#coverage-grid" class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-bold text-slate-200 border border-white/15 transition">
+          All 10 Areas &darr;
+        </a>
+      </nav>
+
       <!-- Clean Credibility Row -->
-      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-6 mt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-5 mt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
         <div class="flex items-center gap-1.5">
           <span class="text-amber-400 font-bold">★★★★★</span>
           <span><strong class="text-white">4.9/5</strong> (<span class="arm-review-count">{reviewCount}+</span> Reviews)</span>
@@ -201,6 +297,74 @@ const serviceAreasSchema = [
     </div>
   </header>
 
+  <!-- ==================== PRIORITY CLOSE-IN TOWNS: BRENTWOOD, ANTIOCH & HERMITAGE ==================== -->
+  <section class="py-12 sm:py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1">10–20 Minutes From Our 208 Thompson Ln Counter</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-heading uppercase tracking-tight">
+          Fast Mobile Locksmith Service in Brentwood, Antioch &amp; Hermitage
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+          Because our shop sits right off Briley Pkwy, I-65, I-24, and Nolensville Pike, these three neighboring communities are our closest daily mobile routes outside South Nashville.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {priorityTowns.map((town) => (
+          <article id={town.id} class="scroll-mt-24 bg-white rounded-2xl p-6 sm:p-7 border-2 border-slate-200 hover:border-amber-400 shadow-sm flex flex-col justify-between transition">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200">
+                  {town.driveBadge}
+                </span>
+                <span class="text-[11px] font-mono font-bold text-slate-500">
+                  ZIP {town.zip}
+                </span>
+              </div>
+
+              <h3 class="text-xl font-black text-[#0f274a] font-heading uppercase mb-1.5">
+                Locksmith in {town.city}
+              </h3>
+
+              <p class="text-[11px] text-slate-500 font-semibold mb-3">
+                Routes &amp; Areas: <span class="text-slate-700 font-normal">{town.corridors}</span>
+              </p>
+
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                {town.summary}
+              </p>
+
+              <ul class="space-y-2 mb-5">
+                {town.bullets.map((b) => (
+                  <li class="flex items-start gap-2 text-xs text-slate-700 leading-snug">
+                    <span class="text-emerald-600 font-bold mt-0.5">✓</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-3">
+              <div class="flex flex-wrap gap-1.5">
+                {town.serviceLinks.map((lnk) => (
+                  <a href={lnk.href} class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#0f274a] hover:text-white text-[#0f274a] transition">
+                    {lnk.label} &rarr;
+                  </a>
+                ))}
+              </div>
+              {town.caseStudies.map((cs) => (
+                <a href={cs.href} class="block text-xs font-bold text-amber-700 hover:text-amber-600 underline leading-snug">
+                  {cs.label}
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== TWO WAYS WE SERVE YOU (CLEAN DUAL CARDS) ==================== -->
   <section class="py-12 sm:py-16 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
     <div class="max-w-5xl mx-auto">
@@ -215,7 +379,7 @@ const serviceAreasSchema = [
               <h2 class="text-xl font-bold text-[#0f274a] font-heading font-black uppercase">Walk-In Storefront</h2>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Bring your car, key fobs, or door locks directly to our Nashville shop. Save on mobile service call fees with instant bench service while you wait.
+              Bring your car, key fobs, or door locks directly to our Nashville locksmith shop. Save on mobile service call fees with counter service while you wait.
             </p>
             <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
               <li class="flex items-center gap-2">
@@ -250,7 +414,7 @@ const serviceAreasSchema = [
               <h2 class="text-xl font-bold text-[#0f274a] font-heading font-black uppercase">Mobile Key &amp; Lock Vans</h2>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Stranded on the roadside, at work, or at home? Our mobile locksmith vans bring laser key cutters, OEM programming computers, and lock hardware straight to you.
+              Stranded on the roadside, at work, or at home? Our mobile locksmith vans bring high-security laser key cutters, OEM programming computers, and lock hardware straight to you.
             </p>
             <ul class="space-y-2 text-xs text-slate-700 font-medium mb-6">
               <li class="flex items-center gap-2">
@@ -263,7 +427,7 @@ const serviceAreasSchema = [
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
-                <span>Keys cut & programmed in your driveway with zero towing</span>
+                <span>Keys cut &amp; programmed in your driveway with zero towing</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-emerald-600 font-bold">✓</span>
@@ -291,10 +455,10 @@ const serviceAreasSchema = [
       <!-- Section Title & Filter Tabs -->
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-4xl font-black text-[#0f274a] font-heading font-black uppercase tracking-tight">
-          Find Your Neighborhood
+          All Metro Nashville &amp; Williamson Areas
         </h2>
         <p class="text-slate-600 text-xs sm:text-sm mt-2">
-          Select a county or area below to explore local locksmith services:
+          Select a county below to filter neighborhoods and ZIP codes we serve:
         </p>
 
         <!-- Filter Tabs -->
@@ -377,6 +541,32 @@ const serviceAreasSchema = [
     </div>
   </section>
 
+  <!-- ==================== LOCAL SERVICE AREA FAQS ==================== -->
+  <section class="py-12 sm:py-16 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1">Local Dispatch &amp; Walk-In Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-heading uppercase">
+          Brentwood, Antioch &amp; Hermitage Locksmith FAQs
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {areaFaqs.map((faq) => (
+          <details class="group bg-slate-50 rounded-2xl border border-slate-200 p-5 open:bg-white open:border-amber-400 transition">
+            <summary class="font-bold text-sm sm:text-base text-[#0f274a] cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.q}</span>
+              <span class="text-amber-600 font-black text-lg group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3 pt-3 border-t border-slate-100">
+              {faq.a}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== LOCATION & GOOGLE MAP ==================== -->
   <section class="py-12 sm:py-16 bg-white px-4 sm:px-6 lg:px-8">
     <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -388,7 +578,7 @@ const serviceAreasSchema = [
         </h2>
 
         <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5">
-          Convenient central location with dedicated parking. Drop in during posted hours or call our shop for on-site mobile service.
+          Convenient central location with dedicated parking — 10 to 20 minutes from Brentwood, Antioch, and Hermitage. Drop in during posted hours or call our shop for on-site mobile service.
         </p>
 
         <div class="space-y-2.5 text-xs text-slate-700 mb-6">
@@ -511,4 +701,3 @@ const serviceAreasSchema = [
   </script>
 
 </Layout>
-
