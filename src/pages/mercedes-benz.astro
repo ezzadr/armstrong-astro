@@ -5,6 +5,7 @@ import YouTubeFacade from '../components/YouTubeFacade.astro';
 import { getReviewStats } from '../lib/reviewStats.mjs';
 const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = `Mercedes Key Replacement Nashville TN | Smart Key Programming`;
 const seoDescription = `Mercedes-Benz smart key replacement & EIS/FBS3 immobilizer programming in Nashville, TN. C-Class, E-Class, S-Class, GLE, GLC & Sprinter vans. (615) 625-8000.`;
@@ -77,6 +78,14 @@ const mercedesSchema = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Mercedes-Benz smart key replacement at Armstrong Locksmith typically ranges from $225 to $425 depending on your model year and Keyless-Go system—saving 40% to 50% compared to dealership pricing and avoiding tow truck fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you make keys for the 2004–2008 Chrysler Crossfire (Mercedes R170 SKREEM system)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Because the 2004–2008 Chrysler Crossfire was built in Germany on the Mercedes-Benz R170 SLK platform with a SKREEM immobilizer and HU64 high-security laser blade, we cut and program Crossfire flip remote keys in-house. To make a Chrysler Crossfire key, the car must be towed to our 208 Thompson Ln shop in Nashville (or driven in if you still have a working key)."
         }
       }
     ]
@@ -338,6 +347,11 @@ const mercedesSchema = [
               <span class="text-emerald-600">&#10003;</span>
               <span>Mercedes-Benz GLA / GLB</span>
             </div>
+
+            <a href="/blog/chrysler-crossfire-key-replacement-nashville-tn/" class="p-3.5 rounded-xl bg-amber-50/60 border border-amber-300 hover:border-amber-500 hover:bg-amber-50 transition font-bold text-xs text-slate-900 flex items-center gap-2">
+              <span class="text-emerald-600">&#10003;</span>
+              <span>Chrysler Crossfire (R170 SKREEM &bull; Shop Tow-In)</span>
+            </a>
           
         </div>
       </section>
@@ -386,6 +400,11 @@ const mercedesSchema = [
               <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Why does the dealer require 7-10 days for Mercedes keys?</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Dealerships do not program Mercedes keys in-house; they order pre-coded keys from Germany. We use dealer-grade diagnostic benches to generate keys on-site immediately.</p>
             </div>
+
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you make keys for the 2004–2008 Chrysler Crossfire (Mercedes R170 SKREEM)?</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. The Crossfire uses a Mercedes-Benz R170 SLK immobilizer (SKREEM) and HU64 high-security laser blade. To make a Crossfire key, have the vehicle towed to our 208 Thompson Ln shop in Nashville — <a href="/blog/chrysler-crossfire-key-replacement-nashville-tn/" class="text-amber-700 font-bold underline hover:text-amber-800">watch our 2007 Crossfire SRT-6 job</a>.</p>
+            </div>
           
         </div>
       </section>
@@ -418,4 +437,9 @@ const mercedesSchema = [
     </div>
   </main>
   <ServiceReviews service="mercedes-benz" label="Mercedes-Benz" />
+  <RelatedPost
+    href="/blog/chrysler-crossfire-key-replacement-nashville-tn/"
+    title="2007 Chrysler Crossfire SRT-6: Two Flip Keys Made at Our Nashville Shop"
+    blurb="Chrysler discontinued Crossfire keys and most locksmiths turn them away. Watch how we cut and programmed two HU64 flip remote keys at 208 Thompson Ln."
+  />
 </Layout>
