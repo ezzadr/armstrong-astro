@@ -160,27 +160,111 @@ starter.
   passes, the page was checked in a browser at 375px width, links resolve.
 - Then stop and wait. One step at a time.
 
-## 4. CONTENT RULES (from CLAUDE.md)
-- No per-city pages. All area coverage lives on `/service-areas/`. The old
-  city URLs are 301-redirected there by rules in `public/.htaccess` and
-  `public/index.php`; never remove or reorder those rules.
-- Business name Armstrong Locksmith Inc, phone `(615) 625-8000`,
-  `208 Thompson Ln, Nashville, TN 37211`. Tennessee has no locksmith licence;
-  never add a licence number.
-- Hours: storefront Mon-Fri 8 AM-6 PM, Sat 10 AM-4 PM; mobile dispatch
-  Mon-Fri 8 AM-11:30 PM, Sat 10 AM-4 PM; closed Sunday. They live in
-  `src/data/hours.mjs` and every component imports from it; never type an hour
-  into a component. Three spots cannot import it and are typed by hand
-  (`public/llms.txt` and the hours line in two blog posts, listed in the
-  `hours.mjs` header); if hours change, all change in the same commit. Never
-  claim 24/7, after-hours or on-call service anywhere.
-- Never hardcode a review count anywhere (copy, meta, schema). Visible counts
-  are `{reviewCount}+` inside `<span class="arm-review-count">` and are rounded
-  DOWN to the 10s ("790+") so every counter agrees; only the JSON-LD schema
-  uses `exactReviewCount`. The one exception is the `FALLBACK` constant in
-  `src/lib/reviewStats.mjs`, which Rahim may ask you to bump.
+## 4. CONTENT RULES & DEEP ARMSTRONG LOCKSMITH KNOWLEDGE BASE (from CLAUDE.md)
+
+> **CRITICAL RULE FOR ALL AGENTS & SUBAGENTS:** Every agent (and every subagent prompt you launch for browser, directory, GBP, Apple Maps, Thumbtack, or website tasks) MUST know and use the exact business facts below. Never guess a year of experience, hour, price, license number, or URL.
+
+### 4A. Identity, Owner Experience & Team (NEVER CONFUSE THESE)
+- **Legal / Business Name**: `Armstrong Locksmith Inc`
+- **Owner, Founder & Master Locksmith**: **Rahim Ezzadpanah**
+  - **Hands-On Field Experience**: **Over 20 years (`20+ years`) of hands-on locksmith and automotive key programming experience in the field.**
+  - **Company Founding Year**: Founded **Armstrong Locksmith Inc** in Nashville in **2015** (`11+ years` as an established Nashville storefront and mobile fleet).
+  - **NEVER write "10 years of experience"**: `2015` is the year Armstrong Locksmith Inc was incorporated in Nashville, NOT when Rahim started as a locksmith. Always state **over 20 years of hands-on locksmith experience in the field** (and founded Armstrong Locksmith Inc in Nashville in 2015).
+- **Field Technicians**: **Rahim, Kawa, Sako** (real local in-house technicians — never out-of-state call-center dispatchers or sub-brokers).
+- **Walk-In Storefront Address**: `208 Thompson Ln, Nashville, TN 37211` (Woodbine / South Nashville, off Thompson Lane near Nolensville Pike & Briley Pkwy). Free self-parking lot; walk-ins welcome.
+- **Walk-In Storefront Advantage**: **`$0 Service Call Fee`** when customers bring their vehicle, lock cylinder, door hardware, or key to `208 Thompson Ln` (saves mobile trip fees).
+- **Phone (Call or Text)**: `(615) 625-8000`
+- **Email**: `locksmith@armstronglocksmithinc.com`
+
+### 4B. Operating Hours, Licensing, Reviews & Payments
+- **Hours (`src/data/hours.mjs`)**:
+  - **Walk-In Storefront (`208 Thompson Ln`)**: Mon–Fri `8:00 AM – 6:00 PM` | Sat `10:00 AM – 4:00 PM` | Sun `Closed`
+  - **Mobile Dispatch Vans**: Mon–Fri `8:00 AM – 11:30 PM` | Sat `10:00 AM – 4:00 PM` | Sun `Closed`
+  - They live in `src/data/hours.mjs` and every component imports from it; never type an hour into a component. Three spots cannot import it and are typed by hand (`public/llms.txt` and the hours line in two blog posts, listed in the `hours.mjs` header); if hours change, all change in the same commit.
+  - **Never claim 24/7, overnight, after-hours, or on-call service anywhere** (website, schema, GBP, Apple Maps, Thumbtack, or any directory).
+- **Tennessee Locksmith Licensing**: Tennessee repealed state locksmith licensing in 2021 (`SB 0012 / HB 0009`). **Never add a license number** (such as old `#406`) anywhere. State that the shop is **Certified, Bonded, and Insured** and **Background Checked**.
+- **Review Counts**: Never hardcode a review count anywhere on the website (copy, meta, schema). Visible counts are `{reviewCount}+` inside `<span class="arm-review-count">` and are rounded DOWN to the 10s (`"790+"` / `"800+"`) so every counter agrees; only the JSON-LD schema uses `exactReviewCount`. The one exception is the `FALLBACK` constant in `src/lib/reviewStats.mjs`, which Rahim may ask you to bump.
+- **Payments Accepted (`/payment-methods/`)**: Cash, Visa, Mastercard, American Express, Discover, Debit Cards, Apple Pay, Google Pay, Contactless Payments, Zelle, Venmo, Square Cash App, PayPal.
+- **Service Areas (`/service-areas/`)**: No per-city doorway pages. All area coverage lives on `/service-areas/` covering Nashville (`37211`, `37203`, `37204`, `37205`, `37206`, `37209`, `37210`, `37212`, `37214`, `37215`, `37217`, `37220`, `37221`), Brentwood, Franklin, Oak Hill, Forest Hills, Belle Meade, Green Hills, Berry Hill, Nolensville, Antioch, Donelson, and Hermitage. The old city URLs are 301-redirected there by rules in `public/.htaccess` and `public/index.php`; never remove or reorder those rules.
+
+### 4C. Upfront Pricing Guide (`/locksmith-pricing-nashville/`)
+- **In-Shop Walk-In Service Call Fee (`208 Thompson Ln`)**: `$0`
+- **In-Shop Lock Cylinder Re-Key (`208 Thompson Ln`)**: `$20 per cylinder`
+- **Standard Metal Automotive Key Copy (In-Shop)**: `$35+` (standard house & commercial keys duplicated while you wait)
+- **Emergency Car Lockout (Standard Vehicles)**: `$65+`
+- **High-Security / European Car Lockout (BMW, Mercedes, Audi, Lexus, Porsche)**: `$85+` (100% damage-free using German **Lishi** door lock decoders & air-wedge tools)
+- **Transponder / Chipped Car Key Cut & Programmed**: `$95+`
+- **Remote Head Car Key Cut & Programmed**: `$120+`
+- **Smart Proximity Push-to-Start Fob**: `$145+`
+- **European Car Key Replacement (BMW, Mercedes-Benz, Audi, VW, Volvo, Land Rover, Porsche, Bentley)**: `$180+` (typically **40%–60% below Nashville dealership quotes**, with **zero towing**)
+- **Acura MDX Smart Key Replacement**: `$285` (in-shop service at `208 Thompson Ln`) / `$325` (mobile service)
+
+### 4D. Deep Technical Specialties & Hardware We Work On
+- **European & Luxury Automotive Keys (Rahim's Specialty)**:
+  - **BMW & MINI**: `CAS1–CAS4+`, `FEM/BDC`, `EWS` immobilizer systems, smart proximity fobs, and high-security laser key cutting (`/bmw/`).
+  - **Mercedes-Benz & Sprinter**: `FBS3/FBS4` support, `EIS/EZS` electronic ignition switch programming, `ESL/ELV` steering lock repair/emulation, `Keyless-Go` smart fobs (`/mercedes-benz/`).
+  - **Audi & Volkswagen**: `BCM2` and `MQB` platform smart keys, flip keys, and all-keys-lost programming (`/audi-car-keys/`, `/audi-q3-key-replacement/`).
+  - **Volvo**: Push-to-start smart fobs and high-security keys for **all Volvo models up to 2026**, including `XC90`, `XC60`, `XC40`, `S60`, `S90`, `V60`, `V90` (`/volvo-car-key-replacement/`).
+  - **Land Rover & Range Rover**: `KVM/RFA` module programming and smart proximity fobs for Range Rover, Sport, Velar, Evoque, Discovery, Defender (`/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`).
+  - **Bentley, Porsche, Maserati & Jaguar**: High-security laser cutting and EEPROM/immobilizer programming (`/bentley-key-replacement/`, `/european-car-key-specialist/`).
+- **American & Asian Automotive Keys (All-Keys-Lost & Spare Fobs)**:
+  - **Ford & Lincoln**: Official **Ford FDRS** dealer diagnostic/programming tool for F-150, F-250/F-350 Super Duty, Bronco, Explorer, Expedition, Escape, Edge, Transit, Mustang, Lincoln Navigator (`/ford-car-key-replacement/`).
+  - **Jeep, Dodge, RAM & Chrysler (Stellantis)**: Proximity smart fobs, `FOBIK` keys, `WIN` module replacement, and RF Hub programming for Ram 1500/2500/3500, **Ram ProMaster** commercial vans, Jeep Wrangler, Grand Cherokee, Gladiator, Dodge Charger, Challenger, Durango, Chrysler Pacifica (`/dodge-ram-car-key-replacement/`).
+  - **Chevrolet, GMC, Cadillac, Buick & Hummer**: Silverado, Sierra, Tahoe, Suburban, Yukon, Escalade, Equinox, Express/Savana vans, Hummer H2/H3 (`/hummer-key-replacement-nashville/`).
+  - **Toyota & Lexus**: Smart proximity fobs and laser-cut keys for **Toyota Grand Highlander**, Highlander, Camry, Corolla, RAV4, Tacoma, Tundra, 4Runner, Sienna, Prius, Lexus RX/ES/GX/NX/IS (`/toyota-car-key-replacement/`).
+  - **Honda & Acura**: Smart fobs (`Driver 1` / `Driver 2` memory), laser-cut keys, and **worn Honda ignition & door lock cylinder wafer repair** for Accord, Civic, CR-V, Pilot, Odyssey, Ridgeline, Acura MDX, RDX, TLX (`/honda-car-keys/`, `/acura-car-key-replacement/`).
+  - **Hyundai, Genesis & Kia**: Push-to-start smart fobs and flip keys for Tucson, Santa Fe, Palisade, Elantra, Sonata, **Genesis GV80/GV70/G80**, **Kia Sorento**, Telluride, Sportage, Forte, K5, Soul (`/hyundai/`, `/kia-car-key-replacement/`).
+  - **Nissan, Infiniti, Subaru, Mazda & Mitsubishi**: Altima, Rogue, Sentra, Maxima, Pathfinder, Outback, Forester, Crosstrek, CX-5, CX-90 (`/car-key-replacement-nashville/`).
+- **Commercial Locksmith & Storefront Hardware (`/commercial-locksmith/`)**:
+  - Aluminum glass storefront mortise deadlatches (**Adams Rite / ASSA ABLOY**), hookbolts, deadbolts, and interior **push exit paddles**.
+  - Commercial digital & audit-trail keypad locks: **Alarm Lock Trilogy (`DL1200`, `DL2700`)**, **Dormakaba E-Plex 2000** pushbutton exit trims, and **Yale** commercial keypad levers.
+  - **Detex** alarmed exit devices, UL-listed panic crash bars, commercial door closers, **Grade 1 & Grade 2** cylindrical lever locks, **Schlage** commercial cylinders, restricted keyways, and **master key systems**.
+- **Residential Locksmith & Rekeying (`/residential-locksmith-nashville/`, `/nashville-rekey-service/`)**:
+  - In-shop cylinder rekeying (`$20/cyl` at `208 Thompson Ln`) and mobile home rekeying (**Schlage, Kwikset, Yale, Baldwin**), deadbolt installation, smart touchscreen deadbolts, mailbox & office furniture locks, and damage-free house lockouts.
+
+### 4E. Canonical Live Website URLs (NEVER Use Old WordPress `/product/...` or `/price-list/` Links)
+- **Core Pages**:
+  - Home: `https://armstronglocksmithinc.com/`
+  - Walk-In Storefront (`208 Thompson Ln`): `https://armstronglocksmithinc.com/nashville-locksmith-storefront/`
+  - 2026 Locksmith Pricing Guide: `https://armstronglocksmithinc.com/locksmith-pricing-nashville/`
+  - Book Online: `https://armstronglocksmithinc.com/book-online/`
+  - Contact Us: `https://armstronglocksmithinc.com/contact-armstrong-locksmith/`
+  - About Rahim & Our Shop: `https://armstronglocksmithinc.com/about-us/`
+  - Service Areas (Middle TN): `https://armstronglocksmithinc.com/service-areas/`
+  - Verified Google Reviews: `https://armstronglocksmithinc.com/google-reviews/`
+  - FAQ: `https://armstronglocksmithinc.com/faq/`
+  - Payment Methods: `https://armstronglocksmithinc.com/payment-methods/`
+- **Core Locksmith Services**:
+  - Car Key Replacement Hub: `https://armstronglocksmithinc.com/car-key-replacement-nashville/`
+  - Key Fob Replacement & Programming: `https://armstronglocksmithinc.com/key-fob-replacement-nashville/`
+  - Mobile Auto Locksmith Nashville: `https://armstronglocksmithinc.com/automotive-locksmith-in-nashville-tn/`
+  - Dealership Key Alternative: `https://armstronglocksmithinc.com/dealer-key/`
+  - Emergency Car Lockout: `https://armstronglocksmithinc.com/emergency-car-lockout/`
+  - Nashville Car Unlock Service: `https://armstronglocksmithinc.com/nashville-car-unlock-service/`
+  - Commercial Locksmith Nashville: `https://armstronglocksmithinc.com/commercial-locksmith/`
+  - Residential Locksmith Nashville: `https://armstronglocksmithinc.com/residential-locksmith-nashville/`
+  - Nashville Lock Re-Keying Service: `https://armstronglocksmithinc.com/nashville-rekey-service/`
+- **Vehicle Make Specialist Pages**:
+  - European Specialist Hub: `https://armstronglocksmithinc.com/european-car-key-specialist/`
+  - Acura: `https://armstronglocksmithinc.com/acura-car-key-replacement/`
+  - Audi: `https://armstronglocksmithinc.com/audi-car-keys/` (Audi Q3: `https://armstronglocksmithinc.com/audi-q3-key-replacement/`)
+  - Bentley: `https://armstronglocksmithinc.com/bentley-key-replacement/`
+  - BMW & MINI: `https://armstronglocksmithinc.com/bmw/`
+  - Dodge, RAM, Jeep & Chrysler: `https://armstronglocksmithinc.com/dodge-ram-car-key-replacement/`
+  - Ford & Lincoln: `https://armstronglocksmithinc.com/ford-car-key-replacement/`
+  - Honda: `https://armstronglocksmithinc.com/honda-car-keys/`
+  - Hummer & GM: `https://armstronglocksmithinc.com/hummer-key-replacement-nashville/`
+  - Hyundai & Genesis: `https://armstronglocksmithinc.com/hyundai/`
+  - Kia: `https://armstronglocksmithinc.com/kia-car-key-replacement/`
+  - Land Rover & Range Rover: `https://armstronglocksmithinc.com/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`
+  - Mercedes-Benz: `https://armstronglocksmithinc.com/mercedes-benz/`
+  - Toyota & Lexus: `https://armstronglocksmithinc.com/toyota-car-key-replacement/`
+  - Volvo: `https://armstronglocksmithinc.com/volvo-car-key-replacement/`
+
+### 4F. Voice & Banned Words (Applies Everywhere)
 - Voice applies to everything a visitor or Google reads: headlines, card
-  titles, alt text, meta titles and descriptions, blog posts, `llms.txt`.
+  titles, alt text, meta titles and descriptions, blog posts, `llms.txt`,
+  GBP products/posts, Apple Maps, and Thumbtack.
   Plain first-person shop language, the way Rahim talks. Concrete facts
   (price, brand, time, address) beat adjectives. The site's angle is "real
   local shop, not a call center"; machine-sounding copy breaks it. Banned:
@@ -246,3 +330,15 @@ starter.
 ## 9. ALWAYS SHOW A LIVE PREVIEW BEFORE ASKING TO COMMIT
 - Whenever you make any visual, copy, layout, or page change, ALWAYS start the local preview (`npx astro preview --port 4321` after `npx astro build`, or `npm run dev`) and open the changed page in Rahim's browser (plus give him the clickable `http://localhost:4321/...` link) BEFORE asking him to commit or merge.
 - Never ask Rahim to commit a page or design change he has not seen in preview first.
+
+## 10. EXTERNAL BUSINESS LISTINGS & DIRECTORY PROFILES (GBP, APPLE MAPS, THUMBTACK)
+- Antigravity manages and monitors Rahim's core local listings alongside `armstronglocksmithinc.com`:
+  1. **Google Search Console**: Property `https://armstronglocksmithinc.com/`
+  2. **Google Business Profile (GBP / GMB)**: Profile ID `1996957340716580179` (`https://g.page/r/CQS5BtikwbmqEBM`, reviews: `https://g.page/r/CQS5BtikwbmqEBM/review`)
+     - **20 Published GBP Products (`15 Automotive + 5 Commercial`)**: Every GBP product must point to its exact live Astro landing page in Section 4E above — NEVER to an old WordPress `/product/...` URL.
+  3. **Apple Business Connect (Apple Maps)**: Org `1461790501084574208` · Brand `1570815753027878912` (`Verified`) · Location `1563086994871944632` (`https://business.apple.com/companies/1461790501084574208/maps/locations/1563086994871944632/info`, live Place Card: `https://maps.apple.com/place?auid=10423668849052500220`).
+     - **Quick Actions**: `Primary Action = Schedule` → `https://armstronglocksmithinc.com/book-online/`, `Pricing` → `https://armstronglocksmithinc.com/locksmith-pricing-nashville/`, `Quote` → `https://armstronglocksmithinc.com/book-online/`.
+     - **Showcases**: 4 approved 30-day Showcases run back-to-back `2026-10-30` through `2027-02-28` (remind Rahim by `2027-02-15` to queue the next 4).
+  4. **Thumbtack Pro Profile**: Service ID `225574154156794931` (`https://www.thumbtack.com/tn/nashville/locksmiths/armstrong-locksmith-inc/service/225574154156794931`, Pro editor: `https://www.thumbtack.com/profile/services/225574154156794931/`).
+     - **Live Profile State**: `Exceptional 5.0 ★ (130 Verified Reviews)` with free Google Reviews sync connected; `Background Check: Completed (Rahim Ezzadpanah)` (no unverified TN license entry); `Website: https://armstronglocksmithinc.com/`; Storefront hours `Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM, Sun Closed`; 24 captioned photos; all 8 lock types & job types enabled; Introduction Bio and FAQs #1–#8 highlight **over 20 years of hands-on locksmith experience in the field**, our `208 Thompson Ln` walk-in shop, and our mobile locksmith vans.
+     - **Thumbtack Technical Notes**: Never touch paid budget/card settings without Rahim's explicit OK. Thumbtack's React textareas (`edit-description`, `edit-q-and-a`) require calling the native `HTMLTextAreaElement.prototype.value` setter + `__reactProps.onChange` before clicking `Save`, and `edit-q-and-a` returns HTTP `422` if a phone number is included inside FAQ answers.

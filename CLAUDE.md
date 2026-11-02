@@ -22,13 +22,35 @@
 2. **Do NOT create separate per-city doorway pages:**
    - All regional coverage is consolidated on `/service-areas/` in compliance with Google Search Essentials.
    - Legacy city URLs are 301 permanently redirected to `/service-areas/` in `public/.htaccess` and `public/index.php`.
-3. **Canonical Business Data:**
-   - **Name:** Armstrong Locksmith Inc
-   - **Phone:** (615) 625-8000
-   - **Storefront:** 208 Thompson Ln, Nashville, TN 37211
-   - **Reviews Metric:** synced automatically from Google at build time (`src/lib/reviewStats.mjs`; bump its `FALLBACK` when you notice it drifting). **Never hardcode a review count** in copy, meta descriptions or schema: render `{reviewCount}+` inside `<span class="arm-review-count">` so it is right server-side and refreshes live. Visible counts are **rounded down to the 10s** ("790+") at build and in the live refresh, so title and counters always agree; only the schema uses the exact `exactReviewCount`.
-   - **Tennessee Licensing:** TN has no state locksmith license; never add license numbers.
-   - **Operating Hours:** Storefront: Mon–Fri 8:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM. Mobile dispatch: Mon–Fri 8:00 AM – 11:30 PM, Sat 10:00 AM – 4:00 PM. **Closed Sunday.** There is no 24/7, after-hours or on-call service; never claim it anywhere (copy, schema, llms.txt, GBP). Hours live in **one file, `src/data/hours.mjs`** — pages, menu, footer, call bar and schema import from it; never type hours into a component. (`public/llms.txt` and two blog posts can't import it; the file's header lists them.)
+3. **Canonical Business Data & Deep Armstrong Locksmith Profile:**
+   - **Legal / Business Name:** `Armstrong Locksmith Inc`
+   - **Owner, Founder & Master Locksmith:** **Rahim Ezzadpanah**
+     - **Hands-On Field Experience:** **Over 20 years (`20+ years`) of hands-on locksmith and automotive key programming experience in the field.**
+     - **Company Founding Year:** Founded **Armstrong Locksmith Inc** in Nashville in **2015** (`11+ years` as an established Nashville storefront and mobile fleet).
+     - **NEVER write "10 years of experience":** `2015` is when Armstrong Locksmith Inc was incorporated in Nashville, NOT when Rahim started as a locksmith. Always state **over 20 years of hands-on locksmith experience in the field** (and founded Armstrong Locksmith Inc in Nashville in 2015).
+   - **Field Technicians:** **Rahim, Kawa, Sako** (in-house local Nashville technicians — never subcontractors or out-of-state dispatch centers).
+   - **Phone (Call/Text):** `(615) 625-8000` | **Email:** `locksmith@armstronglocksmithinc.com`
+   - **Walk-In Storefront:** `208 Thompson Ln, Nashville, TN 37211` (Woodbine / South Nashville). Free self-parking lot; walk-ins welcome with **`$0 Service Call Fee`** (customers save mobile trip fees by bringing locks, keys, or vehicles to the shop).
+   - **Operating Hours:** Storefront: Mon–Fri `8:00 AM – 6:00 PM`, Sat `10:00 AM – 4:00 PM`. Mobile dispatch: Mon–Fri `8:00 AM – 11:30 PM`, Sat `10:00 AM – 4:00 PM`. **Closed Sunday.** There is no 24/7, after-hours or on-call service; never claim it anywhere (copy, schema, `llms.txt`, GBP, Apple Maps, Thumbtack). Hours live in **one file, `src/data/hours.mjs`** — pages, menu, footer, call bar and schema import from it; never type hours into a component. (`public/llms.txt` and two blog posts can't import it; the file's header lists them.)
+   - **Tennessee Licensing:** TN repealed state locksmith licensing in 2021; never add license numbers (such as old `#406`). The shop is **Certified, Bonded, Insured**, and **Background Checked**.
+   - **Reviews Metric:** synced automatically from Google at build time (`src/lib/reviewStats.mjs`; bump its `FALLBACK` when you notice it drifting). **Never hardcode a review count** in copy, meta descriptions or schema: render `{reviewCount}+` inside `<span class="arm-review-count">` so it is right server-side and refreshes live. Visible counts are **rounded down to the 10s** ("790+" / "800+") at build and in the live refresh, so title and counters always agree; only the schema uses the exact `exactReviewCount`.
+   - **Payments Accepted (`/payment-methods/`):** Cash, Visa, Mastercard, American Express, Discover, Debit Cards, Apple Pay, Google Pay, Contactless Payments, Zelle, Venmo, Square Cash App, PayPal.
+   - **Upfront Pricing Guide (`/locksmith-pricing-nashville/`):**
+     - In-Shop Walk-In Service Call Fee (`208 Thompson Ln`): `$0`
+     - In-Shop Lock Cylinder Re-Key (`208 Thompson Ln`): `$20 per cylinder`
+     - Standard Metal Automotive Key Copy (In-Shop): `$35+`
+     - Emergency Car Lockout (Standard Vehicles): `$65+` | High-Security / European Car Lockout: `$85+` (damage-free using German **Lishi** door lock decoders & air-wedge tools)
+     - Transponder / Chipped Car Key Cut & Programmed: `$95+`
+     - Remote Head Car Key Cut & Programmed: `$120+`
+     - Smart Proximity Push-to-Start Fob: `$145+`
+     - European Car Key Replacement: `$180+` (typically 40%–60% below Nashville dealership quotes, zero towing)
+     - Acura MDX Smart Key Replacement: `$285` (in-shop) / `$325` (mobile)
+   - **Technical Specialties:**
+     - **European & Luxury Automotive Keys:** BMW & MINI (`CAS1–CAS4+`, `FEM/BDC`, `/bmw/`), Mercedes-Benz (`FBS3/FBS4`, `EIS/EZS`, `ESL/ELV` steering lock repair, `Keyless-Go`, `/mercedes-benz/`), Audi & VW (`BCM2`, `MQB`, `/audi-car-keys/`, `/audi-q3-key-replacement/`), Volvo (all models up to **2026** including `XC90`, `XC60`, `XC40`, `S60`, `S90`, `/volvo-car-key-replacement/`), Land Rover & Range Rover (`KVM/RFA`, `/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`), Bentley (`/bentley-key-replacement/`), Porsche, Maserati, Jaguar (`/european-car-key-specialist/`).
+     - **American & Asian Automotive Keys:** Ford & Lincoln (official **Ford FDRS** dealer tool, `/ford-car-key-replacement/`), Jeep/Dodge/RAM/Chrysler (proximity fobs, `FOBIK`, `WIN` module, Ram ProMaster, `/dodge-ram-car-key-replacement/`), Chevy/GMC/Cadillac/Hummer (`/hummer-key-replacement-nashville/`), Toyota & Lexus (Grand Highlander, Camry, RAV4, Tacoma, Tundra, 4Runner, `/toyota-car-key-replacement/`), Honda & Acura (`Driver 1`/`Driver 2` memory fobs, worn Honda ignition cylinder repair, `/honda-car-keys/`, `/acura-car-key-replacement/`), Hyundai & Genesis (`/hyundai/`), Kia (`/kia-car-key-replacement/`), Nissan, Infiniti, Subaru, Mazda, Mitsubishi (`/car-key-replacement-nashville/`).
+     - **Commercial Door Hardware (`/commercial-locksmith/`):** Aluminum storefront mortise deadlatches (**Adams Rite / ASSA ABLOY**), interior push exit paddles, **Alarm Lock Trilogy (`DL1200`, `DL2700`)** keypad locks, **Dormakaba E-Plex 2000** pushbutton exit trims, **Yale** commercial keypads, **Detex** alarmed exit devices, UL-listed panic crash bars, Grade 1/2 cylindrical levers, **Schlage** commercial cylinders, and master key systems.
+     - **Residential Locksmith (`/residential-locksmith-nashville/`, `/nashville-rekey-service/`):** In-shop (`$20/cyl`) and mobile home rekeying (**Schlage, Kwikset, Yale, Baldwin**), deadbolt & smart lock installation, mailbox & cabinet locks, and house lockouts.
+   - **Full Canonical URL Directory & External Listings:** See `AGENTS.md` Sections 4E and 10 for the complete list of live Astro page URLs and external profiles (Google Business Profile, Apple Business Connect, Thumbtack). Never use legacy WordPress `/product/...` or `/price-list/` links.
 
 ## Copy & Content Voice Rules (PERMANENT)
 
@@ -58,4 +80,3 @@
 - Preview a production build locally: `npm run build` (do NOT commit its output — see rule 1)
 - Deploy: commit **source only**, then `git push origin main` — CI builds + deploys.
   `git add -A && git commit -m "..." && git push origin main`
-
