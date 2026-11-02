@@ -30,10 +30,14 @@ const siteUrl = "https://armstronglocksmithinc.com";
 const fullCanonical = canonical ? new URL(canonical, siteUrl).toString() : new URL(Astro.url.pathname, siteUrl).toString();
 
 // Compute Full Image URL for Google Rich Snippets & Social Graph
-const defaultImage = "https://armstronglocksmithinc.com/shop.jpeg";
+const defaultImage = "https://armstronglocksmithinc.com/images/armstrong-locksmith-nashville-shop-4x3.jpg";
+const defaultSquareThumbnail = "https://armstronglocksmithinc.com/images/armstrong-locksmith-nashville-shop-square.jpg";
 const fullImageUrl = image 
   ? (image.startsWith('http') ? image : new URL(image, siteUrl).toString())
   : defaultImage;
+const thumbnailUrl = (!image || image === "/shop.jpeg" || image === "/images/armstrong-locksmith-nashville-shop-4x3.jpg")
+  ? defaultSquareThumbnail
+  : fullImageUrl;
 
 // WebPage Schema with primaryImageOfPage and Speakable for Google Rich & Voice Snippets
 const webPageSchema = {
@@ -43,10 +47,12 @@ const webPageSchema = {
   "url": fullCanonical,
   "name": title,
   "description": description,
+  "thumbnailUrl": thumbnailUrl,
   "primaryImageOfPage": {
     "@type": "ImageObject",
     "@id": `${fullCanonical}#primaryimage`,
     "url": fullImageUrl,
+    "contentUrl": fullImageUrl,
     "caption": title
   },
   "speakable": {
@@ -96,9 +102,11 @@ const baseBusinessSchema = {
     "image": "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg"
   },
   "image": [
+    "https://armstronglocksmithinc.com/images/armstrong-locksmith-nashville-shop-square.jpg",
+    "https://armstronglocksmithinc.com/images/armstrong-locksmith-nashville-shop-4x3.jpg",
+    "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
     "https://armstronglocksmithinc.com/shop.jpeg",
-    "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
-    "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg"
+    "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg"
   ],
   "url": "https://armstronglocksmithinc.com/",
   "telephone": "+1-615-625-8000",
@@ -310,6 +318,7 @@ const baseBusinessSchema = {
   <meta property="og:url" content={fullCanonical} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <meta name="thumbnail" content={thumbnailUrl} />
   <meta property="og:image" content={fullImageUrl} />
   <meta property="og:image:secure_url" content={fullImageUrl} />
   <meta property="og:image:alt" content={title} />
