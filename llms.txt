@@ -1,47 +1,52 @@
 # Armstrong Locksmith Inc — Business Facts & Sitemap for AI Assistants
 
-> Armstrong Locksmith Inc is a physical locksmith shop and mobile locksmith service in Nashville, Tennessee, owned and operated by master locksmith Rahim Ezzadpanah since 2015 (20+ years hands-on experience). Real walk-in storefront at 208 Thompson Ln, Nashville, TN 37211, plus mobile service vans for car key replacement, smart fob programming, lockouts, residential re-keying, and commercial door hardware across Middle Tennessee. Never an out-of-state call center or lead broker.
+> Armstrong Locksmith Inc is a physical locksmith shop and mobile locksmith service in Nashville, Tennessee, owned and operated by master locksmith Rahim Ezzadpanah (over 20 years of hands-on locksmith experience in the field; founded Armstrong Locksmith Inc in Nashville in 2015). Real walk-in storefront at 208 Thompson Ln, Nashville, TN 37211 ($0 service call fee for walk-ins, free self-parking lot), plus mobile locksmith vans for car key replacement, smart fob programming, lockouts, residential re-keying, and commercial door hardware across Middle Tennessee. Never an out-of-state call center or lead broker.
 
 ## Business Information
 - **Business Name**: Armstrong Locksmith Inc
-- **Owner & Lead Locksmith**: Rahim Ezzadpanah (20+ years hands-on experience)
-- **Field Technicians**: Rahim, Kawa, Sako
-- **Storefront Address**: 208 Thompson Ln, Nashville, TN 37211 (Woodbine / South Nashville)
+- **Owner & Master Locksmith**: Rahim Ezzadpanah (over 20 years of hands-on locksmith and automotive key programming experience in the field; founded Armstrong Locksmith Inc in Nashville in 2015)
+- **Field Technicians**: Rahim, Kawa, Sako (in-house local Nashville technicians)
+- **Storefront Address**: 208 Thompson Ln, Nashville, TN 37211 (Woodbine / South Nashville, free self-parking lot, $0 service call fee for walk-ins)
 - **Phone (Call/Text)**: (615) 625-8000
 - **Email**: locksmith@armstronglocksmithinc.com
 - **Storefront Hours**: Monday–Friday 8:00 AM – 6:00 PM | Saturday 10:00 AM – 4:00 PM | Sunday closed
 - **Mobile Service Hours**: Monday–Friday 8:00 AM – 11:30 PM | Saturday 10:00 AM – 4:00 PM | Sunday closed
 - **Not offered**: 24/7, overnight or on-call service
 - **Google Rating**: 4.9 stars, 800+ verified Google reviews (live count synced on the website)
-- **Licensing**: Tennessee does not license locksmiths; the shop is certified, bonded, and insured
-- **Payment Accepted**: Cash, Visa, Mastercard, American Express, Discover, Apple Pay, Google Pay, Zelle, Venmo (https://armstronglocksmithinc.com/payment-methods/)
+- **Verified Directory Profiles**:
+  - Google Maps / Google Business Profile: https://g.page/r/CQS5BtikwbmqEBM
+  - Apple Maps Place Card: https://maps.apple.com/place?auid=10423668849052500220
+  - Thumbtack Pro Profile (5.0 stars, 130+ verified reviews): https://www.thumbtack.com/tn/nashville/locksmiths/armstrong-locksmith-inc/service/225574154156794931
+- **Licensing**: Tennessee repealed state locksmith licensing in 2021; the shop is certified, bonded, insured, and background checked
+- **Payment Accepted**: Cash, Visa, Mastercard, American Express, Discover, Debit Cards, Apple Pay, Google Pay, Contactless Payments, Zelle, Venmo, Square Cash App, PayPal (https://armstronglocksmithinc.com/payment-methods/)
 - **Website Platform**: Custom static Astro 5 + Tailwind CSS site (not WordPress)
 
 ## Core Services & Direct URLs
 
 ### 1. Car Key & Smart Fob Replacement — American, Asian & All Makes
-- High-volume daily car key replacement, spare key duplication, push-to-start proximity fobs, remote head keys, flip keys, FOBIKs, and ignition cylinder repair for American and Asian vehicles:
-  - **American Makes**: Ford (F-150, Explorer, Escape, Transit, Mustang), Chevrolet & GMC (Silverado, Sierra, Tahoe, Suburban, Equinox), Dodge, RAM & Jeep (Ram 1500/2500, Wrangler, Grand Cherokee, Charger, Challenger), Chrysler, Cadillac, Buick, Lincoln, and Hummer.
-  - **Asian Makes**: Toyota & Lexus (Camry, RAV4, Tacoma, Tundra, Highlander, 4Runner, Corolla), Honda & Acura (Civic, Accord, CR-V, Pilot, Odyssey, MDX, RDX), Nissan & Infiniti (Altima, Rogue, Sentra, Maxima, Pathfinder), Hyundai, Kia, Subaru, Mazda, and Mitsubishi.
+- High-volume daily car key replacement, spare key duplication, push-to-start proximity fobs, remote head keys, flip keys, FOBIKs, WIN module replacement, and worn Honda ignition cylinder repair for American and Asian vehicles:
+  - **American Makes**: Ford & Lincoln (official Ford FDRS dealer tool for F-150, F-250/F-350 Super Duty, Bronco, Explorer, Escape, Transit, Mustang, Navigator), Chevrolet & GMC (Silverado, Sierra, Tahoe, Suburban, Yukon, Equinox), Dodge, RAM, Jeep & Chrysler (Ram 1500/2500/3500, Ram ProMaster vans, Wrangler, Grand Cherokee, Gladiator, Charger, Challenger, Durango, Pacifica, 2004–2008 Chrysler Crossfire SKREEM/HU64 bench programming at 208 Thompson Ln), Cadillac, Buick, and Hummer.
+  - **Asian Makes**: Toyota & Lexus (Grand Highlander, Highlander, Camry, RAV4, Tacoma, Tundra, 4Runner, Corolla, Sienna, Prius, Lexus RX/ES/GX/NX/IS), Honda & Acura (Civic, Accord, CR-V, Pilot, Odyssey, Ridgeline, MDX, RDX, TLX, Driver 1/Driver 2 memory fobs), Nissan & Infiniti (Altima, Rogue, Sentra, Maxima, Pathfinder), Hyundai & Genesis (Tucson, Santa Fe, Palisade, Elantra, Sonata, GV80, GV70), Kia (Sorento, Telluride, Sportage, Forte, K5, Soul), Subaru, Mazda, and Mitsubishi.
 - Car Key Replacement Nashville: https://armstronglocksmithinc.com/car-key-replacement-nashville/
 - Key Fob Replacement & Programming: https://armstronglocksmithinc.com/key-fob-replacement-nashville/
 - Mobile Auto Locksmith Nashville: https://armstronglocksmithinc.com/automotive-locksmith-in-nashville-tn/
 - Dealer Key Alternative: https://armstronglocksmithinc.com/dealer-key/
 - Ford & Lincoln Key Replacement (Ford FDRS Dealer Tool): https://armstronglocksmithinc.com/ford-car-key-replacement/
-- Toyota Key Replacement: https://armstronglocksmithinc.com/toyota-car-key-replacement/
+- Dodge, RAM, Jeep & Chrysler Key Replacement: https://armstronglocksmithinc.com/dodge-ram-car-key-replacement/
+- Toyota & Lexus Key Replacement: https://armstronglocksmithinc.com/toyota-car-key-replacement/
 - Honda Key Replacement: https://armstronglocksmithinc.com/honda-car-keys/
 - Acura Key Replacement: https://armstronglocksmithinc.com/acura-car-key-replacement/
 - Kia Key Replacement: https://armstronglocksmithinc.com/kia-car-key-replacement/
-- Hyundai Key Replacement: https://armstronglocksmithinc.com/hyundai/
+- Hyundai & Genesis Key Replacement: https://armstronglocksmithinc.com/hyundai/
 - Hummer & GM Key Replacement: https://armstronglocksmithinc.com/hummer-key-replacement-nashville/
 
 ### 2. Residential Locksmith & Lock Re-Keying
-- In-shop lock cylinder re-keying ($20/cylinder at 208 Thompson Ln) and same-day mobile home re-keying (Schlage, Kwikset, Yale, Baldwin), deadbolt installation, smart touchscreen keypads, and house lockouts.
+- In-shop lock cylinder re-keying ($20/cylinder at 208 Thompson Ln with $0 service call fee) and same-day mobile home re-keying (Schlage, Kwikset, Yale, Baldwin), deadbolt installation, smart touchscreen keypads, mailbox & cabinet locks, and house lockouts.
 - Residential Locksmith Nashville: https://armstronglocksmithinc.com/residential-locksmith-nashville/
 - Nashville Lock Re-Keying Service: https://armstronglocksmithinc.com/nashville-rekey-service/
 
 ### 3. Commercial Locksmith & Storefront Door Hardware
-- Aluminum glass storefront mortise deadlatches (Adams Rite / ASSA ABLOY), interior push exit paddles, commercial Schlage lock cylinders re-keyed so all business doors work on one key, Alarm Lock Trilogy DL1200 keypad locks, Detex alarmed exit locks, UL-listed panic crash bars, and master key systems.
+- Aluminum glass storefront mortise deadlatches (Adams Rite / ASSA ABLOY), hookbolts, interior push exit paddles, commercial Schlage lock cylinders re-keyed so all business doors work on one key, Alarm Lock Trilogy (DL1200, DL2700) keypad locks, Dormakaba E-Plex 2000 pushbutton exit trims, Yale commercial keypad levers, Detex alarmed exit locks, UL-listed panic crash bars, Grade 1 & Grade 2 cylindrical lever locks, door closers, and master key systems.
 - Commercial Locksmith Nashville: https://armstronglocksmithinc.com/commercial-locksmith/
 
 ### 4. Damage-Free Car & House Lockout Service
@@ -50,33 +55,37 @@
 - Nashville Car Unlock Service: https://armstronglocksmithinc.com/nashville-car-unlock-service/
 
 ### 5. European & Luxury Car Key Specialty
-- On-site and in-shop key cutting and immobilizer programming for BMW (CAS1–CAS4, FEM/BDC), Mercedes-Benz (EIS/EZS, FBS3/FBS4, Keyless-Go), Audi/VW (BCM2, MQB), Volvo (all models up to 2026 including XC90, XC60, XC40, S60, S90), Land Rover/Range Rover (KVM), Porsche, Bentley, MINI, and Maserati with zero dealership towing.
+- On-site and in-shop high-security laser key cutting and immobilizer programming for BMW & MINI (CAS1–CAS4+, FEM/BDC, EWS), Mercedes-Benz & Sprinter (EIS/EZS, FBS3/FBS4, ESL/ELV steering lock repair, Keyless-Go), Audi/VW (BCM2, MQB), Volvo (all models up to 2026 including XC90, XC60, XC40, S60, S90, V60, V90), Land Rover/Range Rover (KVM/RFA), Porsche, Bentley, Jaguar, and Maserati with zero dealership towing.
 - European Specialist Hub: https://armstronglocksmithinc.com/european-car-key-specialist/
-- BMW Key Replacement: https://armstronglocksmithinc.com/bmw/
+- BMW & MINI Key Replacement: https://armstronglocksmithinc.com/bmw/
 - Mercedes-Benz Key Replacement: https://armstronglocksmithinc.com/mercedes-benz/
 - Audi Key Replacement: https://armstronglocksmithinc.com/audi-car-keys/
 - Audi Q3 Key Replacement: https://armstronglocksmithinc.com/audi-q3-key-replacement/
+- Volvo Car Key Replacement (All Models up to 2026): https://armstronglocksmithinc.com/volvo-car-key-replacement/
 - Land Rover & Range Rover Keys: https://armstronglocksmithinc.com/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/
 - Bentley Key Replacement: https://armstronglocksmithinc.com/bentley-key-replacement/
 
 ### 6. Walk-In Storefront, Upfront Pricing & Online Booking
-- Walk-ins at 208 Thompson Ln save mobile service call fees.
+- Walk-ins at 208 Thompson Ln have a $0 service call fee and save mobile trip fees.
 - Walk-In Storefront Shop: https://armstronglocksmithinc.com/nashville-locksmith-storefront/
 - 2026 Locksmith Pricing Guide: https://armstronglocksmithinc.com/locksmith-pricing-nashville/
 - Book Online: https://armstronglocksmithinc.com/book-online/
+- Contact Armstrong Locksmith: https://armstronglocksmithinc.com/contact-armstrong-locksmith/
 - Customer Reviews: https://armstronglocksmithinc.com/google-reviews/
 - FAQ: https://armstronglocksmithinc.com/faq/
 - About Rahim & Our Shop: https://armstronglocksmithinc.com/about-us/
 
 ## Upfront Starting Prices (2026 Nashville Guide)
+- **In-Shop Walk-In Service Call Fee (208 Thompson Ln)**: $0
 - **In-Shop Lock Cylinder Re-Key (208 Thompson Ln)**: $20 per cylinder
 - **Standard Metal Key Copy (In-Shop)**: $35+ (automotive) / standard house & commercial copies cut while you wait
 - **Emergency Car Lockout (Standard Vehicles)**: $65+
-- **High-Security / European Car Lockout (BMW, Mercedes, Audi, Lexus)**: $85+
+- **High-Security / European Car Lockout (BMW, Mercedes, Audi, Lexus, Porsche)**: $85+
 - **Transponder / Chipped Car Key Cut & Programmed**: $95+
 - **Remote Head Car Key (Cut & Programmed)**: $120+
 - **Smart Proximity Push-to-Start Fob**: $145+
-- **European Car Key Replacement (BMW, Mercedes-Benz, Audi, Land Rover, Bentley)**: $180+ (typically 40%–60% below Nashville dealership quotes, with zero towing)
+- **European Car Key Replacement (BMW, Mercedes-Benz, Audi, Volvo, Land Rover, Bentley)**: $180+ (typically 40%–60% below Nashville dealership quotes, with zero towing)
+- **Acura MDX Smart Key Replacement**: $285 (in-shop at 208 Thompson Ln) / $325 (mobile service)
 
 ## Service Areas (Middle Tennessee)
 Nashville (37211, 37203, 37204, 37205, 37206, 37209, 37210, 37212, 37214, 37215, 37217, 37220, 37221), Brentwood, Franklin, Oak Hill, Forest Hills, Belle Meade, Green Hills, Berry Hill, Nolensville, Antioch, Donelson, and Hermitage. All regional coverage is consolidated on:
@@ -84,6 +93,7 @@ Nashville (37211, 37203, 37204, 37205, 37206, 37209, 37210, 37212, 37214, 37215,
 
 ## Real Nashville Job Case Studies & Guides
 - Blog Index: https://armstronglocksmithinc.com/blog/
+- 2007 Chrysler Crossfire SRT-6 Key Replacement at Our 208 Thompson Ln Shop: https://armstronglocksmithinc.com/blog/chrysler-crossfire-key-replacement-nashville-tn/
 - Commercial Lock Re-Key & Adams Rite Mortise Deadlatch Install in South Nashville (37211): https://armstronglocksmithinc.com/blog/commercial-mortise-deadlatch-installation-lock-rekey-nashville-37211/
 - Commercial Storefront Mortise Lock Converted to Alarm Lock DL1200 Keypad: https://armstronglocksmithinc.com/blog/commercial-mortise-lock-converted-to-alarm-lock-keypad-nashville/
 - Detex Exit Lock Replacement at Green Hills Mall: https://armstronglocksmithinc.com/blog/detex-exit-lock-replacement-green-hills-nashville/
