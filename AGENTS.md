@@ -316,6 +316,7 @@ starter.
 - All SEO decisions are driven exclusively by Antigravity inspecting Rahim's live
   Google Search Console data so two agents never give conflicting advice or churn
   titles/redirects while Google is evaluating the site.
+- **Homepage Stability Reminder**: While Google is testing and settling `/` (`src/pages/index.astro`) on Page 1 for `"locksmith"`, if Rahim asks for any change that would touch the homepage, STOP and remind him not to change the homepage while it is settling.
 
 ## 8. "I AM HOME" / "I AM AT THE SHOP" SYNC TRIGGER
 - Whenever Rahim says **"I am home"** (or **"I am at the shop"**), immediately run:
@@ -336,6 +337,10 @@ starter.
   1. **Google Search Console**: Property `https://armstronglocksmithinc.com/`
   2. **Google Business Profile (GBP / GMB)**: Profile ID `1996957340716580179` (`https://g.page/r/CQS5BtikwbmqEBM`, reviews: `https://g.page/r/CQS5BtikwbmqEBM/review`)
      - **20 Published GBP Products (`15 Automotive + 5 Commercial`)**: Every GBP product must point to its exact live Astro landing page in Section 4E above — NEVER to an old WordPress `/product/...` URL.
+     - **Smart Profile Description Rule (Applies to GBP 750-char Description & All Directories)**:
+       1. **Always show Rahim the exact draft text and character count in chat FIRST** and wait for his OK before saving any description, bio, or post.
+       2. **Never waste character-limited description boxes repeating fields that already have their own dedicated slot on the listing** (never put operating hours, phone numbers, or URLs inside the 750-character GBP Description).
+       3. **Use 100% of the character budget on high-value search terms**: `$0 walk-in service call fee` at `208 Thompson Ln`, all 3 vehicle groups (`Ford, Chevy, GMC, Dodge, RAM, Jeep, Toyota, Lexus, Honda, Acura, Nissan, Hyundai, Kia` + `BMW, Mercedes, Audi, VW, Volvo, Land Rover, Porsche`), core auto services (`all-keys-lost`, `push-to-start smart fobs`, `transponder keys`, `high-security laser cutting`, `ignition repair`, `damage-free car unlocks`), and commercial/residential hardware (`house lockouts`, `lock rekeying`, `smart deadbolts`, `Adams Rite storefront locks`, `Alarm Lock keypads`, `master key systems`, `Detex panic bars`).
   3. **Apple Business Connect (Apple Maps)**: Org `1461790501084574208` · Brand `1570815753027878912` (`Verified`) · Location `1563086994871944632` (`https://business.apple.com/companies/1461790501084574208/maps/locations/1563086994871944632/info`, live Place Card: `https://maps.apple.com/place?auid=10423668849052500220`).
      - **Quick Actions**: `Primary Action = Schedule` → `https://armstronglocksmithinc.com/book-online/`, `Pricing` → `https://armstronglocksmithinc.com/locksmith-pricing-nashville/`, `Quote` → `https://armstronglocksmithinc.com/book-online/`.
      - **Showcases**: 4 approved 30-day Showcases run back-to-back `2026-10-30` through `2027-02-28` (remind Rahim by `2027-02-15` to queue the next 4).
