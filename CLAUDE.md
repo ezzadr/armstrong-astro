@@ -74,6 +74,7 @@
   - Regional coverage on `/service-areas/` or city/neighborhood strategy
 - If Rahim asks Claude a question that touches SEO, rankings, titles, meta descriptions, redirects, or Search Console, Claude must remind him that **Antigravity exclusively handles all SEO** for this site and leave all SEO elements untouched.
 - **Homepage Stability & Smart Directory Description Rules**: Do not edit the homepage (`src/pages/index.astro`) while Google is settling it on Page 1 without reminding Rahim first. For GBP/directory descriptions, always show Rahim the exact draft and character count before saving, never waste character-limited description boxes repeating hours/phone/URLs that already have dedicated listing fields, and pack descriptions with all 3 vehicle groups (American, Asian, European), `$0 walk-in service call fee`, core auto services, and commercial/residential hardware.
+- **Clickable Suggested Replies Rule (`ask_question`)**: At the end of every completed step, preview, or approval gate (`Commit and merge`, `Push`, or choosing the next smart SEO/profile improvement), always present clickable suggested-reply buttons via `ask_question` tailored to the current workflow step and project health.
 
 ## Development Commands
 
