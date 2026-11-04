@@ -1,22 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { storeWeekdays, storeSaturday, mobileWeekdays, mobileSaturday, mobileUntil } from '../data/hours.mjs';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+
+const { reviewCount, ratingValue } = await getReviewStats();
 
 const seoTitle = "About Armstrong Locksmith Nashville | Owner Rahim Ezzadpanah";
 const seoDescription = "Meet Rahim Ezzadpanah, owner of Armstrong Locksmith. 20+ years security experience, real shop on Thompson Ln, Certified & Insured. Call (615) 625-8000.";
-const aboutSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "mainEntity": {
-    "@type": "Person",
-    "@id": "https://armstronglocksmithinc.com/#rahim",
-    "name": "Rahim Ezzadpanah",
-    "jobTitle": "Master Locksmith & Owner",
-    "url": "https://armstronglocksmithinc.com/about-us/",
-    "image": "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
-    "worksFor": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "knowsAbout": ["Car Key Replacement (American, Asian & European)", "Residential Lock Rekeying", "Commercial Door Hardware", "European Car Key Programming (BMW, Mercedes-Benz, Audi, Volvo up to 2026)"]
+const aboutSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://armstronglocksmithinc.com/#rahim",
+      "name": "Rahim Ezzadpanah",
+      "jobTitle": "Master Locksmith & Owner",
+      "url": "https://armstronglocksmithinc.com/about-us/",
+      "image": "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
+      "worksFor": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+      "knowsAbout": [
+        "Car Key Replacement (American, Asian & European)",
+        "Residential Lock Rekeying & Deadbolt Installation",
+        "Commercial Storefront Door Hardware & Master Key Systems",
+        "European & Exotic Car Key Programming (BMW, Mercedes-Benz, Audi, VW, Volvo up to 2026, Land Rover, Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce)"
+      ]
+    }
   }
-};
+];
 ---
 
 <Layout title={seoTitle} description={seoDescription} canonical="/about-us/" schema={aboutSchema} image="/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg">
@@ -88,7 +99,7 @@ const aboutSchema = {
         </p>
 
         <p>
-          Our team handles everyday American and Asian car keys (Ford, Chevy, Dodge/Jeep, Toyota, Honda, Nissan, Hyundai, Kia), residential lock re-keys, and commercial door hardware daily—along with my personal specialty in <strong>European and luxury automotive keys (including BMW, Mercedes-Benz, Audi, Volvo up to 2026, Land Rover, and Porsche)</strong> right at our walk-in shop or via our mobile dispatch units.
+          Our team handles everyday American and Asian car keys (Ford, Chevy, GMC, Dodge, RAM, Jeep, Toyota, Lexus, Honda, Acura, Nissan, Hyundai, Kia), residential lock re-keys, and commercial door hardware daily—along with my personal specialty in <strong>European and exotic automotive keys (including BMW, Mercedes-Benz, Audi, VW, Volvo up to 2026, Land Rover, Porsche, Bentley, Ferrari, Lamborghini, and Rolls-Royce)</strong> right at our walk-in shop or via our mobile locksmith vans.
         </p>
 
         <!-- Stats -->
@@ -109,6 +120,79 @@ const aboutSchema = {
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- Official Company Fact Sheet (Structured for Google Search & AI Overview Accuracy) -->
+  <section class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-10">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-1">Verified Nashville Business Directory</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading font-black uppercase text-[#0f274a]">
+          Armstrong Locksmith Inc — Official Company Facts &amp; Hours
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-3xl">
+          Direct reference guide for customers: our physical Nashville storefront address, official contact &amp; online booking links, exact operating hours, and full list of automotive, residential, and commercial services.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-700">
+        <!-- 1. Contact & Location -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 border-t-4 border-t-amber-500 shadow-sm space-y-3">
+          <h3 class="text-lg font-extrabold text-[#0f274a] font-heading uppercase">Contact &amp; Location</h3>
+          <ul class="space-y-2 leading-relaxed">
+            <li><strong>Walk-In Storefront Address:</strong> <a href="/nashville-locksmith-storefront/" class="text-[#0f274a] font-semibold hover:text-amber-600 underline">208 Thompson Ln, Nashville, TN 37211</a> (South Nashville / Woodbine — free self-parking lot, <strong>$0 walk-in service call fee</strong>)</li>
+            <li><strong>Phone (Call or Text):</strong> <a href="tel:6156258000" class="text-emerald-700 font-bold hover:underline">(615) 625-8000</a></li>
+            <li><strong>Official Business Email:</strong> <a href="mailto:locksmith@armstronglocksmithinc.com" class="text-emerald-700 font-bold hover:underline">locksmith@armstronglocksmithinc.com</a></li>
+            <li><strong>Official Website:</strong> <a href="https://armstronglocksmithinc.com/" class="text-[#0f274a] font-semibold hover:text-amber-600 underline">armstronglocksmithinc.com</a></li>
+            <li><strong>Book Online (Official Scheduling):</strong> <a href="/book-online/" class="text-amber-700 font-bold hover:underline">armstronglocksmithinc.com/book-online/</a></li>
+          </ul>
+        </div>
+
+        <!-- 2. Hours of Operation -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 border-t-4 border-t-amber-500 shadow-sm space-y-3">
+          <h3 class="text-lg font-extrabold text-[#0f274a] font-heading uppercase">Hours of Operation</h3>
+          <ul class="space-y-2 leading-relaxed">
+            <li><strong>Walk-In Shop Hours (208 Thompson Ln):</strong> Monday – Friday ({storeWeekdays}), Saturday ({storeSaturday}), Sunday (Closed)</li>
+            <li><strong>Mobile Locksmith Van Hours:</strong> Monday – Friday ({mobileWeekdays}), Saturday ({mobileSaturday}), Sunday (Closed)</li>
+            <li class="pt-2 border-t border-slate-100 text-slate-600">
+              <strong>Important Hours Note:</strong> Armstrong Locksmith Inc is <strong>not</strong> a 24/7 or overnight service. Our mobile locksmith vans run extended evening hours until {mobileUntil} Monday–Friday and {mobileSaturday} on Saturday (Closed Sunday).
+            </li>
+          </ul>
+        </div>
+
+        <!-- 3. Services Offered -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 border-t-4 border-t-amber-500 shadow-sm space-y-3">
+          <h3 class="text-lg font-extrabold text-[#0f274a] font-heading uppercase">Services Offered</h3>
+          <ul class="space-y-2.5 leading-relaxed">
+            <li>
+              <strong>Automotive (<a href="/car-key-replacement-nashville/" class="text-[#0f274a] underline hover:text-amber-600">All-Keys-Lost &amp; Spare Fobs</a>):</strong> On-site &amp; in-shop car key replacement ($95+), push-to-start smart key fobs ($145+), high-security laser key cutting, ignition repair, and damage-free car lockouts ($65+) for:
+              <span class="block mt-1 text-slate-600">
+                &bull; <strong>American:</strong> Ford &amp; Lincoln (official Ford FDRS tool), Chevrolet, GMC, Dodge, RAM (including ProMaster), Jeep, Chrysler, Cadillac &amp; Hummer.<br />
+                &bull; <strong>Asian:</strong> Toyota, Lexus, Honda (including worn ignition wafer repair), Acura, Nissan, Infiniti, Hyundai, Genesis, Kia, Subaru &amp; Mazda.<br />
+                &bull; <strong>European &amp; Exotic:</strong> BMW, MINI, Mercedes-Benz (EIS/ESL &amp; FBS3/FBS4), Audi, VW, Volvo (all models up to 2026), Land Rover, Range Rover, Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce, Maserati &amp; Alfa Romeo.
+              </span>
+            </li>
+            <li>
+              <strong>Residential (<a href="/residential-locksmith-nashville/" class="text-[#0f274a] underline hover:text-amber-600">Home &amp; In-Shop</a>):</strong> In-shop cylinder rekeying ($20/cylinder at 208 Thompson Ln), mobile house lock rekeying (Schlage, Kwikset SmartKey, Yale, Baldwin), smart keypad deadbolts, and damage-free house lockouts.
+            </li>
+            <li>
+              <strong>Commercial (<a href="/commercial-locksmith/" class="text-[#0f274a] underline hover:text-amber-600">Storefront &amp; Office</a>):</strong> Adams Rite aluminum storefront mortise deadlatches, hookbolts, push exit paddles, Alarm Lock Trilogy (DL1200/DL2700) &amp; Dormakaba E-Plex keypads, Detex alarmed exit locks, UL panic crash bars, Grade 1/2 levers, and master key systems.
+            </li>
+          </ul>
+        </div>
+
+        <!-- 4. Business Details -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 border-t-4 border-t-amber-500 shadow-sm space-y-3">
+          <h3 class="text-lg font-extrabold text-[#0f274a] font-heading uppercase">Business Details</h3>
+          <ul class="space-y-2 leading-relaxed">
+            <li><strong>Owner &amp; Master Locksmith:</strong> Rahim Ezzadpanah (<strong>over 20 years of hands-on locksmith and automotive key programming experience in the field</strong>; founded Armstrong Locksmith Inc in Nashville in 2015)</li>
+            <li><strong>In-House Field Technicians:</strong> Rahim, Kawa, and Sako (local Nashville technicians — never out-of-state call centers or sub-brokers)</li>
+            <li><strong>Credentials &amp; Reviews:</strong> Certified, Bonded, Insured &amp; Background Checked; <strong>{ratingValue} ★ rating with <span class="arm-review-count">{reviewCount}+</span> <a href="/google-reviews/" class="text-[#0f274a] underline hover:text-amber-600">verified Google reviews</a></strong>, A+ BBB rating, and 5.0 ★ on Thumbtack</li>
+            <li><strong><a href="/service-areas/" class="text-[#0f274a] underline hover:text-amber-600">Service Areas</a>:</strong> Nashville (37211, 37203, 37204, 37205, 37206, 37209, 37210, 37212, 37214, 37215, 37217, 37220, 37221), Brentwood, Franklin, Oak Hill, Forest Hills, Belle Meade, Green Hills, Berry Hill, Nolensville, Antioch, Donelson, and Hermitage</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

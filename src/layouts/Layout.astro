@@ -280,13 +280,29 @@ const baseBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "European Car Key Specialty",
-          "description": "In-house key cutting and immobilizer programming for BMW, Mercedes-Benz, Audi, VW, Land Rover, Porsche & Bentley.",
+          "description": "In-house key cutting and immobilizer programming for BMW, Mercedes-Benz, Audi, VW, Volvo up to 2026, Land Rover, Porsche, Bentley, Ferrari, Lamborghini & Rolls-Royce.",
           "url": "https://armstronglocksmithinc.com/european-car-key-specialist/",
           "serviceType": "Automotive Locksmith",
           "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
         }
       }
     ]
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Book Online Appointment — Armstrong Locksmith Inc",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://armstronglocksmithinc.com/book-online/",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "Locksmith Shop or Mobile Van Appointment"
+    }
   }
 };
 ---

@@ -1,12 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { storeHoursLine, mobileHoursLine } from '../data/hours.mjs';
+import { storeHoursLine, mobileHoursLine, mobileUntil } from '../data/hours.mjs';
 
 const seoTitle = "Contact Armstrong Locksmith Nashville | 208 Thompson Ln Shop";
 const seoDescription = "Visit our Nashville locksmith shop at 208 Thompson Ln or call (615) 625-8000 for same-day mobile service. Walk-in key cutting, smart fobs, rekeys & lockouts.";
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Armstrong Locksmith Inc — 208 Thompson Ln, Nashville, TN 37211",
+  "url": "https://armstronglocksmithinc.com/contact-armstrong-locksmith/",
+  "mainEntity": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+};
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/contact-armstrong-locksmith/">
+<Layout title={seoTitle} description={seoDescription} canonical="/contact-armstrong-locksmith/" schema={contactSchema}>
   
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto text-left">
@@ -78,9 +86,17 @@ const seoDescription = "Visit our Nashville locksmith shop at 208 Thompson Ln or
             </div>
 
             <div>
-              <strong class="block text-[#0f274a] text-sm">Hours:</strong>
+              <strong class="block text-[#0f274a] text-sm">Book Online (Official Scheduling):</strong>
+              <a href="/book-online/" class="text-amber-600 font-bold hover:underline">
+                armstronglocksmithinc.com/book-online/ &rarr;
+              </a>
+            </div>
+
+            <div>
+              <strong class="block text-[#0f274a] text-sm">Hours of Operation:</strong>
               <span><strong>Storefront:</strong> {storeHoursLine}</span><br />
-              <span class="text-emerald-700 font-semibold"><strong>Mobile Service:</strong> {mobileHoursLine}</span>
+              <span class="text-emerald-700 font-semibold"><strong>Mobile Service:</strong> {mobileHoursLine}</span><br />
+              <span class="text-slate-500 text-xs">Note: Mobile vans run until {mobileUntil} Mon–Fri (Closed Sunday — no 24/7 or overnight service).</span>
             </div>
 
             <div>

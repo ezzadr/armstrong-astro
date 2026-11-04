@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { storeWeekdays, storeSaturday } from '../data/hours.mjs';
+import { storeWeekdays, storeSaturday, mobileWeekdays, mobileSaturday, mobileUntil } from '../data/hours.mjs';
+import { getReviewStats } from '../lib/reviewStats.mjs';
+
+const { reviewCount, ratingValue } = await getReviewStats();
 
 const seoTitle = "Nashville Locksmith FAQ | Car Keys, Rekeying & Lockout Cost";
 const seoDescription = "Straight answers to common Nashville locksmith questions: lost car key replacement, smart fob programming, home lock rekeying, lockouts & upfront pricing.";
@@ -9,6 +12,30 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are Armstrong Locksmith Inc's hours of operation? Are you open 24/7?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Our walk-in storefront at 208 Thompson Ln, Nashville, TN 37211 is open Monday–Friday ${storeWeekdays} and Saturday ${storeSaturday} (Closed Sunday). Our mobile locksmith vans run extended hours Monday–Friday ${mobileWeekdays} and Saturday ${mobileSaturday} (Closed Sunday). Note: Armstrong Locksmith Inc is not a 24/7 or overnight locksmith service.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact Armstrong Locksmith Inc or book an appointment online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can call or text (615) 625-8000, email locksmith@armstronglocksmithinc.com, visit our walk-in shop at 208 Thompson Ln, Nashville, TN 37211 ($0 walk-in service call fee), or book directly on our official website at https://armstronglocksmithinc.com/book-online/."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What car brands and lock services does Armstrong Locksmith Inc offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide all-keys-lost car key replacement, push-to-start smart fobs, high-security laser key cutting, ignition repair, and damage-free car lockouts for American (Ford, Lincoln, Chevy, GMC, Dodge, RAM, Jeep, Chrysler, Cadillac, Hummer), Asian (Toyota, Lexus, Honda, Acura, Nissan, Infiniti, Hyundai, Genesis, Kia, Subaru, Mazda), and European/Exotic vehicles (BMW, MINI, Mercedes-Benz, Audi, VW, Volvo up to 2026, Land Rover, Range Rover, Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce, Maserati, Alfa Romeo)—plus residential lock rekeying ($20/cylinder in-shop) and commercial storefront locks (Adams Rite, Alarm Lock keypads, Detex panic bars, master key systems)."
+      }
+    },
     {
       "@type": "Question",
       "name": "Can you replace a car key if I lost all my keys?",
@@ -30,7 +57,7 @@ const schema = {
       "name": "Do you have a physical locksmith shop in Nashville?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! We are located at 208 Thompson Ln, Nashville, TN 37211. You can visit our walk-in shop for key duplication, fob programming, and lock rekeying during storefront hours."
+        "text": "Yes! We are located at 208 Thompson Ln, Nashville, TN 37211 ($0 walk-in service call fee). You can visit our walk-in shop for key duplication, fob programming, and lock rekeying during storefront hours."
       }
     },
     {
@@ -64,6 +91,35 @@ const schema = {
 
   <main class="py-16 sm:py-24 bg-slate-50 text-slate-900 px-4 sm:px-6 lg:px-8 text-left">
     <div class="max-w-4xl mx-auto space-y-6">
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
+          What are Armstrong Locksmith Inc's hours of operation? Are you open 24/7?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Our walk-in storefront at <strong>208 Thompson Ln, Nashville, TN 37211</strong> ($0 walk-in service call fee) is open <strong>Monday–Friday ({storeWeekdays})</strong> and <strong>Saturday ({storeSaturday})</strong>, and closed on Sunday. Our mobile locksmith vans operate extended hours <strong>Monday–Friday ({mobileWeekdays})</strong> and <strong>Saturday ({mobileSaturday})</strong>, and are closed on Sunday. <strong>Note:</strong> Armstrong Locksmith Inc does not offer 24/7 or overnight locksmith service; our mobile vans run until {mobileUntil} on weekdays.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
+          How do I contact Armstrong Locksmith Inc or book an appointment online?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Call or text <a href="tel:6156258000" class="text-emerald-700 font-bold hover:underline">(615) 625-8000</a>, email <a href="mailto:locksmith@armstronglocksmithinc.com" class="text-emerald-700 font-bold hover:underline">locksmith@armstronglocksmithinc.com</a>, walk into our shop at <strong>208 Thompson Ln, Nashville, TN 37211</strong>, or schedule directly on our official booking page at <a href="/book-online/" class="text-amber-700 font-bold hover:underline">armstronglocksmithinc.com/book-online/</a>.
+        </p>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
+        <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
+          What car brands and lock services does Armstrong Locksmith Inc offer?
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Founded in Nashville in 2015 by Master Locksmith <strong>Rahim Ezzadpanah</strong> (over 20 years of hands-on locksmith experience in the field; {ratingValue} ★ with <span class="arm-review-count">{reviewCount}+</span> verified Google reviews), we handle:
+          <br />&bull; <strong>Automotive Keys &amp; Smart Fobs:</strong> American (Ford, Lincoln, Chevy, GMC, Dodge, RAM, Jeep, Chrysler, Cadillac, Hummer), Asian (Toyota, Lexus, Honda, Acura, Nissan, Infiniti, Hyundai, Genesis, Kia, Subaru, Mazda), and European/Exotic vehicles (BMW, MINI, Mercedes-Benz, Audi, VW, Volvo up to 2026, Land Rover, Range Rover, Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce, Maserati, Alfa Romeo).
+          <br />&bull; <strong>Residential &amp; Commercial Locks:</strong> $20/cylinder in-shop rekeying, mobile home rekeying (Schlage, Kwikset, Yale, Baldwin), smart deadbolts, house/car lockouts, Adams Rite storefront mortise locks, Alarm Lock Trilogy keypads, Detex exit alarms, and master key systems across Nashville, Brentwood, Franklin, Antioch, Donelson, Hermitage, Green Hills, Belle Meade, Oak Hill, Forest Hills, Berry Hill, and Nolensville.
+        </p>
+      </div>
 
       <div class="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 border-l-4 border-l-amber-500 shadow-sm">
         <h2 class="text-lg sm:text-xl font-bold font-heading font-black uppercase text-[#0f274a] mb-3">
