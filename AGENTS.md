@@ -206,7 +206,7 @@ starter.
   - **Audi & Volkswagen**: `BCM2` and `MQB` platform smart keys, flip keys, and all-keys-lost programming (`/audi-car-keys/`, `/audi-q3-key-replacement/`).
   - **Volvo**: Push-to-start smart fobs and high-security keys for **all Volvo models up to 2026**, including `XC90`, `XC60`, `XC40`, `S60`, `S90`, `V60`, `V90` (`/volvo-car-key-replacement/`).
   - **Land Rover & Range Rover**: `KVM/RFA` module programming and smart proximity fobs for Range Rover, Sport, Velar, Evoque, Discovery, Defender (`/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`).
-  - **Bentley, Porsche, Maserati & Jaguar**: High-security laser cutting and EEPROM/immobilizer programming (`/bentley-key-replacement/`, `/european-car-key-specialist/`).
+  - **Bentley, Porsche, Ferrari, Lamborghini, Rolls-Royce, Maserati, Alfa Romeo & Jaguar**: High-security laser cutting and EEPROM/immobilizer programming (`/bentley-key-replacement/`, `/european-car-key-specialist/`). Never remove Ferrari, Lamborghini, or Rolls-Royce from GBP or directory service lists — Rahim makes keys for those exotics too.
 - **American & Asian Automotive Keys (All-Keys-Lost & Spare Fobs)**:
   - **Ford & Lincoln**: Official **Ford FDRS** dealer diagnostic/programming tool for F-150, F-250/F-350 Super Duty, Bronco, Explorer, Expedition, Escape, Edge, Transit, Mustang, Lincoln Navigator (`/ford-car-key-replacement/`).
   - **Jeep, Dodge, RAM & Chrysler (Stellantis)**: Proximity smart fobs, `FOBIK` keys, `WIN` module replacement, and RF Hub programming for Ram 1500/2500/3500, **Ram ProMaster** commercial vans, Jeep Wrangler, Grand Cherokee, Gladiator, Dodge Charger, Challenger, Durango, Chrysler Pacifica (`/dodge-ram-car-key-replacement/`).

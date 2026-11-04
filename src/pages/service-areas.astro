@@ -225,7 +225,7 @@ const serviceAreasSchema = [
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/service-areas/" schema={serviceAreasSchema}>
+<Layout title={seoTitle} description={seoDescription} canonical="/service-areas/" schema={serviceAreasSchema} image="/images/armstrong-locksmith-nashville-shop-4x3.jpg">
   
   <!-- ==================== CLEAN HERO HEADER ==================== -->
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
@@ -625,19 +625,31 @@ const serviceAreasSchema = [
         </div>
       </div>
 
-      <!-- Google Map -->
-      <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-72 sm:h-80">
-        <iframe 
-          title="Armstrong Locksmith Storefront Location Map"
-          src="https://maps.google.com/maps?q=Armstrong+Locksmith+Inc,+208+Thompson+Ln,+Nashville,+TN+37211&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-full"
-        ></iframe>
+      <!-- Storefront Photo + Google Map -->
+      <div class="lg:col-span-6 flex flex-col gap-4">
+        <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-900">
+          <picture>
+            <source type="image/webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 500px" />
+            <img src="/images/armstrong-locksmith-nashville-shop-4x3.jpg" alt="Armstrong Locksmith Inc central Nashville storefront at 208 Thompson Ln serving Brentwood, Antioch and Hermitage" class="w-full h-44 object-cover" width="600" height="450" loading="lazy" />
+          </picture>
+          <div class="p-3 bg-[#0f274a] text-slate-200 text-[11px] flex items-center justify-between">
+            <span>208 Thompson Ln, Nashville, TN 37211</span>
+            <span class="text-amber-400 font-bold">$0 Walk-In Service Call Fee</span>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-60 sm:h-64">
+          <iframe 
+            title="Armstrong Locksmith Storefront Location Map"
+            src="https://maps.google.com/maps?q=Armstrong+Locksmith+Inc,+208+Thompson+Ln,+Nashville,+TN+37211&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="w-full h-full"
+          ></iframe>
+        </div>
       </div>
 
     </div>
