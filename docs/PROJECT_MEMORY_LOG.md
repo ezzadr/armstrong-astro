@@ -19,7 +19,7 @@
      - Changed Website URL to **`https://armstronglocksmithinc.com/book-online/`** and fixed all 4 social links (Facebook `/Armstronglocksmithinc`, Instagram `/armstrong_locksmith_nashville/`, YouTube `/@Armstronglocksmithinc`, TikTok `/@armstronglocksmithinc`).
      - Deleted the 3 fake default placeholder services (`15 Minutes Meeting`, `30 Minutes Meeting`, `1 Hour Meeting`) and added 6 real locksmith services with upfront prices (`$20`, `$65+`, `$85+`, `$95+`, `$145+`, `$180+`).
      - Disabled Setmore's calendar slot booking button (`Book appointment`, `Book class`, `Classes` unchecked) and confirmed `<meta name="robots" content="noindex, nofollow">` is active.
-     - Submitted `https://armstronglocksmithinc.setmore.com/` (removed word: `admin@armstronglocksmithinc.com`) to **Google's Outdated Content Removal Tool** (`Status: Pending`, `Requested: Nov 4, 2026`).
+     - Submitted `https://armstronglocksmithinc.setmore.com/` (removed word: `admin@armstronglocksmithinc.com`) to **Google's Outdated Content Removal Tool** — **Approved** on `Nov 5, 2026`!
 3. **Apple Business Connect Showcases (`1563086994871944632`)**:
    - 4 approved 30-day Showcases are queued back-to-back from `2026-10-30` through `2027-02-28`.
    - **Next Action**: Remind Rahim by **`2027-02-15`** to queue the next 4 Showcases.
@@ -73,6 +73,19 @@
 ---
 
 ## 4. Chronological Log of Major Website, SEO & Directory Work Completed
+
+### 2026-11-05 — 13 Blog Posts SEO & Internal Link Upgrade (`45d04c13`) + Setmore Cache Purge Approved + Morning GSC Check
+- **Setmore Outdated Content Removal Approved (`Nov 5, 2026`)**:
+  - Confirmed in Google Search Console Outdated Content Removal tool that `https://armstronglocksmithinc.setmore.com/` (`admin@armstronglocksmithinc.com`) moved from `Pending` to **`Approved`** overnight, purging the stale cached Setmore snippet from Google Search and AI Overviews.
+- **Morning Google Search Console Snapshot (`Nov 5, 2026`)**:
+  - **3-Month Total (`Aug 4 – Nov 3, 2026`)**: `701 Clicks`, `82K Impressions`, `5.5 Avg Position`.
+  - **Last 7 Days (`Oct 28 – Nov 3, 2026`)**: `73 Clicks`, `37.1K Impressions`, `2.0 Avg Position` (`Nov 3` hit `17 clicks` and `5,243 impressions`).
+  - **Last 24 Hours (`Nov 4 – Nov 5` Hourly)**: `12 Clicks`, `1.56K Impressions`, `4.3 Avg Position`, with clicks on `/`, `/toyota-car-key-replacement/`, `/locksmith-pricing-nashville/`, `/key-fob-replacement-nashville/`, `/contact-armstrong-locksmith/`, `/faq/`, and `/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`.
+  - **Page 1 Inner-Page Moves (Last 7 Days)**: `/hyundai/` jumped from `#11.8` onto **Page 1 at `#8.4`**; `/mercedes-benz/` at **`#4.9`** (`3 clicks`); `/ford-car-key-replacement/` at **`#9.9`**; `/dodge-ram-car-key-replacement/` at **`#10.0`**; `/toyota-car-key-replacement/` at **`#10.2`** (`542 impressions`, `3 clicks`).
+- **Audited & Upgraded All 13 Blog Posts + Blog Template (`45d04c13`)**:
+  - Updated `src/pages/blog/[...slug].astro` so the **"Related Locksmith Articles"** section sorts by matching `category` first and newest `pubDate` second (instead of alphabetical filename order).
+  - Audited and updated all 13 existing blog posts in `src/content/blog/`: removed banned word *"mobile workstation"* in the BMW X5 post, fixed glued-together neighborhood formatting and raw `&amp;` in the Audi Donelson/Hermitage/BNA post, removed duplicate author lines/bios, and added contextual internal links across all 13 posts to canonical make and service pages (`/bmw/`, `/mercedes-benz/`, `/audi-car-keys/`, `/audi-q3-key-replacement/`, `/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`, `/bentley-key-replacement/`, `/dodge-ram-car-key-replacement/`, `/honda-car-keys/`, `/acura-car-key-replacement/`, `/european-car-key-specialist/`, `/dealer-key/`, `/key-fob-replacement-nashville/`, `/car-key-replacement-nashville/`, `/nashville-rekey-service/`, `/residential-locksmith-nashville/`, `/commercial-locksmith/`, `/nashville-locksmith-storefront/`, `/locksmith-pricing-nashville/`, `/service-areas/`, `/google-reviews/`, `/about-us/`).
+  - Submitted all 15 blog URLs (`/blog/` index + all 14 blog posts) to **Bing IndexNow** (`www.bing.com/indexnow` and `api.indexnow.org` → `HTTP 200 OK`).
 
 ### 2026-11-04 — New Toyota Highlander Hybrid Limited Blog Case Study (`feat/blog-toyota-highlander-hybrid-smart-key-nashville`)
 - **Created `src/content/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville.md`** (`/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/`):
