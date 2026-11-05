@@ -353,3 +353,10 @@ starter.
   - **When a branch is built and previewed (`http://localhost:4321/...`)**: Offer `(Recommended) Commit and merge` alongside options to tweak the page or run the next priority SEO/directory fix.
   - **When a branch is committed and merged into `main` (`git log --oneline origin/main..main` shown)**: Offer `(Recommended) Push to live site` alongside an option to hold/inspect first.
   - **After a push or completed directory/GBP update**: Proactively offer the top 3–4 highest-impact next steps based on live project health (e.g., Search Console Page 2 -> Page 1 opportunities, GBP/Facebook/Apple Maps/Thumbtack/Yelp/BBB alignment, AI Overview optimization, or new job case studies) with `(Recommended)` on the smartest next move.
+
+## 12. PROJECT MEMORY & CONTINUOUS HANDOVER LOG (`docs/PROJECT_MEMORY_LOG.md`)
+- **Single Source of Historical Truth**: `docs/PROJECT_MEMORY_LOG.md` is the permanent, repo-tracked memory log of everything done across the website (`armstronglocksmithinc.com`), Google Search Console, Google Business Profile (`1996957340716580179`), Apple Business Connect (`1563086994871944632`), Thumbtack Pro (`225574154156794931`), Facebook (`facebook.com/Armstronglocksmithinc`), and third-party directory cleanups (such as the Setmore takedown).
+- **Mandatory Startup Read for Any New Session / Agent**:
+  - Any agent starting a new conversation or resuming work on this project MUST read `docs/PROJECT_MEMORY_LOG.md` before making any website, SEO, GBP, or directory changes so it knows what has already been completed, what is currently settling in Google, and what pending follow-ups exist.
+- **Mandatory Recording Rule After Every Completed Task**:
+  - Whenever you complete a website commit, a Google Business Profile update/post, a Search Console ranking check, or an external directory update, you **MUST** update `docs/PROJECT_MEMORY_LOG.md` with the date, commit SHA or platform ID, exact changes made, and any pending follow-ups.
