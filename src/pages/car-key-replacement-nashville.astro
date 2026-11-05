@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import ServiceReviews from '../components/ServiceReviews.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const { reviewCount } = await getReviewStats();
 
@@ -334,7 +336,7 @@ const seoDescription = `Lost your car keys in Nashville? We cut & program replac
             <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-1">Japanese &amp; Korean Imports</span>
             <h3 class="text-base font-black text-[#0f274a] uppercase mb-2">Asian Vehicles</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
-              <strong>Toyota &amp; Lexus:</strong> Camry, RAV4, Tacoma, Tundra, Highlander, 4Runner, Corolla, RX350.<br />
+              <strong>Toyota &amp; Lexus:</strong> Grand Highlander, Highlander, Camry, RAV4, Tacoma, Tundra, 4Runner, Corolla, RX350.<br />
               <strong>Honda &amp; Acura:</strong> Civic, Accord, CR-V, Pilot, Odyssey, MDX, RDX, TLX (plus stuck ignition repair).<br />
               <strong>Nissan, Infiniti, Subaru &amp; Mazda:</strong> Altima, Rogue, Sentra, Maxima, Pathfinder, Outback, Forester, CX-5.<br />
               <strong>Hyundai &amp; Kia:</strong> Tucson, Santa Fe, Elantra, Sonata, Palisade, Telluride, Sorento, Sportage, Forte, Soul.
@@ -348,7 +350,7 @@ const seoDescription = `Lost your car keys in Nashville? We cut & program replac
               <strong>Mercedes-Benz:</strong> C-Class, E-Class, S-Class, GLE, GLC, Sprinter (EIS/FBS3).<br />
               <strong>Audi, VW &amp; Porsche:</strong> A4, A6, Q3, Q5, Q7, Atlas, Jetta, 911, Cayenne, Macan.<br />
               <strong>Volvo (All Models Up to 2026):</strong> XC90, XC60, XC40, S60, S90, V60, V90 smart keys.<br />
-              <strong>Land Rover &amp; Bentley:</strong> Range Rover, Defender, Discovery, Continental GT, Bentayga.
+              <strong>Land Rover, Bentley &amp; Exotics:</strong> Range Rover, Defender, Discovery, Continental GT, Bentayga, Maserati, Ferrari, Lamborghini, Rolls-Royce.
             </p>
           </div>
         </div>
@@ -401,6 +403,40 @@ const seoDescription = `Lost your car keys in Nashville? We cut & program replac
         </div>
       </section>
 
+      <!-- Visible FAQs (Synced with FAQPage Schema) -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-2">Common Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
+          Nashville Car Key Replacement FAQs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you make a replacement car key without the original?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes! Our technicians decode your vehicle door lock cylinder on-site with Lishi decoders, cut a fresh key blade with high-security laser machines, and program the transponder chip or smart fob directly to your car.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How fast can you make a replacement key in Nashville?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Our mobile locksmith vans provide prompt same-day service across Greater Nashville and complete key cutting and programming on-site, or you can bring your vehicle to our <strong>208 Thompson Ln</strong> shop with a <strong>$0 service call fee</strong>.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Which American, Asian, and European vehicle brands do you make keys for?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              We cut and program keys daily for American makes (Ford, Lincoln, Chevrolet, GMC, Cadillac, Buick, Dodge, RAM, Jeep, Chrysler), Asian makes (Toyota, Lexus, Honda, Acura, Nissan, Infiniti, Hyundai, Genesis, Kia, Subaru, Mazda, Mitsubishi), and European makes (BMW, Mercedes-Benz, Audi, Volkswagen, Volvo up to 2026, Land Rover, Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce, Maserati, MINI).
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you program 2020–2026 Ford push-to-start keys that require the Ford FDRS dealer tool?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. Newer 2020–2026 Ford and Lincoln push-to-start models (including the 2022 Ford Escape, F-150, Explorer, Bronco, and Transit) require the official <strong>Ford FDRS</strong> dealer tool rather than basic aftermarket tablets. Our mobile vans carry licensed Ford FDRS software and program smart keys on-site after owner verification.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Emergency CTA -->
       <section class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#0f274a] via-[#16335c] to-[#0f274a] text-white shadow-xl border-t-4 border-amber-500 flex flex-col md:flex-row items-center justify-between gap-8 text-left">
         <div class="max-w-2xl">
@@ -416,4 +452,10 @@ const seoDescription = `Lost your car keys in Nashville? We cut & program replac
 
     </div>
   </main>
+  <ServiceReviews service="auto" label="Car Key Replacement" />
+  <RelatedPost
+    href="/blog/2022-ford-escape-all-keys-lost-smart-key-nashville/"
+    title="2022 Ford Escape All Keys Lost: Why Newer Fords Need the Ford FDRS Dealer Tool"
+    blurb="How we unlocked a 2022 Ford Escape in Nashville, cut the emergency blade, and programmed two new smart keys using official Ford FDRS software."
+  />
 </Layout>

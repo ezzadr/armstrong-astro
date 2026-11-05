@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { storeWeekdays, storeSaturday, mobileWeekdays } from '../data/hours.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
+import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "Locksmith Shop Nashville TN | Walk-In Key Duplication & Fobs";
@@ -45,10 +46,47 @@ const schema = [
         "name": "Is it cheaper to bring my car or lock cylinder into your Thompson Lane shop?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Visiting our storefront at 208 Thompson Ln saves the mobile dispatch trip fee. We rekey loose residential lock cylinders for $20 each at the counter and cut and program spare car keys and smart fobs while you wait."
+          "text": "Yes! Visiting our storefront at 208 Thompson Ln saves the mobile dispatch trip fee ($0 service call fee in-shop). We rekey loose residential lock cylinders for $20 each at the counter and cut and program spare car keys and smart fobs while you wait."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an appointment for walk-in key duplication or lock cylinder rekeying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Walk-ins are always welcome for standard house keys, commercial keys, lock cylinder rekeying ($20/cylinder), and most transponder or smart key duplications. For specialized European car keys or if you want to confirm a specific smart fob is on the shelf, give us a quick call at (615) 625-8000 before heading over."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there free parking at your 208 Thompson Ln locksmith shop?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our storefront at 208 Thompson Ln has a free self-parking lot right in front of the door so we can step straight out to your vehicle to program your new smart key fob and test all door locks."
         }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "Walk-In Locksmith Storefront & Key Cutting Counter",
+    "description": "Walk-in locksmith shop at 208 Thompson Ln, Nashville, TN 37211 offering $0 service call fee, $20/cylinder lock rekeying, $35+ metal car key copies, and smart key programming.",
+    "image": "https://armstronglocksmithinc.com/images/armstrong-locksmith-shop.jpeg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "20",
+      "highPrice": "325",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   }
 ];
 ---
@@ -209,8 +247,43 @@ const schema = [
         </div>
       </section>
 
+      <!-- Visible Storefront FAQs (Synced with FAQPage Schema) -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-lg">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-2">Walk-In Shop Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
+          208 Thompson Ln Storefront FAQs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Where is the Armstrong Locksmith walk-in shop located in Nashville?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Our physical locksmith shop and key cutting counter is located at <strong>208 Thompson Ln, Nashville, TN 37211</strong> (near Nolensville Pike and Briley Parkway in South Nashville / Woodbine). Walk-ins are welcome Monday–Friday {storeWeekdays} and Saturday {storeSaturday}.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Is it cheaper to bring my car or lock cylinder into your Thompson Lane shop?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes! Visiting our storefront at 208 Thompson Ln saves the mobile dispatch trip fee (<strong>$0 service call fee in-shop</strong>). We rekey loose residential lock cylinders for <strong>$20 each</strong> at the counter and cut and program spare car keys and smart fobs while you wait.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do I need an appointment for walk-in key duplication or lock cylinder rekeying?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Walk-ins are always welcome for standard house keys, commercial keys, lock cylinder rekeying ($20/cylinder), and most transponder or smart key duplications. For specialized European car keys or if you want to confirm a specific smart fob is on the shelf, give us a quick call at <a href="tel:6156258000" class="font-bold text-[#0f274a] underline">(615) 625-8000</a> before heading over.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Is there free parking at your 208 Thompson Ln locksmith shop?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. Our storefront at 208 Thompson Ln has a free self-parking lot right in front of the door so we can step straight out to your vehicle to program your new smart key fob and test all door locks.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
+  <ServiceReviews service="all" label="Storefront & Key Cutting" />
   <RelatedPost
     href="/blog/toyota-and-audi-spare-key-fobs-brentwood-tn-nashville-shop/"
     title="Making Spare Keys for a Toyota C-HR and an Audi at Our Shop"

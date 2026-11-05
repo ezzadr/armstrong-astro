@@ -37,10 +37,47 @@ const keyFobSchema = [
         "name": "Can you erase a lost or stolen key fob from my car's memory?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. During immobilizer programming we can clear missing or stolen fobs from your vehicle's computer so anyone who finds an old remote can no longer unlock or start your car."
+          "text": "Yes. During immobilizer programming we can clear missing or stolen fobs from your vehicle's computer at no extra charge so anyone who finds an old remote can no longer unlock or start your car."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I save money by bringing my vehicle to your 208 Thompson Ln shop for a spare key fob?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. When you drive into our physical shop at 208 Thompson Ln, Nashville, TN 37211, there is a $0 service call fee—you pay only for the fob, high-security laser blade cutting, and programming while you wait."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you program push-to-start smart fobs for European, Asian, and American vehicles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We stock and program proximity smart fobs, remote head keys, flip keys, and Dodge/RAM FOBIK remotes for Toyota, Honda, Acura, Ford, GM, Jeep/RAM, Nissan, Hyundai, Kia, BMW, Mercedes-Benz, Audi, VW, Volvo (up to 2026), and Land Rover."
         }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "Smart Key Fob Replacement & Remote Programming",
+    "description": "In-shop and mobile car key fob replacement, proximity smart fobs, and remote head keys in Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "325",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   }
 ];
 ---
@@ -222,6 +259,40 @@ const keyFobSchema = [
             <strong class="text-[#0f274a]">4. Look for Physical Damage:</strong> Check for cracked circuit solder, water damage, or damaged button switches.
           </li>
         </ul>
+      </div>
+
+      <!-- Visible Key Fob FAQs (Synced with FAQPage Schema) -->
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-1">Common Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-heading font-black uppercase mb-5">
+          Nashville Key Fob Replacement FAQs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much does key fob replacement and programming cost in Nashville?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Remote head keys and flip fobs start at <strong>$120+</strong>, push-to-start smart proximity fobs start at <strong>$145+</strong>, and European smart fobs start at <strong>$180+</strong>—including cutting the emergency mechanical blade and pairing the remote to your vehicle.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you erase a lost or stolen key fob from my car's memory?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. During immobilizer programming we can clear missing or stolen fobs from your vehicle's computer at no extra charge so anyone who finds an old remote can no longer unlock or start your car.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can I save money by bringing my vehicle to your 208 Thompson Ln shop for a spare key fob?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. When you drive into our physical shop at <strong>208 Thompson Ln, Nashville, TN 37211</strong>, there is a <strong>$0 service call fee</strong>—you pay only for the fob, high-security laser blade cutting, and programming while you wait.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you program push-to-start smart fobs for European, Asian, and American vehicles?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. We stock and program proximity smart fobs, remote head keys, flip keys, and Dodge/RAM FOBIK remotes for Toyota, Honda, Acura, Ford, GM, Jeep/RAM, Nissan, Hyundai, Kia, BMW, Mercedes-Benz, Audi, VW, Volvo (up to 2026), and Land Rover.
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>

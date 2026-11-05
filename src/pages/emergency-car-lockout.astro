@@ -59,8 +59,45 @@ const lockoutSchema = [
           "@type": "Answer",
           "text": "We use German-made Lishi keyhole decoders that read the wafers inside the door lock cylinder and turn it just like the original key, or soft vinyl air cushions with coated reach tools—never metal slim-jims inside the door wiring."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you unlock deadlocked European luxury cars like BMW, Mercedes, Audi, and Porsche?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. European vehicles disable interior unlock buttons when armed from the outside. We pick the mechanical door lock cylinder directly through the keyhole using dedicated Lishi decoders ($85+) with zero damage to your weather seals or frameless glass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my keys are completely lost once you unlock the car door?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every Armstrong Locksmith van is a full mobile key shop. If your keys are lost rather than locked inside, we can laser-cut and program a new transponder key or push-to-start smart fob right on the spot."
+        }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "Damage-Free Emergency Car Lockout Service",
+    "description": "Mobile emergency car unlock service across Nashville, Brentwood, Franklin, and Antioch starting at $65+ for standard vehicles and $85+ for high-security European cars.",
+    "image": "https://armstronglocksmithinc.com/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "65",
+      "highPrice": "125",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   }
 ];
 ---
@@ -223,6 +260,40 @@ const lockoutSchema = [
         <div class="card-clean shadow-sharp hover-lift reveal-up rounded-2xl p-6 text-center">
           <span class="text-2xl font-bold text-emerald-600 block font-heading font-black uppercase mb-1">$65+</span>
           <span class="text-xs text-slate-500 font-bold uppercase">Upfront Pricing</span>
+        </div>
+      </div>
+
+      <!-- Visible Car Lockout FAQs (Synced with FAQPage Schema) -->
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-1">Common Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-heading font-black uppercase mb-5">
+          Emergency Car Lockout FAQs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much does an emergency car lockout cost in Nashville?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Standard car lockout service in Nashville starts at <strong>$65+</strong> depending on your vehicle make and location, and high-security European deadlock picking starts at <strong>$85+</strong>. We always give you a clear price over the phone at <a href="tel:6156258000" class="font-bold text-[#0f274a] underline">(615) 625-8000</a> before dispatching a van.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How do you unlock my car door without scratching the paint or bending the frame?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              We use German-made <strong>Lishi keyhole decoders</strong> that read the wafers inside the door lock cylinder and turn it just like the original key, or soft vinyl air cushions with coated reach tools—never metal slim-jims inside the door wiring.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you unlock deadlocked European luxury cars like BMW, Mercedes, Audi, and Porsche?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. European vehicles disable interior unlock buttons when armed from the outside. We pick the mechanical door lock cylinder directly through the keyhole using dedicated Lishi decoders (<strong>$85+</strong>) with zero damage to your weather seals or frameless glass.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">What if my keys are completely lost once you unlock the car door?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Every Armstrong Locksmith van is a full mobile key shop. If your keys are lost rather than locked inside, we can laser-cut and program a new transponder key or push-to-start smart fob right on the spot.
+            </p>
+          </div>
         </div>
       </div>
 

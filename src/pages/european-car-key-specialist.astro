@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import ServiceReviews from '../components/ServiceReviews.astro';
 import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "European Car Key Replacement Nashville | BMW, Mercedes & Audi";
@@ -105,10 +106,39 @@ const euroSchema = [
         "name": "Can I bring my European car to your shop on Thompson Lane for a spare key?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Driving into our storefront at 208 Thompson Ln, Nashville, TN 37211 for a spare BMW, Mercedes, Audi, VW, or Range Rover smart key avoids mobile callout fees and saves 40% to 60% compared to dealership parts counters."
+          "text": "Yes. Driving into our storefront at 208 Thompson Ln, Nashville, TN 37211 for a spare BMW, Mercedes, Audi, VW, Volvo, or Range Rover smart key avoids mobile callout fees ($0 service call fee in-shop) and saves 40% to 60% compared to dealership parts counters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do dealerships charge so much for European keys?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dealerships add steep markups on OEM parts, charge separate labor for diagnostic programming, and require you to tow the car to their service bay when all keys are lost. We cut and program OEM-grade European smart keys on-site or at 208 Thompson Ln in a single visit starting at $180+."
         }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "European Car Key Replacement & Immobilizer Programming",
+    "description": "On-site and in-shop smart key replacement, high-security laser key cutting, and EEPROM/immobilizer programming for BMW, Mercedes-Benz, Audi, VW, Volvo, Land Rover, Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce, and Maserati in Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/Maserati-key-cut-and-programmed--scaled.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "180",
+      "highPrice": "650",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   }
 ];
 ---
@@ -444,60 +474,60 @@ const euroSchema = [
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/bmw/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>BMW (All Chassis)</span>
-            </div>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/mercedes-benz/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
-              <span>Mercedes-Benz</span>
-            </div>
+              <span>Mercedes-Benz &amp; Sprinter</span>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/audi-car-keys/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
-              <span>Audi (MQB & BCM2)</span>
-            </div>
+              <span>Audi (MQB &amp; BCM2)</span>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>Land Rover / Range Rover</span>
-            </div>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/bentley-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>Porsche (911, Macan, Cayenne)</span>
-            </div>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/bentley-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
-              <span>Bentley</span>
-            </div>
+              <span>Bentley &amp; Rolls-Royce</span>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/bentley-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
-              <span>Maserati</span>
-            </div>
+              <span>Maserati, Ferrari &amp; Lamborghini</span>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/audi-car-keys/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>Volkswagen</span>
-            </div>
+            </a>
           
             <a href="/volvo-car-key-replacement/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>Volvo (All Models Up to 2026)</span>
             </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>Jaguar</span>
-            </div>
+            </a>
           
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
+            <a href="/bmw/" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
               <span>MINI Cooper</span>
-            </div>
+            </a>
           
             <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:bg-amber-50/60 transition font-bold text-xs text-slate-800 flex items-center gap-2">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-300"><svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
@@ -599,12 +629,30 @@ const euroSchema = [
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Why do dealerships charge so much for European keys?</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Dealerships add massive markups on OEM parts, charge separate labor for diagnostic programming, and force you to tow the car to their facility. We cut and program the same OEM-grade keys on-site in one visit.</p>
-            </div>
-          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Which European car brands do you cut and program keys for in Nashville?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              We cut high-security laser blades and program immobilizer smart keys for BMW (CAS1–CAS4, FEM/BDC), Mercedes-Benz (EIS/FBS3), Audi &amp; Volkswagen (BCM2, MQB), Volvo (all models up to 2026 including XC90, XC60, XC40, S60, S90), Land Rover &amp; Range Rover (KVM), Porsche, Bentley, Ferrari, Lamborghini, Rolls-Royce, Maserati, Alfa Romeo, and MINI Cooper.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do I have to tow my European car to the dealership if I lost all my keys?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              No. Our mobile locksmith vans travel to your home or office across Nashville, Brentwood, Franklin, and Belle Meade to decode the door lock, read the immobilizer module on-site, and program a new smart key right in your driveway.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can I bring my European car to your shop on Thompson Lane for a spare key?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Yes. Driving into our storefront at <strong>208 Thompson Ln, Nashville, TN 37211</strong> for a spare BMW, Mercedes, Audi, VW, Volvo, or Range Rover smart key avoids mobile callout fees (<strong>$0 service call fee in-shop</strong>) and saves 40% to 60% compared to dealership parts counters.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Why do dealerships charge so much for European keys?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Dealerships add steep markups on OEM parts, charge separate labor for diagnostic programming, and require you to tow the car to their service bay when all keys are lost. We cut and program OEM-grade European smart keys on-site or at 208 Thompson Ln in a single visit starting at <strong>$180+</strong>.
+            </p>
+          </div>
         </div>
       </section>
       
@@ -636,6 +684,7 @@ const euroSchema = [
 
     </div>
   </main>
+  <ServiceReviews service="auto" label="European Car Key" />
   <RelatedPost
     href="/blog/maserati-granturismo-key-replacement-nashville/"
     title="2008 Maserati GranTurismo Key: $250 at Our Shop vs $1,500 at the Dealer"

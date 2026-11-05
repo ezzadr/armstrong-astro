@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ServiceReviews from '../components/ServiceReviews.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "OEM Car Key Replacement Nashville TN | Dealer Key Alternative";
 const seoDescription = "Genuine OEM car keys and smart fobs cut & programmed in Nashville without dealer backorders or towing. Walk into 208 Thompson Ln or call (615) 625-8000.";
@@ -35,13 +36,50 @@ const dealerKeySchema = [
           "@type": "Answer",
           "text": "Most drivers save 40% to 60% compared to franchise dealership parts and labor rates—plus you save $100 to $200+ in towing fees because our mobile vans come directly to your parked vehicle."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you carry the official Ford FDRS dealer tool and European immobilizer programmers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our vans and 208 Thompson Ln shop carry licensed Ford FDRS dealer software for 2020–2026 Ford & Lincoln smart keys, plus factory-level immobilizer tools for BMW (CAS/FEM/BDC), Mercedes-Benz (EIS/FBS3), Audi/VW (MQB/BCM2), Volvo (up to 2026), Land Rover, Porsche, and Bentley."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you erase lost or stolen keys from my car's computer like the dealership does?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. When we program your replacement OEM smart key or transponder key, we can clear missing or stolen keys from your vehicle's immobilizer memory at no extra charge so an old key will no longer start your car."
+        }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "OEM Factory Car Key Replacement & Programming",
+    "description": "Genuine OEM car keys, smart proximity fobs, and high-security laser key cutting at 208 Thompson Ln or on-site across Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "95",
+      "highPrice": "425",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/dealer-key/" schema={dealerKeySchema}>
+<Layout title={seoTitle} description={seoDescription} canonical="/dealer-key/" schema={dealerKeySchema} image="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg">
   
   <header class="relative bg-showroom text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -140,8 +178,109 @@ const dealerKeySchema = [
           When you lose your car keys, most dealerships insist that you have your vehicle towed to their lot. You pay for the tow truck, wait days for their service queue, and then pay an inflated dealership labor rate.
         </p>
         <p>
-          With Armstrong Locksmith, our mobile locksmith van comes directly to where your car is parked. We laser-cut your emergency key and program the smart proximity remote right on the spot—saving you hundreds of dollars and days of hassle.
+          With Armstrong Locksmith, our mobile locksmith van comes directly to where your car is parked. We laser-cut your emergency key and program the smart proximity remote right on the spot—saving you hundreds of dollars and days of waiting.
         </p>
+      </div>
+
+      <!-- Real Dealer-Level Key Jobs in Nashville -->
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-1">Real Nashville Field &amp; Shop Work</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-heading font-black uppercase mb-3">
+          Dealer-Level Key Jobs Completed In-House
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-6">
+          Here are real vehicles we programmed in Nashville using factory diagnostic software and high-security laser key cutters—with zero dealership towing:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <figure class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm flex flex-col justify-between">
+            <img
+              src="/images/2022-ford-escape-smart-key-all-keys-lost-nashville-900.webp"
+              srcset="/images/2022-ford-escape-smart-key-all-keys-lost-nashville-600.webp 600w, /images/2022-ford-escape-smart-key-all-keys-lost-nashville-900.webp 900w"
+              sizes="(max-width: 767px) 100vw, 33vw"
+              alt="2022 Ford Escape push-to-start smart key programmed on-site in Nashville TN using official Ford FDRS dealer software"
+              class="w-full h-52 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="675"
+            />
+            <figcaption class="p-4 bg-white border-t border-slate-100 text-xs text-slate-600">
+              <strong class="block text-slate-900 text-sm mb-1">2022 Ford Escape (Ford FDRS)</strong>
+              All keys lost on-site programming using licensed Ford FDRS dealer software and laser emergency blade cutting.
+            </figcaption>
+          </figure>
+
+          <figure class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm flex flex-col justify-between">
+            <img
+              src="/images/toyota-highlander-hybrid-smart-key-replacement-nashville-900.webp"
+              srcset="/images/toyota-highlander-hybrid-smart-key-replacement-nashville-600.webp 600w, /images/toyota-highlander-hybrid-smart-key-replacement-nashville-900.webp 900w"
+              sizes="(max-width: 767px) 100vw, 33vw"
+              alt="Rahim programming a new Toyota Highlander Hybrid Limited smart key and resetting the immobilizer in Nashville TN"
+              class="w-full h-52 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="675"
+            />
+            <figcaption class="p-4 bg-white border-t border-slate-100 text-xs text-slate-600">
+              <strong class="block text-slate-900 text-sm mb-1">Toyota Highlander Hybrid Limited</strong>
+              Damage-free unlock, laser door key cut to silence the alarm, immobilizer reset, and lost keys deleted at no extra charge.
+            </figcaption>
+          </figure>
+
+          <figure class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm flex flex-col justify-between">
+            <img
+              src="/images/rahim-programming-mercedes-benz-key-on-site-nashville-900.webp"
+              srcset="/images/rahim-programming-mercedes-benz-key-on-site-nashville-600.webp 600w, /images/rahim-programming-mercedes-benz-key-on-site-nashville-900.webp 900w"
+              sizes="(max-width: 767px) 100vw, 33vw"
+              alt="Rahim programming a Mercedes-Benz smart key fob on-site in Nashville TN without dealership towing"
+              class="w-full h-52 object-cover"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="675"
+            />
+            <figcaption class="p-4 bg-white border-t border-slate-100 text-xs text-slate-600">
+              <strong class="block text-slate-900 text-sm mb-1">Mercedes-Benz &amp; European EIS</strong>
+              In-house EIS/FBS3 key programming and laser blade origination for Mercedes, BMW, Audi, Volvo, and Range Rover.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Visible FAQ Section (Synced with FAQPage Schema) -->
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-1">Straight Answers</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#0f274a] font-heading font-black uppercase mb-5">
+          OEM Dealer Key Replacement FAQs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Are your replacement car keys the same OEM quality as the dealership?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. We stock genuine OEM factory smart fobs alongside tested aftermarket options so you can choose the exact key that fits your vehicle and budget, programmed with dealer-grade diagnostic equipment.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much can I save vs getting a replacement key at a Nashville car dealership?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Most drivers save 40% to 60% compared to franchise dealership parts and labor rates—plus you save $100 to $200+ in towing fees because our mobile vans come directly to your parked vehicle, or you can walk into our <strong>208 Thompson Ln</strong> shop with a <strong>$0 service call fee</strong>.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you carry the official Ford FDRS dealer tool and European immobilizer programmers?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. Our vans and 208 Thompson Ln shop carry licensed <strong>Ford FDRS</strong> dealer software for 2020–2026 Ford &amp; Lincoln smart keys, plus factory-level immobilizer tools for BMW (CAS/FEM/BDC), Mercedes-Benz (EIS/FBS3), Audi/VW (MQB/BCM2), Volvo (up to 2026), Land Rover, Porsche, and Bentley.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you erase lost or stolen keys from my car's computer like the dealership does?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. When we program your replacement OEM smart key or transponder key, we can clear missing or stolen keys from your vehicle's immobilizer memory at no extra charge so an old key will no longer start your car.
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -163,4 +302,9 @@ const dealerKeySchema = [
     </div>
   </section>
   <ServiceReviews service="dealer" label="Dealer Key" />
+  <RelatedPost
+    href="/blog/2022-ford-escape-all-keys-lost-smart-key-nashville/"
+    title="2022 Ford Escape All Keys Lost: Why Newer Fords Need the Ford FDRS Dealer Tool"
+    blurb="How we unlocked a 2022 Ford Escape in Nashville, cut the emergency blade, and programmed two new smart keys using official Ford FDRS software."
+  />
 </Layout>

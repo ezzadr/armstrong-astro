@@ -4,6 +4,8 @@ import { getReviewStats } from '../lib/reviewStats.mjs';
 import YouTubeFacade from '../components/YouTubeFacade.astro';
 import CarKeyEstimator from '../components/CarKeyEstimator.astro';
 import RecentWorkGallery from '../components/RecentWorkGallery.astro';
+import ServiceReviews from '../components/ServiceReviews.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 // Live Google total, synced at build (src/lib/reviewStats.mjs). Never hardcode it.
 const { reviewCount } = await getReviewStats();
@@ -59,8 +61,45 @@ const autoSchema = [
           "@type": "Answer",
           "text": "Yes. We extract snapped key blades and rebuild or replace worn ignition cylinders for Honda, Toyota, Ford, GM, Dodge/Jeep, Kia, Hyundai, and European vehicles so your ignition turns smoothly again."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does mobile auto locksmith service cost in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard car lockouts start at $65+, high-security European Lishi lockouts start at $85+, transponder keys start at $95+, remote head keys start at $120+, and push-to-start smart fobs start at $145+. We always quote a firm total over the phone before dispatching a van."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bring my vehicle or ignition cylinder to your 208 Thompson Ln storefront?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Visiting our walk-in shop at 208 Thompson Ln, Nashville, TN 37211 has a $0 service call fee—ideal for spare smart keys, transponder copies, and bench ignition cylinder repair."
+        }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
+    "name": "Mobile Automotive Locksmith & Ignition Repair",
+    "description": "On-site car key replacement, smart fob programming, ignition cylinder repair, and damage-free car unlocking across Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/armstrong-locksmith-van-laser-key-machines-nashville.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "65",
+      "highPrice": "425",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   }
 ];
 ---
@@ -366,6 +405,40 @@ const autoSchema = [
         </div>
       </section>
 
+      <!-- Visible Automotive Locksmith FAQs (Synced with FAQPage Schema) -->
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm text-left">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-600 block mb-2">Common Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] mb-6">
+          Nashville Automotive Locksmith FAQs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can a mobile auto locksmith make a car key on-site at BNA Airport or my driveway?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. Our mobile automotive locksmith vans carry computerized laser key machines, Lishi door decoders, and immobilizer programmers to make replacement car keys and smart fobs on-site at BNA Airport parking garages, Downtown Nashville, Brentwood, Franklin, and Antioch.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you repair stuck car ignitions and broken keys?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. We extract snapped key blades and rebuild or replace worn ignition cylinders for Honda, Toyota, Ford, GM, Dodge/Jeep, Kia, Hyundai, and European vehicles so your ignition turns smoothly again.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much does mobile auto locksmith service cost in Nashville?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Standard car lockouts start at <strong>$65+</strong>, high-security European Lishi lockouts start at <strong>$85+</strong>, transponder keys start at <strong>$95+</strong>, remote head keys start at <strong>$120+</strong>, and push-to-start smart fobs start at <strong>$145+</strong>. We always quote a firm total over the phone before dispatching a van.
+            </p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can I bring my vehicle or ignition cylinder to your 208 Thompson Ln storefront?</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Yes. Visiting our walk-in shop at <strong>208 Thompson Ln, Nashville, TN 37211</strong> has a <strong>$0 service call fee</strong>—ideal for spare smart keys, transponder copies, and bench ignition cylinder repair.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Emergency Dispatch CTA Banner -->
       <section class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#0f274a] via-[#16335c] to-[#0f274a] text-white shadow-xl border-t-4 border-amber-500 flex flex-col md:flex-row items-center justify-between gap-8 text-left">
         <div class="max-w-2xl">
@@ -393,4 +466,10 @@ const autoSchema = [
 
     </div>
   </main>
+  <ServiceReviews service="auto" label="Automotive" />
+  <RelatedPost
+    href="/blog/2012-honda-civic-ignition-switch-repair-door-lock-cylinder-nashville/"
+    title="2012 Honda Civic Ignition & Door Lock Cylinder Repair in Nashville"
+    blurb="Why worn Honda split-wafers jam the key—and how we rebuild your ignition and door lock to match your original key without replacing the steering column."
+  />
 </Layout>
