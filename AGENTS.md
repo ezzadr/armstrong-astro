@@ -360,3 +360,11 @@ starter.
   - Any agent starting a new conversation or resuming work on this project MUST read `docs/PROJECT_MEMORY_LOG.md` before making any website, SEO, GBP, or directory changes so it knows what has already been completed, what is currently settling in Google, and what pending follow-ups exist.
 - **Mandatory Recording Rule After Every Completed Task**:
   - Whenever you complete a website commit, a Google Business Profile update/post, a Search Console ranking check, or an external directory update, you **MUST** update `docs/PROJECT_MEMORY_LOG.md` with the date, commit SHA or platform ID, exact changes made, and any pending follow-ups.
+
+## 13. AUTOMATIC SEARCH ENGINE & AI INDEXING AFTER EVERY PUSH (GOOGLE + BING INDEXNOW)
+- **Never wait for Rahim to remind you to notify Bing or Google after a live push to `main`.**
+- Immediately after every push to `main` that creates or modifies any website page, blog post, or `llms.txt`:
+  1. **Bing / Yahoo / DuckDuckGo / ChatGPT & Copilot Search (IndexNow API — Mandatory Every Push)**:
+     - Automatically POST the full list of newly created or modified canonical URLs (`https://armstronglocksmithinc.com/...`) to **both** `https://api.indexnow.org/indexnow` and `https://www.bing.com/indexnow` using our verified site key `a8f4c910e53b471286d9a17320afce65` (`keyLocation: "https://armstronglocksmithinc.com/a8f4c910e53b471286d9a17320afce65.txt"`), and confirm HTTP `200`/`202` in your report.
+  2. **Google Search Console (Priority Indexing for New Pages & Blog Posts)**:
+     - Whenever a brand-new page or blog post URL is published (or a high-priority page is overhauled), inspect the live URL in Google Search Console (`https://search.google.com/search-console?resource_id=https%3A%2F%2Farmstronglocksmithinc.com%2F`) and click **Request Indexing** so it enters Google's priority crawl queue immediately.
