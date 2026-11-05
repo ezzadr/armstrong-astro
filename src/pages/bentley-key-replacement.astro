@@ -5,6 +5,7 @@ import YouTubeFacade from '../components/YouTubeFacade.astro';
 import { getReviewStats } from '../lib/reviewStats.mjs';
 const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = "Bentley Key Replacement Nashville TN | Continental & Bentayga";
 const seoDescription = "Bentley Continental GT, Flying Spur & Bentayga key cutting and immobilizer programming in Nashville, TN. Mobile service or 208 Thompson Ln. (615) 625-8000.";
@@ -13,10 +14,29 @@ const bentleySchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Bentley Car Key Replacement",
+    "name": "Bentley & Exotic Car Key Replacement Nashville",
+    "serviceType": "Bentley & Exotic Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Belle Meade", "Green Hills", "Forest Hills", "Williamson County"],
-    "description": "On-site ultra-luxury Bentley Continental GT, Flying Spur, and Bentayga key cutting and transponder programming in Nashville, TN."
+    "description": "On-site and in-shop Bentley Continental GT, Flying Spur, Bentayga, Maserati, Ferrari, Lamborghini, Rolls-Royce, and Porsche key cutting and immobilizer programming in Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/Maserati-key-cut-and-programmed--scaled.jpg",
+    "brand": [
+      { "@type": "Brand", "name": "Bentley" },
+      { "@type": "Brand", "name": "Maserati" },
+      { "@type": "Brand", "name": "Ferrari" },
+      { "@type": "Brand", "name": "Lamborghini" },
+      { "@type": "Brand", "name": "Rolls-Royce" },
+      { "@type": "Brand", "name": "Porsche" }
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "250",
+      "highPrice": "650",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -57,13 +77,29 @@ const bentleySchema = [
           "@type": "Answer",
           "text": "No. Instead of waiting weeks for a VIN-ordered dealership key and paying flatbed transport fees, we generate and program replacement or spare Bentley keys same-day at your garage or at our 208 Thompson Ln shop."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my Bentley be damaged during unlocking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. We use specialized German Lishi door lock decoders that read the internal tumblers directly through the keyway without touching your paint, frameless glass, or weatherstripping."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you also make keys for Maserati, Ferrari, Lamborghini, Rolls-Royce, and Porsche?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. In addition to Bentley, Rahim cuts high-security laser blades and programs immobilizer modules and smart fobs for Maserati, Ferrari, Lamborghini, Rolls-Royce, Porsche, Aston Martin, and Alfa Romeo in Nashville, Brentwood, and Belle Meade."
+        }
       }
     ]
   }
 ];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/bentley-key-replacement/" schema={bentleySchema}>
+<Layout title={seoTitle} description={seoDescription} canonical="/bentley-key-replacement/" schema={bentleySchema} image="/images/Maserati-key-cut-and-programmed--scaled.jpg">
   
   <!-- Premium Hero Header -->
   <header class="bg-gradient-to-b from-[#0a192f] via-[#0f274a] to-[#0f274a] text-white py-14 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-amber-500 relative overflow-hidden">
@@ -300,7 +336,63 @@ const bentleySchema = [
               <span class="text-emerald-600">&#10003;</span>
               <span>Bentley Brooklands</span>
             </div>
+
+            <div class="p-3.5 rounded-xl bg-amber-50/60 border border-amber-300 hover:border-amber-500 transition font-bold text-xs text-slate-900 flex items-center gap-2">
+              <span class="text-emerald-600">&#10003;</span>
+              <span>Maserati GranTurismo / Ghibli / Levante</span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-amber-50/60 border border-amber-300 hover:border-amber-500 transition font-bold text-xs text-slate-900 flex items-center gap-2">
+              <span class="text-emerald-600">&#10003;</span>
+              <span>Ferrari &amp; Lamborghini Exotics</span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-amber-50/60 border border-amber-300 hover:border-amber-500 transition font-bold text-xs text-slate-900 flex items-center gap-2">
+              <span class="text-emerald-600">&#10003;</span>
+              <span>Rolls-Royce Ghost / Wraith / Cullinan</span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-amber-50/60 border border-amber-300 hover:border-amber-500 transition font-bold text-xs text-slate-900 flex items-center gap-2">
+              <span class="text-emerald-600">&#10003;</span>
+              <span>Porsche 911 / Cayenne / Macan / Panamera</span>
+            </div>
           
+        </div>
+      </section>
+
+      <!-- Real Exotic Job Photo: Maserati Key Cut & Programmed -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-400/70 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+        <div class="lg:col-span-6 rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+          <img
+            src="/images/Maserati-key-cut-and-programmed--scaled-900.webp"
+            srcset="/images/Maserati-key-cut-and-programmed--scaled-600.webp 600w, /images/Maserati-key-cut-and-programmed--scaled-900.webp 900w, /images/Maserati-key-cut-and-programmed--scaled-1200.webp 1200w"
+            sizes="(max-width: 1024px) 100vw, 560px"
+            alt="Maserati key cut and programmed in Nashville TN by Master Locksmith Rahim at Armstrong Locksmith Inc"
+            class="w-full h-72 object-cover"
+            width="900"
+            height="675"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="lg:col-span-6 flex flex-col gap-3.5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-amber-300">
+            Bentley &amp; Exotics Specialist &bull; Real Nashville Job
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight">
+            Exotic Key Cutting &amp; Immobilizer Programming (Bentley, Maserati, Ferrari &amp; Lamborghini)
+          </h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Whether you drive a <strong>Bentley Continental GT or Bentayga, Maserati GranTurismo, Ferrari, Lamborghini, Rolls-Royce, or Porsche</strong>, Rahim brings over 20 years of hands-on European and exotic immobilizer programming experience directly to your garage—or visit our <strong>208 Thompson Ln</strong> shop with a <strong>$0 service call fee</strong>.
+          </p>
+          <div class="flex flex-wrap items-center gap-3 pt-1 text-xs font-bold">
+            <a href="/blog/maserati-granturismo-key-replacement-nashville/" class="bg-[#0f274a] hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition">
+              Read Maserati GranTurismo Case Study &rarr;
+            </a>
+            <a href="/european-car-key-specialist/" class="text-amber-700 hover:text-amber-800 underline">
+              See All European Makes &rarr;
+            </a>
+          </div>
         </div>
       </section>
 
@@ -343,12 +435,25 @@ const bentleySchema = [
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Will my Bentley be damaged during unlocking?</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Never. We use specialized German optical Lishi picks that read the internal tumblers directly without touching paint or weatherstripping.</p>
-            </div>
-          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can a local Nashville locksmith cut and program a Bentley key?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. Master locksmith Rahim Ezzadpanah at Armstrong Locksmith Inc cuts high-security laser blades and programs Kessy immobilizer transponders and remotes for Bentley Continental GT, Flying Spur, and Bentayga models in Nashville, Brentwood, and Belle Meade.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do I have to ship my Bentley or wait weeks for a factory key?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">No. Instead of waiting weeks for a VIN-ordered dealership key and paying flatbed transport fees, we generate and program replacement or spare Bentley keys same-day at your garage or at our 208 Thompson Ln shop ($0 service call fee).</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Will my Bentley be damaged during unlocking?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Never. We use specialized German Lishi door lock decoders that read the internal tumblers directly through the keyway without touching your paint, frameless glass, or weatherstripping.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you also make keys for Maserati, Ferrari, Lamborghini, Rolls-Royce, and Porsche?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. In addition to Bentley, Rahim cuts high-security laser blades and programs immobilizer modules and smart fobs for Maserati, Ferrari, Lamborghini, Rolls-Royce, Porsche, Aston Martin, and Alfa Romeo across Middle Tennessee.</p>
+          </div>
         </div>
       </section>
 
@@ -380,4 +485,9 @@ const bentleySchema = [
     </div>
   </main>
   <ServiceReviews service="bentley" label="Bentley" />
+  <RelatedPost
+    href="/blog/maserati-granturismo-key-replacement-nashville/"
+    title="Maserati GranTurismo Key Cut & Programmed in Nashville"
+    blurb="See how we cut the high-security blade and programmed a replacement Maserati key without dealership towing."
+  />
 </Layout>

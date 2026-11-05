@@ -16,8 +16,17 @@ const hondaSchema = [
     "serviceType": "Automotive Locksmith",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills"],
-    "description": "On-site Honda smart proximity fob programming, high-security laser key cutting, and ignition cylinder repair in Nashville, TN.",
-    "brand": { "@type": "Brand", "name": "Honda" }
+    "description": "On-site and in-shop Honda smart proximity fob programming, Driver 1 and Driver 2 remotes, high-security laser key cutting, and split-wafer ignition cylinder repair in Nashville, TN.",
+    "brand": { "@type": "Brand", "name": "Honda" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "245",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -28,7 +37,7 @@ const hondaSchema = [
         "name": "Can you fix a Honda ignition when the key won't turn?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Older Honda Accord, Civic, CR-V, Pilot, and Odyssey models use split-wafer high-security locks that frequently wear down and jam. We rebuild your Honda ignition cylinder with new brass wafers and cut a fresh factory-spec laser blade on-site so your original key code still matches your doors."
+          "text": "Yes. Honda Accord, Civic, CR-V, Pilot, and Odyssey models use split-wafer high-security locks that wear down over time and jam. We rebuild your Honda ignition cylinder with new brass wafers and cut a fresh factory-spec laser blade on-site so your original key code still matches your doors."
         }
       },
       {
@@ -36,7 +45,23 @@ const hondaSchema = [
         "name": "How much does a replacement Honda key fob cost in Nashville?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Honda remote head keys and push-to-start smart proximity fobs at Armstrong Locksmith typically start at $120 to $220 cut and programmed—saving 40% to 50% compared to Nashville Honda dealerships, with walk-in service at 208 Thompson Ln or mobile dispatch."
+          "text": "Honda remote head keys and push-to-start smart proximity fobs at Armstrong Locksmith typically start at $120 to $245 cut and programmed—saving 40% to 50% compared to Nashville Honda dealerships, with walk-in service at 208 Thompson Ln ($0 service call fee) or mobile dispatch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you program Honda Driver 1 and Driver 2 push-to-start smart fobs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We stock Driver 1 and Driver 2 proximity remotes for Honda Accord, Civic, CR-V, Pilot, Odyssey, HR-V, Passport, and Ridgeline so your seat, mirror, and preset memory settings stay linked to your key."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bring my Honda to your 208 Thompson Ln shop to save the mobile fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. When you bring your Honda or lock cylinder to our walk-in storefront at 208 Thompson Ln in Nashville, there is a $0 service call fee and we cut and program your key while you wait."
         }
       }
     ]
@@ -353,12 +378,25 @@ const hondaSchema = [
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Why is my Honda key not turning in the ignition?</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Honda ignition locks use split wafers that wear down over time and jam. We can repair or rebuild the ignition cylinder on-site and cut a fresh key to match.</p>
-            </div>
-          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you fix a Honda ignition when the key won't turn?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. Honda Accord, Civic, CR-V, Pilot, and Odyssey models use split-wafer high-security locks that wear down over time and jam. We rebuild your Honda ignition cylinder with new brass wafers and cut a fresh factory-spec laser blade on-site so your original key code still matches your doors.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much does a replacement Honda key fob cost in Nashville?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Honda remote head keys and push-to-start smart proximity fobs at Armstrong Locksmith typically start at $120 to $245 cut and programmed—saving 40% to 50% compared to Nashville Honda dealerships.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you program Honda Driver 1 and Driver 2 push-to-start smart fobs?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. We stock Driver 1 and Driver 2 proximity remotes for Honda Accord, Civic, CR-V, Pilot, Odyssey, HR-V, Passport, and Ridgeline so your seat, mirror, and preset memory settings stay linked to your key.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can I bring my Honda to your 208 Thompson Ln shop to save the mobile fee?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. When you bring your Honda or lock cylinder to our walk-in storefront at 208 Thompson Ln in Nashville, there is a $0 service call fee and we cut and program your key while you wait.</p>
+          </div>
         </div>
       </section>
 

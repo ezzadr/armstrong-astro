@@ -10,10 +10,22 @@ const acuraSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "name": "Acura Key Replacement & Smart Fob Programming",
     "serviceType": "Acura Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "On-site Acura smart proximity key cutting, laser key blades, and immobilizer programming across Nashville, TN."
+    "description": "On-site and in-shop Acura smart proximity key cutting, Driver 1 and Driver 2 memory fobs, high-security laser key blades, and immobilizer programming in Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/2022-acura-mdx-smart-remote-driver-2-no-emergency-key-43.webp",
+    "brand": { "@type": "Brand", "name": "Acura" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "325",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -53,6 +65,22 @@ const acuraSchema = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, when we supply an OEM Driver 1 or Driver 2 Acura proximity remote, it pairs directly with your vehicle's memory seat, mirror, and climate settings just like a key ordered from the dealership."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does an Acura MDX smart key replacement cost in Nashville?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An Acura MDX smart proximity key replacement is $285 when you bring your vehicle to our walk-in shop at 208 Thompson Ln ($0 service call fee) or $325 with mobile locksmith van service at your location. Older Acura transponder and remote head keys start at $95 to $120."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can you replace my Acura key?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our mobile locksmith vans provide same-day service across Nashville, Brentwood, and Franklin, cutting and programming your new Acura smart key on-site with zero towing required."
         }
       }
     ]
@@ -131,7 +159,7 @@ const acuraSchema = [
             Watch Us Cut & Program Acura Keys Live in Nashville
           </h2>
           <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
-            See how our mobile diagnostic computers connect directly to the Acura immobilizer to generate high-security smart keys on-site on-site with zero delay.
+            See how our mobile diagnostic computers connect directly to the Acura immobilizer to generate high-security smart keys on-site with zero delay.
           </p>
           <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-bold text-slate-700">
             <span class="bg-slate-100 text-slate-800 px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5 border border-slate-200"><svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>No Tow Truck Needed</span>
@@ -141,6 +169,44 @@ const acuraSchema = [
         </div>
         <div class="lg:col-span-6 rounded-2xl overflow-hidden shadow-xl border border-slate-300 aspect-video bg-black">
           <YouTubeFacade id="Uja6naTWCVw" title="Watch Us Cut & Program Acura Keys Live in Nashville" />
+        </div>
+      </section>
+
+      <!-- Real Acura MDX Smart Key & Upfront Pricing Showcase -->
+      <section class="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-400/70 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
+        <div class="lg:col-span-5 rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 flex items-center justify-center p-6">
+          <img
+            src="/images/2022-acura-mdx-smart-remote-driver-2-no-emergency-key-43.webp"
+            alt="2022 Acura MDX Driver 1 and Driver 2 proximity smart key fob stocked and programmed at Armstrong Locksmith Nashville"
+            class="h-56 sm:h-64 w-auto object-contain drop-shadow-2xl"
+            width="600"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="lg:col-span-7 flex flex-col gap-3.5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider w-fit border border-amber-300">
+            In-Stock OEM Remotes &bull; Upfront MDX Pricing
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading font-black uppercase text-[#0f274a] leading-tight">
+            Acura MDX, RDX &amp; TLX Smart Keys (Driver 1 &amp; Driver 2 Memory)
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            We stock genuine <strong>Driver 1 and Driver 2</strong> Acura proximity smart fobs at our <strong>208 Thompson Ln</strong> shop and in our mobile locksmith vans. Every smart key includes high-security laser cutting for the emergency door blade and full OBD2 immobilizer programming.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs">
+            <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+              <span class="block text-emerald-800 font-bold">In-Shop Walk-In (208 Thompson Ln)</span>
+              <strong class="text-emerald-950 font-black text-base">$285 Acura MDX Smart Key</strong>
+              <span class="block text-emerald-700 text-[11px] mt-0.5">$0 Service Call Fee when you drive in</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="block text-slate-700 font-bold">Mobile Locksmith Van Service</span>
+              <strong class="text-[#0f274a] font-black text-base">$325 Acura MDX Smart Key</strong>
+              <span class="block text-slate-500 text-[11px] mt-0.5">We come to your driveway or office</span>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -326,17 +392,25 @@ const acuraSchema = [
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How fast can you replace my Acura key?</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Our mobile units provide prompt same-day service, cutting and programming your new Acura smart key on-site with zero towing required.</p>
-            </div>
-          
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Will the new fob have proximity push-to-start?</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes, we stock OEM-grade proximity remotes that support full push-to-start, keyless entry, remote start, and memory seat pairing.</p>
-            </div>
-          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you program an Acura MDX, RDX, or TLX smart key without the original?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. We cut high-security emergency blades and program Driver 1 and Driver 2 proximity smart fobs for Acura MDX, RDX, TLX, ILX, and Integra models on-site across Nashville or at our 208 Thompson Ln shop.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Will my new Acura smart fob still remember my seat and mirror memory settings?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes, when we supply an OEM Driver 1 or Driver 2 Acura proximity remote, it pairs directly with your vehicle's memory seat, mirror, and climate settings just like a key ordered from the dealership.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much does an Acura MDX smart key replacement cost in Nashville?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">An Acura MDX smart proximity key replacement is $285 when you bring your vehicle to our walk-in shop at 208 Thompson Ln ($0 service call fee) or $325 with mobile locksmith van service at your location. Older Acura transponder and remote head keys start at $95 to $120.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How fast can you replace my Acura key?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Our mobile locksmith vans provide same-day service across Nashville, Brentwood, and Franklin, cutting and programming your new Acura smart key on-site with zero towing required.</p>
+          </div>
         </div>
       </section>
       

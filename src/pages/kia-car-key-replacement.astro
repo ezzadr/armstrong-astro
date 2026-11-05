@@ -17,7 +17,16 @@ const kiaSchema = [
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage"],
     "description": "Same-day Kia flip key cutting, push-to-start smart proximity fob programming, and ignition repair across Nashville, TN.",
-    "brand": { "@type": "Brand", "name": "Kia" }
+    "brand": { "@type": "Brand", "name": "Kia" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "265",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -28,7 +37,7 @@ const kiaSchema = [
         "name": "Can you make a replacement Kia key in Nashville if I lost all my keys?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Our mobile locksmith vans come directly to your vehicle in Nashville, Antioch, Brentwood, or Donelson, decode your Kia lock cylinder, cut a new laser or standard blade, and program a flip remote or push-to-start smart key on the spot."
+          "text": "Yes. Our mobile locksmith vans come directly to your vehicle in Nashville, Antioch, Brentwood, or Donelson, decode your Kia lock cylinder, cut a new high-security laser or standard blade, and program a flip remote or push-to-start smart key on the spot."
         }
       },
       {
@@ -37,6 +46,22 @@ const kiaSchema = [
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. If your Kia Soul, Optima, Forte, Sportage, or Sorento ignition cylinder was damaged, we replace and re-key the ignition cylinder to match your existing door locks at your location or at our 208 Thompson Ln shop."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Kia key replacement cost compared to the dealership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kia dealerships typically charge $290 to $550+ plus towing fees. Our Kia flip keys and push-to-start smart proximity fobs start from $120 to $265 cut and programmed, saving most Nashville drivers $150 to $300."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I bring my Kia to your 208 Thompson Ln storefront for a spare key?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Walk into our shop at 208 Thompson Ln in Nashville with a $0 service call fee and we will cut and program your spare Kia Telluride, Sorento, Sportage, K5, Forte, or Soul key while you wait."
         }
       }
     ]
@@ -354,12 +379,25 @@ const kiaSchema = [
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-              <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you make a Kia key if all keys are lost?</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes! We can decode the lock tumblers and program a brand new smart fob from scratch on-site.</p>
-            </div>
-          
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can you make a replacement Kia key in Nashville if I lost all my keys?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. Our mobile locksmith vans come directly to your vehicle in Nashville, Antioch, Brentwood, or Donelson, decode your Kia lock cylinder, cut a new high-security laser or standard blade, and program a flip remote or push-to-start smart key on the spot.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Do you repair damaged Kia ignitions after an attempted break-in?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. If your Kia Soul, Optima, Forte, Sportage, or Sorento ignition cylinder was damaged, we replace and re-key the ignition cylinder to match your existing door locks at your location or at our 208 Thompson Ln shop.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">How much does Kia key replacement cost compared to the dealership?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Kia dealerships typically charge $290 to $550+ plus towing fees. Our Kia flip keys and push-to-start smart proximity fobs start from $120 to $265 cut and programmed, saving most Nashville drivers $150 to $300.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-[#0f274a] text-sm sm:text-base mb-2">Can I bring my Kia to your 208 Thompson Ln storefront for a spare key?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Yes. Walk into our shop at 208 Thompson Ln in Nashville with a $0 service call fee and we will cut and program your spare Kia Telluride, Sorento, Sportage, K5, Forte, or Soul key while you wait.</p>
+          </div>
         </div>
       </section>
 
