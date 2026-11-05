@@ -11,10 +11,15 @@
 1. **Homepage Freeze Rule (`src/pages/index.astro`) — DO NOT TOUCH UNTIL AT LEAST `2026-11-20`**:
    - Between `Oct 19 – Nov 1, 2026`, the homepage broke onto **Page 1 (`#6.9–#8.1`)** for head terms **`"locksmith"`** (`3 → 20 clicks`, `+567%`), **`"locksmith nashville"`**, and **`"locksmith nashville tn"`**.
    - Do NOT edit `src/pages/index.astro` (title, meta, H1/H2, or body copy) while Google finishes settling it on Page 1.
-2. **Pending Setmore Takedown (`https://armstronglocksmithinc.setmore.com/`)**:
-   - An old third-party booking page (`https://armstronglocksmithinc.setmore.com/`, created years ago by an agency under `armstrongcitation@gmail.com`) was feeding Google's AI Overview stale info (`"Book Online: Armstrong Locksmith Setmore Booking"`, `"Email: admin@armstronglocksmithinc.com"`, and `9:00 AM–5:00 PM` hours).
-   - **Status (Nov 4, 2026)**: Escalated in Setmore live support chat (`https://go.setmore.com/`) with human agent **Itbah**. Rahim uploaded a photo of his physical shop business card (`Armstrong locksmith shop.png`) and offered verification via `(615) 625-8000`. Itbah escalated to Setmore's back-office team to delete the page.
-   - **Next Action**: Check if `https://armstronglocksmithinc.setmore.com/` returns HTTP `404`. As soon as it returns `404`, submit `https://armstronglocksmithinc.setmore.com/` to **Google's Outdated Content Removal Tool** (`https://search.google.com/search-console/remove-outdated-content`) to purge Setmore and `admin@armstronglocksmithinc.com` from Google Search & AI Overviews.
+2. **Setmore Legacy Profile Resolved & Purged from Google Cache (`https://armstronglocksmithinc.setmore.com/`)**:
+   - **Status (Nov 4, 2026 — RESOLVED)**: Rahim logged into the `armstronglocksmithinc.setmore.com` account (`armstrongcitation@gmail.com`). Verified **0 customer bookings** ever came into that account.
+   - **Fixes Applied Live on Setmore**:
+     - Replaced `admin@armstronglocksmithinc.com` with **`locksmith@armstronglocksmithinc.com`**.
+     - Fixed Staff & Brand hours from `9:00 AM – 5:00 PM` to **Mon–Fri `8:00 AM – 11:30 PM`, Sat `10:00 AM – 4:00 PM`, Sun `Closed`** (with explicit Storefront vs. Mobile hours in the About description).
+     - Changed Website URL to **`https://armstronglocksmithinc.com/book-online/`** and fixed all 4 social links (Facebook `/Armstronglocksmithinc`, Instagram `/armstrong_locksmith_nashville/`, YouTube `/@Armstronglocksmithinc`, TikTok `/@armstronglocksmithinc`).
+     - Deleted the 3 fake default placeholder services (`15 Minutes Meeting`, `30 Minutes Meeting`, `1 Hour Meeting`) and added 6 real locksmith services with upfront prices (`$20`, `$65+`, `$85+`, `$95+`, `$145+`, `$180+`).
+     - Disabled Setmore's calendar slot booking button (`Book appointment`, `Book class`, `Classes` unchecked) and confirmed `<meta name="robots" content="noindex, nofollow">` is active.
+     - Submitted `https://armstronglocksmithinc.setmore.com/` (removed word: `admin@armstronglocksmithinc.com`) to **Google's Outdated Content Removal Tool** (`Status: Pending`, `Requested: Nov 4, 2026`).
 3. **Apple Business Connect Showcases (`1563086994871944632`)**:
    - 4 approved 30-day Showcases are queued back-to-back from `2026-10-30` through `2027-02-28`.
    - **Next Action**: Remind Rahim by **`2027-02-15`** to queue the next 4 Showcases.
@@ -28,7 +33,7 @@
 
 | Platform | ID / URL | Current Verified State |
 | :--- | :--- | :--- |
-| **Live Website** | `https://armstronglocksmithinc.com/` | 55 static Astro pages deployed on Cloudways (`btfdkcdpdw`) via GitHub Actions CI |
+| **Live Website** | `https://armstronglocksmithinc.com/` | 56 static Astro pages deployed on Cloudways (`btfdkcdpdw`) via GitHub Actions CI |
 | **Google Search Console** | Property `https://armstronglocksmithinc.com/` | 48+ pages indexed, `0` stuck in `Discovered - currently not indexed` |
 | **Looker Studio SEO Report** | `https://lookerstudio.google.com/reporting/683fc781-983a-4c90-ae4c-cccc28b4a742/page/6zXD` | Live GSC Impressions, Clicks, CTR, Device Breakdown & Top Queries |
 | **Google Business Profile** | Profile ID `1996957340716580179` &bull; Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao` &bull; CID `12302076770882337028` (`https://g.page/r/CQS5BtikwbmqEBM`) | `4.9 ★ (809+ Google Reviews)`, 20 Products (`15 Auto + 5 Commercial`), 50+ structured Services with upfront prices |
