@@ -9,7 +9,7 @@ image: "/images/detex-commercial-lock-installation-nashville.jpg"
 
 ## A Back Door That Couldn't Stay Broken
 
-One of our commercial clients at **Green Hills Mall** called us about a problem with the **Detex lock** on their back door. For a retail building, that's not a "get to it next week" repair — the back door is where deliveries, trash runs, and employee traffic happen, and it has to stay secured without ever blocking an emergency exit.
+One of our commercial clients at **[Green Hills Mall](/service-areas/)** called us about a problem with the **Detex lock** on their back door. For a retail building, that's not a "get to it next week" repair — the back door is where deliveries, trash runs, and employee traffic happen, and it has to stay secured without ever blocking an emergency exit.
 
 ## What This Hardware Actually Does
 
@@ -29,6 +29,6 @@ Once the hardware arrived, we removed the failed unit, installed the new lock, k
 
 ## Got a Failing Exit Device or Panic Bar?
 
-We handle [commercial door hardware across Nashville](/commercial-locksmith/) — Detex exit locks, crash/panic bars, Adams Rite mortise cylinders, keypads, and master key systems. If we have to order your hardware, we'll tell you exactly how long it takes and what it costs before we start.
+We handle [commercial door hardware across Nashville](/commercial-locksmith/) — Detex exit locks, crash/panic bars, Adams Rite mortise cylinders, keypads, [commercial lock re-keying](/nashville-rekey-service/), and master key systems. If we have to order your hardware, we'll tell you [upfront what it costs](/locksmith-pricing-nashville/) and how long it takes before we start.
 
 Call **(615) 625-8000**, or come by [our shop at 208 Thompson Ln](/nashville-locksmith-storefront/): Mon–Fri 8 AM–6 PM, Sat 10 AM–4 PM.

@@ -80,7 +80,7 @@ Stock photos alone do not prove anything, but a real shop, real vehicles, or rea
      
 ### 7. The reviews do not sound grounded
  
-Reviews can tell you a lot when you read them carefully. Authentic reviews usually sound more lived-in. They mention things like [car key replacement](/car-key-replacement-nashville/), lockouts, rekey service, storefront visits, office hardware, and real experiences in actual areas around Nashville.
+Reviews can tell you a lot when you read them carefully. Authentic [verified Google reviews](/google-reviews/) usually sound more lived-in. They mention things like [car key replacement](/car-key-replacement-nashville/), [emergency car lockouts](/emergency-car-lockout/), [rekey service](/nashville-rekey-service/), [storefront visits](/nashville-locksmith-storefront/), office hardware, and real experiences in actual areas around Nashville.
    
 **Good rule:** if everything feels vague, generic, or hard to verify, slow down before you commit.
        
@@ -96,7 +96,7 @@ Website, Google profile, business information, and branding should all feel conn
      
 ### The services are clearly explained
  
-A real business should clearly explain whether it handles [automotive locksmith service](/car-key-replacement-nashville/), residential work, or [commercial locksmith work](/commercial-locksmith/).
+A real business should clearly explain whether it handles [automotive locksmith service](/car-key-replacement-nashville/), [residential lock work](/residential-locksmith-nashville/), or [commercial locksmith work](/commercial-locksmith/), along with [upfront pricing](/locksmith-pricing-nashville/).
      
 ### The reputation can actually be checked
  
@@ -153,9 +153,4 @@ Not every locksmith company has a storefront, but having one makes the business 
 Ask for the business address, whether the technician is part of the company, what affects the final price, and whether they regularly handle your type of job.
 
 **Does Armstrong Locksmith have a real shop in Nashville?**    
-Yes. Armstrong Locksmith Inc operates from a real Nashville shop at 208 Thompson Ln and also provides mobile locksmith service during business hours.
-                 
-- Local Nashville shop on Thompson Ln 
-- Family-owned locksmith company 
-- High-end automotive specialization 
-- Certified & Insured
+Yes. [Armstrong Locksmith Inc](/about-us/) operates from a real walk-in [Nashville storefront at 208 Thompson Ln](/nashville-locksmith-storefront/) (`$0 service call fee` in-shop) and also provides mobile locksmith service across [Greater Nashville](/service-areas/) during business hours.

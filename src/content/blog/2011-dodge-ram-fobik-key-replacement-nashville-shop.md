@@ -9,7 +9,7 @@ image: "/images/2011-dodge-ram-fobik-key-replacement-nashville-shop.jpg"
 
 ## "You Guys Have a Real Storefront — That's Why I Brought My Truck Here"
 
-A couple of days ago, a customer pulled up to [our storefront at 208 Thompson Lane](/nashville-locksmith-storefront/) in his **2011 Dodge Ram** with a broken remote FOBIK key.
+A couple of days ago, a customer pulled up to [our storefront at 208 Thompson Lane](/nashville-locksmith-storefront/) in his **[2011 Dodge Ram](/dodge-ram-car-key-replacement/)** with a broken remote FOBIK key.
 
 On 2009–2012 Dodge Ram trucks, the plastic FOBIK key fits directly into the dashboard ignition slot, and the lock, unlock, and remote-start buttons are built right into the rubber keypad. Over time, the rubber buttons and internal contacts wear out — so even if the key still turns the ignition, the remote stops locking and unlocking the doors.
 
@@ -29,6 +29,6 @@ Within minutes, his remote lock, unlock, and remote start were working again —
 
 ## Broken Remote or Need a Spare Truck Key in Nashville?
 
-Whether your Dodge Ram FOBIK buttons stopped working, your key shell is cracked, or you need a complete [car key replacement in Nashville](/car-key-replacement-nashville/), you don't have to pay dealership or call-center prices.
+Whether your [Dodge Ram FOBIK](/dodge-ram-car-key-replacement/) buttons stopped working, your key shell is cracked, or you need a complete [car key replacement in Nashville](/car-key-replacement-nashville/), you don't have to pay dealership or call-center prices. Check our [upfront locksmith price guide](/locksmith-pricing-nashville/) to see how walk-in service saves you money.
 
 Pull right up to [our shop at 208 Thompson Ln, Nashville, TN 37211](/nashville-locksmith-storefront/), or call **(615) 625-8000** if you lost all your keys and need our mobile [automotive locksmith van](/automotive-locksmith-in-nashville-tn/) to come to your truck.

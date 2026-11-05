@@ -11,7 +11,7 @@ image: "/images/toyota-chr-and-audi-spare-key-fobs-brentwood-nashville.jpg"
 
 A customer came to [our shop at 208 Thompson Lane](/nashville-locksmith-storefront/) today with her husband. They came down from **Brentwood, Tennessee**, and she wanted a spare key for two of their vehicles: a **[Toyota C-HR](/toyota-car-key-replacement/)** and an **[Audi](/audi-car-keys/)**.
 
-Normally with two different car brands, you would have to go to two separate dealerships, book two appointments, and pay dealer prices twice.
+Normally with two different car brands, you would have to go to two separate dealerships, book two appointments, and pay [dealership key prices](/dealer-key/) twice.
 
 ![Toyota C-HR and Audi spare smart keys made at Armstrong Locksmith in Nashville](/images/toyota-chr-audi-smart-key-buttons-nashville-shop.jpg)
 
@@ -26,6 +26,6 @@ We saved her and her husband quite a good amount of money compared to the dealer
 
 ## Need a Spare Key?
 
-If you only have one key for your car, making a spare at the shop while you still have a working key is always much cheaper than losing your last key.
+If you only have one key for your car, making a [spare key fob](/key-fob-replacement-nashville/) at the shop while you still have a working key (`$0 service call fee`) is always much cheaper than losing your last key. Check our [2026 Locksmith Price Guide](/locksmith-pricing-nashville/) for upfront rates.
 
 Come see us at [208 Thompson Ln in Nashville](/nashville-locksmith-storefront/), or call **(615) 625-8000** if you need our mobile van in [Brentwood or anywhere around Nashville](/service-areas/).

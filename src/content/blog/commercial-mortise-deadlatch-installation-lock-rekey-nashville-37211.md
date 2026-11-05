@@ -9,7 +9,7 @@ image: "/images/adams-rite-mortise-deadlatch-push-paddle-nashville-37211.jpg"
 
 ## Installing a New Storefront Deadlatch & Matching Keys in 37211
 
-A small business owner right here in the **37211** zip code in South Nashville called our shop because the lock on his front aluminum glass door was worn out and acting up. He needed a **new storefront mortise deadlatch installed**, and he also wanted his keys cleaned up so he wouldn't have to carry different keys for different doors at his business.
+A small business owner right here in the **[37211 zip code in South Nashville](/service-areas/)** called our shop because the lock on his front aluminum glass door was worn out and acting up. He needed a **new storefront mortise deadlatch installed**, and he also wanted his keys cleaned up so he wouldn't have to carry different keys for different doors at his business.
 
 Our technician **Kawa** drove over from [our shop at 208 Thompson Ln](/nashville-locksmith-storefront/) with the new hardware on the van and took care of both jobs on the spot.
 

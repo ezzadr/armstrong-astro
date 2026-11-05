@@ -17,7 +17,7 @@ Call a Chrysler dealership and they will tell you Crossfire keys have been disco
 The reason comes down to how the car was built:
 
 - **German Mercedes-Benz R170 Platform:** Chrysler had Karmann build the Crossfire in Osnabrück, Germany on the **Mercedes-Benz R170 SLK320** chassis (and the **SLK32 AMG** supercharged V6 drivetrain on the SRT-6).
-- **SKREEM / Mercedes DAS Immobilizer:** Instead of a regular Chrysler Sentry Key system that programs through the OBD2 port in two minutes, the Crossfire uses a Mercedes-built **SKREEM (Sentry Key Remote Entry Module)** paired with a rolling-code transponder chip. Standard plug-in OBD key programmers cannot add a key to this car.
+- **SKREEM / Mercedes DAS Immobilizer:** Instead of a regular [Chrysler, Dodge, or Jeep](/dodge-ram-car-key-replacement/) Sentry Key system that programs through the OBD2 port in two minutes, the Crossfire uses a Mercedes-built **SKREEM (Sentry Key Remote Entry Module)** paired with a rolling-code transponder chip. Standard plug-in OBD key programmers cannot add a key to this car.
 - **HU64 High-Security Laser Blade:** The mechanical flip blade is a two-track [Mercedes-Benz](/mercedes-benz/) `HU64` high-security laser key, not a standard domestic Chrysler key blank.
 
 ![Black 2007 Chrysler Crossfire SRT-6 outside Armstrong Locksmith 208 Thompson Ln Nashville alongside two newly cut and programmed HU64 flip remote keys](/images/2007-chrysler-crossfire-srt6-key-replacement-nashville-shop.jpg)
@@ -43,6 +43,6 @@ When this black **2007 Chrysler Crossfire SRT-6** arrived at our Thompson Lane s
 
 ## Need a 2004–2008 Chrysler Crossfire Key in Nashville or Middle Tennessee?
 
-Because dealerships no longer supply these keys, we get calls on Crossfires from across **Nashville, Brentwood, Franklin, Antioch, Hermitage, Donelson, Belle Meade, and Green Hills** — as well as Crossfire owners towing their cars into Nashville from across Tennessee.
+Because dealerships no longer supply these keys, we get calls on Crossfires from across **[Nashville, Brentwood, Franklin, Antioch, Hermitage, Donelson, Belle Meade, and Green Hills](/service-areas/)** — as well as Crossfire owners towing their cars into Nashville from across Tennessee.
 
 Before you book a tow truck, give us a quick call at **(615) 625-8000** or send a message through [our online booking page](/book-online/) so I can confirm our current Crossfire flip-key stock and give you an upfront shop quote and drop-off time at **208 Thompson Ln, Nashville, TN 37211**.

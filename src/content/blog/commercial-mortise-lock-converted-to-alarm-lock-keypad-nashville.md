@@ -10,7 +10,7 @@ video: "KSAIeFZQUK8"
 
 ## Upgrading a Nashville Business from Keys to Keypad Access
 
-A business owner in Nashville called us because their aluminum glass storefront door was still running a standard mortise cylinder lock. Every time a new driver, delivery person, or staff member needed access, someone had to copy another physical key — or rekey the cylinder whenever an employee left.
+A business owner in Nashville called us because their aluminum glass storefront door was still running a standard mortise cylinder lock. Every time a new driver, delivery person, or staff member needed access, someone had to copy another physical key — or [rekey the cylinder](/nashville-rekey-service/) whenever an employee left.
 
 They wanted to convert that standard narrow-stile mortise setup into a commercial keypad lock that could handle daily business traffic without wiring the door for a full electric strike panel.
 
@@ -35,6 +35,6 @@ On the interior side of the door, nobody ever needs a key or code to get out. We
 
 ## Need a Commercial Keypad Lock Installed in Nashville?
 
-If your storefront, office, or warehouse in Nashville, Brentwood, Franklin, or Murfreesboro is still passing out brass keys for an aluminum glass door, our [commercial locksmith team](/commercial-locksmith/) can convert your existing mortise lock to a commercial keypad with an interior push paddle or panic bar.
+If your storefront, office, or warehouse in [Nashville, Brentwood, Franklin, Donelson, Hermitage, or Antioch](/service-areas/) is still passing out brass keys for an aluminum glass door, our [commercial locksmith team](/commercial-locksmith/) can convert your existing mortise lock to a commercial keypad with an interior push paddle or panic bar.
 
 Stop by [our storefront at 208 Thompson Ln, Nashville, TN 37211](/nashville-locksmith-storefront/) or call **(615) 625-8000** to schedule a commercial door upgrade.

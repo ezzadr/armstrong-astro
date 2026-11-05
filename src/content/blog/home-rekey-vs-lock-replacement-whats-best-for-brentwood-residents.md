@@ -16,10 +16,10 @@ image: "/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg"
 
 ## When to Rekey (The "Smart Spend" Option)
 
-In our experience servicing homes from **Cool Springs to Crieve Hall and Brentwood**, rekeying is the gold standard for new homeowners. You get the security of a brand new key without paying for expensive decorative metal you don’t need.
+In our experience servicing homes from **[Cool Springs to Crieve Hall and Brentwood](/service-areas/)**, [lock rekeying](/nashville-rekey-service/) is the gold standard for new homeowners. You get the security of a brand new key without paying for expensive decorative metal you don’t need.
 
 * **You Just Bought a Home:** You have no idea if the previous owner gave a spare key to a dog walker, contractor, cleaning crew, or neighbor.
-* **Budget Is a Priority:** Rekeying generally costs a fraction of the price of buying high-quality Grade 1 or Grade 2 locksets.
+* **Budget Is a Priority:** Rekeying generally costs a fraction of the price of buying high-quality Grade 1 or Grade 2 locksets — or bring your removed cylinders into [our 208 Thompson Ln shop](/nashville-locksmith-storefront/) for **$20 per cylinder** (`$0 service call fee`).
 * **The Hardware Matches:** You love your current architectural style (e.g., Oil-Rubbed Bronze, Satin Nickel, or Matte Black) and the mechanism turns smoothly.
 * **Tenant Turnover:** If you own a rental property in Franklin or Brentwood, rekeying between tenants is legally compliant, fast, and cost-effective.
 
@@ -64,8 +64,8 @@ While store-bought rekey kits exist, they lack the 0.003-inch tolerances of prof
 
 ## Schedule a Residential Rekey in Nashville & Brentwood
 
-Armstrong Locksmith carries factory pins for **Schlage, Kwikset, Baldwin, Yale, Weiser, Defiant, and Medeco**.
+Armstrong Locksmith provides same-day [residential locksmith service](/residential-locksmith-nashville/) and [home lock rekeying](/nashville-rekey-service/) with factory pins for **Schlage, Kwikset, Baldwin, Yale, Weiser, Defiant, and Medeco**. Check our [2026 Locksmith Price Guide](/locksmith-pricing-nashville/) for upfront rates.
 
 * **Call Direct:** [**(615) 625-8000**](tel:6156258000)
-* **Storefront Location:** **208 Thompson Ln, Nashville, TN 37211**
-* **Certified & Insured:** Fully insured, real storefront
+* **Storefront Location:** **[208 Thompson Ln, Nashville, TN 37211](/nashville-locksmith-storefront/)** (`$20/cylinder` in-shop rekeying)
+* **Certified & Insured:** Real local storefront & mobile vans

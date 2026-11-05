@@ -11,7 +11,7 @@ image: "/images/Maserati-key-cut-and-programmed--scaled.jpg"
 
 A customer called us about his **2008 Maserati GranTurismo**. He had been calling locksmiths all over Nashville and couldn't find anyone who could make him a key. That's normal with Maserati — most shops don't stock the key and don't have the equipment for it, so they say no and the owner ends up at the dealership.
 
-The dealership quoted him **almost $1,500** — and about **three weeks of waiting** for the key.
+The [dealership quoted him](/dealer-key/) **almost $1,500** — and about **three weeks of waiting** for the key.
 
 ## What We Told Him
 
@@ -37,7 +37,7 @@ We hear that a lot with European and exotic keys. People expect the job to be pa
 
 Maserati keys aren't hard because the car is expensive. They're hard because so few of these cars exist — the keys cost more to stock, and the programming coverage for Italian cars isn't something a general locksmith invests in for a couple of jobs a year.
 
-We made that investment because European cars are our specialty. We handle [BMW, Mercedes-Benz, Audi, Land Rover, Bentley, and Maserati keys](/european-car-key-specialist/) every week, in the shop and from our mobile van.
+We made that investment because [European and exotic cars](/european-car-key-specialist/) are our specialty. We handle [BMW](/bmw/), [Mercedes-Benz](/mercedes-benz/), [Audi](/audi-car-keys/), [Land Rover](/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/), [Bentley](/bentley-key-replacement/), and Maserati keys every week, in the shop and from our mobile locksmith van.
 
 ## Lost a Maserati Key — or Any European Car Key?
 

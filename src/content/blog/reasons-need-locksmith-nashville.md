@@ -29,7 +29,7 @@ If you’ve lost your keys entirely—perhaps at a Predators game or near Broadw
 
 ## 2. Home Rekeying (Don't Replace Hardware)
  
-New homeowners in Antioch or Belle Meade often ask us to change all their locks. In 90% of cases, we advise [rekeying your existing locks](/residential-locksmith-nashville/) instead.
+New homeowners in [Antioch or Belle Meade](/service-areas/) often ask us to change all their locks. In 90% of cases, we advise [rekeying your existing locks](/nashville-rekey-service/) or scheduling our [residential locksmith service](/residential-locksmith-nashville/) instead.
  
 ### The Technical Difference:
  
@@ -74,9 +74,6 @@ For a standard 3-bedroom home (roughly 6 keyholes), the process takes about 45 m
 Drilling is always our last resort. We pick or bypass 95% of locks cleanly. We only drill if the lock has suffered internal mechanical failure or contains high-security anti-pick pins that cannot be picked open.      
 
 **Why is my key sticking in the ignition?**  
-This is often due to a worn key blade or worn wafers inside the ignition cylinder. We can cut a fresh key by code (restoring the original sharp factory cuts) which often solves the issue.            
+This is often due to a worn key blade or worn wafers inside the ignition cylinder (very common on [Honda](/honda-car-keys/) and [Acura](/acura-car-key-replacement/) vehicles). We can cut a fresh key by code (restoring the original sharp factory cuts) or rebuild the cylinder wafers at [our 208 Thompson Ln shop](/nashville-locksmith-storefront/).
 
-**About Rahim Ezzadpanah**  
-Owner of Armstrong Locksmith Inc Specializing in high-security automotive keys and residential safety in Nashville, TN.
-     
-Need help now? See our full [Nashville locksmith services](/) overview, or call [(615) 625-8000](tel:6156258000).
+Need help now? See our [2026 Locksmith Pricing Guide](/locksmith-pricing-nashville/), browse our full [Nashville locksmith services](/) overview, or call [(615) 625-8000](tel:6156258000).
