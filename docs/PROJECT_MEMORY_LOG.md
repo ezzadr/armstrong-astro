@@ -69,7 +69,12 @@
 
 ## 4. Chronological Log of Major Website, SEO & Directory Work Completed
 
-### 2026-11-04 — Core Service Pages Audit & 8-Page E-E-A-T / FAQ / Schema Upgrade (`feat/core-service-pages-audit-fixes`)
+### 2026-11-04 — New Toyota Highlander Hybrid Limited Blog Case Study (`feat/blog-toyota-highlander-hybrid-smart-key-nashville`)
+- **Created `src/content/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville.md`** (`/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/`):
+  - Full Nashville case study using Rahim's real field photo (`/images/toyota-highlander-hybrid-smart-key-replacement-nashville.jpg`) and verbatim job breakdown: damage-free unlock, cutting the mechanical `TOY48` laser door key to turn off the factory alarm, resetting the immobilizer, programming a new proximity smart key, and deleting lost keys at no extra charge.
+  - Added the Toyota Highlander Hybrid Limited job to `src/components/RecentWorkGallery.astro` and linked `<RelatedPost>` on `/toyota-car-key-replacement/`, `/car-key-replacement-nashville/`, `/dealer-key/`, and `/automotive-locksmith-in-nashville-tn/` to `/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/`.
+
+### 2026-11-04 — Core Service Pages Audit & 8-Page E-E-A-T / FAQ / Schema Upgrade (`63407366` / CI `6d84600c`)
 - **Audited all Core Service Pages in `src/pages/` and upgraded 8 core pages**:
   1. `src/pages/dealer-key.astro`: Added missing `<Layout image="/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg">` (so every page on the site now has a social/search preview thumbnail), added a 3-photo **Dealer-Level Key Jobs Completed In-House** showcase (`2022-ford-escape-smart-key-all-keys-lost-nashville-900.webp`, `toyota-highlander-hybrid-smart-key-replacement-nashville-900.webp`, and `rahim-programming-mercedes-benz-key-on-site-nashville-900.webp`), expanded `FAQPage` JSON-LD schema from 2 to 4 questions and added the matching **4-card visible FAQ section**, added `AggregateOffer` schema (`$95–$425`), and added `<RelatedPost>` linking to `/blog/2022-ford-escape-all-keys-lost-smart-key-nashville/`.
   2. `src/pages/european-car-key-specialist.astro`: Converted the `"European Brands We Service Daily"` grid into clickable internal links (`/bmw/`, `/mercedes-benz/`, `/audi-car-keys/`, `/volvo-car-key-replacement/`, `/land-rover-key-replacement-in-nashville-tn-armstrong-locksmith-inc/`, `/bentley-key-replacement/`), explicitly added **Ferrari, Lamborghini, Rolls-Royce, and Maserati** in the exotic brand cards, synced all 4 FAQ questions across both `FAQPage` JSON-LD schema and the 4 visible FAQ cards, added `AggregateOffer` schema (`$180–$650`), and added `<ServiceReviews service="auto" label="European Car Key" />`.
