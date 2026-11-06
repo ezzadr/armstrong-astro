@@ -317,6 +317,10 @@ starter.
   Google Search Console data so two agents never give conflicting advice or churn
   titles/redirects while Google is evaluating the site.
 - **Homepage Stability Reminder**: While Google is testing and settling `/` (`src/pages/index.astro`) on Page 1 for `"locksmith"`, if Rahim asks for any change that would touch the homepage, STOP and remind him not to change the homepage while it is settling.
+- **MANDATORY 14-Day Anti-Churn Check Before Proposing Any SEO Edit (Check `git log` & `PROJECT_MEMORY_LOG.md` FIRST!)**:
+  - Whenever Rahim mentions a keyword ranking or page (e.g., *"for locksmith hermitage tn and locksmith brentwood tn we are on page 2"*), **NEVER jump into proposing new edits to that page before checking when we last edited it**.
+  - Always run `git log -n 5 --date=short --format="%h %ad %s" -- <file>` and check `docs/PROJECT_MEMORY_LOG.md` **FIRST**.
+  - If the page was already updated within the last **14 days** (such as `src/pages/service-areas.astro` updated on `Oct 31` / `Nov 3`, or the Make/Service/Blog pages updated on `Nov 3–5`), **you** must be the one to tell Rahim immediately: *"We just updated that page X days ago on `<date>` — reaching Page 2 already means the update is climbing. Do not touch it for at least 14 days so we don't reset Google's evaluation timer."* Rahim should never have to remind you of a change you made days ago.
 
 ## 8. "I AM HOME" / "I AM AT THE SHOP" SYNC TRIGGER
 - Whenever Rahim says **"I am home"** (or **"I am at the shop"**), immediately run:
