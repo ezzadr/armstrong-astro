@@ -41,6 +41,7 @@
 | **Apple Business Connect** | Org `1461790501084574208` &bull; Brand `1570815753027878912` &bull; Location `1563086994871944632` (`https://maps.apple.com/place?auid=10423668849052500220`) | Verified; Quick Actions (`Schedule`, `Pricing`, `Quote`) live; 4 Showcases queued `2026-10-30` to `2027-02-28` |
 | **Thumbtack Pro Profile** | Service ID `225574154156794931` (`https://www.thumbtack.com/tn/nashville/locksmiths/armstrong-locksmith-inc/service/225574154156794931`) | `5.0 ★ (130+ Verified Reviews)` synced with Google; Background Check Completed; 24 captioned photos; 8 FAQs |
 | **Facebook Business Page** | `https://www.facebook.com/Armstronglocksmithinc` | Intro Bio updated (`Nov 4, 2026`) with exact storefront & mobile hours (`not 24/7`), `$0 walk-in service call fee` at `208 Thompson Ln`, and `armstronglocksmithinc.com/book-online/` |
+| **Google Ads** | Account `Google Gurantee Main` (CID `265-018-5170`) &bull; Campaign `Dilara New Search Campaign by Mostafiz` (`campaignId=21940022290`) | `$44.00/day` budget; Target CPA `$25.00`; Custom Goal `Armstrong Qualified Calls + Forms` (`Calls from ads`, `Call Click Form Website`, `Submit Lead Form website`); 58 negative keywords; `AI Max` OFF |
 
 ---
 
@@ -74,7 +75,15 @@
 
 ## 4. Chronological Log of Major Website, SEO & Directory Work Completed
 
-### 2026-11-05 — 13 Blog Posts SEO & Internal Link Upgrade (`45d04c13`) + Setmore Cache Purge Approved + Morning GSC Check
+### 2026-11-05 — Google Ads 12-Day Review & Optimization + 13 Blog Posts SEO Upgrade (`45d04c13`) + Setmore Cache Purge Approved
+- **Google Ads 12-Day Audit & 3 Optimizations Applied (`Google Gurantee Main`, CID `265-018-5170`, Campaign `21940022290`, `$44.00/day` budget untouched)**:
+  - **12-Day Performance (`Oct 25 – Nov 5` vs. `Oct 13 – Oct 24`)**: Spend dropped `30.3%` (`$105.20` → `$73.38`), CTR rose from `4.34%` → `5.45%`, and the Oct 25 website conversion tag fix (`AW-10794342610`) cleared the old `"Misconfigured"` error and recorded **`3.00` `Call Click Form Website` (`aioDCNO37OwZENKxkpso`) calls** + **`1.00` `Submit Lead Form website` (`ZSBoCKzJ-uwZENKxkpso`) lead** + **`1.00` direct ad call** (`5` total leads at `$14.68/lead`).
+  - **Fix 1 (Conversion Actions & Custom Goal)**: Promoted **`Call Click Form Website` (`ctId=6939155411`)** from `Secondary` to **`Primary action`** and added it to the campaign's custom goal **`Armstrong Qualified Calls + Forms`** (now `3 actions`: `Calls from ads`, `Call Click Form Website`, `Submit Lead Form website`). Demoted duplicate **`GA4 (web) contact_form_submission` (`ctId=7815489756`)** from `Primary` to **`Secondary`** so 1 form lead counts once instead of twice.
+  - **Fix 2 (Keywords & Negatives)**: Paused the remaining Broad Match keyword **`mobile locksmith near me for cars`** in the `Locksmith` ad group (which spent `$34.01` with `0` conversions) and replaced it with **Phrase match `"mobile locksmith near me for cars"`**. Added campaign-level negative keywords **`"batteries plus"`** (Phrase match) and **`[car keys]`** (Exact match) (`56` → **`58` negative keywords**).
+  - **Fix 3 (Target CPA Un-Throttled)**: Updated Target CPA from `$18.00` to **`$25.00`** at the Campaign level and on both active Ad Groups (`Locksmith` and `Emergency Locksmith Nashville`) so `$4.89` Avg. CPC Nashville car key clicks are not choked out of top-of-page auctions. Verified **`$44.00/day` daily budget untouched**.
+- **Google Search Console Priority Re-Indexing (`Nov 5, 2026`)**:
+  - Confirmed yesterday's new `/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/` post is already **`URL is on Google` (`Page is indexed`)** with valid `Breadcrumbs` and `Review snippets`.
+  - Submitted priority `Request indexing` in GSC for the 4 top upgraded blog posts (`BMW X5 Brentwood`, `Audi Donelson/Hermitage/BNA`, `Home Rekey vs Lock Replacement Brentwood`, and `Cold Weather Key Fob`).
 - **Setmore Outdated Content Removal Approved (`Nov 5, 2026`)**:
   - Confirmed in Google Search Console Outdated Content Removal tool that `https://armstronglocksmithinc.setmore.com/` (`admin@armstronglocksmithinc.com`) moved from `Pending` to **`Approved`** overnight, purging the stale cached Setmore snippet from Google Search and AI Overviews.
 - **Morning Google Search Console Snapshot (`Nov 5, 2026`)**:
