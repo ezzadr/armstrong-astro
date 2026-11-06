@@ -8,9 +8,10 @@
 
 ## 1. Current Active Safeguards & Pending Follow-Ups (Check First!)
 
-1. **Homepage Freeze Rule (`src/pages/index.astro`) — DO NOT TOUCH UNTIL AT LEAST `2026-11-20`**:
-   - Between `Oct 19 – Nov 1, 2026`, the homepage broke onto **Page 1 (`#6.9–#8.1`)** for head terms **`"locksmith"`** (`3 → 20 clicks`, `+567%`), **`"locksmith nashville"`**, and **`"locksmith nashville tn"`**.
-   - Do NOT edit `src/pages/index.astro` (title, meta, H1/H2, or body copy) while Google finishes settling it on Page 1.
+1. **Homepage & Recently Upgraded Pages Freeze Rule — DO NOT RE-EDIT / CHURN WHILE SETTLING**:
+   - **Homepage (`src/pages/index.astro`) — Freeze until at least `2026-11-20`**: Broke onto **Page 1 (`#6.9–#8.1`)** for head terms **`"locksmith"`** (`3 → 20 clicks`, `+567%`), **`"locksmith nashville"`**, and **`"locksmith nashville tn"`**. Do NOT edit title, meta, H1/H2, or body copy.
+   - **Service Areas Page (`src/pages/service-areas.astro`) — Freeze until at least `2026-11-19`**: Overhauled on `Oct 31` (`96a21baf`) and updated `Nov 3` (`25d5f9f8`, `0e14ef04`) to target **Brentwood (`37027`), Antioch (`37013`), and Hermitage (`37076`)**, and already climbed onto **Page 2** within days (plus received new internal links from 9 blog posts on `Nov 5`, `45d04c13`). Do NOT re-edit `src/pages/service-areas.astro` while Google digests those changes and pushes it from Page 2 to Page 1.
+   - **Make Pages, Core Service Pages & 14 Blog Posts (`Nov 3–5, 2026` upgrades) — Freeze until at least `2026-11-19`**: All 15 vehicle make pages, 8 core service pages, and 14 blog posts were audited and upgraded between `Nov 3–5, 2026`. Give Google at least 14 days to evaluate them before proposing further SEO edits to those pages.
 2. **Setmore Legacy Profile Resolved & Purged from Google Cache (`https://armstronglocksmithinc.setmore.com/`)**:
    - **Status (Nov 4, 2026 — RESOLVED)**: Rahim logged into the `armstronglocksmithinc.setmore.com` account (`armstrongcitation@gmail.com`). Verified **0 customer bookings** ever came into that account.
    - **Fixes Applied Live on Setmore**:
