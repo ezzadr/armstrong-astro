@@ -8,10 +8,11 @@
 
 ## 1. Current Active Safeguards & Pending Follow-Ups (Check First!)
 
-1. **Homepage & Recently Upgraded Pages Freeze Rule — DO NOT RE-EDIT / CHURN WHILE SETTLING**:
-   - **Homepage (`src/pages/index.astro`) — Freeze until at least `2026-11-20`**: Broke onto **Page 1 (`#6.9–#8.1`)** for head terms **`"locksmith"`** (`3 → 20 clicks`, `+567%`), **`"locksmith nashville"`**, and **`"locksmith nashville tn"`**. Do NOT edit title, meta, H1/H2, or body copy.
-   - **Service Areas Page (`src/pages/service-areas.astro`) — Freeze until at least `2026-11-19`**: Overhauled on `Oct 31` (`96a21baf`) and updated `Nov 3` (`25d5f9f8`, `0e14ef04`) to target **Brentwood (`37027`), Antioch (`37013`), and Hermitage (`37076`)**, and already climbed onto **Page 2** within days (plus received new internal links from 9 blog posts on `Nov 5`, `45d04c13`). Do NOT re-edit `src/pages/service-areas.astro` while Google digests those changes and pushes it from Page 2 to Page 1.
-   - **Make Pages, Core Service Pages & 14 Blog Posts (`Nov 3–5, 2026` upgrades) — Freeze until at least `2026-11-19`**: All 15 vehicle make pages, 8 core service pages, and 14 blog posts were audited and upgraded between `Nov 3–5, 2026`. Give Google at least 14 days to evaluate them before proposing further SEO edits to those pages.
+1. **Homepage, Recently Upgraded Pages & November 2026 Core Update Freeze Rule — DO NOT RE-EDIT / CHURN WHILE SETTLING**:
+   - **Active Google November 2026 Core Update (`Started 2026-11-10T18:06:00Z`)**: Google launched a global ~2-week Core Update (`expected completion ~2026-11-24`). Do NOT churn or panic-edit existing ranked pages mid-rollout.
+   - **Homepage (`src/pages/index.astro`) — Freeze until at least `2026-11-24`**: Broke onto **Page 1 (`#6.9–#8.1`)** for head terms **`"locksmith"`** (`3 → 20 clicks`, `+567%`), **`"locksmith nashville"`**, and **`"locksmith nashville tn"`.** Do NOT edit title, meta, H1/H2, or body copy.
+   - **Service Areas Page (`src/pages/service-areas.astro`) — Freeze until at least `2026-11-24`**: Overhauled on `Oct 31` (`96a21baf`) and updated `Nov 3` (`25d5f9f8`, `0e14ef04`) to target **Brentwood (`37027`), Antioch (`37013`), and Hermitage (`37076`)**, and already quadrupled 7-day impressions (`204 → 829`, `+306%`) and hit `#5.6` in 24h view. Do NOT re-edit `src/pages/service-areas.astro` while Google digests those changes through the Core Update.
+   - **Make Pages, Core Service Pages & 14 Blog Posts (`Nov 3–5, 2026` upgrades) — Freeze until at least `2026-11-24`**: All 15 vehicle make pages, 8 core service pages, and 14 blog posts were audited and upgraded between `Nov 3–5, 2026`. Leave them untouched through the 14-day settling window and the November 2026 Core Update rollout.
 2. **Setmore Legacy Profile Resolved & Purged from Google Cache (`https://armstronglocksmithinc.setmore.com/`)**:
    - **Status (Nov 4, 2026 — RESOLVED)**: Rahim logged into the `armstronglocksmithinc.setmore.com` account (`armstrongcitation@gmail.com`). Verified **0 customer bookings** ever came into that account.
    - **Fixes Applied Live on Setmore**:
@@ -37,8 +38,8 @@
 | **Live Website** | `https://armstronglocksmithinc.com/` | 56 static Astro pages deployed on Cloudways (`btfdkcdpdw`) via GitHub Actions CI |
 | **Google Search Console** | Property `https://armstronglocksmithinc.com/` | 48+ pages indexed, `0` stuck in `Discovered - currently not indexed` |
 | **Looker Studio SEO Report** | `https://lookerstudio.google.com/reporting/683fc781-983a-4c90-ae4c-cccc28b4a742/page/6zXD` | Live GSC Impressions, Clicks, CTR, Device Breakdown & Top Queries |
-| **Google Business Profile** | Profile ID `1996957340716580179` &bull; Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao` &bull; CID `12302076770882337028` (`https://g.page/r/CQS5BtikwbmqEBM`) | `4.9 ★ (809+ Google Reviews)`, 20 Products (`15 Auto + 5 Commercial`), 50+ structured Services with upfront prices |
-| **GBP Performance** | `https://www.google.com/local/business/1996957340716580179/promote/performance?hl=en` | 3,073 interactions (`Jun–Oct 2026`): 1,457 calls, 870 direction requests, 698 website clicks |
+| **Google Business Profile** | Profile ID `1996957340716580179` &bull; Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao` &bull; CID `12302076770882337028` (`https://g.page/r/CQS5BtikwbmqEBM`) | `4.9 ★ (815 Google Reviews)`, 20 Products (`15 Auto + 5 Commercial`), 50+ structured Services with upfront prices; Preferred Booking link `https://booking.armstronglocksmithinc.com/book` + Workiz |
+| **GBP Performance** | `https://www.google.com/local/business/1996957340716580179/promote/performance?hl=en` | 3,166 interactions (up from 3,073 on Nov 5) |
 | **Apple Business Connect** | Org `1461790501084574208` &bull; Brand `1570815753027878912` &bull; Location `1563086994871944632` (`https://maps.apple.com/place?auid=10423668849052500220`) | Verified; Quick Actions (`Schedule`, `Pricing`, `Quote`) live; 4 Showcases queued `2026-10-30` to `2027-02-28` |
 | **Thumbtack Pro Profile** | Service ID `225574154156794931` (`https://www.thumbtack.com/tn/nashville/locksmiths/armstrong-locksmith-inc/service/225574154156794931`) | `5.0 ★ (130+ Verified Reviews)` synced with Google; Background Check Completed; 24 captioned photos; 8 FAQs |
 | **Facebook Business Page** | `https://www.facebook.com/Armstronglocksmithinc` | Intro Bio updated (`Nov 4, 2026`) with exact storefront & mobile hours (`not 24/7`), `$0 walk-in service call fee` at `208 Thompson Ln`, and `armstronglocksmithinc.com/book-online/` |
@@ -75,6 +76,19 @@
 ---
 
 ## 4. Chronological Log of Major Website, SEO & Directory Work Completed
+
+### 2026-11-11 — 5-Day GSC Progress Check, November 2026 Core Update Safeguard & Legacy Booking 301 Redirect (`fix/redirect-legacy-booking-url`)
+- **Google Algorithm Check (`status.search.google.com`)**:
+  - Detected the **November 2026 Core Update** (`started 2026-11-10T18:06:00Z`, ~2-week global rollout through `~2026-11-24`). Extended existing-page anti-churn freeze windows through `2026-11-24` so Google evaluates our `Nov 3–5` sitewide E-E-A-T, schema, and internal-linking upgrades without mid-rollout edits.
+- **5-Day Google Search Console Progress (`Nov 10` official export vs. `Nov 5` snapshot)**:
+  - **3-Month Totals**: Climbed from `701 clicks / 82K impressions` to **`785 clicks (+84 clicks in 5 days) / 88,103 impressions (+6,103)`**.
+  - **Mobile Real-Customer Surge (`Last 7d` vs. `Prev 7d`)**: Mobile clicks rose `21 → 23 (+9.5%)` and Mobile impressions surged **`726 → 2,055 (+183% / 2.8x)`**.
+  - **First Rich Pricing Snippets**: Recorded first **`6 Product snippet` impressions** from the `Nov 4` `AggregateOffer` schema upgrades.
+  - **Pure-Organic Inner Pages (`46 pages`)**: Impressions rose **`+30.4%` (`5,074 → 6,615`, `15 clicks`)**, led by `/service-areas/` (`204 → 829 imp`, `+306%`, and `#5.6` with `1 click` in 24h view; `locksmith brentwood tn` entered Page 2 at `#17.0`, `locksmith antioch tn` climbed `#23.0 → #17.5`, `locksmith east nashville` hit `#10.0`), `/residential-locksmith-nashville/` (`#2.0`), `/nashville-car-unlock-service/` (`#2.5`), `/key-fob-replacement-nashville/` (`#2.6`, `1 click`), `/contact-armstrong-locksmith/` (`#20.9 → #2.9`, `1 click`), `/faq/` (`#20.0 → #9.6`, `1 click`), `/ford-car-key-replacement/` (`434 → 680 imp`, `+57%`, `2 clicks`), `/dodge-ram-car-key-replacement/` (`433 → 673 imp`, `+55%`), `/acura-car-key-replacement/` (`#20.6 → #10.8`, `7 → 40 imp`), `/land-rover-key-replacement-.../` (`#54.0 → #28.8`, `2 clicks`, `#1.0` in 24h view), and `/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/` (earned its **first organic click** within 6 days of publishing).
+  - **Map Pack (`Position 1.0–3.0` on `/`)**: `49 clicks`, `21,474 impressions`, Avg Position `#2.4`, with `armstrong locksmith` clicks up **`+167%` (`6 → 16 clicks`)** and `#1.0` placements on `local locksmith to program key fob` (`1 click`), `copy car keys` (`39 imp`), `car keys` (`37 imp`), `copy keys` (`11 imp`), `key fob replacement near me` (`5 imp`), `locksmith in antioch tn` (`3 imp`), `locksmith brentwood` (`2 imp`), and `locksmith franklin tn` (`1 imp`).
+- **GBP Bookings Inspection (`1996957340716580179`) & Legacy `/request-locksmith-service-online/` `301` Fix**:
+  - Verified read-only in GBP (`1996957340716580179`, now at **`815 Google reviews`** and **`3,166 interactions`**) that the live Bookings panel is clean: Featured provider **Workiz** and Preferred custom link **`https://booking.armstronglocksmithinc.com/book`** (left 100% untouched per AI Dispatch isolation rules), plus canonical Website `https://armstronglocksmithinc.com/`.
+  - Added `'request-locksmith-service-online' => '/book-online/'` in `public/index.php` and `RewriteRule ^request-locksmith-service-online/?$ /book-online/ [L,R=301,NC]` in `public/.htaccess` so cached Google Reserve / Local Services (`?gsas=1&ahbb=1&rwg_token=...`) clicks on the retired WordPress booking slug `301`-redirect cleanly to `/book-online/` instead of hitting `404`.
 
 ### 2026-11-05 — Google Ads 12-Day Review & Optimization + 13 Blog Posts SEO Upgrade (`45d04c13`) + Setmore Cache Purge Approved
 - **Google Ads 12-Day Audit & 3 Optimizations Applied (`Google Gurantee Main`, CID `265-018-5170`, Campaign `21940022290`, `$44.00/day` budget untouched)**:
