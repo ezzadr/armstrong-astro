@@ -47,8 +47,8 @@
 | **Google Search Console** | Property `https://armstronglocksmithinc.com/` | 48+ pages indexed, `0` stuck in `Discovered - currently not indexed`; Users verified clean (`admin@armstronglocksmithinc.com` Owner + `Dilara.ezzad@gmail.com` Full; `mustafaonsea1@gmail.com` removed `Nov 11`) |
 | **Google Analytics 4** | Account `88040929` &bull; Property `331631713` (`G-MNVMEG2BSG`) | Verified clean (`admin@armstronglocksmithinc.com` Administrator + Google Ads `265-018-5170` link; `0` outside agencies) |
 | **Looker Studio SEO Report** | `https://lookerstudio.google.com/reporting/683fc781-983a-4c90-ae4c-cccc28b4a742/page/6zXD` | Live GSC Impressions, Clicks, CTR, Device Breakdown & Top Queries |
-| **Google Business Profile** | Profile ID `1996957340716580179` &bull; Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao` &bull; CID `12302076770882337028` (`https://g.page/r/CQS5BtikwbmqEBM`) | `4.9 ★ (815 Google Reviews)`, 20 Products (`15 Auto + 5 Commercial`), 50+ structured Services with upfront prices; Preferred Booking link `https://booking.armstronglocksmithinc.com/book` + Workiz; `Go Rankers` retained as Manager for Map Pack link-building only (no GBP posts) |
-| **GBP Performance** | `https://www.google.com/local/business/1996957340716580179/promote/performance?hl=en` | 3,166 interactions (up from 3,073 on Nov 5) |
+| **Google Business Profile** | Profile ID `1996957340716580179` &bull; Place ID `ChIJ17Fz8F9vZIgRBLkG2KTBuao` &bull; CID `12302076770882337028` (`https://g.page/r/CQS5BtikwbmqEBM`) | `4.9 ★ (817 Google Reviews)`, 20 Products (`15 Auto + 5 Commercial`), 50+ structured Services with upfront prices; `16` Service Areas verified (including `Brentwood, TN`); Preferred Booking link `https://booking.armstronglocksmithinc.com/book` + Workiz; `Go Rankers` retained as Manager for Map Pack link-building only (no GBP posts) |
+| **GBP Performance** | `https://www.google.com/local/business/1996957340716580179/promote/performance?hl=en` | 3,170 interactions (up from 3,073 on Nov 5) |
 | **Apple Business Connect** | Org `1461790501084574208` &bull; Brand `1570815753027878912` &bull; Location `1563086994871944632` (`https://maps.apple.com/place?auid=10423668849052500220`) | Verified; Quick Actions (`Schedule`, `Pricing`, `Quote`) live; 4 Showcases queued `2026-10-30` to `2027-02-28` |
 | **Thumbtack Pro Profile** | Service ID `225574154156794931` (`https://www.thumbtack.com/tn/nashville/locksmiths/armstrong-locksmith-inc/service/225574154156794931`) | `5.0 ★ (130+ Verified Reviews)` synced with Google; Background Check Completed; 24 captioned photos; 8 FAQs |
 | **Facebook Business Page** | `https://www.facebook.com/Armstronglocksmithinc` | Intro Bio updated (`Nov 4, 2026`) with exact storefront & mobile hours (`not 24/7`), `$0 walk-in service call fee` at `208 Thompson Ln`, and `armstronglocksmithinc.com/book-online/` |
@@ -85,6 +85,17 @@
 ---
 
 ## 4. Chronological Log of Major Website, SEO & Directory Work Completed
+
+### 2026-11-12 — GBP Service Areas Verification (`16` Suburbs Including `Brentwood, TN`) & 2 New 5-Star Human Review Replies (`817` Reviews)
+- **GBP Location & Service Areas Read-Only Audit (`1996957340716580179`)**:
+  - Confirmed `208 Thompson Lane, Nashville, TN 37211` storefront address visibility is **ON** (`Show business address to customers`).
+  - Verified all **`16` active GBP Service Areas** are cleanly configured with **`Brentwood, TN, USA` confirmed present (#3)**: `Franklin, TN`, `Oak Hill, TN`, `Brentwood, TN`, `Nashville, TN`, `Berry Hill, TN`, `Belle Meade, TN`, `Nolensville, TN`, `Forest Hills, TN`, `Antioch, TN 37013`, `Madison`, `Bellevue`, `Donelson`, `Goodlettsville, TN 37072`, `Hermitage`, `Green Hills`, and `Old Hickory, TN 37138`.
+  - Confirmed profile climbed to **`817 Google reviews (4.9 ★)`** (+2 since Nov 11) and **`3,170 customer interactions`** (+4 since Nov 11), with `Thumbtack 5/5` and `Facebook 4.9/5` displaying live on the Google Knowledge Panel.
+  - Confirmed `Nov 11` Toyota Highlander Hybrid photo post remains **#1** at the top of `Your posts` (`0` blank agency posts overnight).
+- **2 Brand-New 5-Star Google Reviews Replied Live (`Ashley Burns` & `David Caruso`)**:
+  - Drafted, got Rahim's approval, and published warm first-person human replies to:
+    1. **Ashley Burns** (`5.0 ★`, community trust review) — first-person neighborhood shop reply signed by Rahim.
+    2. **David Caruso** (`5.0 ★`, `Great price · $250–300`, lost **Toyota 4Runner** key fob replaced, programmed on the spot + backup blade cut) — specific first-person reply thanking him and referencing his Toyota 4Runner fob & backup key, signed by Rahim.
 
 ### 2026-11-11 — 5-Day GSC Progress Check, November 2026 Core Update Safeguard, Legacy Booking 301 Redirect (`3cf1b040` / CI `9d988bf0`) & GBP Weekly Update Post
 - **Google Algorithm Check (`status.search.google.com`)**:
