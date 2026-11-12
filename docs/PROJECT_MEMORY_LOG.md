@@ -28,6 +28,12 @@
 4. **Weekly Google Business Profile (GBP) Update Post Cadence**:
    - Latest GBP Update post published **Nov 11, 2026** (`toyota-highlander-hybrid-smart-key-replacement-nashville.jpg` Davidson County Toyota Highlander Hybrid Limited all-keys-lost job + `$95+` transponder / `$120+` remote head / `$145+` smart fob / `$180+` European key pricing + `$0 service call fee` at `208 Thompson Ln` + `Learn more` → `https://armstronglocksmithinc.com/car-key-replacement-nashville/`). Previous GBP Update post: `Nov 4, 2026` (`/nashville-rekey-service/`).
    - **GBP Post Content Filter Rule**: **NEVER include a phone number (`(615) 625-8000`) or raw URL inside GBP post body text**—Google's automated post filter immediately flags posts with phone numbers in the body as `"Not approved"`. Always use the native GBP button (`Call now` or `Learn more` / `Book`) instead.
+5. **Roadmap Reminder (`Remind Rahim On/After 2026-11-25` Once November 2026 Core Update Finishes Rolling Out)**:
+   - **Mobile Quote Form Above-the-Fold Visibility (`375px` Mobile UX Upgrade)**:
+     - **Trigger Condition**: Check `node "C:\Users\dilar\.gemini\config\skills\armstrong-local-seo\scripts\check-google-algo-updates.mjs"` on or after `2026-11-25`; once the **November 2026 Core Update** status changes from `ACTIVE / IN PROGRESS` to `AVAILABLE` (completed), **proactively remind Rahim** to preview and ship the mobile quote form visibility upgrade:
+       1. `src/pages/index.astro`: Add a high-contrast mobile **`Get Instant Quote ↓`** button above the fold (`md:hidden`) in the hero action row so mobile visitors see a direct one-tap jump to `#quote-form-section` immediately (without changing `<h1>`, meta tags, JSON-LD, or `/api/contact.php` payload keys).
+       2. `src/pages/contact-armstrong-locksmith.astro`: Use responsive flex/grid ordering (`order-first lg:order-none`) so the `Send Us A Message` quote form appears *above* the address card and `280px` Google Map iframe on mobile phones (`375px`).
+       3. Preview both pages at `375px` width (`http://localhost:4321/` and `http://localhost:4321/contact-armstrong-locksmith/`) before asking Rahim to commit/merge.
 
 ---
 
