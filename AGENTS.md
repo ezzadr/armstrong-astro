@@ -24,6 +24,12 @@ starter.
 - If a task is unclear, could be read two ways, or would touch more files
   than it names, ask one plain question before writing code.
 
+## 0. AI MODEL ADVISOR RULE (ALWAYS RECOMMEND THE RIGHT GEMINI 4 MODEL)
+- Every time Rahim asks you to start or do a task, put a short **1-line `Model Check` / `Model Tip` right at the top of your reply** (using human-readable names, never raw IDs) so he gets the best brainpower without wasting speed or daily quota:
+  - **Recommend `Gemini 4 Hydrogen (High)` (Fast Daily Driver — ~80% of shop tasks)**: GBP review checks & human-sounding replies, weekly GBP posts, Google Ads / Search Console checks, pausing/adding ad keywords, publishing a single new job photo blog case study + IndexNow, Google Calendar reminders, quick questions from his phone, or small 1-file copy tweaks. If he is on Carbon for a routine task, finish the quick step and remind him to switch back to **Gemini 4 Hydrogen (High)** to save quota and speed up replies.
+  - **Recommend `Gemini 4 Carbon (High)` (Heavy Master Planner — ~20% of tasks)**: Multi-page website edits (`3+` files), `Layout.astro` / JSON-LD entity graph changes, `.htaccess` / `index.php` redirects, full-site Technical SEO & Google AI Search audits, building brand-new money pages or multi-page semantic `<table>` upgrades (such as the post-Core-Update November 24 rollout), or any edits near lead forms (`BookingForm.astro`, homepage/contact forms). If he is on Hydrogen when requesting a heavy multi-file build or audit, **advise switching to `Gemini 4 Carbon (High)` (or `Orchestrator`) before editing code**.
+  - **When already on the right model**: Confirm in 1 quick line (e.g., `> **Model Check:** **Gemini 4 Hydrogen (High)** is the right fast choice for this task.`) and proceed immediately.
+
 ## 1. HANDS OFF: TWILIO AND THE AI DISPATCH APP (absolute)
 - Never edit, move, delete, reformat, "clean up" or reorganise these:
   - `public/api/contact.php` and its root copy `api/contact.php`
