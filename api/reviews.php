@@ -42,6 +42,8 @@ if (isset($_GET['service'])) {
         'commercial'    => '/commercial|storefront|office|business door|panic|mortise/i',
         'lockout'       => '/locked out|lock-?out|unlock|locked my keys|keys in/i',
         'dealer'        => '/dealer/i',
+        'auto'          => '/\b(?:car|auto|automotive|vehicle|truck|van|suv|ignition|transponder|smart key|push[- ]to[- ]start|key fob|\bfob\b|key cut|lost key|car key|ford|dodge|ram|jeep|chevy|chevrolet|toyota|honda|bmw|audi|mercedes|volvo|nissan|hyundai|kia)\b/i',
+        'all'           => '/\S/',
     ];
     $svc = preg_replace('/[^a-z-]/', '', strtolower($_GET['service']));
     $pattern = isset($serviceMap[$svc]) ? $serviceMap[$svc] : null;
