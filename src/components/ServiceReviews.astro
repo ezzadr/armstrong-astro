@@ -3,9 +3,9 @@
 // Renders nothing until /api/reviews.php?service=<key> returns matches from
 // the server-side review archive, so a page with no matching reviews looks
 // exactly as it did before. Runs at browser idle; never competes with LCP.
-const { service, label } = Astro.props;
+const { service, label, limit = 3 } = Astro.props;
 ---
-<div class="arm-service-reviews max-w-4xl mx-auto px-4 sm:px-6 mt-12 hidden font-sans" data-service={service} data-label={label}></div>
+<div class="arm-service-reviews max-w-4xl mx-auto px-4 sm:px-6 mt-12 hidden font-sans" data-service={service} data-label={label} data-limit={limit}></div>
 <script is:inline>
 (function () {
   var mounts = document.querySelectorAll('.arm-service-reviews:not([data-armsr-init])');
@@ -28,9 +28,11 @@ const { service, label } = Astro.props;
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) {
           if (!d || !d.reviews || !d.reviews.length) return;
+          var maxCards = Math.max(1, parseInt(el.dataset.limit || '3', 10) || 3);
+          var headingSubject = el.dataset.label ? el.dataset.label : 'Nashville';
           // Card design mirrors the homepage reviews slider (gold strip,
           // initials badge, 5.0 chip) so proof-of-work looks consistent sitewide.
-          var cards = d.reviews.slice(0, 3).map(function (rev) {
+          var cards = d.reviews.slice(0, maxCards).map(function (rev) {
             return '<div class="bg-white border border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left w-full sm:w-[320px] max-w-md flex flex-col">'
               + '<div class="h-1 w-full bg-gradient-to-r from-amber-500 via-yellow-300 to-amber-500"></div>'
               + '<div class="p-5 flex-1 flex flex-col">'
@@ -48,7 +50,7 @@ const { service, label } = Astro.props;
           }).join('');
           el.innerHTML = '<div class="text-center mb-5">'
             + '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 border border-amber-200 text-[11px] font-black uppercase tracking-wider">Verified Google Reviews</span>'
-            + '<h2 class="text-lg sm:text-2xl font-black text-[#0f274a] uppercase mt-2">What ' + esc(el.dataset.label) + ' Customers Say</h2>'
+            + '<h2 class="text-lg sm:text-2xl font-black text-[#0f274a] uppercase mt-2">What ' + esc(headingSubject) + ' Customers Say</h2>'
             + '</div>'
             + '<div class="flex flex-wrap justify-center gap-4">' + cards + '</div>';
           el.classList.remove('hidden');
