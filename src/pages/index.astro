@@ -98,52 +98,31 @@ const initialReviews = (await getLiveReviews())
 
       <!-- Right Column: Hero Contact / Instant Quote Form Card -->
       <div class="lg:col-span-5 relative z-20" id="quote-form-section">
-        <div class="bg-white rounded-xl shadow-xl border border-slate-200 text-slate-900 relative">
+        <div class="bg-white rounded-xl shadow-[0_0_32px_rgba(251,191,36,0.22)] border-2 border-amber-400 text-slate-900 relative overflow-hidden">
           
-          <div class="bg-slate-50 rounded-t-xl px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-200">
-            <h2 class="text-lg sm:text-xl font-black font-heading text-[#0f274a]">
+          <div class="bg-gold-metallic px-4 py-2.5 sm:px-5 sm:py-3 border-b border-amber-500 flex items-center justify-between gap-2">
+            <h2 class="text-base sm:text-lg font-black font-heading uppercase text-[#07152b] leading-tight text-left">
               Get an Upfront Price Quote
             </h2>
-            <p class="text-xs text-slate-600 mt-0.5">Goes straight to Rahim &amp; our Nashville shop</p>
+            <span class="shrink-0 bg-[#07152b] text-amber-300 text-[10px] font-black uppercase px-2.5 py-1 rounded text-center leading-tight">
+              $0 Shop<br />Call Fee
+            </span>
           </div>
 
-          <div class="p-4 sm:p-6">
-            <form id="hero-quote-form" class="flex flex-col gap-3 sm:gap-3.5 text-left" novalidate>
+          <div class="p-3.5 sm:p-5">
+            <form id="hero-quote-form" class="flex flex-col gap-2.5 sm:gap-3 text-left" novalidate>
               <!-- Invisible Honeypot Field (Anti-bot) -->
               <div class="hidden" aria-hidden="true" style="display:none!important;">
                 <label for="hp_leave_empty">Leave this field empty</label>
                 <input type="text" id="hp_leave_empty" name="hp_leave_empty" tabindex="-1" autocomplete="off" value="" />
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label for="quote-name" class="block text-xs font-extrabold text-slate-900 mb-1">Your Full Name *</label>
-                  <input 
-                    type="text" 
-                    id="quote-name" 
-                    name="name" 
-                    required 
-                    placeholder="e.g. John Smith" 
-                    class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
-                  />
-                  <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your full name.</span>
-                </div>
-                <div>
-                  <label for="quote-phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
-                  <input 
-                    type="tel" 
-                    id="quote-phone" 
-                    name="phone" 
-                    required 
-                    placeholder="(615) 000-0000" 
-                    class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
-                  />
-                  <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter a valid phone number.</span>
-                </div>
-              </div>
-
+              <!-- Step 1: 1-Tap Visual Service Tiles -->
               <div class="relative" id="quote-service-wrap">
-                <label for="quote-service-btn" class="block text-xs font-extrabold text-slate-900 mb-1">Service Needed *</label>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="block text-xs font-extrabold text-slate-900">1. Tap Service Needed *</span>
+                  <span id="quote-service-badge" class="hidden text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded"></span>
+                </div>
                 <select 
                   id="quote-service" 
                   name="service" 
@@ -160,25 +139,68 @@ const initialReviews = (await getLiveReviews())
                   <option value="Commercial Locksmith">Commercial Locks &amp; Hardware</option>
                   <option value="Other">Other Locksmith Service</option>
                 </select>
-                <button
-                  type="button"
-                  id="quote-service-btn"
-                  aria-haspopup="listbox"
-                  aria-expanded="false"
-                  class="arm-service-btn w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-500 font-medium cursor-pointer text-left truncate"
-                >
-                  <span id="quote-service-label">Select a service...</span>
-                </button>
-                <div id="quote-service-menu" role="listbox" class="arm-service-menu hidden">
-                  <button type="button" role="option" data-value="Car Key Replacement" class="arm-service-item"><span>Car Key Replacement</span><span class="arm-service-check">&#10003;</span></button>
-                  <button type="button" role="option" data-value="Key Fob Programming" class="arm-service-item"><span>Spare Key &amp; Fob Programming</span><span class="arm-service-check">&#10003;</span></button>
-                  <button type="button" role="option" data-value="European Specialist" class="arm-service-item"><span>European Car Keys (BMW, Benz, Audi)</span><span class="arm-service-check">&#10003;</span></button>
-                  <button type="button" role="option" data-value="Emergency Car Lockout" class="arm-service-item"><span>Emergency Car Lockout</span><span class="arm-service-check">&#10003;</span></button>
-                  <button type="button" role="option" data-value="House Lockout / Rekey" class="arm-service-item"><span>House Rekey or Lockout</span><span class="arm-service-check">&#10003;</span></button>
-                  <button type="button" role="option" data-value="Commercial Locksmith" class="arm-service-item"><span>Commercial Locks &amp; Hardware</span><span class="arm-service-check">&#10003;</span></button>
-                  <button type="button" role="option" data-value="Other" class="arm-service-item"><span>Other Locksmith Service</span><span class="arm-service-check">&#10003;</span></button>
+
+                <div class="grid grid-cols-2 gap-2" role="group" aria-label="Primary locksmith services">
+                  <button
+                    type="button"
+                    data-value="Car Key Replacement"
+                    aria-pressed="false"
+                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
+                  >
+                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Car Key / Fob</span>
+                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Lost or spare key</span>
+                  </button>
+                  <button
+                    type="button"
+                    data-value="House Lockout / Rekey"
+                    aria-pressed="false"
+                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
+                  >
+                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Home Rekey</span>
+                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">$20/cyl shop or mobile</span>
+                  </button>
+                  <button
+                    type="button"
+                    data-value="Emergency Car Lockout"
+                    aria-pressed="false"
+                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
+                  >
+                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Locked Out</span>
+                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Damage-free unlock</span>
+                  </button>
+                  <button
+                    type="button"
+                    data-value="Commercial Locksmith"
+                    aria-pressed="false"
+                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
+                  >
+                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Commercial</span>
+                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Storefront, keypad, exit</span>
+                  </button>
                 </div>
-                <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please select a service.</span>
+
+                <div class="grid grid-cols-2 gap-2 mt-1.5" role="group" aria-label="Additional locksmith services">
+                  <button
+                    type="button"
+                    data-value="European Specialist"
+                    aria-pressed="false"
+                    class="arm-service-tile px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
+                  >
+                    <span class="block text-[11px] font-extrabold text-[#0f274a] leading-tight">European Keys</span>
+                    <span class="block text-[10px] text-slate-500 font-medium leading-tight truncate">BMW, Benz, Audi, Volvo</span>
+                  </button>
+                  <button
+                    type="button"
+                    data-value="Other"
+                    aria-pressed="false"
+                    class="arm-service-tile px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
+                  >
+                    <span class="block text-[11px] font-extrabold text-[#0f274a] leading-tight">Other Service</span>
+                    <span class="block text-[10px] text-slate-500 font-medium leading-tight truncate">Ignition, mailbox, other</span>
+                  </button>
+                </div>
+
+                <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please tap the service you need above.</span>
               </div>
 
               <!-- Dynamic Emergency Lockout Alert (Hidden by default, slides open if Emergency Lockout is chosen) -->
@@ -192,15 +214,46 @@ const initialReviews = (await getLiveReviews())
                 </a>
               </div>
 
+              <!-- Step 2: Side-by-Side Name & Phone (Compact on Mobile) -->
+              <div class="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label for="quote-name" class="block text-xs font-extrabold text-slate-900 mb-1">Your Name *</label>
+                  <input 
+                    type="text" 
+                    id="quote-name" 
+                    name="name" 
+                    required 
+                    placeholder="John Smith" 
+                    class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                  />
+                  <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
+                </div>
+                <div>
+                  <label for="quote-phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
+                  <input 
+                    type="tel" 
+                    id="quote-phone" 
+                    name="phone" 
+                    required 
+                    placeholder="(615) 000-0000" 
+                    class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                  />
+                  <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Enter a valid phone.</span>
+                </div>
+              </div>
+
+              <!-- Step 3: Required Request Details (Sent directly to Dispatch AI + SMS/Email) -->
               <div>
-                <label for="quote-details" class="block text-xs font-extrabold text-slate-900 mb-1">Vehicle, Home or Business Details (Optional)</label>
+                <label id="quote-details-label" for="quote-details" class="block text-xs font-extrabold text-slate-900 mb-1">What Do You Need? (Vehicle, Locks or Door) *</label>
                 <input 
                   type="text" 
                   id="quote-details" 
                   name="details" 
-                  placeholder="e.g. 2019 Ford F-150 key, 3 house locks rekeyed, or storefront door" 
-                  class="w-full px-3.5 py-2.5 sm:py-3 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                  required
+                  placeholder="e.g. 2019 Ford F-150 lost key, 4 house locks, or storefront door" 
+                  class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
                 />
+                <span id="details-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please tell us your vehicle, lock, or door details so we can quote you.</span>
               </div>
 
               <!-- Server / Network Error Alert -->
@@ -211,13 +264,13 @@ const initialReviews = (await getLiveReviews())
               <button 
                 type="submit" 
                 id="quote-submit-btn"
-                class="w-full mt-1 py-3.5 sm:py-4 px-6 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:to-emerald-600 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-lg shadow-[0_8px_20px_-2px_rgba(5,150,105,0.45)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-emerald-800 disabled:opacity-60 disabled:cursor-not-allowed"
+                class="w-full mt-0.5 py-3.5 px-6 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:to-emerald-600 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-lg shadow-[0_8px_20px_-2px_rgba(5,150,105,0.45)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-emerald-800 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <span>Text Me a Flat Quote &rarr;</span>
               </button>
-              <div class="text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
+              <div class="text-[11px] text-slate-600 text-center font-semibold flex items-center justify-center gap-1.5">
                 <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Sent Directly to Rahim &amp; Our Nashville Shop &bull; Upfront Flat Rates</span>
+                <span>Sent Directly to Rahim &bull; 208 Thompson Ln &bull; Upfront Flat Rates</span>
               </div>
             </form>
 
@@ -739,15 +792,43 @@ const initialReviews = (await getLiveReviews())
       const phoneInput = document.getElementById('quote-phone');
       const serviceSelect = document.getElementById('quote-service');
       const serviceWrap = document.getElementById('quote-service-wrap');
-      const serviceBtn = document.getElementById('quote-service-btn');
-      const serviceLabel = document.getElementById('quote-service-label');
-      const serviceMenu = document.getElementById('quote-service-menu');
+      const serviceBadge = document.getElementById('quote-service-badge');
+      const serviceTiles = serviceWrap ? Array.from(serviceWrap.querySelectorAll('.arm-service-tile')) : [];
       const detailsInput = document.getElementById('quote-details');
+      const detailsLabel = document.getElementById('quote-details-label');
       const honeypotInput = document.getElementById('hp_leave_empty');
 
       const nameError = document.getElementById('name-error');
       const phoneError = document.getElementById('phone-error');
       const serviceError = document.getElementById('service-error');
+      const detailsError = document.getElementById('details-error');
+
+      const detailsPrompts = {
+        'Car Key Replacement': {
+          label: 'Vehicle Year, Make & Model *',
+          placeholder: 'e.g. 2021 Toyota Camry — lost key or spare fob'
+        },
+        'European Specialist': {
+          label: 'European Vehicle Year, Make & Model *',
+          placeholder: 'e.g. 2018 BMW X5 or Mercedes C300 smart key'
+        },
+        'House Lockout / Rekey': {
+          label: 'How Many Locks & Your Area? *',
+          placeholder: 'e.g. 4 house locks to rekey in Brentwood'
+        },
+        'Emergency Car Lockout': {
+          label: 'Vehicle & Location *',
+          placeholder: 'e.g. 2020 Honda Civic locked in Nashville / Brentwood'
+        },
+        'Commercial Locksmith': {
+          label: 'Business Door / Hardware & Area *',
+          placeholder: 'e.g. Glass storefront deadlatch or keypad in 37211'
+        },
+        'Other': {
+          label: 'What Do You Need Help With? *',
+          placeholder: 'Briefly describe your key, lock, or ignition issue'
+        }
+      };
 
       // Clear inline errors on user input
       if (nameInput && nameError) {
@@ -762,15 +843,18 @@ const initialReviews = (await getLiveReviews())
           phoneInput.classList.remove('border-red-500');
         });
       }
+      if (detailsInput && detailsError) {
+        detailsInput.addEventListener('input', function () {
+          detailsError.classList.add('hidden');
+          detailsInput.classList.remove('border-red-500');
+        });
+      }
       const lockoutAlert = document.getElementById('lockout-alert-box');
       if (serviceSelect) {
         serviceSelect.addEventListener('change', function () {
           if (serviceError) {
             serviceError.classList.add('hidden');
             serviceSelect.classList.remove('border-red-500');
-          }
-          if (serviceBtn) {
-            serviceBtn.classList.remove('border-red-500');
           }
           if (lockoutAlert) {
             if (this.value === 'Emergency Car Lockout') {
@@ -779,46 +863,34 @@ const initialReviews = (await getLiveReviews())
               lockoutAlert.classList.add('hidden');
             }
           }
+          const prompt = detailsPrompts[this.value];
+          if (prompt) {
+            if (detailsLabel) detailsLabel.textContent = prompt.label;
+            if (detailsInput) detailsInput.placeholder = prompt.placeholder;
+          }
         });
       }
 
-      if (serviceBtn && serviceMenu && serviceSelect) {
-        const closeServiceMenu = function () {
-          serviceMenu.classList.add('hidden');
-          serviceBtn.setAttribute('aria-expanded', 'false');
-        };
-        serviceBtn.addEventListener('click', function () {
-          const isOpen = !serviceMenu.classList.contains('hidden');
-          if (isOpen) {
-            closeServiceMenu();
-          } else {
-            serviceMenu.classList.remove('hidden');
-            serviceBtn.setAttribute('aria-expanded', 'true');
-          }
-        });
-        const items = serviceMenu.querySelectorAll('.arm-service-item');
-        items.forEach(function (item) {
-          item.addEventListener('click', function () {
-            const val = item.getAttribute('data-value') || '';
-            const textSpan = item.querySelector('span');
-            const labelText = textSpan ? textSpan.textContent : val;
+      if (serviceTiles.length > 0 && serviceSelect) {
+        serviceTiles.forEach(function (tile) {
+          tile.addEventListener('click', function () {
+            const val = tile.getAttribute('data-value') || '';
+            const titleEl = tile.querySelector('span');
             serviceSelect.value = val;
-            if (serviceLabel) serviceLabel.textContent = labelText;
-            serviceBtn.classList.remove('text-slate-500');
-            serviceBtn.classList.add('text-slate-950');
-            items.forEach(function (el) { el.classList.remove('is-selected'); });
-            item.classList.add('is-selected');
-            closeServiceMenu();
+            serviceTiles.forEach(function (t) {
+              t.setAttribute('aria-pressed', 'false');
+              t.classList.remove('border-2', 'border-amber-500', 'bg-amber-50', 'ring-2', 'ring-amber-300/60', 'border-red-400');
+              t.classList.add('border', 'border-slate-300');
+            });
+            tile.setAttribute('aria-pressed', 'true');
+            tile.classList.remove('border', 'border-slate-300', 'border-red-400');
+            tile.classList.add('border-2', 'border-amber-500', 'bg-amber-50', 'ring-2', 'ring-amber-300/60');
+            if (serviceBadge && titleEl) {
+              serviceBadge.textContent = titleEl.textContent + ' ✓';
+              serviceBadge.classList.remove('hidden');
+            }
             serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
           });
-        });
-        document.addEventListener('click', function (e) {
-          if (serviceWrap && !serviceWrap.contains(e.target)) {
-            closeServiceMenu();
-          }
-        });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') closeServiceMenu();
         });
       }
 
@@ -850,7 +922,12 @@ const initialReviews = (await getLiveReviews())
           if (!service) {
             if (serviceError) serviceError.classList.remove('hidden');
             if (serviceSelect) serviceSelect.classList.add('border-red-500');
-            if (serviceBtn) serviceBtn.classList.add('border-red-500');
+            serviceTiles.forEach(function (t) { t.classList.add('border-red-400'); });
+            hasError = true;
+          }
+          if (!vehicle) {
+            if (detailsError) detailsError.classList.remove('hidden');
+            if (detailsInput) detailsInput.classList.add('border-red-500');
             hasError = true;
           }
 
@@ -872,12 +949,18 @@ const initialReviews = (await getLiveReviews())
           // Ensure form_started_at is at least 8s in past so browser autofill never trips bot speed check
           const safeFormStartedAt = Math.min(formStartedAt, Math.floor(Date.now() / 1000) - 8);
 
+          // Combine the selected service and customer request so Dispatch AI, SMS,
+          // and email all display what the customer is requesting clearly.
+          const shortDetail = vehicle.length > 80 ? vehicle.slice(0, 77) + '...' : vehicle;
+          const combinedService = vehicle ? `${service} — ${shortDetail}` : service;
+          const combinedDetails = vehicle ? `${service} | ${vehicle}` : service;
+
           const payload = {
             customer_name: customerName,
             phone: phone,
-            service: service,
-            service_type: service,
-            vehicle: vehicle,
+            service: combinedService,
+            service_type: combinedService,
+            vehicle: combinedDetails,
             form_started_at: safeFormStartedAt,
             company_website: ''
           };
@@ -901,8 +984,8 @@ const initialReviews = (await getLiveReviews())
             body: JSON.stringify({
               name: customerName,
               phone: phone,
-              service: service,
-              details: vehicle || 'Standard Vehicle / Request',
+              service: combinedService,
+              details: combinedDetails,
               notes: 'Website Hero Quote Request',
               company_website: honeypot
             })
