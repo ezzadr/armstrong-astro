@@ -12,6 +12,27 @@ import { storeHoursLine } from '../data/hours.mjs';
 if (!promo || !promo.active) {
   return;
 }
+
+// Keep the in-shop car-key promo off residential, commercial, and legal pages
+// so homeowners and business clients aren't shown an unrelated auto key popup.
+const pathname = Astro.url.pathname.toLowerCase();
+const hideCarKeyPromo = [
+  '/commercial-locksmith',
+  '/residential-locksmith-nashville',
+  '/nashville-rekey-service',
+  '/blog/commercial-',
+  '/blog/detex-',
+  '/blog/franklin-tn-lock-rekey',
+  '/blog/home-rekey',
+  '/privacy-policy',
+  '/terms-and-conditions',
+  '/refund-and-cancellation-policy',
+  '/staff-sms-alerts-consent',
+].some((prefix) => pathname.startsWith(prefix));
+
+if (hideCarKeyPromo) {
+  return;
+}
 ---
 
 <!-- 1. MOBILE: compact left-side 20% OFF tab that expands on tap (< 768px) -->
@@ -130,13 +151,40 @@ if (!promo || !promo.active) {
 
 <script is:inline>
   (function() {
-    // Closing the card only hides it on the current page. Nothing is saved, so
-    // it shows again on the next page the visitor opens or when they refresh.
+    var STORAGE_KEY = 'arm_promo_dismissed_v1';
+
+    function isDismissed() {
+      try {
+        return window.sessionStorage && window.sessionStorage.getItem(STORAGE_KEY) === '1';
+      } catch (_) {
+        return false;
+      }
+    }
+
+    function markDismissed() {
+      try {
+        if (window.sessionStorage) window.sessionStorage.setItem(STORAGE_KEY, '1');
+      } catch (_) {}
+    }
+
+    function hideInstant(mob, dsk) {
+      [mob, dsk].forEach(function(el) {
+        if (!el) return;
+        el.style.display = 'none';
+      });
+    }
+
     function init() {
-      const mob = document.getElementById('arm-promo-mobile');
-      const dsk = document.getElementById('arm-promo-desktop');
-      const toggleBtn = document.getElementById('arm-promo-mobile-toggle');
-      const card = document.getElementById('arm-promo-mobile-card');
+      var mob = document.getElementById('arm-promo-mobile');
+      var dsk = document.getElementById('arm-promo-desktop');
+
+      if (isDismissed()) {
+        hideInstant(mob, dsk);
+        return;
+      }
+
+      var toggleBtn = document.getElementById('arm-promo-mobile-toggle');
+      var card = document.getElementById('arm-promo-mobile-card');
 
       if (toggleBtn && card) {
         toggleBtn.addEventListener('click', function() {
@@ -151,6 +199,7 @@ if (!promo || !promo.active) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
+          markDismissed();
           [mob, dsk].forEach(function(el) {
             if (!el) return;
             el.classList.remove('opacity-100', 'translate-y-0');
@@ -160,10 +209,8 @@ if (!promo || !promo.active) {
       });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
+    // Run immediately (script sits right after the elements) so dismissed
+    // visitors never see a flash before DOMContentLoaded.
+    init();
   })();
 </script>
