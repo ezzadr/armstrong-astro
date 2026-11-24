@@ -17,10 +17,26 @@ const autoSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/automotive-locksmith-in-nashville-tn/#service",
     "serviceType": "Automotive Locksmith",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "Comprehensive automotive locksmith services including laser car key cutting, transponder chip programming, smart proximity keys, and ignition repair in Nashville, TN."
+    "description": "Comprehensive automotive locksmith services including laser car key cutting, transponder chip programming, smart proximity keys, and ignition repair in Nashville, TN.",
+    "name": "Mobile Automotive Locksmith & Ignition Repair",
+    "image": "https://armstronglocksmithinc.com/images/armstrong-locksmith-van-laser-key-machines-nashville.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "65",
+      "highPrice": "425",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -33,14 +49,7 @@ const autoSchema = [
     "uploadDate": "2026-07-27T12:18:56-07:00",
     "embedUrl": "https://www.youtube.com/embed/pRr53jg4xw4",
     "contentUrl": "https://www.youtube.com/watch?v=pRr53jg4xw4",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -79,27 +88,6 @@ const autoSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Mobile Automotive Locksmith & Ignition Repair",
-    "description": "On-site car key replacement, smart fob programming, ignition cylinder repair, and damage-free car unlocking across Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/armstrong-locksmith-van-laser-key-machines-nashville.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Armstrong Locksmith"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "65",
-      "highPrice": "425",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   }
 ];
 ---
@@ -161,7 +149,7 @@ const autoSchema = [
   </section>
 
   <!-- Main Content Body -->
-  <main class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
       
       <!-- REAL JOB CASE STUDY: 2007 Porsche 911 KESSY Module (With Video) -->
@@ -465,7 +453,7 @@ const autoSchema = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="auto" label="Automotive" />
   <RelatedPost
     href="/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/"

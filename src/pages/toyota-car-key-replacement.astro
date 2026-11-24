@@ -16,10 +16,30 @@ const toyotaSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/toyota-car-key-replacement/#service",
     "serviceType": "Toyota Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "On-site Toyota smart key fob cutting and immobilizer programming for Camry, Corolla, RAV4, Highlander, Tacoma, Tundra, 4Runner, and Prius in Nashville, TN."
+    "description": "On-site Toyota smart key fob cutting and immobilizer programming for Camry, Corolla, RAV4, Highlander, Tacoma, Tundra, 4Runner, and Prius in Nashville, TN.",
+    "name": "Toyota Key Replacement & Smart Key Programming",
+    "image": [
+      "https://armstronglocksmithinc.com/images/toyota-highlander-hybrid-smart-key-replacement-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/toyota-chr-and-audi-spare-key-fobs-brentwood-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/toyota-key-replacement-1536x2048.webp"
+    ],
+    "brand": {
+      "@type": "Brand",
+      "name": "Toyota"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "145",
+      "highPrice": "295",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -53,31 +73,6 @@ const toyotaSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Toyota Key Replacement & Smart Key Programming",
-    "description": "Fast Toyota laser key cutting and proximity smart fob programming in Nashville, TN.",
-    "image": [
-      "https://armstronglocksmithinc.com/images/toyota-highlander-hybrid-smart-key-replacement-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/toyota-chr-and-audi-spare-key-fobs-brentwood-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/toyota-key-replacement-1536x2048.webp"
-    ],
-    "brand": {
-      "@type": "Brand",
-      "name": "Toyota"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "145",
-      "highPrice": "295",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
-  },
-  {
-    "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": "2016 Toyota Tacoma Smart Key Replacement Nashville | Push to Start",
     "description": "Watch Master Locksmith Rahim perform on-site All Keys Lost proximity smart fob programming and emergency laser key cutting for a 2016 Toyota Tacoma in Nashville, TN without dealer towing.",
@@ -87,14 +82,7 @@ const toyotaSchema = [
     "uploadDate": "2026-01-24T18:45:00-08:00",
     "embedUrl": "https://www.youtube.com/embed/E_Aie5nW7pQ",
     "contentUrl": "https://www.youtube.com/watch?v=E_Aie5nW7pQ",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   }
 ];
 
@@ -256,7 +244,7 @@ const toyotaModels = [
   </section>
 
   <!-- Main Body Content -->
-  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
       
       <!-- Interactive Toyota Key Estimator -->
@@ -595,7 +583,7 @@ const toyotaModels = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="toyota" label="Toyota" />
   <RelatedPost
     href="/blog/toyota-highlander-hybrid-all-keys-lost-smart-key-nashville/"

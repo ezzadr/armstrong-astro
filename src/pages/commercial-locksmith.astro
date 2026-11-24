@@ -12,6 +12,7 @@ const commercialSchema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://armstronglocksmithinc.com/commercial-locksmith/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -30,11 +31,26 @@ const commercialSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/commercial-locksmith/#service",
     "name": "Commercial Locksmith & Door Hardware Services",
     "serviceType": "Commercial Locksmith",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Downtown Nashville", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
-    "description": "Storefront glass door repair, Adams Rite mortise cylinders, UL-listed panic crash bars, master key hierarchies, and digital access control for Nashville businesses."
+    "description": "Storefront glass door repair, Adams Rite mortise cylinders, UL-listed panic crash bars, master key hierarchies, and digital access control for Nashville businesses.",
+    "image": "https://armstronglocksmithinc.com/images/before-keypad-installation-on-commercial-door.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "95",
+      "highPrice": "450",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -73,27 +89,6 @@ const commercialSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Commercial Locksmith & Master Key Systems",
-    "description": "Storefront lock installation, panic crash bar hardware, and commercial master rekeying in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/before-keypad-installation-on-commercial-door.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Armstrong Locksmith"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "95",
-      "highPrice": "450",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   }
 ];
 ---

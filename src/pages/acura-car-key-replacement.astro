@@ -10,6 +10,7 @@ const acuraSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/acura-car-key-replacement/#service",
     "name": "Acura Key Replacement & Smart Fob Programming",
     "serviceType": "Acura Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
@@ -38,14 +39,7 @@ const acuraSchema = [
     "uploadDate": "2023-02-05T21:13:12-08:00",
     "embedUrl": "https://www.youtube.com/embed/Uja6naTWCVw",
     "contentUrl": "https://www.youtube.com/watch?v=Uja6naTWCVw",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -145,7 +139,7 @@ const acuraSchema = [
   </section>
 
   <!-- Main Content Layout -->
-  <main class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
       
       <!-- Video Showcase Section -->
@@ -441,6 +435,6 @@ const acuraSchema = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="acura" label="Acura" />
 </Layout>

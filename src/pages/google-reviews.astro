@@ -21,14 +21,7 @@ const reviewsSchema = [
     "duration": "PT11S",
     "embedUrl": "https://www.youtube.com/embed/IaOYSwz1IXk",
     "contentUrl": "https://www.youtube.com/watch?v=IaOYSwz1IXk",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -41,14 +34,7 @@ const reviewsSchema = [
     "uploadDate": "2021-05-10T16:04:45-07:00",
     "embedUrl": "https://www.youtube.com/embed/DAPmg0fpzf4",
     "contentUrl": "https://www.youtube.com/watch?v=DAPmg0fpzf4",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   }
 ];
 ---
@@ -93,7 +79,7 @@ const reviewsSchema = [
     </div>
   </header>
 
-  <main class="py-16 sm:py-24 bg-slate-50 text-slate-900 px-4 sm:px-6 lg:px-8 text-left">
+  <div class="py-16 sm:py-24 bg-slate-50 text-slate-900 px-4 sm:px-6 lg:px-8 text-left">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
 
       <!-- Featured Shop Customer Testimonial: 2020 Land Rover Range Rover -->
@@ -214,7 +200,7 @@ const reviewsSchema = [
       </div>
 
     </div>
-  </main>
+  </div>
   <script is:inline>
     document.querySelectorAll('[data-yt-facade]').forEach((el) => {
       const activate = () => {

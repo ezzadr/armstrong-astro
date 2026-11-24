@@ -32,10 +32,31 @@ const dodgeRamSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/dodge-ram-car-key-replacement/#service",
     "serviceType": "Dodge & RAM Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "Walk-in and mobile Dodge, RAM, Jeep, and Chrysler car key replacement, FOBIK remote programming, and 2018–2026 SGW proximity smart fob programming in Nashville, TN."
+    "description": "Walk-in and mobile Dodge, RAM, Jeep, and Chrysler car key replacement, FOBIK remote programming, and 2018–2026 SGW proximity smart fob programming in Nashville, TN.",
+    "name": "Dodge, RAM, Jeep & Chrysler Key Replacement & FOBIK Programming",
+    "image": [
+      "https://armstronglocksmithinc.com/images/2023-jeep-grand-cherokee-smart-key-replacement-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2011-dodge-ram-fobik-key-replacement-nashville-shop.jpg",
+      "https://armstronglocksmithinc.com/images/2011-dodge-ram-fobik-remote-key-programmed-nashville.jpg"
+    ],
+    "brand": [
+      { "@type": "Brand", "name": "RAM" },
+      { "@type": "Brand", "name": "Dodge" },
+      { "@type": "Brand", "name": "Jeep" }
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "295",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -74,32 +95,6 @@ const dodgeRamSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Dodge, RAM, Jeep & Chrysler Key Replacement & FOBIK Programming",
-    "description": "Storefront and mobile Dodge RAM FOBIK remote programming, push-to-start RF Hub smart fobs, and RAM ProMaster SIP22 laser key cutting in Nashville, TN.",
-    "image": [
-      "https://armstronglocksmithinc.com/images/2023-jeep-grand-cherokee-smart-key-replacement-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/2011-dodge-ram-fobik-key-replacement-nashville-shop.jpg",
-      "https://armstronglocksmithinc.com/images/2011-dodge-ram-fobik-remote-key-programmed-nashville.jpg"
-    ],
-    "brand": [
-      { "@type": "Brand", "name": "RAM" },
-      { "@type": "Brand", "name": "Dodge" },
-      { "@type": "Brand", "name": "Jeep" }
-    ],
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "120",
-      "highPrice": "295",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   },
   {
     "@context": "https://schema.org",
@@ -296,7 +291,7 @@ const dodgeRamModels = [
   </section>
 
   <!-- Main Body Content -->
-  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
       
       <!-- Real Nashville Shop Job Case Study: 2011 Dodge Ram Broken FOBIK -->
@@ -643,7 +638,7 @@ const dodgeRamModels = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="auto" label="Dodge, RAM & Automotive" />
   <RelatedPost
     href="/blog/2011-dodge-ram-fobik-key-replacement-nashville-shop/"

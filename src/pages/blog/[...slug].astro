@@ -51,6 +51,7 @@ const blogSchema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `https://armstronglocksmithinc.com/blog/${post.id}/#breadcrumb`,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -89,17 +90,9 @@ const blogSchema = [
       "image": "https://armstronglocksmithinc.com/images/rahim-ezzadpanah-the-owner-of-armstrong-locksmith.jpeg",
       "worksFor": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.png"
-      }
-    },
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://armstronglocksmithinc.com/blog/${post.id}/`
+      "@id": `https://armstronglocksmithinc.com/blog/${post.id}/#webpage`
     }
   },
   // Video rich-result eligibility when the post has a YouTube video.
@@ -188,7 +181,7 @@ const computedTitle = post.data.title.length > 45
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
       
       <!-- MAIN ARTICLE COLUMN (Span 8) -->
-      <main class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+      <div class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
         
         <!-- Hero: job video (click-to-play facade — only a thumbnail <img> loads
              with the page; the YouTube iframe is created on tap, so the embed
@@ -403,7 +396,7 @@ const computedTitle = post.data.title.length > 45
           </div>
         </div>
 
-      </main>
+      </div>
 
       <!-- STICKY SIDEBAR COLUMN (Span 4) -->
       <aside class="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-24">

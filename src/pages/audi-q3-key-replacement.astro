@@ -14,6 +14,7 @@ const audiQ3Schema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/audi-q3-key-replacement/#service",
     "name": "Audi Q3 Key Replacement & MQB Smart Key Programming",
     "serviceType": "Audi Q3 Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
@@ -42,14 +43,7 @@ const audiQ3Schema = [
     "uploadDate": "2024-05-04T22:26:02-07:00",
     "embedUrl": "https://www.youtube.com/embed/i_GF_mS0lBk",
     "contentUrl": "https://www.youtube.com/watch?v=i_GF_mS0lBk",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -149,7 +143,7 @@ const audiQ3Schema = [
   </section>
 
   <!-- Main Content Layout -->
-  <main class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
       
       <!-- Video Showcase Section -->
@@ -421,7 +415,7 @@ const audiQ3Schema = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="audi" label="Audi" />
   <RelatedPost
     href="/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/"

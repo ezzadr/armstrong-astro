@@ -14,11 +14,26 @@ const lockoutSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/emergency-car-lockout/#service",
     "name": "Emergency Car Lockout Service Nashville",
     "serviceType": "Car Lockout Service",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "Safe, damage-free car lockout door unlocking in Nashville, TN. Professional automotive locksmith entry with zero damage to vehicle locks or weather seals."
+    "description": "Safe, damage-free car lockout door unlocking in Nashville, TN. Professional automotive locksmith entry with zero damage to vehicle locks or weather seals.",
+    "image": "https://armstronglocksmithinc.com/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "65",
+      "highPrice": "125",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -31,14 +46,7 @@ const lockoutSchema = [
     "uploadDate": "2023-02-08T22:41:26-08:00",
     "embedUrl": "https://www.youtube.com/embed/abf1I0zO7pM",
     "contentUrl": "https://www.youtube.com/watch?v=abf1I0zO7pM",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -77,27 +85,6 @@ const lockoutSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Damage-Free Emergency Car Lockout Service",
-    "description": "Mobile emergency car unlock service across Nashville, Brentwood, Franklin, and Antioch starting at $65+ for standard vehicles and $85+ for high-security European cars.",
-    "image": "https://armstronglocksmithinc.com/images/sako-armstrong-locksmith-technecian-unlocking-a-car-scaled.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Armstrong Locksmith"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "65",
-      "highPrice": "125",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   }
 ];
 ---

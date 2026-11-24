@@ -14,11 +14,26 @@ const keyFobSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/key-fob-replacement-nashville/#service",
     "name": "Car Key Fob Replacement & Push-to-Start Programming",
     "serviceType": "Automotive Locksmith",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
-    "description": "Same-day push-to-start smart key fob replacement, remote head keys, flip keys, and Dodge/Jeep FOBIK programming at 208 Thompson Ln or via mobile service across Nashville, TN."
+    "description": "Same-day push-to-start smart key fob replacement, remote head keys, flip keys, and Dodge/Jeep FOBIK programming at 208 Thompson Ln or via mobile service across Nashville, TN.",
+    "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "325",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -57,27 +72,6 @@ const keyFobSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Smart Key Fob Replacement & Remote Programming",
-    "description": "In-shop and mobile car key fob replacement, proximity smart fobs, and remote head keys in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Armstrong Locksmith"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "120",
-      "highPrice": "325",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   }
 ];
 ---

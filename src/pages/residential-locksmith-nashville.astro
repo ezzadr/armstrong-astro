@@ -12,6 +12,7 @@ const residentialSchema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://armstronglocksmithinc.com/residential-locksmith-nashville/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -30,11 +31,26 @@ const residentialSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/residential-locksmith-nashville/#service",
     "name": "Residential Locksmith & Rekeying Services",
     "serviceType": "Residential Locksmith",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Green Hills", "Belle Meade"],
-    "description": "Comprehensive residential home security: deadbolt rekeying, high-security lock installation, smart keypad locks, and emergency home lockout assistance."
+    "description": "Comprehensive residential home security: deadbolt rekeying, high-security lock installation, smart keypad locks, and emergency home lockout assistance.",
+    "image": "https://armstronglocksmithinc.com/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "75",
+      "highPrice": "250",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -65,27 +81,6 @@ const residentialSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Residential Lock Rekeying & Home Security",
-    "description": "Professional home deadbolt rekeying, smart lock keypad installation, and lock repairs in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/lock-rekeyed-by-armstrong-locksmith-technician.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Armstrong Locksmith"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "75",
-      "highPrice": "250",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   }
 ];
 ---

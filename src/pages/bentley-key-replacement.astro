@@ -14,6 +14,7 @@ const bentleySchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/bentley-key-replacement/#service",
     "name": "Bentley & Exotic Car Key Replacement Nashville",
     "serviceType": "Bentley & Exotic Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
@@ -49,14 +50,7 @@ const bentleySchema = [
     "uploadDate": "2022-02-27T18:25:10-08:00",
     "embedUrl": "https://www.youtube.com/embed/4p5EnSbJAWg",
     "contentUrl": "https://www.youtube.com/watch?v=4p5EnSbJAWg",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -198,7 +192,7 @@ const bentleySchema = [
   </section>
 
   <!-- Main Body Content -->
-  <main class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
       
       <!-- Real Job Spotlight / Video Section -->
@@ -483,7 +477,7 @@ const bentleySchema = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="bentley" label="Bentley" />
   <RelatedPost
     href="/blog/maserati-granturismo-key-replacement-nashville/"

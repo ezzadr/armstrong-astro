@@ -17,10 +17,26 @@ const bmwSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/bmw/#service",
     "serviceType": "BMW Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "Mobile and storefront BMW smart key fob cutting and immobilizer programming for CAS1, CAS2, CAS3, CAS4, FEM, and BDC systems in Nashville, TN."
+    "description": "Mobile and storefront BMW smart key fob cutting and immobilizer programming for CAS1, CAS2, CAS3, CAS4, FEM, and BDC systems in Nashville, TN.",
+    "name": "BMW Key Replacement & Programming Service",
+    "image": "https://armstronglocksmithinc.com/images/BMW-car-key-nashville.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "BMW"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "195",
+      "highPrice": "385",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -62,27 +78,6 @@ const bmwSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "BMW Key Replacement & Programming Service",
-    "description": "Dealer-level BMW key cutting and CAS/FEM/BDC smart proximity key fob programming in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/BMW-car-key-nashville.png",
-    "brand": {
-      "@type": "Brand",
-      "name": "BMW"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "195",
-      "highPrice": "385",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
-  },
-  {
-    "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": "2012 BMW 320i Key Replacement + Programming | Nashville & Brentwood Auto Locksmith",
     "description": "Watch Armstrong Locksmith make and program replacement smart keys for a 2012 BMW 320i on-site in Nashville & Brentwood, TN, including full CAS immobilizer pairing and Comfort Access testing.",
@@ -92,14 +87,7 @@ const bmwSchema = [
     "uploadDate": "2026-01-04T13:36:38-08:00",
     "embedUrl": "https://www.youtube.com/embed/fWY-TUZffZA",
     "contentUrl": "https://www.youtube.com/watch?v=fWY-TUZffZA",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   }
 ];
 
@@ -264,7 +252,7 @@ const bmwModels = [
   </section>
 
   <!-- Main Content Layout -->
-  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
       
       <!-- Video Showcase Section with Real Job Badge -->
@@ -608,7 +596,7 @@ const bmwModels = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="bmw" label="BMW" />
   <RelatedPost
     href="/blog/how-we-saved-a-customer-over-600-on-a-bmw-key-replacement-in-brentwood-tn/"

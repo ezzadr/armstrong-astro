@@ -11,11 +11,26 @@ const dealerKeySchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/dealer-key/#service",
     "name": "OEM Car Key Replacement & Dealership Alternative",
     "serviceType": "Automotive Locksmith",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Green Hills", "Belle Meade"],
-    "description": "Genuine OEM factory car keys and smart proximity fobs cut and programmed in Nashville, TN at 40% to 60% below dealership pricing."
+    "description": "Genuine OEM factory car keys and smart proximity fobs cut and programmed in Nashville, TN at 40% to 60% below dealership pricing.",
+    "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Armstrong Locksmith"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "95",
+      "highPrice": "425",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -54,27 +69,6 @@ const dealerKeySchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "OEM Factory Car Key Replacement & Programming",
-    "description": "Genuine OEM car keys, smart proximity fobs, and high-security laser key cutting at 208 Thompson Ln or on-site across Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/ARMSTRONG-LOCKSMITH-KEY-MACHINES-INSIDE-THE-SHOP.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Armstrong Locksmith"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "95",
-      "highPrice": "425",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   }
 ];
 ---

@@ -27,23 +27,9 @@ const initialReviews = (await getLiveReviews())
     verified: true
   }));
 
-// Advanced Local Ranking Authority Schema for Homepage
-const homepageSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://armstronglocksmithinc.com/#website",
-    "url": "https://armstronglocksmithinc.com/",
-    "name": "Armstrong Locksmith Nashville",
-    "description": "Certified local locksmith with physical storefront at 208 Thompson Ln, Nashville TN.",
-    "publisher": {
-      "@id": "https://armstronglocksmithinc.com/#locksmith"
-    }
-  }
-];
 ---
 
-<Layout title={seoTitle} description={seoDescription} canonical="/" schema={homepageSchema} image="/images/armstrong-locksmith-nashville-shop-4x3.jpg">
+<Layout title={seoTitle} description={seoDescription} canonical="/" image="/images/armstrong-locksmith-nashville-shop-4x3.jpg">
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
   <section class="relative z-20 bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 font-sans">

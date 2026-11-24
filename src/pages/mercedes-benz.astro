@@ -14,6 +14,7 @@ const mercedesSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/mercedes-benz/#service",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "name": "Mercedes-Benz Key Replacement & EIS Programming",
     "description": "Dealer-level Mercedes-Benz smart key programming and EIS/EZS diagnostics in Nashville, TN.",
@@ -43,14 +44,7 @@ const mercedesSchema = [
     "uploadDate": "2025-06-27T08:54:03-07:00",
     "embedUrl": "https://www.youtube.com/embed/b7D_mmGUabI",
     "contentUrl": "https://www.youtube.com/watch?v=b7D_mmGUabI",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -192,7 +186,7 @@ const mercedesSchema = [
   </section>
 
   <!-- Main Body Content -->
-  <main class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-16 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
       
       <!-- Real Job Spotlight / Video Section -->
@@ -475,7 +469,7 @@ const mercedesSchema = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="mercedes-benz" label="Mercedes-Benz" />
   <RelatedPost
     href="/blog/chrysler-crossfire-key-replacement-nashville-tn/"

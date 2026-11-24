@@ -13,10 +13,30 @@ const hyundaiSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/hyundai/#service",
     "serviceType": "Hyundai Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "On-site Hyundai smart key fob cutting and immobilizer programming for Elantra, Sonata, Tucson, Santa Fe, Palisade, Kona, and Ioniq in Nashville, TN."
+    "description": "On-site Hyundai smart key fob cutting and immobilizer programming for Elantra, Sonata, Tucson, Santa Fe, Palisade, Kona, and Ioniq in Nashville, TN.",
+    "name": "Hyundai & Genesis Key Replacement & Smart Fob Programming",
+    "image": [
+      "https://armstronglocksmithinc.com/images/2025-hyundai-genesis-smart-key-replacement-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2025-genesis-gv80-push-to-start-key-programming-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/Hyundai-car-key.png"
+    ],
+    "brand": [
+      { "@type": "Brand", "name": "Hyundai" },
+      { "@type": "Brand", "name": "Genesis" }
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "145",
+      "highPrice": "285",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -47,31 +67,6 @@ const hyundaiSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Hyundai & Genesis Key Replacement & Smart Fob Programming",
-    "description": "On-site and storefront Hyundai and Genesis laser key cutting, transponder programming, and proximity key fobs in Nashville, TN.",
-    "image": [
-      "https://armstronglocksmithinc.com/images/2025-hyundai-genesis-smart-key-replacement-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/2025-genesis-gv80-push-to-start-key-programming-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/Hyundai-car-key.png"
-    ],
-    "brand": [
-      { "@type": "Brand", "name": "Hyundai" },
-      { "@type": "Brand", "name": "Genesis" }
-    ],
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "145",
-      "highPrice": "285",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   },
   {
     "@context": "https://schema.org",
@@ -330,7 +325,7 @@ const hyundaiModels = [
   </section>
 
   <!-- ==================== MAIN CONTENT ==================== -->
-  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 font-sans">
+  <div class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 font-sans">
     <div class="max-w-7xl mx-auto flex flex-col gap-12 sm:gap-16">
       
       <!-- Real Nashville Shop Jobs: 2025 Genesis & Hyundai Smart Key Fobs (Exterior & Push-to-Start Test) -->
@@ -686,7 +681,7 @@ const hyundaiModels = [
       </section>
 
     </div>
-  </main>
+  </div>
   
   <ServiceReviews service="hyundai" label="Hyundai" />
   <script is:inline>

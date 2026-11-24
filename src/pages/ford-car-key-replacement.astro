@@ -14,10 +14,30 @@ const fordSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/ford-car-key-replacement/#service",
     "serviceType": "Ford Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "On-site and walk-in Ford and Lincoln car key cutting, push-to-start smart fob programming, and official Ford FDRS dealer-tool diagnostics for F-150, Escape, Explorer, Expedition, Bronco, and Transit in Nashville, TN."
+    "description": "On-site and walk-in Ford and Lincoln car key cutting, push-to-start smart fob programming, and official Ford FDRS dealer-tool diagnostics for F-150, Escape, Explorer, Expedition, Bronco, and Transit in Nashville, TN.",
+    "name": "Ford & Lincoln Key Replacement & Ford FDRS Smart Fob Programming",
+    "image": [
+      "https://armstronglocksmithinc.com/images/2022-ford-escape-push-to-start-key-fdrs-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2022-ford-bronco-smart-key-replacement-nashville.jpg",
+      "https://armstronglocksmithinc.com/images/2022-ford-f150-smart-key-replacement-nashville.jpg"
+    ],
+    "brand": {
+      "@type": "Brand",
+      "name": "Ford"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "120",
+      "highPrice": "325",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -56,31 +76,6 @@ const fordSchema = [
         }
       }
     ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Ford & Lincoln Key Replacement & Ford FDRS Smart Fob Programming",
-    "description": "Mobile and storefront Ford car key cutting, HU101 high-security laser blades, and Ford FDRS push-to-start smart key programming in Nashville, TN.",
-    "image": [
-      "https://armstronglocksmithinc.com/images/2022-ford-escape-push-to-start-key-fdrs-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/2022-ford-bronco-smart-key-replacement-nashville.jpg",
-      "https://armstronglocksmithinc.com/images/2022-ford-f150-smart-key-replacement-nashville.jpg"
-    ],
-    "brand": {
-      "@type": "Brand",
-      "name": "Ford"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "120",
-      "highPrice": "325",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
   },
   {
     "@context": "https://schema.org",
@@ -266,7 +261,7 @@ const fordModels = [
   </section>
 
   <!-- Main Body Content -->
-  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
       
       <!-- Real Nashville Mobile Job Case Study: 2022 Ford Escape Push-to-Start (Ford FDRS) -->
@@ -611,7 +606,7 @@ const fordModels = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="auto" label="Ford & Automotive" />
   <RelatedPost
     href="/blog/2011-dodge-ram-fobik-key-replacement-nashville-shop/"

@@ -16,10 +16,26 @@ const audiSchema = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": "https://armstronglocksmithinc.com/audi-car-keys/#service",
     "serviceType": "Audi Car Key Replacement",
     "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
     "areaServed": ["Nashville", "Brentwood", "Franklin", "Antioch", "Donelson", "Hermitage", "Belle Meade", "Green Hills"],
-    "description": "Mobile and storefront Audi smart key cutting and immobilizer programming for BCM2, MQB, and MLB systems in Nashville, TN."
+    "description": "Mobile and storefront Audi smart key cutting and immobilizer programming for BCM2, MQB, and MLB systems in Nashville, TN.",
+    "name": "Audi Key Replacement & Smart Fob Programming",
+    "image": "https://armstronglocksmithinc.com/images/audi-key-REPLACEMENT-.jpg",
+    "brand": {
+      "@type": "Brand",
+      "name": "Audi"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "195",
+      "highPrice": "395",
+      "priceValidUntil": "2026-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
+    }
   },
   {
     "@context": "https://schema.org",
@@ -53,27 +69,6 @@ const audiSchema = [
   },
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "provider": { "@id": "https://armstronglocksmithinc.com/#locksmith" },
-    "name": "Audi Key Replacement & Smart Fob Programming",
-    "description": "Dealer-level Audi laser key cutting and proximity smart key programming for A and Q series in Nashville, TN.",
-    "image": "https://armstronglocksmithinc.com/images/audi-key-REPLACEMENT-.jpg",
-    "brand": {
-      "@type": "Brand",
-      "name": "Audi"
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "195",
-      "highPrice": "395",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "seller": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
-    }
-  },
-  {
-    "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": "2023 Audi Q7 Spare Smart Key & Laser Key Cutting at Our Nashville Shop | Armstrong Locksmith Inc",
     "description": "Watch Rahim cut the high-security emergency laser door blade inside our walk-in locksmith shop at 208 Thompson Ln in Nashville, TN and test both programmed proximity smart key fobs on this 2023 Audi Q7 outside our storefront.",
@@ -85,14 +80,7 @@ const audiSchema = [
     "duration": "PT1M28S",
     "embedUrl": "https://www.youtube.com/embed/MIqjkPeQGxc",
     "contentUrl": "https://www.youtube.com/watch?v=MIqjkPeQGxc",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   },
   {
     "@context": "https://schema.org",
@@ -105,14 +93,7 @@ const audiSchema = [
     "uploadDate": "2025-01-24T23:25:03-08:00",
     "embedUrl": "https://www.youtube.com/embed/m4YWkHRtITI",
     "contentUrl": "https://www.youtube.com/watch?v=m4YWkHRtITI",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Armstrong Locksmith Inc",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://armstronglocksmithinc.com/logo.webp"
-      }
-    }
+    "publisher": { "@id": "https://armstronglocksmithinc.com/#locksmith" }
   }
 ];
 
@@ -288,7 +269,7 @@ const audiModels = [
   </section>
 
   <!-- Main Content Layout -->
-  <main class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
+  <div class="py-14 sm:py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto flex flex-col gap-14 sm:gap-16">
       
       <!-- Verified Nashville Shop Job: 2023 Audi Q7 Spare Smart Key & Laser Blade -->
@@ -705,7 +686,7 @@ const audiModels = [
       </section>
 
     </div>
-  </main>
+  </div>
   <ServiceReviews service="audi" label="Audi" />
   <RelatedPost
     href="/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/"
