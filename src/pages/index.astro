@@ -110,167 +110,237 @@ const initialReviews = (await getLiveReviews())
           </div>
 
           <div class="p-3.5 sm:p-5">
-            <form id="hero-quote-form" class="flex flex-col gap-2.5 sm:gap-3 text-left" novalidate>
+            <!-- 2-Step Guided Progress Bar with Animated Moving Dot & Arrow -->
+            <div id="quote-step-tracker" class="arm-quote-tracker flex items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-100" data-step="1" aria-label="Quote request progress">
+              <div class="flex items-center gap-1.5 shrink-0">
+                <span id="quote-dot-1" class="w-6 h-6 rounded-full bg-[#0f274a] text-amber-300 text-[11px] font-black flex items-center justify-center shadow-sm transition-colors">1</span>
+                <span id="quote-label-1" class="text-[11px] font-black uppercase tracking-wide text-[#0f274a]">Service</span>
+              </div>
+
+              <!-- Animated Track + Moving Dot & Arrow -->
+              <div class="relative flex-1 h-5 flex items-center mx-1" aria-hidden="true">
+                <div class="w-full h-1.5 rounded-full bg-slate-200 overflow-hidden">
+                  <div id="quote-track-fill" class="h-full w-0 bg-gradient-to-r from-amber-500 to-emerald-500 rounded-full transition-all duration-500 ease-out"></div>
+                </div>
+                <span id="quote-moving-arrow" class="arm-moving-arrow">
+                  <span class="arm-moving-dot"></span>
+                  <svg class="w-3.5 h-3.5 text-[#0f274a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M13 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1.5 shrink-0">
+                <span id="quote-dot-2" class="w-6 h-6 rounded-full bg-slate-200 text-slate-500 text-[11px] font-black flex items-center justify-center transition-all">2</span>
+                <span id="quote-label-2" class="text-[11px] font-bold uppercase tracking-wide text-slate-400 transition-colors">Your Info</span>
+              </div>
+            </div>
+
+            <form id="hero-quote-form" class="flex flex-col text-left" novalidate>
               <!-- Invisible Honeypot Field (Anti-bot) -->
               <div class="hidden" aria-hidden="true" style="display:none!important;">
                 <label for="hp_leave_empty">Leave this field empty</label>
                 <input type="text" id="hp_leave_empty" name="hp_leave_empty" tabindex="-1" autocomplete="off" value="" />
               </div>
 
-              <!-- Step 1: 1-Tap Visual Service Tiles -->
-              <div class="relative" id="quote-service-wrap">
-                <div class="flex items-center justify-between mb-1.5">
-                  <span class="block text-xs font-extrabold text-slate-900">1. Tap Service Needed *</span>
-                  <span id="quote-service-badge" class="hidden text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded"></span>
-                </div>
-                <select 
-                  id="quote-service" 
-                  name="service" 
-                  tabindex="-1"
-                  aria-hidden="true"
-                  class="sr-only"
-                >
-                  <option value="">Select a service...</option>
-                  <option value="Car Key Replacement">Car Key Replacement</option>
-                  <option value="Key Fob Programming">Spare Key &amp; Fob Programming</option>
-                  <option value="European Specialist">European Car Keys (BMW, Benz, Audi)</option>
-                  <option value="Emergency Car Lockout">Emergency Car Lockout</option>
-                  <option value="House Lockout / Rekey">House Rekey or Lockout</option>
-                  <option value="Commercial Locksmith">Commercial Locks &amp; Hardware</option>
-                  <option value="Other">Other Locksmith Service</option>
-                </select>
+              <!-- Hidden native select synced by the 1-tap tiles -->
+              <select 
+                id="quote-service" 
+                name="service" 
+                tabindex="-1"
+                aria-hidden="true"
+                class="sr-only"
+              >
+                <option value="">Select a service...</option>
+                <option value="Car Key Replacement">Car Key Replacement</option>
+                <option value="Key Fob Programming">Spare Key &amp; Fob Programming</option>
+                <option value="European Specialist">European Car Keys (BMW, Benz, Audi)</option>
+                <option value="Emergency Car Lockout">Emergency Car Lockout</option>
+                <option value="House Lockout / Rekey">House Rekey or Lockout</option>
+                <option value="Commercial Locksmith">Commercial Locks &amp; Hardware</option>
+                <option value="Other">Other Locksmith Service</option>
+              </select>
 
-                <div class="grid grid-cols-2 gap-2" role="group" aria-label="Primary locksmith services">
-                  <button
-                    type="button"
-                    data-value="Car Key Replacement"
-                    aria-pressed="false"
-                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
-                  >
-                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Car Key / Fob</span>
-                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Lost or spare key</span>
-                  </button>
-                  <button
-                    type="button"
-                    data-value="House Lockout / Rekey"
-                    aria-pressed="false"
-                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
-                  >
-                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Home Rekey</span>
-                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">$20/cyl shop or mobile</span>
-                  </button>
-                  <button
-                    type="button"
-                    data-value="Emergency Car Lockout"
-                    aria-pressed="false"
-                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
-                  >
-                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Locked Out</span>
-                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Damage-free unlock</span>
-                  </button>
-                  <button
-                    type="button"
-                    data-value="Commercial Locksmith"
-                    aria-pressed="false"
-                    class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
-                  >
-                    <span class="block text-xs font-black text-[#0f274a] leading-tight">Commercial</span>
-                    <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Storefront, keypad, exit</span>
-                  </button>
+              <!-- STEP 1: Tap Your Service Tile -->
+              <div id="quote-step-1" class="arm-step-panel flex flex-col gap-2.5">
+                <div class="relative" id="quote-service-wrap">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="block text-xs font-extrabold text-slate-900">Tap what you need to start &rarr;</span>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2" role="group" aria-label="Primary locksmith services">
+                    <button
+                      type="button"
+                      data-value="Car Key Replacement"
+                      aria-pressed="false"
+                      class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/70 text-left cursor-pointer transition flex items-center justify-between gap-1.5 group"
+                    >
+                      <span class="min-w-0">
+                        <span class="arm-tile-title block text-xs font-black text-[#0f274a] leading-tight">Car Key / Fob</span>
+                        <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Lost or spare key</span>
+                      </span>
+                      <span class="text-amber-600 font-black text-xs shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">&rarr;</span>
+                    </button>
+                    <button
+                      type="button"
+                      data-value="House Lockout / Rekey"
+                      aria-pressed="false"
+                      class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/70 text-left cursor-pointer transition flex items-center justify-between gap-1.5 group"
+                    >
+                      <span class="min-w-0">
+                        <span class="arm-tile-title block text-xs font-black text-[#0f274a] leading-tight">Home Rekey</span>
+                        <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">$20/cyl shop or mobile</span>
+                      </span>
+                      <span class="text-amber-600 font-black text-xs shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">&rarr;</span>
+                    </button>
+                    <button
+                      type="button"
+                      data-value="Emergency Car Lockout"
+                      aria-pressed="false"
+                      class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/70 text-left cursor-pointer transition flex items-center justify-between gap-1.5 group"
+                    >
+                      <span class="min-w-0">
+                        <span class="arm-tile-title block text-xs font-black text-[#0f274a] leading-tight">Locked Out</span>
+                        <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Damage-free unlock</span>
+                      </span>
+                      <span class="text-amber-600 font-black text-xs shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">&rarr;</span>
+                    </button>
+                    <button
+                      type="button"
+                      data-value="Commercial Locksmith"
+                      aria-pressed="false"
+                      class="arm-service-tile p-2.5 rounded-lg border border-slate-300 bg-slate-50 hover:border-amber-500 hover:bg-amber-50/70 text-left cursor-pointer transition flex items-center justify-between gap-1.5 group"
+                    >
+                      <span class="min-w-0">
+                        <span class="arm-tile-title block text-xs font-black text-[#0f274a] leading-tight">Commercial</span>
+                        <span class="block text-[10px] text-slate-600 font-semibold mt-0.5 leading-tight">Storefront, keypad, exit</span>
+                      </span>
+                      <span class="text-amber-600 font-black text-xs shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">&rarr;</span>
+                    </button>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2 mt-2" role="group" aria-label="Additional locksmith services">
+                    <button
+                      type="button"
+                      data-value="European Specialist"
+                      aria-pressed="false"
+                      class="arm-service-tile px-2.5 py-2 rounded-lg border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50/70 text-left cursor-pointer transition flex items-center justify-between gap-1 group"
+                    >
+                      <span class="min-w-0">
+                        <span class="arm-tile-title block text-[11px] font-extrabold text-[#0f274a] leading-tight">European Keys</span>
+                        <span class="block text-[10px] text-slate-500 font-medium leading-tight truncate">BMW, Benz, Audi, Volvo</span>
+                      </span>
+                      <span class="text-amber-600 font-black text-xs shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">&rarr;</span>
+                    </button>
+                    <button
+                      type="button"
+                      data-value="Other"
+                      aria-pressed="false"
+                      class="arm-service-tile px-2.5 py-2 rounded-lg border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50/70 text-left cursor-pointer transition flex items-center justify-between gap-1 group"
+                    >
+                      <span class="min-w-0">
+                        <span class="arm-tile-title block text-[11px] font-extrabold text-[#0f274a] leading-tight">Other Service</span>
+                        <span class="block text-[10px] text-slate-500 font-medium leading-tight truncate">Ignition, mailbox, other</span>
+                      </span>
+                      <span class="text-amber-600 font-black text-xs shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">&rarr;</span>
+                    </button>
+                  </div>
+
+                  <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1.5 block">Please tap the service you need above.</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2 mt-1.5" role="group" aria-label="Additional locksmith services">
-                  <button
-                    type="button"
-                    data-value="European Specialist"
-                    aria-pressed="false"
-                    class="arm-service-tile px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
-                  >
-                    <span class="block text-[11px] font-extrabold text-[#0f274a] leading-tight">European Keys</span>
-                    <span class="block text-[10px] text-slate-500 font-medium leading-tight truncate">BMW, Benz, Audi, Volvo</span>
-                  </button>
-                  <button
-                    type="button"
-                    data-value="Other"
-                    aria-pressed="false"
-                    class="arm-service-tile px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50/60 text-left cursor-pointer transition"
-                  >
-                    <span class="block text-[11px] font-extrabold text-[#0f274a] leading-tight">Other Service</span>
-                    <span class="block text-[10px] text-slate-500 font-medium leading-tight truncate">Ignition, mailbox, other</span>
-                  </button>
+                <div class="text-[11px] text-slate-600 text-center font-semibold flex items-center justify-center gap-1.5 pt-1">
+                  <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span>Sent Directly to Rahim &bull; 208 Thompson Ln &bull; Upfront Flat Rates</span>
                 </div>
-
-                <span id="service-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please tap the service you need above.</span>
               </div>
 
-              <!-- Dynamic Emergency Lockout Alert (Hidden by default, slides open if Emergency Lockout is chosen) -->
-              <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs rounded-md flex items-center justify-between gap-2 transition-all">
-                <div class="leading-tight">
-                  <span class="font-black text-red-900 block">Locked out right now?</span>
-                  <span class="text-[11px] text-red-800">Call the shop directly for the fastest response.</span>
+              <!-- STEP 2: Name, Phone & Specific Request Details (Revealed automatically on tile tap) -->
+              <div id="quote-step-2" class="arm-step-panel hidden flex-col gap-2.5 sm:gap-3">
+                <!-- Selected Service Summary Bar + Back Button -->
+                <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-amber-50 border border-amber-300">
+                  <div class="flex items-center gap-1.5 min-w-0">
+                    <span class="w-4 h-4 rounded-full bg-emerald-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">&#10003;</span>
+                    <span id="quote-service-badge" class="text-xs font-black text-[#0f274a] truncate">Car Key / Fob</span>
+                  </div>
+                  <button
+                    type="button"
+                    id="quote-back-btn"
+                    class="shrink-0 text-[11px] font-extrabold text-[#0f274a] hover:text-amber-700 underline underline-offset-2 cursor-pointer"
+                  >
+                    &larr; Change
+                  </button>
                 </div>
-                <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider rounded active:scale-95 transition shadow-sm">
-                  Call (615) 625-8000
-                </a>
-              </div>
 
-              <!-- Step 2: Side-by-Side Name & Phone (Compact on Mobile) -->
-              <div class="grid grid-cols-2 gap-2.5">
+                <!-- Dynamic Emergency Lockout Alert (Shown if Locked Out is chosen) -->
+                <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs rounded-md flex items-center justify-between gap-2 transition-all">
+                  <div class="leading-tight">
+                    <span class="font-black text-red-900 block">Locked out right now?</span>
+                    <span class="text-[11px] text-red-800">Call the shop directly for the fastest response.</span>
+                  </div>
+                  <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider rounded active:scale-95 transition shadow-sm">
+                    Call (615) 625-8000
+                  </a>
+                </div>
+
+                <!-- Side-by-Side Name & Phone -->
+                <div class="grid grid-cols-2 gap-2.5">
+                  <div>
+                    <label for="quote-name" class="block text-xs font-extrabold text-slate-900 mb-1">Your Name *</label>
+                    <input 
+                      type="text" 
+                      id="quote-name" 
+                      name="name" 
+                      required 
+                      placeholder="John Smith" 
+                      class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                    />
+                    <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
+                  </div>
+                  <div>
+                    <label for="quote-phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
+                    <input 
+                      type="tel" 
+                      id="quote-phone" 
+                      name="phone" 
+                      required 
+                      placeholder="(615) 000-0000" 
+                      class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
+                    />
+                    <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Enter a valid phone.</span>
+                  </div>
+                </div>
+
+                <!-- Required Request Details (Sent directly to Dispatch AI + SMS/Email) -->
                 <div>
-                  <label for="quote-name" class="block text-xs font-extrabold text-slate-900 mb-1">Your Name *</label>
+                  <label id="quote-details-label" for="quote-details" class="block text-xs font-extrabold text-slate-900 mb-1">What Do You Need? (Vehicle, Locks or Door) *</label>
                   <input 
                     type="text" 
-                    id="quote-name" 
-                    name="name" 
-                    required 
-                    placeholder="John Smith" 
+                    id="quote-details" 
+                    name="details" 
+                    required
+                    placeholder="e.g. 2019 Ford F-150 lost key, 4 house locks, or storefront door" 
                     class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
                   />
-                  <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
+                  <span id="details-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please tell us your vehicle, lock, or door details so we can quote you.</span>
                 </div>
-                <div>
-                  <label for="quote-phone" class="block text-xs font-extrabold text-slate-900 mb-1">Phone Number *</label>
-                  <input 
-                    type="tel" 
-                    id="quote-phone" 
-                    name="phone" 
-                    required 
-                    placeholder="(615) 000-0000" 
-                    class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
-                  />
-                  <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Enter a valid phone.</span>
+
+                <!-- Server / Network Error Alert -->
+                <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center rounded-md">
+                  We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
                 </div>
-              </div>
 
-              <!-- Step 3: Required Request Details (Sent directly to Dispatch AI + SMS/Email) -->
-              <div>
-                <label id="quote-details-label" for="quote-details" class="block text-xs font-extrabold text-slate-900 mb-1">What Do You Need? (Vehicle, Locks or Door) *</label>
-                <input 
-                  type="text" 
-                  id="quote-details" 
-                  name="details" 
-                  required
-                  placeholder="e.g. 2019 Ford F-150 lost key, 4 house locks, or storefront door" 
-                  class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md focus:border-amber-500 outline-none text-slate-950 placeholder:text-slate-400 font-medium"
-                />
-                <span id="details-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please tell us your vehicle, lock, or door details so we can quote you.</span>
-              </div>
-
-              <!-- Server / Network Error Alert -->
-              <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center rounded-md">
-                We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
-              </div>
-
-              <button 
-                type="submit" 
-                id="quote-submit-btn"
-                class="w-full mt-0.5 py-3.5 px-6 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:to-emerald-600 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-lg shadow-[0_8px_20px_-2px_rgba(5,150,105,0.45)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-emerald-800 disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                <span>Text Me a Flat Quote &rarr;</span>
-              </button>
-              <div class="text-[11px] text-slate-600 text-center font-semibold flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Sent Directly to Rahim &bull; 208 Thompson Ln &bull; Upfront Flat Rates</span>
+                <button 
+                  type="submit" 
+                  id="quote-submit-btn"
+                  class="w-full mt-0.5 py-3.5 px-6 bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:to-emerald-600 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-lg shadow-[0_8px_20px_-2px_rgba(5,150,105,0.45)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer border-b-2 border-emerald-800 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  <span>Text Me a Flat Quote &rarr;</span>
+                </button>
+                <div class="text-[11px] text-slate-600 text-center font-semibold flex items-center justify-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                  <span>Sent Directly to Rahim &bull; 208 Thompson Ln &bull; Upfront Flat Rates</span>
+                </div>
               </div>
             </form>
 
@@ -794,6 +864,15 @@ const initialReviews = (await getLiveReviews())
       const serviceWrap = document.getElementById('quote-service-wrap');
       const serviceBadge = document.getElementById('quote-service-badge');
       const serviceTiles = serviceWrap ? Array.from(serviceWrap.querySelectorAll('.arm-service-tile')) : [];
+      const stepTracker = document.getElementById('quote-step-tracker');
+      const step1Panel = document.getElementById('quote-step-1');
+      const step2Panel = document.getElementById('quote-step-2');
+      const backBtn = document.getElementById('quote-back-btn');
+      const dot1 = document.getElementById('quote-dot-1');
+      const dot2 = document.getElementById('quote-dot-2');
+      const label1 = document.getElementById('quote-label-1');
+      const label2 = document.getElementById('quote-label-2');
+      const trackFill = document.getElementById('quote-track-fill');
       const detailsInput = document.getElementById('quote-details');
       const detailsLabel = document.getElementById('quote-details-label');
       const honeypotInput = document.getElementById('hp_leave_empty');
@@ -802,6 +881,68 @@ const initialReviews = (await getLiveReviews())
       const phoneError = document.getElementById('phone-error');
       const serviceError = document.getElementById('service-error');
       const detailsError = document.getElementById('details-error');
+
+      function setQuoteStep(stepNum) {
+        if (stepTracker) stepTracker.setAttribute('data-step', String(stepNum));
+        if (stepNum === 2) {
+          if (step1Panel) step1Panel.classList.add('hidden');
+          if (step2Panel) {
+            step2Panel.classList.remove('hidden');
+            step2Panel.classList.add('flex', 'arm-step-enter');
+          }
+          if (trackFill) trackFill.style.width = '100%';
+          if (dot1) {
+            dot1.textContent = '✓';
+            dot1.classList.remove('bg-[#0f274a]', 'text-amber-300');
+            dot1.classList.add('bg-emerald-600', 'text-white');
+          }
+          if (label1) {
+            label1.classList.remove('text-[#0f274a]');
+            label1.classList.add('text-emerald-700');
+          }
+          if (dot2) {
+            dot2.classList.remove('bg-slate-200', 'text-slate-500');
+            dot2.classList.add('bg-[#0f274a]', 'text-amber-300', 'ring-2', 'ring-amber-400');
+          }
+          if (label2) {
+            label2.classList.remove('text-slate-400', 'font-bold');
+            label2.classList.add('text-[#0f274a]', 'font-black');
+          }
+        } else {
+          if (step2Panel) {
+            step2Panel.classList.add('hidden');
+            step2Panel.classList.remove('flex', 'arm-step-enter');
+          }
+          if (step1Panel) {
+            step1Panel.classList.remove('hidden');
+            step1Panel.classList.add('arm-step-enter');
+          }
+          if (trackFill) trackFill.style.width = '0%';
+          if (dot1) {
+            dot1.textContent = '1';
+            dot1.classList.remove('bg-emerald-600', 'text-white');
+            dot1.classList.add('bg-[#0f274a]', 'text-amber-300');
+          }
+          if (label1) {
+            label1.classList.remove('text-emerald-700');
+            label1.classList.add('text-[#0f274a]');
+          }
+          if (dot2) {
+            dot2.classList.remove('bg-[#0f274a]', 'text-amber-300', 'ring-2', 'ring-amber-400');
+            dot2.classList.add('bg-slate-200', 'text-slate-500');
+          }
+          if (label2) {
+            label2.classList.remove('text-[#0f274a]', 'font-black');
+            label2.classList.add('text-slate-400', 'font-bold');
+          }
+        }
+      }
+
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          setQuoteStep(1);
+        });
+      }
 
       const detailsPrompts = {
         'Car Key Replacement': {
@@ -875,7 +1016,7 @@ const initialReviews = (await getLiveReviews())
         serviceTiles.forEach(function (tile) {
           tile.addEventListener('click', function () {
             const val = tile.getAttribute('data-value') || '';
-            const titleEl = tile.querySelector('span');
+            const titleEl = tile.querySelector('.arm-tile-title');
             serviceSelect.value = val;
             serviceTiles.forEach(function (t) {
               t.setAttribute('aria-pressed', 'false');
@@ -886,10 +1027,13 @@ const initialReviews = (await getLiveReviews())
             tile.classList.remove('border', 'border-slate-300', 'border-red-400');
             tile.classList.add('border-2', 'border-amber-500', 'bg-amber-50', 'ring-2', 'ring-amber-300/60');
             if (serviceBadge && titleEl) {
-              serviceBadge.textContent = titleEl.textContent + ' ✓';
-              serviceBadge.classList.remove('hidden');
+              serviceBadge.textContent = titleEl.textContent;
             }
             serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            setQuoteStep(2);
+            if (nameInput) {
+              setTimeout(function () { nameInput.focus({ preventScroll: true }); }, 160);
+            }
           });
         });
       }
@@ -967,6 +1111,7 @@ const initialReviews = (await getLiveReviews())
 
           function showSuccessState() {
             form.classList.add('hidden');
+            if (stepTracker) stepTracker.classList.add('hidden');
             if (successMsg) {
               successMsg.classList.remove('hidden');
               if (typeof gtag === 'function') {
@@ -1121,5 +1266,54 @@ const initialReviews = (await getLiveReviews())
       }
     })();
   </script>
+
+  <style is:inline>
+    .arm-moving-arrow {
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: #fffbeb;
+      border: 1.5px solid #f59e0b;
+      border-radius: 9999px;
+      padding: 2px 5px 2px 4px;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.28);
+      transition: left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: armArrowNudge 1.8s ease-in-out infinite;
+    }
+    .arm-moving-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 9999px;
+      background: #f59e0b;
+      display: inline-block;
+    }
+    .arm-quote-tracker[data-step="2"] .arm-moving-arrow {
+      left: calc(100% - 34px);
+      background: #ecfdf5;
+      border-color: #10b981;
+      animation: none;
+    }
+    .arm-quote-tracker[data-step="2"] .arm-moving-dot {
+      background: #10b981;
+    }
+    @keyframes armArrowNudge {
+      0%, 100% { transform: translate(0, -50%); }
+      50% { transform: translate(7px, -50%); }
+    }
+    @keyframes armStepFade {
+      from { opacity: 0; transform: translateX(8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .arm-step-enter {
+      animation: armStepFade 0.25s ease-out both;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .arm-moving-arrow, .arm-step-enter { animation: none; transition: none; }
+    }
+  </style>
 
 </Layout>
