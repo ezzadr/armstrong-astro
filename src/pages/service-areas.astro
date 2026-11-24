@@ -116,7 +116,7 @@ const serviceAreas = [
     name: "Donelson & Nashville Airport (BNA)",
     county: "davidson",
     zips: "37214",
-    tag: "Airport Priority Dispatch",
+    tag: "Airport Priority Service",
     desc: "Landed at BNA and can't find your car keys or locked them in the trunk? Our mobile locksmith vans drive straight to airport parking garages and Donelson neighborhoods to open your locked car and make new keys on the spot.",
     features: ["BNA Airport Parking Assistance", "Replacement Keys Made on Site", "Damage-Free Car Unlocking"],
     blogHref: "/blog/audi-key-replacement-near-donelson-hermitage-nashville-airport/",
@@ -163,8 +163,8 @@ const serviceAreas = [
     tag: "Scheduled Keys & Commercial Rekeys",
     desc: "Mobile car key programming, commercial office rekeying, and residential deadbolt service across Cool Springs and Franklin down the I-65 corridor.",
     features: ["Office & Commercial Rekeying", "Keyless Entry Deadbolts", "Push-to-Start Smart Key Fobs"],
-    blogHref: "/blog/home-rekey-vs-lock-replacement-whats-best-for-brentwood-residents/",
-    blogLabel: "Home Rekey vs. Lock Replacement Guide →"
+    blogHref: "/blog/franklin-tn-lock-rekey-keypad-deadbolt-installation/",
+    blogLabel: "Read our Franklin, TN home rekey & keypad job →"
   }
 ];
 
@@ -183,7 +183,7 @@ const areaFaqs = [
   },
   {
     q: "What are your walk-in shop and mobile locksmith hours?",
-    a: `Our walk-in locksmith shop at 208 Thompson Ln is open Monday–Friday ${storeWeekdays} and Saturday ${storeSaturday}. Our mobile locksmith vans dispatch across Nashville, Brentwood, Antioch, and Hermitage Monday–Friday ${mobileWeekdays} and Saturday ${mobileSaturday} (closed Sunday).`
+    a: `Our walk-in locksmith shop at 208 Thompson Ln is open Monday–Friday ${storeWeekdays} and Saturday ${storeSaturday}. Our mobile locksmith vans serve Nashville, Brentwood, Antioch, and Hermitage Monday–Friday ${mobileWeekdays} and Saturday ${mobileSaturday} (closed Sunday).`
   }
 ];
 
@@ -538,6 +538,40 @@ const serviceAreasSchema = [
         ))}
       </div>
 
+      <!-- Quick-Reference Middle TN Coverage & ZIP Code Table -->
+      <div class="mt-10 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden text-left">
+        <div class="p-5 border-b border-slate-200 bg-slate-50/70">
+          <h3 class="text-base sm:text-lg font-black text-[#0f274a] font-heading uppercase">
+            Middle Tennessee Service Areas &amp; ZIP Codes at a Glance
+          </h3>
+          <p class="text-xs text-slate-600 mt-0.5">
+            All mobile vans operate directly out of our storefront at <strong>208 Thompson Ln, Nashville, TN 37211</strong>.
+          </p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-[#0f274a] text-white">
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">Area / City</th>
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">ZIP Codes</th>
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">County</th>
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">Key Services</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              {serviceAreas.map((area, idx) => (
+                <tr class={idx % 2 === 1 ? "bg-slate-50/40 hover:bg-slate-50" : "hover:bg-slate-50"}>
+                  <td class="py-2.5 px-4 font-bold text-[#0f274a]">{area.name}</td>
+                  <td class="py-2.5 px-4 font-mono text-xs">{area.zips}</td>
+                  <td class="py-2.5 px-4 capitalize">{area.county} County</td>
+                  <td class="py-2.5 px-4">{area.features.join(' · ')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -545,7 +579,7 @@ const serviceAreasSchema = [
   <section class="py-12 sm:py-16 bg-white px-4 sm:px-6 lg:px-8 border-b border-slate-200">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-8">
-        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1">Local Dispatch &amp; Walk-In Questions</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1">Local Mobile &amp; Walk-In Questions</span>
         <h2 class="text-2xl sm:text-3xl font-black text-[#0f274a] font-heading uppercase">
           Brentwood, Antioch &amp; Hermitage Locksmith FAQs
         </h2>

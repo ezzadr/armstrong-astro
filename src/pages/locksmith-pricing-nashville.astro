@@ -248,7 +248,7 @@ const pricingSchema = [
         "name": "Why do your prices say 'starting at'?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every vehicle year, key technology, and lock manufacturer is unique. A 2005 Ford key requires a basic mechanical cut and transponder chip, while a 2024 BMW requires high-security encrypted immobilizer pairing. When you call us, we ask for your vehicle year, make, and model to give you an exact, firm total quote before dispatching."
+          "text": "Every vehicle year, key technology, and lock manufacturer is unique. A 2005 Ford key requires a basic mechanical cut and transponder chip, while a 2024 BMW requires high-security encrypted immobilizer pairing. When you call us, we ask for your vehicle year, make, and model to give you an exact, firm total quote before our van heads out."
         }
       },
       {
@@ -256,7 +256,7 @@ const pricingSchema = [
         "name": "How does your service call fee work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "If you visit our physical storefront at 208 Thompson Ln, there is a $0 service call fee—you pay only for keys, cutting, and hardware. For mobile on-site service, our service call fee varies depending on your travel distance from our shop and the time of call (standard hours vs. late night/weekend emergency). We provide an exact, firm total quote over the phone before dispatching our van."
+          "text": "If you visit our physical storefront at 208 Thompson Ln, there is a $0 service call fee—you pay only for keys, cutting, and hardware. For mobile on-site service, our service call fee varies depending on your travel distance from our shop and the time of call (standard hours vs. evening/weekend emergency). We provide an exact, firm total quote over the phone before our technician heads out."
         }
       },
       {
@@ -309,15 +309,15 @@ const pricingSchema = [
         <span class="text-amber-400">Pricing Guide (2026)</span>
       </h1>
       <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 font-normal leading-relaxed">
-        Honest, straightforward rates from our physical shop at 208 Thompson Ln. We quote your exact, firm total over the phone before dispatching.
+        Honest, straightforward rates from our physical shop at 208 Thompson Ln. We quote your exact, firm total over the phone before our van heads out.
       </p>
 
       <div class="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-slate-700/60 text-xs font-semibold text-slate-300">
         <span class="flex items-center gap-1.5 text-amber-300">
-          <span class="text-base">&#10003;</span> Firm Quotes Before Van Dispatch
+          <span class="text-base">&#10003;</span> Firm Quotes Before Van Arrival
         </span>
         <span class="flex items-center gap-1.5 text-amber-300">
-          <span class="text-base">&#10003;</span> $0 Dispatch Fee for In-Store Walk-Ins
+          <span class="text-base">&#10003;</span> $0 Service Call Fee for In-Store Walk-Ins
         </span>
         <span class="flex items-center gap-1.5 text-amber-300">
           <span class="text-base">&#10003;</span> 100% Damage-Free Guarantee
@@ -382,6 +382,53 @@ const pricingSchema = [
           <span class="text-2xl font-black text-emerald-700 font-heading mt-3 block">$125+</span>
         </div>
       </div>
+
+      <!-- Scannable 2026 Starting Price Summary Table -->
+      <div class="mt-6 bg-white border border-slate-200 shadow-sm overflow-hidden text-left">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-[#0f274a] text-white">
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">Nashville Locksmith Service</th>
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">Starting Price</th>
+                <th class="py-2.5 px-4 font-bold uppercase tracking-wider text-[11px]">Where Performed</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr class="hover:bg-slate-50">
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">Walk-In Service Call Fee (208 Thompson Ln)</td>
+                <td class="py-2.5 px-4 font-bold text-emerald-700">$0</td>
+                <td class="py-2.5 px-4">Nashville Walk-In Shop</td>
+              </tr>
+              <tr class="bg-slate-50/40 hover:bg-slate-50">
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">In-Shop Lock Cylinder Rekey</td>
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">$20 / cylinder</td>
+                <td class="py-2.5 px-4">208 Thompson Ln Shop</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">Emergency Car Lockout (Standard / High-Security Euro)</td>
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">$65+ / $85+</td>
+                <td class="py-2.5 px-4">Mobile Van On-Site</td>
+              </tr>
+              <tr class="bg-slate-50/40 hover:bg-slate-50">
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">Transponder / Remote Head / Smart Proximity Fob</td>
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">$95+ / $120+ / $145+</td>
+                <td class="py-2.5 px-4">Shop or Mobile Van</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">European Car Key (BMW, Mercedes, Audi, Volvo, Land Rover)</td>
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">$180+</td>
+                <td class="py-2.5 px-4">Shop or Mobile Van (Zero Tow)</td>
+              </tr>
+              <tr class="bg-slate-50/40 hover:bg-slate-50">
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">Emergency House Lockout / Commercial Storefront Lockout</td>
+                <td class="py-2.5 px-4 font-bold text-[#0f274a]">$85+ / $125+</td>
+                <td class="py-2.5 px-4">Mobile Van On-Site</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -395,7 +442,7 @@ const pricingSchema = [
               Clear Pricing Policy
             </span>
             <h2 class="text-lg sm:text-xl font-bold font-heading uppercase text-[#0f274a]">
-              How Our Service Call &amp; Dispatch Pricing Works
+              How Our Service Call &amp; Mobile Pricing Works
             </h2>
           </div>
           <a href="tel:6156258000" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0f274a] hover:bg-[#14325a] text-white text-xs font-bold uppercase tracking-wider shrink-0 transition">
@@ -416,8 +463,8 @@ const pricingSchema = [
           <div class="flex items-start gap-3">
             <span class="text-lg text-amber-600 shrink-0 mt-0.5">&#10003;</span>
             <div>
-              <strong class="text-slate-900 block font-bold">Mobile On-Site Dispatch (Distance &amp; Time-Based):</strong>
-              When you need our fully equipped mobile locksmith van dispatched to your driveway, business, or roadside location, our service call rate adjusts fairly based on your exact travel distance and the time of call (standard daytime vs. late-night or weekend emergency). We give you a firm total before dispatching.
+              <strong class="text-slate-900 block font-bold">Mobile On-Site Service Call (Distance &amp; Time-Based):</strong>
+              When you need our fully equipped mobile locksmith van to come to your driveway, business, or roadside location, our service call rate adjusts fairly based on your exact travel distance and the time of call (standard daytime vs. evening or weekend service). We give you a firm total before our van rolls out.
             </div>
           </div>
         </div>
@@ -554,7 +601,7 @@ const pricingSchema = [
             How to Avoid "$15 Locksmith" Bait-and-Switch Scams
           </h2>
           <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Out-of-state dispatch centers place search ads quoting unrealistic $15–$19 fees. Once on-site, untrained subcontractors drill out functioning locks and bill victims $250 to $450+. Armstrong Locksmith operates a permanent walk-in storefront at <strong>208 Thompson Ln ($0 service call fee)</strong> and gives you a firm total before dispatch.
+            Out-of-state call centers place search ads quoting unrealistic $15–$19 fees. Once on-site, untrained subcontractors drill out functioning locks and bill victims $250 to $450+. Armstrong Locksmith operates a permanent walk-in storefront at <strong>208 Thompson Ln ($0 service call fee)</strong> and gives you a firm total before we head out.
           </p>
           <div class="pt-2 flex flex-wrap gap-3">
             <a href="tel:6156258000" class="px-5 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider text-center transition">
@@ -562,6 +609,9 @@ const pricingSchema = [
             </a>
             <a href="/nashville-locksmith-storefront/" class="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold uppercase tracking-wider text-center border border-slate-300 transition">
               See Our 208 Thompson Ln Shop &rarr;
+            </a>
+            <a href="/blog/real-locksmith-vs-dispatch-center-nashville/" class="px-5 py-3 bg-white hover:bg-slate-50 text-[#0f274a] text-xs font-bold uppercase tracking-wider text-center border border-slate-300 transition">
+              How to Spot Scam Call Centers &rarr;
             </a>
           </div>
         </div>
@@ -589,14 +639,14 @@ const pricingSchema = [
           <div class="p-5 bg-white border border-slate-200 space-y-2">
             <h3 class="font-bold text-[#0f274a] text-sm sm:text-base">Why do prices say "starting at"?</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Every lock and vehicle keyway differs. A standard domestic key requires basic cutting, while an encrypted European smart fob requires diagnostic computer sync. When you call, we ask for your vehicle year/make/model to give you an exact, firm price before dispatch.
+              Every lock and vehicle keyway differs. A standard domestic key requires basic cutting, while an encrypted European smart fob requires diagnostic computer sync. When you call, we ask for your vehicle year/make/model to give you an exact, firm price before our van heads out.
             </p>
           </div>
 
           <div class="p-5 bg-white border border-slate-200 space-y-2">
             <h3 class="font-bold text-[#0f274a] text-sm sm:text-base">How does your mobile service call work?</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              In-shop walk-ins have a <strong>$0 service call fee</strong> at our storefront. For mobile vans, dispatch rates depend on travel distance and time of day (standard hours vs. late night/weekend emergency). You receive a firm phone quote before we roll out.
+              In-shop walk-ins have a <strong>$0 service call fee</strong> at our storefront. For mobile vans, service call rates depend on travel distance and time of day (standard hours vs. evening/weekend service). You receive a firm phone quote before we roll out.
             </p>
           </div>
 

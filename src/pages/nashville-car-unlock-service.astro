@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getReviewStats } from '../lib/reviewStats.mjs';
 const { reviewCount, ratingValue } = await getReviewStats();
 import ServiceReviews from '../components/ServiceReviews.astro';
+import RelatedPost from '../components/RelatedPost.astro';
 
 const seoTitle = `Car Unlock Service Nashville TN | Mobile Car Door Unlock`;
 const seoDescription = `Damage-free mobile car unlock service in Nashville, TN. We pick door cylinders & unlock trunks on cars, trucks, and deadlocked vehicles. Call (615) 625-8000.`;
@@ -77,7 +78,7 @@ const serviceSchema = {
         </h1>
 
         <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
-          Keys locked on the front seat, trapped in the trunk, or stuck inside a running engine? Armstrong Locksmith dispatches fully equipped mobile vans directly to your vehicle anywhere in Davidson or Williamson County. We pick locks cleanly—no bent doors, no scratched paint, no sliced weatherstrips.
+          Keys locked on the front seat, trapped in the trunk, or stuck inside a running engine? Armstrong Locksmith sends fully equipped mobile vans directly to your vehicle anywhere in Davidson or Williamson County. We pick locks cleanly—no bent doors, no scratched paint, no sliced weatherstrips.
         </p>
 
         <!-- CTA Buttons -->
@@ -262,42 +263,42 @@ const serviceSchema = {
   </section>
 
   <!-- ==================== 3 STEPS ==================== -->
-  <section class="py-14 sm:py-16 bg-slate-900 text-white px-4 sm:px-6 lg:px-8">
+  <section class="py-14 sm:py-16 bg-slate-50 text-slate-900 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
     <div class="max-w-6xl mx-auto text-center">
       
-      <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-2">How It Works</span>
-      <h2 class="text-2xl sm:text-4xl font-black font-heading font-black uppercase tracking-tight text-white mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-amber-600 block mb-2">How It Works</span>
+      <h2 class="text-2xl sm:text-4xl font-black font-heading font-black uppercase tracking-tight text-[#0f274a] mb-10">
         Getting You Back Inside Your Car
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
           <span class="w-10 h-10 rounded-full bg-gold-metallic text-slate-950 font-black text-lg flex items-center justify-center mb-4">
             1
           </span>
-          <h3 class="text-lg font-bold text-white font-heading font-black uppercase mb-2"><a href="tel:6156258000" class="hover:text-amber-300 transition">Call (615) 625-8000</a></h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2"><a href="tel:6156258000" class="hover:text-amber-700 transition">Call (615) 625-8000</a></h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Tell us your vehicle's year, make, model, and where you're parked. We give you a clear, honest price quote right over the phone.
           </p>
         </div>
 
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
           <span class="w-10 h-10 rounded-full bg-gold-metallic text-slate-950 font-black text-lg flex items-center justify-center mb-4">
             2
           </span>
-          <h3 class="text-lg font-bold text-white font-heading font-black uppercase mb-2">Mobile Van Dispatched</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">Mobile Van On Its Way</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             A certified technician drives to your exact location in a fully stocked locksmith van equipped with specialized lock-picking tools and key cutting machinery.
           </p>
         </div>
 
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
           <span class="w-10 h-10 rounded-full bg-gold-metallic text-slate-950 font-black text-lg flex items-center justify-center mb-4">
             3
           </span>
-          <h3 class="text-lg font-bold text-white font-heading font-black uppercase mb-2">Safe Entry & Back on the Road</h3>
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-[#0f274a] font-heading font-black uppercase mb-2">Safe Entry &amp; Back on the Road</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             We pick or bypass the lock damage-free, verify your ownership documents, hand you your keys, and make a spare key on the spot if you need one.
           </p>
         </div>
@@ -307,7 +308,7 @@ const serviceSchema = {
       <div class="mt-10">
         <a 
           href="tel:6156258000" 
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider shadow-2xl transition active:scale-95 border border-emerald-400/40"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gold-metallic hover:bg-amber-400 text-slate-950 font-black text-base uppercase tracking-wider shadow-lg transition active:scale-95 border-b-2 border-amber-600"
         >
           <span>Call (615) 625-8000 For Mobile Service</span>
         </a>
@@ -371,5 +372,10 @@ const serviceSchema = {
   </section>
 
   <ServiceReviews service="lockout" label="Car Unlock" />
+  <RelatedPost
+    href="/blog/car-key-fob-stops-working-cold-weather-nashville/"
+    title="Why Car Key Fobs Stop Working in Cold Weather in Nashville"
+    blurb="Locked out on a freezing morning because your smart fob stopped responding? Learn how cold drops CR2032 voltage and how to get inside damage-free."
+  />
 </Layout>
 

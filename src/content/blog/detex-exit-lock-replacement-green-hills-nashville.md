@@ -31,4 +31,4 @@ Once the hardware arrived, we removed the failed unit, installed the new lock, k
 
 We handle [commercial door hardware across Nashville](/commercial-locksmith/) — Detex exit locks, crash/panic bars, Adams Rite mortise cylinders, keypads, [commercial lock re-keying](/nashville-rekey-service/), and master key systems. If we have to order your hardware, we'll tell you [upfront what it costs](/locksmith-pricing-nashville/) and how long it takes before we start.
 
-Call **(615) 625-8000**, or come by [our shop at 208 Thompson Ln](/nashville-locksmith-storefront/): Mon–Fri 8 AM–6 PM, Sat 10 AM–4 PM.
+Call **Armstrong Locksmith Inc** at **(615) 625-8000**, or come by [our shop at 208 Thompson Ln](/nashville-locksmith-storefront/): Mon–Fri 8 AM–6 PM, Sat 10 AM–4 PM.

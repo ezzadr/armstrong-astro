@@ -37,4 +37,4 @@ On the interior side of the door, nobody ever needs a key or code to get out. We
 
 If your storefront, office, or warehouse in [Nashville, Brentwood, Franklin, Donelson, Hermitage, or Antioch](/service-areas/) is still passing out brass keys for an aluminum glass door, our [commercial locksmith team](/commercial-locksmith/) can convert your existing mortise lock to a commercial keypad with an interior push paddle or panic bar.
 
-Stop by [our storefront at 208 Thompson Ln, Nashville, TN 37211](/nashville-locksmith-storefront/) or call **(615) 625-8000** to schedule a commercial door upgrade.
+Stop by **Armstrong Locksmith Inc** at [our storefront at 208 Thompson Ln, Nashville, TN 37211](/nashville-locksmith-storefront/) or call **(615) 625-8000** to schedule a commercial door upgrade.
