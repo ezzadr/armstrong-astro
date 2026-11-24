@@ -348,13 +348,40 @@
   })();
 })();</script><!-- 1. MOBILE: compact left-side 20% OFF tab that expands on tap (< 768px) --><div id="arm-promo-mobile" class="md:hidden fixed z-40 bottom-18 left-3 transition-all duration-300 ease-out opacity-100 translate-y-0" role="region" aria-label="In-shop car key discount"><!-- Compact Left-Side Badge (Default State — never blocks the right-side TOP button) --><button id="arm-promo-mobile-toggle" type="button" aria-expanded="false" aria-controls="arm-promo-mobile-card" class="bg-yellow-400 hover:bg-yellow-300 active:scale-95 border-2 border-yellow-500 shadow-[0_8px_24px_rgba(0,0,0,0.4)] px-3 py-2 flex items-center gap-1.5 cursor-pointer transition"><span class="text-sm font-black tracking-tight text-black leading-none">10% OFF</span><svg class="w-3.5 h-3.5 text-black shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 18l6-6-6-6"></path></svg></button><!-- Expanded Offer Card (Shown when visitor taps the 20% OFF badge) --><div id="arm-promo-mobile-card" class="hidden w-[calc(100vw-1.5rem)] max-w-sm bg-yellow-400 border-2 border-yellow-500 shadow-[0_12px_36px_rgba(0,0,0,0.45)] ring-4 ring-yellow-400/25 p-2.5 items-center gap-2.5"><!-- Whole row is the tap target for directions --><a href="https://www.google.com/maps/dir/?api=1&amp;destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 min-w-0 flex-1 active:opacity-80 transition-opacity" title="Get directions to 208 Thompson Ln"><!-- The number --><span class="shrink-0 text-center leading-none text-black"><span class="block text-[30px] font-black tracking-tighter">10%</span><span class="block text-[10px] font-black tracking-[0.18em] mt-0.5">OFF</span></span><span class="w-px self-stretch bg-black/25 shrink-0"></span><span class="min-w-0 text-left"><span class="block text-[14px] font-black text-black leading-tight tracking-tight">Car Keys Cut In Shop</span><span class="block text-[11px] font-bold text-black/70 truncate mt-0.5">208 Thompson Ln • Tap for directions</span></span></a><button type="button" class="arm-promo-close-btn w-7 h-7 bg-black/15 hover:bg-black/25 active:bg-black/35 text-black flex items-center justify-center text-xs font-bold transition cursor-pointer shrink-0 self-start" aria-label="Dismiss offer">✕</button></div></div><!-- 2. DESKTOP: the number fills the card (>= 768px) --><div id="arm-promo-desktop" class="hidden md:block fixed z-40 bottom-6 right-6 w-[330px] transition-all duration-300 ease-out opacity-100 translate-y-0" role="region" aria-label="In-shop car key discount"><div class="relative bg-yellow-400 text-black rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] border-2 border-yellow-500 overflow-hidden"><button type="button" class="arm-promo-close-btn absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-black/15 hover:bg-black/25 active:bg-black/35 text-black flex items-center justify-center text-xs font-bold transition cursor-pointer" aria-label="Dismiss offer">✕</button><div class="p-5"><!-- THE NUMBER. Everything else on this card is secondary to it. --><div class="flex items-end gap-2 leading-none text-black"><span class="text-[68px] font-black tracking-tighter leading-[0.8]">10%</span><span class="text-[26px] font-black uppercase tracking-tight pb-1.5">OFF</span></div><p class="mt-3 text-[15px] font-black uppercase tracking-tight text-black leading-tight">Car Keys Cut &amp; Programmed</p><p class="mt-1.5 text-xs text-black/75 leading-relaxed font-medium">Walk in at our Thompson Ln shop and skip the mobile trip fee.</p><!-- One action. Navy so it still reads as a button on yellow. --><a href="https://www.google.com/maps/dir/?api=1&amp;destination=208%20Thompson%20Ln%2C%20Nashville%2C%20TN%2037211" target="_blank" rel="noopener noreferrer" class="mt-4 flex items-center justify-center gap-1.5 w-full bg-[#0f274a] hover:bg-[#16345f] active:bg-[#0a1c38] text-white font-black text-sm uppercase tracking-wide py-3 rounded-xl transition-colors shadow-lg shadow-black/20"><span>Get Directions</span><span aria-hidden="true">&rarr;</span></a><p class="mt-2.5 text-center text-[10px] text-black/70 leading-relaxed font-medium"><span class="font-mono font-black text-black">SHOP10</span><span class="mx-1">·</span>208 Thompson Ln, Nashville, TN 37211</p><p class="text-center text-[10px] text-black/60 mt-0.5 font-medium">Mon–Fri 8 AM–6 PM • Sat 10 AM–4 PM • Sun closed</p></div></div></div><script>
   (function() {
-    // Closing the card only hides it on the current page. Nothing is saved, so
-    // it shows again on the next page the visitor opens or when they refresh.
+    var STORAGE_KEY = 'arm_promo_dismissed_v1';
+
+    function isDismissed() {
+      try {
+        return window.sessionStorage && window.sessionStorage.getItem(STORAGE_KEY) === '1';
+      } catch (_) {
+        return false;
+      }
+    }
+
+    function markDismissed() {
+      try {
+        if (window.sessionStorage) window.sessionStorage.setItem(STORAGE_KEY, '1');
+      } catch (_) {}
+    }
+
+    function hideInstant(mob, dsk) {
+      [mob, dsk].forEach(function(el) {
+        if (!el) return;
+        el.style.display = 'none';
+      });
+    }
+
     function init() {
-      const mob = document.getElementById('arm-promo-mobile');
-      const dsk = document.getElementById('arm-promo-desktop');
-      const toggleBtn = document.getElementById('arm-promo-mobile-toggle');
-      const card = document.getElementById('arm-promo-mobile-card');
+      var mob = document.getElementById('arm-promo-mobile');
+      var dsk = document.getElementById('arm-promo-desktop');
+
+      if (isDismissed()) {
+        hideInstant(mob, dsk);
+        return;
+      }
+
+      var toggleBtn = document.getElementById('arm-promo-mobile-toggle');
+      var card = document.getElementById('arm-promo-mobile-card');
 
       if (toggleBtn && card) {
         toggleBtn.addEventListener('click', function() {
@@ -369,6 +396,7 @@
         btn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
+          markDismissed();
           [mob, dsk].forEach(function(el) {
             if (!el) return;
             el.classList.remove('opacity-100', 'translate-y-0');
@@ -378,11 +406,9 @@
       });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
+    // Run immediately (script sits right after the elements) so dismissed
+    // visitors never see a flash before DOMContentLoaded.
+    init();
   })();
 </script><button id="arm-back-to-top" type="button" aria-label="Back to top of page" class="fixed right-4 sm:right-6 md:right-8 bottom-18 md:bottom-8 z-40 opacity-0 pointer-events-none translate-y-4 scale-95 transition-all duration-300 ease-out bg-[#07152b] border border-amber-500/50 hover:border-amber-400 text-amber-400 hover:text-white shadow-2xl hover:bg-slate-900 group cursor-pointer flex items-center gap-1.5 px-3 py-2.5 active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"><!-- Sleek Upward Arrow --><svg class="w-4 h-4 text-amber-400 group-hover:text-amber-300 group-hover:-translate-y-0.5 transition-transform duration-200 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M18 15l-6-6-6 6"></path></svg><span class="text-[10px] font-black uppercase tracking-widest text-amber-400/90 group-hover:text-white transition-colors select-none">TOP</span></button><script>
   (function () {
