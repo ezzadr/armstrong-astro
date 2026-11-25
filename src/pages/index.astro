@@ -32,10 +32,10 @@ const initialReviews = (await getLiveReviews())
 <Layout title={seoTitle} description={seoDescription} canonical="/" image="/images/armstrong-locksmith-nashville-shop-4x3.jpg">
   
   <!-- ==================== HERO SECTION WITH REAL STOREFRONT IDENTITY ==================== -->
-  <section class="relative z-20 bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 font-sans">
-    <!-- Subtle Shop Background Layer (Semantic <img> for Google Search Thumbnail discovery; Desktop only to guarantee 100/100 Mobile Speed) -->
-    <img src="/shop-1200.webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="100vw" alt="Armstrong Locksmith walk-in storefront at 208 Thompson Ln in Nashville, TN" width="1200" height="1500" loading="lazy" decoding="async" class="hidden sm:block absolute inset-0 w-full h-full object-cover object-center opacity-15 pointer-events-none" />
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0a1c38] via-[#0a1c38]/90 to-[#0a1c38]/75 pointer-events-none"></div>
+  <section class="relative z-20 overflow-hidden bg-showroom text-white pt-6 pb-10 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/80 font-sans">
+    <!-- Real Storefront Background Layer (Desktop only to guarantee 100/100 Mobile Speed; reveals 208 Thompson Ln behind quote card) -->
+    <img src="/shop-1200.webp" srcset="/shop-600.webp 600w, /shop-1200.webp 1200w" sizes="(min-width: 640px) 62vw, 1px" alt="Armstrong Locksmith walk-in storefront at 208 Thompson Ln in Nashville, TN" width="1200" height="1500" loading="lazy" decoding="async" class="hidden sm:block absolute inset-y-0 right-0 w-[62%] h-full object-cover object-center opacity-75 pointer-events-none" />
+    <div class="hidden sm:block absolute inset-0 pointer-events-none" style="background: linear-gradient(90deg, #07152b 0%, #07152b 38%, rgba(7,21,43,0.88) 52%, rgba(7,21,43,0.40) 74%, rgba(7,21,43,0.22) 100%);"></div>
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center relative z-10">
       
@@ -98,7 +98,7 @@ const initialReviews = (await getLiveReviews())
 
       <!-- Right Column: Hero Contact / Instant Quote Form Card -->
       <div class="lg:col-span-5 relative z-20" id="quote-form-section">
-        <div class="bg-white rounded-xl shadow-[0_16px_38px_rgba(0,0,0,0.48)] border border-slate-200 text-slate-900 relative overflow-hidden">
+        <div class="bg-white rounded-[2px] shadow-[0_18px_42px_rgba(0,0,0,0.58)] border border-slate-300 text-slate-900 relative overflow-hidden">
           
           <div class="bg-slate-50 px-4 py-3.5 sm:px-6 sm:py-4 border-b border-slate-200 flex items-center justify-between gap-2">
             <h2 class="text-lg sm:text-xl font-black font-heading text-[#0f274a] leading-tight">
@@ -109,8 +109,8 @@ const initialReviews = (await getLiveReviews())
 
           <div class="p-4 sm:p-6">
             <!-- Quiet Progress Bar -->
-            <div id="quote-step-tracker" class="w-full h-1 bg-slate-100 rounded-full overflow-hidden mb-3.5" data-step="1" aria-hidden="true">
-              <div id="quote-track-fill" class="h-full w-1/2 bg-[#0f274a] rounded-full transition-all duration-300"></div>
+            <div id="quote-step-tracker" class="w-full h-1 bg-slate-100 overflow-hidden mb-3.5" data-step="1" aria-hidden="true">
+              <div id="quote-track-fill" class="h-full w-1/2 bg-[#0f274a] transition-all duration-300"></div>
             </div>
 
             <form id="hero-quote-form" class="flex flex-col text-left" novalidate>
@@ -150,7 +150,7 @@ const initialReviews = (await getLiveReviews())
                       type="button"
                       data-value="Car Key Replacement"
                       aria-pressed="false"
-                      class="arm-service-tile px-3 py-3 rounded-md border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
+                      class="arm-service-tile px-3 py-3 rounded-[2px] border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
                     >
                       <span class="arm-tile-title text-xs sm:text-[13px] font-bold text-[#0f274a] leading-tight">Car Key / Fob</span>
                       <span class="text-slate-400 text-xs shrink-0" aria-hidden="true">&rarr;</span>
@@ -159,7 +159,7 @@ const initialReviews = (await getLiveReviews())
                       type="button"
                       data-value="House Lockout / Rekey"
                       aria-pressed="false"
-                      class="arm-service-tile px-3 py-3 rounded-md border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
+                      class="arm-service-tile px-3 py-3 rounded-[2px] border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
                     >
                       <span class="arm-tile-title text-xs sm:text-[13px] font-bold text-[#0f274a] leading-tight">Home Rekey</span>
                       <span class="text-slate-400 text-xs shrink-0" aria-hidden="true">&rarr;</span>
@@ -168,7 +168,7 @@ const initialReviews = (await getLiveReviews())
                       type="button"
                       data-value="Emergency Car Lockout"
                       aria-pressed="false"
-                      class="arm-service-tile px-3 py-3 rounded-md border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
+                      class="arm-service-tile px-3 py-3 rounded-[2px] border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
                     >
                       <span class="arm-tile-title text-xs sm:text-[13px] font-bold text-[#0f274a] leading-tight">Locked Out</span>
                       <span class="text-slate-400 text-xs shrink-0" aria-hidden="true">&rarr;</span>
@@ -177,7 +177,7 @@ const initialReviews = (await getLiveReviews())
                       type="button"
                       data-value="Commercial Locksmith"
                       aria-pressed="false"
-                      class="arm-service-tile px-3 py-3 rounded-md border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
+                      class="arm-service-tile px-3 py-3 rounded-[2px] border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
                     >
                       <span class="arm-tile-title text-xs sm:text-[13px] font-bold text-[#0f274a] leading-tight">Commercial</span>
                       <span class="text-slate-400 text-xs shrink-0" aria-hidden="true">&rarr;</span>
@@ -186,7 +186,7 @@ const initialReviews = (await getLiveReviews())
                       type="button"
                       data-value="European Specialist"
                       aria-pressed="false"
-                      class="arm-service-tile px-3 py-3 rounded-md border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
+                      class="arm-service-tile px-3 py-3 rounded-[2px] border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
                     >
                       <span class="arm-tile-title text-xs sm:text-[13px] font-bold text-[#0f274a] leading-tight">European Keys</span>
                       <span class="text-slate-400 text-xs shrink-0" aria-hidden="true">&rarr;</span>
@@ -195,7 +195,7 @@ const initialReviews = (await getLiveReviews())
                       type="button"
                       data-value="Other"
                       aria-pressed="false"
-                      class="arm-service-tile px-3 py-3 rounded-md border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
+                      class="arm-service-tile px-3 py-3 rounded-[2px] border border-slate-300 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] hover:shadow-[0_5px_12px_rgba(0,0,0,0.24)] hover:border-[#0f274a] hover:bg-slate-50 active:translate-y-px text-left cursor-pointer transition flex items-center justify-between gap-1.5"
                     >
                       <span class="arm-tile-title text-xs sm:text-[13px] font-bold text-[#0f274a] leading-tight">Other Service</span>
                       <span class="text-slate-400 text-xs shrink-0" aria-hidden="true">&rarr;</span>
@@ -209,7 +209,7 @@ const initialReviews = (await getLiveReviews())
               <!-- STEP 2: Name, Phone & Specific Request Details (Revealed automatically on tile tap) -->
               <div id="quote-step-2" class="arm-step-panel hidden flex-col gap-3">
                 <!-- Selected Service Summary Bar + Back Button -->
-                <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-md bg-slate-50 border border-slate-200 shadow-[0_2px_6px_rgba(0,0,0,0.1)]">
+                <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-[2px] bg-slate-50 border border-slate-200 shadow-[0_2px_6px_rgba(0,0,0,0.1)]">
                   <span id="quote-service-badge" class="text-xs font-bold text-[#0f274a] truncate">Car Key / Fob</span>
                   <button
                     type="button"
@@ -221,12 +221,12 @@ const initialReviews = (await getLiveReviews())
                 </div>
 
                 <!-- Dynamic Emergency Lockout Alert (Shown if Locked Out is chosen) -->
-                <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs rounded-md flex items-center justify-between gap-2 transition-all">
+                <div id="lockout-alert-box" class="hidden p-2.5 bg-red-50 border-l-4 border-red-600 border-y border-r border-red-200 text-red-950 text-xs rounded-[2px] flex items-center justify-between gap-2 transition-all">
                   <div class="leading-tight">
                     <span class="font-bold text-red-900 block">Locked out right now?</span>
                     <span class="text-[11px] text-red-800">Call the shop directly for the fastest response.</span>
                   </div>
-                  <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded active:scale-95 transition">
+                  <a href="tel:6156258000" class="shrink-0 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded-[2px] active:scale-95 transition">
                     Call (615) 625-8000
                   </a>
                 </div>
@@ -241,7 +241,7 @@ const initialReviews = (await getLiveReviews())
                       name="name" 
                       required 
                       placeholder="John Smith" 
-                      class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md shadow-[0_2px_6px_rgba(0,0,0,0.16)] focus:shadow-[0_3px_10px_rgba(15,39,74,0.22)] focus:border-[#0f274a] outline-none text-slate-950 placeholder:text-slate-400 font-medium transition-shadow"
+                      class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-[2px] shadow-[0_2px_6px_rgba(0,0,0,0.16)] focus:shadow-[0_3px_10px_rgba(15,39,74,0.22)] focus:border-[#0f274a] outline-none text-slate-950 placeholder:text-slate-400 font-medium transition-shadow"
                     />
                     <span id="name-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please enter your name.</span>
                   </div>
@@ -253,7 +253,7 @@ const initialReviews = (await getLiveReviews())
                       name="phone" 
                       required 
                       placeholder="(615) 000-0000" 
-                      class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md shadow-[0_2px_6px_rgba(0,0,0,0.16)] focus:shadow-[0_3px_10px_rgba(15,39,74,0.22)] focus:border-[#0f274a] outline-none text-slate-950 placeholder:text-slate-400 font-medium transition-shadow"
+                      class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-[2px] shadow-[0_2px_6px_rgba(0,0,0,0.16)] focus:shadow-[0_3px_10px_rgba(15,39,74,0.22)] focus:border-[#0f274a] outline-none text-slate-950 placeholder:text-slate-400 font-medium transition-shadow"
                     />
                     <span id="phone-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Enter a valid phone.</span>
                   </div>
@@ -268,33 +268,33 @@ const initialReviews = (await getLiveReviews())
                     name="details" 
                     required
                     placeholder="e.g. 2019 Ford F-150 lost key, 4 house locks, or storefront door" 
-                    class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-md shadow-[0_2px_6px_rgba(0,0,0,0.16)] focus:shadow-[0_3px_10px_rgba(15,39,74,0.22)] focus:border-[#0f274a] outline-none text-slate-950 placeholder:text-slate-400 font-medium transition-shadow"
+                    class="w-full px-3 py-2.5 text-sm bg-white border border-slate-300 rounded-[2px] shadow-[0_2px_6px_rgba(0,0,0,0.16)] focus:shadow-[0_3px_10px_rgba(15,39,74,0.22)] focus:border-[#0f274a] outline-none text-slate-950 placeholder:text-slate-400 font-medium transition-shadow"
                   />
                   <span id="details-error" class="hidden text-[11px] text-red-600 font-bold mt-1 block">Please tell us your vehicle, lock, or door details so we can quote you.</span>
                 </div>
 
                 <!-- Server / Network Error Alert -->
-                <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center rounded-md">
+                <div id="quote-error-msg" class="hidden p-3 bg-red-50 border border-red-400 text-red-800 text-xs font-bold text-center rounded-[2px]">
                   We couldn’t send your request. Please call <a href="tel:6156258000" class="underline font-black text-red-950">615-625-8000</a>.
                 </div>
 
                 <button 
                   type="submit" 
                   id="quote-submit-btn"
-                  class="w-full mt-0.5 py-3 px-5 bg-[#0f274a] hover:bg-[#17396b] text-white font-bold text-sm rounded-md shadow-[0_4px_12px_rgba(0,0,0,0.28)] transition active:scale-95 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                  class="w-full mt-0.5 py-3 px-5 bg-gold-metallic text-slate-950 font-black text-sm uppercase tracking-wider rounded-[2px] border-b-2 border-amber-600 shadow-[0_4px_12px_rgba(0,0,0,0.25)] transition active:scale-95 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <span>Send Quote Request</span>
                 </button>
               </div>
             </form>
 
-            <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 text-center rounded-lg">
+            <div id="quote-success-msg" class="hidden p-6 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 text-center rounded-[2px]">
               <strong id="quote-success-title" class="block text-lg font-black text-emerald-950">Thank you! Your message is at our shop.</strong>
               <p id="quote-success-desc" class="text-xs text-emerald-800 mt-2 leading-relaxed font-medium">
                 We received your request and will call or text you right back with an upfront flat price.
               </p>
               <div class="mt-4 pt-3 border-t border-emerald-200">
-                <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded shadow transition">
+                <a href="tel:6156258000" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-[2px] shadow transition">
                   <span>Need help right now? Call (615) 625-8000 &rarr;</span>
                 </a>
               </div>
